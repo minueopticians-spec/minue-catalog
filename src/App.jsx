@@ -908,17 +908,17 @@ const PRODUCTS = [
 
   // Lawrence: 526 uds total — mayor vendedor Icons
   { id:23,  name:"Lawrence Guiza",    col:"Icons", shape:"square", colors:["miel","dorado"],   rank:9,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776278426/fvfdcrfdwed_tkuq62.webp" },
-  { id:123, name:"Lawrence Velvet",   col:"Icons", shape:"square", colors:["burdeos"],          rank:50, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776278426/fvfdcrfdwed_tkuq62.webp" },
-  { id:124, name:"Lawrence Carey",    col:"Icons", shape:"square", colors:["carey"],            rank:51, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776278426/fvfdcrfdwed_tkuq62.webp" },
-  { id:125, name:"Lawrence Bay",      col:"Icons", shape:"square", colors:["azul"],             rank:52, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776278426/fvfdcrfdwed_tkuq62.webp" },
-  { id:126, name:"Lawrence Caramel",  col:"Icons", shape:"square", colors:["caramelo"],         rank:53, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776278426/fvfdcrfdwed_tkuq62.webp" },
+  { id:123, name:"Lawrence Velvet",   col:"Icons", shape:"square", colors:["burdeos"],          rank:50, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777237096/IMG_5850_1296x_goovpe.webp" , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777237096/IMG_5850_1296x_goovpe.webp" },
+  { id:124, name:"Lawrence Carey",    col:"Icons", shape:"square", colors:["carey"],            rank:51, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777237097/IMG_0266_1296x_rucknr.webp" , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777237097/IMG_0266_1296x_rucknr.webp" },
+  { id:125, name:"Lawrence Bay",      col:"Icons", shape:"square", colors:["azul"],             rank:52, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777237096/Miproyecto_12_1512x_epy8bc.webp" , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777237096/Miproyecto_12_1512x_epy8bc.webp" },
+  { id:126, name:"Lawrence Caramel",  col:"Icons", shape:"square", colors:["caramelo"],         rank:53, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777237095/Miproyecto_11_900x_xuv5q1.webp" , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777237095/Miproyecto_11_900x_xuv5q1.webp" },
   { id:127, name:"Lawrence Black",    col:"Icons", shape:"square", colors:["negro"],            rank:54, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776278426/fvfdcrfdwed_tkuq62.webp" },
 
   // Lamarr: 495 uds total
-  { id:43,  name:"Lamarr Carbon Mate", col:"Icons", shape:"cateye", urgency:"hot", colors:["negro","carbono"], rank:3,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776277706/LAMARRBIC_900x_nuvcqj.webp" },
+  { id:43,  name:"Lamarr Carbon Mate", col:"Icons", shape:"cateye", urgency:"hot", colors:["negro","carbono"], rank:3,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777235608/IMG_4646_1080x_w3jhp7.webp" },
   { id:130, name:"Lamarr Louvre",      col:"Icons", shape:"cateye",               colors:["beige","nude"],    rank:55, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776277706/LAMARRBIC_900x_nuvcqj.webp" },
-  { id:131, name:"Lamarr Carey",       col:"Icons", shape:"cateye",               colors:["carey"],           rank:56, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776277706/LAMARRBIC_900x_nuvcqj.webp" },
-  { id:132, name:"Lamarr Dark",        col:"Icons", shape:"cateye",               colors:["marrón"],          rank:57, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776277706/LAMARRBIC_900x_nuvcqj.webp" },
+  { id:131, name:"Lamarr Carey",       col:"Icons", shape:"cateye",               colors:["carey"],           rank:56, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777235607/IMG_4649_1080x_wxyeia.webp" },
+  { id:132, name:"Lamarr Dark",        col:"Icons", shape:"cateye",               colors:["marrón"],          rank:57, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777235608/IMG_3772_1080x_rmz7kx.webp" },
 
   // Loren: 455 uds total (tiene imágenes individuales)
   { id:24,  name:"Loren Carey",  col:"Icons", shape:"cateye", colors:["carey"],           rank:13, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1776986730/LORENCAREY_1728x_edxhjx.webp" },
@@ -954,7 +954,7 @@ const PRODUCTS = [
 
   // Karina: 158 uds (sin imagen)
   { id:41,  name:"Karina Jade",  col:"Icons", shape:"cateye", colors:["verde"],          rank:27, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777232565/Minueoptician210222-010_1080x_cdjfa1.webp" },
-  { id:170, name:"Karina Rubí",  col:"Icons", shape:"cateye", colors:["rojo"],           rank:72, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777232564/Minueoptician210222-011_1080x_ys1csw.webp" },
+  { id:170, name:"Karina Ruby",  col:"Icons", shape:"cateye", colors:["rojo"],           rank:72, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777232564/Minueoptician210222-011_1080x_ys1csw.webp" },
   { id:171, name:"Karina Black", col:"Icons", shape:"cateye", colors:["negro"],          rank:73, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777232564/IMG_4507_1080x_ukknez.webp" },
   { id:172, name:"Karina Copo",  col:"Icons", shape:"cateye", colors:["blanco","crema"], rank:74, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777232564/IMG_0235_1080x_cmzzxa.webp" },
 
@@ -1006,8 +1006,8 @@ const PRODUCTS = [
   { id:222, name:"Lane Opal",       col:"Essential", shape:"round", colors:["blanco","perla"],   rank:89, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777231418/IMG_3776_1512x_atccne.webp" },
 
   // Carrol: 53 uds (sin imagen)
-  { id:39,  name:"Carrol Cedar", col:"Icons", shape:"oval", colors:["marrón","cedro"], rank:39 },
-  { id:195, name:"Carrol Rowan", col:"Icons", shape:"oval", colors:["gris"],           rank:89 },
+  { id:39,  name:"Carrol Cedar", col:"Icons", shape:"oval", colors:["marrón","cedro"], rank:39 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777235618/IMG_0254_1080x_ayvfd4.webp" },
+  { id:195, name:"Carrol Rowan", col:"Icons", shape:"oval", colors:["gris"],           rank:89 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777235617/IMG_0258_1080x_ueg64y.webp" },
 
   // Mirren: 50 uds (sin imagen — TÉ MIRREN en CSV)
   { id:35,  name:"Mirren Tea",   col:"Icons", shape:"oval", colors:["marrón","cálido"], rank:40 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777233652/IMG_4510_1080x_nyfbyr.webp" },
@@ -1025,7 +1025,8 @@ const PRODUCTS = [
   { id:201, name:"Kerr Black Gray", col:"Icons", shape:"rectangular", colors:["negro","gris"], rank:95 },
 
   // Stone: 13 uds (sin imagen)
-  { id:31,  name:"Stone Gold Black", col:"Icons", shape:"square", colors:["dorado","negro"], rank:42 },
+  { id:31,  name:"Stone Gold Black", col:"Icons", shape:"square", colors:["dorado","negro"], rank:42 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777235611/IMG_0231_1080x_houngo.webp" },
+  { id:225, name:"Stone Gold Brown", col:"Icons", shape:"square", colors:["dorado","marrón"], rank:43, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777235612/IMG_0217_1080x_lghewj.webp" },
 
   // ── ESSENTIAL ────────────────────────────────────────────────────────
   { id:1,  name:"Bergman Noire",       col:"Essential", shape:"rectangular", urgency:"stock_low", colors:["negro","carey"],  rank:46,  isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590223/221_oeycry.png" },
@@ -1036,21 +1037,18 @@ const PRODUCTS = [
   { id:57, name:"Bergman Brown",       col:"Essential", shape:"rectangular",                      colors:["marrón"],         rank:47, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590222/210_jnsxlo.png" },
   { id:62, name:"Bergman Carey",       col:"Essential", shape:"rectangular",                      colors:["carey"],          rank:48, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590221/199_roiwuk.png" },
   // Deneuve: 55 uds (sin imagen)
-  { id:8,   name:"Deneuve Tea",   col:"Essential", shape:"cateye", colors:["marrón","cálido"],rank:49 },
-  { id:202, name:"Deneuve Carey", col:"Essential", shape:"cateye", colors:["carey"],          rank:96 },
-  { id:203, name:"Deneuve Apple", col:"Essential", shape:"cateye", colors:["verde"],          rank:97 },
+  { id:8,   name:"Deneuve Tea",   col:"Essential", shape:"cateye", colors:["marrón","cálido"],rank:49 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777235619/4_1080x_tpnoai.webp" },
+  { id:202, name:"Deneuve Carey", col:"Essential", shape:"cateye", colors:["carey"],          rank:96 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777235618/5_1080x_a6mvkj.webp" },
+  { id:203, name:"Deneuve Apple", col:"Essential", shape:"cateye", colors:["verde"],          rank:97 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777235619/3_1512x_qlli1g.webp" },
   // Bacall: 40 uds (sin imagen)
-  { id:21,  name:"Bacall Rosse",  col:"Essential", shape:"square", colors:["rosa"],   rank:49 },
-  { id:204, name:"Bacall Black",  col:"Essential", shape:"square", colors:["negro"],  rank:98 },
-  { id:205, name:"Bacall Carey",  col:"Essential", shape:"square", colors:["carey"],  rank:99 },
-  { id:206, name:"Bacall Grape",  col:"Essential", shape:"square", colors:["marrón"], rank:100 },
   // Cooper II: 53 uds (sin imagen)
-  { id:19,  name:"Cooper II Grass",     col:"Essential", shape:"round", colors:["verde"],   rank:49 },
-  { id:207, name:"Cooper II Buttercup", col:"Essential", shape:"round", colors:["amarillo"],rank:101 },
-  { id:208, name:"Cooper II Sierra",    col:"Essential", shape:"round", colors:["marrón"],  rank:102 },
-  { id:209, name:"Cooper II Tiger",     col:"Essential", shape:"round", colors:["tigre"],   rank:103 },
-  { id:210, name:"Cooper II Moonlight", col:"Essential", shape:"round", colors:["beige"],   rank:104 },
-  { id:211, name:"Cooper II Havana",    col:"Essential", shape:"round", colors:["havana"],  rank:105 },
+  { id:19,  name:"Cooper II Grass",     col:"Essential", shape:"round", colors:["verde"],   rank:49 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777235612/IMG_5620_1080x_qgcmby.webp" },
+  { id:207, name:"Cooper II Buttercup", col:"Essential", shape:"round", colors:["amarillo"],rank:101 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777235613/IMG_5622_1512x_1_vdhrbl.webp" },
+  { id:208, name:"Cooper II Sierra",    col:"Essential", shape:"round", colors:["marrón"],  rank:102 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777235614/IMG_5616_1080x_rfydzw.webp" },
+  { id:209, name:"Cooper II Caramel",     col:"Essential", shape:"round", colors:["caramelo"],   rank:103 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777235616/IMG_5615_1080x_n9xtaq.webp" },
+  { id:233, name:"Cooper II Tiger", col:"Essential", shape:"round", colors:["tigre","carey"], rank:113 },
+  { id:210, name:"Cooper II Moonlight", col:"Essential", shape:"round", colors:["beige"],   rank:104 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777235614/IMG_5619_1080x_ngaigy.webp" },
+  { id:211, name:"Cooper II Havana",    col:"Essential", shape:"round", colors:["havana"],  rank:105 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777235615/IMG_5618_1080x_qokuvs.webp" },
   // Hart: 37 uds
   { id:7,   name:"Hart Honey",  col:"Essential", shape:"square", colors:["miel","cálido"],  rank:51, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590199/72_jjyjef.png" },
   { id:83,  name:"Hart Carey",  col:"Essential", shape:"square", colors:["carey"],          rank:52, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590192/20_ovz0a0.png" },
@@ -1077,7 +1075,7 @@ const PRODUCTS = [
   { id:70,  name:"Blyth Carey",   col:"Essential", shape:"rectangular", colors:["carey"], rank:66, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590210/123_pucyjo.png" },
   // Hedy: rank 8 top pick
   { id:15,  name:"Hedy Guiza",  col:"Essential", shape:"round", colors:["miel","dorado"], rank:8,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590207/109_lmyt8j.png" },
-  { id:87,  name:"Hedy Matcha", col:"Essential", shape:"round", colors:["verde"],          rank:67, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590194/38_nuutab.png" },
+  { id:87,  name:"Hedy Matcha", col:"Essential", shape:"round", colors:["verde"],          rank:67, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777238291/38_1080x_g67jni.webp" },
   { id:88,  name:"Hedy Carey",  col:"Essential", shape:"round", colors:["carey"],          rank:68, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590194/39_j5xr3i.png" },
   // Colette: 14 uds
   { id:14,  name:"Colette Burnt",  col:"Essential", shape:"cateye", colors:["naranja"], rank:69, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590209/119_twux0d.png" },
@@ -1089,7 +1087,7 @@ const PRODUCTS = [
   { id:91,  name:"Dover Shadow",       col:"Essential", shape:"rectangular", colors:["gris"],           rank:74, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590197/48_ocj5up.png" },
   // Hazel: 13 uds
   { id:13,  name:"Hazel Black", col:"Essential", shape:"oval", colors:["negro"], rank:75, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590220/191_mobp70.png" },
-  { id:67,  name:"Hazel Petal", col:"Essential", shape:"oval", colors:["rosa"],  rank:76, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590219/189_m2o5co.png" },
+  { id:67,  name:"Hazel Petal", col:"Essential", shape:"oval", colors:["rosa"],  rank:76, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777238423/50_1080x_avjg1r.webp" },
   // Tura: 12 uds
   { id:4,   name:"Tura Guiza", col:"Essential", shape:"square", colors:["miel","dorado"],rank:77, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590207/103_ze0plj.png" },
   { id:75,  name:"Tura Nude",  col:"Essential", shape:"square", colors:["nude"],         rank:78, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590207/108_ccrl79.png" },
@@ -1107,12 +1105,14 @@ const PRODUCTS = [
   // Chastain: rank 5 top pick
   { id:20,  name:"Chastain Black",        col:"Essential", shape:"cateye", urgency:"trending", colors:["negro","carey","verde"],rank:5,  isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590223/216_tjup92.png" },
   { id:68,  name:"Chastain Carey",        col:"Essential", shape:"cateye",                     colors:["carey"],               rank:88, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590212/132_zild1l.png" },
-  { id:69,  name:"Chastain Noire Violet", col:"Essential", shape:"cateye",                     colors:["negro","burdeos"],     rank:89, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590212/134_lckfpc.png" },
+  { id:69,  name:"Chastain Noire Violet", col:"Essential", shape:"cateye",                     colors:["negro","burdeos"],     rank:89, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777235610/sadascas_1080x_asvwdj.webp" },
+  { id:225, name:"Chastain Red Light", col:"Essential", shape:"cateye", colors:["rojo"], rank:90, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777235609/sa_1080x_siluhw.webp" },
   // Gardner: 3 uds
   { id:6,   name:"Gardner Carey", col:"Essential", shape:"round", colors:["carey"],  rank:90, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590206/102_awq6kg.png" },
   { id:79,  name:"Gardner Amber", col:"Essential", shape:"round", colors:["ámbar"],  rank:91, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590206/100_kesd63.png" },
   { id:92,  name:"Gardner Black", col:"Essential", shape:"round", colors:["negro"],  rank:92, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590206/101_pg1660.png" },
   // Sin imagen
+  { id:237, name:"Nova Black", col:"Essential", shape:"geometric", colors:["negro"], rank:117 },
   { id:17,  name:"Nova Ruby",       col:"Essential", shape:"geometric",   colors:["rojo","rubí"],   rank:93, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590217/172_e8julb.png" },
   { id:221, name:"Nova Jade",       col:"Essential", shape:"geometric",   colors:["verde","jade"],  rank:94, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590217/171_aavi3l.png" },
   { id:9,   name:"Totter Leaf",     col:"Essential", shape:"rectangular", colors:["verde"],           rank:95 },
@@ -1123,7 +1123,7 @@ const PRODUCTS = [
   { id:52,  name:"Leigh Chalk",    col:"Acetato", shape:"rectangular",               colors:["blanco"],          rank:16, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590208/112_pmpzcn.png" },
   { id:47,  name:"Arden Cocoa",    col:"Acetato", shape:"cateye",                    colors:["marrón"],          rank:11, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590211/122_ivwzqu.png" },
   { id:50,  name:"Novak Mocha",    col:"Acetato", shape:"square",                    colors:["moca","marrón"],   rank:12, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590203/92_txomis.png" },
-  { id:224, name:"Chastain Olive",     col:"Essential", shape:"cateye", urgency:"trending", colors:["verde","oliva"], rank:2, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590223/216_tjup92.png" },
+  { id:224, name:"Chastain Olive",     col:"Essential", shape:"cateye", urgency:"trending", colors:["verde","oliva"], rank:2, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777235610/saxaa_1080x_p0gxws.webp" },
   { id:81,  name:"Hayek Carey",    col:"Acetato", shape:"square",                    colors:["carey"],           rank:17, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590202/85_r9q8ec.png" },
   { id:71,  name:"Arden Carey",    col:"Acetato", shape:"cateye",                    colors:["carey"],           rank:18, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590209/121_wvm2wp.png" },
   { id:72,  name:"Arden Champagne",col:"Acetato", shape:"cateye",                    colors:["champán","dorado"],rank:19, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590209/120_s8exzo.png" },
@@ -1135,6 +1135,22 @@ const PRODUCTS = [
   { id:48,  name:"Bardot",         col:"Acetato", shape:"cateye",                    colors:["carey"],           rank:100 },
   { id:49,  name:"Juno",           col:"Acetato", shape:"round",                     colors:["negro"],           rank:101 },
   { id:45,  name:"Sienna",         col:"Acetato", shape:"square",                    colors:["marrón","negro"],  rank:102 },
+  // ── Añadidos desde PDF SS26 ──────────────────────────────────────
+  { id:228, name:"Baker Tea",          col:"Essential", shape:"rectangular", colors:["marrón","cálido"],  rank:108 },
+  { id:229, name:"Baker Cloud",        col:"Essential", shape:"rectangular", colors:["gris","crema"],     rank:109 },
+  { id:230, name:"Baker Mint",         col:"Essential", shape:"rectangular", colors:["verde","menta"],    rank:110 },
+  { id:231, name:"Baker Black",        col:"Essential", shape:"rectangular", colors:["negro"],            rank:111 },
+  { id:226, name:"Hart Black",         col:"Essential", shape:"square",      colors:["negro"],            rank:112 },
+  { id:227, name:"Hedy Jara",          col:"Essential", shape:"round",       colors:["verde"],            rank:113 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777238292/39_1080x_ljvzuy.webp" },
+  { id:232, name:"Cooper II Tiger",    col:"Essential", shape:"round",       colors:["tigre","carey"],    rank:114 },
+  { id:233, name:"Tura Coffee",        col:"Essential", shape:"oval",        colors:["marrón","café"],    rank:115 },
+  { id:234, name:"Tura Velvet",        col:"Essential", shape:"oval",        colors:["burdeos"],          rank:116 },
+  { id:235, name:"Moore Kaffa",        col:"Icons",     shape:"rectangular", colors:["marrón","café"],    rank:117 },
+  { id:236, name:"Hazel Carey",        col:"Essential", shape:"square",      colors:["carey"],            rank:118 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777238421/51_1080x_gdsyrw.webp" },
+  { id:237, name:"Hazel Noir",         col:"Essential", shape:"square",      colors:["negro"],            rank:119 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777238421/52_1080x_wawued.webp" },
+  { id:238, name:"Rainer Caramel",     col:"Essential", shape:"oval",        colors:["caramelo"],         rank:120 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777238348/9_1080x_ladhto.webp" },
+  { id:239, name:"Cardinale Tea",      col:"Essential", shape:"oval",        colors:["marrón","cálido"],  rank:121 },
+  { id:240, name:"Gardner Amber Doré", col:"Essential", shape:"square",      colors:["dorado","ámbar"],   rank:122 },
 ];
 
 const SHAPES = [
