@@ -1364,31 +1364,21 @@ function CustomCursor() {
 }
 
 // ── FlyingItem — emoji vuela al carrito ───────────────────────────────
-function FlyingItem({ item, cartIconRef, onDone }) {
-  const [flyDx, setFlyDx] = useState(0);
-  const [flyDy, setFlyDy] = useState(0);
-  useLayoutEffect(() => {
-    if (cartIconRef?.current) {
-      const r = cartIconRef.current.getBoundingClientRect();
-      setFlyDx(r.left + r.width / 2 - item.x - 20);
-      setFlyDy(r.top + r.height / 2 - item.y - 20);
-    }
-    const timer = setTimeout(onDone, 750);
+function FlyingItem({ item, onDone }) {
+  useEffect(() => {
+    const timer = setTimeout(onDone, 600);
     return () => clearTimeout(timer);
   }, []);
   return (
     <div style={{
       position: 'fixed', zIndex: 9998, pointerEvents: 'none',
       left: item.x, top: item.y,
-      width: 40, height: 40, borderRadius: 999,
-      background: 'rgba(248,239,230,0.9)',
-      backdropFilter: 'blur(4px)',
+      width: 36, height: 36, borderRadius: 999,
+      background: 'rgba(248,239,230,0.95)',
       border: '1px solid rgba(24,51,47,0.15)',
       display: 'flex', alignItems: 'center', justifyContent: 'center',
-      fontSize: 18,
-      animation: `mn-fly-anim 0.65s cubic-bezier(0.4,0,0.2,1) both`,
-      '--fly-dx': `${flyDx}px`,
-      '--fly-dy': `${flyDy}px`,
+      fontSize: 16,
+      animation: 'mn-fadein 0.1s ease-out both, mn-fadeout 0.4s 0.2s ease-in both',
     }}>🕶️</div>
   );
 }
@@ -1416,10 +1406,8 @@ export default function App() {
   const [shareUrl, setShareUrl] = useState(null);
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  // Parallax + cart
   const [flyItems, setFlyItems] = useState([]);
   const cartIconRef = useRef(null);
-  const [heroParallax, setHeroParallax] = useState(0);
   const [familyCode, setFamilyCode] = useState(() => {
     try { return typeof localStorage !== 'undefined' ? (localStorage.getItem('minue_code') || '') : ''; } catch { return ''; }
   });
@@ -1468,13 +1456,6 @@ export default function App() {
   const t = (k) => (I18N[lang] && I18N[lang][k]) || I18N.es[k] || k;
 
   const cartCount = Object.values(cart).reduce((a, b) => a + b, 0);
-
-  // Parallax hero
-  useEffect(() => {
-    const onScroll = () => setHeroParallax(window.scrollY * 0.28);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   // Scroll-reveal para secciones
   useEffect(() => {
@@ -1711,17 +1692,8 @@ export default function App() {
         @keyframes mn-char-in { from { opacity:0; transform:translateY(0.35em); } to { opacity:1; transform:translateY(0); } }
         @keyframes mn-ticker { from { transform:translateX(0); } to { transform:translateX(-50%); } }
         @media(min-width:601px){ .mn-sticky-bar { display:none !important; } }
-        @keyframes mn-fly {
-          0%   { transform: translate(0,0) scale(1); opacity: 1; }
-          60%  { transform: translate(calc(var(--fly-dx)*0.7), calc(var(--fly-dy)*0.7)) scale(0.7); opacity: 0.9; }
-          100% { transform: translate(var(--fly-dx), var(--fly-dy)) scale(0.2); opacity: 0; }
-        }
-        @keyframes mn-fly-anim {
-          0%   { transform: translate(0,0) scale(1); opacity: 1; }
-          50%  { opacity: 1; }
-          100% { transform: translate(var(--fly-dx), var(--fly-dy)) scale(0.15); opacity: 0; }
-        }
         @keyframes mn-cart-bounce { 0%,100%{ transform:scale(1); } 40%{ transform:scale(1.25); } 70%{ transform:scale(0.9); } }
+        @keyframes mn-fadeout { from { opacity:1; transform:scale(1); } to { opacity:0; transform:scale(0.5) translateY(-20px); } }
 
         /* Cards — fade-in escalonado + hover lift */
         .mn-card {
@@ -2083,12 +2055,7 @@ export default function App() {
               <img
                 src="https://res.cloudinary.com/dekvzwn7b/image/upload/w_900,q_auto,f_auto/v1776281360/_ABD8565_vyyr2r.jpg"
                 alt="Minuë — lookbook SS26"
-                style={{
-                  width: '100%', height: '120%', objectFit: 'cover', display: 'block',
-                  transform: `translateY(${Math.min(heroParallax, 80)}px)`,
-                  willChange: 'transform',
-                  position: 'absolute', top: 0, left: 0,
-                }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
               />
               {/* Overlay sutil */}
               <div style={{
