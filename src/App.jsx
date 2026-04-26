@@ -45,7 +45,7 @@ const LANGS = [
 
 const I18N = {
   es: {
-    nav_catalog: 'Catálogo', nav_rates: 'Tarifas', nav_order: 'Pedido', nav_pdf: 'PDF',
+    nav_contact: 'Contacto', nav_catalog: 'Catálogo', nav_rates: 'Tarifas', nav_order: 'Pedido', nav_pdf: 'PDF',
     hdr_eyebrow: 'B2B Wholesale · SS26',
     hdr_h1_a: 'Explora, selecciona', hdr_h1_b: 'y haz', hdr_h1_c: 'tu pedido.',
     hdr_sub: 'Navega por nuestro catálogo, añade los modelos que te interesen y envíanos tu selección. Precio por volumen: cuantas más unidades, menor precio unitario.',
@@ -60,13 +60,29 @@ const I18N = {
     col_eyebrow: 'Colección',
     col_essential_tag: 'La base del surtido. Formas atemporales, acetato estándar.',
     col_icons_tag: 'Diseños reconocibles con personalidad. Detalles premium.',
-    col_acetato_tag: 'Acetato italiano premium. Gama alta para cliente exigente.',
+    col_acetato_tag: 'Monturas artesanales de alta gama. Para el cliente más exigente.',
     empty_filter_t: 'Sin modelos con este filtro',
     empty_filter_d: 'Prueba a ampliar la selección.',
     pkg_eyebrow: 'Packaging', pkg_h2_a: 'Listo para', pkg_h2_b: 'vitrina', pkg_h2_c: '.',
     pkg_sub: 'Cada montura llega preparada para exhibir. Sin reprocesar, sin empaquetar, sin perder tiempo.',
-    pkg1_t: 'Estuche individual',
-    pkg1_d: 'Funda rígida con logo grabado, paño de microfibra y tarjeta de autenticidad. Todo dentro, listo para cliente final.',
+    pkg1_t: 'Packaging completo incluido',
+    pkg1_d: 'Cada montura incluye: caja de presentación con logo, funda rígida, gamuza de microfibra, tarjeta con especificaciones técnicas y pegatina CE + UV400. Todo listo para entregar al cliente final sin ningún reprocesado.',
+    pkg_contents_label: 'En cada caja',
+    pkg_item1: 'Caja de presentación con logo',
+    pkg_item2: 'Funda rígida individual',
+    pkg_item3: 'Gamuza de microfibra',
+    pkg_item4: 'Tarjeta con especificaciones técnicas',
+    pkg_item5: 'Pegatina CE · UV400',
+    tech_eyebrow: 'Especificaciones técnicas',
+    tech_h2: 'Calidad certificada',
+    tech_sub: 'Todos los modelos Minuë cumplen con la normativa europea de gafas de sol. Cada montura está homologada y certificada antes de salir de fábrica.',
+    tech_uv: 'Protección UV400', tech_uv_d: 'Filtrado total de radiación ultravioleta UVA y UVB hasta 400nm. La máxima protección disponible.',
+    tech_cat: 'Categoría 3', tech_cat_d: 'Lentes con alta capacidad de filtrado para uso en exteriores con sol intenso. Transmisión luminosa entre 8-18%.',
+    tech_ce: 'Certificado CE', tech_ce_d: 'Conformidad con la normativa europea EN ISO 12312-1. Aptas para comercialización en toda la Unión Europea.',
+    tech_pol: 'Lentes polarizadas', tech_pol_d: 'Eliminación de reflejos y deslumbramientos. Mayor contraste y definición visual en cualquier condición.',
+    tech_impact: 'Resistencia al impacto', tech_impact_d: 'Superan el test de resistencia al impacto según normativa ISO. Patillas con alma de acero inoxidable en colección Acetato.',
+    tech_drop: 'Drop Ball Test', tech_drop_d: 'Superan el test de impacto Drop Ball según EN ISO 12312-1. Resistencia certificada ante impactos frontales directos.',
+    tech_fod: 'FOD — Free of Defects', tech_fod_d: 'Control de calidad individual por unidad. Cada montura sale de fábrica inspeccionada y aprobada.',
     pkg2_t: 'Protección premium',
     pkg2_d: 'Cada modelo en bolsa antirraya, bubble interno y caja maestra reforzada. Cero daños en tránsito.',
     pkg3_t: 'Display-ready',
@@ -169,13 +185,21 @@ const I18N = {
     new_sub: 'Primeras unidades disponibles. Pide antes de que se agoten.',
     new_show_more: 'Ver más modelos', new_show_less: 'Ver menos',
     new_badge: 'Nuevo',
+    progress_browse: 'Explorando', progress_select: 'Seleccionando', progress_send: 'Enviando pedido',
+    toast_added: 'añadido al pedido',
+    filters_btn: 'Filtrar', filters_title: 'Filtros',
+    share_btn: 'Compartir selección', share_copied: '¡Link copiado!',
+    acetato_premium: 'Premium',
+    latam_hint: 'Tu pedido va a Minuë Latinoamérica · hola@minueopticians.co',
+    latam_badge: 'LATAM',
+    region_latam_desc: 'Colombia · México · Chile · Argentina y más',
     col_show_all: 'Ver todos los modelos',
     col_collapse: 'Colapsar',
     col_models: 'modelos',
     col_expand_hint: 'Haz clic para explorar',
   },
   fr: {
-    nav_catalog: 'Catalogue', nav_rates: 'Tarifs', nav_order: 'Commande', nav_pdf: 'PDF',
+    nav_contact: 'Contact', nav_catalog: 'Catalogue', nav_rates: 'Tarifs', nav_order: 'Commande', nav_pdf: 'PDF',
     hdr_eyebrow: 'B2B Wholesale · SS26',
     hdr_h1_a: 'Explorez, sélectionnez', hdr_h1_b: 'et passez', hdr_h1_c: 'votre commande.',
     hdr_sub: 'Parcourez notre catalogue, ajoutez les modèles qui vous intéressent et envoyez-nous votre sélection. Prix dégressif : plus vous commandez, plus le prix unitaire baisse.',
@@ -195,8 +219,24 @@ const I18N = {
     empty_filter_d: 'Essayez d\'élargir la sélection.',
     pkg_eyebrow: 'Packaging', pkg_h2_a: 'Prêt pour la', pkg_h2_b: 'vitrine', pkg_h2_c: '.',
     pkg_sub: 'Chaque monture arrive prête à être exposée. Sans retraitement, sans ré-emballage, sans perte de temps.',
-    pkg1_t: 'Étui individuel',
-    pkg1_d: 'Étui rigide avec logo gravé, chiffon microfibre et carte d\'authenticité. Tout est là, prêt pour le client final.',
+    pkg1_t: 'Packaging complet inclus',
+    pkg1_d: 'Chaque monture inclut : boîte de présentation avec logo, étui rigide, chiffon microfibre, carte de spécifications techniques et autocollant CE + UV400. Prêt pour le client final.',
+    pkg_contents_label: 'Dans chaque boîte',
+    pkg_item1: 'Boîte de présentation avec logo',
+    pkg_item2: 'Étui rigide individuel',
+    pkg_item3: 'Chiffon microfibre',
+    pkg_item4: 'Carte de spécifications techniques',
+    pkg_item5: 'Autocollant CE · UV400',
+    tech_eyebrow: 'Spécifications techniques',
+    tech_h2: 'Qualité certifiée',
+    tech_sub: 'Tous les modèles Minuë sont conformes à la réglementation européenne sur les lunettes de soleil.',
+    tech_uv: 'Protection UV400', tech_uv_d: 'Filtrage total des UV jusqu\'à 400nm. Protection maximale UVA et UVB.',
+    tech_cat: 'Catégorie 3', tech_cat_d: 'Verres à haute capacité de filtrage pour usage en extérieur par fort ensoleillement.',
+    tech_ce: 'Certificat CE', tech_ce_d: 'Conformité EN ISO 12312-1. Commercialisables dans toute l\'Union Européenne.',
+    tech_pol: 'Verres polarisés', tech_pol_d: 'Élimination des reflets. Meilleur contraste et définition visuelle.',
+    tech_impact: 'Résistance aux chocs', tech_impact_d: 'Tests de résistance ISO réussis. Branches avec âme acier (collection Acétate).',
+    tech_drop: 'Drop Ball Test', tech_drop_d: 'Test d\'impact Drop Ball réussi selon EN ISO 12312-1.',
+    tech_fod: 'FOD — Sans défaut', tech_fod_d: 'Contrôle qualité individuel. Chaque monture inspectée et approuvée à la sortie d\'usine.',
     pkg2_t: 'Protection premium',
     pkg2_d: 'Chaque modèle en pochette anti-rayures, protection bulle interne et carton renforcé. Zéro dégât en transit.',
     pkg3_t: 'Prêt pour le display',
@@ -285,13 +325,21 @@ const I18N = {
     new_sub: 'Premières pièces disponibles. Commandez avant rupture de stock.',
     new_show_more: 'Voir plus de modèles', new_show_less: 'Voir moins',
     new_badge: 'Nouveau',
+    progress_browse: 'Navigation', progress_select: 'Sélection', progress_send: 'Envoi commande',
+    toast_added: 'ajouté à la commande',
+    filters_btn: 'Filtrer', filters_title: 'Filtres',
+    share_btn: 'Partager la sélection', share_copied: 'Lien copié !',
+    acetato_premium: 'Premium',
+    latam_hint: 'Votre commande → Minuë Latinoamérica',
+    latam_badge: 'LATAM',
+    region_latam_desc: 'Colombie · Mexique · Chili et plus',
     col_show_all: 'Voir tous les modèles',
     col_collapse: 'Réduire',
     col_models: 'modèles',
     col_expand_hint: 'Cliquez pour explorer',
   },
   en: {
-    nav_catalog: 'Catalogue', nav_rates: 'Pricing', nav_order: 'Order', nav_pdf: 'PDF',
+    nav_contact: 'Contact', nav_catalog: 'Catalogue', nav_rates: 'Pricing', nav_order: 'Order', nav_pdf: 'PDF',
     hdr_eyebrow: 'B2B Wholesale · SS26',
     hdr_h1_a: 'Browse, select', hdr_h1_b: 'and place', hdr_h1_c: 'your order.',
     hdr_sub: 'Explore our catalogue, add the models you like and send us your selection. Volume pricing: the more units, the lower the unit price.',
@@ -311,8 +359,24 @@ const I18N = {
     empty_filter_d: 'Try broadening the selection.',
     pkg_eyebrow: 'Packaging', pkg_h2_a: 'Shelf-', pkg_h2_b: 'ready', pkg_h2_c: '.',
     pkg_sub: 'Every frame arrives ready to display. No repackaging, no unboxing work, no time wasted.',
-    pkg1_t: 'Individual case',
-    pkg1_d: 'Hard case with engraved logo, microfibre cloth and authenticity card. Everything inside, ready for end customer.',
+    pkg1_t: 'Full packaging included',
+    pkg1_d: 'Each frame includes: branded presentation box, hard case, microfibre cloth, technical specs card and CE + UV400 sticker. Ready for end customer, no repackaging needed.',
+    pkg_contents_label: 'In every box',
+    pkg_item1: 'Branded presentation box',
+    pkg_item2: 'Individual hard case',
+    pkg_item3: 'Microfibre cloth',
+    pkg_item4: 'Technical specifications card',
+    pkg_item5: 'CE · UV400 sticker',
+    tech_eyebrow: 'Technical specifications',
+    tech_h2: 'Certified quality',
+    tech_sub: 'All Minuë models comply with European sunglasses regulations. Every frame is certified before leaving the factory.',
+    tech_uv: 'UV400 Protection', tech_uv_d: 'Full UVA and UVB filtration up to 400nm. Maximum available protection.',
+    tech_cat: 'Category 3', tech_cat_d: 'High-filter lenses for outdoor use in bright sunlight. Light transmission 8-18%.',
+    tech_ce: 'CE Certified', tech_ce_d: 'Compliant with EN ISO 12312-1. Approved for sale across the European Union.',
+    tech_pol: 'Polarised lenses', tech_pol_d: 'Eliminates glare and reflections. Enhanced contrast and visual definition.',
+    tech_impact: 'Impact resistance', tech_impact_d: 'ISO impact resistance tests passed. Steel-core temples on Acetato collection.',
+    tech_drop: 'Drop Ball Test', tech_drop_d: 'Pass the Drop Ball impact test per EN ISO 12312-1. Certified resistance to direct frontal impact.',
+    tech_fod: 'FOD — Free of Defects', tech_fod_d: 'Individual quality control per unit. Every frame inspected and approved at factory.',
     pkg2_t: 'Premium protection',
     pkg2_d: 'Each model in anti-scratch sleeve, internal bubble wrap and reinforced master box. Zero in-transit damage.',
     pkg3_t: 'Display-ready',
@@ -401,13 +465,21 @@ const I18N = {
     new_sub: 'First units available. Order before they sell out.',
     new_show_more: 'Show more models', new_show_less: 'Show less',
     new_badge: 'New',
+    progress_browse: 'Browsing', progress_select: 'Selecting', progress_send: 'Sending order',
+    toast_added: 'added to order',
+    filters_btn: 'Filter', filters_title: 'Filters',
+    share_btn: 'Share selection', share_copied: 'Link copied!',
+    acetato_premium: 'Premium',
+    latam_hint: 'Your order goes to Minuë Latin America',
+    latam_badge: 'LATAM',
+    region_latam_desc: 'Colombia · Mexico · Chile · Argentina and more',
     col_show_all: 'See all models',
     col_collapse: 'Collapse',
     col_models: 'models',
     col_expand_hint: 'Click to explore',
   },
   de: {
-    nav_catalog: 'Katalog', nav_rates: 'Preise', nav_order: 'Bestellung', nav_pdf: 'PDF',
+    nav_contact: 'Kontakt', nav_catalog: 'Katalog', nav_rates: 'Preise', nav_order: 'Bestellung', nav_pdf: 'PDF',
     hdr_eyebrow: 'B2B Wholesale · SS26',
     hdr_h1_a: 'Stöbern, auswählen', hdr_h1_b: 'und', hdr_h1_c: 'bestellen.',
     hdr_sub: 'Durchstöbern Sie unseren Katalog, fügen Sie die gewünschten Modelle hinzu und senden Sie uns Ihre Auswahl. Mengenrabatt: je mehr Stück, desto niedriger der Stückpreis.',
@@ -427,8 +499,24 @@ const I18N = {
     empty_filter_d: 'Versuchen Sie, die Auswahl zu erweitern.',
     pkg_eyebrow: 'Verpackung', pkg_h2_a: 'Vitrinen-', pkg_h2_b: 'fertig', pkg_h2_c: '.',
     pkg_sub: 'Jede Fassung kommt ausstellungsbereit an. Kein Umpacken, kein Zeitverlust.',
-    pkg1_t: 'Einzeletui',
-    pkg1_d: 'Hartschalen-Etui mit graviertem Logo, Mikrofasertuch und Echtheitskarte. Alles drin, bereit für den Endkunden.',
+    pkg1_t: 'Vollständige Verpackung inklusive',
+    pkg1_d: 'Jede Fassung enthält: gebrandete Präsentationsbox, Hartschalen-Etui, Mikrofasertuch, Karte mit technischen Daten und CE + UV400 Aufkleber. Bereit für den Endkunden.',
+    pkg_contents_label: 'In jeder Box',
+    pkg_item1: 'Gebrandete Präsentationsbox',
+    pkg_item2: 'Individuelles Hartschalen-Etui',
+    pkg_item3: 'Mikrofasertuch',
+    pkg_item4: 'Karte mit technischen Daten',
+    pkg_item5: 'CE · UV400 Aufkleber',
+    tech_eyebrow: 'Technische Spezifikationen',
+    tech_h2: 'Zertifizierte Qualität',
+    tech_sub: 'Alle Minuë-Modelle erfüllen die europäischen Vorschriften für Sonnenbrillen.',
+    tech_uv: 'UV400-Schutz', tech_uv_d: 'Vollständige UVA- und UVB-Filterung bis 400nm.',
+    tech_cat: 'Kategorie 3', tech_cat_d: 'Hochfiltergläser für Outdoor-Einsatz bei starker Sonneneinstrahlung.',
+    tech_ce: 'CE-Zertifikat', tech_ce_d: 'Konform mit EN ISO 12312-1. Zugelassen für den Verkauf in der EU.',
+    tech_pol: 'Polarisierte Gläser', tech_pol_d: 'Eliminiert Blendung und Reflexionen.',
+    tech_impact: 'Stoßfestigkeit', tech_impact_d: 'ISO-Stoßfestigkeitstests bestanden. Stahlkernbügel bei der Acetato-Kollektion.',
+    tech_drop: 'Drop Ball Test', tech_drop_d: 'Drop-Ball-Test nach EN ISO 12312-1 bestanden.',
+    tech_fod: 'FOD — Defektfrei', tech_fod_d: 'Individuelle Qualitätskontrolle. Jede Fassung geprüft und freigegeben.',
     pkg2_t: 'Premium-Schutz',
     pkg2_d: 'Jedes Modell in Anti-Kratz-Beutel, Luftpolster innen und verstärktem Hauptkarton. Null Transportschäden.',
     pkg3_t: 'Display-ready',
@@ -517,13 +605,21 @@ const I18N = {
     new_sub: 'Erste Stücke verfügbar. Bestellen Sie, bevor sie ausverkauft sind.',
     new_show_more: 'Mehr Modelle anzeigen', new_show_less: 'Weniger anzeigen',
     new_badge: 'Neu',
+    progress_browse: 'Stöbern', progress_select: 'Auswählen', progress_send: 'Bestellung senden',
+    toast_added: 'zur Bestellung hinzugefügt',
+    filters_btn: 'Filtern', filters_title: 'Filter',
+    share_btn: 'Auswahl teilen', share_copied: 'Link kopiert!',
+    acetato_premium: 'Premium',
+    latam_hint: 'Ihre Bestellung geht an Minuë Lateinamerika',
+    latam_badge: 'LATAM',
+    region_latam_desc: 'Kolumbien · Mexiko · Chile · Argentinien',
     col_show_all: 'Alle Modelle anzeigen',
     col_collapse: 'Einklappen',
     col_models: 'Modelle',
     col_expand_hint: 'Zum Erkunden klicken',
   },
   pt: {
-    nav_catalog: 'Catálogo', nav_rates: 'Preços', nav_order: 'Pedido', nav_pdf: 'PDF',
+    nav_contact: 'Contacto', nav_catalog: 'Catálogo', nav_rates: 'Preços', nav_order: 'Pedido', nav_pdf: 'PDF',
     hdr_eyebrow: 'B2B Wholesale · SS26',
     hdr_h1_a: 'Explore, selecione', hdr_h1_b: 'e faça', hdr_h1_c: 'o seu pedido.',
     hdr_sub: 'Navegue pelo nosso catálogo, adicione os modelos que lhe interessam e envie-nos a sua seleção. Preço por volume: quanto mais unidades, menor o preço unitário.',
@@ -538,13 +634,29 @@ const I18N = {
     col_eyebrow: 'Coleção',
     col_essential_tag: 'A base do sortido. Formas atemporais, acetato standard.',
     col_icons_tag: 'Designs reconhecíveis com personalidade. Detalhes premium.',
-    col_acetato_tag: 'Acetato italiano premium. Gama alta para cliente exigente.',
+    col_acetato_tag: 'Monturas artesanales de alta gama. Para el cliente más exigente.',
     empty_filter_t: 'Sem modelos com este filtro',
     empty_filter_d: 'Tente alargar a seleção.',
     pkg_eyebrow: 'Packaging', pkg_h2_a: 'Pronto para', pkg_h2_b: 'vitrine', pkg_h2_c: '.',
     pkg_sub: 'Cada armação chega pronta para exibir. Sem reembalar, sem perder tempo.',
-    pkg1_t: 'Estojo individual',
-    pkg1_d: 'Estojo rígido com logo gravado, pano microfibra e cartão de autenticidade. Tudo pronto para o cliente final.',
+    pkg1_t: 'Packaging completo incluído',
+    pkg1_d: 'Cada armação inclui: caixa de apresentação com logo, estojo rígido, pano de microfibra, cartão com especificações técnicas e autocolante CE + UV400. Pronto para o cliente final.',
+    pkg_contents_label: 'Em cada caixa',
+    pkg_item1: 'Caixa de apresentação com logo',
+    pkg_item2: 'Estojo rígido individual',
+    pkg_item3: 'Pano de microfibra',
+    pkg_item4: 'Cartão com especificações técnicas',
+    pkg_item5: 'Autocolante CE · UV400',
+    tech_eyebrow: 'Especificações técnicas',
+    tech_h2: 'Qualidade certificada',
+    tech_sub: 'Todos os modelos Minuë cumprem a regulamentação europeia de óculos de sol.',
+    tech_uv: 'Proteção UV400', tech_uv_d: 'Filtragem total UVA e UVB até 400nm. Máxima proteção disponível.',
+    tech_cat: 'Categoria 3', tech_cat_d: 'Lentes de alta filtragem para uso exterior com sol intenso.',
+    tech_ce: 'Certificado CE', tech_ce_d: 'Conformidade EN ISO 12312-1. Aprovado para venda em toda a UE.',
+    tech_pol: 'Lentes polarizadas', tech_pol_d: 'Elimina reflexos e encandeamentos.',
+    tech_impact: 'Resistência ao impacto', tech_impact_d: 'Testes ISO aprovados. Hastes com alma de aço na coleção Acetato.',
+    tech_drop: 'Drop Ball Test', tech_drop_d: 'Teste Drop Ball EN ISO 12312-1 aprovado.',
+    tech_fod: 'FOD — Sem defeitos', tech_fod_d: 'Controlo de qualidade individual. Cada armação inspecionada e aprovada.',
     pkg2_t: 'Proteção premium',
     pkg2_d: 'Cada modelo em saco anti-riscos, bubble interno e caixa mestra reforçada. Zero danos em trânsito.',
     pkg3_t: 'Display-ready',
@@ -633,6 +745,14 @@ const I18N = {
     new_sub: 'Primeiras unidades disponíveis. Encomende antes de esgotar.',
     new_show_more: 'Ver mais modelos', new_show_less: 'Ver menos',
     new_badge: 'Novo',
+    progress_browse: 'A explorar', progress_select: 'A selecionar', progress_send: 'A enviar pedido',
+    toast_added: 'adicionado ao pedido',
+    filters_btn: 'Filtrar', filters_title: 'Filtros',
+    share_btn: 'Partilhar seleção', share_copied: 'Link copiado!',
+    acetato_premium: 'Premium',
+    latam_hint: 'O seu pedido vai para a Minuë América Latina',
+    latam_badge: 'LATAM',
+    region_latam_desc: 'Colômbia · México · Chile · Argentina e mais',
     col_show_all: 'Ver todos os modelos',
     col_collapse: 'Recolher',
     col_models: 'modelos',
@@ -654,10 +774,15 @@ const DISTRIBUTORS = {
   fr: {
     name: 'MPM Diffusion',
     contact: 'Pierre',
-    // TODO: reemplazar por el número real de Marc (formato internacional sin + ni espacios)
     whatsapp: '33677166421',
-    // TODO: reemplazar por el email real
     email: 'mpm.diffusion@outlook.fr',
+  },
+  latam: {
+    name: 'Minuë Opticians Latam',
+    contact: '',
+    whatsapp: '573227701800',
+    email: 'hola@minueopticians.co',
+    flag: '🌎',
   },
   default: {
     name: 'Minuë Opticians',
@@ -668,15 +793,18 @@ const DISTRIBUTORS = {
 };
 
 const REGIONS = [
-  { id: 'es', flag: '🇪🇸', distributor: 'default',
+  { id: 'es',    flag: '🇪🇸', distributor: 'default',
     label: { es: 'España', fr: 'Espagne', en: 'Spain', de: 'Spanien', pt: 'Espanha' } },
-  { id: 'fr', flag: '🇫🇷', distributor: 'fr',
+  { id: 'latam', flag: '🌎', distributor: 'latam',
+    label: { es: 'Latinoamérica', fr: 'Amérique latine', en: 'Latin America', de: 'Lateinamerika', pt: 'América Latina' },
+    esOnly: false },
+  { id: 'fr',    flag: '🇫🇷', distributor: 'fr',
     label: { es: 'Francia', fr: 'France', en: 'France', de: 'Frankreich', pt: 'França' } },
-  { id: 'pt', flag: '🇵🇹', distributor: 'default',
+  { id: 'pt',    flag: '🇵🇹', distributor: 'default',
     label: { es: 'Portugal', fr: 'Portugal', en: 'Portugal', de: 'Portugal', pt: 'Portugal' } },
-  { id: 'de', flag: '🇩🇪', distributor: 'default',
+  { id: 'de',    flag: '🇩🇪', distributor: 'default',
     label: { es: 'Alemania', fr: 'Allemagne', en: 'Germany', de: 'Deutschland', pt: 'Alemanha' } },
-  { id: 'intl', flag: '🌍', distributor: 'default',
+  { id: 'intl',  flag: '🌍', distributor: 'default',
     label: { es: 'Otro país', fr: 'Autre pays', en: 'Other country', de: 'Anderes Land', pt: 'Outro país' } },
 ];
 
@@ -978,6 +1106,11 @@ export default function App() {
   const [openCollections, setOpenCollections] = useState({});
   const toggleCollection = (id) => setOpenCollections(prev => ({ ...prev, [id]: !prev[id] }));
   const [scrollY, setScrollY] = useState(0);
+  const [toast, setToast] = useState(null);
+  const [searchSuggestions, setSearchSuggestions] = useState([]);
+  const [shareUrl, setShareUrl] = useState(null);
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -1025,7 +1158,14 @@ export default function App() {
   const unitPrice = currentTier?.price ?? null;
   const cartTotal = unitPrice ? unitPrice * cartCount : null;
 
-  const addToCart = (id) => setCart(c => ({ ...c, [id]: (c[id] || 0) + 1 }));
+  const addToCart = (id) => {
+    setCart(c => ({ ...c, [id]: (c[id] || 0) + 1 }));
+    const p = PRODUCTS.find(x => x.id === id);
+    if (p) {
+      setToast({ name: p.name, id });
+      setTimeout(() => setToast(null), 2200);
+    }
+  };
   const updateQty = (id, delta) => setCart(c => {
     const n = (c[id] || 0) + delta;
     if (n <= 0) { const copy = { ...c }; delete copy[id]; return copy; }
@@ -1034,12 +1174,39 @@ export default function App() {
   const removeFromCart = (id) => setCart(c => { const copy = { ...c }; delete copy[id]; return copy; });
   const toggleColor = (col) => setActiveColors(cs => cs.includes(col) ? cs.filter(x => x !== col) : [...cs, col]);
   const toggleShape = (sh) => setActiveShapes(ss => ss.includes(sh) ? ss.filter(x => x !== sh) : [...ss, sh]);
+  const handleSearch = (q) => {
+    setSearchQuery(q);
+    if (q.length >= 2) {
+      const matches = PRODUCTS.filter(p => p.name.toLowerCase().includes(q.toLowerCase())).slice(0, 6);
+      setSearchSuggestions(matches);
+    } else {
+      setSearchSuggestions([]);
+    }
+  };
+  const buildShareUrl = () => {
+    const ids = Object.keys(cart).join(',');
+    const url = typeof window !== 'undefined' ? window.location.href.split('?')[0] + '?sel=' + ids : '';
+    setShareUrl(url);
+    if (typeof navigator !== 'undefined' && navigator.clipboard) navigator.clipboard.writeText(url);
+    setTimeout(() => setShareUrl(null), 3000);
+  };
 
   const topSix = useMemo(() =>
     [...PRODUCTS].sort((a, b) => a.rank - b.rank).slice(0, 8)
   , []);
 
   const novedades = useMemo(() => PRODUCTS.filter(p => p.isNew), []);
+
+  const allFilteredProducts = useMemo(() => {
+    const q = searchQuery.trim().toLowerCase();
+    return PRODUCTS.filter(p => {
+      const matchColor = activeColors.length === 0 || activeColors.some(c => p.colors.includes(c));
+      const matchShape = activeShapes.length === 0 || activeShapes.includes(p.shape);
+      const matchSearch = !q || p.name.toLowerCase().includes(q);
+      const matchCol = colFilter === 'all' || p.col === colFilter;
+      return matchColor && matchShape && matchSearch && matchCol;
+    });
+  }, [activeColors, activeShapes, colFilter, searchQuery]);
 
   const byCollection = useMemo(() => {
     const q = searchQuery.trim().toLowerCase();
@@ -1077,9 +1244,17 @@ export default function App() {
   };
 
   useEffect(() => {
-    document.body.style.overflow = (panelOpen || tarifasOpen || quickViewProduct) ? 'hidden' : '';
+    document.body.style.overflow = (panelOpen || tarifasOpen || quickViewProduct || filtersOpen || menuOpen) ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
-  }, [panelOpen, tarifasOpen, quickViewProduct]);
+  }, [panelOpen, tarifasOpen, quickViewProduct, filtersOpen, menuOpen]);
+
+  // Auto-scroll al inicio de catálogo cuando se aplica un filtro
+  useEffect(() => {
+    if (activeColors.length > 0 || activeShapes.length > 0 || colFilter !== 'all' || searchQuery) {
+      const el = document.getElementById('catalog-start');
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, [activeColors, activeShapes, colFilter, searchQuery]);
 
   const scrollToId = (id) => {
     const el = document.getElementById(id);
@@ -1090,7 +1265,7 @@ export default function App() {
     <>
       <style>{`
         *, *::before, *::after { box-sizing: border-box; }
-        html, body, #root { margin: 0; padding: 0; }
+        html, body, #root { margin: 0; padding: 0; width: 100%; }
         body {
           font-family: 'DM Sans', sans-serif;
           background: ${C}; color: ${G};
@@ -1171,6 +1346,10 @@ export default function App() {
         .mn-serif-i { font-family: 'Cormorant Garamond', serif; font-style: italic; }
 
         .mn-nav-text { }
+        .mn-nav-collections { }
+        @media (max-width: 900px) { .mn-nav-collections { display: none !important; } }
+        .mn-hamburger { display: none; }
+        @media (max-width: 560px) { .mn-hamburger { display: flex !important; } .mn-nav-actions { display: none !important; } }
         @media (max-width: 560px) {
           .mn-nav-text { display: none !important; }
           .mn-nav-logo { height: 28px !important; width: calc(28px * 3.08) !important; }
@@ -1222,7 +1401,7 @@ export default function App() {
               </div>
             </div>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: 6 }} className="mn-nav-gap">
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6 }} className="mn-nav-gap mn-nav-actions">
               <LangSelector lang={lang} onChange={setLang} />
               <button onClick={() => setTarifasOpen(true)} className="mn-pill mn-nav-pill" style={{
                 display: 'inline-flex', alignItems: 'center', gap: 7,
@@ -1232,7 +1411,36 @@ export default function App() {
                 <IconInfo size={13} />
                 <span className="mn-nav-text">{t('nav_rates')}</span>
               </button>
-              <a href="#" target="_blank" rel="noreferrer" className="mn-pill mn-nav-pill" style={{
+              {/* Links colecciones — solo desktop */}
+              <div className="mn-nav-collections" style={{ display: 'flex', gap: 4 }}>
+                {COLLECTIONS.map(c => (
+                  <button key={c.id} onClick={() => {
+                    setColFilter(c.id);
+                    setOpenCollections(prev => ({ ...prev, [c.id]: true }));
+                    setTimeout(() => {
+                      const el = document.getElementById(`col-${c.id}`);
+                      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 100);
+                  }} className="mn-pill" style={{
+                    padding: '7px 11px', borderRadius: 999, fontSize: 11, fontWeight: 500,
+                    border: `1px solid ${G}22`, color: G,
+                    background: c.id === 'Acetato' ? `${D}10` : 'transparent',
+                  }}>
+                    {c.label}
+                    {c.id === 'Acetato' && <span style={{ marginLeft: 4, fontSize: 8, color: D }}>★</span>}
+                  </button>
+                ))}
+              </div>
+
+              <a href="#contacto" onClick={(e) => { e.preventDefault(); document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' }); }} className="mn-pill mn-nav-pill" style={{
+                display: 'inline-flex', alignItems: 'center', gap: 7,
+                padding: '9px 14px', border: `1px solid ${G}33`, borderRadius: 999,
+                fontSize: 12, fontWeight: 500, letterSpacing: 0.2,
+              }}>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                <span className="mn-nav-text">{t('nav_contact')}</span>
+              </a>
+              <a href="https://drive.google.com/uc?export=download&id=1NcxVq6PHiDay2mO2iQhN59sQLRrC-Zip" target="_blank" rel="noreferrer" className="mn-pill mn-nav-pill" style={{
                 display: 'inline-flex', alignItems: 'center', gap: 7,
                 padding: '9px 14px', border: `1px solid ${G}33`, borderRadius: 999,
                 fontSize: 12, fontWeight: 500, letterSpacing: 0.2,
@@ -1256,7 +1464,98 @@ export default function App() {
                 )}
               </button>
             </div>
+
+            {/* HAMBURGUESA — solo móvil <560px */}
+            <div className="mn-hamburger" style={{ display: 'none', alignItems: 'center', gap: 8 }}>
+              {cartCount > 0 && (
+                <button onClick={() => setPanelOpen(true)} style={{
+                  display: 'inline-flex', alignItems: 'center', gap: 6,
+                  padding: '8px 12px', background: G, color: C, borderRadius: 999,
+                  fontSize: 12, fontWeight: 500, border: 'none', cursor: 'pointer',
+                }}>
+                  <IconBag size={16} />
+                  <span style={{
+                    minWidth: 18, height: 18, padding: '0 5px', borderRadius: 999,
+                    background: D, color: G, fontSize: 10, fontWeight: 700,
+                    display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                  }}>{cartCount}</span>
+                </button>
+              )}
+              <button onClick={() => setMenuOpen(o => !o)} style={{
+                width: 36, height: 36, borderRadius: 999, border: `1px solid ${G}22`,
+                display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                background: 'transparent', cursor: 'pointer',
+              }}>
+                {menuOpen ? <IconClose size={16} /> : (
+                  <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
+                    <line x1="0" y1="1" x2="16" y2="1" stroke={G} strokeWidth="1.8" strokeLinecap="round"/>
+                    <line x1="0" y1="6" x2="16" y2="6" stroke={G} strokeWidth="1.8" strokeLinecap="round"/>
+                    <line x1="0" y1="11" x2="16" y2="11" stroke={G} strokeWidth="1.8" strokeLinecap="round"/>
+                  </svg>
+                )}
+              </button>
+            </div>
+
           </div>
+
+          {/* MENÚ MÓVIL desplegable */}
+          {menuOpen && (
+            <>
+              <div onClick={() => setMenuOpen(false)} style={{
+                position: 'fixed', inset: 0, zIndex: 38, background: 'rgba(24,51,47,0.3)',
+              }} />
+              <div style={{
+                position: 'absolute', top: '100%', left: 0, right: 0, zIndex: 39,
+                background: C, borderBottom: `1px solid ${G}18`,
+                padding: '12px 20px 20px',
+                boxShadow: '0 8px 24px -8px rgba(24,51,47,0.2)',
+                display: 'flex', flexDirection: 'column', gap: 8,
+              }}>
+                <LangSelector lang={lang} onChange={(l) => { setLang(l); setMenuOpen(false); }} />
+                <button onClick={() => { setTarifasOpen(true); setMenuOpen(false); }} style={{
+                  padding: '11px 14px', border: `1px solid ${D}`, color: D, borderRadius: 6,
+                  fontSize: 13, fontWeight: 500, textAlign: 'left', background: 'transparent', cursor: 'pointer',
+                  display: 'flex', alignItems: 'center', gap: 8,
+                }}>
+                  <IconInfo size={14} /> {t('nav_rates')}
+                </button>
+                <a href={`https://drive.google.com/uc?export=download&id=1NcxVq6PHiDay2mO2iQhN59sQLRrC-Zip`} target="_blank" rel="noreferrer" style={{
+                  padding: '11px 14px', border: `1px solid ${G}33`, borderRadius: 6,
+                  fontSize: 13, fontWeight: 500, display: 'flex', alignItems: 'center', gap: 8,
+                  color: G, textDecoration: 'none',
+                }}>
+                  <IconDownload size={14} /> {t('nav_pdf')}
+                </a>
+                <a href="#contacto" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setTimeout(() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' }), 100); }} style={{
+                  padding: '11px 14px', border: `1px solid ${G}33`, borderRadius: 6,
+                  fontSize: 13, fontWeight: 500, display: 'flex', alignItems: 'center', gap: 8,
+                  color: G, textDecoration: 'none', cursor: 'pointer',
+                }}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                  {t('nav_contact')}
+                </a>
+                <div style={{ borderTop: `1px solid ${G}12`, paddingTop: 8, display: 'flex', gap: 6 }}>
+                  {COLLECTIONS.map(c => (
+                    <button key={c.id} onClick={() => {
+                      setColFilter(c.id);
+                      setOpenCollections(prev => ({ ...prev, [c.id]: true }));
+                      setMenuOpen(false);
+                      setTimeout(() => {
+                        const el = document.getElementById(`col-${c.id}`);
+                        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      }, 100);
+                    }} style={{
+                      flex: 1, padding: '8px 6px', borderRadius: 6, fontSize: 11, fontWeight: 500,
+                      border: `1px solid ${G}22`, background: c.id === 'Acetato' ? `${D}10` : 'transparent',
+                      cursor: 'pointer', color: G, textAlign: 'center',
+                    }}>
+                      {c.label}{c.id === 'Acetato' && ' ★'}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </>
+          )}
         </nav>
 
         {/* BANNER EXPOSITORES */}
@@ -1278,64 +1577,141 @@ export default function App() {
         <header style={{ background: G, color: C, position: 'relative', overflow: 'hidden' }}>
           <div style={{
             maxWidth: 1280, margin: '0 auto',
-            padding: 'clamp(60px, 10vw, 110px) 24px clamp(70px, 11vw, 130px)',
-            display: 'grid', gridTemplateColumns: '1fr', gap: 28, position: 'relative',
-          }}>
+            padding: 'clamp(50px, 8vw, 100px) 24px clamp(50px, 8vw, 100px)',
+            display: 'grid',
+            gridTemplateColumns: 'minmax(0,1fr) minmax(0,1fr)',
+            gap: 'clamp(30px, 4vw, 60px)',
+            alignItems: 'center',
+            position: 'relative',
+          }} className="mn-hero-grid">
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: 14, opacity: 0.75 }}>
-              <span style={{ width: 28, height: 1, background: C, display: 'inline-block' }} />
-              <span className="mn-label" style={{ color: D }}>{t('hdr_eyebrow')}</span>
-            </div>
+            {/* Texto izquierda */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 14, opacity: 0.75 }}>
+                <span style={{ width: 28, height: 1, background: C, display: 'inline-block' }} />
+                <span className="mn-label" style={{ color: D }}>{t('hdr_eyebrow')}</span>
+              </div>
 
-            <h1 className="mn-serif" style={{
-              fontSize: 'clamp(40px, 7vw, 84px)',
-              fontWeight: 300, lineHeight: 1.02, letterSpacing: '-0.01em',
-              maxWidth: 900, margin: 0,
-            }}>
-              {t('hdr_h1_a')} <span className="mn-serif-i" style={{ color: D, fontWeight: 400 }}>{t('hdr_h1_b')}</span><br/>
-              {t('hdr_h1_c')}
-            </h1>
+              <h1 className="mn-serif" style={{
+                fontSize: 'clamp(36px, 5.5vw, 78px)',
+                fontWeight: 300, lineHeight: 1.02, letterSpacing: '-0.01em', margin: 0,
+              }}>
+                {t('hdr_h1_a')} <span className="mn-serif-i" style={{ color: D, fontWeight: 400 }}>{t('hdr_h1_b')}</span><br/>
+                {t('hdr_h1_c')}
+              </h1>
 
-            <p style={{
-              maxWidth: 580, fontSize: 'clamp(14px, 1.5vw, 16px)',
-              lineHeight: 1.55, opacity: 0.82, margin: 0, fontWeight: 300,
-            }}>{t('hdr_sub')}</p>
+              <p style={{
+                maxWidth: 480, fontSize: 'clamp(13px, 1.3vw, 15px)',
+                lineHeight: 1.55, opacity: 0.75, margin: 0, fontWeight: 300,
+              }}>{t('hdr_sub')}</p>
 
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 8 }}>
-              <button onClick={() => scrollToId('top-ventas')} className="mn-pill" style={{
-                padding: '8px 14px', borderRadius: 999, border: `1px solid ${C}33`,
-                color: C, fontSize: 11, fontWeight: 500, letterSpacing: 0.3,
-              }}>{t('hdr_chip_top')}</button>
-              {COLLECTIONS.map(c => (
-                <button key={c.id} onClick={() => scrollToId(`col-${c.id}`)} className="mn-pill" style={{
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                <button onClick={() => scrollToId('top-ventas')} className="mn-pill" style={{
                   padding: '8px 14px', borderRadius: 999, border: `1px solid ${C}33`,
-                  color: C, fontSize: 11, fontWeight: 500, letterSpacing: 0.3,
-                }}>{c.label}</button>
-              ))}
-              <button onClick={() => setTarifasOpen(true)} className="mn-pill" style={{
-                padding: '8px 14px', borderRadius: 999, border: `1px solid ${D}`, background: `${D}1a`,
-                color: D, fontSize: 11, fontWeight: 500, letterSpacing: 0.3,
-              }}>{t('hdr_chip_rates')}</button>
+                  color: C, fontSize: 11, fontWeight: 500,
+                }}>{t('hdr_chip_top')}</button>
+                {COLLECTIONS.map(c => (
+                  <button key={c.id} onClick={() => scrollToId(`col-${c.id}`)} className="mn-pill" style={{
+                    padding: '8px 14px', borderRadius: 999, border: `1px solid ${C}33`,
+                    color: C, fontSize: 11, fontWeight: 500,
+                  }}>{c.label}</button>
+                ))}
+                <button onClick={() => setTarifasOpen(true)} className="mn-pill" style={{
+                  padding: '8px 14px', borderRadius: 999, border: `1px solid ${D}`, background: `${D}1a`,
+                  color: D, fontSize: 11, fontWeight: 500,
+                }}>{t('hdr_chip_rates')}</button>
+              </div>
             </div>
 
+            {/* Imagen derecha */}
             <div style={{
-              position: 'absolute', right: 24, bottom: 24,
-              display: 'flex', alignItems: 'flex-end', gap: 12, opacity: 0.45,
+              position: 'relative', borderRadius: 4, overflow: 'hidden',
+              aspectRatio: '4/5', maxHeight: 'clamp(320px, 55vw, 580px)',
             }}>
-              <span className="mn-serif-i" style={{ fontSize: 14, letterSpacing: 0.2 }}>
-                № 01 — Minuë Opticians, Est. 2023
-              </span>
+              <img
+                src="https://res.cloudinary.com/dekvzwn7b/image/upload/w_900,q_auto,f_auto/v1776281360/_ABD8565_vyyr2r.jpg"
+                alt="Minuë — lookbook SS26"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+              />
+              {/* Overlay sutil */}
+              <div style={{
+                position: 'absolute', inset: 0,
+                background: `linear-gradient(135deg, ${G}22 0%, transparent 60%)`,
+                pointerEvents: 'none',
+              }} />
             </div>
+
           </div>
         </header>
 
-        {/* TARIFAS BAR */}
-        <section style={{ maxWidth: 1280, margin: '0 auto', padding: '40px 24px 0' }}>
-          <TarifasBar
-            units={cartCount} currentTier={currentTier} nextTier={nextTier}
-            onOpenTarifas={() => setTarifasOpen(true)} t={t}
-          />
-        </section>
+        <style>{`
+          @media (max-width: 700px) {
+            .mn-hero-grid { grid-template-columns: 1fr !important; }
+            .mn-hero-grid > div:last-child { max-height: 260px !important; }
+          }
+        `}</style>
+
+        {/* BARRA TARIFAS — reemplazada por franja minimalista */}
+        <div style={{
+          background: `${G}08`, borderBottom: `1px solid ${G}18`,
+          padding: '14px 24px',
+        }}>
+          <div style={{
+            maxWidth: 1280, margin: '0 auto',
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+            flexWrap: 'wrap', gap: 12,
+          }}>
+            <span style={{ fontSize: 13, fontWeight: 300, opacity: 0.8 }}>
+              {t('hdr_chip_rates')} —{' '}
+              <span className="mn-serif-i" style={{ color: D, fontSize: 15 }}>desde 17,90€/ud</span>
+              {' '}· vendes a 50–69€ · margen medio ~60%
+            </span>
+            <button onClick={() => setTarifasOpen(true)} style={{
+              padding: '7px 16px', borderRadius: 999,
+              border: `1px solid ${D}`, color: D,
+              fontSize: 11, fontWeight: 600, background: 'transparent', cursor: 'pointer',
+              display: 'inline-flex', alignItems: 'center', gap: 6,
+            }}>
+              <IconInfo size={12} /> {t('bar_rate_btn')}
+            </button>
+          </div>
+        </div>
+
+        {/* BARRA DE PROGRESO */}
+        {cartCount > 0 && (
+          <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 24px' }}>
+            <div style={{
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              gap: 0, marginBottom: 8,
+            }}>
+              {[
+                { step: 1, label: t('progress_browse'), icon: '◎', done: true },
+                { step: 2, label: t('progress_select'), icon: '◉', done: cartCount > 0 },
+                { step: 3, label: t('progress_send'),   icon: '○', done: false },
+              ].map((s, i) => (
+                <React.Fragment key={s.step}>
+                  <div style={{
+                    display: 'flex', alignItems: 'center', gap: 6,
+                    padding: '6px 14px', borderRadius: 999,
+                    background: s.done ? `${G}0f` : 'transparent',
+                    border: s.done ? `1px solid ${G}22` : `1px solid transparent`,
+                  }}>
+                    <span style={{ fontSize: 12, color: s.done ? D : `${G}44` }}>{s.icon}</span>
+                    <span style={{ fontSize: 10, fontWeight: s.done ? 600 : 400, opacity: s.done ? 1 : 0.4, letterSpacing: 0.3, textTransform: 'uppercase' }}>{s.label}</span>
+                    {s.step === 2 && cartCount > 0 && (
+                      <span style={{
+                        minWidth: 18, height: 18, padding: '0 5px', borderRadius: 999,
+                        background: D, color: G, fontSize: 9, fontWeight: 700,
+                        display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                      }}>{cartCount}</span>
+                    )}
+                  </div>
+                  {i < 2 && <span style={{ color: `${G}28`, fontSize: 12, padding: '0 2px' }}>—</span>}
+                </React.Fragment>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* TOP VENTAS */}
         <section id="top-ventas" style={{ maxWidth: 1280, margin: '0 auto', padding: 'clamp(50px, 7vw, 80px) 24px 30px', scrollMarginTop: 80 }}>
@@ -1370,7 +1746,7 @@ export default function App() {
                 onAdd={() => addToCart(p.id)} rank={i + 1} showRank variant="top"
                 colData={COLLECTIONS.find(c => c.id === p.col)}
                 currentTierPrice={unitPrice}
-                onQuickView={setQuickViewProduct} t={t} />
+                onQuickView={(p) => setQuickViewProduct(p)} t={t} />
             ))}
           </div>
         </section>
@@ -1427,118 +1803,109 @@ export default function App() {
           </section>
         )}
 
-        {/* FILTROS (sticky) */}
+        {/* ANCHOR para auto-scroll al filtrar */}
+        <div id="catalog-start" style={{ scrollMarginTop: 140 }} />
+
+        {/* BARRA FILTROS SIMPLIFICADA */}
         <div style={{
           position: 'sticky', top: 59, zIndex: 30,
-          background: `${C}f2`,
+          background: `${C}f5`,
           backdropFilter: 'saturate(1.3) blur(10px)',
           WebkitBackdropFilter: 'saturate(1.3) blur(10px)',
-          borderTop: `1px solid ${G}18`, borderBottom: `1px solid ${G}18`,
-          marginTop: 40,
+          borderTop: `1px solid ${G}15`, borderBottom: `1px solid ${G}15`,
+          marginTop: 0,
         }}>
           <div style={{ maxWidth: 1280, margin: '0 auto', padding: '10px 24px' }}>
+            <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
 
-            {/* Fila 1: Búsqueda + Tabs colección */}
-            <div style={{ display: 'flex', gap: 10, alignItems: 'center', marginBottom: 8, flexWrap: 'wrap' }}>
               {/* Buscador */}
-              <div style={{
-                display: 'flex', alignItems: 'center', gap: 8,
-                padding: '7px 12px', border: `1px solid ${G}28`, borderRadius: 999,
-                background: 'white', flex: '1 1 180px', maxWidth: 300,
-              }}>
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={G} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-                </svg>
-                <input
-                  value={searchQuery}
-                  onChange={e => setSearchQuery(e.target.value)}
-                  placeholder={t('search_placeholder')}
-                  style={{
-                    border: 'none', outline: 'none', fontSize: 11, fontFamily: 'inherit',
-                    color: G, background: 'transparent', width: '100%',
-                  }}
-                />
-                {searchQuery && (
-                  <button onClick={() => setSearchQuery('')} style={{ fontSize: 14, opacity: 0.5, lineHeight: 1, padding: '0 2px' }}>✕</button>
+              <div style={{ position: 'relative', flex: '1 1 160px', maxWidth: 260 }}>
+                <div style={{
+                  display: 'flex', alignItems: 'center', gap: 8,
+                  padding: '7px 12px', border: `1px solid ${G}28`, borderRadius: 999,
+                  background: 'white',
+                }}>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={G} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                  </svg>
+                  <input value={searchQuery} onChange={e => handleSearch(e.target.value)}
+                    placeholder={t('search_placeholder')}
+                    style={{ border: 'none', outline: 'none', fontSize: 11, fontFamily: 'inherit', color: G, background: 'transparent', width: '100%' }}
+                  />
+                  {searchQuery && <button onClick={() => handleSearch('')} style={{ fontSize: 13, opacity: 0.4, lineHeight: 1 }}>✕</button>}
+                </div>
+                {searchSuggestions.length > 0 && (
+                  <div style={{
+                    position: 'absolute', top: 'calc(100% + 4px)', left: 0, right: 0, zIndex: 50,
+                    background: C, border: `1px solid ${G}22`, borderRadius: 8,
+                    boxShadow: '0 8px 24px -8px rgba(24,51,47,0.2)', overflow: 'hidden',
+                  }}>
+                    {searchSuggestions.map(p => {
+                      const col = COLLECTIONS.find(c => c.id === p.col);
+                      return (
+                        <button key={p.id} onClick={() => { setQuickViewProduct(p); setSearchSuggestions([]); }} style={{
+                          width: '100%', padding: '9px 14px', textAlign: 'left',
+                          display: 'flex', alignItems: 'center', gap: 10,
+                          background: 'transparent', border: 'none', cursor: 'pointer',
+                          borderBottom: `1px solid ${G}0f`,
+                        }}
+                        onMouseEnter={e => e.currentTarget.style.background = `${G}08`}
+                        onMouseLeave={e => e.currentTarget.style.background = 'transparent'}>
+                          {p.img ? <img src={p.img} alt={p.name} style={{ width: 32, height: 24, objectFit: 'contain', background: '#fff', padding: 2, borderRadius: 2 }} /> :
+                            <div style={{ width: 32, height: 24, background: `${G}10`, borderRadius: 2 }} />}
+                          <div>
+                            <div style={{ fontSize: 12, fontWeight: 500 }}>{p.name}</div>
+                            <div style={{ fontSize: 10, opacity: 0.5 }}>{p.col} · {col?.rrp}€</div>
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
                 )}
               </div>
 
               {/* Tabs colección */}
-              <div style={{ display: 'flex', gap: 5, overflowX: 'auto', flexShrink: 0 }} className="mn-tabs-scroll">
+              <div style={{ display: 'flex', gap: 5, overflowX: 'auto' }} className="mn-tabs-scroll">
                 {[{ id: 'all', label: t('tab_all') }, ...COLLECTIONS.map(c => ({ id: c.id, label: c.label }))].map(tab => (
                   <button key={tab.id} onClick={() => setColFilter(tab.id)} className="mn-pill" style={{
-                    flexShrink: 0, padding: '6px 14px', borderRadius: 999, fontSize: 11, fontWeight: 500,
+                    flexShrink: 0, padding: '6px 13px', borderRadius: 999, fontSize: 11, fontWeight: 500,
                     border: `1px solid ${colFilter === tab.id ? G : `${G}22`}`,
                     background: colFilter === tab.id ? G : 'transparent',
-                    color: colFilter === tab.id ? C : G,
-                    transition: 'all 0.2s',
+                    color: colFilter === tab.id ? C : G, transition: 'all 0.2s',
                   }}>{tab.label}</button>
                 ))}
               </div>
+
+              {/* Botón Filtrar + Share */}
+              <div style={{ display: 'flex', gap: 6, marginLeft: 'auto', flexShrink: 0 }}>
+                <button onClick={() => setFiltersOpen(true)} className="mn-pill" style={{
+                  padding: '6px 12px', borderRadius: 999, fontSize: 11, fontWeight: 500,
+                  border: `1px solid ${(activeShapes.length + activeColors.length) > 0 ? G : `${G}33`}`,
+                  background: (activeShapes.length + activeColors.length) > 0 ? `${G}0f` : 'transparent',
+                  display: 'inline-flex', alignItems: 'center', gap: 6,
+                }}>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+                  {t('filters_btn')}
+                  {(activeShapes.length + activeColors.length) > 0 && (
+                    <span style={{ minWidth: 16, height: 16, padding: '0 4px', borderRadius: 999, background: D, color: G, fontSize: 9, fontWeight: 700, display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+                      {activeShapes.length + activeColors.length}
+                    </span>
+                  )}
+                </button>
+                {cartCount > 0 && (
+                  <button onClick={buildShareUrl} className="mn-pill" style={{
+                    padding: '6px 12px', borderRadius: 999, fontSize: 11, fontWeight: 500,
+                    border: `1px solid ${D}`, color: shareUrl ? D : G,
+                    background: shareUrl ? `${D}12` : 'transparent',
+                    display: 'inline-flex', alignItems: 'center', gap: 5,
+                  }}>
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                    {shareUrl ? t('share_copied') : t('share_btn')}
+                  </button>
+                )}
+              </div>
+
             </div>
-
-            {/* Fila 2+3: Forma + Color — colapsable en móvil */}
-            <details open style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-              <summary style={{
-                listStyle: 'none', cursor: 'pointer',
-                fontSize: 10, opacity: 0.5, letterSpacing: 0.4, fontWeight: 500,
-                textTransform: 'uppercase', marginBottom: 6, userSelect: 'none',
-                display: 'flex', alignItems: 'center', gap: 6,
-              }} className="mn-label-xs">
-                <span>Filtros</span>
-                {(activeShapes.length + activeColors.length) > 0 && (
-                  <span style={{
-                    minWidth: 16, height: 16, padding: '0 4px', borderRadius: 999,
-                    background: D, color: G, fontSize: 9, fontWeight: 700,
-                    display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                  }}>{activeShapes.length + activeColors.length}</span>
-                )}
-              </summary>
-
-              <div style={{ display: 'flex', gap: 8, overflowX: 'auto', alignItems: 'center', marginBottom: 6 }} className="mn-tabs-scroll">
-                <span className="mn-label-xs" style={{ opacity: 0.45, flexShrink: 0, minWidth: 44 }}>{t('filter_shape')}</span>
-                {SHAPES.map(sh => {
-                  const active = activeShapes.includes(sh.id);
-                  return (
-                    <button key={sh.id} onClick={() => toggleShape(sh.id)} className="mn-pill" style={{
-                      flexShrink: 0, padding: '5px 10px', borderRadius: 999,
-                      border: `1px solid ${active ? G : `${G}22`}`,
-                      background: active ? `${G}12` : 'transparent',
-                      fontSize: 10.5, fontWeight: 500,
-                    }}>{t(sh.tKey)}</button>
-                  );
-                })}
-                {activeShapes.length > 0 && (
-                  <button onClick={() => setActiveShapes([])} className="mn-pill" style={{ flexShrink: 0, padding: '5px 9px', fontSize: 10, opacity: 0.6, textDecoration: 'underline', textUnderlineOffset: 3 }}>{t('filter_clear')}</button>
-                )}
-              </div>
-
-              <div style={{ display: 'flex', gap: 8, overflowX: 'auto', alignItems: 'center' }} className="mn-tabs-scroll">
-                <span className="mn-label-xs" style={{ opacity: 0.45, flexShrink: 0, minWidth: 44 }}>{t('filter_color')}</span>
-                {COLOR_FILTERS.map(cf => {
-                  const active = activeColors.includes(cf.id);
-                  return (
-                    <button key={cf.id} onClick={() => toggleColor(cf.id)} className="mn-pill" style={{
-                      flexShrink: 0, display: 'inline-flex', alignItems: 'center', gap: 6,
-                      padding: '5px 10px 5px 7px', borderRadius: 999,
-                      border: `1px solid ${active ? G : `${G}22`}`,
-                      background: active ? `${G}12` : 'transparent',
-                      fontSize: 10.5, fontWeight: 500,
-                    }}>
-                      <span style={{
-                        width: 9, height: 9, borderRadius: 999,
-                        background: COLOR_DOTS[cf.id] || '#999',
-                        border: cf.id === 'beige' || cf.id === 'rosa' ? `1px solid ${G}33` : 'none',
-                      }} />
-                      <span>{t(cf.tKey)}</span>
-                    </button>
-                  );
-                })}
-                {activeColors.length > 0 && (
-                  <button onClick={() => setActiveColors([])} className="mn-pill" style={{ flexShrink: 0, padding: '5px 9px', fontSize: 10, opacity: 0.6, textDecoration: 'underline', textUnderlineOffset: 3 }}>{t('filter_clear')}</button>
-                )}
-              </div>
-            </details>
           </div>
         </div>
 
@@ -1603,6 +1970,14 @@ export default function App() {
                           fontSize: 'clamp(22px, 3vw, 30px)', fontWeight: 300,
                           letterSpacing: '-0.01em', lineHeight: 1,
                         }}>{col.label}</span>
+                        {col.id === 'Acetato' && (
+                          <span style={{
+                            fontSize: 8, fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase',
+                            padding: '2px 8px', borderRadius: 999,
+                            background: isOpen ? `${D}22` : `${D}18`,
+                            color: D, border: `1px solid ${D}44`,
+                          }}>{t('acetato_premium')}</span>
+                        )}
                         <span style={{
                           fontSize: 11, opacity: 0.6, fontWeight: 300,
                         }}>{allItems.length} {t('col_models')}</span>
@@ -1669,7 +2044,7 @@ export default function App() {
                               onAdd={() => addToCart(p.id)}
                               colData={colData}
                               currentTierPrice={unitPrice}
-                              onQuickView={setQuickViewProduct} t={t} />
+                              onQuickView={(p) => setQuickViewProduct(p)} t={t} />
                           ))}
                         </div>
                         <div style={{ textAlign: 'center', marginTop: 20 }}>
@@ -1698,29 +2073,17 @@ export default function App() {
               <span className="mn-serif-i" style={{ fontSize: 24, color: D, fontWeight: 400 }}>№ 06</span>
               <div>
                 <div className="mn-label" style={{ color: D, marginBottom: 6 }}>{t('pkg_eyebrow')}</div>
-                <h3 className="mn-serif" style={{
-                  fontSize: 'clamp(30px, 4vw, 46px)', fontWeight: 300,
-                  letterSpacing: '-0.01em', margin: 0, lineHeight: 1.05,
-                }}>
+                <h3 className="mn-serif" style={{ fontSize: 'clamp(30px, 4vw, 46px)', fontWeight: 300, letterSpacing: '-0.01em', margin: 0, lineHeight: 1.05 }}>
                   {t('pkg_h2_a')} <span className="mn-serif-i">{t('pkg_h2_b')}</span>{t('pkg_h2_c')}
                 </h3>
               </div>
             </div>
-            <p style={{
-              maxWidth: 360, fontSize: 13, lineHeight: 1.55, opacity: 0.7,
-              margin: 0, fontWeight: 300, fontStyle: 'italic',
-            }}>{t('pkg_sub')}</p>
+            <p style={{ maxWidth: 360, fontSize: 13, lineHeight: 1.55, opacity: 0.7, margin: 0, fontWeight: 300, fontStyle: 'italic' }}>{t('pkg_sub')}</p>
           </div>
 
-          {/* Imagen + 3 puntos en layout 2 cols */}
-          <div style={{
-            display: 'grid', gridTemplateColumns: 'minmax(200px,420px) 1fr',
-            gap: 'clamp(20px, 4vw, 48px)', alignItems: 'stretch',
-          }} className="mn-pkg-outer">
-            <div style={{
-              borderRadius: 4, overflow: 'hidden', background: G,
-              minHeight: 300,
-            }}>
+          {/* Layout: imagen izquierda + contenido derecha */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'minmax(200px,420px) 1fr', gap: 'clamp(20px, 4vw, 48px)', alignItems: 'stretch' }} className="mn-pkg-outer">
+            <div style={{ borderRadius: 4, overflow: 'hidden', background: G, minHeight: 300 }}>
               <img
                 src="https://res.cloudinary.com/dekvzwn7b/image/upload/w_800,q_auto,f_auto/v1776287609/MINUE_5_v6cnmm.png"
                 alt="Minuë Packaging"
@@ -1729,21 +2092,36 @@ export default function App() {
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+              {/* Qué incluye cada caja */}
+              <div style={{ padding: '20px 22px', border: `1px solid ${G}1f`, borderRadius: 4, background: `${G}05` }}>
+                <div className="mn-label-xs" style={{ color: D, marginBottom: 14 }}>{t('pkg_contents_label')}</div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 9 }}>
+                  {[
+                    t('pkg_item1'),
+                    t('pkg_item2'),
+                    t('pkg_item3'),
+                    t('pkg_item4'),
+                    t('pkg_item5'),
+                  ].map((item, i) => (
+                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 12, fontWeight: 300 }}>
+                      <span style={{ width: 18, height: 18, borderRadius: 999, background: `${D}1a`, border: `1px solid ${D}44`, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                        <IconCheck size={10} />
+                      </span>
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Puntos restantes */}
               {[
-                { n: '01', t: t('pkg1_t'), d: t('pkg1_d') },
-                { n: '02', t: t('pkg2_t'), d: t('pkg2_d') },
-                { n: '03', t: t('pkg3_t'), d: t('pkg3_d') },
+                { n: '02', tt: t('pkg2_t'), d: t('pkg2_d') },
+                { n: '03', tt: t('pkg3_t'), d: t('pkg3_d') },
               ].map((item, i) => (
-                <div key={i} style={{
-                  padding: '20px 22px', border: `1px solid ${G}1f`, borderRadius: 4,
-                  background: `${G}05`, flex: 1,
-                  display: 'flex', gap: 16, alignItems: 'flex-start',
-                }}>
-                  <span className="mn-serif-i" style={{ fontSize: 24, color: D, fontWeight: 400, lineHeight: 1, flexShrink: 0 }}>
-                    {item.n}
-                  </span>
+                <div key={i} style={{ padding: '20px 22px', border: `1px solid ${G}1f`, borderRadius: 4, background: `${G}05`, flex: 1, display: 'flex', gap: 16, alignItems: 'flex-start' }}>
+                  <span className="mn-serif-i" style={{ fontSize: 24, color: D, fontWeight: 400, lineHeight: 1, flexShrink: 0 }}>{item.n}</span>
                   <div>
-                    <h4 className="mn-serif" style={{ fontSize: 19, fontWeight: 400, margin: '0 0 6px', letterSpacing: '-0.01em' }}>{item.t}</h4>
+                    <h4 className="mn-serif" style={{ fontSize: 19, fontWeight: 400, margin: '0 0 6px', letterSpacing: '-0.01em' }}>{item.tt}</h4>
                     <p style={{ fontSize: 12, lineHeight: 1.6, opacity: 0.75, margin: 0, fontWeight: 300 }}>{item.d}</p>
                   </div>
                 </div>
@@ -1752,33 +2130,117 @@ export default function App() {
           </div>
         </section>
 
-        {/* POR QUÉ MINUË */}
-        <section style={{ background: G, color: C, marginTop: 20 }}>
-          <div style={{ maxWidth: 1280, margin: '0 auto', padding: 'clamp(50px,7vw,80px) 24px' }}>
-            <div style={{ display: 'flex', alignItems: 'baseline', gap: 16, flexWrap: 'wrap', marginBottom: 'clamp(28px,4vw,44px)', justifyContent: 'space-between' }}>
-              <div style={{ display: 'flex', alignItems: 'baseline', gap: 16 }}>
-                <span className="mn-serif-i" style={{ fontSize: 24, color: D, fontWeight: 400 }}>№ 07</span>
-                <div>
-                  <div className="mn-label" style={{ color: D, marginBottom: 6 }}>{t('why_eyebrow')}</div>
-                  <h3 className="mn-serif" style={{ fontSize:'clamp(28px,4vw,44px)', fontWeight:300, letterSpacing:'-0.01em', margin:0, lineHeight:1.05 }}>
-                    {t('why_h2_a')}<span className="mn-serif-i" style={{ color: D }}>{t('why_h2_b')}</span>{t('why_h2_c')}
-                  </h3>
-                </div>
+        {/* ESPECIFICACIONES TÉCNICAS — bloque sutil sobre fondo crema */}
+        <section style={{ background: `${G}06`, borderTop: `1px solid ${G}12`, borderBottom: `1px solid ${G}12` }}>
+          <div style={{ maxWidth: 1280, margin: '0 auto', padding: 'clamp(40px,6vw,60px) 24px' }}>
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: 16, flexWrap: 'wrap', marginBottom: 28, justifyContent: 'space-between' }}>
+              <div>
+                <div className="mn-label" style={{ color: D, marginBottom: 6, opacity: 0.7 }}>{t('tech_eyebrow')}</div>
+                <h3 className="mn-serif" style={{ fontSize: 'clamp(22px,3vw,32px)', fontWeight: 300, letterSpacing: '-0.01em', margin: 0, opacity: 0.85 }}>
+                  {t('tech_h2')}
+                </h3>
               </div>
-              <p style={{ maxWidth:360, fontSize:13, lineHeight:1.6, opacity:0.75, margin:0, fontWeight:300, fontStyle:'italic' }}>{t('why_sub')}</p>
+              <p style={{ maxWidth: 400, fontSize: 12, lineHeight: 1.6, opacity: 0.5, margin: 0, fontWeight: 300, fontStyle: 'italic' }}>{t('tech_sub')}</p>
             </div>
 
-            <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(220px,1fr))', gap:16, marginBottom:32 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 12 }}>
               {[
-                { n:'01', t: t('why_1_t'), d: t('why_1_d') },
-                { n:'02', t: t('why_2_t'), d: t('why_2_d') },
-                { n:'03', t: t('why_3_t'), d: t('why_3_d') },
-                { n:'04', t: t('why_4_t'), d: t('why_4_d') },
-              ].map((item,i) => (
-                <div key={i} style={{ padding:'22px 20px', border:`1px solid ${C}18`, borderRadius:4, display:'flex', flexDirection:'column', gap:10 }}>
-                  <span className="mn-serif-i" style={{ fontSize:22, color:D, fontWeight:400 }}>{item.n}</span>
-                  <h4 className="mn-serif" style={{ fontSize:19, fontWeight:400, margin:0, letterSpacing:'-0.01em' }}>{item.t}</h4>
-                  <p style={{ fontSize:12, lineHeight:1.6, opacity:0.72, margin:0, fontWeight:300 }}>{item.d}</p>
+                { label: t('tech_uv'),     desc: t('tech_uv_d'),     icon: '☀️' },
+                { label: t('tech_cat'),    desc: t('tech_cat_d'),    icon: '🔆' },
+                { label: t('tech_ce'),     desc: t('tech_ce_d'),     icon: 'CE' },
+                { label: t('tech_impact'), desc: t('tech_impact_d'), icon: '⬡' },
+                { label: t('tech_drop'),   desc: t('tech_drop_d'),   icon: '●' },
+                { label: t('tech_fod'),    desc: t('tech_fod_d'),    icon: '✓' },
+              ].map((spec, i) => (
+                <div key={i} style={{
+                  padding: '16px 16px', borderRadius: 6,
+                  border: `1px solid ${G}14`, background: `${C}60`,
+                  display: 'flex', flexDirection: 'column', gap: 8,
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                    <span style={{
+                      width: 28, height: 28, borderRadius: 999,
+                      background: `${D}12`, border: `1px solid ${D}22`,
+                      display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                      fontSize: 11, fontWeight: 700, color: D, flexShrink: 0,
+                    }}>{spec.icon}</span>
+                    <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: 0.2 }}>{spec.label}</span>
+                  </div>
+                  <p style={{ fontSize: 11, lineHeight: 1.5, opacity: 0.55, margin: 0, fontWeight: 300 }}>{spec.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* PRESENCIA GLOBAL */}
+        <GlobalMap t={t} />
+
+        {/* POR QUÉ MINUË — rediseñado con ritmo visual */}
+        <section style={{ background: G, color: C, marginTop: 20 }}>
+          <div style={{ maxWidth: 1280, margin: '0 auto', padding: 'clamp(50px,7vw,80px) 24px' }}>
+
+            {/* Header */}
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: 16, flexWrap: 'wrap', marginBottom: 'clamp(40px,6vw,64px)', justifyContent: 'space-between' }}>
+              <div>
+                <div className="mn-label" style={{ color: D, marginBottom: 8 }}>{t('why_eyebrow')}</div>
+                <h3 className="mn-serif" style={{ fontSize:'clamp(32px,4.5vw,52px)', fontWeight:300, letterSpacing:'-0.01em', margin:0, lineHeight:1.05 }}>
+                  {t('why_h2_a')}<span className="mn-serif-i" style={{ color: D }}>{t('why_h2_b')}</span>{t('why_h2_c')}
+                </h3>
+              </div>
+              <p style={{ maxWidth:360, fontSize:13, lineHeight:1.7, opacity:0.6, margin:0, fontWeight:300, fontStyle:'italic' }}>{t('why_sub')}</p>
+            </div>
+
+            {/* Grid alternado: pilares 1+2 a la izq, foto a la derecha */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(20px,4vw,48px)', marginBottom: 'clamp(20px,3vw,32px)', alignItems: 'stretch' }} className="mn-why-grid">
+
+              {/* Pilares 01 y 02 */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+                {[
+                  { n: '01', tt: t('why_1_t'), d: t('why_1_d') },
+                  { n: '02', tt: t('why_2_t'), d: t('why_2_d') },
+                ].map((item, i) => (
+                  <div key={i} style={{
+                    padding: '24px 22px', border: `1px solid ${C}14`, borderRadius: 6,
+                    display: 'flex', gap: 18, alignItems: 'flex-start', flex: 1,
+                    background: `${C}04`,
+                  }}>
+                    <span className="mn-serif-i" style={{ fontSize: 44, color: D, fontWeight: 300, lineHeight: 0.85, flexShrink: 0, marginTop: 4 }}>{item.n}</span>
+                    <div>
+                      <h4 className="mn-serif" style={{ fontSize: 20, fontWeight: 400, margin: '0 0 8px', letterSpacing: '-0.01em' }}>{item.tt}</h4>
+                      <p style={{ fontSize: 12, lineHeight: 1.65, opacity: 0.65, margin: 0, fontWeight: 300 }}>{item.d}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Foto lifestyle */}
+              <div style={{ borderRadius: 6, overflow: 'hidden', minHeight: 300 }}>
+                <img
+                  src="https://res.cloudinary.com/dekvzwn7b/image/upload/w_800,q_auto,f_auto/v1776281988/_ANT3201_lhwuw6.jpg"
+                  alt="Minuë — lifestyle"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                />
+              </div>
+            </div>
+
+            {/* Pilares 03 y 04 — ancho completo */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(12px,2vw,20px)', marginBottom: 32 }} className="mn-why-bottom">
+              {[
+                { n: '03', tt: t('why_3_t'), d: t('why_3_d') },
+                { n: '04', tt: t('why_4_t'), d: t('why_4_d') },
+              ].map((item, i) => (
+                <div key={i} style={{
+                  padding: '24px 22px', border: `1px solid ${C}14`, borderRadius: 6,
+                  display: 'flex', gap: 18, alignItems: 'flex-start',
+                  background: i === 1 ? `${D}08` : `${C}04`,
+                  borderColor: i === 1 ? `${D}22` : `${C}14`,
+                }}>
+                  <span className="mn-serif-i" style={{ fontSize: 44, color: D, fontWeight: 300, lineHeight: 0.85, flexShrink: 0, marginTop: 4 }}>{item.n}</span>
+                  <div>
+                    <h4 className="mn-serif" style={{ fontSize: 20, fontWeight: 400, margin: '0 0 8px', letterSpacing: '-0.01em' }}>{item.tt}</h4>
+                    <p style={{ fontSize: 12, lineHeight: 1.65, opacity: 0.65, margin: 0, fontWeight: 300 }}>{item.d}</p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -1788,13 +2250,50 @@ export default function App() {
               <span style={{ opacity:0.5, fontSize:10 }}>·</span>
               <span style={{ fontSize:12, opacity:0.7, fontWeight:300 }}>{t('why_presente_d')}</span>
               <span style={{ opacity:0.5, fontSize:10 }}>·</span>
-              <a href="https://faire.com" target="_blank" rel="noreferrer" style={{
+              <a href="https://minueopticians.faire.com" target="_blank" rel="noreferrer" style={{
                 fontSize:11, color:D, fontWeight:600, letterSpacing:0.5,
                 border:`1px solid ${D}`, padding:'4px 12px', borderRadius:999,
               }}>{t('why_faire')}</a>
             </div>
           </div>
         </section>
+
+        <style>{`
+          @media (max-width: 680px) {
+            .mn-why-grid, .mn-why-bottom { grid-template-columns: 1fr !important; }
+          }
+        `}</style>
+
+        {/* LIFESTYLE STRIP — antes del CTA */}
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 0, maxHeight: 320, overflow: 'hidden' }} className="mn-lifestyle-strip">
+          <div style={{ overflow: 'hidden', position: 'relative' }}>
+            <img
+              src="https://res.cloudinary.com/dekvzwn7b/image/upload/w_700,q_auto,f_auto/v1776281988/_ANT3201_lhwuw6.jpg"
+              alt="Minuë SS26"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', filter: 'brightness(0.85)' }}
+            />
+            <div style={{
+              position: 'absolute', bottom: 20, left: 20,
+              background: 'rgba(24,51,47,0.7)', backdropFilter: 'blur(8px)',
+              padding: '8px 16px', borderRadius: 999,
+              fontSize: 11, color: C, fontWeight: 500, letterSpacing: 0.3,
+            }}>SS26 Collection</div>
+          </div>
+          <div style={{ overflow: 'hidden', position: 'relative', background: G }}>
+            <img
+              src="https://res.cloudinary.com/dekvzwn7b/image/upload/w_700,q_auto,f_auto/v1776280365/MINUE_5_gayd2f.png"
+              alt="Minuë Packaging"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', filter: 'brightness(0.9)' }}
+            />
+            <div style={{
+              position: 'absolute', bottom: 20, left: 20,
+              background: 'rgba(24,51,47,0.7)', backdropFilter: 'blur(8px)',
+              padding: '8px 16px', borderRadius: 999,
+              fontSize: 11, color: C, fontWeight: 500, letterSpacing: 0.3,
+            }}>Premium Packaging</div>
+          </div>
+        </div>
+        <style>{`@media (max-width: 600px) { .mn-lifestyle-strip { grid-template-columns: 1fr !important; max-height: 400px !important; } }`}</style>
 
         {/* CTA TARIFAS */}
         <section style={{ maxWidth: 1280, margin: '0 auto', padding: '40px 24px 60px' }}>
@@ -1828,39 +2327,234 @@ export default function App() {
         </section>
 
         {/* FOOTER */}
-        <footer style={{ background: G, color: C, padding: 'clamp(50px, 7vw, 80px) 24px 40px' }}>
+        <footer id="contacto" style={{ background: G, color: C, padding: 'clamp(50px, 7vw, 80px) 24px 40px' }}>
           <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-            <div style={{
-              display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-              gap: 40, marginBottom: 48,
-            }}>
+
+            {/* Logo + tagline */}
+            <div style={{ marginBottom: 48, display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 20 }}>
               <div>
-                <div style={{ marginBottom: 20 }}>
-                  <Logo color={C} height={42} />
-                </div>
-                <p style={{ fontSize: 12, lineHeight: 1.65, opacity: 0.7, fontWeight: 300, maxWidth: 280 }}>
-                  Acetato italiano premium.<br/>Distribución wholesale internacional.
+                <Logo color={C} height={42} />
+                <p style={{ fontSize: 12, lineHeight: 1.65, opacity: 0.55, fontWeight: 300, maxWidth: 320, marginTop: 12 }}>
+                  Distribución wholesale internacional · Diseño handcrafted in Spain
                 </p>
               </div>
-              <div>
-                <div className="mn-label" style={{ color: D, marginBottom: 14 }}>{t('ft_contact')}</div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: 13, fontWeight: 300 }}>
-                  <a href="https://wa.me/34661018380" target="_blank" rel="noreferrer">+34 661 018 380</a>
-                  <a href="mailto:hola@minueopticians.com">hola@minueopticians.com</a>
-                  <a href="https://minueopticians.com" target="_blank" rel="noreferrer">minueopticians.com</a>
-                  <a href="https://instagram.com/minue_opticians" target="_blank" rel="noreferrer">@minue_opticians</a>
-                </div>
-              </div>
-              <div>
-                <div className="mn-label" style={{ color: D, marginBottom: 14 }}>{t('ft_conditions')}</div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 6, fontSize: 12, fontWeight: 300, opacity: 0.85, lineHeight: 1.55 }}>
-                  <span>{t('ft_cond1')}</span>
-                  <span>{t('ft_cond2')}</span>
-                  <span>{t('ft_cond3')}</span>
-                  <span>{t('ft_cond4')}</span>
-                </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 6, fontSize: 12, fontWeight: 300, opacity: 0.6 }}>
+                <span>{t('ft_cond1')}</span>
+                <span>{t('ft_cond2')}</span>
+                <span>{t('ft_cond3')}</span>
+                <span>{t('ft_cond4')}</span>
               </div>
             </div>
+
+            {/* CARDS DE CONTACTO */}
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+              gap: 16, marginBottom: 48,
+            }}>
+
+              {/* España */}
+              <div style={{
+                padding: '22px 20px', borderRadius: 8,
+                border: `1px solid ${C}18`,
+                background: `${C}05`,
+                display: 'flex', flexDirection: 'column', gap: 10,
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <span style={{ fontSize: 18 }}>🇪🇸</span>
+                  <span style={{ fontSize: 8, fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase', color: D, border: `1px solid ${D}44`, padding: '2px 7px', borderRadius: 999 }}>España</span>
+                </div>
+                <div>
+                  <div className="mn-serif" style={{ fontSize: 18, fontWeight: 400, marginBottom: 2 }}>Minuë Opticians</div>
+                  <div style={{ fontSize: 11, opacity: 0.5, fontStyle: 'italic' }}>Sevilla, España</div>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 7, fontSize: 12, fontWeight: 300 }}>
+                  <a href="https://wa.me/34661018380" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: 7, color: C, opacity: 0.8, textDecoration: 'none' }}>
+                    <IconWA size={12} /> +34 661 018 380
+                  </a>
+                  <a href="mailto:hola@minueopticians.com" style={{ color: C, opacity: 0.8, textDecoration: 'none' }}>
+                    hola@minueopticians.com
+                  </a>
+                  <a href="https://minueopticians.com" target="_blank" rel="noreferrer" style={{ color: D, opacity: 0.9, textDecoration: 'none', fontSize: 11 }}>
+                    minueopticians.com ↗
+                  </a>
+                  <div style={{ display: 'flex', gap: 8, marginTop: 8 }}>
+                    <a href="https://wa.me/34661018380?text=Hola%2C%20me%20interesa%20el%20cat%C3%A1logo%20Minu%C3%AB%20Wholesale" target="_blank" rel="noreferrer" style={{
+                      flex: 1, padding: '9px 0', borderRadius: 6,
+                      border: `1px solid ${C}28`, color: C, textDecoration: 'none',
+                      fontSize: 11, fontWeight: 500, textAlign: 'center',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 5,
+                      background: `${C}08`,
+                    }}>
+                      <IconWA size={11} /> WhatsApp
+                    </a>
+                    <a href="mailto:hola@minueopticians.com?subject=Consulta%20Wholesale%20Minuë" style={{
+                      flex: 1, padding: '9px 0', borderRadius: 6,
+                      border: `1px solid ${C}28`, color: C, textDecoration: 'none',
+                      fontSize: 11, fontWeight: 500, textAlign: 'center',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 5,
+                      background: `${C}08`,
+                    }}>
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                      Email
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Francia */}
+              <div style={{
+                padding: '22px 20px', borderRadius: 8,
+                border: `1px solid ${C}18`,
+                background: `${C}05`,
+                display: 'flex', flexDirection: 'column', gap: 10,
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <span style={{ fontSize: 18 }}>🇫🇷</span>
+                  <span style={{ fontSize: 8, fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase', color: D, border: `1px solid ${D}44`, padding: '2px 7px', borderRadius: 999 }}>France</span>
+                </div>
+                <div>
+                  <div className="mn-serif" style={{ fontSize: 18, fontWeight: 400, marginBottom: 2 }}>MPM Diffusion</div>
+                  <div style={{ fontSize: 11, opacity: 0.5, fontStyle: 'italic' }}>Toulouse Showroom</div>
+                </div>
+                <div style={{ fontSize: 11, opacity: 0.4, lineHeight: 1.4, fontWeight: 300 }}>
+                  15 allée de Longueterre, Bat. 1, 2ème étage<br/>Montrabé, Midi-Pyrénées
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 7, fontSize: 12, fontWeight: 300 }}>
+                  <a href="https://wa.me/33677166421" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: 7, color: C, opacity: 0.8, textDecoration: 'none' }}>
+                    <IconWA size={12} /> +33 6 77 16 64 21
+                  </a>
+                  <a href="mailto:mpm.diffusion@outlook.fr" style={{ color: C, opacity: 0.8, textDecoration: 'none' }}>
+                    mpm.diffusion@outlook.fr
+                  </a>
+                  <div style={{ display: 'flex', gap: 8, marginTop: 8 }}>
+                    <a href="https://wa.me/33677166421?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20catalogue%20Minu%C3%AB%20Wholesale" target="_blank" rel="noreferrer" style={{
+                      flex: 1, padding: '9px 0', borderRadius: 6,
+                      border: `1px solid ${C}28`, color: C, textDecoration: 'none',
+                      fontSize: 11, fontWeight: 500, textAlign: 'center',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 5,
+                      background: `${C}08`,
+                    }}>
+                      <IconWA size={11} /> WhatsApp
+                    </a>
+                    <a href="mailto:mpm.diffusion@outlook.fr?subject=Commande%20Wholesale%20Minuë" style={{
+                      flex: 1, padding: '9px 0', borderRadius: 6,
+                      border: `1px solid ${C}28`, color: C, textDecoration: 'none',
+                      fontSize: 11, fontWeight: 500, textAlign: 'center',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 5,
+                      background: `${C}08`,
+                    }}>
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                      Email
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Colombia / Latam */}
+              <div style={{
+                padding: '22px 20px', borderRadius: 8,
+                border: `1px solid #00a65028`,
+                background: 'rgba(0,166,80,0.04)',
+                display: 'flex', flexDirection: 'column', gap: 10,
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <span style={{ fontSize: 18 }}>🌎</span>
+                  <span style={{ fontSize: 8, fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase', color: '#00a650', border: '1px solid rgba(0,166,80,0.35)', padding: '2px 7px', borderRadius: 999 }}>LATAM</span>
+                </div>
+                <div>
+                  <div className="mn-serif" style={{ fontSize: 18, fontWeight: 400, marginBottom: 2 }}>Minuë Colombia</div>
+                  <div style={{ fontSize: 11, opacity: 0.5, fontStyle: 'italic' }}>Todo Latinoamérica</div>
+                </div>
+                <div style={{ fontSize: 11, opacity: 0.4, lineHeight: 1.4, fontWeight: 300 }}>
+                  CRA 19a 85 69<br/>Bogotá, Colombia
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 7, fontSize: 12, fontWeight: 300 }}>
+                  <a href="https://wa.me/573227701800" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: 7, color: C, opacity: 0.8, textDecoration: 'none' }}>
+                    <IconWA size={12} /> +57 (322) 770-1800
+                  </a>
+                  <a href="mailto:hola@minueopticians.co" style={{ color: C, opacity: 0.8, textDecoration: 'none' }}>
+                    hola@minueopticians.co
+                  </a>
+                  <a href="https://minueopticians.co" target="_blank" rel="noreferrer" style={{ color: '#00a650', opacity: 0.9, textDecoration: 'none', fontSize: 11 }}>
+                    minueopticians.co ↗
+                  </a>
+                  <div style={{ display: 'flex', gap: 8, marginTop: 8 }}>
+                    <a href="mailto:hola@minueopticians.co?subject=Consulta%20Wholesale%20Minuë%20LATAM" style={{
+                      flex: 1, padding: '9px 0', borderRadius: 6,
+                      border: '1px solid rgba(0,166,80,0.3)', color: C, textDecoration: 'none',
+                      fontSize: 11, fontWeight: 500, textAlign: 'center',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 5,
+                      background: 'rgba(0,166,80,0.08)',
+                    }}>
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                      Email
+                    </a>
+                    <a href="https://wa.me/573227701800?text=Hola%2C%20me%20interesa%20el%20cat%C3%A1logo%20Minu%C3%AB%20Wholesale" target="_blank" rel="noreferrer" style={{
+                      flex: 1, padding: '9px 0', borderRadius: 6,
+                      border: '1px solid rgba(0,166,80,0.3)', color: C, textDecoration: 'none',
+                      fontSize: 11, fontWeight: 500, textAlign: 'center',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 5,
+                      background: 'rgba(0,166,80,0.12)',
+                    }}>
+                      <IconWA size={11} /> WhatsApp
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Resto del mundo */}
+              <div style={{
+                padding: '22px 20px', borderRadius: 8,
+                border: `1px solid ${C}18`,
+                background: `${C}05`,
+                display: 'flex', flexDirection: 'column', gap: 10,
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <span style={{ fontSize: 18 }}>🌍</span>
+                  <span style={{ fontSize: 8, fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase', color: D, border: `1px solid ${D}44`, padding: '2px 7px', borderRadius: 999 }}>Internacional</span>
+                </div>
+                <div>
+                  <div className="mn-serif" style={{ fontSize: 18, fontWeight: 400, marginBottom: 2 }}>Minuë Opticians</div>
+                  <div style={{ fontSize: 11, opacity: 0.5, fontStyle: 'italic' }}>Resto del mundo · Rest of the world</div>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 7, fontSize: 12, fontWeight: 300 }}>
+                  <a href="https://wa.me/34661018380?text=Hello%2C%20I%20am%20interested%20in%20the%20Minu%C3%AB%20Wholesale%20catalogue" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: 7, color: C, opacity: 0.8, textDecoration: 'none' }}>
+                    <IconWA size={12} /> +34 661 018 380
+                  </a>
+                  <a href="mailto:hola@minueopticians.com" style={{ color: C, opacity: 0.8, textDecoration: 'none' }}>
+                    hola@minueopticians.com
+                  </a>
+                  <a href="https://minueopticians.com" target="_blank" rel="noreferrer" style={{ color: D, opacity: 0.9, textDecoration: 'none', fontSize: 11 }}>
+                    minueopticians.com ↗
+                  </a>
+                  <div style={{ display: 'flex', gap: 8, marginTop: 8 }}>
+                    <a href="https://wa.me/34661018380?text=Hello%2C%20I%20am%20interested%20in%20the%20Minu%C3%AB%20Wholesale%20catalogue" target="_blank" rel="noreferrer" style={{
+                      flex: 1, padding: '9px 0', borderRadius: 6,
+                      border: `1px solid ${C}28`, color: C, textDecoration: 'none',
+                      fontSize: 11, fontWeight: 500, textAlign: 'center',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 5,
+                      background: `${C}08`,
+                    }}>
+                      <IconWA size={11} /> WhatsApp
+                    </a>
+                    <a href="mailto:hola@minueopticians.com?subject=Wholesale%20Enquiry%20Minu%C3%AB" style={{
+                      flex: 1, padding: '9px 0', borderRadius: 6,
+                      border: `1px solid ${C}28`, color: C, textDecoration: 'none',
+                      fontSize: 11, fontWeight: 500, textAlign: 'center',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 5,
+                      background: `${C}08`,
+                    }}>
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                      Email
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            {/* Bottom bar */}
             <div style={{
               paddingTop: 28, borderTop: `1px solid ${C}1a`,
               display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 14,
@@ -1891,7 +2585,81 @@ export default function App() {
           </button>
         )}
 
-        {/* SCROLL TO TOP */}
+        {/* TOAST cuando se añade un producto */}
+        {toast && (
+          <div style={{
+            position: 'fixed', bottom: cartCount > 0 ? 88 : 28, left: '50%',
+            transform: 'translateX(-50%)', zIndex: 55,
+            background: G, color: C,
+            padding: '10px 18px', borderRadius: 999,
+            fontSize: 12, fontWeight: 500, letterSpacing: 0.3,
+            boxShadow: '0 8px 24px -8px rgba(0,0,0,0.35)',
+            display: 'flex', alignItems: 'center', gap: 8,
+            animation: 'mn-rise 0.2s ease-out both',
+            whiteSpace: 'nowrap',
+          }}>
+            <IconCheck size={13} />
+            <span><strong>{toast.name}</strong> {t('toast_added')}</span>
+          </div>
+        )}
+
+        {/* BOTTOM SHEET filtros móvil */}
+        {filtersOpen && (
+          <>
+            <div onClick={() => setFiltersOpen(false)} className="mn-overlay" style={{
+              position: 'fixed', inset: 0, background: 'rgba(24,51,47,0.45)',
+              backdropFilter: 'blur(2px)', zIndex: 60,
+            }} />
+            <div className="mn-panel-bottom" style={{
+              position: 'fixed', bottom: 0, left: 0, right: 0, zIndex: 61,
+              background: C, borderRadius: '14px 14px 0 0',
+              padding: '24px 20px 32px',
+              boxShadow: '0 -8px 32px -10px rgba(0,0,0,0.2)',
+            }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
+                <h3 className="mn-serif" style={{ fontSize: 24, fontWeight: 300, margin: 0 }}>{t('filters_title')}</h3>
+                <button onClick={() => setFiltersOpen(false)} style={{
+                  width: 34, height: 34, borderRadius: 999, border: `1px solid ${G}22`,
+                  display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                }}><IconClose size={16} /></button>
+              </div>
+              <div className="mn-label-xs" style={{ opacity: 0.5, marginBottom: 10 }}>{t('filter_shape')}</div>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 20 }}>
+                {SHAPES.map(sh => {
+                  const active = activeShapes.includes(sh.id);
+                  return (
+                    <button key={sh.id} onClick={() => toggleShape(sh.id)} className="mn-pill" style={{
+                      padding: '8px 14px', borderRadius: 999, fontSize: 12, fontWeight: 500,
+                      border: `1px solid ${active ? G : `${G}22`}`,
+                      background: active ? `${G}12` : 'transparent',
+                    }}>{t(sh.tKey)}</button>
+                  );
+                })}
+              </div>
+              <div className="mn-label-xs" style={{ opacity: 0.5, marginBottom: 10 }}>{t('filter_color')}</div>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 24 }}>
+                {COLOR_FILTERS.map(cf => {
+                  const active = activeColors.includes(cf.id);
+                  return (
+                    <button key={cf.id} onClick={() => toggleColor(cf.id)} className="mn-pill" style={{
+                      display: 'inline-flex', alignItems: 'center', gap: 6,
+                      padding: '8px 12px 8px 9px', borderRadius: 999, fontSize: 12, fontWeight: 500,
+                      border: `1px solid ${active ? G : `${G}22`}`,
+                      background: active ? `${G}12` : 'transparent',
+                    }}>
+                      <span style={{ width: 10, height: 10, borderRadius: 999, background: COLOR_DOTS[cf.id] || '#999', flexShrink: 0 }} />
+                      {t(cf.tKey)}
+                    </button>
+                  );
+                })}
+              </div>
+              <button onClick={() => { setActiveShapes([]); setActiveColors([]); setFiltersOpen(false); }} style={{
+                width: '100%', padding: '13px', borderRadius: 4, border: `1px solid ${G}33`,
+                fontSize: 13, fontWeight: 500, background: 'transparent', color: G, cursor: 'pointer',
+              }}>{t('filter_clear')}</button>
+            </div>
+          </>
+        )}
         {scrollY > 400 && (
           <button
             onClick={() => { if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'smooth' }); }}
@@ -1951,11 +2719,15 @@ export default function App() {
         {quickViewProduct && (
           <QuickViewModal
             product={quickViewProduct}
+            allProducts={allFilteredProducts}
             colData={COLLECTIONS.find(c => c.id === quickViewProduct.col)}
             currentTierPrice={unitPrice}
             added={cart[quickViewProduct.id] || 0}
             onAdd={() => addToCart(quickViewProduct.id)}
             onClose={() => setQuickViewProduct(null)}
+            onNavigate={(p) => setQuickViewProduct(p)}
+            cart={cart}
+            onAddAny={(id) => addToCart(id)}
             t={t}
           />
         )}
@@ -2235,23 +3007,8 @@ function OrderPanel({
               </div>
             )}
 
-            {/* Total */}
-            <div style={{
-              display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 12,
-            }}>
-              <div>
-                <div className="mn-label" style={{ opacity: 0.55 }}>{t('panel_total')} · {cartCount} {t('panel_units')}</div>
-                {currentTier?.freeShip && <div style={{ fontSize: 10, color: D, marginTop: 3 }}>{t('panel_free_ship')}</div>}
-              </div>
-              <span className="mn-serif" style={{ fontSize: 34, fontWeight: 400, letterSpacing: '-0.02em' }}>
-                {cartTotal != null ? cartTotal.toFixed(2).replace('.', ',') : '—'}
-                <span style={{ fontSize: 18, opacity: 0.65, marginLeft: 4 }}>€</span>
-              </span>
-            </div>
-
-            {/* CALCULADORA DE RENTABILIDAD */}
+            {/* DOS BLOQUES: Lo que pagas / Lo que ingresas */}
             {cartTotal != null && (() => {
-              // Calcular ingresos estimados según colección de cada item
               const revenue = cartItems.reduce((sum, item) => {
                 const col = COLLECTIONS.find(c => c.id === item.col);
                 return sum + (col?.rrp ?? 50) * item.qty;
@@ -2264,36 +3021,45 @@ function OrderPanel({
               const marginEur = revenue - cost;
               const marginPct = Math.round((marginEur / revenue) * 100);
               return (
-                <div style={{
-                  padding: '12px 14px', marginBottom: 12, borderRadius: 4,
-                  background: `rgba(24,51,47,0.05)`,
-                  border: `1px solid ${G}18`,
-                }}>
-                  <div className="mn-label-xs" style={{ color: G, opacity: 0.6, marginBottom: 8 }}>
-                    {t('roi_title')}
-                  </div>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
-                    <div>
-                      <div style={{ fontSize: 9, opacity: 0.5, textTransform: 'uppercase', letterSpacing: 0.5, marginBottom: 2 }}>{t('roi_revenue')}</div>
-                      <div className="mn-serif" style={{ fontSize: 22, fontWeight: 400, letterSpacing: '-0.01em' }}>
-                        {revenue.toFixed(0)}€
-                      </div>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, marginBottom: 12 }}>
+                  {/* BLOQUE GRIS: Lo que pagas */}
+                  <div style={{
+                    padding: '12px 14px', borderRadius: 6,
+                    background: `${G}0a`, border: `1px solid ${G}18`,
+                  }}>
+                    <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: 1.5, textTransform: 'uppercase', opacity: 0.5, marginBottom: 6 }}>
+                      {t('panel_total')}
                     </div>
-                    <div>
-                      <div style={{ fontSize: 9, opacity: 0.5, textTransform: 'uppercase', letterSpacing: 0.5, marginBottom: 2 }}>{t('roi_margin')}</div>
-                      <div style={{ display: 'flex', alignItems: 'baseline', gap: 6 }}>
-                        <span className="mn-serif" style={{ fontSize: 22, fontWeight: 400, letterSpacing: '-0.01em', color: G }}>
-                          {marginEur.toFixed(0)}€
-                        </span>
-                        <span style={{
-                          fontSize: 11, fontWeight: 700, color: G,
-                          background: `${D}22`, padding: '2px 6px', borderRadius: 999,
-                        }}>~{marginPct}%</span>
-                      </div>
+                    <div className="mn-serif" style={{ fontSize: 26, fontWeight: 400, letterSpacing: '-0.02em', lineHeight: 1 }}>
+                      {cost.toFixed(2).replace('.', ',')}
+                      <span style={{ fontSize: 14, opacity: 0.6, marginLeft: 3 }}>€</span>
+                    </div>
+                    <div style={{ fontSize: 10, opacity: 0.55, marginTop: 4 }}>
+                      {cartCount} {t('panel_units')}
+                      {currentTier?.freeShip && <span style={{ color: D, marginLeft: 6 }}>· {t('panel_free_ship')}</span>}
                     </div>
                   </div>
-                  <div style={{ marginTop: 8, fontSize: 9, opacity: 0.45, lineHeight: 1.4 }}>
-                    {t('roi_disclaimer')}
+
+                  {/* BLOQUE VERDE: Lo que ingresas */}
+                  <div style={{
+                    padding: '12px 14px', borderRadius: 6,
+                    background: 'rgba(24,51,47,0.06)', border: `1.5px solid ${G}25`,
+                    position: 'relative', overflow: 'hidden',
+                  }}>
+                    <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: 1.5, textTransform: 'uppercase', color: D, marginBottom: 6 }}>
+                      {t('roi_revenue')}
+                    </div>
+                    <div className="mn-serif" style={{ fontSize: 26, fontWeight: 400, letterSpacing: '-0.02em', lineHeight: 1, color: G }}>
+                      {revenue.toFixed(0)}
+                      <span style={{ fontSize: 14, opacity: 0.6, marginLeft: 3 }}>€</span>
+                    </div>
+                    <div style={{ marginTop: 4, display: 'flex', alignItems: 'center', gap: 5 }}>
+                      <span style={{
+                        fontSize: 11, fontWeight: 700, color: G,
+                        background: `${D}28`, padding: '1px 7px', borderRadius: 999,
+                      }}>~{marginPct}%</span>
+                      <span style={{ fontSize: 10, opacity: 0.6 }}>{t('roi_margin')}</span>
+                    </div>
                   </div>
                 </div>
               );
@@ -2302,12 +3068,13 @@ function OrderPanel({
             {/* Región / destinatario */}
             <div style={{
               padding: '12px 14px', marginBottom: 12, borderRadius: 4,
-              border: `1px solid ${G}22`, background: isDistributor ? `${D}0d` : `${G}05`,
+              border: `1px solid ${region === 'latam' ? '#00a650' : G}22`,
+              background: region === 'latam' ? 'rgba(0,166,80,0.06)' : isDistributor ? `${D}0d` : `${G}05`,
             }}>
               <div style={{
                 display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 10, marginBottom: 8,
               }}>
-                <label className="mn-label-xs" style={{ color: D }}>
+                <label className="mn-label-xs" style={{ color: region === 'latam' ? '#00a650' : D }}>
                   {t('panel_region_label')}
                 </label>
                 <select className="mn-select" value={region} onChange={e => setRegion(e.target.value)} style={{
@@ -2322,15 +3089,34 @@ function OrderPanel({
                   ))}
                 </select>
               </div>
-              <div style={{ fontSize: 10.5, lineHeight: 1.5, opacity: 0.75 }}>
-                {isDistributor ? (
-                  <>
-                    <IconInfo size={11} /> {t('panel_region_hint_dist')}: <strong>{distributor.name}{distributor.contact ? ` · ${distributor.contact}` : ''}</strong>
-                  </>
-                ) : (
-                  t('panel_region_hint_default')
-                )}
-              </div>
+
+              {/* Info según región */}
+              {region === 'latam' ? (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                  <div style={{ fontSize: 10.5, lineHeight: 1.5, fontWeight: 600, color: '#00a650' }}>
+                    🌎 {t('latam_badge')} — {t('latam_hint')}
+                  </div>
+                  <div style={{ fontSize: 10, opacity: 0.6, lineHeight: 1.4 }}>
+                    {t('region_latam_desc')}
+                  </div>
+                  <div style={{ marginTop: 4, display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                    <span style={{ fontSize: 10, opacity: 0.7, display: 'flex', alignItems: 'center', gap: 4 }}>
+                      <IconWA size={10} /> +57 322 770 1800
+                    </span>
+                    <span style={{ fontSize: 10, opacity: 0.7 }}>
+                      · hola@minueopticians.co
+                    </span>
+                  </div>
+                </div>
+              ) : isDistributor ? (
+                <div style={{ fontSize: 10.5, lineHeight: 1.5, opacity: 0.75 }}>
+                  <IconInfo size={11} /> {t('panel_region_hint_dist')}: <strong>{distributor.name}{distributor.contact ? ` · ${distributor.contact}` : ''}</strong>
+                </div>
+              ) : (
+                <div style={{ fontSize: 10.5, lineHeight: 1.5, opacity: 0.75 }}>
+                  {t('panel_region_hint_default')}
+                </div>
+              )}
             </div>
 
             {!leadStep ? (
@@ -2472,18 +3258,27 @@ function TarifasBar({ units, currentTier, nextTier, onOpenTarifas, t }) {
             <span style={{ fontSize: 12, opacity: 0.6 }}>{t('bar_empty')}</span>
           ) : (
             <>
-              <span className="mn-serif" style={{ fontSize: 26, fontWeight: 400, letterSpacing: '-0.01em', lineHeight: 1 }}>
-                {currentTier?.price != null ? currentTier.price.toFixed(2).replace('.', ',') : '—'}
-                <span style={{ fontSize: 13, opacity: 0.65, marginLeft: 3 }}>€/ud</span>
-              </span>
-              <span style={{
-                padding: '2px 8px', borderRadius: 999, background: `${D}1a`,
-                color: D, fontSize: 10, fontWeight: 600,
-              }}>{currentTier?.label}</span>
-              {nextTier && (
-                <span style={{ fontSize: 11, opacity: 0.7 }}>
-                  · {t('bar_missing_a')} <strong style={{ color: D }}>{nextTier.min - units}</strong> {t('bar_missing_b')} {nextTier.price.toFixed(2).replace('.', ',')}€
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, flexWrap: 'wrap' }}>
+                <span className="mn-serif" style={{ fontSize: 26, fontWeight: 400, letterSpacing: '-0.01em', lineHeight: 1 }}>
+                  {currentTier?.price != null ? currentTier.price.toFixed(2).replace('.', ',') : '—'}
+                  <span style={{ fontSize: 13, opacity: 0.65, marginLeft: 3 }}>€/ud</span>
                 </span>
+                <span style={{ fontSize: 11, opacity: 0.4 }}>·</span>
+                <span style={{ fontSize: 12, opacity: 0.7 }}>
+                  vendes a <strong>50–69€</strong>
+                </span>
+                <span style={{ fontSize: 11, opacity: 0.4 }}>·</span>
+                <span style={{
+                  padding: '2px 8px', borderRadius: 999, background: `${D}1a`,
+                  color: D, fontSize: 11, fontWeight: 700,
+                }}>
+                  ~{currentTier?.price != null ? Math.round(((50 - currentTier.price) / 50) * 100) : 0}% margen
+                </span>
+              </div>
+              {nextTier && (
+                <div style={{ fontSize: 11, opacity: 0.65, marginTop: 2 }}>
+                  {t('bar_missing_a')} <strong style={{ color: D }}>{nextTier.min - units}</strong> {t('bar_missing_b')} <strong>{nextTier.price.toFixed(2).replace('.', ',')}€</strong>
+                </div>
               )}
             </>
           )}
@@ -2661,12 +3456,166 @@ function TarifasModal({ onClose, currentTier, t }) {
 // ============================================================
 // QuickViewModal
 // ============================================================
-function QuickViewModal({ product: p, colData, currentTierPrice, added, onAdd, onClose, t }) {
+// ============================================================
+// Fade helper
+// ============================================================
+function Fade({ children, d }) {
+  const ref = React.useRef(null);
+  const [vis, setVis] = useState(false);
+  useEffect(function () {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) { if (entry.isIntersecting) setVis(true); });
+    }, { threshold: 0.15 });
+    obs.observe(el);
+    return function () { obs.disconnect(); };
+  }, []);
+  return (
+    <div ref={ref} style={{
+      opacity: vis ? 1 : 0,
+      transform: vis ? 'translateY(0)' : 'translateY(24px)',
+      transition: `opacity 0.7s ease ${d || 0}s, transform 0.7s ease ${d || 0}s`,
+    }}>
+      {children}
+    </div>
+  );
+}
+
+// ============================================================
+// GlobalMap — Presencia Global
+// ============================================================
+function GlobalMap({ t }) {
+  const MAP_PTS = [
+    [490,175],[510,155],[520,195],[495,155],[500,145],[510,175],
+    [510,130],[455,210],[555,215],[470,140],
+    [790,350],[810,370],[770,365],
+    [280,285],
+    [200,175],[160,190],[230,200],[185,155],[215,170],
+  ];
+  const SEVILLA = [470, 210];
+  const COUNTRIES = ['Francia','España','Alemania','Italia','P.Bajos','Bélgica','Suiza','Dinamarca','Portugal','Grecia','R.Unido','Australia','Colombia','EE.UU.'];
+
+  return (
+    <section style={{ background: G, color: C, padding: 'clamp(50px,7vw,80px) 0' }}>
+      <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 24px' }}>
+        <Fade d={0}>
+          <div style={{ textAlign: 'center', marginBottom: 32 }}>
+            <div style={{
+              fontSize: 10, letterSpacing: 3, textTransform: 'uppercase',
+              color: D, fontWeight: 600, marginBottom: 14,
+            }}>Presencia Global</div>
+            <h2 className="mn-serif" style={{
+              fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 300,
+              letterSpacing: '-0.01em', margin: 0, lineHeight: 1.05,
+            }}>
+              De{' '}<span className="mn-serif-i" style={{ color: D }}>Sevilla</span>{' '}al mundo
+            </h2>
+            <p className="mn-serif-i" style={{
+              fontSize: 16, opacity: 0.35, marginTop: 10,
+            }}>Solo en puntos de venta seleccionados</p>
+          </div>
+        </Fade>
+
+        <Fade d={0.2}>
+          <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+            <svg
+              viewBox="0 0 960 480"
+              style={{ width: '100%', maxWidth: 700, height: 'auto', display: 'block' }}
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              {/* Continentes */}
+              <g fill={C} fillOpacity="0.07" stroke={C} strokeWidth="0.5" strokeOpacity="0.05">
+                <path d="M100,90 Q110,70 140,65 Q170,55 200,60 Q230,50 260,65 Q280,60 295,75 L305,90 Q295,100 280,115 L265,130 Q255,145 240,155 L225,165 Q215,175 200,190 L185,200 Q170,195 160,180 L145,165 Q130,150 120,135 Q110,120 105,105 Z" />
+                <path d="M200,195 L215,215 Q220,230 230,240 L240,250 Q235,260 225,258 L215,250 Q208,242 203,228 Z" />
+                <path d="M245,255 Q265,248 285,262 L305,280 Q315,300 312,330 L308,355 Q300,375 290,385 L278,392 Q268,388 262,368 L258,338 Q254,318 250,298 L245,275 Z" />
+                <path d="M435,95 Q450,85 468,88 Q485,80 505,92 L525,100 Q545,108 555,125 L560,145 Q558,165 548,178 L535,190 Q520,200 500,205 L485,210 Q468,215 455,212 L445,205 Q440,188 443,168 L448,148 Q445,125 435,95 Z" />
+                <path d="M445,105 Q448,95 458,98 L463,108 Q468,118 464,128 L456,134 Q450,130 445,120 Z" />
+                <path d="M438,110 Q440,105 444,108 L445,115 Q443,120 440,118 Z" />
+                <path d="M460,222 Q475,218 500,222 L520,230 Q540,248 548,270 L553,300 Q550,330 542,355 L530,375 Q518,388 502,392 L490,390 Q475,382 465,360 L458,330 Q452,300 450,270 L448,245 Q450,230 460,222 Z" />
+                <path d="M560,180 Q575,175 590,185 L600,195 Q605,208 598,218 L585,225 Q575,222 568,212 L562,198 Z" />
+                <path d="M590,75 Q625,65 665,78 Q700,68 740,82 L770,100 Q795,118 805,148 L812,170 Q805,192 785,202 L758,212 Q730,218 700,212 L672,205 Q650,195 632,178 L612,158 Q598,138 592,118 Z" />
+                <path d="M720,215 Q735,210 748,218 L755,228 Q752,240 742,245 L730,242 Q722,235 720,225 Z" />
+                <path d="M748,310 Q772,298 805,308 L828,322 Q840,338 835,362 L825,378 Q810,392 788,388 L768,378 Q752,362 748,342 Z" />
+                <path d="M855,375 Q858,370 862,375 L863,382 Q860,386 857,382 Z" />
+              </g>
+
+              {/* Ecuador */}
+              <line x1="40" y1="240" x2="920" y2="240" stroke={C} strokeWidth="0.3" opacity="0.04" strokeDasharray="4 8" />
+
+              {/* Líneas curvas desde Sevilla */}
+              {MAP_PTS.map(([px, py], i) => {
+                const mx = (SEVILLA[0] + px) / 2;
+                const my = Math.min(SEVILLA[1], py) - 20 - Math.abs(SEVILLA[0] - px) * 0.08;
+                return (
+                  <path key={i}
+                    d={`M${SEVILLA[0]},${SEVILLA[1]} Q${mx},${my} ${px},${py}`}
+                    fill="none" stroke={C} strokeWidth="0.4" opacity="0.1"
+                  />
+                );
+              })}
+
+              {/* Puntos destino */}
+              {MAP_PTS.map(([px, py], i) => (
+                <g key={i}>
+                  <circle cx={px} cy={py} r="7" fill="none" stroke={C} strokeWidth="0.3" opacity="0.12" />
+                  <circle cx={px} cy={py} r="3.5" fill={C} opacity="0.45" />
+                </g>
+              ))}
+
+              {/* Glow Sevilla */}
+              <defs>
+                <radialGradient id="sevillaGlow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stopColor={D} stopOpacity="0.35" />
+                  <stop offset="100%" stopColor={D} stopOpacity="0" />
+                </radialGradient>
+              </defs>
+              <circle cx={SEVILLA[0]} cy={SEVILLA[1]} r="40" fill="url(#sevillaGlow)" />
+              <circle cx={SEVILLA[0]} cy={SEVILLA[1]} r="12" fill="none" stroke={D} strokeWidth="0.5" opacity="0.22" />
+              <circle cx={SEVILLA[0]} cy={SEVILLA[1]} r="6" fill={D} opacity="0.85" />
+              <text x={SEVILLA[0]} y={SEVILLA[1] - 14} textAnchor="middle"
+                fill={D} fontSize="7" fontWeight="600" letterSpacing="2.5"
+                fontFamily="'DM Sans', sans-serif"
+              >SEVILLA</text>
+            </svg>
+          </div>
+        </Fade>
+
+        {/* Lista países */}
+        <Fade d={0.4}>
+          <div style={{
+            marginTop: 28, paddingTop: 20,
+            borderTop: `1px solid ${C}12`,
+            display: 'flex', flexWrap: 'wrap',
+            gap: '5px 14px', justifyContent: 'center',
+          }}>
+            {COUNTRIES.map((c, i) => (
+              <span key={i} style={{
+                fontSize: 10, opacity: 0.3, fontFamily: "'DM Sans', sans-serif",
+                letterSpacing: 0.3,
+              }}>
+                {i > 0 && <span style={{ marginRight: 14, opacity: 0.4 }}>·</span>}
+                {c}
+              </span>
+            ))}
+          </div>
+        </Fade>
+      </div>
+    </section>
+  );
+}
+
+
+function QuickViewModal({ product: p, allProducts, colData, currentTierPrice, added, onAdd, onClose, onNavigate, cart, onAddAny, t }) {
   const rrp = colData?.rrp ?? 50;
   const fixedCost = colData?.unitCost ?? null;
   const displayCost = fixedCost ?? currentTierPrice ?? DISPLAY_PRICE;
   const marginPct = Math.round(((rrp - displayCost) / rrp) * 100);
   const shapeObj = SHAPES.find(s => s.id === p.shape);
+
+  const currentIdx = allProducts ? allProducts.findIndex(x => x.id === p.id) : -1;
+  const prevP = allProducts && currentIdx > 0 ? allProducts[currentIdx - 1] : null;
+  const nextP = allProducts && currentIdx < allProducts.length - 1 ? allProducts[currentIdx + 1] : null;
 
   return (
     <>
@@ -2697,8 +3646,34 @@ function QuickViewModal({ product: p, colData, currentTierPrice, added, onAdd, o
                 color: '#fff',
               }}>{t(URGENCY_LABELS[p.urgency])}</span>
             )}
-            {p.img ? (
-              <img src={p.img} alt={p.name} style={{ maxWidth: '100%', maxHeight: 220, objectFit: 'contain' }} />
+            {/* Navegación ← → */}
+          {(prevP || nextP) && (
+            <div style={{
+              position: 'absolute', top: '50%', left: 0, right: 0,
+              transform: 'translateY(-50%)',
+              display: 'flex', justifyContent: 'space-between',
+              padding: '0 8px', pointerEvents: 'none',
+            }}>
+              {prevP ? (
+                <button onClick={() => onNavigate(prevP)} style={{
+                  pointerEvents: 'auto',
+                  width: 32, height: 32, borderRadius: 999,
+                  background: 'rgba(248,239,230,0.9)', border: `1px solid ${G}22`,
+                  display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                  cursor: 'pointer', fontSize: 14, color: G,
+                }}>‹</button>
+              ) : <span />}
+              {nextP ? (
+                <button onClick={() => onNavigate(nextP)} style={{
+                  pointerEvents: 'auto',
+                  width: 32, height: 32, borderRadius: 999,
+                  background: 'rgba(248,239,230,0.9)', border: `1px solid ${G}22`,
+                  display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                  cursor: 'pointer', fontSize: 14, color: G,
+                }}>›</button>
+              ) : <span />}
+            </div>
+          )}
             ) : (
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10, opacity: 0.3 }}>
                 <svg width="64" height="40" viewBox="0 0 42 28" fill="none">
@@ -2727,8 +3702,18 @@ function QuickViewModal({ product: p, colData, currentTierPrice, added, onAdd, o
 
             <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
               <div style={{ padding: '8px 14px', background: `${G}08`, borderRadius: 4, flex: '1 1 auto' }}>
-                <div className="mn-label-xs" style={{ opacity: 0.55, marginBottom: 3 }}>{t('qv_rrp')}</div>
-                <div className="mn-serif" style={{ fontSize: 22, fontWeight: 400 }}>{rrp}€</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 3 }}>
+                  <span className="mn-label-xs" style={{ opacity: 0.55 }}>{t('qv_rrp')}</span>
+                  {p.col === 'Acetato' && (
+                    <span style={{ fontSize: 7, fontWeight: 700, color: D, background: `${D}18`, padding: '1px 6px', borderRadius: 999 }}>Acetato Premium</span>
+                  )}
+                </div>
+                <div className="mn-serif" style={{ fontSize: 22, fontWeight: 400 }}>{rrp}€
+                  {p.col !== 'Acetato' && <span style={{ fontSize: 11, opacity: 0.45, marginLeft: 4 }}>rec.</span>}
+                </div>
+                {p.col === 'Acetato' && (
+                  <div style={{ fontSize: 10, opacity: 0.5, marginTop: 2 }}>PVP colecciones: 50€</div>
+                )}
               </div>
               <div style={{ padding: '8px 14px', background: `${D}12`, borderRadius: 4, flex: '1 1 auto' }}>
                 <div className="mn-label-xs" style={{ color: D, marginBottom: 3 }}>{t('margin_label')}</div>
@@ -2895,17 +3880,24 @@ function ProductCard({ product, added, onAdd, rank, showRank, variant = 'normal'
             fontSize: isTop ? 18 : 17, fontWeight: 400, lineHeight: 1.15, margin: 0, minWidth: 0,
           }}>{p.name}</h4>
           <div style={{ flexShrink: 0, textAlign: 'right' }}>
-            <div style={{ display: 'flex', alignItems: 'baseline', gap: 4, justifyContent: 'flex-end' }}>
-              <span style={{ fontSize: 8, opacity: 0.55, letterSpacing: 0.3, textTransform: 'uppercase', fontWeight: 500 }}>{t('pvp_label')}</span>
-              <span className="mn-serif" style={{ fontSize: 15, fontWeight: 400 }}>{rrp}€</span>
-            </div>
-            <div className="mn-card-price-badge" style={{
-              marginTop: 2, padding: '1px 6px', borderRadius: 999,
+            {/* Margen primero, PVP diferenciado por colección */}
+            <div style={{
+              padding: '2px 7px', borderRadius: 999,
               background: `rgba(24,51,47,0.07)`, display: 'inline-flex',
-              alignItems: 'center', gap: 3,
+              alignItems: 'center', gap: 3, marginBottom: 2,
             }}>
               <span style={{ fontSize: 8, opacity: 0.55, fontWeight: 500, textTransform: 'uppercase' }}>{t('margin_label')}</span>
-              <span style={{ fontSize: 10, fontWeight: 700, color: G }}>~{marginPct}%</span>
+              <span style={{ fontSize: 11, fontWeight: 700, color: G }}>~{marginPct}%</span>
+            </div>
+            <div className="mn-card-price-badge" style={{ display: 'flex', alignItems: 'baseline', gap: 3, justifyContent: 'flex-end', flexWrap: 'wrap' }}>
+              <span style={{ fontSize: 8, opacity: 0.45, letterSpacing: 0.3, textTransform: 'uppercase', fontWeight: 500 }}>{t('pvp_label')}</span>
+              <span className="mn-serif" style={{ fontSize: 13, fontWeight: 400, opacity: 0.7 }}>{rrp}€</span>
+              {p.col === 'Acetato' && (
+                <span style={{
+                  fontSize: 7, fontWeight: 700, color: D, letterSpacing: 0.8,
+                  background: `${D}14`, padding: '1px 5px', borderRadius: 999, marginLeft: 1,
+                }}>ACE</span>
+              )}
             </div>
           </div>
         </div>
