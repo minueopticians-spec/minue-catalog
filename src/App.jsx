@@ -1761,7 +1761,7 @@ export default function App() {
         img { display: block; max-width: 100%; }
         a { color: inherit; text-decoration: none; }
 
-        .mn-card { transition: transform 0.35s cubic-bezier(.2,.7,.2,1), box-shadow 0.35s ease; overflow: hidden; }
+        .mn-card { transition: transform 0.35s cubic-bezier(.2,.7,.2,1), box-shadow 0.35s ease; overflow: hidden; height: 100%; box-sizing: border-box; }
         .mn-card:hover { transform: translateY(-3px); box-shadow: 0 22px 50px -24px rgba(24,51,47,0.22); }
         .mn-card .mn-img { transition: transform 0.6s cubic-bezier(.2,.7,.2,1); }
         .mn-card:hover .mn-img { transform: scale(1.08) rotate(2deg); }
@@ -1805,11 +1805,11 @@ export default function App() {
 
         /* Card interna — responsive por container */
         .mn-card-body { padding: 10px 8px 8px; }
-        .mn-card-title { font-size: 22px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: "DM Sans", sans-serif; font-weight: 800; }
+        .mn-card-title { font-size: 19px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: "DM Sans", sans-serif; font-weight: 800; }
         .mn-card-img { padding: 0; }
         @media (max-width: 600px) {
           .mn-card-body { padding: 8px 6px 6px; }
-          .mn-card-title { font-size: 17px !important; }
+          .mn-card-title { font-size: 15px !important; }
           .mn-card-img { padding: 0 !important; }
           .mn-card-price-row { flex-direction: column !important; gap: 2px !important; align-items: flex-start !important; }
           .mn-card-price-badge { display: none !important; }
@@ -2754,20 +2754,21 @@ export default function App() {
                                   </div>
                                   {/* Info */}
                                   <div className="mn-card-body" style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-                                    <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 6 }}>
-                                      <h4 className="mn-card-title" style={{
-                                        fontSize: 22, fontWeight: 800, lineHeight: 1.2, margin: 0,
-                                        fontFamily: 'DM Sans, sans-serif',
-                                        letterSpacing: '-0.02em', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
-                                      }}>{base}</h4>
-                                      <div style={{
-                                        flexShrink: 0, padding: '2px 7px', borderRadius: 999,
-                                        background: `rgba(24,51,47,0.07)`,
-                                        display: 'inline-flex', alignItems: 'center', gap: 3,
-                                      }}>
-                                        <span style={{ fontSize: 8, opacity: 0.55, fontWeight: 500, textTransform: 'uppercase' }}>{t('margin_label')}</span>
-                                        <span style={{ fontSize: 11, fontWeight: 700, color: G }}>~{Math.round(((colData?.rrp ?? 50) - (unitPrice ?? DISPLAY_PRICE)) / (colData?.rrp ?? 50) * 100)}%</span>
-                                      </div>
+                                    {/* Nombre — ancho completo sin truncar */}
+                                    <h4 className="mn-card-title" style={{
+                                      fontSize: 19, fontWeight: 800, lineHeight: 1.2, margin: 0,
+                                      fontFamily: 'DM Sans, sans-serif',
+                                      letterSpacing: '-0.02em',
+                                    }}>{base}</h4>
+                                    {/* Margen debajo del nombre */}
+                                    <div style={{
+                                      padding: '2px 8px', borderRadius: 999,
+                                      background: `rgba(24,51,47,0.07)`,
+                                      display: 'inline-flex', alignItems: 'center', gap: 3,
+                                      alignSelf: 'flex-start',
+                                    }}>
+                                      <span style={{ fontSize: 8, opacity: 0.55, fontWeight: 500, textTransform: 'uppercase' }}>{t('margin_label')}</span>
+                                      <span style={{ fontSize: 11, fontWeight: 700, color: G }}>~{Math.round(((colData?.rrp ?? 50) - (unitPrice ?? DISPLAY_PRICE)) / (colData?.rrp ?? 50) * 100)}%</span>
                                     </div>
                                     {/* Dots de todos los colores */}
                                     <div style={{ display: 'flex', alignItems: 'center', gap: 4, flexWrap: 'wrap' }}>
@@ -2787,7 +2788,7 @@ export default function App() {
                                       onClick={(e) => { e.stopPropagation(); setQuickViewProduct(rep); }}
                                       className="mn-btn mn-card-btn"
                                       style={{
-                                        marginTop: 2, alignSelf: 'stretch',
+                                        marginTop: 'auto', alignSelf: 'stretch',
                                         display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 5,
                                         padding: '8px 10px', borderRadius: 999,
                                         background: inCartCount > 0 ? G : 'transparent',
@@ -5401,7 +5402,7 @@ function ProductCard({ product, added, onAdd, rank, showRank, variant = 'normal'
         <div className="mn-card-price-row" style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 6 }}>
           <div style={{ minWidth: 0 }}>
             <h4 className="mn-card-title" style={{
-              fontSize: isTop ? 21 : 19, fontWeight: 800, lineHeight: 1.2, margin: 0,
+              fontSize: isTop ? 18 : 16, fontWeight: 800, lineHeight: 1.2, margin: 0,
               fontFamily: 'DM Sans, sans-serif',
               letterSpacing: '-0.02em', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
             }}>{p.name}</h4>
@@ -5449,7 +5450,7 @@ function ProductCard({ product, added, onAdd, rank, showRank, variant = 'normal'
           onClick={() => onAdd()}
           className="mn-btn mn-card-btn"
           style={{
-            marginTop: 4, alignSelf: 'stretch',
+            marginTop: 'auto', alignSelf: 'stretch',
             display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 5,
             padding: '8px 10px', borderRadius: 999,
             background: added ? G : 'transparent',
