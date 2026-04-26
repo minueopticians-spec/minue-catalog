@@ -1797,7 +1797,9 @@ export default function App() {
 
         .mn-grid { display: grid; gap: 28px; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); }
         @media (max-width: 900px)  { .mn-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; } }
-        @media (max-width: 600px)  { .mn-grid { grid-template-columns: repeat(1, 1fr); gap: 14px; } }
+        @media (max-width: 600px)  { .mn-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
+        @media (max-width: 600px)  { .mn-card-img { aspect-ratio: 4/3 !important; } }
+        @media (max-width: 600px)  { .mn-card-body { padding: 6px 4px 6px !important; } }
         @media (max-width: 360px)  { .mn-grid { grid-template-columns: 1fr; gap: 10px; } }
 
         .mn-top-grid { display: grid; gap: 24px; grid-template-columns: repeat(4, 1fr); }
@@ -1810,11 +1812,11 @@ export default function App() {
         .mn-card-img { padding: 0; }
         @media (max-width: 600px) {
           .mn-card-body { padding: 8px 6px 6px; }
-          .mn-card-title { font-size: 14px !important; }
+          .mn-card-title { font-size: 12px !important; }
           .mn-card-img { padding: 0 !important; }
           .mn-card-price-row { flex-direction: column !important; gap: 2px !important; align-items: flex-start !important; }
           .mn-card-price-badge { display: none !important; }
-          .mn-card-btn { padding: 7px 8px !important; font-size: 10px !important; }
+          .mn-card-btn { padding: 5px 6px !important; font-size: 9px !important; margin-top: 2px !important; }
           .mn-col-inner { padding: 12px !important; }
           .mn-qv-btn { opacity: 0.7 !important; }
         }
