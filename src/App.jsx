@@ -2874,7 +2874,7 @@ export default function App() {
           }}>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: 16 }}>
               <div>
-                <div className="mn-label" style={{ color: D, marginBottom: 6 }}>{t('pkg_eyebrow')}</div>
+                <div className="mn-label" style={{ color: D, marginBottom: 10, fontSize: 11, letterSpacing: 2.5, fontWeight: 700 }}>{t('pkg_eyebrow')}</div>
                 <h3 className="mn-serif" style={{ fontSize: 'clamp(30px, 4vw, 46px)', fontWeight: 300, letterSpacing: '-0.01em', margin: 0, lineHeight: 1.05 }}>
                   {t('pkg_h2_a')} <span className="mn-serif-i">{t('pkg_h2_b')}</span>{t('pkg_h2_c')}
                 </h3>
@@ -2936,7 +2936,7 @@ export default function App() {
             <div style={{ display: 'flex', alignItems: 'baseline', gap: 16, flexWrap: 'wrap', marginBottom: 28, justifyContent: 'space-between' }}>
               <div>
                 <div className="mn-label" style={{ color: D, marginBottom: 6, opacity: 0.7 }}>{t('tech_eyebrow')}</div>
-                <h3 className="mn-serif" style={{ fontSize: 'clamp(22px,3vw,32px)', fontWeight: 300, letterSpacing: '-0.01em', margin: 0, opacity: 0.85 }}>
+                <h3 className="mn-serif" style={{ fontSize: 'clamp(32px,4vw,46px)', fontWeight: 400, letterSpacing: '-0.02em', margin: 0 }}>
                   {t('tech_h2')}
                 </h3>
               </div>
@@ -2978,7 +2978,7 @@ export default function App() {
           <div style={{ maxWidth: 1280, margin: '0 auto', padding: 'clamp(50px,7vw,80px) 24px' }}>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: 16, flexWrap: 'wrap', marginBottom: 'clamp(32px,5vw,56px)', justifyContent: 'space-between' }}>
               <div>
-                <div className="mn-label" style={{ color: D, marginBottom: 8 }}>{t('why_eyebrow')}</div>
+                <div className="mn-label" style={{ color: D, marginBottom: 10, fontSize: 11, letterSpacing: 2.5, fontWeight: 700 }}>{t('why_eyebrow')}</div>
                 <h3 className="mn-serif" style={{ fontSize:'clamp(30px,4.5vw,52px)', fontWeight:300, letterSpacing:'-0.01em', margin:0, lineHeight:1.05 }}>
                   {t('why_h2_a')}<span className="mn-serif-i" style={{ color: D }}>{t('why_h2_b')}</span>{t('why_h2_c')}
                 </h3>
@@ -3765,7 +3765,7 @@ function OrderPanel({
                   </div>
                   <div style={{ minWidth: 0 }}>
                     <div className="mn-label-xs" style={{ opacity: 0.45, marginBottom: 1 }}>{item.col}</div>
-                    <div className="mn-serif" style={{ fontSize: 15, fontWeight: 400, lineHeight: 1.2, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.name}</div>
+                    <div className="mn-serif" style={{ fontSize: 15, fontWeight: 700, lineHeight: 1.2, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.name}</div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 3 }}>
                       <span style={{ fontSize: 11, opacity: 0.6 }}>
                         {item.qty} × {unitPrice != null ? `${unitPrice.toFixed(2).replace('.', ',')}€` : '—'}
@@ -5222,7 +5222,7 @@ function RecentClients() {
       <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12, marginBottom: 'clamp(20px,3vw,32px)' }}>
         <div>
           <div className="mn-label-xs" style={{ color: D, marginBottom: 6 }}>Comunidad</div>
-          <h3 className="mn-serif" style={{ fontSize: 'clamp(22px,3vw,32px)', fontWeight: 300, margin: 0, letterSpacing: '-0.02em' }}>
+          <h3 className="mn-serif" style={{ fontSize: 'clamp(32px,4vw,46px)', fontWeight: 400, margin: 0, letterSpacing: '-0.025em' }}>
             Últimas tiendas que confían en Minuë<span style={{ color: D }}>.</span>
           </h3>
         </div>
@@ -5298,7 +5298,7 @@ function FaqSection({ t }) {
   return (
     <section id="faq" className="mn-reveal" style={{ maxWidth: 860, margin: '0 auto', padding: '60px 24px', scrollMarginTop: 80 }}>
       <div style={{ marginBottom: 36 }}>
-        <div className="mn-label-xs" style={{ color: D, marginBottom: 8 }}>{t('faq_eyebrow')}</div>
+        <div className="mn-label" style={{ color: D, marginBottom: 10, fontSize: 11, letterSpacing: 2.5, fontWeight: 700 }}>{t('faq_eyebrow')}</div>
         <h2 className="mn-serif" style={{ fontSize: 'clamp(28px,4vw,42px)', fontWeight: 300, margin: 0, letterSpacing: '-0.02em' }}>
           {t('faq_h2')}<span style={{ color: D }}>.</span>
         </h2>
