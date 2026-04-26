@@ -3674,6 +3674,10 @@ function QuickViewModal({ product: p, allProducts, colData, currentTierPrice, ad
               ) : <span />}
             </div>
           )}
+            {p.img ? (
+              <img src={p.img} alt={p.name} className="mn-img" style={{
+                maxWidth: '92%', maxHeight: '92%', objectFit: 'contain',
+              }} />
             ) : (
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10, opacity: 0.3 }}>
                 <svg width="64" height="40" viewBox="0 0 42 28" fill="none">
