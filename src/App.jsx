@@ -907,7 +907,7 @@ const PRODUCTS = [
   // ── ICONS — cada variante de color es su propia entrada, orden por ventas ─
 
   // Lawrence: 526 uds total — mayor vendedor Icons
-  { id:23,  name:"Lawrence Guiza",    col:"Icons", shape:"square", colors:["miel","dorado"],   rank:9,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776278426/fvfdcrfdwed_tkuq62.webp" },
+  { id:23,  name:"Lawrence Guiza",    col:"Icons", shape:"square", colors:["miel","dorado"],   rank:9,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776278426/fvfdcrfdwed_tkuq62.webp" , imgScale:1.2},
   { id:123, name:"Lawrence Velvet",   col:"Icons", shape:"square", colors:["burdeos"],          rank:50, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777237096/IMG_5850_1296x_goovpe.webp" },
   { id:124, name:"Lawrence Carey",    col:"Icons", shape:"square", colors:["carey"],            rank:51, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777237097/IMG_0266_1296x_rucknr.webp" },
   { id:125, name:"Lawrence Bay",      col:"Icons", shape:"square", colors:["azul"],             rank:52, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777237096/Miproyecto_12_1512x_epy8bc.webp" },
@@ -915,7 +915,7 @@ const PRODUCTS = [
   { id:127, name:"Lawrence Black",    col:"Icons", shape:"square", colors:["negro"],            rank:54, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776278426/fvfdcrfdwed_tkuq62.webp" },
 
   // Lamarr: 495 uds total
-  { id:43,  name:"Lamarr Carbon Mate", col:"Icons", shape:"cateye", urgency:"hot", colors:["negro","carbono"], rank:3,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777235608/IMG_4646_1080x_w3jhp7.webp" },
+  { id:43,  name:"Lamarr Carbon Mate", col:"Icons", shape:"cateye", urgency:"hot", colors:["negro","carbono"], rank:3,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777235608/IMG_4646_1080x_w3jhp7.webp" , imgScale:1.25},
   { id:130, name:"Lamarr Louvre",      col:"Icons", shape:"cateye",               colors:["beige","nude"],    rank:55, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776277706/LAMARRBIC_900x_nuvcqj.webp" },
   { id:131, name:"Lamarr Carey",       col:"Icons", shape:"cateye",               colors:["carey"],           rank:56, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235607/IMG_4649_1080x_wxyeia.webp" },
   { id:132, name:"Lamarr Dark",        col:"Icons", shape:"cateye",               colors:["marrón"],          rank:57, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235608/IMG_3772_1080x_rmz7kx.webp" },
@@ -927,7 +927,7 @@ const PRODUCTS = [
   { id:95,  name:"Loren Cream",  col:"Icons", shape:"cateye", colors:["crema","beige"],   rank:23, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776986729/IMG_5845_1296x_egicjl.webp" },
 
   // Berry: 332 uds total
-  { id:30,  name:"Berry Tea",         col:"Icons", shape:"round", urgency:"trending", colors:["marrón","cálido"],  rank:10, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776278629/IMG_0263_720x_uln010.webp" },
+  { id:30,  name:"Berry Tea",         col:"Icons", shape:"round", urgency:"trending", colors:["marrón","cálido"],  rank:10, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776278629/IMG_0263_720x_uln010.webp" , imgScale:1.2},
   { id:140, name:"Berry Carbon",      col:"Icons", shape:"round",                    colors:["negro","carbono"],   rank:58, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777241614/IMG_0241_1080x_qkxc8c.webp" },
   { id:141, name:"Berry Navy Blue",   col:"Icons", shape:"round",                    colors:["azul"],              rank:59, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777241615/IMG_0256_1080x_cvdsjb.webp" },
   { id:142, name:"Berry Brown Carey", col:"Icons", shape:"round",                    colors:["marrón","carey"],    rank:60, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777241611/IMG_3770_1080x_zcz0yh.webp" },
@@ -948,20 +948,20 @@ const PRODUCTS = [
   { id:223, name:"Aretha Rosse", col:"Icons", shape:"round", colors:["rosa"],  rank:68, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777232754/IMG_8147_1080x_pjprsu.webp" },
 
   // Ziyi: ~200 uds (sin imagen — nombres con color primero en CSV)
-  { id:42,  name:"Ziyi Mandarina", col:"Icons", shape:"square", colors:["naranja"],  rank:26, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777232015/IMG_5842_1512x_xgnwe0.webp" },
+  { id:42,  name:"Ziyi Mandarina", col:"Icons", shape:"square", colors:["naranja"],  rank:26, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777232015/IMG_5842_1512x_xgnwe0.webp" , imgScale:1.15},
   { id:161, name:"Ziyi Ágata",     col:"Icons", shape:"square", colors:["verde"],    rank:68, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777232015/IMG_5839_1080x_c2fyio.webp" },
   { id:162, name:"Ziyi Ámbar",     col:"Icons", shape:"square", colors:["ámbar"],   rank:69, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777232014/IMG_5840_1080x_bzjtbw.webp" },
   { id:163, name:"Ziyi Jaspe",     col:"Icons", shape:"square", colors:["marrón"],  rank:70, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777232015/IMG_5844_1080x_pqlbnu.webp" },
   { id:164, name:"Ziyi Rosas",     col:"Icons", shape:"square", colors:["rosa"],    rank:71, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777232015/IMG_0220_1080x_wf6yrs.webp" },
 
   // Karina: 158 uds (sin imagen)
-  { id:41,  name:"Karina Jade",  col:"Icons", shape:"cateye", colors:["verde"],          rank:27, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777232565/Minueoptician210222-010_1080x_cdjfa1.webp" },
+  { id:41,  name:"Karina Jade",  col:"Icons", shape:"cateye", colors:["verde"],          rank:27, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777232565/Minueoptician210222-010_1080x_cdjfa1.webp" , imgScale:1.25},
   { id:170, name:"Karina Ruby",  col:"Icons", shape:"cateye", colors:["rojo"],           rank:72, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777232564/Minueoptician210222-011_1080x_ys1csw.webp" },
   { id:171, name:"Karina Black", col:"Icons", shape:"cateye", colors:["negro"],          rank:73, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777232564/IMG_4507_1080x_ukknez.webp" },
   { id:172, name:"Karina Copo",  col:"Icons", shape:"cateye", colors:["blanco","crema"], rank:74, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777232564/IMG_0235_1080x_cmzzxa.webp" },
 
   // Maclaine: 306 uds (TÉ MACLAINE 173 + BLACK 131, sin imagen)
-  { id:25,  name:"Maclaine Tea",   col:"Icons", shape:"round", colors:["marrón","cálido"], rank:28, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233400/IMG_4503_1080x_qgdqtl.webp" },
+  { id:25,  name:"Maclaine Tea",   col:"Icons", shape:"round", colors:["marrón","cálido"], rank:28, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233400/IMG_4503_1080x_qgdqtl.webp" , imgScale:1.25},
   { id:180, name:"Maclaine Black", col:"Icons", shape:"round", colors:["negro"],            rank:75, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233400/IMG_4504_1080x_su4xqk.webp" },
 
   // Cleo: 127 uds (tiene imágenes)
@@ -969,7 +969,7 @@ const PRODUCTS = [
   { id:98,  name:"Cleo Black",  col:"Icons", shape:"cateye", colors:["negro"],           rank:29, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776986729/IMG_2568_0cdea3e3-91be-451b-97a0-301f495895da_1512x_pmfpjj.webp" },
 
   // Thurman: 147 uds (sin imagen — CARBONO THURMAN en CSV)
-  { id:34,  name:"Thurman Carey",   col:"Essential", shape:"rectangular", colors:["carey"],          rank:30, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777230867/IMG_2556_1512x_tmkqfm.webp" },
+  { id:34,  name:"Thurman Carey",   col:"Essential", shape:"rectangular", colors:["carey"],          rank:30, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777230867/IMG_2556_1512x_tmkqfm.webp" , imgScale:1.3},
   { id:181, name:"Thurman Cloud",   col:"Essential", shape:"rectangular", colors:["gris"],            rank:76, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777230867/IMG_3764_1512x_wku82m.webp" },
   { id:182, name:"Thurman Black",   col:"Essential", shape:"rectangular", colors:["negro"],           rank:77, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777230866/IMG_2553_1512x_wavffv.webp" },
   { id:184, name:"Thurman Ember",   col:"Essential", shape:"rectangular", colors:["naranja"],         rank:79, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777230866/IMG_5592_1512x_eaobsj.webp" },
@@ -999,7 +999,7 @@ const PRODUCTS = [
   { id:188, name:"Foster Gold Grey",    col:"Icons", shape:"panto", colors:["dorado","gris"],   rank:83 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233953/IMG_0248_1080x_zfmzfl.webp" },
 
   // Lane: 135 uds (sin imagen)
-  { id:36,  name:"Lane Grass",      col:"Essential", shape:"round", colors:["verde"],           rank:38, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777231418/IMG_3769_1512x_a7rtfi.webp" },
+  { id:36,  name:"Lane Grass",      col:"Essential", shape:"round", colors:["verde"],           rank:38, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777231418/IMG_3769_1512x_a7rtfi.webp" , imgScale:1.3},
   { id:190, name:"Lane Tea",        col:"Essential", shape:"round", colors:["marrón","cálido"],  rank:84, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777231418/IMG_3771_1512x_nvruml.webp" },
   { id:191, name:"Lane Light Blue", col:"Essential", shape:"round", colors:["azul"],             rank:85, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777231418/IMG_3766_1512x_wrb3vz.webp" },
   { id:192, name:"Lane Ámbar",      col:"Essential", shape:"round", colors:["ámbar"],            rank:86, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777231418/IMG_3765_0ea890dd-6f6c-4337-99c9-739cea390cba_1512x_zg7bhj.webp" },
@@ -1012,7 +1012,7 @@ const PRODUCTS = [
   { id:195, name:"Carrol Rowan", col:"Icons", shape:"oval", colors:["gris"],           rank:89 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235617/IMG_0258_1080x_ueg64y.webp" },
 
   // Mirren: 50 uds (sin imagen — TÉ MIRREN en CSV)
-  { id:35,  name:"Mirren Tea",   col:"Icons", shape:"oval", colors:["marrón","cálido"], rank:40 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233652/IMG_4510_1080x_nyfbyr.webp" },
+  { id:35,  name:"Mirren Tea",   col:"Icons", shape:"oval", colors:["marrón","cálido"], rank:40 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233652/IMG_4510_1080x_nyfbyr.webp" , imgScale:1.2},
   { id:196, name:"Mirren Carey", col:"Icons", shape:"oval", colors:["carey"],           rank:90 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233651/IMG_0212_1080x_bhj4hf.webp" },
   { id:197, name:"Mirren Black", col:"Icons", shape:"oval", colors:["negro"],           rank:91 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233643/IMG_4511_1080x_uhdghh.webp" },
 
@@ -1036,12 +1036,12 @@ const PRODUCTS = [
   { id:57, name:"Bergman Brown",       col:"Essential", shape:"rectangular",                      colors:["marrón"],         rank:47, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590222/210_jnsxlo.png" },
   { id:62, name:"Bergman Carey",       col:"Essential", shape:"rectangular",                      colors:["carey"],          rank:48, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590221/199_roiwuk.png" },
   // Deneuve: 55 uds (sin imagen)
-  { id:8,   name:"Deneuve Tea",   col:"Essential", shape:"cateye", colors:["marrón","cálido"],rank:49 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235619/4_1080x_tpnoai.webp" },
+  { id:8,   name:"Deneuve Tea",   col:"Essential", shape:"cateye", colors:["marrón","cálido"],rank:49 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235619/4_1080x_tpnoai.webp" , imgScale:1.2},
   { id:202, name:"Deneuve Carey", col:"Essential", shape:"cateye", colors:["carey"],          rank:96 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235618/5_1080x_a6mvkj.webp" },
   { id:203, name:"Deneuve Apple", col:"Essential", shape:"cateye", colors:["verde"],          rank:97 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235619/3_1512x_qlli1g.webp" },
   // Bacall: 40 uds (sin imagen)
   // Cooper II: 53 uds (sin imagen)
-  { id:19,  name:"Cooper II Grass",     col:"Essential", shape:"round", colors:["verde"],   rank:49 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235612/IMG_5620_1080x_qgcmby.webp" },
+  { id:19,  name:"Cooper II Grass",     col:"Essential", shape:"round", colors:["verde"],   rank:49 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235612/IMG_5620_1080x_qgcmby.webp" , imgScale:1.3},
   { id:207, name:"Cooper II Buttercup", col:"Essential", shape:"round", colors:["amarillo"],rank:101 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235613/IMG_5622_1512x_1_vdhrbl.webp" },
   { id:208, name:"Cooper II Sierra",    col:"Essential", shape:"round", colors:["marrón"],  rank:102 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235614/IMG_5616_1080x_rfydzw.webp" },
   { id:209, name:"Cooper II Caramel",     col:"Essential", shape:"round", colors:["caramelo"],   rank:103 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235616/IMG_5615_1080x_n9xtaq.webp" },
@@ -1121,7 +1121,7 @@ const PRODUCTS = [
   { id:52,  name:"Leigh Chalk",    col:"Acetato", shape:"rectangular",               colors:["blanco"],          rank:16, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590208/112_pmpzcn.png" },
   { id:47,  name:"Arden Cocoa",    col:"Acetato", shape:"cateye",                    colors:["marrón"],          rank:11, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590211/122_ivwzqu.png" },
   { id:50,  name:"Novak Mocha",    col:"Acetato", shape:"square",                    colors:["moca","marrón"],   rank:12, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590203/92_txomis.png" },
-  { id:224, name:"Chastain Olive",     col:"Essential", shape:"cateye", urgency:"trending", colors:["verde","oliva"], rank:2, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777235610/saxaa_1080x_p0gxws.webp" },
+  { id:224, name:"Chastain Olive",     col:"Essential", shape:"cateye", urgency:"trending", colors:["verde","oliva"], rank:2, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777235610/saxaa_1080x_p0gxws.webp" , imgScale:1.2},
   { id:81,  name:"Hayek Carey",    col:"Acetato", shape:"square",                    colors:["carey"],           rank:17, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590202/85_r9q8ec.png" },
   { id:71,  name:"Arden Carey",    col:"Acetato", shape:"cateye",                    colors:["carey"],           rank:18, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590209/121_wvm2wp.png" },
   { id:72,  name:"Arden Champagne",col:"Acetato", shape:"cateye",                    colors:["champán","dorado"],rank:19, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590209/120_s8exzo.png" },
@@ -1131,7 +1131,8 @@ const PRODUCTS = [
   { id:85,  name:"Astor Bronce",   col:"Acetato", shape:"rectangular",               colors:["bronce"],          rank:98, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590194/34_w3ugnz.png" },
   { id:51,  name:"Ivy Felline",    col:"Acetato", shape:"oval",                      colors:["ámbar"],          rank:99, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590208/113_ib6mfy.png" },
   { id:48,  name:"Bardot",         col:"Acetato", shape:"cateye",                    colors:["carey"],           rank:100 },
-  { id:49,  name:"Juno",           col:"Acetato", shape:"round",                     colors:["negro"],           rank:101 },
+  { id:243, name:"Hayworth",       col:"Acetato", shape:"rectangular",               colors:["negro","dorado"],  rank:103, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590193/26_y5oqxr.png" },
+  { id:49,  name:"Juno",           col:"Acetato", shape:"round",                     colors:["negro"],           rank:101, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590193/27_b8ubbk.png" },
   { id:45,  name:"Sienna",         col:"Acetato", shape:"square",                    colors:["marrón","negro"],  rank:102 },
   // ── Añadidos desde PDF SS26 ──────────────────────────────────────
   { id:228, name:"Baker Tea",          col:"Essential", shape:"rectangular", colors:["marrón","cálido"],  rank:108 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777241610/170_1080x_aum7jk.webp" },
@@ -1530,6 +1531,50 @@ function generatePDF({ cartItems, cartCount, cartTotal, unitPrice, currentTier, 
   a.rel = 'noopener';
   a.click();
   setTimeout(() => URL.revokeObjectURL(url), 10000);
+}
+
+// ── PkgCarousel — carrusel de imágenes de packaging ──────────────────
+function PkgCarousel() {
+  const imgs = [
+    { src: 'https://res.cloudinary.com/dekvzwn7b/image/upload/w_800,q_auto,f_auto/v1776287609/MINUE_5_v6cnmm.png', alt: 'Packaging Minuë' },
+    { src: 'https://res.cloudinary.com/dekvzwn7b/image/upload/w_800,q_auto,f_auto/v1776287608/fundas2_bblep7.png', alt: 'Fundas Minuë' },
+    { src: 'https://res.cloudinary.com/dekvzwn7b/image/upload/w_800,q_auto,f_auto/v1776287608/fundas4_lhvdxb.png', alt: 'Fundas colores' },
+    { src: 'https://res.cloudinary.com/dekvzwn7b/image/upload/w_800,q_auto,f_auto/v1776287571/FUNDAS3_10b1cf63-84b9-41ab-8ed6-5a48ad481b0b_1080x_l2xarm.webp', alt: 'Fundas detalle' },
+    { src: 'https://res.cloudinary.com/dekvzwn7b/image/upload/w_800,q_auto,f_auto/v1776287571/IMG_4498-2_0c5572d3-da68-42b0-b605-9c1441e02a98_540x_z8awbq.webp', alt: 'Packaging caja' },
+  ];
+  const [idx, setIdx] = useState(0);
+  useEffect(() => {
+    const t = setTimeout(() => setIdx(i => (i + 1) % imgs.length), 3500);
+    return () => clearTimeout(t);
+  }, [idx]);
+  return (
+    <div style={{ borderRadius: 4, overflow: 'hidden', background: G, minHeight: 300, position: 'relative', cursor: 'pointer' }}
+      onClick={() => setIdx(i => (i + 1) % imgs.length)}>
+      {imgs.map((img, i) => (
+        <img key={i} src={img.src} alt={img.alt} style={{
+          position: i === 0 ? 'relative' : 'absolute',
+          inset: 0, width: '100%', height: '100%',
+          objectFit: 'cover', display: 'block',
+          opacity: i === idx ? 1 : 0,
+          transition: 'opacity 0.6s ease',
+        }} />
+      ))}
+      {/* Dots */}
+      <div style={{
+        position: 'absolute', bottom: 12, left: '50%', transform: 'translateX(-50%)',
+        display: 'flex', gap: 6,
+      }}>
+        {imgs.map((_, i) => (
+          <button key={i} onClick={(e) => { e.stopPropagation(); setIdx(i); }} style={{
+            width: i === idx ? 18 : 6, height: 6, borderRadius: 999,
+            background: i === idx ? 'rgba(248,239,230,0.95)' : 'rgba(248,239,230,0.4)',
+            border: 'none', padding: 0, cursor: 'pointer',
+            transition: 'width 0.3s, background 0.3s',
+          }} />
+        ))}
+      </div>
+    </div>
+  );
 }
 
 export default function App() {
@@ -2298,7 +2343,6 @@ export default function App() {
             gap: 20, flexWrap: 'wrap', marginBottom: 'clamp(24px, 3vw, 36px)',
           }}>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: 16 }}>
-              <span className="mn-serif-i" style={{ fontSize: 24, color: D, fontWeight: 400 }}>№ 02</span>
               <div>
                 <div className="mn-label" style={{ color: D, marginBottom: 6 }}>{t('top_eyebrow')}</div>
                 <h2 className="mn-serif" style={{
@@ -2689,6 +2733,7 @@ export default function App() {
                                     {rep.img ? (
                                       <img src={rep.img} alt={base} className="mn-img" style={{
                                         width: '100%', height: '100%', objectFit: 'contain', padding: '8px',
+                                        transform: rep.imgScale ? `scale(${rep.imgScale})` : 'none',
                                       }} />
                                     ) : (
                                       // Placeholder con color del diseño
@@ -2828,7 +2873,6 @@ export default function App() {
             marginBottom: 'clamp(28px, 4vw, 44px)', justifyContent: 'space-between',
           }}>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: 16 }}>
-              <span className="mn-serif-i" style={{ fontSize: 24, color: D, fontWeight: 400 }}>№ 06</span>
               <div>
                 <div className="mn-label" style={{ color: D, marginBottom: 6 }}>{t('pkg_eyebrow')}</div>
                 <h3 className="mn-serif" style={{ fontSize: 'clamp(30px, 4vw, 46px)', fontWeight: 300, letterSpacing: '-0.01em', margin: 0, lineHeight: 1.05 }}>
@@ -2841,13 +2885,7 @@ export default function App() {
 
           {/* Layout: imagen izquierda + contenido derecha */}
           <div style={{ display: 'grid', gridTemplateColumns: 'minmax(200px,420px) 1fr', gap: 'clamp(20px, 4vw, 48px)', alignItems: 'stretch' }} className="mn-pkg-outer">
-            <div style={{ borderRadius: 4, overflow: 'hidden', background: G, minHeight: 300 }}>
-              <img
-                src="https://res.cloudinary.com/dekvzwn7b/image/upload/w_800,q_auto,f_auto/v1776287609/MINUE_5_v6cnmm.png"
-                alt="Minuë Packaging"
-                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-              />
-            </div>
+            <PkgCarousel />
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
               {/* Qué incluye cada caja */}
@@ -5031,11 +5069,26 @@ function FaireRating() {
             {/* Stars */}
             <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
               <div style={{ display: 'flex', gap: 2 }}>
-                {[1,2,3,4,5].map(i => (
-                  <svg key={i} width="13" height="13" viewBox="0 0 24 24" fill={i <= Math.floor(stars) ? D : i <= stars ? D : 'none'} stroke={D} strokeWidth="1.5">
-                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-                  </svg>
-                ))}
+                {[1,2,3,4,5].map(i => {
+                  if (i <= Math.floor(stars)) {
+                    return <svg key={i} width="13" height="13" viewBox="0 0 24 24" fill={D} stroke={D} strokeWidth="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>;
+                  } else if (i === 5) {
+                    // Media estrella para 4.8
+                    return (
+                      <svg key={i} width="13" height="13" viewBox="0 0 24 24" stroke={D} strokeWidth="1.5" style={{overflow:'visible'}}>
+                        <defs>
+                          <linearGradient id="half-star">
+                            <stop offset="50%" stopColor={D}/>
+                            <stop offset="50%" stopColor="none" stopOpacity="0"/>
+                          </linearGradient>
+                        </defs>
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="url(#half-star)"/>
+                      </svg>
+                    );
+                  } else {
+                    return <svg key={i} width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={D} strokeWidth="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>;
+                  }
+                })}
               </div>
               <span style={{ fontSize: 13, fontWeight: 700, letterSpacing: '-0.02em' }}>{stars}</span>
               <span style={{ fontSize: 11, opacity: 0.45 }}>({reviews} reseñas)</span>
@@ -5314,6 +5367,7 @@ function ProductCard({ product, added, onAdd, rank, showRank, variant = 'normal'
         {p.img ? (
           <img src={p.img} alt={p.name} className="mn-img" style={{
             width: '100%', height: '100%', objectFit: 'contain', padding: '8px',
+            transform: p.imgScale ? `scale(${p.imgScale})` : 'none',
           }} />
         ) : (
           <div className="mn-img" style={{
