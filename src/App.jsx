@@ -197,6 +197,7 @@ const I18N = {
     col_collapse: 'Colapsar',
     col_models: 'modelos',
     col_expand_hint: 'Haz clic para explorar',
+    tier_best: 'Más elegido',
     // Nuevas secciones de conversión
     hiw_eyebrow: 'El proceso', hiw_h2_a: 'Tres pasos', hiw_h2_b: ', todo claro.',
     hiw_1_t: 'Explora y añade', hiw_1_d: 'Navega por el catálogo y añade los modelos que te interesan. Sin registro, sin pago previo.',
@@ -376,6 +377,8 @@ const I18N = {
     col_collapse: 'Réduire',
     col_models: 'modèles',
     col_expand_hint: 'Cliquez pour explorer',
+    tier_best: 'Le plus choisi',
+    ss26_banner: '🌿  Saison SS26 ouverte  ·  Nouveaux modèles disponibles  ·  Stock limité',
     faq_eyebrow: 'Questions fréquentes', faq_h2: 'Ce que demandent souvent les retailers',
     faq_q1: 'Quelle est la commande minimale ?', faq_a1: "Il n'y a pas de minimum. Vous pouvez commander à partir d'1 unité, mais les prix s'améliorent significativement à partir de 10 unités.",
     faq_q2: 'Comment fonctionne cette plateforme ?', faq_a2: "C'est un catalogue B2B privé, pas une boutique en ligne. Sélectionnez les modèles, ajoutez-les au panier et envoyez-nous votre demande par WhatsApp ou email. Confirmation stock et prix en moins de 24h.",
@@ -524,6 +527,8 @@ const I18N = {
     col_collapse: 'Collapse',
     col_models: 'models',
     col_expand_hint: 'Click to explore',
+    tier_best: 'Most popular',
+    ss26_banner: '🌿  SS26 Season Open  ·  New models available  ·  Limited stock',
     faq_eyebrow: 'FAQs', faq_h2: 'What retailers usually ask',
     faq_q1: 'What is the minimum order?', faq_a1: 'There is no minimum. You can order from 1 unit, but prices improve significantly from 10 units.',
     faq_q2: 'How does this platform work?', faq_a2: 'This is a private B2B catalog, not an online store. Select models, add to cart and send your request via WhatsApp or email. We confirm stock, price and delivery within 24h — no payment required until confirmation.',
@@ -672,6 +677,8 @@ const I18N = {
     col_collapse: 'Einklappen',
     col_models: 'Modelle',
     col_expand_hint: 'Zum Erkunden klicken',
+    tier_best: 'Meistgewählt',
+    ss26_banner: '🌿  SS26 Saison offen  ·  Neue Modelle verfügbar  ·  Begrenzter Bestand',
     faq_eyebrow: 'Häufige Fragen', faq_h2: 'Was Retailer meistens fragen',
     faq_q1: 'Gibt es eine Mindestbestellmenge?', faq_a1: 'Nein. Ab 10 Stück verbessern sich die Preise erheblich. Siehe Preistabelle.',
     faq_q2: 'Wie funktioniert diese Plattform?', faq_a2: 'Dies ist ein privater B2B-Katalog, kein Online-Shop. Modelle auswählen, in den Warenkorb legen und Anfrage per WhatsApp oder E-Mail senden. Bestätigung innerhalb von 24h.',
@@ -820,6 +827,8 @@ const I18N = {
     col_collapse: 'Recolher',
     col_models: 'modelos',
     col_expand_hint: 'Clique para explorar',
+    tier_best: 'Mais escolhido',
+    ss26_banner: '🌿  Temporada SS26 aberta  ·  Novos modelos disponíveis  ·  Stock limitado',
     faq_eyebrow: 'Perguntas frequentes', faq_h2: 'O que os retailers costumam perguntar',
     faq_q1: 'Qual é o pedido mínimo?', faq_a1: 'Não há pedido mínimo. A partir de 10 unidades os preços melhoram significativamente.',
     faq_q2: 'Como funciona esta plataforma?', faq_a2: 'É um catálogo B2B privado, não uma loja online. Selecione os modelos, adicione ao carrinho e envie-nos o pedido por WhatsApp ou email. Confirmamos stock e preços em menos de 24h.',
@@ -925,54 +934,55 @@ const PRODUCTS = [
   { id:143, name:"Berry Leopard",     col:"Icons", shape:"round",                    colors:["marrón","negro"],    rank:61, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776278629/IMG_0263_720x_uln010.webp" },
 
   // Makey: 300 uds (sin imagen)
-  { id:38,  name:"Makey Carey",        col:"Icons", shape:"rectangular", colors:["carey"],       rank:24 },
-  { id:150, name:"Makey Black",        col:"Icons", shape:"rectangular", colors:["negro"],        rank:62 },
-  { id:151, name:"Makey Snow",         col:"Icons", shape:"rectangular", colors:["blanco"],       rank:63 },
-  { id:152, name:"Makey Cherry",       col:"Icons", shape:"rectangular", colors:["rojo"],         rank:64 },
-  { id:153, name:"Makey Cherry Black", col:"Icons", shape:"rectangular", colors:["rojo","negro"], rank:65 },
-  { id:154, name:"Makey Sky",          col:"Icons", shape:"rectangular", colors:["azul"],         rank:66 },
+  { id:38,  name:"Makey Carey",        col:"Icons", shape:"rectangular", colors:["carey"],       rank:24, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777231858/MAKEYCAREYWEB_1080x_ncdvtb.webp" },
+  { id:150, name:"Makey Black",        col:"Icons", shape:"rectangular", colors:["negro"],        rank:62, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777231883/MAKEYBLACKWEB_1080x_ulaedl.webp" },
+  { id:151, name:"Makey Snow",         col:"Icons", shape:"rectangular", colors:["blanco"],       rank:63, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777231858/MBLNEGW_1080x_pxxqdf.webp" },
+  { id:152, name:"Makey Cherry",       col:"Icons", shape:"rectangular", colors:["rojo"],         rank:64, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777231858/MAKEYREDWEB_1080x_qvpsfw.webp" },
+  { id:153, name:"Makey Red Black",    col:"Icons", shape:"rectangular", colors:["rojo","negro"], rank:65, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777231858/M2_1080x_sjyy1u.webp" },
 
   // Aretha: 220 uds (sin imagen — Roses descatalogado)
-  { id:40,  name:"Aretha Carey", col:"Icons", shape:"round", colors:["carey"], rank:25 },
-  { id:160, name:"Aretha Black", col:"Icons", shape:"round", colors:["negro"], rank:67 },
+  { id:40,  name:"Aretha Carey", col:"Icons", shape:"round", colors:["carey"], rank:25, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777232755/IMG_8156_1080x_akqlyh.webp" },
+  { id:160, name:"Aretha Black", col:"Icons", shape:"round", colors:["negro"], rank:67, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777232755/IMG_8160_1080x_tvssen.webp" },
+  { id:223, name:"Aretha Rosse", col:"Icons", shape:"round", colors:["rosa"],  rank:68, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777232754/IMG_8147_1080x_pjprsu.webp" },
 
   // Ziyi: ~200 uds (sin imagen — nombres con color primero en CSV)
-  { id:42,  name:"Ziyi Mandarina", col:"Icons", shape:"square", colors:["naranja"],  rank:26 },
-  { id:161, name:"Ziyi Ágata",     col:"Icons", shape:"square", colors:["verde"],    rank:68 },
-  { id:162, name:"Ziyi Ámbar",     col:"Icons", shape:"square", colors:["ámbar"],   rank:69 },
-  { id:163, name:"Ziyi Jaspe",     col:"Icons", shape:"square", colors:["marrón"],   rank:70 },
-  { id:164, name:"Ziyi Rosas",     col:"Icons", shape:"square", colors:["rosa"],     rank:71 },
+  { id:42,  name:"Ziyi Mandarina", col:"Icons", shape:"square", colors:["naranja"],  rank:26, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777232015/IMG_5842_1512x_xgnwe0.webp" },
+  { id:161, name:"Ziyi Ágata",     col:"Icons", shape:"square", colors:["verde"],    rank:68, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777232015/IMG_5839_1080x_c2fyio.webp" },
+  { id:162, name:"Ziyi Ámbar",     col:"Icons", shape:"square", colors:["ámbar"],   rank:69, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777232014/IMG_5840_1080x_bzjtbw.webp" },
+  { id:163, name:"Ziyi Jaspe",     col:"Icons", shape:"square", colors:["marrón"],  rank:70, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777232015/IMG_5844_1080x_pqlbnu.webp" },
+  { id:164, name:"Ziyi Rosas",     col:"Icons", shape:"square", colors:["rosa"],    rank:71, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777232015/IMG_0220_1080x_wf6yrs.webp" },
 
   // Karina: 158 uds (sin imagen)
-  { id:41,  name:"Karina Jade",  col:"Icons", shape:"cateye", colors:["verde"],         rank:27 },
-  { id:170, name:"Karina Rubí",  col:"Icons", shape:"cateye", colors:["rojo"],          rank:72 },
-  { id:171, name:"Karina Black", col:"Icons", shape:"cateye", colors:["negro"],         rank:73 },
-  { id:172, name:"Karina Copo",  col:"Icons", shape:"cateye", colors:["blanco","crema"],rank:74 },
+  { id:41,  name:"Karina Jade",  col:"Icons", shape:"cateye", colors:["verde"],          rank:27, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777232565/Minueoptician210222-010_1080x_cdjfa1.webp" },
+  { id:170, name:"Karina Rubí",  col:"Icons", shape:"cateye", colors:["rojo"],           rank:72, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777232564/Minueoptician210222-011_1080x_ys1csw.webp" },
+  { id:171, name:"Karina Black", col:"Icons", shape:"cateye", colors:["negro"],          rank:73, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777232564/IMG_4507_1080x_ukknez.webp" },
+  { id:172, name:"Karina Copo",  col:"Icons", shape:"cateye", colors:["blanco","crema"], rank:74, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777232564/IMG_0235_1080x_cmzzxa.webp" },
 
   // Maclaine: 306 uds (TÉ MACLAINE 173 + BLACK 131, sin imagen)
-  { id:25,  name:"Maclaine Tea",   col:"Icons", shape:"round", colors:["marrón","cálido"], rank:28 },
-  { id:180, name:"Maclaine Black", col:"Icons", shape:"round", colors:["negro"],            rank:75 },
+  { id:25,  name:"Maclaine Tea",   col:"Icons", shape:"round", colors:["marrón","cálido"], rank:28, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777233400/IMG_4503_1080x_qgdqtl.webp" },
+  { id:180, name:"Maclaine Black", col:"Icons", shape:"round", colors:["negro"],            rank:75, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777233400/IMG_4504_1080x_su4xqk.webp" },
 
   // Cleo: 127 uds (tiene imágenes)
   { id:28,  name:"Cleo Tea",   col:"Icons", shape:"cateye", colors:["marrón","cálido"], rank:14, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776986729/IMG_2571_3f836e1a-078b-4f97-8b6e-0e6d0dbc30d7_1512x_qkwmvv.webp" },
   { id:98,  name:"Cleo Black",  col:"Icons", shape:"cateye", colors:["negro"],           rank:29, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776986729/IMG_2568_0cdea3e3-91be-451b-97a0-301f495895da_1512x_pmfpjj.webp" },
 
   // Thurman: 147 uds (sin imagen — CARBONO THURMAN en CSV)
-  { id:34,  name:"Thurman Carey",  col:"Icons", shape:"rectangular", colors:["carey"],          rank:30 },
-  { id:181, name:"Thurman Cloud",  col:"Icons", shape:"rectangular", colors:["gris"],            rank:76 },
-  { id:182, name:"Thurman Carbon", col:"Icons", shape:"rectangular", colors:["negro","carbono"],  rank:77 },
-  { id:183, name:"Thurman Peanut", col:"Icons", shape:"rectangular", colors:["marrón"],          rank:78 },
-  { id:184, name:"Thurman Ember",  col:"Icons", shape:"rectangular", colors:["naranja"],         rank:79 },
+  { id:34,  name:"Thurman Carey",   col:"Essential", shape:"rectangular", colors:["carey"],          rank:30, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777230867/IMG_2556_1512x_tmkqfm.webp" },
+  { id:181, name:"Thurman Cloud",   col:"Essential", shape:"rectangular", colors:["gris"],            rank:76, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777230867/IMG_3764_1512x_wku82m.webp" },
+  { id:182, name:"Thurman Black",   col:"Essential", shape:"rectangular", colors:["negro"],           rank:77, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777230866/IMG_2553_1512x_wavffv.webp" },
+  { id:184, name:"Thurman Ember",   col:"Essential", shape:"rectangular", colors:["naranja"],         rank:79, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777230866/IMG_5592_1512x_eaobsj.webp" },
+  { id:183, name:"Thurman Caramel", col:"Essential", shape:"rectangular", colors:["caramelo"],        rank:78, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777230866/IMG_5625_1512x_pt0pwp.webp" },
 
   // Harlow: 117 uds (sin imagen)
-  { id:37,  name:"Harlow Gold Green", col:"Icons", shape:"panto", colors:["dorado","verde"],  rank:31 },
-  { id:185, name:"Harlow Gold Brown", col:"Icons", shape:"panto", colors:["dorado","marrón"], rank:80 },
-  { id:186, name:"Harlow Gold Black", col:"Icons", shape:"panto", colors:["dorado","negro"],  rank:81 },
+  { id:37,  name:"Harlow Gold Green", col:"Icons", shape:"panto", colors:["dorado","verde"],  rank:31 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777233643/Myproject-1_4_1080x_b7yaek.webp" },
+  { id:185, name:"Harlow Gold Brown", col:"Icons", shape:"panto", colors:["dorado","marrón"], rank:80 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777233642/IMG_0251_1080x_hsbmjz.webp" },
+  { id:186, name:"Harlow Gold Black", col:"Icons", shape:"panto", colors:["dorado","negro"],  rank:81 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777233642/Myproject-1_1080x_hbofmp.webp" },
 
   // Roberts: 100 uds (tiene imágenes)
   { id:33,  name:"Roberts Carrot", col:"Icons", shape:"square", colors:["naranja"],  rank:32, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776986920/IMG_2576_900x_z2fnsz.webp" },
   { id:93,  name:"Roberts Peanut", col:"Icons", shape:"square", colors:["marrón"],   rank:33, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776986920/IMG_2575_1296x_b9smpp.webp" },
   { id:94,  name:"Roberts Salmon", col:"Icons", shape:"square", colors:["rosa"],     rank:34, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776986920/IMG_3775_1512x_iapwst.webp" },
+  { id:220, name:"Roberts Black",  col:"Icons", shape:"square", colors:["negro"],    rank:35, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776986920/IMG_3768_1512x_g5gmge.webp" },
 
   // Moore: 90 uds (tiene imagen)
   { id:27,  name:"Moore Black", col:"Icons", shape:"rectangular", colors:["negro"], rank:35, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776986730/MOOREBLACK_2048x_olbjuu.webp" },
@@ -982,31 +992,32 @@ const PRODUCTS = [
   { id:64,  name:"Gugu Gold Brown Carey", col:"Icons", shape:"geometric",                      colors:["dorado","marrón","carey"],rank:36, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590220/196_mctzzt.png" },
 
   // Foster: 60 uds (sin imagen)
-  { id:32,  name:"Foster Gold Brown",   col:"Icons", shape:"panto", colors:["dorado","marrón"], rank:37 },
-  { id:187, name:"Foster Carbon Black", col:"Icons", shape:"panto", colors:["negro","carbono"], rank:82 },
-  { id:188, name:"Foster Gold Grey",    col:"Icons", shape:"panto", colors:["dorado","gris"],   rank:83 },
+  { id:32,  name:"Foster Gold Brown",   col:"Icons", shape:"panto", colors:["dorado","marrón"], rank:37 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777233952/IMG_0246_1080x_lecyyk.webp" },
+  { id:187, name:"Foster Carbon Black", col:"Icons", shape:"panto", colors:["negro","carbono"], rank:82 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777233953/IMG_0250_1080x_hgn78a.webp" },
+  { id:188, name:"Foster Gold Grey",    col:"Icons", shape:"panto", colors:["dorado","gris"],   rank:83 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777233953/IMG_0248_1080x_zfmzfl.webp" },
 
   // Lane: 135 uds (sin imagen)
-  { id:36,  name:"Lane Grass",      col:"Icons", shape:"round", colors:["verde"],          rank:38 },
-  { id:190, name:"Lane Tea",        col:"Icons", shape:"round", colors:["marrón","cálido"], rank:84 },
-  { id:191, name:"Lane Light Blue", col:"Icons", shape:"round", colors:["azul"],            rank:85 },
-  { id:192, name:"Lane Ámbar",      col:"Icons", shape:"round", colors:["ámbar"],          rank:86 },
-  { id:193, name:"Lane Black",      col:"Icons", shape:"round", colors:["negro"],           rank:87 },
-  { id:194, name:"Lane Carey",      col:"Icons", shape:"round", colors:["carey"],           rank:88 },
+  { id:36,  name:"Lane Grass",      col:"Essential", shape:"round", colors:["verde"],           rank:38, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777231418/IMG_3769_1512x_a7rtfi.webp" },
+  { id:190, name:"Lane Tea",        col:"Essential", shape:"round", colors:["marrón","cálido"],  rank:84, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777231418/IMG_3771_1512x_nvruml.webp" },
+  { id:191, name:"Lane Light Blue", col:"Essential", shape:"round", colors:["azul"],             rank:85, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777231418/IMG_3766_1512x_wrb3vz.webp" },
+  { id:192, name:"Lane Ámbar",      col:"Essential", shape:"round", colors:["ámbar"],            rank:86, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777231418/IMG_3765_0ea890dd-6f6c-4337-99c9-739cea390cba_1512x_zg7bhj.webp" },
+  { id:193, name:"Lane Black",      col:"Essential", shape:"round", colors:["negro"],            rank:87 },
+  { id:194, name:"Lane Carey",      col:"Essential", shape:"round", colors:["carey"],            rank:88, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777231418/IMG_3767_d9fd096e-b787-435c-9c15-18dd34ea86ce_1080x_wkewlp.webp" },
+  { id:222, name:"Lane Opal",       col:"Essential", shape:"round", colors:["blanco","perla"],   rank:89, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777231418/IMG_3776_1512x_atccne.webp" },
 
   // Carrol: 53 uds (sin imagen)
   { id:39,  name:"Carrol Cedar", col:"Icons", shape:"oval", colors:["marrón","cedro"], rank:39 },
   { id:195, name:"Carrol Rowan", col:"Icons", shape:"oval", colors:["gris"],           rank:89 },
 
   // Mirren: 50 uds (sin imagen — TÉ MIRREN en CSV)
-  { id:35,  name:"Mirren Tea",   col:"Icons", shape:"oval", colors:["marrón","cálido"], rank:40 },
-  { id:196, name:"Mirren Carey", col:"Icons", shape:"oval", colors:["carey"],           rank:90 },
-  { id:197, name:"Mirren Black", col:"Icons", shape:"oval", colors:["negro"],           rank:91 },
+  { id:35,  name:"Mirren Tea",   col:"Icons", shape:"oval", colors:["marrón","cálido"], rank:40 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777233652/IMG_4510_1080x_nyfbyr.webp" },
+  { id:196, name:"Mirren Carey", col:"Icons", shape:"oval", colors:["carey"],           rank:90 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777233651/IMG_0212_1080x_bhj4hf.webp" },
+  { id:197, name:"Mirren Black", col:"Icons", shape:"oval", colors:["negro"],           rank:91 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777233643/IMG_4511_1080x_uhdghh.webp" },
 
   // Grant: 37 uds (sin imagen)
-  { id:29,  name:"Grant Carey",   col:"Icons", shape:"rectangular", colors:["carey"],    rank:41 },
-  { id:198, name:"Grant Caramel", col:"Icons", shape:"rectangular", colors:["caramelo"], rank:92 },
-  { id:199, name:"Grant Black",   col:"Icons", shape:"rectangular", colors:["negro"],    rank:93 },
+  { id:29,  name:"Grant Carey",   col:"Icons", shape:"rectangular", colors:["carey"],    rank:41 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777233753/IMG_5612_1512x_beesly.webp" },
+  { id:198, name:"Grant Caramel", col:"Icons", shape:"rectangular", colors:["caramelo"], rank:92 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777233753/IMG_5613_1080x_qqay9v.webp" },
+  { id:199, name:"Grant Black",   col:"Icons", shape:"rectangular", colors:["negro"],    rank:93 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777233752/IMG_5614_1512x_ocrzst.webp" },
 
   // Kerr: 16 uds (sin imagen)
   { id:44,  name:"Kerr Carey",      col:"Icons", shape:"rectangular", colors:["carey"],       rank:43 },
@@ -1102,7 +1113,8 @@ const PRODUCTS = [
   { id:79,  name:"Gardner Amber", col:"Essential", shape:"round", colors:["ámbar"],  rank:91, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590206/100_kesd63.png" },
   { id:92,  name:"Gardner Black", col:"Essential", shape:"round", colors:["negro"],  rank:92, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590206/101_pg1660.png" },
   // Sin imagen
-  { id:17,  name:"Nova",            col:"Essential", shape:"geometric",   colors:["negro","verde"],  rank:93 },
+  { id:17,  name:"Nova Ruby",       col:"Essential", shape:"geometric",   colors:["rojo","rubí"],   rank:93, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590217/172_e8julb.png" },
+  { id:221, name:"Nova Jade",       col:"Essential", shape:"geometric",   colors:["verde","jade"],  rank:94, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590217/171_aavi3l.png" },
   { id:22,  name:"Seberg Apple",    col:"Essential", shape:"round",       colors:["verde"],           rank:94 },
   { id:215, name:"Seberg Bordeaux", col:"Essential", shape:"round",       colors:["burdeos"],         rank:106 },
   { id:216, name:"Seberg Amber",    col:"Essential", shape:"round",       colors:["ámbar"],          rank:107 },
@@ -1381,6 +1393,135 @@ function FlyingItem({ item, onDone }) {
       animation: 'mn-fadein 0.1s ease-out both, mn-fadeout 0.4s 0.2s ease-in both',
     }}>🕶️</div>
   );
+}
+
+// ── generatePDF — abre ventana de impresión con pedido formateado ─────
+function generatePDF({ cartItems, cartCount, cartTotal, unitPrice, currentTier, distributor, region, lang, t, discountPct, cost, gainEur, gainPct }) {
+  const isLatam = region === 'latam';
+  const contact = isLatam
+    ? { name: 'Minuë Latam', address: 'CRA 19a 85 69, Bogotá, Colombia', phone: '+57 (322) 770-1800', email: 'hola@minueopticians.co', web: 'minueopticians.co' }
+    : { name: 'Minuë Opticians', address: 'Calle Ardilla 13 Oficinas, 41010 Sevilla, Spain', phone: '+34 661 018 380', email: 'hola@minueopticians.com', web: 'minueopticians.com' };
+
+  const date = new Date().toLocaleDateString(lang === 'fr' ? 'fr-FR' : lang === 'de' ? 'de-DE' : lang === 'pt' ? 'pt-PT' : lang === 'en' ? 'en-GB' : 'es-ES', { year: 'numeric', month: 'long', day: 'numeric' });
+  const orderRef = 'MN-' + Date.now().toString(36).toUpperCase().slice(-6);
+  const totalCost = discountPct > 0 ? (cost * (1 - discountPct / 100)) : cost;
+
+  const rows = cartItems.map(item => {
+    const col = COLLECTIONS.find(c => c.id === item.col);
+    const price = col?.unitCost ?? unitPrice ?? DISPLAY_PRICE;
+    return `<tr>
+      <td style="padding:8px 10px;border-bottom:1px solid #e8dfd8;font-size:12px;">${item.name}</td>
+      <td style="padding:8px 10px;border-bottom:1px solid #e8dfd8;font-size:12px;text-align:center;">${item.col}</td>
+      <td style="padding:8px 10px;border-bottom:1px solid #e8dfd8;font-size:12px;text-align:center;">${item.qty}</td>
+      <td style="padding:8px 10px;border-bottom:1px solid #e8dfd8;font-size:12px;text-align:right;">${price.toFixed(2).replace('.',',')}€</td>
+      <td style="padding:8px 10px;border-bottom:1px solid #e8dfd8;font-size:12px;text-align:right;font-weight:600;">${(item.qty * price).toFixed(2).replace('.',',')}€</td>
+    </tr>`;
+  }).join('');
+
+  const condiciones = {
+    es: ['Este documento es una solicitud de pedido, no una factura.', 'El pedido estará sujeto a confirmación de stock por parte de Minuë.', 'El pago se realizará una vez confirmada la disponibilidad y los plazos de entrega.', currentTier?.payments ? `Condiciones de pago: ${currentTier.payments}.` : '', currentTier?.freeShip ? 'Envío incluido en este pedido.' : 'Gastos de envío a confirmar según destino.', currentTier?.expositor && currentTier.expositor !== '8,90€ opcional' ? `Expositor: ${currentTier.expositor}.` : ''].filter(Boolean),
+    fr: ['Ce document est une demande de commande, pas une facture.', 'La commande sera soumise à confirmation de stock par Minuë.', 'Le paiement sera effectué après confirmation de disponibilité et des délais.', currentTier?.freeShip ? 'Livraison incluse dans cette commande.' : 'Frais de port à confirmer selon destination.'].filter(Boolean),
+    en: ['This document is an order request, not an invoice.', 'The order will be subject to stock confirmation by Minuë.', 'Payment will be processed after availability and delivery time confirmation.', currentTier?.freeShip ? 'Shipping included in this order.' : 'Shipping costs to be confirmed based on destination.'].filter(Boolean),
+    de: ['Dieses Dokument ist eine Bestellanfrage, keine Rechnung.', 'Die Bestellung bedarf der Lagerbestätigung durch Minuë.', 'Die Zahlung erfolgt nach Bestätigung der Verfügbarkeit und Lieferzeiten.', currentTier?.freeShip ? 'Versand in dieser Bestellung enthalten.' : 'Versandkosten je nach Ziel zu bestätigen.'].filter(Boolean),
+    pt: ['Este documento é um pedido de encomenda, não uma fatura.', 'O pedido estará sujeito à confirmação de stock por parte da Minuë.', 'O pagamento será efetuado após confirmação de disponibilidade e prazos.', currentTier?.freeShip ? 'Envio incluído nesta encomenda.' : 'Custos de envio a confirmar conforme destino.'].filter(Boolean),
+  };
+  const conds = (condiciones[lang] || condiciones.es).map(c => `<li style="margin-bottom:4px;">${c}</li>`).join('');
+
+  const html = `<!DOCTYPE html><html><head><meta charset="utf-8">
+  <title>Pedido Minuë — ${orderRef}</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'DM Sans',sans-serif;color:#18332f;background:#fff;padding:40px;}
+    @media print{body{padding:0;}@page{margin:15mm 18mm;size:A4;}}
+    .serif{font-family:'Cormorant Garamond',serif;}
+    header{display:flex;justify-content:space-between;align-items:flex-start;padding-bottom:24px;border-bottom:2px solid #18332f;margin-bottom:28px;}
+    .logo-block h1{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;letter-spacing:-0.02em;color:#18332f;}
+    .logo-block p{font-size:10px;letter-spacing:2px;text-transform:uppercase;opacity:0.5;margin-top:3px;}
+    .meta{text-align:right;font-size:11px;line-height:1.7;opacity:0.65;}
+    .meta strong{font-size:13px;opacity:1;color:#b8860b;}
+    h2{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;margin-bottom:12px;letter-spacing:-0.01em;}
+    table{width:100%;border-collapse:collapse;margin-bottom:28px;}
+    thead th{padding:10px;background:#18332f;color:#f8efe6;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-align:left;}
+    thead th:nth-child(3),thead th:nth-child(4),thead th:nth-child(5){text-align:center;}
+    thead th:nth-child(4),thead th:nth-child(5){text-align:right;}
+    .totals{display:flex;justify-content:flex-end;margin-bottom:28px;}
+    .totals-box{width:260px;border:1px solid #18332f20;border-radius:4px;overflow:hidden;}
+    .totals-row{display:flex;justify-content:space-between;padding:8px 14px;font-size:12px;border-bottom:1px solid #18332f10;}
+    .totals-row:last-child{border-bottom:none;background:#18332f;color:#f8efe6;padding:12px 14px;}
+    .totals-row:last-child span:last-child{font-size:18px;font-weight:700;font-family:'Cormorant Garamond',serif;}
+    .gain-row{background:#b8860b10;display:flex;justify-content:space-between;padding:7px 14px;font-size:11px;color:#8a6000;}
+    .conditions{background:#18332f05;border:1px solid #18332f12;border-radius:4px;padding:16px 18px;margin-bottom:24px;font-size:11px;line-height:1.7;}
+    .conditions h3{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;opacity:0.5;margin-bottom:8px;}
+    .conditions ul{padding-left:16px;}
+    footer{border-top:1px solid #18332f18;padding-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:16px;font-size:10px;line-height:1.7;opacity:0.65;}
+    footer strong{display:block;font-size:11px;opacity:1;color:#18332f;margin-bottom:3px;}
+    .seal{display:inline-flex;align-items:center;gap:6px;background:#b8860b15;border:1px solid #b8860b40;border-radius:999px;padding:4px 12px;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#8a6000;margin-bottom:16px;}
+  </style></head><body>
+  <header>
+    <div class="logo-block">
+      <h1>Minuë<span style="color:#b8860b">.</span></h1>
+      <p>Wholesale Catalogue</p>
+    </div>
+    <div class="meta">
+      <strong>${orderRef}</strong><br>
+      ${date}<br>
+      <span class="serif" style="font-style:italic;font-size:13px;">Solicitud de pedido</span>
+    </div>
+  </header>
+
+  <div class="seal">⬡ &nbsp;Pedido SS26 · Sin compromiso de pago</div>
+
+  <h2>Productos seleccionados</h2>
+  <table>
+    <thead><tr>
+      <th>Producto</th><th>Colección</th><th style="text-align:center">Uds.</th><th style="text-align:right">P/ud</th><th style="text-align:right">Subtotal</th>
+    </tr></thead>
+    <tbody>${rows}</tbody>
+  </table>
+
+  <div class="totals">
+    <div class="totals-box">
+      <div class="totals-row"><span>Unidades</span><span>${cartCount}</span></div>
+      <div class="totals-row"><span>Tarifa aplicada</span><span>${currentTier?.label || '—'} · ${unitPrice != null ? unitPrice.toFixed(2).replace('.',',') + '€/ud' : 'Consultar'}</span></div>
+      ${currentTier?.freeShip ? '<div class="totals-row"><span>Envío</span><span style="color:#18332f;font-weight:600;">Incluido ✓</span></div>' : ''}
+      ${discountPct > 0 ? `<div class="totals-row"><span>Descuento aplicado</span><span style="color:#b8860b;font-weight:600;">−${discountPct}%</span></div>` : ''}
+      <div class="totals-row"><span>Total pedido</span><span>${totalCost.toFixed(2).replace('.',',')}€</span></div>
+      ${gainEur > 0 ? `<div class="gain-row"><span>Ganancia potencial a PVP</span><span>+${gainEur.toFixed(0)}€ (~${gainPct}%)</span></div>` : ''}
+    </div>
+  </div>
+
+  <div class="conditions">
+    <h3>Condiciones</h3>
+    <ul>${conds}</ul>
+  </div>
+
+  <footer>
+    <div>
+      <strong>${contact.name}</strong>
+      ${contact.address}<br>
+      ${contact.phone}<br>
+      ${contact.email}<br>
+      ${contact.web}
+    </div>
+    <div>
+      <strong>Entrega estimada</strong>
+      ${isLatam ? 'Latinoamérica: 10–15 días hábiles' : 'España: 2–4 días · Europa: 4–7 días · Internacional: 6–9 días'}<br><br>
+      <strong>Confirmación</strong>
+      Recibirás confirmación de stock y plazos en menos de 24h tras enviar este pedido.
+    </div>
+  </footer>
+  <script>window.onload=function(){window.print();}</script>
+  </body></html>`;
+
+  const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.target = '_blank';
+  a.rel = 'noopener';
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(url), 10000);
 }
 
 export default function App() {
@@ -1784,20 +1925,20 @@ export default function App() {
             maxWidth: 1280, margin: '0 auto', padding: '14px 24px',
             display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16,
           }} className="mn-nav-inner">
-            <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
               <Logo color={G} height={38} className="mn-nav-logo" />
-              <div className="mn-nav-text" style={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+              {/* Separador vertical */}
+              <div style={{ width: 1, height: 28, background: `${G}20`, flexShrink: 0 }} />
+              {/* Placa Retailer */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
                 <span style={{
-                  display: 'inline-block', padding: '3px 9px',
-                  border: `1px solid ${D}`, color: D,
-                  fontSize: 7, fontWeight: 700, letterSpacing: 3,
-                  textTransform: 'uppercase', borderRadius: 999,
-                  alignSelf: 'flex-start',
-                }}>{t('nav_badge')}</span>
+                  fontSize: 8, fontWeight: 700, letterSpacing: 3,
+                  textTransform: 'uppercase', color: D, lineHeight: 1,
+                }}>Retailer</span>
                 <span style={{
-                  fontSize: 9, fontWeight: 400, opacity: 0.55, letterSpacing: 0.2,
-                  lineHeight: 1.3, maxWidth: 220,
-                }}>{t('nav_badge_sub')}</span>
+                  fontSize: 7, fontWeight: 400, opacity: 0.4,
+                  letterSpacing: 1.5, textTransform: 'uppercase', lineHeight: 1,
+                }}>Wholesale</span>
               </div>
             </div>
 
@@ -1964,23 +2105,8 @@ export default function App() {
           )}
         </nav>
 
-        {/* SOCIAL PROOF STRIP */}
-        <SocialProofStrip t={t} />
-
-        {/* SS26 URGENCY BANNER */}
-        <div style={{
-          background: `linear-gradient(90deg, #1a3530, #18332f)`,
-          color: '#f8efe6', textAlign: 'center',
-          padding: '10px 24px', fontSize: 11, fontWeight: 500, letterSpacing: 0.3,
-        }}>
-          {t('ss26_banner')}
-        </div>
-
-        {/* CÓMO FUNCIONA */}
-        <HowItWorks t={t} />
-
-        {/* FAIRE */}
-        <FaireBlock t={t} />
+        {/* IMPACT SECTION — stats + proceso unificados */}
+        <ImpactSection t={t} />
 
         {/* BANNER EXPOSITORES */}
         <div className="mn-banner-anim" style={{
@@ -2559,6 +2685,10 @@ export default function App() {
           </div>
         </section>
 
+        {/* PRESENCIA GLOBAL + FAIRE RATING */}
+        <GlobalMap t={t} />
+        <FaireRating />
+
         {/* ESPECIFICACIONES TÉCNICAS — bloque sutil sobre fondo crema */}
         <section style={{ background: `${G}06`, borderTop: `1px solid ${G}12`, borderBottom: `1px solid ${G}12` }}>
           <div style={{ maxWidth: 1280, margin: '0 auto', padding: 'clamp(40px,6vw,60px) 24px' }}>
@@ -2601,9 +2731,6 @@ export default function App() {
             </div>
           </div>
         </section>
-
-        {/* PRESENCIA GLOBAL */}
-        <GlobalMap t={t} />
 
         {/* POR QUÉ MINUË — Bento Grid 2026 */}
         <section style={{ background: G, color: C, marginTop: 20 }}>
@@ -3313,6 +3440,7 @@ function OrderPanel({
   }, 0);
   const gainEur = revenue - cost;
   const gainPct = revenue > 0 ? Math.round((gainEur / revenue) * 100) : 0;
+  const totalCost = discountPct > 0 ? cost * (1 - discountPct / 100) : cost;
   const hasItems = cartItems.length > 0;
   const hasUrgent = cartItems.some(item => PRODUCTS.find(p => p.id === item.id)?.urgency === 'stock_low');
 
@@ -3502,23 +3630,36 @@ function OrderPanel({
               {/* Separador */}
               <div style={{ height: 1, background: 'rgba(248,239,230,0.12)', margin: '10px 0' }} />
 
-              {/* Ganancia — etiquetada inequívocamente */}
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <div style={{ fontSize: 10, opacity: 0.6, lineHeight: 1.4 }}>
-                  <div style={{ fontWeight: 500, opacity: 0.8, marginBottom: 1 }}>Ganancia potencial a PVP</div>
-                  <div style={{ opacity: 0.55, fontSize: 9 }}>Vendiendo a precio recomendado</div>
-                </div>
-                <div style={{ textAlign: 'right', flexShrink: 0 }}>
-                  <div style={{
-                    fontSize: 15, fontWeight: 700, color: D,
-                    fontFamily: 'DM Sans, sans-serif',
-                  }}>+{gainEur.toFixed(0)}€</div>
-                  <div style={{
-                    fontSize: 9, fontWeight: 600, opacity: 0.65,
-                    background: `${D}28`, padding: '1px 6px', borderRadius: 999, marginTop: 2,
-                    display: 'inline-block',
-                  }}>{gainPct}% margen</div>
-                </div>
+              {/* Opción C: Pagas → Vendes → Ganas */}
+              <div style={{ fontSize: 9, fontWeight: 600, letterSpacing: 1.2, textTransform: 'uppercase', opacity: 0.4, marginBottom: 8 }}>
+                Retorno de inversión a PVP
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 0 }}>
+                {[
+                  { label: 'Pagas', value: `${totalCost.toFixed(2).replace('.', ',')}€`, sub: `${cartCount} uds`, highlight: false },
+                  { label: 'Vendes', value: `~${revenue.toFixed(0)}€`, sub: 'a PVP rec.', highlight: false },
+                  { label: 'Ganas', value: `+${gainEur.toFixed(0)}€`, sub: `~${gainPct}% margen`, highlight: true },
+                ].map((item, i) => (
+                  <React.Fragment key={i}>
+                    <div style={{
+                      flex: 1, textAlign: 'center', padding: '6px 0',
+                      background: item.highlight ? `${D}22` : 'transparent',
+                      borderRadius: item.highlight ? 4 : 0,
+                    }}>
+                      <div style={{ fontSize: 8, opacity: 0.45, letterSpacing: 0.8, textTransform: 'uppercase', marginBottom: 3 }}>{item.label}</div>
+                      <div style={{
+                        fontSize: item.highlight ? 16 : 14, fontWeight: 700,
+                        fontFamily: 'DM Sans, sans-serif',
+                        color: item.highlight ? D : C,
+                        letterSpacing: '-0.02em',
+                      }}>{item.value}</div>
+                      <div style={{ fontSize: 8, opacity: 0.45, marginTop: 2 }}>{item.sub}</div>
+                    </div>
+                    {i < 2 && (
+                      <div style={{ fontSize: 10, opacity: 0.3, padding: '0 2px', flexShrink: 0 }}>›</div>
+                    )}
+                  </React.Fragment>
+                ))}
               </div>
             </div>
 
@@ -3593,47 +3734,75 @@ function OrderPanel({
             {/* ── CTAs ── */}
             {!leadStep ? (
               <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-                {/* WhatsApp — CTA principal */}
+                {/* PDF — CTA primario */}
+                <button
+                  onClick={() => generatePDF({ cartItems, cartCount, cartTotal, unitPrice, currentTier, distributor, region, lang, t, discountPct, cost, gainEur, gainPct })}
+                  className="mn-btn"
+                  style={{
+                    width: '100%', padding: '16px 18px', borderRadius: 6,
+                    background: G, color: C,
+                    fontSize: 14, fontWeight: 700, letterSpacing: 0.3,
+                    display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 10,
+                    boxShadow: `0 4px 20px -6px rgba(24,51,47,0.35)`,
+                  }}
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+                  Descargar pedido en PDF
+                </button>
+                <div style={{ textAlign: 'center', fontSize: 10, opacity: 0.4, marginTop: -2 }}>
+                  Guárdalo y adjúntalo en WhatsApp o email
+                </div>
+
+                {/* WhatsApp — secundario */}
                 <button
                   onClick={() => { setPendingChannel('wa'); setLeadStep(true); }}
                   className="mn-btn"
                   style={{
-                    width: '100%', padding: '16px 18px', borderRadius: 6,
+                    width: '100%', padding: '13px 18px', borderRadius: 6,
                     background: CHOCOLATE, color: C,
-                    fontSize: 14, fontWeight: 700, letterSpacing: 0.3,
-                    display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 10,
-                    boxShadow: `0 4px 20px -6px ${CHOCOLATE}80`,
+                    fontSize: 13, fontWeight: 600, letterSpacing: 0.2,
+                    display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+                    boxShadow: `0 4px 20px -6px ${CHOCOLATE}60`,
                   }}
                 >
-                  <IconWA size={18} />
-                  Enviar pedido por WhatsApp
+                  <IconWA size={15} />
+                  Enviar por WhatsApp
                 </button>
-                <div style={{ textAlign: 'center', fontSize: 10, opacity: 0.45, marginTop: -2 }}>
-                  Respuesta en menos de 24h · Sin compromiso de pago
-                </div>
 
-                {/* Email — secundario */}
+                {/* Email — terciario */}
                 <button
                   onClick={() => { setPendingChannel('email'); setLeadStep(true); }}
                   className="mn-btn"
                   style={{
-                    width: '100%', padding: '12px 18px', borderRadius: 6,
+                    width: '100%', padding: '11px 18px', borderRadius: 6,
                     background: 'transparent', color: G,
                     fontSize: 12, fontWeight: 500,
                     border: `1px solid ${G}33`, letterSpacing: 0.2,
                     display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8,
                   }}
                 >
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
                   {t('panel_email')}
                 </button>
               </div>
             ) : (
-              /* Lead form — simplificado */
+              /* Lead form */
               <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-                <div>
-                  <div style={{ fontSize: 13, fontWeight: 700, marginBottom: 3 }}>{t('lead_title')}</div>
-                  <p style={{ fontSize: 11, opacity: 0.55, lineHeight: 1.5, margin: 0 }}>{t('lead_sub')}</p>
+                {/* Header con botón atrás */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 2 }}>
+                  <button
+                    onClick={() => setLeadStep(false)}
+                    style={{
+                      background: 'none', border: `1px solid ${G}22`, borderRadius: 999,
+                      width: 30, height: 30, display: 'inline-flex', alignItems: 'center',
+                      justifyContent: 'center', cursor: 'pointer', flexShrink: 0,
+                      color: G, fontSize: 14,
+                    }}
+                  >‹</button>
+                  <div>
+                    <div style={{ fontSize: 13, fontWeight: 700, lineHeight: 1.2 }}>{t('lead_title')}</div>
+                    <p style={{ fontSize: 10, opacity: 0.5, margin: 0 }}>{t('lead_sub')}</p>
+                  </div>
                 </div>
                 {[
                   { ref: refName, placeholder: t('lead_name'), type: 'text' },
@@ -4108,11 +4277,13 @@ function QuickViewModal({ product: initialProduct, allProducts, colData: initial
       <div style={{
         position: 'fixed', zIndex: 81,
         top: '50%', left: '50%', transform: 'translate(-50%,-50%)',
-        width: 'min(720px, 92vw)', maxHeight: '90vh', overflowY: 'auto',
+        width: 'min(720px, 92vw)',
+        maxHeight: '90vh',
         background: C, borderRadius: 10,
         boxShadow: '0 32px 80px -20px rgba(0,0,0,0.45)',
         animation: 'mn-rise 0.22s ease-out both',
         display: 'flex', flexDirection: 'column',
+        overflow: 'hidden',
       }}>
 
         {/* ── Cabecera con nombre del modelo + badge variantes ── */}
@@ -4153,18 +4324,21 @@ function QuickViewModal({ product: initialProduct, allProducts, colData: initial
           }}><IconClose size={16} /></button>
         </div>
 
-        {/* ── Cuerpo: imagen + info ── */}
+        {/* ── Cuerpo: imagen + info — scrollable ── */}
         <div style={{
           display: 'grid',
           gridTemplateColumns: isNarrow ? '1fr' : 'minmax(0,1.05fr) 1fr',
           flex: 1, minHeight: 0,
+          overflowY: isNarrow ? 'auto' : 'hidden',
         }}>
           {/* Imagen */}
           <div style={{
             background: active.img ? '#fff' : `${G}06`,
-            minHeight: isNarrow ? 200 : 280,
+            height: isNarrow ? 160 : 'auto',
+            minHeight: isNarrow ? 'unset' : 280,
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            padding: 16, position: 'relative',
+            padding: isNarrow ? 10 : 16, position: 'relative',
+            flexShrink: 0,
           }}>
             {active.urgency && (
               <span style={{
@@ -4218,7 +4392,7 @@ function QuickViewModal({ product: initialProduct, allProducts, colData: initial
           </div>
 
           {/* Info */}
-          <div style={{ padding: isNarrow ? '16px' : '20px 22px', display: 'flex', flexDirection: 'column', gap: 12, overflowY: 'auto' }}>
+          <div style={{ padding: isNarrow ? '14px 16px 0' : '20px 22px', display: 'flex', flexDirection: 'column', gap: 12, overflowY: isNarrow ? 'visible' : 'auto' }}>
 
             {/* Nombre variante activa + forma */}
             <div>
@@ -4257,21 +4431,23 @@ function QuickViewModal({ product: initialProduct, allProducts, colData: initial
               ))}
             </div>
 
-            {/* CTA */}
-            <button
-              onClick={() => { onAddAny(active.id); }}
-              className="mn-btn"
-              style={{
-                padding: '12px 18px', borderRadius: 4, marginTop: 4,
-                background: added ? `${G}18` : G,
-                color: added ? G : C,
-                border: `1px solid ${G}`,
-                fontSize: 13, fontWeight: 500, letterSpacing: 0.3,
-                display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8,
-              }}
-            >
-              {added ? (<><IconCheck size={13} /> {t('qv_added')} ({added})</>) : (<><IconPlus /> {t('qv_add')}</>)}
-            </button>
+            {/* CTA — solo visible en desktop dentro del panel info */}
+            {!isNarrow && (
+              <button
+                onClick={() => { onAddAny(active.id); }}
+                className="mn-btn"
+                style={{
+                  padding: '12px 18px', borderRadius: 4, marginTop: 4,
+                  background: added ? `${G}18` : G,
+                  color: added ? G : C,
+                  border: `1px solid ${G}`,
+                  fontSize: 13, fontWeight: 500, letterSpacing: 0.3,
+                  display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+                }}
+              >
+                {added ? (<><IconCheck size={13} /> {t('qv_added')} ({added})</>) : (<><IconPlus /> {t('qv_add')}</>)}
+              </button>
+            )}
 
           </div>
         </div>
@@ -4365,6 +4541,29 @@ function QuickViewModal({ product: initialProduct, allProducts, colData: initial
           </div>
         )}
 
+        {/* Botón sticky móvil */}
+        {isNarrow && (
+          <div style={{
+            padding: '12px 16px', borderTop: `1px solid ${G}12`,
+            background: C, flexShrink: 0,
+          }}>
+            <button
+              onClick={() => { onAddAny(active.id); }}
+              className="mn-btn"
+              style={{
+                width: '100%', padding: '14px 18px', borderRadius: 6,
+                background: added ? `${G}18` : G,
+                color: added ? G : C,
+                border: `1px solid ${G}`,
+                fontSize: 14, fontWeight: 600, letterSpacing: 0.3,
+                display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+              }}
+            >
+              {added ? (<><IconCheck size={14} /> {t('qv_added')} ({added})</>) : (<><IconPlus /> {t('qv_add')}</>)}
+            </button>
+          </div>
+        )}
+
       </div>
     </>
   );
@@ -4374,6 +4573,397 @@ function QuickViewModal({ product: initialProduct, allProducts, colData: initial
 // ============================================================
 // FaqSection
 // ============================================================
+// ── ImpactSection — Stats + Proceso unificados, diseño editorial 2026 ─
+function ImpactSection({ t }) {
+  const stats = [
+    { n: '350+', label: 'ciudades' },
+    { n: '56+',  label: 'modelos' },
+    { n: '163+', label: 'productos' },
+    { n: '14',   label: 'países' },
+    { n: '6+',   label: 'años' },
+  ];
+
+  const steps = [
+    { n: 1, title: 'Explora',       sub: 'Añade al carrito lo que te interese. Sin registro.' },
+    { n: 2, title: 'Envíanos',      sub: 'Envía tu lista por WhatsApp o email. Sin pagar.' },
+    { n: 3, title: 'Confirmamos',   sub: 'Stock, precio y plazos confirmados en menos de 24h.' },
+  ];
+
+  return (
+    <div>
+      {/* ── BLOQUE OSCURO: stats ── */}
+      <div style={{ background: G, color: C }}>
+
+        {/* Ticker SS26 */}
+        <div style={{
+          borderBottom: `1px solid rgba(248,239,230,0.08)`,
+          padding: '9px 24px', textAlign: 'center',
+        }}>
+          <span style={{ fontSize: 9, fontWeight: 600, letterSpacing: 2.5, textTransform: 'uppercase', opacity: 0.45 }}>
+            🌿 &nbsp;Temporada SS26 abierta &nbsp;·&nbsp; Nuevos modelos disponibles &nbsp;·&nbsp; Stock limitado en referencias marcadas
+          </span>
+        </div>
+
+        {/* Stats grid */}
+        <div style={{
+          maxWidth: 1280, margin: '0 auto',
+          display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)',
+          padding: '0 24px',
+        }} className="mn-impact-grid">
+          {stats.map((s, i) => (
+            <div key={i} style={{
+              padding: 'clamp(18px,3vw,30px) clamp(12px,2vw,24px)',
+              borderRight: i < 4 ? `1px solid rgba(248,239,230,0.1)` : 'none',
+              display: 'flex', flexDirection: 'column',
+              alignItems: 'center', gap: 5,
+            }}>
+              <span className="mn-serif" style={{
+                fontSize: 'clamp(30px,4vw,48px)', fontWeight: 300,
+                letterSpacing: '-0.035em', lineHeight: 1,
+                color: C,
+              }}>{s.n}</span>
+              <span style={{
+                fontSize: 9, opacity: 0.4,
+                letterSpacing: 1.5, textTransform: 'uppercase', fontWeight: 600,
+              }}>{s.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ── BLOQUE CREMA: proceso en 3 cards ── */}
+      <div style={{
+        background: `${G}05`,
+        borderBottom: `1px solid ${G}0e`,
+      }}>
+        <div style={{
+          maxWidth: 1280, margin: '0 auto',
+          padding: 'clamp(20px,3vw,28px) 24px',
+        }}>
+          {/* Eyebrow */}
+          <div style={{
+            display: 'flex', alignItems: 'center', gap: 12,
+            marginBottom: 'clamp(14px,2vw,20px)',
+          }}>
+            <span style={{
+              fontSize: 8, fontWeight: 700, letterSpacing: 2.2,
+              textTransform: 'uppercase', opacity: 0.35,
+            }}>Cómo funciona</span>
+            <div style={{ flex: 1, height: 1, background: `${G}12` }} />
+            <span style={{ fontSize: 9, opacity: 0.3 }}>Sin pago previo</span>
+          </div>
+
+          {/* 3 steps */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3, 1fr)',
+            gap: 'clamp(8px,2vw,16px)',
+          }} className="mn-steps-grid">
+            {steps.map((s, i) => (
+              <div key={i} style={{
+                display: 'flex', alignItems: 'flex-start', gap: 12,
+                padding: 'clamp(12px,2vw,16px)',
+                borderRadius: 6,
+                background: i === 1 ? `${D}0e` : `rgba(24,51,47,0.04)`,
+                border: `1px solid ${i === 1 ? `${D}28` : `${G}0e`}`,
+              }}>
+                {/* Número */}
+                <div style={{
+                  width: 26, height: 26, borderRadius: 999, flexShrink: 0,
+                  background: i === 1 ? D : `${G}12`,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  marginTop: 1,
+                }}>
+                  <span style={{ fontSize: 9, fontWeight: 800, color: i === 1 ? G : G }}>{s.n}</span>
+                </div>
+                {/* Texto */}
+                <div>
+                  <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: 0.1, marginBottom: 3, lineHeight: 1.2 }}>
+                    {s.title}
+                  </div>
+                  <div style={{ fontSize: 10, opacity: 0.5, lineHeight: 1.5, fontWeight: 300 }}>
+                    {s.sub}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <style>{`
+        @media (max-width: 600px) {
+          .mn-impact-grid { grid-template-columns: repeat(3,1fr) !important; }
+          .mn-impact-grid > div:nth-child(3) { border-right: none !important; }
+          .mn-impact-grid > div { border-bottom: 1px solid rgba(248,239,230,0.08) !important; }
+          .mn-steps-grid { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
+    </div>
+  );
+}
+
+// ── SocialProofStrip (kept for reference, replaced by ImpactSection) ──
+function SocialProofStrip({ t }) { return null; }
+
+// ── HowItWorks (kept for reference, replaced by ImpactSection) ────────
+function HowItWorks({ t }) { return null; }
+
+
+
+
+// ── FaireRating — Bloque valoraciones Faire ──────────────────────────
+function FaireRating() {
+  const FAIRE_LOGO = (
+    <svg width="28" height="28" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="80" height="80" fill="white"/>
+      <text x="50%" y="62%" dominantBaseline="middle" textAnchor="middle"
+        fontFamily="Georgia, serif" fontSize="58" fontWeight="400" fill="#111">F</text>
+    </svg>
+  );
+
+  const stars = 4.8;
+  const reviews = 53;
+
+  return (
+    <div style={{
+      background: C,
+      borderTop: `1px solid ${G}0e`,
+    }}>
+      <div style={{
+        maxWidth: 1280, margin: '0 auto',
+        padding: 'clamp(28px,4vw,44px) 24px',
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        gap: 24, flexWrap: 'wrap',
+      }}>
+
+        {/* Left: badge + claim */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
+          {/* Faire logo */}
+          <div style={{
+            width: 52, height: 52, borderRadius: 10,
+            border: `1.5px solid ${G}18`,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            background: '#fff', flexShrink: 0,
+            boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
+          }}>
+            {FAIRE_LOGO}
+          </div>
+
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
+              <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: 0.3, opacity: 0.9 }}>Faire Wholesale</span>
+              <span style={{
+                fontSize: 9, fontWeight: 700, letterSpacing: 0.8,
+                background: `${D}18`, color: D, border: `1px solid ${D}30`,
+                padding: '1px 7px', borderRadius: 999,
+              }}>TOP SHOP</span>
+            </div>
+            {/* Stars */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+              <div style={{ display: 'flex', gap: 2 }}>
+                {[1,2,3,4,5].map(i => (
+                  <svg key={i} width="13" height="13" viewBox="0 0 24 24" fill={i <= Math.floor(stars) ? D : i <= stars ? D : 'none'} stroke={D} strokeWidth="1.5">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                  </svg>
+                ))}
+              </div>
+              <span style={{ fontSize: 13, fontWeight: 700, letterSpacing: '-0.02em' }}>{stars}</span>
+              <span style={{ fontSize: 11, opacity: 0.45 }}>({reviews} reseñas)</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Center: pills de confianza */}
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', alignItems: 'center' }}>
+          {[
+            { icon: '🇪🇸', text: '3–4 días España' },
+            { icon: '🇪🇺', text: '3–6 días Europa' },
+            { icon: '🌍', text: '6–9 días internacional' },
+          ].map((p, i) => (
+            <div key={i} style={{
+              display: 'flex', alignItems: 'center', gap: 6,
+              padding: '6px 12px', borderRadius: 999,
+              border: `1px solid ${G}14`, background: `${G}04`,
+              fontSize: 11, fontWeight: 400,
+            }}>
+              <span style={{ fontSize: 12 }}>{p.icon}</span>
+              <span style={{ opacity: 0.7 }}>{p.text}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Right: CTA */}
+        <a
+          href="https://minueopticians.faire.com"
+          target="_blank"
+          rel="noreferrer"
+          style={{
+            display: 'inline-flex', alignItems: 'center', gap: 8,
+            padding: '10px 20px', borderRadius: 6,
+            background: G, color: C,
+            fontSize: 12, fontWeight: 600, letterSpacing: 0.3,
+            textDecoration: 'none', flexShrink: 0,
+            transition: 'opacity 0.15s',
+          }}
+        >
+          Pedir en Faire
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </a>
+
+      </div>
+    </div>
+  );
+}
+
+// ── FaireBlock ───────────────────────────────────────────────────────
+function FaireBlock({ t }) {
+  return (
+    <div style={{
+      background: `${G}05`, borderTop: `1px solid ${G}0e`, borderBottom: `1px solid ${G}0e`,
+      padding: '14px 24px',
+    }}>
+      <div style={{
+        maxWidth: 1280, margin: '0 auto',
+        display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16, flexWrap: 'wrap',
+      }}>
+        <span style={{ fontSize: 11, opacity: 0.6 }}>¿Prefieres pedir a través de una plataforma conocida?</span>
+        <a
+          href="https://minueopticians.faire.com"
+          target="_blank"
+          rel="noreferrer"
+          style={{
+            fontSize: 11, fontWeight: 700, color: D, letterSpacing: 0.5,
+            border: `1px solid ${D}55`, padding: '4px 14px', borderRadius: 999,
+            textDecoration: 'none',
+          }}
+        >
+          También en Faire →
+        </a>
+      </div>
+    </div>
+  );
+}
+
+// ── Datos reales de clientes ─────────────────────────────────────────
+const REAL_CLIENTS = [
+  { store: 'Kefi Concept Store',                city: 'Πειραιάς',   country: 'Grecia' },
+  { store: 'La Source',                         city: 'Stari Grad',  country: 'Croacia' },
+  { store: 'Emmy Moa Atelier-Boutique',         city: 'Pénestin',   country: 'Francia' },
+  { store: 'Chapeau Hüte & Accessoires',        city: 'Murnau',     country: 'Alemania' },
+  { store: 'SIL',                               city: 'Harlingen',  country: 'Países Bajos' },
+  { store: 'Mrs Goodwill',                      city: 'Köln',       country: 'Alemania' },
+  { store: 'Sous Les Pins',                     city: 'Hyères',     country: 'Francia' },
+  { store: 'Creammy',                           city: 'Syrovice',   country: 'Rep. Checa' },
+  { store: 'Dowse',                             city: 'Brighton',   country: 'Reino Unido' },
+  { store: 'Penso Davide Artstudiomurano',      city: 'Venezia',    country: 'Italia' },
+  { store: 'Péttalos',                          city: 'Consuegra',  country: 'España' },
+  { store: 'Tiny House Menorca',                city: 'Maó',        country: 'España' },
+];
+
+// ── ClientTicker — banda animada con clientes reales ─────────────────
+function ClientTicker({ t }) {
+  const items = [...REAL_CLIENTS, ...REAL_CLIENTS]; // doble para loop infinito
+  return (
+    <div style={{
+      background: G, color: C, overflow: 'hidden',
+      padding: '9px 0', borderBottom: `1px solid rgba(248,239,230,0.08)`,
+    }}>
+      <div style={{
+        display: 'flex', gap: 0,
+        animation: 'mn-ticker 38s linear infinite',
+        whiteSpace: 'nowrap',
+      }}>
+        {items.map((c, i) => (
+          <span key={i} style={{
+            display: 'inline-flex', alignItems: 'center', gap: 6,
+            padding: '0 28px', flexShrink: 0,
+            fontSize: 10, fontWeight: 400,
+          }}>
+            <span style={{ color: D, fontSize: 8 }}>✦</span>
+            <span style={{ fontWeight: 600, opacity: 0.8 }}>{c.store}</span>
+            <span style={{ opacity: 0.35 }}>·</span>
+            <span style={{ opacity: 0.45 }}>{c.city}, {c.country}</span>
+          </span>
+        ))}
+      </div>
+      <style>{`@keyframes mn-ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }`}</style>
+    </div>
+  );
+}
+
+// ── RecentClients — grid de últimos pedidos ───────────────────────────
+function RecentClients() {
+  const FLAG = { 'España':'🇪🇸','Francia':'🇫🇷','Alemania':'🇩🇪','Italia':'🇮🇹','Reino Unido':'🇬🇧','Países Bajos':'🇳🇱','Grecia':'🇬🇷','Croacia':'🇭🇷','Rep. Checa':'🇨🇿' };
+  return (
+    <section style={{ maxWidth: 1280, margin: '0 auto', padding: 'clamp(40px,5vw,60px) 24px' }} className="mn-reveal">
+      <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12, marginBottom: 'clamp(20px,3vw,32px)' }}>
+        <div>
+          <div className="mn-label-xs" style={{ color: D, marginBottom: 6 }}>Comunidad</div>
+          <h3 className="mn-serif" style={{ fontSize: 'clamp(22px,3vw,32px)', fontWeight: 300, margin: 0, letterSpacing: '-0.02em' }}>
+            Últimas tiendas que confían en Minuë<span style={{ color: D }}>.</span>
+          </h3>
+        </div>
+        <span style={{ fontSize: 11, opacity: 0.45, fontStyle: 'italic' }}>Pedidos recientes via Faire</span>
+      </div>
+
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+        gap: 8,
+      }}>
+        {REAL_CLIENTS.map((c, i) => (
+          <div key={i} style={{
+            padding: '12px 14px',
+            border: `1px solid ${G}12`,
+            borderRadius: 6,
+            background: i % 3 === 1 ? `${G}04` : 'transparent',
+            display: 'flex', flexDirection: 'column', gap: 3,
+            transition: 'border-color 0.15s, background 0.15s',
+          }}>
+            <div style={{ fontSize: 12, fontWeight: 600, lineHeight: 1.25, color: G }}>{c.store}</div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+              <span style={{ fontSize: 11 }}>{FLAG[c.country] || '🌍'}</span>
+              <span style={{ fontSize: 10, opacity: 0.5, fontWeight: 300 }}>{c.city} · {c.country}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+
+
+// ── MobileStickyBar ───────────────────────────────────────────────────
+function MobileStickyBar({ cartCount, cartTotal, discountPct, onOpenPanel }) {
+  if (cartCount === 0) return null;
+  return (
+    <div className="mn-mobile-sticky" style={{
+      position: 'fixed', bottom: 0, left: 0, right: 0, zIndex: 55,
+      background: G, color: C,
+      padding: '12px 20px',
+      display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12,
+      boxShadow: '0 -8px 24px -8px rgba(24,51,47,0.35)',
+    }}>
+      <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
+        <span style={{ fontSize: 11, opacity: 0.65 }}>Mi selección</span>
+        <span style={{ fontSize: 13, fontWeight: 700 }}>{cartCount} uds</span>
+        {cartTotal && <span style={{ fontSize: 13, color: D, fontWeight: 700 }}>{cartTotal.toFixed(2).replace('.', ',')}€</span>}
+      </div>
+      <button onClick={onOpenPanel} style={{
+        padding: '10px 20px', borderRadius: 999,
+        background: D, color: G, fontSize: 12, fontWeight: 700,
+        border: 'none', cursor: 'pointer', letterSpacing: 0.3,
+      }}>
+        Enviar pedido →
+      </button>
+    </div>
+  );
+}
+
+// ── FaqSection ────────────────────────────────────────────────────────
+
 function FaqSection({ t }) {
   const [open, setOpen] = useState(null);
   const toggle = (i) => setOpen(prev => prev === i ? null : i);
