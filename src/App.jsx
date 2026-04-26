@@ -1058,11 +1058,11 @@ const PRODUCTS = [
   { id:55,  name:"Roger Velvet", col:"Essential", shape:"rectangular", colors:["burdeos"],      rank:55, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590224/229_puavtb.png" },
   { id:56,  name:"Roger Wine",   col:"Essential", shape:"rectangular", colors:["burdeos","rojo"],rank:56, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590224/227_xigzba.png" },
   // Bolden: rank 6 top pick
-  { id:16,  name:"Bolden Wine",  col:"Essential", shape:"rectangular", colors:["burdeos"], rank:6,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776277357/82_k0ch1q.png" },
+  { id:16,  name:"Bolden Wine",  col:"Essential", shape:"rectangular", colors:["burdeos"], rank:55 },
   { id:63,  name:"Bolden Oliva", col:"Essential", shape:"rectangular", colors:["verde"],         rank:57, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590220/195_qakpdg.png" },
   { id:66,  name:"Bolden Ebony", col:"Essential", shape:"rectangular", colors:["negro"],          rank:58, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590220/193_bjptue.png" },
   { id:65,  name:"Bolden Nude",  col:"Essential", shape:"rectangular", colors:["nude"],           rank:59, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590220/192_mvmgmk.png" },
-  { id:60,  name:"Bolden Bruma", col:"Essential", shape:"rectangular", colors:["gris","neutro"],  rank:60, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590220/194_hwuk8l.png" },
+  { id:60,  name:"Bolden Bruma", col:"Essential", shape:"rectangular", colors:["gris","neutro"],  rank:6, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590220/194_hwuk8l.png" },
   // Rainer: 20 uds
   { id:10,  name:"Rainer Mandarine", col:"Essential", shape:"round", colors:["naranja"], rank:61, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590208/116_z2owvq.png" },
   { id:74,  name:"Rainer Carey",     col:"Essential", shape:"round", colors:["carey"],   rank:62, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590208/115_xhcrlb.png" },
@@ -1798,7 +1798,7 @@ export default function App() {
         .mn-grid { display: grid; gap: 28px; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); }
         @media (max-width: 900px)  { .mn-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; } }
         @media (max-width: 600px)  { .mn-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
-        @media (max-width: 600px)  { .mn-card-img { aspect-ratio: 4/3 !important; } }
+        @media (max-width: 600px)  { .mn-card-img { aspect-ratio: 1/1 !important; } }
         @media (max-width: 600px)  { .mn-card-body { padding: 6px 4px 6px !important; } }
         @media (max-width: 360px)  { .mn-grid { grid-template-columns: 1fr; gap: 10px; } }
 
@@ -2217,28 +2217,43 @@ export default function App() {
           }
         `}</style>
 
-        {/* BARRA TARIFAS — reemplazada por franja minimalista */}
+        {/* BARRA TARIFAS */}
         <div style={{
-          background: `${G}08`, borderBottom: `1px solid ${G}18`,
-          padding: '14px 24px',
+          background: G, color: C,
+          padding: '12px 24px',
+          borderBottom: `1px solid rgba(248,239,230,0.1)`,
         }}>
           <div style={{
             maxWidth: 1280, margin: '0 auto',
             display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-            flexWrap: 'wrap', gap: 12,
+            flexWrap: 'wrap', gap: 10,
           }}>
-            <span style={{ fontSize: 13, fontWeight: 300, opacity: 0.8 }}>
-              {t('hdr_chip_rates')} —{' '}
-              <span className="mn-serif-i" style={{ color: D, fontSize: 15 }}>desde 17,90€/ud</span>
-              {' '}· vendes a 50–69€ · margen medio ~60%
-            </span>
+            {/* Pills de info */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+              {[
+                { icon: '€', text: 'Desde 17,90€/ud' },
+                { icon: '↗', text: 'Vendes a 50–69€' },
+                { icon: '%', text: 'Margen medio ~60%' },
+              ].map((item, i) => (
+                <span key={i} style={{
+                  display: 'inline-flex', alignItems: 'center', gap: 5,
+                  padding: '4px 11px', borderRadius: 999,
+                  background: 'rgba(248,239,230,0.1)',
+                  border: '1px solid rgba(248,239,230,0.18)',
+                  fontSize: 11, fontWeight: 500, color: C, opacity: 0.9,
+                }}>
+                  <span style={{ fontSize: 10, color: D, fontWeight: 700 }}>{item.icon}</span>
+                  {item.text}
+                </span>
+              ))}
+            </div>
             <button onClick={() => setTarifasOpen(true)} style={{
-              padding: '7px 16px', borderRadius: 999,
+              padding: '6px 14px', borderRadius: 999,
               border: `1px solid ${D}`, color: D,
-              fontSize: 11, fontWeight: 600, background: 'transparent', cursor: 'pointer',
-              display: 'inline-flex', alignItems: 'center', gap: 6,
+              fontSize: 10, fontWeight: 700, background: 'transparent', cursor: 'pointer',
+              display: 'inline-flex', alignItems: 'center', gap: 5, letterSpacing: 0.3,
             }}>
-              <IconInfo size={12} /> {t('bar_rate_btn')}
+              <IconInfo size={11} /> {t('bar_rate_btn')}
             </button>
           </div>
         </div>
@@ -2676,12 +2691,35 @@ export default function App() {
                                   }}>
                                     {rep.img ? (
                                       <img src={rep.img} alt={base} className="mn-img" style={{
-                                        width: '92%', height: '92%', objectFit: 'contain',
+                                        width: '100%', height: '100%', objectFit: 'contain', padding: '8px',
                                       }} />
                                     ) : (
-                                      <div style={{ opacity: 0.3, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6 }}>
-                                        <svg width="42" height="28" viewBox="0 0 42 28" fill="none"><rect x="1" y="4" width="16" height="12" rx="6" stroke={G} strokeWidth="1.5"/><rect x="25" y="4" width="16" height="12" rx="6" stroke={G} strokeWidth="1.5"/><line x1="17" y1="10" x2="25" y2="10" stroke={G} strokeWidth="1.5"/></svg>
-                                        <span style={{ fontSize: 9, color: G, textTransform: 'uppercase', letterSpacing: 1 }}>{base}</span>
+                                      // Placeholder con color del diseño
+                                      <div style={{
+                                        position: 'absolute', inset: 0,
+                                        display: 'flex', flexDirection: 'column',
+                                        alignItems: 'center', justifyContent: 'center', gap: 10,
+                                        background: items[0]?.colors?.[0] ? `${COLOR_DOTS[items[0].colors[0]] || '#ccc'}22` : `${G}06`,
+                                      }}>
+                                        <div style={{ display: 'flex', gap: 6 }}>
+                                          {uniqueColors.slice(0, 3).map((c, i) => (
+                                            <div key={i} style={{
+                                              width: 20, height: 20, borderRadius: 999,
+                                              background: COLOR_DOTS[c] || '#999',
+                                              border: `2px solid rgba(255,255,255,0.5)`,
+                                              boxShadow: '0 1px 4px rgba(0,0,0,0.15)',
+                                            }} />
+                                          ))}
+                                        </div>
+                                        <span style={{
+                                          fontSize: 9, fontWeight: 700,
+                                          letterSpacing: 1.5, textTransform: 'uppercase',
+                                          color: G, opacity: 0.5,
+                                        }}>{base}</span>
+                                        <span style={{
+                                          fontSize: 7, opacity: 0.35,
+                                          letterSpacing: 0.5,
+                                        }}>Imagen próximamente</span>
                                       </div>
                                     )}
                                     {/* Badge variantes */}
@@ -4661,25 +4699,24 @@ function QuickViewModal({ product: initialProduct, allProducts, colData: initial
                     key={v.id}
                     onClick={() => setActive(v)}
                     style={{
-                      flexShrink: 0, padding: '8px 12px',
+                      flexShrink: 0, padding: '10px 14px',
                       borderRadius: 6, border: isActive ? `1.5px solid ${G}` : `1px solid ${G}20`,
                       background: isActive ? `${G}08` : 'transparent',
                       cursor: 'pointer', textAlign: 'left',
                       transition: 'border-color 0.15s, background 0.15s, transform 0.12s',
-                      transform: isActive ? 'none' : undefined,
-                      minWidth: 90, maxWidth: 130,
+                      minWidth: 126, maxWidth: 182,
                       position: 'relative',
                     }}
                   >
                     {/* Imagen mini o placeholder */}
                     <div style={{
-                      width: '100%', aspectRatio: '4/3',
+                      width: '100%', aspectRatio: '1/1',
                       background: v.img ? 'transparent' : `${G}06`,
-                      borderRadius: 3, marginBottom: 6, overflow: 'hidden',
+                      borderRadius: 3, marginBottom: 8, overflow: 'hidden',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                     }}>
                       {v.img ? (
-                        <img src={v.img} alt={v.name} style={{ maxWidth: '90%', maxHeight: '90%', objectFit: 'contain' }} />
+                        <img src={v.img} alt={v.name} style={{ width: '100%', height: '100%', objectFit: 'contain', padding: '6px' }} />
                       ) : (
                         <svg width="28" height="18" viewBox="0 0 42 28" fill="none" style={{ opacity: 0.2 }}>
                           <rect x="1" y="4" width="16" height="12" rx="6" stroke={G} strokeWidth="1.5"/>
@@ -4757,13 +4794,67 @@ function QuickViewModal({ product: initialProduct, allProducts, colData: initial
 // FaqSection
 // ============================================================
 // ── ImpactSection — Stats + Proceso unificados, diseño editorial 2026 ─
+function useCountUp(target, duration = 1800, start = false) {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    if (!start) return;
+    let startTime = null;
+    const step = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      // easeOutCubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(eased * target));
+      if (progress < 1) requestAnimationFrame(step);
+      else setCount(target);
+    };
+    requestAnimationFrame(step);
+  }, [start, target, duration]);
+  return count;
+}
+
+function StatNumber({ raw }) {
+  // Parse: "+250" → prefix="+", num=250, suffix=""
+  //        "56+"  → prefix="", num=56, suffix="+"
+  //        "6+"   → prefix="", num=6,  suffix="+"
+  //        "14"   → prefix="", num=14, suffix=""
+  const ref = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { setVisible(true); obs.disconnect(); }
+    }, { threshold: 0.3 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  const prefix = raw.startsWith('+') ? '+' : '';
+  const suffix = raw.endsWith('+') ? '+' : '';
+  const numStr = raw.replace(/[^0-9]/g, '');
+  const num = parseInt(numStr, 10);
+  const counted = useCountUp(num, 1600, visible);
+
+  return (
+    <span ref={ref} className="mn-serif" style={{
+      fontSize: 'clamp(30px,4vw,48px)', fontWeight: 300,
+      letterSpacing: '-0.035em', lineHeight: 1,
+      color: 'rgba(248,239,230,1)',
+    }}>
+      {visible ? `${prefix}${counted}${suffix}` : raw}
+    </span>
+  );
+}
+
 function ImpactSection({ t }) {
   const stats = [
-    { n: '350+', label: 'ciudades' },
-    { n: '56+',  label: 'modelos' },
-    { n: '163+', label: 'productos' },
+    { n: '+250', label: 'ciudades' },
     { n: '14',   label: 'países' },
     { n: '6+',   label: 'años' },
+    { n: '56+',  label: 'modelos' },
+    { n: '163+', label: 'productos' },
   ];
 
   const steps = [
@@ -4800,11 +4891,7 @@ function ImpactSection({ t }) {
               display: 'flex', flexDirection: 'column',
               alignItems: 'center', gap: 5,
             }}>
-              <span className="mn-serif" style={{
-                fontSize: 'clamp(30px,4vw,48px)', fontWeight: 300,
-                letterSpacing: '-0.035em', lineHeight: 1,
-                color: C,
-              }}>{s.n}</span>
+              <StatNumber raw={s.n} />
               <span style={{
                 fontSize: 9, opacity: 0.4,
                 letterSpacing: 1.5, textTransform: 'uppercase', fontWeight: 600,
@@ -5221,13 +5308,13 @@ function ProductCard({ product, added, onAdd, rank, showRank, variant = 'normal'
   return (
     <div className="mn-card" style={{ display: 'flex', flexDirection: 'column' }}>
       <div className="mn-card-img" style={{
-        position: 'relative', aspectRatio: isTop ? '1/1' : '3/2', background: 'transparent',
+        position: 'relative', aspectRatio: '1/1', background: 'transparent',
         borderRadius: 2, overflow: 'hidden',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
       }}>
         {p.img ? (
           <img src={p.img} alt={p.name} className="mn-img" style={{
-            width: '92%', height: '92%', objectFit: 'contain',
+            width: '100%', height: '100%', objectFit: 'contain', padding: '8px',
           }} />
         ) : (
           <div className="mn-img" style={{
