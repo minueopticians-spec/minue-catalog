@@ -2642,13 +2642,131 @@ export default function App() {
                           fontStyle: 'italic', fontWeight: 300, margin: '0 0 20px',
                         }}>{t(col.tagKey)}</p>
                         <div className="mn-grid">
-                          {col.items.map(p => (
-                            <ProductCard key={p.id} product={p} added={cart[p.id] || 0}
-                              onAdd={() => addToCart(p.id)}
-                              colData={colData}
-                              currentTierPrice={unitPrice}
-                              onQuickView={(p) => setQuickViewProduct(p)} t={t} />
-                          ))}
+                          {(() => {
+                            // Agrupar por modelo (primer token del nombre, con excepción de "Cooper II")
+                            const getBase = (name) => {
+                              const parts = name.split(' ');
+                              if (parts[0] === 'Cooper' && parts[1] === 'II') return 'Cooper II';
+                              return parts[0];
+                            };
+                            const families = {};
+                            col.items.forEach(p => {
+                              const base = getBase(p.name);
+                              if (!families[base]) families[base] = [];
+                              families[base].push(p);
+                            });
+                            return Object.entries(families).map(([base, items]) => {
+                              // Representante: el que tenga imagen con menor rank (más popular)
+                              const rep = items.find(p => p.img) || items[0];
+                              const allColors = items.flatMap(p => p.colors || []);
+                              const uniqueColors = [...new Set(allColors)].slice(0, 6);
+                              const inCartCount = items.reduce((s, p) => s + (cart[p.id] || 0), 0);
+                              return (
+                                <div
+                                  key={base}
+                                  className="mn-card"
+                                  onClick={() => setQuickViewProduct(rep)}
+                                  style={{ display: 'flex', flexDirection: 'column', cursor: 'pointer' }}
+                                >
+                                  {/* Imagen */}
+                                  <div className="mn-card-img" style={{
+                                    position: 'relative', aspectRatio: '3/2',
+                                    background: 'transparent', borderRadius: 2, overflow: 'hidden',
+                                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                  }}>
+                                    {rep.img ? (
+                                      <img src={rep.img} alt={base} className="mn-img" style={{
+                                        width: '92%', height: '92%', objectFit: 'contain',
+                                      }} />
+                                    ) : (
+                                      <div style={{ opacity: 0.3, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6 }}>
+                                        <svg width="42" height="28" viewBox="0 0 42 28" fill="none"><rect x="1" y="4" width="16" height="12" rx="6" stroke={G} strokeWidth="1.5"/><rect x="25" y="4" width="16" height="12" rx="6" stroke={G} strokeWidth="1.5"/><line x1="17" y1="10" x2="25" y2="10" stroke={G} strokeWidth="1.5"/></svg>
+                                        <span style={{ fontSize: 9, color: G, textTransform: 'uppercase', letterSpacing: 1 }}>{base}</span>
+                                      </div>
+                                    )}
+                                    {/* Badge variantes */}
+                                    {items.length > 1 && (
+                                      <span style={{
+                                        position: 'absolute', top: 8, right: 8,
+                                        padding: '2px 7px', borderRadius: 999,
+                                        background: 'rgba(248,239,230,0.9)', backdropFilter: 'blur(4px)',
+                                        border: `1px solid ${G}22`,
+                                        fontSize: 8, fontWeight: 700, letterSpacing: 0.5, color: G,
+                                      }}>{items.length} colores</span>
+                                    )}
+                                    {/* Badge urgency/new del representante */}
+                                    {(rep.urgency || rep.isNew) && (
+                                      <span style={{
+                                        position: 'absolute', top: 8, left: 8,
+                                        padding: '2px 7px', borderRadius: 999,
+                                        background: rep.urgency ? (URGENCY_COLORS[rep.urgency] || D) : D,
+                                        color: rep.urgency ? '#fff' : G,
+                                        fontSize: 8, fontWeight: 700, letterSpacing: 1,
+                                      }}>
+                                        {rep.urgency ? t(URGENCY_LABELS[rep.urgency]) : t('new_badge')}
+                                      </span>
+                                    )}
+                                    {/* Badge en carrito */}
+                                    {inCartCount > 0 && (
+                                      <span style={{
+                                        position: 'absolute', bottom: 8, left: 8,
+                                        width: 20, height: 20, borderRadius: 999,
+                                        background: G, color: C,
+                                        fontSize: 9, fontWeight: 700,
+                                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                      }}>{inCartCount}</span>
+                                    )}
+                                  </div>
+                                  {/* Info */}
+                                  <div className="mn-card-body" style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                                    <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 6 }}>
+                                      <h4 className="mn-serif mn-card-title" style={{
+                                        fontSize: 17, fontWeight: 800, lineHeight: 1.2, margin: 0,
+                                        letterSpacing: '-0.01em', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
+                                      }}>{base}</h4>
+                                      <div style={{
+                                        flexShrink: 0, padding: '2px 7px', borderRadius: 999,
+                                        background: `rgba(24,51,47,0.07)`,
+                                        display: 'inline-flex', alignItems: 'center', gap: 3,
+                                      }}>
+                                        <span style={{ fontSize: 8, opacity: 0.55, fontWeight: 500, textTransform: 'uppercase' }}>{t('margin_label')}</span>
+                                        <span style={{ fontSize: 11, fontWeight: 700, color: G }}>~{Math.round(((colData?.rrp ?? 50) - (unitPrice ?? DISPLAY_PRICE)) / (colData?.rrp ?? 50) * 100)}%</span>
+                                      </div>
+                                    </div>
+                                    {/* Dots de todos los colores */}
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: 4, flexWrap: 'wrap' }}>
+                                      {uniqueColors.map((c, i) => (
+                                        <span key={i} style={{
+                                          width: 8, height: 8, borderRadius: 999,
+                                          background: COLOR_DOTS[c] || '#999',
+                                          border: c === 'beige' || c === 'crema' || c === 'blanco' ? `1px solid ${G}33` : 'none',
+                                        }} />
+                                      ))}
+                                      {items.flatMap(p => p.colors).length > 6 && (
+                                        <span style={{ fontSize: 8, opacity: 0.4 }}>+{items.flatMap(p => p.colors).length - 6}</span>
+                                      )}
+                                    </div>
+                                    {/* CTA */}
+                                    <button
+                                      onClick={(e) => { e.stopPropagation(); setQuickViewProduct(rep); }}
+                                      className="mn-btn mn-card-btn"
+                                      style={{
+                                        marginTop: 2, alignSelf: 'stretch',
+                                        display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 5,
+                                        padding: '8px 10px', borderRadius: 999,
+                                        background: inCartCount > 0 ? G : 'transparent',
+                                        color: inCartCount > 0 ? C : G,
+                                        border: `1px solid ${G}33`,
+                                        fontSize: 11, fontWeight: 500, letterSpacing: 0.3,
+                                      }}
+                                    >
+                                      {inCartCount > 0 ? `✓ ${inCartCount} en pedido` : `Ver colores →`}
+                                    </button>
+                                  </div>
+                                </div>
+                              );
+                            });
+                          })()}
                         </div>
                         <div style={{ textAlign: 'center', marginTop: 20 }}>
                           <button onClick={() => toggleCollection(col.id)} style={{
