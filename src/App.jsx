@@ -1319,15 +1319,16 @@ export default function App() {
         /* Card interna — responsive por container */
         .mn-card-body { padding: 12px 4px 0; }
         .mn-card-title { font-size: 17px; }
-        .mn-card-img { padding: 14px; }
+        .mn-card-img { padding: 6px; }
         @media (max-width: 600px) {
           .mn-card-body { padding: 8px 2px 0; }
           .mn-card-title { font-size: 13px !important; }
-          .mn-card-img { padding: 10px !important; }
+          .mn-card-img { padding: 4px !important; }
           .mn-card-price-row { flex-direction: column !important; gap: 2px !important; align-items: flex-start !important; }
           .mn-card-price-badge { display: none !important; }
           .mn-card-btn { padding: 7px 8px !important; font-size: 10px !important; }
           .mn-col-inner { padding: 12px !important; }
+          .mn-qv-btn { opacity: 0.7 !important; }
         }
 
         .mn-pkg-grid { display: grid; gap: 24px; grid-template-columns: repeat(3, 1fr); }
@@ -2263,37 +2264,6 @@ export default function App() {
             .mn-why-grid, .mn-why-bottom { grid-template-columns: 1fr !important; }
           }
         `}</style>
-
-        {/* LIFESTYLE STRIP — antes del CTA */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 0, maxHeight: 320, overflow: 'hidden' }} className="mn-lifestyle-strip">
-          <div style={{ overflow: 'hidden', position: 'relative' }}>
-            <img
-              src="https://res.cloudinary.com/dekvzwn7b/image/upload/w_700,q_auto,f_auto/v1776281988/_ANT3201_lhwuw6.jpg"
-              alt="Minuë SS26"
-              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', filter: 'brightness(0.85)' }}
-            />
-            <div style={{
-              position: 'absolute', bottom: 20, left: 20,
-              background: 'rgba(24,51,47,0.7)', backdropFilter: 'blur(8px)',
-              padding: '8px 16px', borderRadius: 999,
-              fontSize: 11, color: C, fontWeight: 500, letterSpacing: 0.3,
-            }}>SS26 Collection</div>
-          </div>
-          <div style={{ overflow: 'hidden', position: 'relative', background: G }}>
-            <img
-              src="https://res.cloudinary.com/dekvzwn7b/image/upload/w_700,q_auto,f_auto/v1776280365/MINUE_5_gayd2f.png"
-              alt="Minuë Packaging"
-              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', filter: 'brightness(0.9)' }}
-            />
-            <div style={{
-              position: 'absolute', bottom: 20, left: 20,
-              background: 'rgba(24,51,47,0.7)', backdropFilter: 'blur(8px)',
-              padding: '8px 16px', borderRadius: 999,
-              fontSize: 11, color: C, fontWeight: 500, letterSpacing: 0.3,
-            }}>Premium Packaging</div>
-          </div>
-        </div>
-        <style>{`@media (max-width: 600px) { .mn-lifestyle-strip { grid-template-columns: 1fr !important; max-height: 400px !important; } }`}</style>
 
         {/* CTA TARIFAS */}
         <section style={{ maxWidth: 1280, margin: '0 auto', padding: '40px 24px 60px' }}>
@@ -3631,53 +3601,61 @@ function QuickViewModal({ product: p, allProducts, colData, currentTierPrice, ad
         boxShadow: '0 32px 80px -20px rgba(0,0,0,0.4)',
         animation: 'mn-rise 0.2s ease-out both',
       }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(200px,1fr) 1fr' }} className="mn-qv-grid">
+        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(220px,1.1fr) 1fr' }} className="mn-qv-grid">
           {/* Imagen */}
           <div style={{
-            background: p.img ? '#fff' : `${G}08`, minHeight: 260,
+            background: p.img ? '#fff' : `${G}08`, minHeight: 300,
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            padding: 28, position: 'relative', borderRadius: '8px 0 0 8px',
+            padding: 16, position: 'relative', borderRadius: '8px 0 0 8px',
           }}>
             {p.urgency && (
               <span style={{
-                position: 'absolute', top: 14, left: 14,
+                position: 'absolute', top: 14, left: 14, zIndex: 2,
                 padding: '4px 10px', borderRadius: 999, fontSize: 10, fontWeight: 700, letterSpacing: 0.5,
                 background: p.urgency === 'stock_low' ? '#e85a00' : p.urgency === 'hot' ? '#c41e1e' : D,
                 color: '#fff',
               }}>{t(URGENCY_LABELS[p.urgency])}</span>
             )}
             {/* Navegación ← → */}
-          {(prevP || nextP) && (
-            <div style={{
-              position: 'absolute', top: '50%', left: 0, right: 0,
-              transform: 'translateY(-50%)',
-              display: 'flex', justifyContent: 'space-between',
-              padding: '0 8px', pointerEvents: 'none',
-            }}>
-              {prevP ? (
-                <button onClick={() => onNavigate(prevP)} style={{
-                  pointerEvents: 'auto',
-                  width: 32, height: 32, borderRadius: 999,
-                  background: 'rgba(248,239,230,0.9)', border: `1px solid ${G}22`,
-                  display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                  cursor: 'pointer', fontSize: 14, color: G,
-                }}>‹</button>
-              ) : <span />}
-              {nextP ? (
-                <button onClick={() => onNavigate(nextP)} style={{
-                  pointerEvents: 'auto',
-                  width: 32, height: 32, borderRadius: 999,
-                  background: 'rgba(248,239,230,0.9)', border: `1px solid ${G}22`,
-                  display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                  cursor: 'pointer', fontSize: 14, color: G,
-                }}>›</button>
-              ) : <span />}
-            </div>
-          )}
+            {(prevP || nextP) && (
+              <div style={{
+                position: 'absolute', top: '50%', left: 0, right: 0, zIndex: 2,
+                transform: 'translateY(-50%)',
+                display: 'flex', justifyContent: 'space-between',
+                padding: '0 8px', pointerEvents: 'none',
+              }}>
+                {prevP ? (
+                  <button onClick={() => onNavigate(prevP)} style={{
+                    pointerEvents: 'auto',
+                    width: 32, height: 32, borderRadius: 999,
+                    background: 'rgba(248,239,230,0.9)', border: `1px solid ${G}22`,
+                    display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                    cursor: 'pointer', fontSize: 14, color: G,
+                  }}>‹</button>
+                ) : <span />}
+                {nextP ? (
+                  <button onClick={() => onNavigate(nextP)} style={{
+                    pointerEvents: 'auto',
+                    width: 32, height: 32, borderRadius: 999,
+                    background: 'rgba(248,239,230,0.9)', border: `1px solid ${G}22`,
+                    display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                    cursor: 'pointer', fontSize: 14, color: G,
+                  }}>›</button>
+                ) : <span />}
+              </div>
+            )}
             {p.img ? (
-              <img src={p.img} alt={p.name} className="mn-img" style={{
-                maxWidth: '92%', maxHeight: '92%', objectFit: 'contain',
-              }} />
+              <img
+                src={p.img}
+                alt={p.name}
+                className="mn-img"
+                title="Click para ampliar"
+                onClick={() => { if (typeof window !== 'undefined') window.open(p.img.replace('w_400,', 'w_900,'), '_blank'); }}
+                style={{
+                  maxWidth: '100%', maxHeight: '100%', objectFit: 'contain',
+                  cursor: 'zoom-in',
+                }}
+              />
             ) : (
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10, opacity: 0.3 }}>
                 <svg width="64" height="40" viewBox="0 0 42 28" fill="none">
@@ -3690,48 +3668,59 @@ function QuickViewModal({ product: p, allProducts, colData, currentTierPrice, ad
                 <span style={{ fontSize: 11, color: G, textTransform: 'uppercase', letterSpacing: 1 }}>{p.name}</span>
               </div>
             )}
+            {/* Hint ampliar */}
+            {p.img && (
+              <div style={{
+                position: 'absolute', bottom: 10, right: 10,
+                fontSize: 9, color: G, opacity: 0.35, letterSpacing: 0.3,
+                display: 'flex', alignItems: 'center', gap: 4, pointerEvents: 'none',
+              }}>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                  <line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/>
+                </svg>
+                Ampliar
+              </div>
+            )}
           </div>
 
           {/* Info */}
-          <div style={{ padding: '28px 24px', display: 'flex', flexDirection: 'column', gap: 14 }}>
-            <button onClick={onClose} style={{
-              alignSelf: 'flex-end', width: 32, height: 32, borderRadius: 999,
-              border: `1px solid ${G}22`, display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-            }}><IconClose size={16} /></button>
-
-            <div>
-              <div className="mn-label-xs" style={{ color: D, marginBottom: 4 }}>{t('qv_collection')} — {p.col}</div>
-              <h2 className="mn-serif" style={{ fontSize: 32, fontWeight: 300, margin: 0, letterSpacing: '-0.02em' }}>{p.name}</h2>
+          <div style={{ padding: '24px 22px', display: 'flex', flexDirection: 'column', gap: 13, overflowY: 'auto' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+              <div>
+                <div className="mn-label-xs" style={{ color: D, marginBottom: 4 }}>{t('qv_collection')} — {p.col}</div>
+                <h2 className="mn-serif" style={{ fontSize: 28, fontWeight: 300, margin: 0, letterSpacing: '-0.02em', lineHeight: 1.1 }}>{p.name}</h2>
+                {(() => { const so = SHAPES.find(s => s.id === p.shape); return so ? <span style={{ fontSize: 9, opacity: 0.45, letterSpacing: 0.5, fontWeight: 500, textTransform: 'uppercase' }}>{t(so.tKey)}</span> : null; })()}
+              </div>
+              <button onClick={onClose} style={{
+                flexShrink: 0, width: 32, height: 32, borderRadius: 999, marginTop: 2,
+                border: `1px solid ${G}22`, display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+              }}><IconClose size={16} /></button>
             </div>
 
-            <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-              <div style={{ padding: '8px 14px', background: `${G}08`, borderRadius: 4, flex: '1 1 auto' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 3 }}>
+            <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+              <div style={{ padding: '8px 12px', background: `${G}08`, borderRadius: 4, flex: '1 1 80px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 5, marginBottom: 2 }}>
                   <span className="mn-label-xs" style={{ opacity: 0.55 }}>{t('qv_rrp')}</span>
                   {p.col === 'Acetato' && (
-                    <span style={{ fontSize: 7, fontWeight: 700, color: D, background: `${D}18`, padding: '1px 6px', borderRadius: 999 }}>Acetato Premium</span>
+                    <span style={{ fontSize: 7, fontWeight: 700, color: D, background: `${D}18`, padding: '1px 5px', borderRadius: 999 }}>ACE</span>
                   )}
                 </div>
-                <div className="mn-serif" style={{ fontSize: 22, fontWeight: 400 }}>{rrp}€
-                  {p.col !== 'Acetato' && <span style={{ fontSize: 11, opacity: 0.45, marginLeft: 4 }}>rec.</span>}
-                </div>
-                {p.col === 'Acetato' && (
-                  <div style={{ fontSize: 10, opacity: 0.5, marginTop: 2 }}>PVP colecciones: 50€</div>
-                )}
+                <div className="mn-serif" style={{ fontSize: 20, fontWeight: 400 }}>{rrp}€</div>
               </div>
-              <div style={{ padding: '8px 14px', background: `${D}12`, borderRadius: 4, flex: '1 1 auto' }}>
-                <div className="mn-label-xs" style={{ color: D, marginBottom: 3 }}>{t('margin_label')}</div>
-                <div className="mn-serif" style={{ fontSize: 22, fontWeight: 400 }}>~{marginPct}%</div>
+              <div style={{ padding: '8px 12px', background: `${D}12`, borderRadius: 4, flex: '1 1 80px' }}>
+                <div className="mn-label-xs" style={{ color: D, marginBottom: 2 }}>{t('margin_label')}</div>
+                <div className="mn-serif" style={{ fontSize: 20, fontWeight: 400 }}>~{marginPct}%</div>
               </div>
             </div>
 
             <div>
-              <div className="mn-label-xs" style={{ opacity: 0.5, marginBottom: 8 }}>{t('qv_colors')}</div>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+              <div className="mn-label-xs" style={{ opacity: 0.5, marginBottom: 7 }}>{t('qv_colors')}</div>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5 }}>
                 {p.colors.map((c, i) => (
                   <span key={i} style={{
                     display: 'inline-flex', alignItems: 'center', gap: 5,
-                    padding: '4px 10px', border: `1px solid ${G}22`, borderRadius: 999, fontSize: 11,
+                    padding: '4px 9px', border: `1px solid ${G}22`, borderRadius: 999, fontSize: 11,
                   }}>
                     <span style={{ width: 8, height: 8, borderRadius: 999, background: COLOR_DOTS[c] || '#999', flexShrink: 0 }} />
                     {c}
@@ -3740,19 +3729,9 @@ function QuickViewModal({ product: p, allProducts, colData, currentTierPrice, ad
               </div>
             </div>
 
-            <div style={{ display: 'flex', gap: 12, fontSize: 12, flexWrap: 'wrap' }}>
-              {shapeObj && (
-                <div>
-                  <span className="mn-label-xs" style={{ opacity: 0.5 }}>{t('qv_shape')}: </span>
-                  <span style={{ fontWeight: 500 }}>{t(shapeObj.tKey)}</span>
-                </div>
-              )}
-              <div>
-                <span className="mn-label-xs" style={{ opacity: 0.5 }}>{t('qv_sku')}: </span>
-                <span style={{ fontWeight: 500, fontFamily: 'monospace', fontSize: 11 }}>
-                  MN-{p.name.slice(0,4).toUpperCase()}-{p.col.slice(0,3).toUpperCase()}
-                </span>
-              </div>
+            <div style={{ fontSize: 11, opacity: 0.55 }}>
+              <span className="mn-label-xs">{t('qv_sku')}: </span>
+              <span style={{ fontFamily: 'monospace' }}>MN-{p.name.slice(0,4).toUpperCase()}-{p.col.slice(0,3).toUpperCase()}</span>
             </div>
 
             <button onClick={() => { onAdd(); onClose(); }} className="mn-btn" style={{
@@ -3768,7 +3747,10 @@ function QuickViewModal({ product: p, allProducts, colData, currentTierPrice, ad
         </div>
       </div>
       <style>{`
-        @media (max-width: 520px) { .mn-qv-grid { grid-template-columns: 1fr !important; } }
+        @media (max-width: 560px) {
+          .mn-qv-grid { grid-template-columns: 1fr !important; }
+          .mn-qv-grid > div:first-child { min-height: 220px !important; border-radius: 8px 8px 0 0 !important; }
+        }
       `}</style>
     </>
   );
@@ -3790,13 +3772,13 @@ function ProductCard({ product, added, onAdd, rank, showRank, variant = 'normal'
   return (
     <div className="mn-card" style={{ display: 'flex', flexDirection: 'column' }}>
       <div className="mn-card-img" style={{
-        position: 'relative', aspectRatio: isTop ? '1/1' : '4/3', background: p.img ? '#fff' : `${G}08`,
+        position: 'relative', aspectRatio: isTop ? '1/1' : '5/4', background: p.img ? '#fff' : `${G}08`,
         borderRadius: 2, overflow: 'hidden',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
       }}>
         {p.img ? (
           <img src={p.img} alt={p.name} className="mn-img" style={{
-            maxWidth: '92%', maxHeight: '92%', objectFit: 'contain',
+            maxWidth: '100%', maxHeight: '100%', objectFit: 'contain',
           }} />
         ) : (
           <div className="mn-img" style={{
@@ -3814,7 +3796,7 @@ function ProductCard({ product, added, onAdd, rank, showRank, variant = 'normal'
           </div>
         )}
 
-        {/* Badges izquierda — apilados verticalmente */}
+        {/* Badges izquierda — rank / new / urgency */}
         <div style={{
           position: 'absolute', top: 8, left: 8,
           display: 'flex', flexDirection: 'column', gap: 3, alignItems: 'flex-start',
@@ -3843,30 +3825,24 @@ function ProductCard({ product, added, onAdd, rank, showRank, variant = 'normal'
           )}
         </div>
 
-        {/* Badges derecha — colección + forma apiladas */}
+        {/* Badge derecha — solo colección */}
         <div style={{
           position: 'absolute', top: 8, right: 8,
-          display: 'flex', flexDirection: 'column', gap: 3, alignItems: 'flex-end',
         }}>
           <span style={{
             padding: '2px 7px', border: `1px solid ${G}22`, borderRadius: 999,
             background: 'rgba(248,239,230,0.88)', fontSize: 7, fontWeight: 600,
             letterSpacing: 0.5, textTransform: 'uppercase', color: G,
           }}>{p.col}</span>
-          {shapeObj && (
-            <span style={{
-              padding: '2px 7px', borderRadius: 999,
-              background: `rgba(24,51,47,0.72)`, color: C,
-              fontSize: 7, fontWeight: 600, letterSpacing: 0.5, textTransform: 'uppercase',
-            }}>{t(shapeObj.tKey)}</span>
-          )}
         </div>
+
+        {/* Botón + Info — hover en desktop, siempre visible en móvil */}
         {onQuickView && (
           <button onClick={(e) => { e.stopPropagation(); onQuickView(p); }}
             style={{
-              position: 'absolute', bottom: 10, right: 10,
+              position: 'absolute', bottom: 8, right: 8,
               padding: '5px 10px', borderRadius: 999,
-              background: 'rgba(248,239,230,0.9)', backdropFilter: 'blur(4px)',
+              background: 'rgba(248,239,230,0.92)', backdropFilter: 'blur(4px)',
               border: `1px solid ${G}22`, fontSize: 9, fontWeight: 600,
               letterSpacing: 0.5, textTransform: 'uppercase', color: G,
               opacity: 0, transition: 'opacity 0.2s',
@@ -3878,11 +3854,19 @@ function ProductCard({ product, added, onAdd, rank, showRank, variant = 'normal'
         )}
       </div>
 
-      <div className="mn-card-body" style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+      <div className="mn-card-body" style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
         <div className="mn-card-price-row" style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 6 }}>
-          <h4 className="mn-serif mn-card-title" style={{
-            fontSize: isTop ? 18 : 17, fontWeight: 400, lineHeight: 1.15, margin: 0, minWidth: 0,
-          }}>{p.name}</h4>
+          <div style={{ minWidth: 0 }}>
+            <h4 className="mn-serif mn-card-title" style={{
+              fontSize: isTop ? 18 : 17, fontWeight: 400, lineHeight: 1.15, margin: 0,
+            }}>{p.name}</h4>
+            {shapeObj && (
+              <span style={{
+                fontSize: 9, opacity: 0.45, letterSpacing: 0.5, fontWeight: 500,
+                textTransform: 'uppercase', display: 'block', marginTop: 2,
+              }}>{t(shapeObj.tKey)}</span>
+            )}
+          </div>
           <div style={{ flexShrink: 0, textAlign: 'right' }}>
             {/* Margen primero, PVP diferenciado por colección */}
             <div style={{
@@ -3917,7 +3901,7 @@ function ProductCard({ product, added, onAdd, rank, showRank, variant = 'normal'
         </div>
 
         <button onClick={onAdd} className="mn-btn mn-card-btn" style={{
-          marginTop: 6, alignSelf: 'stretch',
+          marginTop: 4, alignSelf: 'stretch',
           display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 5,
           padding: '8px 10px', borderRadius: 999,
           background: added ? G : 'transparent',
