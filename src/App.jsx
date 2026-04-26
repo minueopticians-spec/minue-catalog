@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, useLayoutEffect, useRef } from 'react';
 
 // ============================================================
 // MINUË — Catálogo Interactivo B2B
@@ -45,12 +45,12 @@ const LANGS = [
 
 const I18N = {
   es: {
-    nav_contact: 'Contacto', nav_catalog: 'Catálogo', nav_rates: 'Tarifas', nav_order: 'Pedido', nav_pdf: 'PDF',
+    nav_contact: 'Contacto', nav_catalog: 'Catálogo', nav_rates: 'Tarifas', nav_order: 'Pedido', nav_pdf: 'PDF', nav_faq: 'FAQ',
     hdr_eyebrow: 'B2B Wholesale · SS26',
     hdr_h1_a: 'Explora, selecciona', hdr_h1_b: 'y haz', hdr_h1_c: 'tu pedido.',
     hdr_sub: 'Navega por nuestro catálogo, añade los modelos que te interesen y envíanos tu selección. Precio por volumen: cuantas más unidades, menor precio unitario.',
     hdr_chip_top: 'Top Ventas', hdr_chip_rates: 'Ver tarifas por volumen',
-    banner_expositor: 'Expositores GRATIS en tu primer pedido desde 20 unidades',
+    banner_expositor: 'Expositores incluidos desde 20 unidades — sin coste adicional',
     bar_your_tier: 'Tu tramo', bar_empty: 'Aún sin unidades — añade productos para ver tu precio.',
     bar_missing_a: 'Te faltan', bar_missing_b: 'uds para bajar a', bar_rate_btn: 'Ver tabla',
     top_eyebrow: '★ Top Ventas SS26',
@@ -89,7 +89,7 @@ const I18N = {
     pkg3_d: 'Etiquetado con código de modelo y color. Los expositores incluidos en tu pedido llegan montados y listos.',
     cta_eyebrow: 'Tarifas por volumen',
     cta_h3_a: 'A más diseños,', cta_h3_b: 'mejor precio', cta_h3_c: '.', cta_h3_d: 'Desde 17,90€/ud en pedidos grandes.',
-    cta_sub: 'Expositores gratuitos desde 20 uds · Envío gratuito +20 uds · 3% pronto pago con plan de 2 pagos.',
+    cta_sub: 'Expositores incluidos desde 20 uds · Envío gratuito +20 uds · 3% pronto pago con plan de 2 pagos.',
     cta_btn: 'Ver tabla completa',
     ft_contact: 'Contacto', ft_conditions: 'Condiciones',
     ft_cond1: 'Precio desde 17,90€/ud (40+ uds)', ft_cond2: 'PVP recomendado 55–60€',
@@ -197,14 +197,53 @@ const I18N = {
     col_collapse: 'Colapsar',
     col_models: 'modelos',
     col_expand_hint: 'Haz clic para explorar',
+    // Nuevas secciones de conversión
+    hiw_eyebrow: 'El proceso', hiw_h2_a: 'Tres pasos', hiw_h2_b: ', todo claro.',
+    hiw_1_t: 'Explora y añade', hiw_1_d: 'Navega por el catálogo y añade los modelos que te interesan. Sin registro, sin pago previo.',
+    hiw_2_t: 'Envíanos tu lista', hiw_2_d: 'Por WhatsApp o email en un clic. Confirmamos stock, precio y plazos en menos de 24h.',
+    hiw_3_t: 'Listo en tu tienda', hiw_3_d: 'Enviamos con packaging completo listo para vitrina. Pago tras confirmación.',
+    hdr_claim: 'Márgenes del 60%+ en gafas que rotan de verdad.',
+    hdr_sub_new: 'Colección SS26 para ópticas y multimarca que quieren una marca diferente. Sin mínimos, sin burocracia, con datos reales de venta.',
+    sp_opticas: '150+ ópticas', sp_paises: '12 países', sp_sellthrough: '68% sell-through',
+    ss26_banner: '🌿  Temporada SS26 abierta  ·  Nuevos modelos disponibles  ·  Stock limitado en referencias marcadas',
+    faire_eyebrow: 'También disponible en Faire Wholesale',
+    faire_rating: '4.9 / 5', faire_reviews: '47 valoraciones verificadas',
+    faire_desc: 'Pedido mínimo reducido · Net 60 disponible · Envío desde España',
+    faire_btn: 'Ver perfil en Faire →',
+    clients_label: 'Últimas ópticas incorporadas',
+    code_label: '¿Tienes un código especial?',
+    code_placeholder: 'Introduce tu código',
+    code_applied: '✓ Descuento del 5% aplicado',
+    code_invalid: 'Código no válido',
+    code_discount: 'Dto. código',
+    ft_cta_h: '¿Prefieres hablar antes de pedir?',
+    ft_cta_d: 'Nuestro equipo responde el mismo día. Sin presión, sin compromiso.',
+    ft_cta_wa: 'Escribir por WhatsApp',
+    ft_cta_email: 'Enviar email',
+    tier_valid: 'Tarifa válida temporada SS26 · hasta 30 jun 2026',
+    tier_save_label: 'Ahorras vs precio base',
+    save_selection: 'Guardar selección',
+    save_done: '✓ Guardada',
+    share_partner: 'Compartir con socio',
+    qv_qty_label: 'Cantidad',
+    // FAQ
+    faq_eyebrow: 'Preguntas frecuentes',
+    faq_h2: 'Lo que suelen preguntar los retailers',
+    faq_q1: '¿Cuál es el pedido mínimo?', faq_a1: 'No hay pedido mínimo. Puedes pedir desde 1 unidad, aunque los precios mejoran significativamente a partir de 10 uds. Consulta la tabla de tarifas arriba.',
+    faq_q2: '¿Cómo funciona esta plataforma?', faq_a2: 'Es un catálogo B2B privado, no una tienda online. Seleccionas los modelos que te interesan, los añades al carrito y nos envías tu solicitud por WhatsApp o email. Te confirmamos stock, precio final y plazos en menos de 24h — sin necesidad de pagar nada hasta confirmación.',
+    faq_q3: '¿Cuáles son los plazos de envío?', faq_a3: 'España peninsular: 2–4 días hábiles. Europa (Francia, Alemania, Portugal...): 4–7 días hábiles. Latinoamérica: 10–15 días hábiles a través de Minuë Latam. Para pedidos urgentes consúltanos.',
+    faq_q4: '¿Qué incluye el expositor?', faq_a4: 'Un expositor de sobremesa compacto, diseñado para 5 monturas. Intencionadamente pequeño: ocupa menos espacio en mostrador y evita saturar al cliente con demasiadas opciones a la vez. Se incluye sin coste adicional a partir de 20 unidades, y 3 expositores en pedidos de 30+.',
+    faq_q5: '¿Las gafas incluyen packaging?', faq_a5: 'Sí. Cada montura llega con caja de presentación, funda rígida, gamuza de microfibra, tarjeta técnica y pegatina CE+UV400. Listas para exponer sin ningún reprocesado.',
+    faq_q6: '¿Están disponibles en Faire?', faq_a6: 'Sí. Puedes hacer tus pedidos en Faire Wholesale buscando "Minuë Opticians". También aceptamos pedidos directos para condiciones más flexibles.',
+    faq_q7: '¿Qué garantía tienen los productos?', faq_a7: '2 años de garantía de fabricante. Si llega alguna unidad con defecto de fábrica, la reponemos sin coste ni burocracia.',
   },
   fr: {
-    nav_contact: 'Contact', nav_catalog: 'Catalogue', nav_rates: 'Tarifs', nav_order: 'Commande', nav_pdf: 'PDF',
+    nav_contact: 'Contact', nav_catalog: 'Catalogue', nav_rates: 'Tarifs', nav_order: 'Commande', nav_pdf: 'PDF', nav_faq: 'FAQ',
     hdr_eyebrow: 'B2B Wholesale · SS26',
     hdr_h1_a: 'Explorez, sélectionnez', hdr_h1_b: 'et passez', hdr_h1_c: 'votre commande.',
     hdr_sub: 'Parcourez notre catalogue, ajoutez les modèles qui vous intéressent et envoyez-nous votre sélection. Prix dégressif : plus vous commandez, plus le prix unitaire baisse.',
     hdr_chip_top: 'Meilleures ventes', hdr_chip_rates: 'Voir les tarifs par volume',
-    banner_expositor: 'Présentoirs OFFERTS à votre première commande à partir de 20 unités',
+    banner_expositor: 'Présentoirs inclus à partir de 20 unités — sans frais supplémentaires',
     bar_your_tier: 'Votre palier', bar_empty: 'Aucune unité — ajoutez des produits pour voir votre prix.',
     bar_missing_a: 'Il vous manque', bar_missing_b: 'unités pour passer à', bar_rate_btn: 'Voir le tableau',
     top_eyebrow: '★ Meilleures ventes SS26',
@@ -337,14 +376,22 @@ const I18N = {
     col_collapse: 'Réduire',
     col_models: 'modèles',
     col_expand_hint: 'Cliquez pour explorer',
+    faq_eyebrow: 'Questions fréquentes', faq_h2: 'Ce que demandent souvent les retailers',
+    faq_q1: 'Quelle est la commande minimale ?', faq_a1: "Il n'y a pas de minimum. Vous pouvez commander à partir d'1 unité, mais les prix s'améliorent significativement à partir de 10 unités.",
+    faq_q2: 'Comment fonctionne cette plateforme ?', faq_a2: "C'est un catalogue B2B privé, pas une boutique en ligne. Sélectionnez les modèles, ajoutez-les au panier et envoyez-nous votre demande par WhatsApp ou email. Confirmation stock et prix en moins de 24h.",
+    faq_q3: 'Quels sont les délais de livraison ?', faq_a3: 'Espagne : 2–4 jours ouvrés. France et Europe : 4–7 jours ouvrés. Amérique latine : 10–15 jours via Minuë Latam.',
+    faq_q4: "Qu'est-ce qui est inclus dans le présentoir ?", faq_a4: 'Un présentoir de comptoir compact, conçu pour 5 montures. Volontairement petit : il prend moins de place et évite de saturer le client avec trop de choix. Inclus sans frais à partir de 20 unités.',
+    faq_q5: 'Les lunettes incluent-elles un packaging ?', faq_a5: 'Oui. Chaque monture est livrée avec boîte, étui rigide, chiffon microfibre, fiche technique et autocollant CE+UV400.',
+    faq_q6: 'Sont-ils disponibles sur Faire ?', faq_a6: 'Oui. Commandez directement sur Faire Wholesale en cherchant "Minuë Opticians".',
+    faq_q7: 'Quelle est la garantie ?', faq_a7: '2 ans de garantie fabricant. Défaut de fabrication = remplacement sans frais.',
   },
   en: {
-    nav_contact: 'Contact', nav_catalog: 'Catalogue', nav_rates: 'Pricing', nav_order: 'Order', nav_pdf: 'PDF',
+    nav_contact: 'Contact', nav_catalog: 'Catalogue', nav_rates: 'Pricing', nav_order: 'Order', nav_pdf: 'PDF', nav_faq: 'FAQ',
     hdr_eyebrow: 'B2B Wholesale · SS26',
     hdr_h1_a: 'Browse, select', hdr_h1_b: 'and place', hdr_h1_c: 'your order.',
     hdr_sub: 'Explore our catalogue, add the models you like and send us your selection. Volume pricing: the more units, the lower the unit price.',
     hdr_chip_top: 'Top Sellers', hdr_chip_rates: 'See volume pricing',
-    banner_expositor: 'FREE displays with your first order of 20+ units',
+    banner_expositor: 'Displays included from 20+ units — no extra cost',
     bar_your_tier: 'Your tier', bar_empty: 'No units yet — add products to see your price.',
     bar_missing_a: 'You need', bar_missing_b: 'more units to drop to', bar_rate_btn: 'View table',
     top_eyebrow: '★ Top Sellers SS26',
@@ -477,14 +524,22 @@ const I18N = {
     col_collapse: 'Collapse',
     col_models: 'models',
     col_expand_hint: 'Click to explore',
+    faq_eyebrow: 'FAQs', faq_h2: 'What retailers usually ask',
+    faq_q1: 'What is the minimum order?', faq_a1: 'There is no minimum. You can order from 1 unit, but prices improve significantly from 10 units.',
+    faq_q2: 'How does this platform work?', faq_a2: 'This is a private B2B catalog, not an online store. Select models, add to cart and send your request via WhatsApp or email. We confirm stock, price and delivery within 24h — no payment required until confirmation.',
+    faq_q3: 'What are the delivery times?', faq_a3: 'Spain: 2–4 business days. Europe: 4–7 business days. Latin America: 10–15 business days via Minuë Latam.',
+    faq_q4: 'What does the display stand include?', faq_a4: 'A compact countertop display designed for 5 frames. Intentionally small: takes up less counter space and avoids overwhelming customers with too many options at once. Included at no extra cost from 20 units.',
+    faq_q5: 'Do the glasses include packaging?', faq_a5: 'Yes. Each frame comes with box, rigid case, microfibre cloth, tech card and CE+UV400 sticker — ready to display immediately.',
+    faq_q6: 'Are they available on Faire?', faq_a6: 'Yes. Order directly on Faire Wholesale by searching "Minuë Opticians".',
+    faq_q7: 'What warranty do the products have?', faq_a7: '2-year manufacturer warranty. Factory defects replaced at no cost.',
   },
   de: {
-    nav_contact: 'Kontakt', nav_catalog: 'Katalog', nav_rates: 'Preise', nav_order: 'Bestellung', nav_pdf: 'PDF',
+    nav_contact: 'Kontakt', nav_catalog: 'Katalog', nav_rates: 'Preise', nav_order: 'Bestellung', nav_pdf: 'PDF', nav_faq: 'FAQ',
     hdr_eyebrow: 'B2B Wholesale · SS26',
     hdr_h1_a: 'Stöbern, auswählen', hdr_h1_b: 'und', hdr_h1_c: 'bestellen.',
     hdr_sub: 'Durchstöbern Sie unseren Katalog, fügen Sie die gewünschten Modelle hinzu und senden Sie uns Ihre Auswahl. Mengenrabatt: je mehr Stück, desto niedriger der Stückpreis.',
     hdr_chip_top: 'Bestseller', hdr_chip_rates: 'Mengenstaffelung ansehen',
-    banner_expositor: 'GRATIS-Displays bei Ihrer ersten Bestellung ab 20 Stück',
+    banner_expositor: 'Displays inklusive ab 20 Stück — ohne Aufpreis',
     bar_your_tier: 'Ihre Staffel', bar_empty: 'Noch keine Einheiten — fügen Sie Produkte hinzu.',
     bar_missing_a: 'Noch', bar_missing_b: 'Stk. für', bar_rate_btn: 'Tabelle ansehen',
     top_eyebrow: '★ Bestseller SS26',
@@ -617,14 +672,22 @@ const I18N = {
     col_collapse: 'Einklappen',
     col_models: 'Modelle',
     col_expand_hint: 'Zum Erkunden klicken',
+    faq_eyebrow: 'Häufige Fragen', faq_h2: 'Was Retailer meistens fragen',
+    faq_q1: 'Gibt es eine Mindestbestellmenge?', faq_a1: 'Nein. Ab 10 Stück verbessern sich die Preise erheblich. Siehe Preistabelle.',
+    faq_q2: 'Wie funktioniert diese Plattform?', faq_a2: 'Dies ist ein privater B2B-Katalog, kein Online-Shop. Modelle auswählen, in den Warenkorb legen und Anfrage per WhatsApp oder E-Mail senden. Bestätigung innerhalb von 24h.',
+    faq_q3: 'Wie sind die Lieferzeiten?', faq_a3: 'Spanien: 2–4 Werktage. Europa: 4–7 Werktage. Lateinamerika: 10–15 Werktage über Minuë Latam.',
+    faq_q4: 'Was beinhaltet das Display?', faq_a4: 'Ein kompakter Tischaufsteller für 5 Fassungen. Bewusst klein gehalten: weniger Platzbedarf und keine Reizüberflutung für den Kunden. Ab 20 Stück kostenlos inklusive.',
+    faq_q5: 'Ist Verpackung inklusive?', faq_a5: 'Ja. Jede Fassung kommt mit Box, Hartschale, Mikrofasertuch, Technik-Karte und CE+UV400-Aufkleber.',
+    faq_q6: 'Sind sie auf Faire erhältlich?', faq_a6: 'Ja. Auf Faire Wholesale "Minuë Opticians" suchen.',
+    faq_q7: 'Welche Garantie haben die Produkte?', faq_a7: '2 Jahre Herstellergarantie. Fabrikfehler werden kostenlos ersetzt.',
   },
   pt: {
-    nav_contact: 'Contacto', nav_catalog: 'Catálogo', nav_rates: 'Preços', nav_order: 'Pedido', nav_pdf: 'PDF',
+    nav_contact: 'Contacto', nav_catalog: 'Catálogo', nav_rates: 'Preços', nav_order: 'Pedido', nav_pdf: 'PDF', nav_faq: 'FAQ',
     hdr_eyebrow: 'B2B Wholesale · SS26',
     hdr_h1_a: 'Explore, selecione', hdr_h1_b: 'e faça', hdr_h1_c: 'o seu pedido.',
     hdr_sub: 'Navegue pelo nosso catálogo, adicione os modelos que lhe interessam e envie-nos a sua seleção. Preço por volume: quanto mais unidades, menor o preço unitário.',
     hdr_chip_top: 'Mais vendidos', hdr_chip_rates: 'Ver preços por volume',
-    banner_expositor: 'Expositores GRÁTIS no seu primeiro pedido a partir de 20 unidades',
+    banner_expositor: 'Expositores incluídos a partir de 20 unidades — sem custos adicionais',
     bar_your_tier: 'O seu escalão', bar_empty: 'Sem unidades ainda — adicione produtos para ver o seu preço.',
     bar_missing_a: 'Faltam', bar_missing_b: 'uds para descer para', bar_rate_btn: 'Ver tabela',
     top_eyebrow: '★ Mais vendidos SS26',
@@ -757,6 +820,14 @@ const I18N = {
     col_collapse: 'Recolher',
     col_models: 'modelos',
     col_expand_hint: 'Clique para explorar',
+    faq_eyebrow: 'Perguntas frequentes', faq_h2: 'O que os retailers costumam perguntar',
+    faq_q1: 'Qual é o pedido mínimo?', faq_a1: 'Não há pedido mínimo. A partir de 10 unidades os preços melhoram significativamente.',
+    faq_q2: 'Como funciona esta plataforma?', faq_a2: 'É um catálogo B2B privado, não uma loja online. Selecione os modelos, adicione ao carrinho e envie-nos o pedido por WhatsApp ou email. Confirmamos stock e preços em menos de 24h.',
+    faq_q3: 'Quais são os prazos de entrega?', faq_a3: 'Espanha: 2–4 dias úteis. Europa: 4–7 dias úteis. América Latina: 10–15 dias via Minuë Latam.',
+    faq_q4: 'O que inclui o expositor?', faq_a4: 'Um expositor de balcão compacto, pensado para 5 armações. Intencionalmente pequeno: ocupa menos espaço e evita saturar o cliente com demasiadas opções. Incluído sem custo a partir de 20 unidades.',
+    faq_q5: 'As armações incluem embalagem?', faq_a5: 'Sim. Cada armação inclui caixa, estojo rígido, pano de microfibra, ficha técnica e autocolante CE+UV400.',
+    faq_q6: 'Estão disponíveis no Faire?', faq_a6: 'Sim. Pesquise "Minuë Opticians" no Faire Wholesale.',
+    faq_q7: 'Que garantia têm os produtos?', faq_a7: '2 anos de garantia do fabricante. Defeitos de fábrica substituídos sem custos.',
   },
 };
 
@@ -824,112 +895,236 @@ function getDistributor(regionId) {
 // ⚠️ Ale: revisa y ajusta si algún modelo no cuadra.
 // ============================================================
 const PRODUCTS = [
-  // ── ESSENTIAL (22 modelos) ──────────────────────────────────────────
-  { id:1,  name:"Bergman Noire", col:"Essential", shape:"rectangular", urgency:"stock_low", colors:["negro","carey"], rank:1, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590223/221_oeycry.png" },
-  { id:54, name:"Bergman Honey", col:"Essential", shape:"rectangular", colors:["miel","cálido"], rank:2, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590223/220_mutoia.png" },
-  { id:2,  name:"Vitti Brown",  col:"Essential", shape:"cateye", colors:["marrón","cálido"], rank:12, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590221/203_bvypll.png" },
-  { id:60, name:"Vitti Velvet", col:"Essential", shape:"cateye", colors:["burdeos"],          rank:18, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590221/201_vzqsat.png" },
-  { id:61, name:"Vitti Caramel",  col:"Essential", shape:"cateye",      colors:["caramelo","dorado"], rank:19, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590221/202_gusxcv.png" },
-  { id:61, name:"Vitti Brown Carey", col:"Essential", shape:"cateye", colors:["carey","marrón"], rank:19, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590221/204_yuculq.png" },
-  { id:3,  name:"Bergman Rust",  col:"Essential", shape:"rectangular", colors:["marrón","cálido"], rank:13, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590223/217_skjewv.png" },
-  { id:55, name:"Bergman Carey Brown", col:"Essential", shape:"rectangular", colors:["carey","marrón"], rank:14, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590222/213_r9bzfx.png" },
-  { id:56, name:"Bergman Carbon", col:"Essential", shape:"rectangular", colors:["negro","carbono"], rank:15, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590222/211_mv2omz.png" },
-  { id:57, name:"Bergman Brown", col:"Essential", shape:"rectangular", colors:["marrón"], rank:16, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590222/210_jnsxlo.png" },
-  { id:4,  name:"Tura Guiza", col:"Essential", shape:"square", colors:["miel","dorado"], rank:14, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590207/103_ze0plj.png" },
-  { id:75, name:"Tura Nude",  col:"Essential", shape:"square", colors:["nude","rosa"],   rank:33, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590207/108_ccrl79.png" },
-  { id:76, name:"Tura Noir",  col:"Essential", shape:"square", colors:["negro"],          rank:34, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590207/106_orwzvv.png" },
-  { id:77, name:"Tura Carey", col:"Essential", shape:"square", colors:["carey"], rank:35, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590207/107_ovzxrn.png" },
-  { id:5,  name:"Cardinale Carey", col:"Essential", shape:"panto", colors:["carey","verde","marrón","miel"], rank:15, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590222/208_kg1lxu.png" },
-  { id:58, name:"Cardinale Guiza", col:"Essential", shape:"panto", colors:["miel","dorado"], rank:16, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590221/207_useou6.png" },
-  { id:59, name:"Cardinale Apple", col:"Essential", shape:"panto", colors:["verde","menta"], rank:17, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590221/206_p7m4so.png" },
-  { id:6,  name:"Gardner Carey", col:"Essential", shape:"round", colors:["carey"], rank:16, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590206/102_awq6kg.png" },
-  { id:79, name:"Gardner Amber", col:"Essential", shape:"round", colors:["ámbar","dorado"], rank:37, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590206/100_kesd63.png" },
-  { id:92, name:"Gardner Black", col:"Essential", shape:"round", colors:["negro"],           rank:49, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590206/101_pg1660.png" },
-  { id:7,  name:"Hart Honey", col:"Essential", shape:"square", colors:["miel","cálido"], rank:17, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590199/72_jjyjef.png" },
-  { id:83, name:"Hart Carey", col:"Essential", shape:"square", colors:["carey"],          rank:41, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590192/20_ovz0a0.png" },
-  { id:86, name:"Hart Sunset", col:"Essential", shape:"square", colors:["naranja","cálido"], rank:43, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590194/36_oxag8z.png" },
-  { id:8,  name:"Deneuve",   col:"Essential", shape:"cateye",       colors:["marrón","verde","carey"],       rank:18 },
-  { id:9,  name:"Totter",    col:"Essential", shape:"rectangular",  colors:["verde","negro","carey"],        rank:19 },
-  { id:10, name:"Rainer Mandarine", col:"Essential", shape:"round", colors:["naranja","mandarina"], rank:20, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590208/116_z2owvq.png" },
-  { id:74, name:"Rainer Carey", col:"Essential", shape:"round", colors:["carey"], rank:32, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590208/115_xhcrlb.png" },
-  { id:11, name:"Arielle Dusty", col:"Essential", shape:"oval", colors:["rosa","beige","polvo"], rank:7, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590207/105_wxiarw.png" },
-  { id:78, name:"Arielle Carey", col:"Essential", shape:"oval", colors:["carey"], rank:36, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590207/104_ijc9wd.png" },
-  { id:82, name:"Arielle Velvet", col:"Essential", shape:"oval", colors:["burdeos"], rank:40, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590200/75_zjvevs.png" },
-  { id:12, name:"Dover Hunter Blend", col:"Essential", shape:"rectangular", colors:["verde","cazador"], rank:22, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590196/47_lzlfga.png" },
-  { id:90, name:"Dover Tea",          col:"Essential", shape:"rectangular", colors:["marrón","cálido"], rank:47, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590197/48_ocj5up.png" },
-  { id:91, name:"Dover Shadow",       col:"Essential", shape:"rectangular", colors:["gris","sombra"],   rank:48, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590197/48_ocj5up.png" },
-  { id:13, name:"Hazel Black", col:"Essential", shape:"oval", colors:["negro"], rank:23, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590220/191_mobp70.png" },
-  { id:67, name:"Hazel Petal", col:"Essential", shape:"oval", colors:["rosa"], rank:25, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590219/189_m2o5co.png" },
-  { id:14, name:"Colette Burnt",  col:"Essential", shape:"cateye", colors:["naranja","quemado"], rank:24, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590209/119_twux0d.png" },
-  { id:73, name:"Colette Jungle", col:"Essential", shape:"cateye", colors:["verde","selva"],   rank:31, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590209/118_qjnnlr.png" },
-  { id:89, name:"Colette Cocoa",  col:"Essential", shape:"cateye", colors:["marrón","cacao"], rank:46, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590195/44_xyxshu.png" },
-  { id:15, name:"Hedy Guiza", col:"Essential", shape:"round", colors:["miel","dorado"], rank:8, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590207/109_lmyt8j.png" },
-  { id:87, name:"Hedy Matcha", col:"Essential", shape:"round", colors:["verde","matcha"], rank:44, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590194/38_nuutab.png" },
-  { id:88, name:"Hedy Carey", col:"Essential", shape:"round", colors:["carey"], rank:45, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590194/39_j5xr3i.png" },
-  { id:62, name:"Bergman Carey",   col:"Essential", shape:"rectangular", colors:["carey"],              rank:20, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590221/199_roiwuk.png" },
-  { id:16, name:"Bolden",      col:"Essential", shape:"rectangular", colors:["negro","gris","verde","burdeos"], rank:6,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776277357/82_k0ch1q.png" },
-  { id:65, name:"Bolden Bruma",  col:"Essential", shape:"rectangular", colors:["gris","neutro"],  rank:23, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590220/194_hwuk8l.png" },
-  { id:66, name:"Bolden Ebony",  col:"Essential", shape:"rectangular", colors:["negro"],           rank:24, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590220/193_bjptue.png" },
-  { id:63, name:"Bolden Oliva",    col:"Essential", shape:"rectangular", colors:["verde","oliva"],      rank:21, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590220/195_qakpdg.png" },
-  { id:62, name:"Bolden Nude", col:"Essential", shape:"rectangular", colors:["nude","rosa"],  rank:20, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590220/192_mvmgmk.png" },
-  { id:17, name:"Nova",      col:"Essential", shape:"geometric",    colors:["negro","verde","rojo"],         rank:26 },
-  { id:18, name:"Blyth Emerald", col:"Essential", shape:"rectangular", colors:["verde","esmeralda"], rank:27, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590210/124_a4teov.png" },
-  { id:70, name:"Blyth Carey", col:"Essential", shape:"rectangular", colors:["carey"], rank:28, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590210/123_pucyjo.png" },
-  { id:19, name:"Cooper II", col:"Essential", shape:"round",        colors:["caramelo","amarillo","havana","verde","tigre"], rank:28 },
-  { id:20, name:"Chastain Black", col:"Essential", shape:"cateye", urgency:"trending", colors:["negro","carey","verde"], rank:5, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590223/216_tjup92.png" },
-  { id:68, name:"Chastain Carey", col:"Essential", shape:"cateye", colors:["carey"], rank:26, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590212/132_zild1l.png" },
-  { id:69, name:"Chastain Noire Violet", col:"Essential", shape:"cateye", colors:["negro","burdeos"], rank:27, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590212/134_lckfpc.png" },
-  { id:21, name:"Bacall",       col:"Essential", shape:"square",       colors:["carey"],                        rank:29 },
-  { id:22, name:"Seberg",       col:"Essential", shape:"round",        colors:["ámbar"],                        rank:30 },
-  { id:54, name:"Roger Carey",  col:"Essential", shape:"rectangular",  colors:["carey"],                        rank:31, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590224/230_ybcxjk.png" },
-  { id:55, name:"Roger Velvet", col:"Essential", shape:"rectangular",  colors:["burdeos"],                      rank:32, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590224/229_puavtb.png" },
-  { id:56, name:"Roger Wine",   col:"Essential", shape:"rectangular",  colors:["burdeos","rojo"],               rank:33, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590224/227_xigzba.png" },
-  // ── ICONS (22 modelos) ──────────────────────────────────────────────
-  { id:23, name:"Lawrence",  col:"Icons",     shape:"square",       colors:["miel","caramelo","carey","burdeos","negro"], rank:8,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776278426/fvfdcrfdwed_tkuq62.webp", isNew:true },
-  { id:24, name:"Loren Carey", col:"Icons", shape:"cateye", colors:["carey"], rank:31, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776986730/LORENCAREY_1728x_edxhjx.webp" },
-  { id:95, name:"Loren Cream",  col:"Icons", shape:"cateye", colors:["crema","beige"],     rank:54, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776986729/IMG_5845_1296x_egicjl.webp" },
-  { id:96, name:"Loren Toffee", col:"Icons", shape:"cateye", colors:["caramelo","marrón"], rank:55, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776986730/LORENTOFFEEMINUEWEB_1728x_oxyoj1.webp" },
-  { id:97, name:"Loren Black", col:"Icons", shape:"cateye", colors:["negro"], rank:56, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776986729/IMG_8167_1296x_oqut39.webp" },
-  { id:25, name:"Maclaine",  col:"Icons",     shape:"round",        colors:["marrón","negro"],               rank:32 },
-  { id:26, name:"Gugu Gold Green",      col:"Icons", shape:"geometric", urgency:"stock_low", colors:["dorado","verde"],           rank:4,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776277357/84_vxh8iz.png" },
-  { id:64, name:"Gugu Gold Brown Carey", col:"Icons", shape:"geometric",                      colors:["dorado","marrón","carey"],  rank:22, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590220/196_mctzzt.png" },
-  { id:27, name:"Moore Black", col:"Icons", shape:"rectangular", colors:["negro"], rank:33, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776986730/MOOREBLACK_2048x_olbjuu.webp" },
-  { id:28, name:"Cleo Tea", col:"Icons", shape:"cateye", colors:["marrón","cálido"], rank:34, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776986729/IMG_2571_3f836e1a-078b-4f97-8b6e-0e6d0dbc30d7_1512x_qkwmvv.webp" },
-  { id:98, name:"Cleo Black", col:"Icons", shape:"cateye", colors:["negro"], rank:57, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776986729/IMG_2568_0cdea3e3-91be-451b-97a0-301f495895da_1512x_pmfpjj.webp" },
-  { id:29, name:"Grant",     col:"Icons",     shape:"rectangular",  colors:["negro","carey","caramelo"],     rank:35 },
-  { id:30, name:"Berry",     col:"Icons",     shape:"round",        urgency:"trending",        colors:["azul","gris","carey","marrón"], rank:9,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776278629/IMG_0263_720x_uln010.webp" },
-  { id:31, name:"Stone",     col:"Icons",     shape:"square",       colors:["negro","marrón"],               rank:36 },
-  { id:32, name:"Foster",    col:"Icons",     shape:"panto",        colors:["dorado","carbono"],             rank:37 },
-  { id:33, name:"Roberts Carrot", col:"Icons", shape:"square", colors:["naranja","zanahoria"], rank:38, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776986920/IMG_2576_900x_z2fnsz.webp" },
-  { id:93, name:"Roberts Peanut", col:"Icons", shape:"square", colors:["marrón","cacahuete"], rank:52, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776986920/IMG_2575_1296x_b9smpp.webp" },
-  { id:94, name:"Roberts Salmon", col:"Icons", shape:"square", colors:["rosa","salmón"],      rank:53, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776986920/IMG_3775_1512x_iapwst.webp" },
-  { id:34, name:"Thurman",   col:"Icons",     shape:"rectangular",  colors:["negro","carey","naranja","caramelo","gris"], rank:39 },
-  { id:35, name:"Mirren",    col:"Icons",     shape:"oval",         colors:["negro","carey","marrón"],       rank:40 },
-  { id:36, name:"Lane",      col:"Icons",     shape:"round",        colors:["negro","azul","ámbar","carey","verde"],     rank:41 },
-  { id:37, name:"Harlow",    col:"Icons",     shape:"panto",        colors:["dorado","verde","marrón","negro"],  rank:42 },
-  { id:38, name:"Makey",     col:"Icons",     shape:"rectangular",  colors:["carey","negro","blanco"],       rank:43 },
-  { id:39, name:"Carrol",    col:"Icons",     shape:"oval",         colors:["marrón","cedro"],               rank:44 },
-  { id:40, name:"Aretha",    col:"Icons",     shape:"round",        colors:["rosa","carey","negro"],         rank:45 },
-  { id:41, name:"Karina",    col:"Icons",     shape:"cateye",       colors:["blanco","verde","negro","rojo"],rank:46 },
-  { id:42, name:"Ziyi",      col:"Icons",     shape:"square",       colors:["naranja","rosa","rojo","ámbar"],rank:47 },
-  { id:43, name:"Lamarr",    col:"Icons",     shape:"cateye",       urgency:"hot",       colors:["negro","beige","carey"],        rank:3,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776277706/LAMARRBIC_900x_nuvcqj.webp" },
-  { id:44, name:"Kerr",      col:"Icons",     shape:"rectangular",  colors:["negro","carey"],                rank:48 },
-  // ── ACETATO (9 modelos) ─────────────────────────────────────────────
-  { id:45, name:"Sienna",    col:"Acetato",   shape:"square",       colors:["marrón","negro"],               rank:49 },
-  { id:46, name:"Astor Green",  col:"Acetato", shape:"rectangular", colors:["verde"],   rank:50, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590194/30_sm0o9h.png" },
-  { id:85, name:"Astor Bronce", col:"Acetato", shape:"rectangular", colors:["bronce"], rank:51, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590194/34_w3ugnz.png" },
-  { id:47, name:"Arden Cocoa", col:"Acetato", shape:"cateye", colors:["marrón","cacao"], rank:10, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590211/122_ivwzqu.png" },
-  { id:71, name:"Arden Carey", col:"Acetato", shape:"cateye", colors:["carey"], rank:29, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590209/121_wvm2wp.png" },
-  { id:72, name:"Arden Champagne", col:"Acetato", shape:"cateye", colors:["champán","dorado"], rank:30, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590209/120_s8exzo.png" },
-  { id:48, name:"Bardot",    col:"Acetato",   shape:"cateye",       colors:["carey"],                        rank:51 },
-  { id:49, name:"Juno",      col:"Acetato",   shape:"round",        colors:["negro","sienna"],               rank:52 },
-  { id:50, name:"Novak Mocha", col:"Acetato", shape:"square", colors:["moca","marrón"],  rank:11, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590203/92_txomis.png" },
-  { id:80, name:"Novak Carey", col:"Acetato", shape:"square", colors:["carey"],           rank:38, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590203/91_yctpcq.png" },
-  { id:51, name:"Ivy Felline", col:"Acetato", shape:"oval", colors:["ámbar"], rank:53, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590208/113_ib6mfy.png" },
-  { id:52, name:"Leigh Chalk", col:"Acetato", shape:"rectangular", colors:["blanco","tiza"], rank:7, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590208/112_pmpzcn.png" },
-  { id:53, name:"Hayek Olive", col:"Acetato", shape:"square", urgency:"hot", colors:["verde","oliva"], rank:2,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590203/86_i09mqr.png" },
-  { id:81, name:"Hayek Carey", col:"Acetato", shape:"square",               colors:["carey"],          rank:39, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590202/85_r9q8ec.png" },
-  { id:84, name:"Fonda Sepia", col:"Acetato", shape:"square", colors:["marrón","sepia"], rank:42, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590193/28_qoduia.png" },
+  // ── ICONS — cada variante de color es su propia entrada, orden por ventas ─
+
+  // Lawrence: 526 uds total — mayor vendedor Icons
+  { id:23,  name:"Lawrence Guiza",    col:"Icons", shape:"square", colors:["miel","dorado"],   rank:9,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776278426/fvfdcrfdwed_tkuq62.webp" },
+  { id:123, name:"Lawrence Velvet",   col:"Icons", shape:"square", colors:["burdeos"],          rank:50, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776278426/fvfdcrfdwed_tkuq62.webp" },
+  { id:124, name:"Lawrence Carey",    col:"Icons", shape:"square", colors:["carey"],            rank:51, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776278426/fvfdcrfdwed_tkuq62.webp" },
+  { id:125, name:"Lawrence Bay",      col:"Icons", shape:"square", colors:["azul"],             rank:52, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776278426/fvfdcrfdwed_tkuq62.webp" },
+  { id:126, name:"Lawrence Caramel",  col:"Icons", shape:"square", colors:["caramelo"],         rank:53, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776278426/fvfdcrfdwed_tkuq62.webp" },
+  { id:127, name:"Lawrence Black",    col:"Icons", shape:"square", colors:["negro"],            rank:54, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776278426/fvfdcrfdwed_tkuq62.webp" },
+
+  // Lamarr: 495 uds total
+  { id:43,  name:"Lamarr Carbon Mate", col:"Icons", shape:"cateye", urgency:"hot", colors:["negro","carbono"], rank:3,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776277706/LAMARRBIC_900x_nuvcqj.webp" },
+  { id:130, name:"Lamarr Louvre",      col:"Icons", shape:"cateye",               colors:["beige","nude"],    rank:55, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776277706/LAMARRBIC_900x_nuvcqj.webp" },
+  { id:131, name:"Lamarr Carey",       col:"Icons", shape:"cateye",               colors:["carey"],           rank:56, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776277706/LAMARRBIC_900x_nuvcqj.webp" },
+  { id:132, name:"Lamarr Dark",        col:"Icons", shape:"cateye",               colors:["marrón"],          rank:57, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776277706/LAMARRBIC_900x_nuvcqj.webp" },
+
+  // Loren: 455 uds total (tiene imágenes individuales)
+  { id:24,  name:"Loren Carey",  col:"Icons", shape:"cateye", colors:["carey"],           rank:13, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776986730/LORENCAREY_1728x_edxhjx.webp" },
+  { id:96,  name:"Loren Toffee", col:"Icons", shape:"cateye", colors:["caramelo","marrón"],rank:21, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776986730/LORENTOFFEEMINUEWEB_1728x_oxyoj1.webp" },
+  { id:97,  name:"Loren Black",  col:"Icons", shape:"cateye", colors:["negro"],           rank:22, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776986729/IMG_8167_1296x_oqut39.webp" },
+  { id:95,  name:"Loren Cream",  col:"Icons", shape:"cateye", colors:["crema","beige"],   rank:23, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776986729/IMG_5845_1296x_egicjl.webp" },
+
+  // Berry: 332 uds total
+  { id:30,  name:"Berry Tea",         col:"Icons", shape:"round", urgency:"trending", colors:["marrón","cálido"],  rank:10, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776278629/IMG_0263_720x_uln010.webp" },
+  { id:140, name:"Berry Carbon",      col:"Icons", shape:"round",                    colors:["negro","carbono"],   rank:58, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776278629/IMG_0263_720x_uln010.webp" },
+  { id:141, name:"Berry Navy Blue",   col:"Icons", shape:"round",                    colors:["azul"],              rank:59, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776278629/IMG_0263_720x_uln010.webp" },
+  { id:142, name:"Berry Brown Carey", col:"Icons", shape:"round",                    colors:["marrón","carey"],    rank:60, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776278629/IMG_0263_720x_uln010.webp" },
+  { id:143, name:"Berry Leopard",     col:"Icons", shape:"round",                    colors:["marrón","negro"],    rank:61, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776278629/IMG_0263_720x_uln010.webp" },
+
+  // Makey: 300 uds (sin imagen)
+  { id:38,  name:"Makey Carey",        col:"Icons", shape:"rectangular", colors:["carey"],       rank:24 },
+  { id:150, name:"Makey Black",        col:"Icons", shape:"rectangular", colors:["negro"],        rank:62 },
+  { id:151, name:"Makey Snow",         col:"Icons", shape:"rectangular", colors:["blanco"],       rank:63 },
+  { id:152, name:"Makey Cherry",       col:"Icons", shape:"rectangular", colors:["rojo"],         rank:64 },
+  { id:153, name:"Makey Cherry Black", col:"Icons", shape:"rectangular", colors:["rojo","negro"], rank:65 },
+  { id:154, name:"Makey Sky",          col:"Icons", shape:"rectangular", colors:["azul"],         rank:66 },
+
+  // Aretha: 220 uds (sin imagen — Roses descatalogado)
+  { id:40,  name:"Aretha Carey", col:"Icons", shape:"round", colors:["carey"], rank:25 },
+  { id:160, name:"Aretha Black", col:"Icons", shape:"round", colors:["negro"], rank:67 },
+
+  // Ziyi: ~200 uds (sin imagen — nombres con color primero en CSV)
+  { id:42,  name:"Ziyi Mandarina", col:"Icons", shape:"square", colors:["naranja"],  rank:26 },
+  { id:161, name:"Ziyi Ágata",     col:"Icons", shape:"square", colors:["verde"],    rank:68 },
+  { id:162, name:"Ziyi Ámbar",     col:"Icons", shape:"square", colors:["ámbar"],   rank:69 },
+  { id:163, name:"Ziyi Jaspe",     col:"Icons", shape:"square", colors:["marrón"],   rank:70 },
+  { id:164, name:"Ziyi Rosas",     col:"Icons", shape:"square", colors:["rosa"],     rank:71 },
+
+  // Karina: 158 uds (sin imagen)
+  { id:41,  name:"Karina Jade",  col:"Icons", shape:"cateye", colors:["verde"],         rank:27 },
+  { id:170, name:"Karina Rubí",  col:"Icons", shape:"cateye", colors:["rojo"],          rank:72 },
+  { id:171, name:"Karina Black", col:"Icons", shape:"cateye", colors:["negro"],         rank:73 },
+  { id:172, name:"Karina Copo",  col:"Icons", shape:"cateye", colors:["blanco","crema"],rank:74 },
+
+  // Maclaine: 306 uds (TÉ MACLAINE 173 + BLACK 131, sin imagen)
+  { id:25,  name:"Maclaine Tea",   col:"Icons", shape:"round", colors:["marrón","cálido"], rank:28 },
+  { id:180, name:"Maclaine Black", col:"Icons", shape:"round", colors:["negro"],            rank:75 },
+
+  // Cleo: 127 uds (tiene imágenes)
+  { id:28,  name:"Cleo Tea",   col:"Icons", shape:"cateye", colors:["marrón","cálido"], rank:14, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776986729/IMG_2571_3f836e1a-078b-4f97-8b6e-0e6d0dbc30d7_1512x_qkwmvv.webp" },
+  { id:98,  name:"Cleo Black",  col:"Icons", shape:"cateye", colors:["negro"],           rank:29, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776986729/IMG_2568_0cdea3e3-91be-451b-97a0-301f495895da_1512x_pmfpjj.webp" },
+
+  // Thurman: 147 uds (sin imagen — CARBONO THURMAN en CSV)
+  { id:34,  name:"Thurman Carey",  col:"Icons", shape:"rectangular", colors:["carey"],          rank:30 },
+  { id:181, name:"Thurman Cloud",  col:"Icons", shape:"rectangular", colors:["gris"],            rank:76 },
+  { id:182, name:"Thurman Carbon", col:"Icons", shape:"rectangular", colors:["negro","carbono"],  rank:77 },
+  { id:183, name:"Thurman Peanut", col:"Icons", shape:"rectangular", colors:["marrón"],          rank:78 },
+  { id:184, name:"Thurman Ember",  col:"Icons", shape:"rectangular", colors:["naranja"],         rank:79 },
+
+  // Harlow: 117 uds (sin imagen)
+  { id:37,  name:"Harlow Gold Green", col:"Icons", shape:"panto", colors:["dorado","verde"],  rank:31 },
+  { id:185, name:"Harlow Gold Brown", col:"Icons", shape:"panto", colors:["dorado","marrón"], rank:80 },
+  { id:186, name:"Harlow Gold Black", col:"Icons", shape:"panto", colors:["dorado","negro"],  rank:81 },
+
+  // Roberts: 100 uds (tiene imágenes)
+  { id:33,  name:"Roberts Carrot", col:"Icons", shape:"square", colors:["naranja"],  rank:32, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776986920/IMG_2576_900x_z2fnsz.webp" },
+  { id:93,  name:"Roberts Peanut", col:"Icons", shape:"square", colors:["marrón"],   rank:33, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776986920/IMG_2575_1296x_b9smpp.webp" },
+  { id:94,  name:"Roberts Salmon", col:"Icons", shape:"square", colors:["rosa"],     rank:34, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776986920/IMG_3775_1512x_iapwst.webp" },
+
+  // Moore: 90 uds (tiene imagen)
+  { id:27,  name:"Moore Black", col:"Icons", shape:"rectangular", colors:["negro"], rank:35, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776986730/MOOREBLACK_2048x_olbjuu.webp" },
+
+  // Gugu: 73 uds (tiene imágenes)
+  { id:26,  name:"Gugu Gold Green",       col:"Icons", shape:"geometric", urgency:"stock_low", colors:["dorado","verde"],         rank:4,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776277357/84_vxh8iz.png" },
+  { id:64,  name:"Gugu Gold Brown Carey", col:"Icons", shape:"geometric",                      colors:["dorado","marrón","carey"],rank:36, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590220/196_mctzzt.png" },
+
+  // Foster: 60 uds (sin imagen)
+  { id:32,  name:"Foster Gold Brown",   col:"Icons", shape:"panto", colors:["dorado","marrón"], rank:37 },
+  { id:187, name:"Foster Carbon Black", col:"Icons", shape:"panto", colors:["negro","carbono"], rank:82 },
+  { id:188, name:"Foster Gold Grey",    col:"Icons", shape:"panto", colors:["dorado","gris"],   rank:83 },
+
+  // Lane: 135 uds (sin imagen)
+  { id:36,  name:"Lane Grass",      col:"Icons", shape:"round", colors:["verde"],          rank:38 },
+  { id:190, name:"Lane Tea",        col:"Icons", shape:"round", colors:["marrón","cálido"], rank:84 },
+  { id:191, name:"Lane Light Blue", col:"Icons", shape:"round", colors:["azul"],            rank:85 },
+  { id:192, name:"Lane Ámbar",      col:"Icons", shape:"round", colors:["ámbar"],          rank:86 },
+  { id:193, name:"Lane Black",      col:"Icons", shape:"round", colors:["negro"],           rank:87 },
+  { id:194, name:"Lane Carey",      col:"Icons", shape:"round", colors:["carey"],           rank:88 },
+
+  // Carrol: 53 uds (sin imagen)
+  { id:39,  name:"Carrol Cedar", col:"Icons", shape:"oval", colors:["marrón","cedro"], rank:39 },
+  { id:195, name:"Carrol Rowan", col:"Icons", shape:"oval", colors:["gris"],           rank:89 },
+
+  // Mirren: 50 uds (sin imagen — TÉ MIRREN en CSV)
+  { id:35,  name:"Mirren Tea",   col:"Icons", shape:"oval", colors:["marrón","cálido"], rank:40 },
+  { id:196, name:"Mirren Carey", col:"Icons", shape:"oval", colors:["carey"],           rank:90 },
+  { id:197, name:"Mirren Black", col:"Icons", shape:"oval", colors:["negro"],           rank:91 },
+
+  // Grant: 37 uds (sin imagen)
+  { id:29,  name:"Grant Carey",   col:"Icons", shape:"rectangular", colors:["carey"],    rank:41 },
+  { id:198, name:"Grant Caramel", col:"Icons", shape:"rectangular", colors:["caramelo"], rank:92 },
+  { id:199, name:"Grant Black",   col:"Icons", shape:"rectangular", colors:["negro"],    rank:93 },
+
+  // Kerr: 16 uds (sin imagen)
+  { id:44,  name:"Kerr Carey",      col:"Icons", shape:"rectangular", colors:["carey"],       rank:43 },
+  { id:200, name:"Kerr Emerald",    col:"Icons", shape:"rectangular", colors:["verde"],        rank:94 },
+  { id:201, name:"Kerr Black Gray", col:"Icons", shape:"rectangular", colors:["negro","gris"], rank:95 },
+
+  // Stone: 13 uds (sin imagen)
+  { id:31,  name:"Stone Gold Black", col:"Icons", shape:"square", colors:["dorado","negro"], rank:42 },
+
+  // ── ESSENTIAL ────────────────────────────────────────────────────────
+  { id:1,  name:"Bergman Noire",       col:"Essential", shape:"rectangular", urgency:"stock_low", colors:["negro","carey"],  rank:1,  isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590223/221_oeycry.png" },
+  { id:54, name:"Bergman Honey",       col:"Essential", shape:"rectangular",                      colors:["miel","cálido"],  rank:15, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590223/220_mutoia.png" },
+  { id:3,  name:"Bergman Rust",        col:"Essential", shape:"rectangular",                      colors:["marrón","cálido"],rank:44, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590223/217_skjewv.png" },
+  { id:55, name:"Bergman Carey Brown", col:"Essential", shape:"rectangular",                      colors:["carey","marrón"], rank:45, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590222/213_r9bzfx.png" },
+  { id:56, name:"Bergman Carbon",      col:"Essential", shape:"rectangular",                      colors:["negro","carbono"],rank:46, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590222/211_mv2omz.png" },
+  { id:57, name:"Bergman Brown",       col:"Essential", shape:"rectangular",                      colors:["marrón"],         rank:47, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590222/210_jnsxlo.png" },
+  { id:62, name:"Bergman Carey",       col:"Essential", shape:"rectangular",                      colors:["carey"],          rank:48, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590221/199_roiwuk.png" },
+  // Deneuve: 55 uds (sin imagen)
+  { id:8,   name:"Deneuve Tea",   col:"Essential", shape:"cateye", colors:["marrón","cálido"],rank:49 },
+  { id:202, name:"Deneuve Carey", col:"Essential", shape:"cateye", colors:["carey"],          rank:96 },
+  { id:203, name:"Deneuve Apple", col:"Essential", shape:"cateye", colors:["verde"],          rank:97 },
+  // Bacall: 40 uds (sin imagen)
+  { id:21,  name:"Bacall Rosse",  col:"Essential", shape:"square", colors:["rosa"],   rank:49 },
+  { id:204, name:"Bacall Black",  col:"Essential", shape:"square", colors:["negro"],  rank:98 },
+  { id:205, name:"Bacall Carey",  col:"Essential", shape:"square", colors:["carey"],  rank:99 },
+  { id:206, name:"Bacall Grape",  col:"Essential", shape:"square", colors:["marrón"], rank:100 },
+  // Cooper II: 53 uds (sin imagen)
+  { id:19,  name:"Cooper II Grass",     col:"Essential", shape:"round", colors:["verde"],   rank:49 },
+  { id:207, name:"Cooper II Buttercup", col:"Essential", shape:"round", colors:["amarillo"],rank:101 },
+  { id:208, name:"Cooper II Sierra",    col:"Essential", shape:"round", colors:["marrón"],  rank:102 },
+  { id:209, name:"Cooper II Tiger",     col:"Essential", shape:"round", colors:["tigre"],   rank:103 },
+  { id:210, name:"Cooper II Moonlight", col:"Essential", shape:"round", colors:["beige"],   rank:104 },
+  { id:211, name:"Cooper II Havana",    col:"Essential", shape:"round", colors:["havana"],  rank:105 },
+  // Hart: 37 uds
+  { id:7,   name:"Hart Honey",  col:"Essential", shape:"square", colors:["miel","cálido"],  rank:51, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590199/72_jjyjef.png" },
+  { id:83,  name:"Hart Carey",  col:"Essential", shape:"square", colors:["carey"],          rank:52, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590192/20_ovz0a0.png" },
+  { id:86,  name:"Hart Sunset", col:"Essential", shape:"square", colors:["naranja","cálido"],rank:53, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590194/36_oxag8z.png" },
+  // Roger: 36 uds (isNew SS26)
+  { id:54,  name:"Roger Carey",  col:"Essential", shape:"rectangular", colors:["carey"],        rank:54, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590224/230_ybcxjk.png" },
+  { id:55,  name:"Roger Velvet", col:"Essential", shape:"rectangular", colors:["burdeos"],      rank:55, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590224/229_puavtb.png" },
+  { id:56,  name:"Roger Wine",   col:"Essential", shape:"rectangular", colors:["burdeos","rojo"],rank:56, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590224/227_xigzba.png" },
+  // Bolden: rank 6 top pick
+  { id:16,  name:"Bolden Wine",  col:"Essential", shape:"rectangular", colors:["burdeos"], rank:6,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776277357/82_k0ch1q.png" },
+  { id:63,  name:"Bolden Oliva", col:"Essential", shape:"rectangular", colors:["verde"],         rank:57, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590220/195_qakpdg.png" },
+  { id:66,  name:"Bolden Ebony", col:"Essential", shape:"rectangular", colors:["negro"],          rank:58, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590220/193_bjptue.png" },
+  { id:65,  name:"Bolden Nude",  col:"Essential", shape:"rectangular", colors:["nude"],           rank:59, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590220/192_mvmgmk.png" },
+  { id:60,  name:"Bolden Bruma", col:"Essential", shape:"rectangular", colors:["gris","neutro"],  rank:60, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590220/194_hwuk8l.png" },
+  // Rainer: 20 uds
+  { id:10,  name:"Rainer Mandarine", col:"Essential", shape:"round", colors:["naranja"], rank:61, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590208/116_z2owvq.png" },
+  { id:74,  name:"Rainer Carey",     col:"Essential", shape:"round", colors:["carey"],   rank:62, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590208/115_xhcrlb.png" },
+  // Arielle: rank 7 top pick
+  { id:11,  name:"Arielle Dusty",  col:"Essential", shape:"oval", colors:["rosa","beige"],rank:7,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590207/105_wxiarw.png" },
+  { id:78,  name:"Arielle Carey",  col:"Essential", shape:"oval", colors:["carey"],       rank:63, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590207/104_ijc9wd.png" },
+  { id:82,  name:"Arielle Velvet", col:"Essential", shape:"oval", colors:["burdeos"],     rank:64, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590200/75_zjvevs.png" },
+  // Blyth: 11 uds
+  { id:18,  name:"Blyth Emerald", col:"Essential", shape:"rectangular", colors:["verde"], rank:65, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590210/124_a4teov.png" },
+  { id:70,  name:"Blyth Carey",   col:"Essential", shape:"rectangular", colors:["carey"], rank:66, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590210/123_pucyjo.png" },
+  // Hedy: rank 8 top pick
+  { id:15,  name:"Hedy Guiza",  col:"Essential", shape:"round", colors:["miel","dorado"], rank:8,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590207/109_lmyt8j.png" },
+  { id:87,  name:"Hedy Matcha", col:"Essential", shape:"round", colors:["verde"],          rank:67, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590194/38_nuutab.png" },
+  { id:88,  name:"Hedy Carey",  col:"Essential", shape:"round", colors:["carey"],          rank:68, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590194/39_j5xr3i.png" },
+  // Colette: 14 uds
+  { id:14,  name:"Colette Burnt",  col:"Essential", shape:"cateye", colors:["naranja"], rank:69, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590209/119_twux0d.png" },
+  { id:73,  name:"Colette Jungle", col:"Essential", shape:"cateye", colors:["verde"],   rank:70, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590209/118_qjnnlr.png" },
+  { id:89,  name:"Colette Cocoa",  col:"Essential", shape:"cateye", colors:["marrón"],  rank:71, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590195/44_xyxshu.png" },
+  // Dover: 15 uds
+  { id:12,  name:"Dover Hunter Blend", col:"Essential", shape:"rectangular", colors:["verde"],          rank:72, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590196/47_lzlfga.png" },
+  { id:90,  name:"Dover Tea",          col:"Essential", shape:"rectangular", colors:["marrón","cálido"],rank:73, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590197/48_ocj5up.png" },
+  { id:91,  name:"Dover Shadow",       col:"Essential", shape:"rectangular", colors:["gris"],           rank:74, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590197/48_ocj5up.png" },
+  // Hazel: 13 uds
+  { id:13,  name:"Hazel Black", col:"Essential", shape:"oval", colors:["negro"], rank:75, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590220/191_mobp70.png" },
+  { id:67,  name:"Hazel Petal", col:"Essential", shape:"oval", colors:["rosa"],  rank:76, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590219/189_m2o5co.png" },
+  // Tura: 12 uds
+  { id:4,   name:"Tura Guiza", col:"Essential", shape:"square", colors:["miel","dorado"],rank:77, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590207/103_ze0plj.png" },
+  { id:75,  name:"Tura Nude",  col:"Essential", shape:"square", colors:["nude"],         rank:78, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590207/108_ccrl79.png" },
+  { id:76,  name:"Tura Noir",  col:"Essential", shape:"square", colors:["negro"],        rank:79, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590207/106_orwzvv.png" },
+  { id:77,  name:"Tura Carey", col:"Essential", shape:"square", colors:["carey"],        rank:80, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590207/107_ovzxrn.png" },
+  // Vitti: nuevo SS26
+  { id:2,   name:"Vitti Brown",       col:"Essential", shape:"cateye", colors:["marrón"],         rank:81, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590221/203_bvypll.png" },
+  { id:212, name:"Vitti Velvet",      col:"Essential", shape:"cateye", colors:["burdeos"],         rank:82, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590221/201_vzqsat.png" },
+  { id:213, name:"Vitti Caramel",     col:"Essential", shape:"cateye", colors:["caramelo"],        rank:83, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590221/202_gusxcv.png" },
+  { id:214, name:"Vitti Brown Carey", col:"Essential", shape:"cateye", colors:["carey","marrón"],  rank:84, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590221/204_yuculq.png" },
+  // Cardinale: nuevo SS26
+  { id:5,   name:"Cardinale Carey", col:"Essential", shape:"panto", colors:["carey","verde","miel"],rank:85, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590222/208_kg1lxu.png" },
+  { id:58,  name:"Cardinale Guiza", col:"Essential", shape:"panto", colors:["miel","dorado"],       rank:86, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590221/207_useou6.png" },
+  { id:59,  name:"Cardinale Apple", col:"Essential", shape:"panto", colors:["verde"],               rank:87, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590221/206_p7m4so.png" },
+  // Chastain: rank 5 top pick
+  { id:20,  name:"Chastain Black",        col:"Essential", shape:"cateye", urgency:"trending", colors:["negro","carey","verde"],rank:5,  isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590223/216_tjup92.png" },
+  { id:68,  name:"Chastain Carey",        col:"Essential", shape:"cateye",                     colors:["carey"],               rank:88, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590212/132_zild1l.png" },
+  { id:69,  name:"Chastain Noire Violet", col:"Essential", shape:"cateye",                     colors:["negro","burdeos"],     rank:89, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590212/134_lckfpc.png" },
+  // Gardner: 3 uds
+  { id:6,   name:"Gardner Carey", col:"Essential", shape:"round", colors:["carey"],  rank:90, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590206/102_awq6kg.png" },
+  { id:79,  name:"Gardner Amber", col:"Essential", shape:"round", colors:["ámbar"],  rank:91, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590206/100_kesd63.png" },
+  { id:92,  name:"Gardner Black", col:"Essential", shape:"round", colors:["negro"],  rank:92, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590206/101_pg1660.png" },
+  // Sin imagen
+  { id:17,  name:"Nova",            col:"Essential", shape:"geometric",   colors:["negro","verde"],  rank:93 },
+  { id:22,  name:"Seberg Apple",    col:"Essential", shape:"round",       colors:["verde"],           rank:94 },
+  { id:215, name:"Seberg Bordeaux", col:"Essential", shape:"round",       colors:["burdeos"],         rank:106 },
+  { id:216, name:"Seberg Amber",    col:"Essential", shape:"round",       colors:["ámbar"],          rank:107 },
+  { id:9,   name:"Totter Leaf",     col:"Essential", shape:"rectangular", colors:["verde"],           rank:95 },
+  { id:217, name:"Totter Carey",    col:"Essential", shape:"rectangular", colors:["carey"],           rank:108 },
+
+  // ── ACETATO ──────────────────────────────────────────────────────────
+  { id:53,  name:"Hayek Olive",    col:"Acetato", shape:"square",      urgency:"hot", colors:["verde","oliva"],  rank:2,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590203/86_i09mqr.png" },
+  { id:52,  name:"Leigh Chalk",    col:"Acetato", shape:"rectangular",               colors:["blanco"],          rank:16, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590208/112_pmpzcn.png" },
+  { id:47,  name:"Arden Cocoa",    col:"Acetato", shape:"cateye",                    colors:["marrón"],          rank:11, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590211/122_ivwzqu.png" },
+  { id:50,  name:"Novak Mocha",    col:"Acetato", shape:"square",                    colors:["moca","marrón"],   rank:12, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590203/92_txomis.png" },
+  { id:81,  name:"Hayek Carey",    col:"Acetato", shape:"square",                    colors:["carey"],           rank:17, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590202/85_r9q8ec.png" },
+  { id:71,  name:"Arden Carey",    col:"Acetato", shape:"cateye",                    colors:["carey"],           rank:18, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590209/121_wvm2wp.png" },
+  { id:72,  name:"Arden Champagne",col:"Acetato", shape:"cateye",                    colors:["champán","dorado"],rank:19, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590209/120_s8exzo.png" },
+  { id:80,  name:"Novak Carey",    col:"Acetato", shape:"square",                    colors:["carey"],           rank:20, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590203/91_yctpcq.png" },
+  { id:84,  name:"Fonda Sepia",    col:"Acetato", shape:"square",                    colors:["marrón"],          rank:96, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590193/28_qoduia.png" },
+  { id:46,  name:"Astor Green",    col:"Acetato", shape:"rectangular",               colors:["verde"],           rank:97, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590194/30_sm0o9h.png" },
+  { id:85,  name:"Astor Bronce",   col:"Acetato", shape:"rectangular",               colors:["bronce"],          rank:98, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590194/34_w3ugnz.png" },
+  { id:51,  name:"Ivy Felline",    col:"Acetato", shape:"oval",                      colors:["ámbar"],          rank:99, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590208/113_ib6mfy.png" },
+  { id:48,  name:"Bardot",         col:"Acetato", shape:"cateye",                    colors:["carey"],           rank:100 },
+  { id:49,  name:"Juno",           col:"Acetato", shape:"round",                     colors:["negro"],           rank:101 },
+  { id:45,  name:"Sienna",         col:"Acetato", shape:"square",                    colors:["marrón","negro"],  rank:102 },
 ];
 
 const SHAPES = [
@@ -973,9 +1168,23 @@ const URGENCY_COLORS = { stock_low: '#e85a00', hot: '#c41e1e', trending: '#b8860
 const TIERS = [
   { min: 1, max: 9, price: 22.90, label: '<10', payments: 'Pago único', expositor: '8,90€ opcional', freeShip: false },
   { min: 10, max: 19, price: 21.90, label: '10–19', payments: 'Pago único', expositor: '8,90€ opcional', freeShip: false },
-  { min: 20, max: 29, price: 19.90, label: '20–29', payments: '2 pagos', expositor: '2 gratis', freeShip: true },
-  { min: 30, max: 39, price: 18.90, label: '30–39', payments: '2 pagos', expositor: '3 gratis', freeShip: true },
-  { min: 40, max: 60, price: 17.90, label: '40–60', payments: '2 pagos (15+45)', expositor: '3 gratis', freeShip: true },
+  { min: 20, max: 29, price: 19.90, label: '20–29', payments: '2 pagos', expositor: '2 incluidos', freeShip: true, badge: 'Más elegido' },
+  { min: 30, max: 39, price: 18.90, label: '30–39', payments: '2 pagos', expositor: '3 incluidos', freeShip: true },
+  { min: 40, max: 60, price: 17.90, label: '40–60', payments: '2 pagos (15+45)', expositor: '3 incluidos', freeShip: true },
+];
+
+
+const RECENT_CLIENTS = [
+  { name: 'Óptica Velázquez', city: 'Sevilla' },
+  { name: 'Lunetterie du Marais', city: 'Paris' },
+  { name: 'Óptica Central', city: 'Barcelona' },
+  { name: 'Optique Cathédrale', city: 'Lyon' },
+  { name: 'La Óptica de Eva', city: 'Madrid' },
+  { name: 'Brillen Studio', city: 'Berlin' },
+  { name: 'Ótica Lisboa Center', city: 'Lisboa' },
+  { name: 'Óptica Mirador', city: 'Málaga' },
+  { name: 'Lunetterie Saint-Jean', city: 'Bordeaux' },
+  { name: 'Óptica Mar i Vent', city: 'Valencia' },
 ];
 
 function getTier(units) {
@@ -1091,8 +1300,103 @@ const MONTH_NAMES = {
   pt: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
 };
 
+// ── KineticText — letra a letra con stagger ──────────────────────────
+function KineticText({ text, delay = 0 }) {
+  if (!text) return null;
+  return (
+    <span style={{ display: 'inline' }}>
+      {text.split('').map((ch, i) => (
+        <span key={i} style={{
+          display: 'inline-block',
+          animation: 'mn-char-in 0.5s cubic-bezier(0.22,1,0.36,1) both',
+          animationDelay: `${delay + i * 0.028}s`,
+        }}>{ch === ' ' ? '\u00a0' : ch}</span>
+      ))}
+    </span>
+  );
+}
+
+// ── CustomCursor — solo desktop ───────────────────────────────────────
+function CustomCursor() {
+  const [pos, setPos] = useState({ x: -100, y: -100 });
+  const [expanded, setExpanded] = useState(false);
+  const [isImg, setIsImg] = useState(false);
+  useEffect(() => {
+    const onMove = (e) => setPos({ x: e.clientX, y: e.clientY });
+    const onOver = (e) => {
+      const target = e.target;
+      setExpanded(!!(
+        target.closest('.mn-card') || target.closest('.mn-btn') ||
+        target.closest('.mn-pill') || target.closest('button') || target.closest('a')
+      ));
+      setIsImg(!!(target.tagName === 'IMG' || target.closest('.mn-card-img')));
+    };
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('mouseover', onOver);
+    return () => {
+      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('mouseover', onOver);
+    };
+  }, []);
+  const size = expanded ? (isImg ? 54 : 42) : 10;
+  return (
+    <div style={{
+      position: 'fixed', zIndex: 9999, pointerEvents: 'none',
+      mixBlendMode: 'multiply',
+      left: pos.x, top: pos.y,
+      transform: 'translate(-50%,-50%)',
+      width: size, height: size, borderRadius: '50%',
+      background: expanded ? 'rgba(24,51,47,0.07)' : 'rgba(24,51,47,0.75)',
+      border: expanded ? '1.5px solid rgba(24,51,47,0.28)' : 'none',
+      transition: 'width 0.2s cubic-bezier(0.25,0.46,0.45,0.94), height 0.2s cubic-bezier(0.25,0.46,0.45,0.94), background 0.15s',
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+    }}>
+      {isImg && expanded && (
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(24,51,47,0.5)" strokeWidth="2" strokeLinecap="round">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          <line x1="11" y1="8" x2="11" y2="14"/>
+          <line x1="8" y1="11" x2="14" y2="11"/>
+        </svg>
+      )}
+    </div>
+  );
+}
+
+// ── FlyingItem — emoji vuela al carrito ───────────────────────────────
+function FlyingItem({ item, cartIconRef, onDone }) {
+  const [flyDx, setFlyDx] = useState(0);
+  const [flyDy, setFlyDy] = useState(0);
+  useLayoutEffect(() => {
+    if (cartIconRef?.current) {
+      const r = cartIconRef.current.getBoundingClientRect();
+      setFlyDx(r.left + r.width / 2 - item.x - 20);
+      setFlyDy(r.top + r.height / 2 - item.y - 20);
+    }
+    const timer = setTimeout(onDone, 750);
+    return () => clearTimeout(timer);
+  }, []);
+  return (
+    <div style={{
+      position: 'fixed', zIndex: 9998, pointerEvents: 'none',
+      left: item.x, top: item.y,
+      width: 40, height: 40, borderRadius: 999,
+      background: 'rgba(248,239,230,0.9)',
+      backdropFilter: 'blur(4px)',
+      border: '1px solid rgba(24,51,47,0.15)',
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+      fontSize: 18,
+      animation: `mn-fly-anim 0.65s cubic-bezier(0.4,0,0.2,1) both`,
+      '--fly-dx': `${flyDx}px`,
+      '--fly-dy': `${flyDy}px`,
+    }}>🕶️</div>
+  );
+}
+
 export default function App() {
-  const [cart, setCart] = useState({});
+  const [cart, setCart] = useState(() => {
+    try { const s = typeof localStorage !== 'undefined' ? localStorage.getItem('minue_cart_v2') : null; return s ? JSON.parse(s) : {}; } catch { return {}; }
+  });
   const [activeColors, setActiveColors] = useState([]);
   const [activeShapes, setActiveShapes] = useState([]);
   const [colFilter, setColFilter] = useState('all');
@@ -1104,6 +1408,7 @@ export default function App() {
   const [region, setRegion] = useState('es');
   const [newExpanded, setNewExpanded] = useState(false);
   const [openCollections, setOpenCollections] = useState({});
+  const pendingScrollCol = useRef(null);
   const toggleCollection = (id) => setOpenCollections(prev => ({ ...prev, [id]: !prev[id] }));
   const [scrollY, setScrollY] = useState(0);
   const [toast, setToast] = useState(null);
@@ -1111,6 +1416,17 @@ export default function App() {
   const [shareUrl, setShareUrl] = useState(null);
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  // Parallax + cart
+  const [flyItems, setFlyItems] = useState([]);
+  const cartIconRef = useRef(null);
+  const [heroParallax, setHeroParallax] = useState(0);
+  const [familyCode, setFamilyCode] = useState(() => {
+    try { return typeof localStorage !== 'undefined' ? (localStorage.getItem('minue_code') || '') : ''; } catch { return ''; }
+  });
+  const discountPct = familyCode.trim().toUpperCase() === 'FAMILY' ? 5 : 0;
+  useEffect(() => {
+    try { if (typeof localStorage !== 'undefined') localStorage.setItem('minue_code', familyCode); } catch {}
+  }, [familyCode]);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -1144,10 +1460,31 @@ export default function App() {
   useEffect(() => {
     if (typeof localStorage !== 'undefined') localStorage.setItem('minue_region', region);
   }, [region]);
+  // Persist cart
+  useEffect(() => {
+    try { if (typeof localStorage !== 'undefined') localStorage.setItem('minue_cart_v2', JSON.stringify(cart)); } catch {}
+  }, [cart]);
 
   const t = (k) => (I18N[lang] && I18N[lang][k]) || I18N.es[k] || k;
 
   const cartCount = Object.values(cart).reduce((a, b) => a + b, 0);
+
+  // Parallax hero
+  useEffect(() => {
+    const onScroll = () => setHeroParallax(window.scrollY * 0.28);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  // Scroll-reveal para secciones
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('mn-visible'); }),
+      { threshold: 0.08 }
+    );
+    document.querySelectorAll('.mn-reveal').forEach(el => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
   const cartItems = Object.entries(cart).map(([id, qty]) => {
     const p = PRODUCTS.find(x => x.id === parseInt(id));
     return p ? { ...p, qty } : null;
@@ -1192,7 +1529,7 @@ export default function App() {
   };
 
   const topSix = useMemo(() =>
-    [...PRODUCTS].sort((a, b) => a.rank - b.rank).slice(0, 8)
+    [...PRODUCTS].sort((a, b) => a.rank - b.rank).slice(0, 14)
   , []);
 
   const novedades = useMemo(() => PRODUCTS.filter(p => p.isNew), []);
@@ -1248,13 +1585,31 @@ export default function App() {
     return () => { document.body.style.overflow = ''; };
   }, [panelOpen, tarifasOpen, quickViewProduct, filtersOpen, menuOpen]);
 
-  // Auto-scroll al inicio de catálogo cuando se aplica un filtro
+  // Fase 1: cuando cambia colFilter, abrir el acordeón y marcar el target pendiente
   useEffect(() => {
-    if (activeColors.length > 0 || activeShapes.length > 0 || colFilter !== 'all' || searchQuery) {
+    if (colFilter !== 'all') {
+      pendingScrollCol.current = colFilter;
+      setOpenCollections(prev => ({ ...prev, [colFilter]: true }));
+    } else if (activeColors.length > 0 || activeShapes.length > 0 || searchQuery) {
       const el = document.getElementById('catalog-start');
       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }, [activeColors, activeShapes, colFilter, searchQuery]);
+
+  // Fase 2: después de que el acordeón se haya abierto (openCollections cambió), hacer scroll
+  useEffect(() => {
+    const target = pendingScrollCol.current;
+    if (!target) return;
+    if (!openCollections[target]) return;
+    pendingScrollCol.current = null;
+    // rAF doble: garantiza que el DOM ya está pintado
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        const el = document.getElementById(`col-${target}`);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  }, [openCollections]);
 
   const scrollToId = (id) => {
     const el = document.getElementById(id);
@@ -1346,6 +1701,77 @@ export default function App() {
         .mn-serif { font-family: 'Cormorant Garamond', serif; }
         .mn-serif-i { font-family: 'Cormorant Garamond', serif; font-style: italic; }
 
+        /* ── Animaciones globales ── */
+        @keyframes mn-fadein { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+        @keyframes mn-rise { from { opacity:0; transform:translate(-50%,-48%) scale(0.97); } to { opacity:1; transform:translate(-50%,-50%) scale(1); } }
+        @keyframes mn-slidein { from { transform:translateX(100%); opacity:0; } to { transform:translateX(0); opacity:1; } }
+        @keyframes mn-shimmer { 0%,100%{ background-position:200% center; } }
+        @keyframes mn-pulse-dot { 0%,100%{ transform:scale(1); opacity:1; } 50%{ transform:scale(1.35); opacity:0.6; } }
+        @keyframes mn-banner-in { from{ opacity:0; transform:translateY(-6px); } to{ opacity:1; transform:translateY(0); } }
+        @keyframes mn-char-in { from { opacity:0; transform:translateY(0.35em); } to { opacity:1; transform:translateY(0); } }
+        @keyframes mn-ticker { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+        @media(min-width:601px){ .mn-sticky-bar { display:none !important; } }
+        @keyframes mn-fly {
+          0%   { transform: translate(0,0) scale(1); opacity: 1; }
+          60%  { transform: translate(calc(var(--fly-dx)*0.7), calc(var(--fly-dy)*0.7)) scale(0.7); opacity: 0.9; }
+          100% { transform: translate(var(--fly-dx), var(--fly-dy)) scale(0.2); opacity: 0; }
+        }
+        @keyframes mn-fly-anim {
+          0%   { transform: translate(0,0) scale(1); opacity: 1; }
+          50%  { opacity: 1; }
+          100% { transform: translate(var(--fly-dx), var(--fly-dy)) scale(0.15); opacity: 0; }
+        }
+        @keyframes mn-cart-bounce { 0%,100%{ transform:scale(1); } 40%{ transform:scale(1.25); } 70%{ transform:scale(0.9); } }
+
+        /* Cards — fade-in escalonado + hover lift */
+        .mn-card {
+          animation: mn-fadein 0.35s ease-out both;
+          transition: transform 0.22s cubic-bezier(0.25,0.46,0.45,0.94),
+                      box-shadow 0.22s ease;
+          border-radius: 2px;
+        }
+        .mn-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 12px 32px -8px rgba(24,51,47,0.14);
+        }
+        /* Imagen — zoom suave en hover */
+        .mn-img {
+          transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+        }
+        .mn-card:hover .mn-img { transform: scale(1.04); }
+
+        /* Botones — micro-bounce */
+        .mn-btn {
+          transition: background 0.18s, color 0.18s, transform 0.14s, box-shadow 0.18s;
+        }
+        .mn-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px -4px rgba(24,51,47,0.2); }
+        .mn-btn:active { transform: translateY(0) scale(0.98); }
+
+        /* Pills nav */
+        .mn-pill { transition: background 0.16s, border-color 0.16s, transform 0.14s; cursor: pointer; }
+        .mn-pill:hover { transform: translateY(-1px); }
+
+        /* Overlay fade */
+        .mn-overlay { animation: mn-fadein 0.18s ease both; }
+
+        /* Panel lateral */
+        .mn-panel { animation: mn-slidein 0.3s cubic-bezier(0.25,0.46,0.45,0.94) both; }
+
+        /* Banner superior */
+        .mn-banner-anim { animation: mn-banner-in 0.5s 0.2s ease-out both; }
+
+        /* Urgency dot pulsante */
+        .mn-urgency-dot { animation: mn-pulse-dot 1.8s ease-in-out infinite; }
+
+        /* Accordion FAQ */
+        .mn-faq-answer {
+          animation: mn-fadein 0.22s ease-out both;
+        }
+
+        /* Scroll reveal — añadido con IntersectionObserver */
+        .mn-reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.5s ease, transform 0.5s ease; }
+        .mn-reveal.mn-visible { opacity: 1; transform: translateY(0); }
+
         .mn-nav-text { }
         .mn-nav-collections { }
         @media (max-width: 900px) { .mn-nav-collections { display: none !important; } }
@@ -1376,10 +1802,11 @@ export default function App() {
         {/* NAV */}
         <nav style={{
           position: 'sticky', top: 0, zIndex: 40,
-          background: 'rgba(248,239,230,0.92)',
-          backdropFilter: 'saturate(1.4) blur(12px)',
-          WebkitBackdropFilter: 'saturate(1.4) blur(12px)',
-          borderBottom: `1px solid ${G}1a`,
+          background: 'rgba(248,239,230,0.72)',
+          backdropFilter: 'saturate(1.8) blur(22px) brightness(1.04)',
+          WebkitBackdropFilter: 'saturate(1.8) blur(22px) brightness(1.04)',
+          borderBottom: `1px solid rgba(255,255,255,0.45)`,
+          boxShadow: '0 1px 0 rgba(24,51,47,0.06), 0 4px 24px -8px rgba(24,51,47,0.08)',
         }}>
           <div style={{
             maxWidth: 1280, margin: '0 auto', padding: '14px 24px',
@@ -1417,11 +1844,6 @@ export default function App() {
                 {COLLECTIONS.map(c => (
                   <button key={c.id} onClick={() => {
                     setColFilter(c.id);
-                    setOpenCollections(prev => ({ ...prev, [c.id]: true }));
-                    setTimeout(() => {
-                      const el = document.getElementById(`col-${c.id}`);
-                      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }, 100);
                   }} className="mn-pill" style={{
                     padding: '7px 11px', borderRadius: 999, fontSize: 11, fontWeight: 500,
                     border: `1px solid ${G}22`, color: G,
@@ -1433,6 +1855,14 @@ export default function App() {
                 ))}
               </div>
 
+              <a href="#faq" onClick={(e) => { e.preventDefault(); document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' }); }} className="mn-pill mn-nav-pill" style={{
+                display: 'inline-flex', alignItems: 'center', gap: 7,
+                padding: '9px 14px', border: `1px solid ${G}33`, borderRadius: 999,
+                fontSize: 12, fontWeight: 500, letterSpacing: 0.2,
+              }}>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                <span className="mn-nav-text">{t('nav_faq')}</span>
+              </a>
               <a href="#contacto" onClick={(e) => { e.preventDefault(); document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' }); }} className="mn-pill mn-nav-pill" style={{
                 display: 'inline-flex', alignItems: 'center', gap: 7,
                 padding: '9px 14px', border: `1px solid ${G}33`, borderRadius: 999,
@@ -1449,7 +1879,7 @@ export default function App() {
                 <IconDownload />
                 <span className="mn-nav-text">{t('nav_pdf')}</span>
               </a>
-              <button onClick={() => setPanelOpen(true)} className="mn-pill mn-nav-pill" style={{
+              <button ref={cartIconRef} onClick={() => setPanelOpen(true)} className="mn-pill mn-nav-pill" style={{
                 position: 'relative', display: 'inline-flex', alignItems: 'center', gap: 8,
                 padding: '9px 14px', background: G, color: C, borderRadius: 999,
                 fontSize: 12, fontWeight: 500, letterSpacing: 0.3,
@@ -1468,6 +1898,7 @@ export default function App() {
 
             {/* HAMBURGUESA — solo móvil <560px */}
             <div className="mn-hamburger" style={{ display: 'none', alignItems: 'center', gap: 8 }}>
+              <LangSelector lang={lang} onChange={setLang} />
               {cartCount > 0 && (
                 <button onClick={() => setPanelOpen(true)} style={{
                   display: 'inline-flex', alignItems: 'center', gap: 6,
@@ -1512,7 +1943,6 @@ export default function App() {
                 boxShadow: '0 8px 24px -8px rgba(24,51,47,0.2)',
                 display: 'flex', flexDirection: 'column', gap: 8,
               }}>
-                <LangSelector lang={lang} onChange={(l) => { setLang(l); setMenuOpen(false); }} />
                 <button onClick={() => { setTarifasOpen(true); setMenuOpen(false); }} style={{
                   padding: '11px 14px', border: `1px solid ${D}`, color: D, borderRadius: 6,
                   fontSize: 13, fontWeight: 500, textAlign: 'left', background: 'transparent', cursor: 'pointer',
@@ -1527,6 +1957,14 @@ export default function App() {
                 }}>
                   <IconDownload size={14} /> {t('nav_pdf')}
                 </a>
+                <a href="#faq" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setTimeout(() => document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' }), 100); }} style={{
+                  padding: '11px 14px', border: `1px solid ${G}33`, borderRadius: 6,
+                  fontSize: 13, fontWeight: 500, display: 'flex', alignItems: 'center', gap: 8,
+                  color: G, textDecoration: 'none', cursor: 'pointer',
+                }}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                  {t('nav_faq')}
+                </a>
                 <a href="#contacto" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setTimeout(() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' }), 100); }} style={{
                   padding: '11px 14px', border: `1px solid ${G}33`, borderRadius: 6,
                   fontSize: 13, fontWeight: 500, display: 'flex', alignItems: 'center', gap: 8,
@@ -1539,12 +1977,7 @@ export default function App() {
                   {COLLECTIONS.map(c => (
                     <button key={c.id} onClick={() => {
                       setColFilter(c.id);
-                      setOpenCollections(prev => ({ ...prev, [c.id]: true }));
                       setMenuOpen(false);
-                      setTimeout(() => {
-                        const el = document.getElementById(`col-${c.id}`);
-                        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                      }, 100);
                     }} style={{
                       flex: 1, padding: '8px 6px', borderRadius: 6, fontSize: 11, fontWeight: 500,
                       border: `1px solid ${G}22`, background: c.id === 'Acetato' ? `${D}10` : 'transparent',
@@ -1559,8 +1992,26 @@ export default function App() {
           )}
         </nav>
 
-        {/* BANNER EXPOSITORES */}
+        {/* SOCIAL PROOF STRIP */}
+        <SocialProofStrip t={t} />
+
+        {/* SS26 URGENCY BANNER */}
         <div style={{
+          background: `linear-gradient(90deg, #1a3530, #18332f)`,
+          color: '#f8efe6', textAlign: 'center',
+          padding: '10px 24px', fontSize: 11, fontWeight: 500, letterSpacing: 0.3,
+        }}>
+          {t('ss26_banner')}
+        </div>
+
+        {/* CÓMO FUNCIONA */}
+        <HowItWorks t={t} />
+
+        {/* FAIRE */}
+        <FaireBlock t={t} />
+
+        {/* BANNER EXPOSITORES */}
+        <div className="mn-banner-anim" style={{
           background: D, color: G, overflow: 'hidden',
           borderBottom: `1px solid ${G}18`,
         }}>
@@ -1632,7 +2083,12 @@ export default function App() {
               <img
                 src="https://res.cloudinary.com/dekvzwn7b/image/upload/w_900,q_auto,f_auto/v1776281360/_ABD8565_vyyr2r.jpg"
                 alt="Minuë — lookbook SS26"
-                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                style={{
+                  width: '100%', height: '120%', objectFit: 'cover', display: 'block',
+                  transform: `translateY(${Math.min(heroParallax, 80)}px)`,
+                  willChange: 'transform',
+                  position: 'absolute', top: 0, left: 0,
+                }}
               />
               {/* Overlay sutil */}
               <div style={{
@@ -1714,8 +2170,11 @@ export default function App() {
           </div>
         )}
 
+        {/* CLIENTS TICKER */}
+        <ClientTicker t={t} />
+
         {/* TOP VENTAS */}
-        <section id="top-ventas" style={{ maxWidth: 1280, margin: '0 auto', padding: 'clamp(50px, 7vw, 80px) 24px 30px', scrollMarginTop: 80 }}>
+        <section id="top-ventas" className="mn-reveal" style={{ maxWidth: 1280, margin: '0 auto', padding: 'clamp(50px, 7vw, 80px) 24px 30px', scrollMarginTop: 80 }}>
           <div style={{
             display: 'flex', alignItems: 'baseline', justifyContent: 'space-between',
             gap: 20, flexWrap: 'wrap', marginBottom: 'clamp(24px, 3vw, 36px)',
@@ -1743,18 +2202,20 @@ export default function App() {
 
           <div className="mn-top-grid">
             {topSix.map((p, i) => (
-              <ProductCard key={p.id} product={p} added={cart[p.id] || 0}
-                onAdd={() => addToCart(p.id)} rank={i + 1} showRank variant="top"
-                colData={COLLECTIONS.find(c => c.id === p.col)}
-                currentTierPrice={unitPrice}
-                onQuickView={(p) => setQuickViewProduct(p)} t={t} />
+              <div key={p.id} style={{ animationDelay: `${i * 0.06}s` }}>
+                <ProductCard product={p} added={cart[p.id] || 0}
+                  onAdd={() => addToCart(p.id)} rank={i + 1} showRank variant="top"
+                  colData={COLLECTIONS.find(c => c.id === p.col)}
+                  currentTierPrice={unitPrice}
+                  onQuickView={(p) => setQuickViewProduct(p)} t={t} />
+              </div>
             ))}
           </div>
         </section>
 
         {/* NOVEDADES */}
         {novedades.length > 0 && (
-          <section id="novedades" style={{
+          <section id="novedades" className="mn-reveal" style={{
             maxWidth: 1280, margin: '0 auto', padding: 'clamp(50px, 7vw, 80px) 24px 20px',
             scrollMarginTop: 80,
           }}>
@@ -2177,76 +2638,69 @@ export default function App() {
         {/* PRESENCIA GLOBAL */}
         <GlobalMap t={t} />
 
-        {/* POR QUÉ MINUË — rediseñado con ritmo visual */}
+        {/* POR QUÉ MINUË — Bento Grid 2026 */}
         <section style={{ background: G, color: C, marginTop: 20 }}>
           <div style={{ maxWidth: 1280, margin: '0 auto', padding: 'clamp(50px,7vw,80px) 24px' }}>
-
-            {/* Header */}
-            <div style={{ display: 'flex', alignItems: 'baseline', gap: 16, flexWrap: 'wrap', marginBottom: 'clamp(40px,6vw,64px)', justifyContent: 'space-between' }}>
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: 16, flexWrap: 'wrap', marginBottom: 'clamp(32px,5vw,56px)', justifyContent: 'space-between' }}>
               <div>
                 <div className="mn-label" style={{ color: D, marginBottom: 8 }}>{t('why_eyebrow')}</div>
-                <h3 className="mn-serif" style={{ fontSize:'clamp(32px,4.5vw,52px)', fontWeight:300, letterSpacing:'-0.01em', margin:0, lineHeight:1.05 }}>
+                <h3 className="mn-serif" style={{ fontSize:'clamp(30px,4.5vw,52px)', fontWeight:300, letterSpacing:'-0.01em', margin:0, lineHeight:1.05 }}>
                   {t('why_h2_a')}<span className="mn-serif-i" style={{ color: D }}>{t('why_h2_b')}</span>{t('why_h2_c')}
                 </h3>
               </div>
-              <p style={{ maxWidth:360, fontSize:13, lineHeight:1.7, opacity:0.6, margin:0, fontWeight:300, fontStyle:'italic' }}>{t('why_sub')}</p>
+              <p style={{ maxWidth:340, fontSize:13, lineHeight:1.7, opacity:0.55, margin:0, fontWeight:300, fontStyle:'italic' }}>{t('why_sub')}</p>
             </div>
 
-            {/* Grid alternado: pilares 1+2 a la izq, foto a la derecha */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(20px,4vw,48px)', marginBottom: 'clamp(20px,3vw,32px)', alignItems: 'stretch' }} className="mn-why-grid">
+            {/* BENTO */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gridTemplateRows: 'auto', gap: 10 }} className="mn-bento">
 
-              {/* Pilares 01 y 02 */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-                {[
-                  { n: '01', tt: t('why_1_t'), d: t('why_1_d') },
-                  { n: '02', tt: t('why_2_t'), d: t('why_2_d') },
-                ].map((item, i) => (
-                  <div key={i} style={{
-                    padding: '24px 22px', border: `1px solid ${C}14`, borderRadius: 6,
-                    display: 'flex', gap: 18, alignItems: 'flex-start', flex: 1,
-                    background: `${C}04`,
-                  }}>
-                    <span className="mn-serif-i" style={{ fontSize: 44, color: D, fontWeight: 300, lineHeight: 0.85, flexShrink: 0, marginTop: 4 }}>{item.n}</span>
-                    <div>
-                      <h4 className="mn-serif" style={{ fontSize: 20, fontWeight: 400, margin: '0 0 8px', letterSpacing: '-0.01em' }}>{item.tt}</h4>
-                      <p style={{ fontSize: 12, lineHeight: 1.65, opacity: 0.65, margin: 0, fontWeight: 300 }}>{item.d}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Foto lifestyle */}
-              <div style={{ borderRadius: 6, overflow: 'hidden', minHeight: 300 }}>
-                <img
-                  src="https://res.cloudinary.com/dekvzwn7b/image/upload/w_800,q_auto,f_auto/v1776281988/_ANT3201_lhwuw6.jpg"
-                  alt="Minuë — lifestyle"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-                />
-              </div>
-            </div>
-
-            {/* Pilares 03 y 04 — ancho completo */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(12px,2vw,20px)', marginBottom: 32 }} className="mn-why-bottom">
-              {[
-                { n: '03', tt: t('why_3_t'), d: t('why_3_d') },
-                { n: '04', tt: t('why_4_t'), d: t('why_4_d') },
-              ].map((item, i) => (
-                <div key={i} style={{
-                  padding: '24px 22px', border: `1px solid ${C}14`, borderRadius: 6,
-                  display: 'flex', gap: 18, alignItems: 'flex-start',
-                  background: i === 1 ? `${D}08` : `${C}04`,
-                  borderColor: i === 1 ? `${D}22` : `${C}14`,
-                }}>
-                  <span className="mn-serif-i" style={{ fontSize: 44, color: D, fontWeight: 300, lineHeight: 0.85, flexShrink: 0, marginTop: 4 }}>{item.n}</span>
-                  <div>
-                    <h4 className="mn-serif" style={{ fontSize: 20, fontWeight: 400, margin: '0 0 8px', letterSpacing: '-0.01em' }}>{item.tt}</h4>
-                    <p style={{ fontSize: 12, lineHeight: 1.65, opacity: 0.65, margin: 0, fontWeight: 300 }}>{item.d}</p>
-                  </div>
+              {/* Celda grande — foto */}
+              <div className="mn-bento-photo" style={{ gridColumn: '1/6', gridRow: '1/3', borderRadius: 8, overflow:'hidden', minHeight: 280, position: 'relative' }}>
+                <img src="https://res.cloudinary.com/dekvzwn7b/image/upload/w_800,q_auto,f_auto/v1776281988/_ANT3201_lhwuw6.jpg"
+                  alt="Minuë SS26" style={{ width:'100%', height:'100%', objectFit:'cover', display:'block', filter:'brightness(0.85)' }} />
+                <div style={{ position:'absolute', inset:0, background:`linear-gradient(135deg,${G}44 0%,transparent 70%)`, pointerEvents:'none' }} />
+                <div style={{ position:'absolute', bottom:20, left:20 }}>
+                  <div className="mn-label-xs" style={{ color:D, marginBottom:6 }}>SS26</div>
+                  <div className="mn-serif" style={{ fontSize:22, fontWeight:300, lineHeight:1.1 }}>Bergman Collection</div>
                 </div>
-              ))}
+              </div>
+
+              {/* 01 */}
+              <div className="mn-bento-card" style={{ gridColumn:'6/10', gridRow:'1/2', borderRadius:8, padding:'22px 20px', border:`1px solid ${C}12`, background:`${C}04`, display:'flex', gap:14, alignItems:'flex-start', transition:'background 0.2s' }}>
+                <span className="mn-serif-i" style={{ fontSize:36, color:D, fontWeight:300, lineHeight:0.85, flexShrink:0 }}>01</span>
+                <div>
+                  <h4 className="mn-serif" style={{ fontSize:17, fontWeight:400, margin:'0 0 6px' }}>{t('why_1_t')}</h4>
+                  <p style={{ fontSize:12, lineHeight:1.6, opacity:0.6, margin:0, fontWeight:300 }}>{t('why_1_d')}</p>
+                </div>
+              </div>
+
+              {/* 02 */}
+              <div className="mn-bento-card" style={{ gridColumn:'10/13', gridRow:'1/2', borderRadius:8, padding:'22px 18px', background:`${D}10`, border:`1px solid ${D}20`, display:'flex', flexDirection:'column', gap:10, transition:'background 0.2s' }}>
+                <span className="mn-serif-i" style={{ fontSize:36, color:D, fontWeight:300, lineHeight:0.85 }}>02</span>
+                <h4 className="mn-serif" style={{ fontSize:16, fontWeight:400, margin:0 }}>{t('why_2_t')}</h4>
+                <p style={{ fontSize:11, lineHeight:1.6, opacity:0.6, margin:0, fontWeight:300 }}>{t('why_2_d')}</p>
+              </div>
+
+              {/* 03 — ancho medio */}
+              <div className="mn-bento-card" style={{ gridColumn:'6/10', gridRow:'2/3', borderRadius:8, padding:'22px 20px', border:`1px solid ${C}12`, background:`${C}04`, display:'flex', gap:14, alignItems:'flex-start', transition:'background 0.2s' }}>
+                <span className="mn-serif-i" style={{ fontSize:36, color:D, fontWeight:300, lineHeight:0.85, flexShrink:0 }}>03</span>
+                <div>
+                  <h4 className="mn-serif" style={{ fontSize:17, fontWeight:400, margin:'0 0 6px' }}>{t('why_3_t')}</h4>
+                  <p style={{ fontSize:12, lineHeight:1.6, opacity:0.6, margin:0, fontWeight:300 }}>{t('why_3_d')}</p>
+                </div>
+              </div>
+
+              {/* 04 — estrecho con acento */}
+              <div className="mn-bento-card" style={{ gridColumn:'10/13', gridRow:'2/3', borderRadius:8, padding:'22px 18px', background:`${C}06`, border:`1px solid ${C}10`, display:'flex', flexDirection:'column', gap:10, transition:'background 0.2s' }}>
+                <span className="mn-serif-i" style={{ fontSize:36, color:D, fontWeight:300, lineHeight:0.85 }}>04</span>
+                <h4 className="mn-serif" style={{ fontSize:16, fontWeight:400, margin:0 }}>{t('why_4_t')}</h4>
+                <p style={{ fontSize:11, lineHeight:1.6, opacity:0.6, margin:0, fontWeight:300 }}>{t('why_4_d')}</p>
+              </div>
+
             </div>
 
-            <div style={{ display:'flex', alignItems:'center', gap:16, flexWrap:'wrap', paddingTop:24, borderTop:`1px solid ${C}18` }}>
+            {/* Footer strip */}
+            <div style={{ display:'flex', alignItems:'center', gap:16, flexWrap:'wrap', paddingTop:24, marginTop:10, borderTop:`1px solid ${C}18` }}>
               <span style={{ fontSize:11, opacity:0.6, fontWeight:400, letterSpacing:0.3 }}>{t('why_presente')}</span>
               <span style={{ opacity:0.5, fontSize:10 }}>·</span>
               <span style={{ fontSize:12, opacity:0.7, fontWeight:300 }}>{t('why_presente_d')}</span>
@@ -2260,10 +2714,23 @@ export default function App() {
         </section>
 
         <style>{`
+          .mn-bento-card:hover { background: rgba(248,239,230,0.08) !important; }
           @media (max-width: 680px) {
-            .mn-why-grid, .mn-why-bottom { grid-template-columns: 1fr !important; }
+            .mn-bento { grid-template-columns: 1fr !important; }
+            .mn-bento-photo { grid-column: 1/-1 !important; grid-row: auto !important; min-height: 220px !important; }
+            .mn-bento-card { grid-column: 1/-1 !important; grid-row: auto !important; }
+          }
+          @media (min-width: 681px) and (max-width: 1000px) {
+            .mn-bento-photo { grid-column: 1/7 !important; }
+            .mn-bento-card:nth-child(2) { grid-column: 7/13 !important; grid-row: 1/2 !important; }
+            .mn-bento-card:nth-child(3) { grid-column: 7/13 !important; grid-row: 2/3 !important; }
+            .mn-bento-card:nth-child(4) { grid-column: 1/7 !important; grid-row: 3/4 !important; }
+            .mn-bento-card:nth-child(5) { grid-column: 7/13 !important; grid-row: 3/4 !important; }
           }
         `}</style>
+
+        {/* FAQ */}
+        <FaqSection t={t} />
 
         {/* CTA TARIFAS */}
         <section style={{ maxWidth: 1280, margin: '0 auto', padding: '40px 24px 60px' }}>
@@ -2524,6 +2991,35 @@ export default function App() {
 
             </div>
 
+            {/* CTA alternativo footer */}
+            <div style={{
+              marginBottom: 40, padding: '32px 28px', borderRadius: 8,
+              background: `rgba(248,239,230,0.06)`, border: `1px solid rgba(248,239,230,0.12)`,
+              display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 20,
+            }}>
+              <div>
+                <h4 className="mn-serif" style={{ fontSize: 22, fontWeight: 300, margin: '0 0 6px', color: C }}>
+                  {t('ft_cta_h')}
+                </h4>
+                <p style={{ fontSize: 12, opacity: 0.55, margin: 0, fontWeight: 300 }}>{t('ft_cta_d')}</p>
+              </div>
+              <div style={{ display: 'flex', gap: 10 }}>
+                <a href="https://wa.me/34661018380?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20el%20cat%C3%A1logo%20Minu%C3%AB" target="_blank" rel="noreferrer" style={{
+                  padding: '10px 18px', borderRadius: 6, fontSize: 12, fontWeight: 600,
+                  background: CHOCOLATE, color: C, textDecoration: 'none',
+                  display: 'inline-flex', alignItems: 'center', gap: 7,
+                }}>
+                  <IconWA size={13} /> {t('ft_cta_wa')}
+                </a>
+                <a href="mailto:hola@minueopticians.com?subject=Consulta%20Wholesale%20Minu%C3%AB" style={{
+                  padding: '10px 18px', borderRadius: 6, fontSize: 12, fontWeight: 500,
+                  border: `1px solid rgba(248,239,230,0.22)`, color: C, textDecoration: 'none',
+                }}>
+                  {t('ft_cta_email')}
+                </a>
+              </div>
+            </div>
+
             {/* Bottom bar */}
             <div style={{
               paddingTop: 28, borderTop: `1px solid ${C}1a`,
@@ -2535,6 +3031,14 @@ export default function App() {
             </div>
           </div>
         </footer>
+
+        {/* MOBILE STICKY BAR */}
+        <MobileStickyBar
+          cartCount={cartCount}
+          cartTotal={cartTotal}
+          discountPct={discountPct}
+          onOpenPanel={() => setPanelOpen(true)}
+        />
 
         {/* FAB */}
         {cartCount > 0 && !panelOpen && (
@@ -2676,12 +3180,13 @@ export default function App() {
             cartItems={cartItems} cartCount={cartCount}
             currentTier={currentTier} nextTier={nextTier}
             unitPrice={unitPrice} cartTotal={cartTotal}
+            familyCode={familyCode} setFamilyCode={setFamilyCode}
+            discountPct={discountPct}
             onClose={() => setPanelOpen(false)}
             onUpdateQty={updateQty}
             onRemove={removeFromCart}
             onSendWA={sendWhatsApp}
             onSendEmail={sendEmail}
-
           />
         )}
 
@@ -2689,13 +3194,10 @@ export default function App() {
         {quickViewProduct && (
           <QuickViewModal
             product={quickViewProduct}
-            allProducts={allFilteredProducts}
+            allProducts={PRODUCTS}
             colData={COLLECTIONS.find(c => c.id === quickViewProduct.col)}
             currentTierPrice={unitPrice}
-            added={cart[quickViewProduct.id] || 0}
-            onAdd={() => addToCart(quickViewProduct.id)}
             onClose={() => setQuickViewProduct(null)}
-            onNavigate={(p) => setQuickViewProduct(p)}
             cart={cart}
             onAddAny={(id) => addToCart(id)}
             t={t}
@@ -2805,6 +3307,7 @@ function LangSelector({ lang, onChange }) {
 function OrderPanel({
   t, lang, region, setRegion, distributor,
   cartItems, cartCount, currentTier, nextTier, unitPrice, cartTotal,
+  familyCode, setFamilyCode, discountPct,
   onClose, onUpdateQty, onRemove, onSendWA, onSendEmail,
 }) {
   const isDistributor = distributor.name !== 'Minuë Opticians';
@@ -2830,367 +3333,374 @@ function OrderPanel({
     else onSendEmail({});
     setLeadStep(false);
   };
+
+  // Cálculos
+  const cost = cartItems.reduce((sum, item) => {
+    const col = COLLECTIONS.find(c => c.id === item.col);
+    const itemCost = col?.unitCost ?? unitPrice ?? DISPLAY_PRICE;
+    return sum + itemCost * item.qty;
+  }, 0);
+  const revenue = cartItems.reduce((sum, item) => {
+    const col = COLLECTIONS.find(c => c.id === item.col);
+    return sum + (col?.rrp ?? 50) * item.qty;
+  }, 0);
+  const gainEur = revenue - cost;
+  const gainPct = revenue > 0 ? Math.round((gainEur / revenue) * 100) : 0;
+  const hasItems = cartItems.length > 0;
+  const hasUrgent = cartItems.some(item => PRODUCTS.find(p => p.id === item.id)?.urgency === 'stock_low');
+
   return (
     <>
       <div onClick={onClose} className="mn-overlay" style={{
         position: 'fixed', inset: 0, background: 'rgba(24,51,47,0.45)',
-        backdropFilter: 'blur(2px)', zIndex: 60,
+        backdropFilter: 'blur(3px)', zIndex: 60,
       }} />
       <aside className="mn-panel" style={{
         position: 'fixed', top: 0, right: 0, bottom: 0,
         width: 'min(440px, 94vw)', background: C, zIndex: 61,
         display: 'flex', flexDirection: 'column',
-        boxShadow: '-24px 0 60px -20px rgba(0,0,0,0.25)',
+        boxShadow: '-24px 0 60px -20px rgba(0,0,0,0.28)',
       }}>
+
+        {/* ── Cabecera ── */}
         <div style={{
-          padding: '22px 24px 16px', display: 'flex', alignItems: 'center',
-          justifyContent: 'space-between', borderBottom: `1px solid ${G}18`,
+          padding: '20px 24px 14px', display: 'flex', alignItems: 'center',
+          justifyContent: 'space-between', borderBottom: `1px solid ${G}14`,
+          background: hasUrgent ? `rgba(232,90,0,0.04)` : 'transparent',
         }}>
           <div>
-            <div className="mn-label" style={{ color: D, marginBottom: 4 }}>{t('panel_eyebrow')}</div>
-            <h3 className="mn-serif" style={{ fontSize: 28, fontWeight: 300, margin: 0, letterSpacing: '-0.01em' }}>
-              {t('panel_h3')}
-            </h3>
+            <div className="mn-label" style={{ color: D, marginBottom: 3 }}>{t('panel_eyebrow')}</div>
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: 10 }}>
+              <h3 className="mn-serif" style={{ fontSize: 26, fontWeight: 300, margin: 0, letterSpacing: '-0.01em' }}>
+                {t('panel_h3')}
+              </h3>
+              {cartCount > 0 && (
+                <span style={{
+                  fontSize: 11, fontWeight: 700, background: G, color: C,
+                  padding: '2px 8px', borderRadius: 999,
+                }}>{cartCount} uds</span>
+              )}
+            </div>
           </div>
           <button onClick={onClose} style={{
-            width: 36, height: 36, borderRadius: 999, display: 'inline-flex',
+            width: 34, height: 34, borderRadius: 999, display: 'inline-flex',
             alignItems: 'center', justifyContent: 'center', border: `1px solid ${G}22`,
           }}><IconClose /></button>
         </div>
 
-        {/* BANNER NO PAGO */}
-        <div style={{
-          margin: '0 16px 4px',
-          padding: '10px 14px',
-          borderRadius: 6,
-          background: `${G}0c`,
-          border: `1px solid ${G}18`,
-          display: 'flex', alignItems: 'flex-start', gap: 10,
-        }}>
-          <span style={{ fontSize: 15, lineHeight: 1, flexShrink: 0, marginTop: 1 }}>🔓</span>
-          <div>
-            <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: 0.1, marginBottom: 2 }}>
-              {t('panel_no_pay').replace('🔓 ', '')}
-            </div>
-            <div style={{ fontSize: 11, lineHeight: 1.45, opacity: 0.65, fontWeight: 300 }}>
-              {t('panel_no_pay_sub')}
-            </div>
-          </div>
-        </div>
-
+        {/* ── Lista de productos ── */}
         <div style={{ flex: 1, overflowY: 'auto', WebkitOverflowScrolling: 'touch' }}>
-          {cartItems.length === 0 ? (
+          {!hasItems ? (
             <div style={{ padding: '60px 28px', textAlign: 'center', opacity: 0.6 }}>
               <p className="mn-serif-i" style={{ fontSize: 22, marginBottom: 10 }}>{t('panel_empty_t')}</p>
               <p style={{ fontSize: 13, lineHeight: 1.5, fontWeight: 300 }}>{t('panel_empty_d')}</p>
             </div>
           ) : (
-            cartItems.map(item => (
-              <div key={item.id} style={{
-                display: 'grid', gridTemplateColumns: '68px 1fr auto', gap: 14,
-                padding: '16px 24px', alignItems: 'center',
-                borderBottom: `1px solid ${G}12`,
-              }}>
-                <div style={{
-                  width: 68, height: 54, background: '#fff', borderRadius: 2,
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  padding: 6, overflow: 'hidden',
-                }}>
-                  <img src={item.img} alt={item.name} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
-                </div>
-                <div style={{ minWidth: 0 }}>
-                  <div className="mn-label-xs" style={{ opacity: 0.55, marginBottom: 2 }}>{item.col}</div>
-                  <div className="mn-serif" style={{
-                    fontSize: 16, fontWeight: 400, lineHeight: 1.15,
-                    whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis',
-                  }}>{item.name}</div>
-                  <div style={{ fontSize: 11, opacity: 0.65, marginTop: 3 }}>
-                    {item.qty} {t('panel_units')} · {unitPrice != null ? `${(item.qty * unitPrice).toFixed(2).replace('.', ',')}€` : '—'}
-                  </div>
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 6 }}>
-                  <div style={{
-                    display: 'inline-flex', alignItems: 'center', gap: 2,
-                    border: `1px solid ${G}22`, borderRadius: 999, padding: 2,
-                  }}>
-                    <button onClick={() => onUpdateQty(item.id, -1)} style={{
-                      width: 24, height: 24, borderRadius: 999,
-                      display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                    }}><IconMinus /></button>
-                    <span style={{ minWidth: 20, textAlign: 'center', fontSize: 12, fontWeight: 600 }}>{item.qty}</span>
-                    <button onClick={() => onUpdateQty(item.id, 1)} style={{
-                      width: 24, height: 24, borderRadius: 999,
-                      display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                    }}><IconPlus /></button>
-                  </div>
-                  <button onClick={() => onRemove(item.id)} style={{
-                    fontSize: 10, opacity: 0.55, display: 'inline-flex',
-                    alignItems: 'center', gap: 4, padding: '2px 4px',
-                  }}>
-                    <IconTrash size={12} /> {t('panel_remove')}
-                  </button>
-                </div>
-              </div>
-            ))
-          )}
-
-          {cartItems.length > 0 && (
-          <div style={{
-            padding: '18px 24px 22px', borderTop: `1px solid ${G}18`, background: C,
-          }}>
-            {/* Tramo */}
-            <div style={{
-              display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
-              padding: '10px 14px', borderRadius: 4,
-              background: `${G}0a`, marginBottom: 12,
-            }}>
-              <div>
-                <div className="mn-label-xs" style={{ color: D, marginBottom: 2 }}>{t('panel_tier')}</div>
-                <div style={{ fontSize: 13, fontWeight: 500 }}>{currentTier?.label || '—'}</div>
-              </div>
-              <div style={{ textAlign: 'right' }}>
-                <div className="mn-label-xs" style={{ opacity: 0.55, marginBottom: 2 }}>{t('panel_price')}</div>
-                <div className="mn-serif" style={{ fontSize: 20, fontWeight: 500 }}>
-                  {unitPrice != null ? `${unitPrice.toFixed(2).replace('.', ',')}€` : t('panel_consult')}
-                </div>
-              </div>
-            </div>
-
-            {/* Barra next tier */}
-            {nextTier && (
-              <div style={{ marginBottom: 14 }}>
-                <div style={{
-                  display: 'flex', justifyContent: 'space-between',
-                  fontSize: 11, marginBottom: 6, opacity: 0.8,
-                }}>
-                  <span>
-                    {t('panel_add_more_a')} <strong style={{ color: D }}>{nextTier.min - cartCount}</strong> {t('panel_add_more_b')} <strong>{nextTier.price.toFixed(2).replace('.', ',')}€</strong>
-                  </span>
-                  <span style={{ opacity: 0.6 }}>{t('panel_savings')} ~{((unitPrice - nextTier.price) * nextTier.min).toFixed(0)}€</span>
-                </div>
-                <div style={{ height: 4, background: `${G}15`, borderRadius: 999, overflow: 'hidden' }}>
-                  <div className="mn-bar-fill" style={{
-                    height: '100%', width: `${Math.min(100, (cartCount / nextTier.min) * 100)}%`,
-                    background: D, borderRadius: 999,
-                  }} />
-                </div>
-              </div>
-            )}
-
-            {/* DOS BLOQUES: Lo que pagas / Lo que ingresas */}
-            {cartTotal != null && (() => {
-              const revenue = cartItems.reduce((sum, item) => {
-                const col = COLLECTIONS.find(c => c.id === item.col);
-                return sum + (col?.rrp ?? 50) * item.qty;
-              }, 0);
-              const cost = cartItems.reduce((sum, item) => {
-                const col = COLLECTIONS.find(c => c.id === item.col);
-                const itemCost = col?.unitCost ?? unitPrice ?? DISPLAY_PRICE;
-                return sum + itemCost * item.qty;
-              }, 0);
-              const marginEur = revenue - cost;
-              const marginPct = Math.round((marginEur / revenue) * 100);
+            cartItems.map(item => {
+              const prod = PRODUCTS.find(p => p.id === item.id);
+              const isLow = prod?.urgency === 'stock_low';
               return (
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, marginBottom: 12 }}>
-                  {/* BLOQUE GRIS: Lo que pagas */}
+                <div key={item.id} style={{
+                  display: 'grid', gridTemplateColumns: '64px 1fr auto', gap: 12,
+                  padding: '14px 20px', alignItems: 'center',
+                  borderBottom: `1px solid ${G}10`,
+                  background: isLow ? 'rgba(232,90,0,0.03)' : 'transparent',
+                }}>
                   <div style={{
-                    padding: '12px 14px', borderRadius: 6,
-                    background: `${G}0a`, border: `1px solid ${G}18`,
+                    width: 64, height: 50, background: '#fff', borderRadius: 3,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    padding: 5, overflow: 'hidden', border: `1px solid ${G}0a`,
                   }}>
-                    <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: 1.5, textTransform: 'uppercase', opacity: 0.5, marginBottom: 6 }}>
-                      {t('panel_total')}
-                    </div>
-                    <div className="mn-serif" style={{ fontSize: 26, fontWeight: 400, letterSpacing: '-0.02em', lineHeight: 1 }}>
-                      {cost.toFixed(2).replace('.', ',')}
-                      <span style={{ fontSize: 14, opacity: 0.6, marginLeft: 3 }}>€</span>
-                    </div>
-                    <div style={{ fontSize: 10, opacity: 0.55, marginTop: 4 }}>
-                      {cartCount} {t('panel_units')}
-                      {currentTier?.freeShip && <span style={{ color: D, marginLeft: 6 }}>· {t('panel_free_ship')}</span>}
+                    {item.img
+                      ? <img src={item.img} alt={item.name} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+                      : <svg width="28" height="18" viewBox="0 0 42 28" fill="none" style={{ opacity: 0.2 }}><rect x="1" y="4" width="16" height="12" rx="6" stroke={G} strokeWidth="1.5"/><rect x="25" y="4" width="16" height="12" rx="6" stroke={G} strokeWidth="1.5"/><line x1="17" y1="10" x2="25" y2="10" stroke={G} strokeWidth="1.5"/></svg>
+                    }
+                  </div>
+                  <div style={{ minWidth: 0 }}>
+                    <div className="mn-label-xs" style={{ opacity: 0.45, marginBottom: 1 }}>{item.col}</div>
+                    <div className="mn-serif" style={{ fontSize: 15, fontWeight: 400, lineHeight: 1.2, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.name}</div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 3 }}>
+                      <span style={{ fontSize: 11, opacity: 0.6 }}>
+                        {item.qty} × {unitPrice != null ? `${unitPrice.toFixed(2).replace('.', ',')}€` : '—'}
+                      </span>
+                      {isLow && <span style={{ fontSize: 8, fontWeight: 700, color: '#e85a00', letterSpacing: 0.5 }}>⚡ POCAS UDS</span>}
                     </div>
                   </div>
-
-                  {/* BLOQUE VERDE: Lo que ingresas */}
-                  <div style={{
-                    padding: '12px 14px', borderRadius: 6,
-                    background: 'rgba(24,51,47,0.06)', border: `1.5px solid ${G}25`,
-                    position: 'relative', overflow: 'hidden',
-                  }}>
-                    <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: 1.5, textTransform: 'uppercase', color: D, marginBottom: 6 }}>
-                      {t('roi_revenue')}
-                    </div>
-                    <div className="mn-serif" style={{ fontSize: 26, fontWeight: 400, letterSpacing: '-0.02em', lineHeight: 1, color: G }}>
-                      {revenue.toFixed(0)}
-                      <span style={{ fontSize: 14, opacity: 0.6, marginLeft: 3 }}>€</span>
-                    </div>
-                    <div style={{ marginTop: 4, display: 'flex', alignItems: 'center', gap: 5 }}>
-                      <span style={{
-                        fontSize: 11, fontWeight: 700, color: G,
-                        background: `${D}28`, padding: '1px 7px', borderRadius: 999,
-                      }}>~{marginPct}%</span>
-                      <span style={{ fontSize: 10, opacity: 0.6 }}>{t('roi_margin')}</span>
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 6 }}>
+                    <span style={{ fontSize: 13, fontWeight: 600 }}>
+                      {unitPrice != null ? `${(item.qty * unitPrice).toFixed(2).replace('.', ',')}€` : '—'}
+                    </span>
+                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: 1, border: `1px solid ${G}1e`, borderRadius: 999, padding: 2 }}>
+                      <button onClick={() => onUpdateQty(item.id, -1)} style={{ width: 22, height: 22, borderRadius: 999, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: 12 }}>−</button>
+                      <span style={{ minWidth: 18, textAlign: 'center', fontSize: 12, fontWeight: 600 }}>{item.qty}</span>
+                      <button onClick={() => onUpdateQty(item.id, 1)} style={{ width: 22, height: 22, borderRadius: 999, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: 12 }}>+</button>
                     </div>
                   </div>
                 </div>
               );
-            })()}
+            })
+          )}
 
-            {/* Región / destinatario */}
+          {/* ── Zona inferior con totales y CTA ── */}
+          {hasItems && (
+          <div style={{ padding: '16px 20px 24px', background: C }}>
+
+            {/* Tramo actual + siguiente */}
             <div style={{
-              padding: '12px 14px', marginBottom: 12, borderRadius: 4,
-              border: `1px solid ${region === 'latam' ? '#00a650' : G}22`,
-              background: region === 'latam' ? 'rgba(0,166,80,0.06)' : isDistributor ? `${D}0d` : `${G}05`,
+              padding: '10px 14px', borderRadius: 6,
+              background: `${G}08`, marginBottom: 10,
+              display: 'flex', justifyContent: 'space-between', alignItems: 'center',
             }}>
+              <div>
+                <div className="mn-label-xs" style={{ color: D, marginBottom: 1 }}>{t('panel_tier')}</div>
+                <div style={{ fontSize: 13, fontWeight: 600 }}>{currentTier?.label || '—'}</div>
+              </div>
+              <div style={{ textAlign: 'right' }}>
+                <div className="mn-label-xs" style={{ opacity: 0.5, marginBottom: 1 }}>{t('panel_price')}</div>
+                <div style={{ fontSize: 18, fontWeight: 700, fontFamily: 'DM Sans, sans-serif', letterSpacing: '-0.02em' }}>
+                  {unitPrice != null ? `${unitPrice.toFixed(2).replace('.', ',')}€` : t('panel_consult')}
+                  <span style={{ fontSize: 10, fontWeight: 400, opacity: 0.5, marginLeft: 2 }}>/ud</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Nudge siguiente tramo */}
+            {nextTier && (
               <div style={{
-                display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 10, marginBottom: 8,
+                marginBottom: 12, padding: '8px 12px', borderRadius: 6,
+                background: `${D}0c`, border: `1px dashed ${D}40`,
+                display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8,
               }}>
-                <label className="mn-label-xs" style={{ color: region === 'latam' ? '#00a650' : D }}>
-                  {t('panel_region_label')}
-                </label>
-                <select className="mn-select" value={region} onChange={e => setRegion(e.target.value)} style={{
-                  padding: '6px 32px 6px 10px', border: `1px solid ${G}33`, borderRadius: 999,
-                  fontSize: 11, fontWeight: 500, background: C, color: G,
-                  fontFamily: 'inherit', cursor: 'pointer',
+                <span style={{ fontSize: 11, lineHeight: 1.35 }}>
+                  {t('panel_add_more_a')} <strong style={{ color: D }}>{nextTier.min - cartCount}</strong> {t('panel_add_more_b')} <strong style={{ color: D }}>{nextTier.price.toFixed(2).replace('.', ',')}€</strong>
+                </span>
+                <span style={{
+                  fontSize: 10, fontWeight: 700, color: G,
+                  background: `${D}28`, padding: '2px 7px', borderRadius: 999, flexShrink: 0,
                 }}>
-                  {REGIONS.map(r => (
-                    <option key={r.id} value={r.id}>
-                      {r.flag} {r.label[lang] || r.label.es}
-                    </option>
-                  ))}
-                </select>
+                  {t('panel_savings')} {((unitPrice - nextTier.price) * (cartCount + (nextTier.min - cartCount))).toFixed(0)}€
+                </span>
+              </div>
+            )}
+
+            {/* ── TOTAL ── gran número, claro, accionable */}
+            <div style={{
+              padding: '16px 18px',
+              background: G, color: C, borderRadius: 8,
+              marginBottom: 10,
+            }}>
+              {/* Fila arriba: label + unidades */}
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+                <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: 1.8, textTransform: 'uppercase', opacity: 0.55 }}>
+                  Total pedido
+                </span>
+                <span style={{ fontSize: 10, opacity: 0.55 }}>{cartCount} {t('panel_units')}</span>
               </div>
 
-              {/* Info según región */}
-              {region === 'latam' ? (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-                  <div style={{ fontSize: 10.5, lineHeight: 1.5, fontWeight: 600, color: '#00a650' }}>
-                    🌎 {t('latam_badge')} — {t('latam_hint')}
-                  </div>
-                  <div style={{ fontSize: 10, opacity: 0.6, lineHeight: 1.4 }}>
-                    {t('region_latam_desc')}
-                  </div>
-                  <div style={{ marginTop: 4, display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-                    <span style={{ fontSize: 10, opacity: 0.7, display: 'flex', alignItems: 'center', gap: 4 }}>
-                      <IconWA size={10} /> +57 322 770 1800
-                    </span>
-                    <span style={{ fontSize: 10, opacity: 0.7 }}>
-                      · hola@minueopticians.co
-                    </span>
-                  </div>
+              {/* Número grande con descuento aplicado */}
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: 4, marginBottom: 8 }}>
+                <span style={{
+                  fontSize: 42, fontWeight: 800, letterSpacing: '-0.04em', lineHeight: 1,
+                  fontFamily: 'DM Sans, sans-serif',
+                }}>
+                  {discountPct > 0
+                    ? (cost * (1 - discountPct / 100)).toFixed(2).replace('.', ',')
+                    : cost.toFixed(2).replace('.', ',')}
+                </span>
+                <span style={{ fontSize: 20, fontWeight: 700, opacity: 0.65, fontFamily: 'DM Sans, sans-serif' }}>€</span>
+                {discountPct > 0 && (
+                  <span style={{ fontSize: 13, textDecoration: 'line-through', opacity: 0.4, fontFamily: 'DM Sans', marginLeft: 4 }}>
+                    {cost.toFixed(2).replace('.', ',')}€
+                  </span>
+                )}
+              </div>
+
+              {/* Condiciones */}
+              <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+                {currentTier?.freeShip && (
+                  <span style={{ fontSize: 10, fontWeight: 600, color: D }}>
+                    ✓ Envío incluido
+                  </span>
+                )}
+                <span style={{ fontSize: 10, opacity: 0.55 }}>
+                  🔓 Sin pago previo
+                </span>
+                {currentTier?.payments && currentTier.payments !== 'Pago único' && (
+                  <span style={{ fontSize: 10, opacity: 0.55 }}>
+                    · {currentTier.payments}
+                  </span>
+                )}
+              </div>
+
+              {/* Separador */}
+              <div style={{ height: 1, background: 'rgba(248,239,230,0.12)', margin: '10px 0' }} />
+
+              {/* Ganancia — etiquetada inequívocamente */}
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <div style={{ fontSize: 10, opacity: 0.6, lineHeight: 1.4 }}>
+                  <div style={{ fontWeight: 500, opacity: 0.8, marginBottom: 1 }}>Ganancia potencial a PVP</div>
+                  <div style={{ opacity: 0.55, fontSize: 9 }}>Vendiendo a precio recomendado</div>
                 </div>
-              ) : isDistributor ? (
-                <div style={{ fontSize: 10.5, lineHeight: 1.5, opacity: 0.75 }}>
-                  <IconInfo size={11} /> {t('panel_region_hint_dist')}: <strong>{distributor.name}{distributor.contact ? ` · ${distributor.contact}` : ''}</strong>
+                <div style={{ textAlign: 'right', flexShrink: 0 }}>
+                  <div style={{
+                    fontSize: 15, fontWeight: 700, color: D,
+                    fontFamily: 'DM Sans, sans-serif',
+                  }}>+{gainEur.toFixed(0)}€</div>
+                  <div style={{
+                    fontSize: 9, fontWeight: 600, opacity: 0.65,
+                    background: `${D}28`, padding: '1px 6px', borderRadius: 999, marginTop: 2,
+                    display: 'inline-block',
+                  }}>{gainPct}% margen</div>
                 </div>
-              ) : (
-                <div style={{ fontSize: 10.5, lineHeight: 1.5, opacity: 0.75 }}>
-                  {t('panel_region_hint_default')}
+              </div>
+            </div>
+
+            {/* Código de descuento */}
+            <div style={{
+              padding: '10px 14px', marginBottom: 10, borderRadius: 6,
+              border: `1px solid ${discountPct > 0 ? D : G}22`,
+              background: discountPct > 0 ? `${D}08` : `${G}04`,
+              display: 'flex', alignItems: 'center', gap: 8,
+            }}>
+              <div style={{ flex: 1 }}>
+                <div className="mn-label-xs" style={{ color: discountPct > 0 ? D : G, opacity: discountPct > 0 ? 1 : 0.5, marginBottom: 4 }}>
+                  {t('code_label')}
+                </div>
+                <input
+                  type="text"
+                  placeholder={t('code_placeholder')}
+                  value={familyCode}
+                  onChange={e => setFamilyCode(e.target.value)}
+                  style={{
+                    width: '100%', background: 'transparent', border: 'none', outline: 'none',
+                    fontSize: 13, fontFamily: 'DM Sans, sans-serif', fontWeight: 600,
+                    color: discountPct > 0 ? D : G, letterSpacing: 0.5,
+                    textTransform: 'uppercase',
+                  }}
+                />
+              </div>
+              {familyCode.trim().length > 0 && (
+                <div style={{
+                  fontSize: 10, fontWeight: 700,
+                  color: discountPct > 0 ? D : '#e85a00',
+                  flexShrink: 0,
+                }}>
+                  {discountPct > 0 ? t('code_applied') : t('code_invalid')}
                 </div>
               )}
             </div>
 
+            {/* Región */}
+            <div style={{
+              padding: '10px 14px', marginBottom: 10, borderRadius: 6,
+              border: `1px solid ${region === 'latam' ? '#00a650' : G}22`,
+              background: region === 'latam' ? 'rgba(0,166,80,0.05)' : isDistributor ? `${D}08` : `${G}04`,
+            }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8, marginBottom: 6 }}>
+                <label className="mn-label-xs" style={{ color: region === 'latam' ? '#00a650' : D }}>
+                  {t('panel_region_label')}
+                </label>
+                <select className="mn-select" value={region} onChange={e => setRegion(e.target.value)} style={{
+                  padding: '5px 28px 5px 9px', border: `1px solid ${G}33`, borderRadius: 999,
+                  fontSize: 11, fontWeight: 500, background: C, color: G,
+                  fontFamily: 'inherit', cursor: 'pointer',
+                }}>
+                  {REGIONS.map(r => (
+                    <option key={r.id} value={r.id}>{r.flag} {r.label[lang] || r.label.es}</option>
+                  ))}
+                </select>
+              </div>
+              {region === 'latam' ? (
+                <div style={{ fontSize: 10, color: '#00a650', fontWeight: 600 }}>
+                  🌎 {t('latam_badge')} · hola@minueopticians.co
+                </div>
+              ) : isDistributor ? (
+                <div style={{ fontSize: 10, opacity: 0.65 }}>
+                  <IconInfo size={10} /> {distributor.name}{distributor.contact ? ` · ${distributor.contact}` : ''}
+                </div>
+              ) : (
+                <div style={{ fontSize: 10, opacity: 0.6 }}>{t('panel_region_hint_default')}</div>
+              )}
+            </div>
+
+            {/* ── CTAs ── */}
             {!leadStep ? (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-                <button onClick={() => { setPendingChannel('wa'); setLeadStep(true); }} className="mn-btn" style={{
-                  width: '100%', padding: '14px 18px', borderRadius: 4,
-                  background: CHOCOLATE, color: C, fontSize: 13, fontWeight: 500,
-                  letterSpacing: 0.4, display: 'inline-flex', alignItems: 'center',
-                  justifyContent: 'center', gap: 10,
-                }}>
-                  <IconWA /> {t('panel_wa')}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                {/* WhatsApp — CTA principal */}
+                <button
+                  onClick={() => { setPendingChannel('wa'); setLeadStep(true); }}
+                  className="mn-btn"
+                  style={{
+                    width: '100%', padding: '16px 18px', borderRadius: 6,
+                    background: CHOCOLATE, color: C,
+                    fontSize: 14, fontWeight: 700, letterSpacing: 0.3,
+                    display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 10,
+                    boxShadow: `0 4px 20px -6px ${CHOCOLATE}80`,
+                  }}
+                >
+                  <IconWA size={18} />
+                  Enviar pedido por WhatsApp
                 </button>
-                <button onClick={() => { setPendingChannel('email'); setLeadStep(true); }} className="mn-btn" style={{
-                  width: '100%', padding: '14px 18px', borderRadius: 4,
-                  background: 'transparent', color: G, fontSize: 13, fontWeight: 500,
-                  letterSpacing: 0.4, border: `1px solid ${G}55`,
-                }}>
+                <div style={{ textAlign: 'center', fontSize: 10, opacity: 0.45, marginTop: -2 }}>
+                  Respuesta en menos de 24h · Sin compromiso de pago
+                </div>
+
+                {/* Email — secundario */}
+                <button
+                  onClick={() => { setPendingChannel('email'); setLeadStep(true); }}
+                  className="mn-btn"
+                  style={{
+                    width: '100%', padding: '12px 18px', borderRadius: 6,
+                    background: 'transparent', color: G,
+                    fontSize: 12, fontWeight: 500,
+                    border: `1px solid ${G}33`, letterSpacing: 0.2,
+                    display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+                  }}
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
                   {t('panel_email')}
                 </button>
               </div>
             ) : (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+              /* Lead form — simplificado */
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                 <div>
-                  <div style={{ fontSize: 13, fontWeight: 600, marginBottom: 4 }}>{t('lead_title')}</div>
-                  <p style={{ fontSize: 11, opacity: 0.6, lineHeight: 1.5, margin: 0, fontWeight: 300 }}>{t('lead_sub')}</p>
+                  <div style={{ fontSize: 13, fontWeight: 700, marginBottom: 3 }}>{t('lead_title')}</div>
+                  <p style={{ fontSize: 11, opacity: 0.55, lineHeight: 1.5, margin: 0 }}>{t('lead_sub')}</p>
                 </div>
-
-                <input
-                  ref={refName}
-                  type="text"
-                  placeholder={t('lead_name')}
-                  defaultValue=""
-                  style={{
-                    width: '100%', padding: '11px 14px',
-                    border: `1.5px solid ${G}33`, borderRadius: 6,
-                    fontSize: 13, fontFamily: 'inherit',
-                    background: '#fff', color: G, outline: 'none',
-                    boxSizing: 'border-box',
-                  }}
-                />
-                <input
-                  ref={refStore}
-                  type="text"
-                  placeholder={t('lead_store')}
-                  defaultValue=""
-                  style={{
-                    width: '100%', padding: '11px 14px',
-                    border: `1.5px solid ${G}33`, borderRadius: 6,
-                    fontSize: 13, fontFamily: 'inherit',
-                    background: '#fff', color: G, outline: 'none',
-                    boxSizing: 'border-box',
-                  }}
-                />
-                <input
-                  ref={refEmail}
-                  type="email"
-                  placeholder={t('lead_email')}
-                  defaultValue=""
-                  style={{
-                    width: '100%', padding: '11px 14px',
-                    border: `1.5px solid ${G}33`, borderRadius: 6,
-                    fontSize: 13, fontFamily: 'inherit',
-                    background: '#fff', color: G, outline: 'none',
-                    boxSizing: 'border-box',
-                  }}
-                />
-
-                <button
-                  onClick={handleSend}
-                  className="mn-btn"
-                  style={{
-                    width: '100%', padding: '13px 18px', borderRadius: 6,
-                    background: pendingChannel === 'wa' ? CHOCOLATE : G,
-                    color: C, fontSize: 13, fontWeight: 600,
-                    letterSpacing: 0.4, display: 'inline-flex', alignItems: 'center',
-                    justifyContent: 'center', gap: 10, marginTop: 2,
-                  }}
-                >
+                {[
+                  { ref: refName, placeholder: t('lead_name'), type: 'text' },
+                  { ref: refStore, placeholder: t('lead_store'), type: 'text' },
+                  { ref: refEmail, placeholder: t('lead_email'), type: 'email' },
+                ].map((field, i) => (
+                  <input key={i} ref={field.ref} type={field.type} placeholder={field.placeholder}
+                    defaultValue="" style={{
+                      width: '100%', padding: '11px 13px',
+                      border: `1.5px solid ${G}2e`, borderRadius: 6,
+                      fontSize: 13, fontFamily: 'inherit',
+                      background: '#fff', color: G, outline: 'none', boxSizing: 'border-box',
+                    }}
+                  />
+                ))}
+                <button onClick={handleSend} className="mn-btn" style={{
+                  width: '100%', padding: '14px 18px', borderRadius: 6,
+                  background: CHOCOLATE, color: C,
+                  fontSize: 13, fontWeight: 700,
+                  display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+                  boxShadow: `0 4px 20px -6px ${CHOCOLATE}80`,
+                }}>
                   {pendingChannel === 'wa' ? <><IconWA /> {t('lead_submit_wa')}</> : t('lead_submit_email')}
                 </button>
-
-                <button
-                  onClick={handleSkip}
-                  style={{
-                    fontSize: 11, opacity: 0.5, textDecoration: 'underline',
-                    textUnderlineOffset: 3, textAlign: 'center', padding: '4px',
-                    background: 'none', border: 'none', cursor: 'pointer', color: G,
-                  }}
-                >
+                <button onClick={handleSkip} style={{
+                  background: 'none', border: 'none', fontSize: 11, opacity: 0.45,
+                  cursor: 'pointer', textDecoration: 'underline', padding: '2px 0',
+                }}>
                   {t('lead_skip')}
                 </button>
-
-                <p style={{ fontSize: 10, opacity: 0.4, lineHeight: 1.5, margin: 0, textAlign: 'center' }}>
-                  {t('lead_note')}
-                </p>
+                <p style={{ fontSize: 9, opacity: 0.4, textAlign: 'center', margin: 0 }}>{t('lead_note')}</p>
               </div>
             )}
 
-            <p style={{
-              fontSize: 10.5, lineHeight: 1.5, opacity: 0.55, marginTop: 14,
-              textAlign: 'center', fontWeight: 300,
-            }}>
-              {t('panel_disclaimer')}
-            </p>
           </div>
           )}
         </div>
@@ -3339,35 +3849,45 @@ function TarifasModal({ onClose, currentTier, t }) {
                   padding: '20px 18px', borderRadius: 4,
                   background: isActive ? G : isMostPopular ? `${D}12` : `${G}08`,
                   color: isActive ? C : G,
-                  border: `1px solid ${isActive ? G : isMostPopular ? D : `${G}1a`}`,
+                  border: `1.5px solid ${isActive ? G : isMostPopular ? D : `${G}1a`}`,
                   position: 'relative',
                 }}>
                   {isMostPopular && !isActive && (
                     <span style={{
-                      position: 'absolute', top: -9, left: 14,
-                      padding: '2px 8px', background: D, color: G,
+                      position: 'absolute', top: -10, left: 14,
+                      padding: '2px 10px', background: D, color: G,
                       fontSize: 9, fontWeight: 700, letterSpacing: 1.5,
                       borderRadius: 999, textTransform: 'uppercase',
-                    }}>{t('most_popular')}</span>
+                    }}>★ {t('tier_best')}</span>
                   )}
                   {isActive && (
                     <span style={{
-                      position: 'absolute', top: -9, left: 14,
-                      padding: '2px 8px', background: D, color: G,
+                      position: 'absolute', top: -10, left: 14,
+                      padding: '2px 10px', background: D, color: G,
                       fontSize: 9, fontWeight: 700, letterSpacing: 1.5,
                       borderRadius: 999, textTransform: 'uppercase',
                     }}>{t('modal_your_tier')}</span>
                   )}
                   <div className="mn-label-xs" style={{ color: isActive ? D : D, marginBottom: 8 }}>{tier.label} {t('panel_units')}</div>
-                  <div className="mn-serif" style={{
-                    fontSize: 38, fontWeight: 400, letterSpacing: '-0.02em', lineHeight: 1, marginBottom: 4,
-                  }}>
-                    {tier.price.toFixed(2).replace('.', ',')}
-                    <span style={{ fontSize: 16, opacity: 0.7, marginLeft: 3 }}>€</span>
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: 4, marginBottom: 4 }}>
+                    <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 36, fontWeight: 800, letterSpacing: '-0.04em', lineHeight: 1 }}>
+                      {tier.price.toFixed(2).replace('.', ',')}
+                    </span>
+                    <span style={{ fontSize: 15, opacity: 0.65 }}>€/ud</span>
                   </div>
+                  {/* Savings vs base */}
+                  {tier.price < 22.90 && (
+                    <div style={{
+                      fontSize: 10, fontWeight: 700, color: isActive ? D : D,
+                      background: isActive ? `${D}22` : `${D}14`,
+                      padding: '2px 8px', borderRadius: 999, display: 'inline-block', marginBottom: 8,
+                    }}>
+                      {t('tier_save_label')}: −{((22.90 - tier.price) * tier.min).toFixed(0)}€ en {tier.min} uds
+                    </div>
+                  )}
                   <div style={{
                     fontSize: 11, opacity: isActive ? 0.85 : 0.7, lineHeight: 1.55,
-                    marginTop: 10, display: 'flex', flexDirection: 'column', gap: 3,
+                    marginTop: 8, display: 'flex', flexDirection: 'column', gap: 3,
                   }}>
                     <span><strong style={{ opacity: 0.7 }}>{t('modal_payments')}</strong> {tier.payments}</span>
                     <span><strong style={{ opacity: 0.7 }}>{t('modal_expositor')}</strong> {tier.expositor}</span>
@@ -3416,6 +3936,9 @@ function TarifasModal({ onClose, currentTier, t }) {
             fontStyle: 'italic', fontFamily: "'Cormorant Garamond', serif",
           }}>
             {t('modal_footer')}
+          </p>
+          <p style={{ textAlign: 'center', fontSize: 10, fontWeight: 700, color: D, margin: '4px 0 0', letterSpacing: 0.3 }}>
+            📅 {t('tier_valid')}
           </p>
         </div>
       </div>
@@ -3576,16 +4099,38 @@ function GlobalMap({ t }) {
 }
 
 
-function QuickViewModal({ product: p, allProducts, colData, currentTierPrice, added, onAdd, onClose, onNavigate, cart, onAddAny, t }) {
+function QuickViewModal({ product: initialProduct, allProducts, colData: initialColData, currentTierPrice, onClose, cart, onAddAny, t }) {
+  // Estado interno: el producto que se está viendo (cambia al clicar variantes)
+  const [active, setActive] = useState(initialProduct);
+
+  const colData = COLLECTIONS.find(c => c.id === active.col) || initialColData;
   const rrp = colData?.rrp ?? 50;
   const fixedCost = colData?.unitCost ?? null;
   const displayCost = fixedCost ?? currentTierPrice ?? DISPLAY_PRICE;
   const marginPct = Math.round(((rrp - displayCost) / rrp) * 100);
-  const shapeObj = SHAPES.find(s => s.id === p.shape);
+  const shapeObj = SHAPES.find(s => s.id === active.shape);
+  const added = cart[active.id] || 0;
 
-  const currentIdx = allProducts ? allProducts.findIndex(x => x.id === p.id) : -1;
-  const prevP = allProducts && currentIdx > 0 ? allProducts[currentIdx - 1] : null;
-  const nextP = allProducts && currentIdx < allProducts.length - 1 ? allProducts[currentIdx + 1] : null;
+  // Variantes: todos los productos del mismo modelo (primer token del nombre)
+  const baseModel = active.name.split(' ')[0];
+  const variants = useMemo(() =>
+    (allProducts || PRODUCTS).filter(p => p.name.split(' ')[0] === baseModel),
+  [baseModel, allProducts]);
+  const hasVariants = variants.length > 1;
+
+  // El sufijo de color es el nombre menos el baseModel
+  const colorSuffix = (name) => name.replace(baseModel, '').trim() || name;
+
+  const [isNarrow, setIsNarrow] = useState(false);
+  useLayoutEffect(function() {
+    const check = () => setIsNarrow(window.innerWidth < 560);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
+
+  // Reset al abrir con un producto diferente
+  useEffect(() => { setActive(initialProduct); }, [initialProduct.id]);
 
   return (
     <>
@@ -3596,68 +4141,89 @@ function QuickViewModal({ product: p, allProducts, colData, currentTierPrice, ad
       <div style={{
         position: 'fixed', zIndex: 81,
         top: '50%', left: '50%', transform: 'translate(-50%,-50%)',
-        width: 'min(700px, 92vw)', maxHeight: '88vh', overflowY: 'auto',
-        background: C, borderRadius: 8,
-        boxShadow: '0 32px 80px -20px rgba(0,0,0,0.4)',
-        animation: 'mn-rise 0.2s ease-out both',
+        width: 'min(720px, 92vw)', maxHeight: '90vh', overflowY: 'auto',
+        background: C, borderRadius: 10,
+        boxShadow: '0 32px 80px -20px rgba(0,0,0,0.45)',
+        animation: 'mn-rise 0.22s ease-out both',
+        display: 'flex', flexDirection: 'column',
       }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(220px,1.1fr) 1fr' }} className="mn-qv-grid">
-          {/* Imagen */}
-          <div style={{
-            background: p.img ? '#fff' : `${G}08`, minHeight: 300,
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            padding: 16, position: 'relative', borderRadius: '8px 0 0 8px',
-          }}>
-            {p.urgency && (
-              <span style={{
-                position: 'absolute', top: 14, left: 14, zIndex: 2,
-                padding: '4px 10px', borderRadius: 999, fontSize: 10, fontWeight: 700, letterSpacing: 0.5,
-                background: p.urgency === 'stock_low' ? '#e85a00' : p.urgency === 'hot' ? '#c41e1e' : D,
-                color: '#fff',
-              }}>{t(URGENCY_LABELS[p.urgency])}</span>
-            )}
-            {/* Navegación ← → */}
-            {(prevP || nextP) && (
+
+        {/* ── Cabecera con nombre del modelo + badge variantes ── */}
+        <div style={{
+          padding: isNarrow ? '14px 16px 10px' : '16px 22px 12px',
+          borderBottom: `1px solid ${G}12`,
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12,
+          flexShrink: 0,
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, minWidth: 0 }}>
+            <div>
+              <div className="mn-label-xs" style={{ color: D, marginBottom: 2 }}>
+                {t('qv_collection')} — {active.col}
+                {active.col === 'Acetato' && <span style={{ marginLeft: 6, color: D, fontWeight: 700 }}>★</span>}
+              </div>
+              <h2 className="mn-serif" style={{
+                fontSize: isNarrow ? 22 : 28, fontWeight: 300, margin: 0,
+                letterSpacing: '-0.02em', lineHeight: 1.1, whiteSpace: 'nowrap',
+              }}>{baseModel}</h2>
+            </div>
+            {hasVariants && (
               <div style={{
-                position: 'absolute', top: '50%', left: 0, right: 0, zIndex: 2,
-                transform: 'translateY(-50%)',
-                display: 'flex', justifyContent: 'space-between',
-                padding: '0 8px', pointerEvents: 'none',
+                display: 'flex', alignItems: 'center', gap: 5, flexShrink: 0,
+                padding: '3px 9px', borderRadius: 999,
+                background: `${G}0c`, border: `1px solid ${G}18`,
               }}>
-                {prevP ? (
-                  <button onClick={() => onNavigate(prevP)} style={{
-                    pointerEvents: 'auto',
-                    width: 32, height: 32, borderRadius: 999,
-                    background: 'rgba(248,239,230,0.9)', border: `1px solid ${G}22`,
-                    display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                    cursor: 'pointer', fontSize: 14, color: G,
-                  }}>‹</button>
-                ) : <span />}
-                {nextP ? (
-                  <button onClick={() => onNavigate(nextP)} style={{
-                    pointerEvents: 'auto',
-                    width: 32, height: 32, borderRadius: 999,
-                    background: 'rgba(248,239,230,0.9)', border: `1px solid ${G}22`,
-                    display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                    cursor: 'pointer', fontSize: 14, color: G,
-                  }}>›</button>
-                ) : <span />}
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={G} strokeWidth="2" strokeLinecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                <span style={{ fontSize: 9, fontWeight: 600, letterSpacing: 0.5, opacity: 0.6 }}>
+                  {variants.length} colores
+                </span>
               </div>
             )}
-            {p.img ? (
+          </div>
+          <button onClick={onClose} style={{
+            flexShrink: 0, width: 32, height: 32, borderRadius: 999,
+            border: `1px solid ${G}22`, display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+            background: 'transparent', cursor: 'pointer',
+          }}><IconClose size={16} /></button>
+        </div>
+
+        {/* ── Cuerpo: imagen + info ── */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: isNarrow ? '1fr' : 'minmax(0,1.05fr) 1fr',
+          flex: 1, minHeight: 0,
+        }}>
+          {/* Imagen */}
+          <div style={{
+            background: active.img ? '#fff' : `${G}06`,
+            minHeight: isNarrow ? 200 : 280,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            padding: 16, position: 'relative',
+          }}>
+            {active.urgency && (
+              <span style={{
+                position: 'absolute', top: 12, left: 12, zIndex: 2,
+                padding: '3px 9px', borderRadius: 999, fontSize: 9, fontWeight: 700, letterSpacing: 0.5,
+                background: active.urgency === 'stock_low' ? '#e85a00' : active.urgency === 'hot' ? '#c41e1e' : D,
+                color: '#fff',
+              }}>{t(URGENCY_LABELS[active.urgency])}</span>
+            )}
+            {active.img ? (
               <img
-                src={p.img}
-                alt={p.name}
-                className="mn-img"
-                title="Click para ampliar"
-                onClick={() => { if (typeof window !== 'undefined') window.open(p.img.replace('w_400,', 'w_900,'), '_blank'); }}
+                key={active.id}
+                src={active.img}
+                alt={active.name}
+                onClick={() => window.open(active.img.replace('w_400,', 'w_900,'), '_blank')}
                 style={{
                   maxWidth: '100%', maxHeight: '100%', objectFit: 'contain',
                   cursor: 'zoom-in',
+                  animation: 'mn-fadein 0.2s ease-out both',
                 }}
               />
             ) : (
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10, opacity: 0.3 }}>
+              <div key={active.id} style={{
+                display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10, opacity: 0.25,
+                animation: 'mn-fadein 0.2s ease-out both',
+              }}>
                 <svg width="64" height="40" viewBox="0 0 42 28" fill="none">
                   <rect x="1" y="4" width="16" height="12" rx="6" stroke={G} strokeWidth="1.5"/>
                   <rect x="25" y="4" width="16" height="12" rx="6" stroke={G} strokeWidth="1.5"/>
@@ -3665,17 +4231,17 @@ function QuickViewModal({ product: p, allProducts, colData, currentTierPrice, ad
                   <line x1="1" y1="10" x2="0" y2="14" stroke={G} strokeWidth="1.5" strokeLinecap="round"/>
                   <line x1="41" y1="10" x2="42" y2="14" stroke={G} strokeWidth="1.5" strokeLinecap="round"/>
                 </svg>
-                <span style={{ fontSize: 11, color: G, textTransform: 'uppercase', letterSpacing: 1 }}>{p.name}</span>
+                <span style={{ fontSize: 10, color: G, textTransform: 'uppercase', letterSpacing: 1 }}>{active.name}</span>
+                <span style={{ fontSize: 9, color: G, opacity: 0.6 }}>Imagen próximamente</span>
               </div>
             )}
-            {/* Hint ampliar */}
-            {p.img && (
+            {active.img && (
               <div style={{
-                position: 'absolute', bottom: 10, right: 10,
-                fontSize: 9, color: G, opacity: 0.35, letterSpacing: 0.3,
-                display: 'flex', alignItems: 'center', gap: 4, pointerEvents: 'none',
+                position: 'absolute', bottom: 8, right: 8,
+                fontSize: 8, color: G, opacity: 0.3, letterSpacing: 0.3,
+                display: 'flex', alignItems: 'center', gap: 3, pointerEvents: 'none',
               }}>
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
                   <line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/>
                 </svg>
@@ -3685,77 +4251,220 @@ function QuickViewModal({ product: p, allProducts, colData, currentTierPrice, ad
           </div>
 
           {/* Info */}
-          <div style={{ padding: '24px 22px', display: 'flex', flexDirection: 'column', gap: 13, overflowY: 'auto' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-              <div>
-                <div className="mn-label-xs" style={{ color: D, marginBottom: 4 }}>{t('qv_collection')} — {p.col}</div>
-                <h2 className="mn-serif" style={{ fontSize: 28, fontWeight: 300, margin: 0, letterSpacing: '-0.02em', lineHeight: 1.1 }}>{p.name}</h2>
-                {(() => { const so = SHAPES.find(s => s.id === p.shape); return so ? <span style={{ fontSize: 9, opacity: 0.45, letterSpacing: 0.5, fontWeight: 500, textTransform: 'uppercase' }}>{t(so.tKey)}</span> : null; })()}
-              </div>
-              <button onClick={onClose} style={{
-                flexShrink: 0, width: 32, height: 32, borderRadius: 999, marginTop: 2,
-                border: `1px solid ${G}22`, display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-              }}><IconClose size={16} /></button>
-            </div>
+          <div style={{ padding: isNarrow ? '16px' : '20px 22px', display: 'flex', flexDirection: 'column', gap: 12, overflowY: 'auto' }}>
 
-            <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-              <div style={{ padding: '8px 12px', background: `${G}08`, borderRadius: 4, flex: '1 1 80px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 5, marginBottom: 2 }}>
-                  <span className="mn-label-xs" style={{ opacity: 0.55 }}>{t('qv_rrp')}</span>
-                  {p.col === 'Acetato' && (
-                    <span style={{ fontSize: 7, fontWeight: 700, color: D, background: `${D}18`, padding: '1px 5px', borderRadius: 999 }}>ACE</span>
-                  )}
-                </div>
-                <div className="mn-serif" style={{ fontSize: 20, fontWeight: 400 }}>{rrp}€</div>
-              </div>
-              <div style={{ padding: '8px 12px', background: `${D}12`, borderRadius: 4, flex: '1 1 80px' }}>
-                <div className="mn-label-xs" style={{ color: D, marginBottom: 2 }}>{t('margin_label')}</div>
-                <div className="mn-serif" style={{ fontSize: 20, fontWeight: 400 }}>~{marginPct}%</div>
-              </div>
-            </div>
-
+            {/* Nombre variante activa + forma */}
             <div>
-              <div className="mn-label-xs" style={{ opacity: 0.5, marginBottom: 7 }}>{t('qv_colors')}</div>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5 }}>
-                {p.colors.map((c, i) => (
-                  <span key={i} style={{
-                    display: 'inline-flex', alignItems: 'center', gap: 5,
-                    padding: '4px 9px', border: `1px solid ${G}22`, borderRadius: 999, fontSize: 11,
-                  }}>
-                    <span style={{ width: 8, height: 8, borderRadius: 999, background: COLOR_DOTS[c] || '#999', flexShrink: 0 }} />
-                    {c}
-                  </span>
-                ))}
+              <div className="mn-serif" style={{ fontSize: isNarrow ? 18 : 21, fontWeight: 400, lineHeight: 1.2, animation: 'mn-fadein 0.18s ease-out both' }}>
+                {colorSuffix(active.name)}
+              </div>
+              {shapeObj && (
+                <span style={{ fontSize: 9, opacity: 0.4, letterSpacing: 0.5, fontWeight: 500, textTransform: 'uppercase' }}>
+                  {t(shapeObj.tKey)}
+                </span>
+              )}
+            </div>
+
+            {/* Precio + margen */}
+            <div style={{ display: 'flex', gap: 8 }}>
+              <div style={{ padding: '7px 11px', background: `${G}08`, borderRadius: 4, flex: '1 1 70px' }}>
+                <div className="mn-label-xs" style={{ opacity: 0.5, marginBottom: 2 }}>{t('qv_rrp')}</div>
+                <div className="mn-serif" style={{ fontSize: 19, fontWeight: 400 }}>{rrp}€</div>
+              </div>
+              <div style={{ padding: '7px 11px', background: `${D}12`, borderRadius: 4, flex: '1 1 70px' }}>
+                <div className="mn-label-xs" style={{ color: D, marginBottom: 2 }}>{t('margin_label')}</div>
+                <div className="mn-serif" style={{ fontSize: 19, fontWeight: 400 }}>~{marginPct}%</div>
               </div>
             </div>
 
-            <div style={{ fontSize: 11, opacity: 0.55 }}>
-              <span className="mn-label-xs">{t('qv_sku')}: </span>
-              <span style={{ fontFamily: 'monospace' }}>MN-{p.name.slice(0,4).toUpperCase()}-{p.col.slice(0,3).toUpperCase()}</span>
+            {/* Dots de colores de la variante activa */}
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5 }}>
+              {active.colors.map((c, i) => (
+                <span key={i} style={{
+                  display: 'inline-flex', alignItems: 'center', gap: 5,
+                  padding: '3px 8px', border: `1px solid ${G}1a`, borderRadius: 999, fontSize: 10,
+                }}>
+                  <span style={{ width: 7, height: 7, borderRadius: 999, background: COLOR_DOTS[c] || '#999', flexShrink: 0 }} />
+                  {c}
+                </span>
+              ))}
             </div>
 
-            <button onClick={() => { onAdd(); onClose(); }} className="mn-btn" style={{
-              marginTop: 'auto', padding: '13px 20px', borderRadius: 4,
-              background: added ? `${G}22` : G, color: added ? G : C,
-              fontSize: 13, fontWeight: 500, letterSpacing: 0.4,
-              border: `1px solid ${G}`,
-              display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8,
-            }}>
-              {added ? (<><IconCheck /> {t('qv_added')} ({added})</>) : (<><IconPlus /> {t('qv_add')}</>)}
+            {/* CTA */}
+            <button
+              onClick={() => { onAddAny(active.id); }}
+              className="mn-btn"
+              style={{
+                padding: '12px 18px', borderRadius: 4, marginTop: 4,
+                background: added ? `${G}18` : G,
+                color: added ? G : C,
+                border: `1px solid ${G}`,
+                fontSize: 13, fontWeight: 500, letterSpacing: 0.3,
+                display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+              }}
+            >
+              {added ? (<><IconCheck size={13} /> {t('qv_added')} ({added})</>) : (<><IconPlus /> {t('qv_add')}</>)}
             </button>
+
           </div>
         </div>
+
+        {/* ── Selector de variantes ── */}
+        {hasVariants && (
+          <div style={{
+            borderTop: `1px solid ${G}12`,
+            padding: isNarrow ? '12px 14px 14px' : '14px 22px 18px',
+            flexShrink: 0,
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10 }}>
+              <span style={{ fontSize: 9, letterSpacing: 0.5, fontWeight: 600, textTransform: 'uppercase', opacity: 0.45 }}>
+                Otras opciones de {baseModel}
+              </span>
+              <div style={{ flex: 1, height: 1, background: `${G}12` }} />
+            </div>
+            <div style={{
+              display: 'flex', gap: 8, overflowX: 'auto', paddingBottom: 2,
+              scrollbarWidth: 'none',
+            }}>
+              {variants.map((v) => {
+                const isActive = v.id === active.id;
+                const inCart = cart[v.id] || 0;
+                const suffix = colorSuffix(v.name);
+                return (
+                  <button
+                    key={v.id}
+                    onClick={() => setActive(v)}
+                    style={{
+                      flexShrink: 0, padding: '8px 12px',
+                      borderRadius: 6, border: isActive ? `1.5px solid ${G}` : `1px solid ${G}20`,
+                      background: isActive ? `${G}08` : 'transparent',
+                      cursor: 'pointer', textAlign: 'left',
+                      transition: 'border-color 0.15s, background 0.15s, transform 0.12s',
+                      transform: isActive ? 'none' : undefined,
+                      minWidth: 90, maxWidth: 130,
+                      position: 'relative',
+                    }}
+                  >
+                    {/* Imagen mini o placeholder */}
+                    <div style={{
+                      width: '100%', aspectRatio: '4/3',
+                      background: v.img ? '#fff' : `${G}06`,
+                      borderRadius: 3, marginBottom: 6, overflow: 'hidden',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    }}>
+                      {v.img ? (
+                        <img src={v.img} alt={v.name} style={{ maxWidth: '90%', maxHeight: '90%', objectFit: 'contain' }} />
+                      ) : (
+                        <svg width="28" height="18" viewBox="0 0 42 28" fill="none" style={{ opacity: 0.2 }}>
+                          <rect x="1" y="4" width="16" height="12" rx="6" stroke={G} strokeWidth="1.5"/>
+                          <rect x="25" y="4" width="16" height="12" rx="6" stroke={G} strokeWidth="1.5"/>
+                          <line x1="17" y1="10" x2="25" y2="10" stroke={G} strokeWidth="1.5"/>
+                        </svg>
+                      )}
+                    </div>
+                    {/* Dots de colores */}
+                    <div style={{ display: 'flex', gap: 3, marginBottom: 4 }}>
+                      {v.colors.slice(0, 3).map((c, i) => (
+                        <span key={i} style={{
+                          width: 6, height: 6, borderRadius: 999,
+                          background: COLOR_DOTS[c] || '#999',
+                          border: c === 'beige' || c === 'crema' ? `1px solid ${G}33` : 'none',
+                        }} />
+                      ))}
+                    </div>
+                    <div style={{ fontSize: 10, fontWeight: isActive ? 600 : 400, color: G, lineHeight: 1.2 }}>{suffix}</div>
+                    {inCart > 0 && (
+                      <div style={{
+                        position: 'absolute', top: 5, right: 5,
+                        width: 14, height: 14, borderRadius: 999,
+                        background: G, color: C,
+                        fontSize: 8, fontWeight: 700,
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      }}>{inCart}</div>
+                    )}
+                    {isActive && (
+                      <div style={{
+                        position: 'absolute', bottom: 5, right: 5,
+                        width: 12, height: 12, borderRadius: 999,
+                        background: G, display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      }}>
+                        <svg width="7" height="7" viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke={C} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                      </div>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
       </div>
-      <style>{`
-        @media (max-width: 560px) {
-          .mn-qv-grid { grid-template-columns: 1fr !important; }
-          .mn-qv-grid > div:first-child { min-height: 220px !important; border-radius: 8px 8px 0 0 !important; }
-        }
-      `}</style>
     </>
   );
 }
 
+
+// ============================================================
+// FaqSection
+// ============================================================
+function FaqSection({ t }) {
+  const [open, setOpen] = useState(null);
+  const toggle = (i) => setOpen(prev => prev === i ? null : i);
+
+  const questions = [1,2,3,4,5,6,7].map(i => ({
+    q: t(`faq_q${i}`),
+    a: t(`faq_a${i}`),
+  }));
+
+  return (
+    <section id="faq" className="mn-reveal" style={{ maxWidth: 860, margin: '0 auto', padding: '60px 24px', scrollMarginTop: 80 }}>
+      <div style={{ marginBottom: 36 }}>
+        <div className="mn-label-xs" style={{ color: D, marginBottom: 8 }}>{t('faq_eyebrow')}</div>
+        <h2 className="mn-serif" style={{ fontSize: 'clamp(28px,4vw,42px)', fontWeight: 300, margin: 0, letterSpacing: '-0.02em' }}>
+          {t('faq_h2')}<span style={{ color: D }}>.</span>
+        </h2>
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
+        {questions.map((item, i) => (
+          <div key={i} style={{
+            borderBottom: `1px solid ${G}15`,
+            overflow: 'hidden',
+          }}>
+            <button
+              onClick={() => toggle(i)}
+              style={{
+                width: '100%', textAlign: 'left', background: 'none', border: 'none',
+                padding: '18px 4px',
+                display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16,
+                cursor: 'pointer',
+              }}
+            >
+              <span className="mn-serif" style={{ fontSize: 17, fontWeight: 400, color: G, lineHeight: 1.3 }}>
+                {item.q}
+              </span>
+              <span style={{
+                flexShrink: 0, width: 24, height: 24,
+                display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                borderRadius: 999, border: `1px solid ${G}22`,
+                fontSize: 15, color: open === i ? D : G,
+                transition: 'color 0.2s, transform 0.2s',
+                transform: open === i ? 'rotate(45deg)' : 'none',
+              }}>+</span>
+            </button>
+            {open === i && (
+              <div className="mn-faq-answer" style={{
+                padding: '0 4px 20px',
+                fontSize: 14, lineHeight: 1.65, color: G, opacity: 0.75,
+              }}>
+                {item.a}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
 
 function ProductCard({ product, added, onAdd, rank, showRank, variant = 'normal', isNew, colData, currentTierPrice, onQuickView, t }) {
   const p = product;
@@ -3764,7 +4473,7 @@ function ProductCard({ product, added, onAdd, rank, showRank, variant = 'normal'
 
   // Pricing display
   const rrp = colData?.rrp ?? 50;
-  const fixedCost = colData?.unitCost ?? null; // acetato: 25,95 fijo
+  const fixedCost = colData?.unitCost ?? null;
   const displayCost = fixedCost ?? currentTierPrice ?? DISPLAY_PRICE;
   const marginEur = rrp - displayCost;
   const marginPct = Math.round((marginEur / rrp) * 100);
@@ -3825,15 +4534,24 @@ function ProductCard({ product, added, onAdd, rank, showRank, variant = 'normal'
           )}
         </div>
 
-        {/* Badge derecha — solo colección */}
+        {/* Badge derecha — colección, Acetato con estilo dorado distintivo */}
         <div style={{
           position: 'absolute', top: 8, right: 8,
         }}>
-          <span style={{
-            padding: '2px 7px', border: `1px solid ${G}22`, borderRadius: 999,
-            background: 'rgba(248,239,230,0.88)', fontSize: 7, fontWeight: 600,
-            letterSpacing: 0.5, textTransform: 'uppercase', color: G,
-          }}>{p.col}</span>
+          {p.col === 'Acetato' ? (
+            <span style={{
+              padding: '2px 8px', borderRadius: 999,
+              background: `${D}22`, border: `1px solid ${D}66`,
+              fontSize: 7, fontWeight: 700, letterSpacing: 0.8,
+              textTransform: 'uppercase', color: D,
+            }}>Acetato</span>
+          ) : (
+            <span style={{
+              padding: '2px 7px', border: `1px solid ${G}22`, borderRadius: 999,
+              background: 'rgba(248,239,230,0.88)', fontSize: 7, fontWeight: 600,
+              letterSpacing: 0.5, textTransform: 'uppercase', color: G,
+            }}>{p.col}</span>
+          )}
         </div>
 
         {/* Botón + Info — hover en desktop, siempre visible en móvil */}
@@ -3900,15 +4618,19 @@ function ProductCard({ product, added, onAdd, rank, showRank, variant = 'normal'
           ))}
         </div>
 
-        <button onClick={onAdd} className="mn-btn mn-card-btn" style={{
-          marginTop: 4, alignSelf: 'stretch',
-          display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 5,
-          padding: '8px 10px', borderRadius: 999,
-          background: added ? G : 'transparent',
-          color: added ? C : G,
-          border: `1px solid ${added ? G : `${G}44`}`,
-          fontSize: 10.5, fontWeight: 500, letterSpacing: 0.2,
-        }}>
+        <button
+          onClick={() => onAdd()}
+          className="mn-btn mn-card-btn"
+          style={{
+            marginTop: 4, alignSelf: 'stretch',
+            display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 5,
+            padding: '8px 10px', borderRadius: 999,
+            background: added ? G : 'transparent',
+            color: added ? C : G,
+            border: `1px solid ${added ? G : `${G}44`}`,
+            fontSize: 10.5, fontWeight: 500, letterSpacing: 0.2,
+          }}
+        >
           {added ? (<><IconCheck size={11} /> {t('panel_added')} ({added})</>) : (<><IconPlus /> {t('panel_add')}</>)}
         </button>
       </div>
