@@ -1795,9 +1795,9 @@ export default function App() {
         .mn-btn:hover { transform: translateY(-1px); }
         .mn-btn:active { transform: translateY(0); }
 
-        .mn-grid { display: grid; gap: 24px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
-        @media (max-width: 900px)  { .mn-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; } }
-        @media (max-width: 600px)  { .mn-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; } }
+        .mn-grid { display: grid; gap: 28px; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); }
+        @media (max-width: 900px)  { .mn-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; } }
+        @media (max-width: 600px)  { .mn-grid { grid-template-columns: repeat(1, 1fr); gap: 14px; } }
         @media (max-width: 360px)  { .mn-grid { grid-template-columns: 1fr; gap: 10px; } }
 
         .mn-top-grid { display: grid; gap: 24px; grid-template-columns: repeat(4, 1fr); }
