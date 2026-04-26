@@ -921,17 +921,17 @@ const PRODUCTS = [
   { id:132, name:"Lamarr Dark",        col:"Icons", shape:"cateye",               colors:["marrón"],          rank:57, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776277706/LAMARRBIC_900x_nuvcqj.webp" },
 
   // Loren: 455 uds total (tiene imágenes individuales)
-  { id:24,  name:"Loren Carey",  col:"Icons", shape:"cateye", colors:["carey"],           rank:13, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776986730/LORENCAREY_1728x_edxhjx.webp" },
+  { id:24,  name:"Loren Carey",  col:"Icons", shape:"cateye", colors:["carey"],           rank:13, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1776986730/LORENCAREY_1728x_edxhjx.webp" },
   { id:96,  name:"Loren Toffee", col:"Icons", shape:"cateye", colors:["caramelo","marrón"],rank:21, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776986730/LORENTOFFEEMINUEWEB_1728x_oxyoj1.webp" },
-  { id:97,  name:"Loren Black",  col:"Icons", shape:"cateye", colors:["negro"],           rank:22, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776986729/IMG_8167_1296x_oqut39.webp" },
+  { id:97,  name:"Loren Black",  col:"Icons", shape:"cateye", colors:["negro"],           rank:22, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1776986729/IMG_8167_1296x_oqut39.webp" },
   { id:95,  name:"Loren Cream",  col:"Icons", shape:"cateye", colors:["crema","beige"],   rank:23, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776986729/IMG_5845_1296x_egicjl.webp" },
 
   // Berry: 332 uds total
-  { id:30,  name:"Berry Tea",         col:"Icons", shape:"round", urgency:"trending", colors:["marrón","cálido"],  rank:10, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776278629/IMG_0263_720x_uln010.webp" },
-  { id:140, name:"Berry Carbon",      col:"Icons", shape:"round",                    colors:["negro","carbono"],   rank:58, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776278629/IMG_0263_720x_uln010.webp" },
-  { id:141, name:"Berry Navy Blue",   col:"Icons", shape:"round",                    colors:["azul"],              rank:59, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776278629/IMG_0263_720x_uln010.webp" },
-  { id:142, name:"Berry Brown Carey", col:"Icons", shape:"round",                    colors:["marrón","carey"],    rank:60, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776278629/IMG_0263_720x_uln010.webp" },
-  { id:143, name:"Berry Leopard",     col:"Icons", shape:"round",                    colors:["marrón","negro"],    rank:61, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776278629/IMG_0263_720x_uln010.webp" },
+  { id:30,  name:"Berry Tea",         col:"Icons", shape:"round", urgency:"trending", colors:["marrón","cálido"],  rank:10, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1776278629/IMG_0263_720x_uln010.webp" },
+  { id:140, name:"Berry Carbon",      col:"Icons", shape:"round",                    colors:["negro","carbono"],   rank:58, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1776278629/IMG_0263_720x_uln010.webp" },
+  { id:141, name:"Berry Navy Blue",   col:"Icons", shape:"round",                    colors:["azul"],              rank:59, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1776278629/IMG_0263_720x_uln010.webp" },
+  { id:142, name:"Berry Brown Carey", col:"Icons", shape:"round",                    colors:["marrón","carey"],    rank:60, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1776278629/IMG_0263_720x_uln010.webp" },
+  { id:143, name:"Berry Leopard",     col:"Icons", shape:"round",                    colors:["marrón","negro"],    rank:61, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1776278629/IMG_0263_720x_uln010.webp" },
 
   // Makey: 300 uds (sin imagen)
   { id:38,  name:"Makey Carey",        col:"Icons", shape:"rectangular", colors:["carey"],       rank:24, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777231858/MAKEYCAREYWEB_1080x_ncdvtb.webp" },
@@ -941,30 +941,30 @@ const PRODUCTS = [
   { id:153, name:"Makey Red Black",    col:"Icons", shape:"rectangular", colors:["rojo","negro"], rank:65, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777231858/M2_1080x_sjyy1u.webp" },
 
   // Aretha: 220 uds (sin imagen — Roses descatalogado)
-  { id:40,  name:"Aretha Carey", col:"Icons", shape:"round", colors:["carey"], rank:25, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777232755/IMG_8156_1080x_akqlyh.webp" },
-  { id:160, name:"Aretha Black", col:"Icons", shape:"round", colors:["negro"], rank:67, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777232755/IMG_8160_1080x_tvssen.webp" },
-  { id:223, name:"Aretha Rosse", col:"Icons", shape:"round", colors:["rosa"],  rank:68, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777232754/IMG_8147_1080x_pjprsu.webp" },
+  { id:40,  name:"Aretha Carey", col:"Icons", shape:"round", colors:["carey"], rank:25, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777232755/IMG_8156_1080x_akqlyh.webp" },
+  { id:160, name:"Aretha Black", col:"Icons", shape:"round", colors:["negro"], rank:67, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777232755/IMG_8160_1080x_tvssen.webp" },
+  { id:223, name:"Aretha Rosse", col:"Icons", shape:"round", colors:["rosa"],  rank:68, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777232754/IMG_8147_1080x_pjprsu.webp" },
 
   // Ziyi: ~200 uds (sin imagen — nombres con color primero en CSV)
-  { id:42,  name:"Ziyi Mandarina", col:"Icons", shape:"square", colors:["naranja"],  rank:26, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777232015/IMG_5842_1512x_xgnwe0.webp" },
-  { id:161, name:"Ziyi Ágata",     col:"Icons", shape:"square", colors:["verde"],    rank:68, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777232015/IMG_5839_1080x_c2fyio.webp" },
-  { id:162, name:"Ziyi Ámbar",     col:"Icons", shape:"square", colors:["ámbar"],   rank:69, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777232014/IMG_5840_1080x_bzjtbw.webp" },
-  { id:163, name:"Ziyi Jaspe",     col:"Icons", shape:"square", colors:["marrón"],  rank:70, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777232015/IMG_5844_1080x_pqlbnu.webp" },
-  { id:164, name:"Ziyi Rosas",     col:"Icons", shape:"square", colors:["rosa"],    rank:71, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777232015/IMG_0220_1080x_wf6yrs.webp" },
+  { id:42,  name:"Ziyi Mandarina", col:"Icons", shape:"square", colors:["naranja"],  rank:26, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777232015/IMG_5842_1512x_xgnwe0.webp" },
+  { id:161, name:"Ziyi Ágata",     col:"Icons", shape:"square", colors:["verde"],    rank:68, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777232015/IMG_5839_1080x_c2fyio.webp" },
+  { id:162, name:"Ziyi Ámbar",     col:"Icons", shape:"square", colors:["ámbar"],   rank:69, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777232014/IMG_5840_1080x_bzjtbw.webp" },
+  { id:163, name:"Ziyi Jaspe",     col:"Icons", shape:"square", colors:["marrón"],  rank:70, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777232015/IMG_5844_1080x_pqlbnu.webp" },
+  { id:164, name:"Ziyi Rosas",     col:"Icons", shape:"square", colors:["rosa"],    rank:71, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777232015/IMG_0220_1080x_wf6yrs.webp" },
 
   // Karina: 158 uds (sin imagen)
-  { id:41,  name:"Karina Jade",  col:"Icons", shape:"cateye", colors:["verde"],          rank:27, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777232565/Minueoptician210222-010_1080x_cdjfa1.webp" },
-  { id:170, name:"Karina Rubí",  col:"Icons", shape:"cateye", colors:["rojo"],           rank:72, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777232564/Minueoptician210222-011_1080x_ys1csw.webp" },
-  { id:171, name:"Karina Black", col:"Icons", shape:"cateye", colors:["negro"],          rank:73, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777232564/IMG_4507_1080x_ukknez.webp" },
-  { id:172, name:"Karina Copo",  col:"Icons", shape:"cateye", colors:["blanco","crema"], rank:74, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777232564/IMG_0235_1080x_cmzzxa.webp" },
+  { id:41,  name:"Karina Jade",  col:"Icons", shape:"cateye", colors:["verde"],          rank:27, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777232565/Minueoptician210222-010_1080x_cdjfa1.webp" },
+  { id:170, name:"Karina Rubí",  col:"Icons", shape:"cateye", colors:["rojo"],           rank:72, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777232564/Minueoptician210222-011_1080x_ys1csw.webp" },
+  { id:171, name:"Karina Black", col:"Icons", shape:"cateye", colors:["negro"],          rank:73, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777232564/IMG_4507_1080x_ukknez.webp" },
+  { id:172, name:"Karina Copo",  col:"Icons", shape:"cateye", colors:["blanco","crema"], rank:74, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777232564/IMG_0235_1080x_cmzzxa.webp" },
 
   // Maclaine: 306 uds (TÉ MACLAINE 173 + BLACK 131, sin imagen)
-  { id:25,  name:"Maclaine Tea",   col:"Icons", shape:"round", colors:["marrón","cálido"], rank:28, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777233400/IMG_4503_1080x_qgdqtl.webp" },
-  { id:180, name:"Maclaine Black", col:"Icons", shape:"round", colors:["negro"],            rank:75, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777233400/IMG_4504_1080x_su4xqk.webp" },
+  { id:25,  name:"Maclaine Tea",   col:"Icons", shape:"round", colors:["marrón","cálido"], rank:28, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777233400/IMG_4503_1080x_qgdqtl.webp" },
+  { id:180, name:"Maclaine Black", col:"Icons", shape:"round", colors:["negro"],            rank:75, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777233400/IMG_4504_1080x_su4xqk.webp" },
 
   // Cleo: 127 uds (tiene imágenes)
-  { id:28,  name:"Cleo Tea",   col:"Icons", shape:"cateye", colors:["marrón","cálido"], rank:14, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776986729/IMG_2571_3f836e1a-078b-4f97-8b6e-0e6d0dbc30d7_1512x_qkwmvv.webp" },
-  { id:98,  name:"Cleo Black",  col:"Icons", shape:"cateye", colors:["negro"],           rank:29, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776986729/IMG_2568_0cdea3e3-91be-451b-97a0-301f495895da_1512x_pmfpjj.webp" },
+  { id:28,  name:"Cleo Tea",   col:"Icons", shape:"cateye", colors:["marrón","cálido"], rank:14, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1776986729/IMG_2571_3f836e1a-078b-4f97-8b6e-0e6d0dbc30d7_1512x_qkwmvv.webp" },
+  { id:98,  name:"Cleo Black",  col:"Icons", shape:"cateye", colors:["negro"],           rank:29, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1776986729/IMG_2568_0cdea3e3-91be-451b-97a0-301f495895da_1512x_pmfpjj.webp" },
 
   // Thurman: 147 uds (sin imagen — CARBONO THURMAN en CSV)
   { id:34,  name:"Thurman Carey",   col:"Essential", shape:"rectangular", colors:["carey"],          rank:30, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777230867/IMG_2556_1512x_tmkqfm.webp" },
@@ -974,15 +974,15 @@ const PRODUCTS = [
   { id:183, name:"Thurman Caramel", col:"Essential", shape:"rectangular", colors:["caramelo"],        rank:78, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777230866/IMG_5625_1512x_pt0pwp.webp" },
 
   // Harlow: 117 uds (sin imagen)
-  { id:37,  name:"Harlow Gold Green", col:"Icons", shape:"panto", colors:["dorado","verde"],  rank:31 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777233643/Myproject-1_4_1080x_b7yaek.webp" },
-  { id:185, name:"Harlow Gold Brown", col:"Icons", shape:"panto", colors:["dorado","marrón"], rank:80 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777233642/IMG_0251_1080x_hsbmjz.webp" },
-  { id:186, name:"Harlow Gold Black", col:"Icons", shape:"panto", colors:["dorado","negro"],  rank:81 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777233642/Myproject-1_1080x_hbofmp.webp" },
+  { id:37,  name:"Harlow Gold Green", col:"Icons", shape:"panto", colors:["dorado","verde"],  rank:31 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777233643/Myproject-1_4_1080x_b7yaek.webp" },
+  { id:185, name:"Harlow Gold Brown", col:"Icons", shape:"panto", colors:["dorado","marrón"], rank:80 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777233642/IMG_0251_1080x_hsbmjz.webp" },
+  { id:186, name:"Harlow Gold Black", col:"Icons", shape:"panto", colors:["dorado","negro"],  rank:81 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777233642/Myproject-1_1080x_hbofmp.webp" },
 
   // Roberts: 100 uds (tiene imágenes)
-  { id:33,  name:"Roberts Carrot", col:"Icons", shape:"square", colors:["naranja"],  rank:32, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776986920/IMG_2576_900x_z2fnsz.webp" },
-  { id:93,  name:"Roberts Peanut", col:"Icons", shape:"square", colors:["marrón"],   rank:33, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776986920/IMG_2575_1296x_b9smpp.webp" },
-  { id:94,  name:"Roberts Salmon", col:"Icons", shape:"square", colors:["rosa"],     rank:34, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776986920/IMG_3775_1512x_iapwst.webp" },
-  { id:220, name:"Roberts Black",  col:"Icons", shape:"square", colors:["negro"],    rank:35, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776986920/IMG_3768_1512x_g5gmge.webp" },
+  { id:33,  name:"Roberts Carrot", col:"Icons", shape:"square", colors:["naranja"],  rank:32, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1776986920/IMG_2576_900x_z2fnsz.webp" },
+  { id:93,  name:"Roberts Peanut", col:"Icons", shape:"square", colors:["marrón"],   rank:33, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1776986920/IMG_2575_1296x_b9smpp.webp" },
+  { id:94,  name:"Roberts Salmon", col:"Icons", shape:"square", colors:["rosa"],     rank:34, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1776986920/IMG_3775_1512x_iapwst.webp" },
+  { id:220, name:"Roberts Black",  col:"Icons", shape:"square", colors:["negro"],    rank:35, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1776986920/IMG_3768_1512x_g5gmge.webp" },
 
   // Moore: 90 uds (tiene imagen)
   { id:27,  name:"Moore Black", col:"Icons", shape:"rectangular", colors:["negro"], rank:35, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776986730/MOOREBLACK_2048x_olbjuu.webp" },
@@ -992,9 +992,9 @@ const PRODUCTS = [
   { id:64,  name:"Gugu Gold Brown Carey", col:"Icons", shape:"geometric",                      colors:["dorado","marrón","carey"],rank:36, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590220/196_mctzzt.png" },
 
   // Foster: 60 uds (sin imagen)
-  { id:32,  name:"Foster Gold Brown",   col:"Icons", shape:"panto", colors:["dorado","marrón"], rank:37 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777233952/IMG_0246_1080x_lecyyk.webp" },
-  { id:187, name:"Foster Carbon Black", col:"Icons", shape:"panto", colors:["negro","carbono"], rank:82 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777233953/IMG_0250_1080x_hgn78a.webp" },
-  { id:188, name:"Foster Gold Grey",    col:"Icons", shape:"panto", colors:["dorado","gris"],   rank:83 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777233953/IMG_0248_1080x_zfmzfl.webp" },
+  { id:32,  name:"Foster Gold Brown",   col:"Icons", shape:"panto", colors:["dorado","marrón"], rank:37 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777233952/IMG_0246_1080x_lecyyk.webp" },
+  { id:187, name:"Foster Carbon Black", col:"Icons", shape:"panto", colors:["negro","carbono"], rank:82 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777233953/IMG_0250_1080x_hgn78a.webp" },
+  { id:188, name:"Foster Gold Grey",    col:"Icons", shape:"panto", colors:["dorado","gris"],   rank:83 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777233953/IMG_0248_1080x_zfmzfl.webp" },
 
   // Lane: 135 uds (sin imagen)
   { id:36,  name:"Lane Grass",      col:"Essential", shape:"round", colors:["verde"],           rank:38, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777231418/IMG_3769_1512x_a7rtfi.webp" },
@@ -1010,9 +1010,9 @@ const PRODUCTS = [
   { id:195, name:"Carrol Rowan", col:"Icons", shape:"oval", colors:["gris"],           rank:89 },
 
   // Mirren: 50 uds (sin imagen — TÉ MIRREN en CSV)
-  { id:35,  name:"Mirren Tea",   col:"Icons", shape:"oval", colors:["marrón","cálido"], rank:40 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777233652/IMG_4510_1080x_nyfbyr.webp" },
-  { id:196, name:"Mirren Carey", col:"Icons", shape:"oval", colors:["carey"],           rank:90 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777233651/IMG_0212_1080x_bhj4hf.webp" },
-  { id:197, name:"Mirren Black", col:"Icons", shape:"oval", colors:["negro"],           rank:91 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777233643/IMG_4511_1080x_uhdghh.webp" },
+  { id:35,  name:"Mirren Tea",   col:"Icons", shape:"oval", colors:["marrón","cálido"], rank:40 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777233652/IMG_4510_1080x_nyfbyr.webp" },
+  { id:196, name:"Mirren Carey", col:"Icons", shape:"oval", colors:["carey"],           rank:90 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777233651/IMG_0212_1080x_bhj4hf.webp" },
+  { id:197, name:"Mirren Black", col:"Icons", shape:"oval", colors:["negro"],           rank:91 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_600,q_auto,f_auto/v1777233643/IMG_4511_1080x_uhdghh.webp" },
 
   // Grant: 37 uds (sin imagen)
   { id:29,  name:"Grant Carey",   col:"Icons", shape:"rectangular", colors:["carey"],    rank:41 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1777233753/IMG_5612_1512x_beesly.webp" },
@@ -1028,10 +1028,10 @@ const PRODUCTS = [
   { id:31,  name:"Stone Gold Black", col:"Icons", shape:"square", colors:["dorado","negro"], rank:42 },
 
   // ── ESSENTIAL ────────────────────────────────────────────────────────
-  { id:1,  name:"Bergman Noire",       col:"Essential", shape:"rectangular", urgency:"stock_low", colors:["negro","carey"],  rank:1,  isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590223/221_oeycry.png" },
+  { id:1,  name:"Bergman Noire",       col:"Essential", shape:"rectangular", urgency:"stock_low", colors:["negro","carey"],  rank:46,  isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590223/221_oeycry.png" },
   { id:54, name:"Bergman Honey",       col:"Essential", shape:"rectangular",                      colors:["miel","cálido"],  rank:15, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590223/220_mutoia.png" },
   { id:3,  name:"Bergman Rust",        col:"Essential", shape:"rectangular",                      colors:["marrón","cálido"],rank:44, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590223/217_skjewv.png" },
-  { id:55, name:"Bergman Carey Brown", col:"Essential", shape:"rectangular",                      colors:["carey","marrón"], rank:45, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590222/213_r9bzfx.png" },
+  { id:55, name:"Bergman Carey Brown", col:"Essential", shape:"rectangular",                      colors:["carey","marrón"], rank:1, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590222/213_r9bzfx.png" },
   { id:56, name:"Bergman Carbon",      col:"Essential", shape:"rectangular",                      colors:["negro","carbono"],rank:46, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590222/211_mv2omz.png" },
   { id:57, name:"Bergman Brown",       col:"Essential", shape:"rectangular",                      colors:["marrón"],         rank:47, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590222/210_jnsxlo.png" },
   { id:62, name:"Bergman Carey",       col:"Essential", shape:"rectangular",                      colors:["carey"],          rank:48, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590221/199_roiwuk.png" },
@@ -1115,17 +1115,15 @@ const PRODUCTS = [
   // Sin imagen
   { id:17,  name:"Nova Ruby",       col:"Essential", shape:"geometric",   colors:["rojo","rubí"],   rank:93, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590217/172_e8julb.png" },
   { id:221, name:"Nova Jade",       col:"Essential", shape:"geometric",   colors:["verde","jade"],  rank:94, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590217/171_aavi3l.png" },
-  { id:22,  name:"Seberg Apple",    col:"Essential", shape:"round",       colors:["verde"],           rank:94 },
-  { id:215, name:"Seberg Bordeaux", col:"Essential", shape:"round",       colors:["burdeos"],         rank:106 },
-  { id:216, name:"Seberg Amber",    col:"Essential", shape:"round",       colors:["ámbar"],          rank:107 },
   { id:9,   name:"Totter Leaf",     col:"Essential", shape:"rectangular", colors:["verde"],           rank:95 },
   { id:217, name:"Totter Carey",    col:"Essential", shape:"rectangular", colors:["carey"],           rank:108 },
 
   // ── ACETATO ──────────────────────────────────────────────────────────
-  { id:53,  name:"Hayek Olive",    col:"Acetato", shape:"square",      urgency:"hot", colors:["verde","oliva"],  rank:2,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590203/86_i09mqr.png" },
+  { id:53,  name:"Hayek Olive",    col:"Acetato", shape:"square",      urgency:"hot", colors:["verde","oliva"],  rank:50,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590203/86_i09mqr.png" },
   { id:52,  name:"Leigh Chalk",    col:"Acetato", shape:"rectangular",               colors:["blanco"],          rank:16, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590208/112_pmpzcn.png" },
   { id:47,  name:"Arden Cocoa",    col:"Acetato", shape:"cateye",                    colors:["marrón"],          rank:11, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590211/122_ivwzqu.png" },
   { id:50,  name:"Novak Mocha",    col:"Acetato", shape:"square",                    colors:["moca","marrón"],   rank:12, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590203/92_txomis.png" },
+  { id:224, name:"Chastain Olive",     col:"Essential", shape:"cateye", urgency:"trending", colors:["verde","oliva"], rank:2, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590223/216_tjup92.png" },
   { id:81,  name:"Hayek Carey",    col:"Acetato", shape:"square",                    colors:["carey"],           rank:17, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590202/85_r9q8ec.png" },
   { id:71,  name:"Arden Carey",    col:"Acetato", shape:"cateye",                    colors:["carey"],           rank:18, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590209/121_wvm2wp.png" },
   { id:72,  name:"Arden Champagne",col:"Acetato", shape:"cateye",                    colors:["champán","dorado"],rank:19, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_400,q_auto,f_auto/v1776590209/120_s8exzo.png" },
@@ -1784,12 +1782,12 @@ export default function App() {
         .mn-btn:hover { transform: translateY(-1px); }
         .mn-btn:active { transform: translateY(0); }
 
-        .mn-grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
-        @media (max-width: 900px)  { .mn-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; } }
-        @media (max-width: 600px)  { .mn-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
+        .mn-grid { display: grid; gap: 24px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+        @media (max-width: 900px)  { .mn-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; } }
+        @media (max-width: 600px)  { .mn-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; } }
         @media (max-width: 360px)  { .mn-grid { grid-template-columns: 1fr; gap: 10px; } }
 
-        .mn-top-grid { display: grid; gap: 20px; grid-template-columns: repeat(4, 1fr); }
+        .mn-top-grid { display: grid; gap: 24px; grid-template-columns: repeat(4, 1fr); }
         @media (max-width: 1100px) { .mn-top-grid { grid-template-columns: repeat(3, 1fr); } }
         @media (max-width: 700px)  { .mn-top-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; } }
 
@@ -2466,6 +2464,41 @@ export default function App() {
 
         {/* BLOQUES POR COLECCIÓN — colapsables */}
         <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 24px 60px' }}>
+
+          {/* Botón flotante para cerrar colección abierta */}
+          {Object.entries(openCollections).some(([,v]) => v) && (() => {
+            const openId = Object.entries(openCollections).find(([,v]) => v)?.[0];
+            const openCol = byCollection.find(c => c.id === openId);
+            if (!openCol) return null;
+            return (
+              <div style={{
+                position: 'fixed', bottom: 28, left: '50%', transform: 'translateX(-50%)',
+                zIndex: 45, pointerEvents: 'auto',
+              }}>
+                <button
+                  onClick={() => {
+                    toggleCollection(openId);
+                    document.getElementById(`col-${openId}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }}
+                  style={{
+                    display: 'inline-flex', alignItems: 'center', gap: 8,
+                    padding: '10px 20px', borderRadius: 999,
+                    background: G, color: C,
+                    fontSize: 11, fontWeight: 700, letterSpacing: 0.5,
+                    boxShadow: '0 8px 24px -8px rgba(24,51,47,0.5)',
+                    border: `1px solid rgba(248,239,230,0.15)`,
+                    cursor: 'pointer',
+                    animation: 'mn-fadein 0.2s ease-out both',
+                    backdropFilter: 'blur(8px)',
+                  }}
+                >
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><polyline points="18 15 12 9 6 15"/></svg>
+                  Cerrar {openCol.id}
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+              </div>
+            );
+          })()}
           {byCollection.map((col, idx) => {
             const isOpen = !!openCollections[col.id];
             const allItems = PRODUCTS.filter(p => p.col === col.id);
@@ -3405,27 +3438,38 @@ function OrderPanel({
   onClose, onUpdateQty, onRemove, onSendWA, onSendEmail,
 }) {
   const isDistributor = distributor.name !== 'Minuë Opticians';
-  const [leadStep, setLeadStep] = useState(false);
-  const [pendingChannel, setPendingChannel] = useState(null);
-  const refName  = React.useRef(null);
-  const refStore = React.useRef(null);
-  const refEmail = React.useRef(null);
+  // Estados: null = CTAs, 'wa'/'email' = lead form post-envío, 'sent' = confirmación
+  const [step, setStep] = useState(null); // null | 'lead_wa' | 'lead_email' | 'sent'
+  const [sentChannel, setSentChannel] = useState(null);
+  const refName  = useRef(null);
+  const refStore = useRef(null);
+  const refEmail = useRef(null);
 
-  const handleSend = () => {
+  // Enviar inmediatamente, luego mostrar lead form opcional
+  const handleWA = () => {
+    onSendWA({});
+    setSentChannel('wa');
+    setStep('sent');
+  };
+
+  const handleEmail = () => {
+    onSendEmail({});
+    setSentChannel('email');
+    setStep('sent');
+  };
+
+  // Desde confirmación, enviar datos opcionales
+  const handleLeadSave = () => {
     const lf = {
       name:  refName.current?.value  || '',
       store: refStore.current?.value || '',
       email: refEmail.current?.value || '',
     };
-    if (pendingChannel === 'wa') onSendWA(lf);
+    if (!lf.name && !lf.store && !lf.email) { setStep(null); return; }
+    // Re-enviar con datos de contacto incluidos
+    if (sentChannel === 'wa') onSendWA(lf);
     else onSendEmail(lf);
-    setLeadStep(false);
-  };
-
-  const handleSkip = () => {
-    if (pendingChannel === 'wa') onSendWA({});
-    else onSendEmail({});
-    setLeadStep(false);
+    setStep(null);
   };
 
   // Cálculos
@@ -3732,108 +3776,114 @@ function OrderPanel({
             </div>
 
             {/* ── CTAs ── */}
-            {!leadStep ? (
+
+            {/* Estado: CTAs principales */}
+            {step === null && (
               <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-                {/* PDF — CTA primario */}
+
+                {/* 1. WhatsApp — PRINCIPAL */}
+                <button onClick={handleWA} className="mn-btn" style={{
+                  width: '100%', padding: '16px 18px', borderRadius: 6,
+                  background: CHOCOLATE, color: C,
+                  fontSize: 14, fontWeight: 700, letterSpacing: 0.3,
+                  display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 10,
+                  boxShadow: `0 4px 20px -6px ${CHOCOLATE}80`,
+                }}>
+                  <IconWA size={18} />
+                  Enviar pedido por WhatsApp
+                </button>
+                <div style={{ textAlign: 'center', fontSize: 10, opacity: 0.4, marginTop: -2 }}>
+                  Respuesta en menos de 24h · Sin compromiso de pago
+                </div>
+
+                {/* 2. Email — secundario */}
+                <button onClick={handleEmail} className="mn-btn" style={{
+                  width: '100%', padding: '12px 18px', borderRadius: 6,
+                  background: 'transparent', color: G, fontSize: 12, fontWeight: 500,
+                  border: `1px solid ${G}33`, letterSpacing: 0.2,
+                  display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+                }}>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+                  {t('panel_email')}
+                </button>
+
+                {/* 3. PDF — terciario */}
                 <button
                   onClick={() => generatePDF({ cartItems, cartCount, cartTotal, unitPrice, currentTier, distributor, region, lang, t, discountPct, cost, gainEur, gainPct })}
                   className="mn-btn"
                   style={{
-                    width: '100%', padding: '16px 18px', borderRadius: 6,
-                    background: G, color: C,
-                    fontSize: 14, fontWeight: 700, letterSpacing: 0.3,
-                    display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 10,
-                    boxShadow: `0 4px 20px -6px rgba(24,51,47,0.35)`,
+                    width: '100%', padding: '10px 18px', borderRadius: 6,
+                    background: 'transparent', color: G, opacity: 0.65,
+                    fontSize: 11, fontWeight: 400, border: `1px solid ${G}18`,
+                    display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 7,
                   }}
                 >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
-                  Descargar pedido en PDF
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+                  Descargar PDF del pedido
                 </button>
-                <div style={{ textAlign: 'center', fontSize: 10, opacity: 0.4, marginTop: -2 }}>
-                  Guárdalo y adjúntalo en WhatsApp o email
+
+              </div>
+            )}
+
+            {/* Estado: Confirmación + lead form opcional */}
+            {step === 'sent' && (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+
+                {/* Check de éxito */}
+                <div style={{
+                  padding: '16px', borderRadius: 8,
+                  background: `${G}08`, border: `1px solid ${G}18`,
+                  textAlign: 'center',
+                }}>
+                  <div style={{ fontSize: 28, marginBottom: 6 }}>✓</div>
+                  <div style={{ fontSize: 14, fontWeight: 700, marginBottom: 4 }}>
+                    {sentChannel === 'wa' ? 'WhatsApp abierto' : 'Email preparado'}
+                  </div>
+                  <p style={{ fontSize: 11, opacity: 0.55, margin: 0, lineHeight: 1.5 }}>
+                    Te confirmamos stock y plazos en menos de 24h.
+                  </p>
                 </div>
 
-                {/* WhatsApp — secundario */}
-                <button
-                  onClick={() => { setPendingChannel('wa'); setLeadStep(true); }}
-                  className="mn-btn"
-                  style={{
-                    width: '100%', padding: '13px 18px', borderRadius: 6,
-                    background: CHOCOLATE, color: C,
-                    fontSize: 13, fontWeight: 600, letterSpacing: 0.2,
-                    display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8,
-                    boxShadow: `0 4px 20px -6px ${CHOCOLATE}60`,
-                  }}
-                >
-                  <IconWA size={15} />
-                  Enviar por WhatsApp
-                </button>
-
-                {/* Email — terciario */}
-                <button
-                  onClick={() => { setPendingChannel('email'); setLeadStep(true); }}
-                  className="mn-btn"
-                  style={{
-                    width: '100%', padding: '11px 18px', borderRadius: 6,
-                    background: 'transparent', color: G,
-                    fontSize: 12, fontWeight: 500,
-                    border: `1px solid ${G}33`, letterSpacing: 0.2,
-                    display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8,
-                  }}
-                >
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
-                  {t('panel_email')}
-                </button>
-              </div>
-            ) : (
-              /* Lead form */
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-                {/* Header con botón atrás */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 2 }}>
-                  <button
-                    onClick={() => setLeadStep(false)}
-                    style={{
-                      background: 'none', border: `1px solid ${G}22`, borderRadius: 999,
-                      width: 30, height: 30, display: 'inline-flex', alignItems: 'center',
-                      justifyContent: 'center', cursor: 'pointer', flexShrink: 0,
-                      color: G, fontSize: 14,
-                    }}
-                  >‹</button>
-                  <div>
-                    <div style={{ fontSize: 13, fontWeight: 700, lineHeight: 1.2 }}>{t('lead_title')}</div>
-                    <p style={{ fontSize: 10, opacity: 0.5, margin: 0 }}>{t('lead_sub')}</p>
+                {/* Lead form opcional */}
+                <div style={{ borderTop: `1px solid ${G}10`, paddingTop: 12 }}>
+                  <div style={{ fontSize: 11, fontWeight: 600, marginBottom: 3 }}>
+                    ¿Quieres que te hagamos seguimiento?
+                  </div>
+                  <p style={{ fontSize: 10, opacity: 0.5, margin: '0 0 10px', lineHeight: 1.5 }}>
+                    Opcional — te avisamos de novedades y stock.
+                  </p>
+                  {[
+                    { ref: refName, placeholder: t('lead_name'), type: 'text' },
+                    { ref: refStore, placeholder: t('lead_store'), type: 'text' },
+                    { ref: refEmail, placeholder: t('lead_email'), type: 'email' },
+                  ].map((field, i) => (
+                    <input key={i} ref={field.ref} type={field.type} placeholder={field.placeholder}
+                      style={{
+                        width: '100%', padding: '10px 12px', marginBottom: 8,
+                        border: `1.5px solid ${G}20`, borderRadius: 6,
+                        fontSize: 12, fontFamily: 'inherit',
+                        background: '#fff', color: G, outline: 'none', boxSizing: 'border-box',
+                      }}
+                    />
+                  ))}
+                  <div style={{ display: 'flex', gap: 8 }}>
+                    <button onClick={handleLeadSave} className="mn-btn" style={{
+                      flex: 1, padding: '11px 14px', borderRadius: 6,
+                      background: G, color: C, fontSize: 12, fontWeight: 600,
+                      border: 'none', cursor: 'pointer',
+                    }}>
+                      Guardar datos
+                    </button>
+                    <button onClick={() => setStep(null)} style={{
+                      flex: 1, padding: '11px 14px', borderRadius: 6,
+                      background: 'transparent', border: `1px solid ${G}22`,
+                      fontSize: 11, opacity: 0.6, cursor: 'pointer', fontFamily: 'inherit', color: G,
+                    }}>
+                      No, gracias
+                    </button>
                   </div>
                 </div>
-                {[
-                  { ref: refName, placeholder: t('lead_name'), type: 'text' },
-                  { ref: refStore, placeholder: t('lead_store'), type: 'text' },
-                  { ref: refEmail, placeholder: t('lead_email'), type: 'email' },
-                ].map((field, i) => (
-                  <input key={i} ref={field.ref} type={field.type} placeholder={field.placeholder}
-                    defaultValue="" style={{
-                      width: '100%', padding: '11px 13px',
-                      border: `1.5px solid ${G}2e`, borderRadius: 6,
-                      fontSize: 13, fontFamily: 'inherit',
-                      background: '#fff', color: G, outline: 'none', boxSizing: 'border-box',
-                    }}
-                  />
-                ))}
-                <button onClick={handleSend} className="mn-btn" style={{
-                  width: '100%', padding: '14px 18px', borderRadius: 6,
-                  background: CHOCOLATE, color: C,
-                  fontSize: 13, fontWeight: 700,
-                  display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8,
-                  boxShadow: `0 4px 20px -6px ${CHOCOLATE}80`,
-                }}>
-                  {pendingChannel === 'wa' ? <><IconWA /> {t('lead_submit_wa')}</> : t('lead_submit_email')}
-                </button>
-                <button onClick={handleSkip} style={{
-                  background: 'none', border: 'none', fontSize: 11, opacity: 0.45,
-                  cursor: 'pointer', textDecoration: 'underline', padding: '2px 0',
-                }}>
-                  {t('lead_skip')}
-                </button>
-                <p style={{ fontSize: 9, opacity: 0.4, textAlign: 'center', margin: 0 }}>{t('lead_note')}</p>
+
               </div>
             )}
 
@@ -4335,7 +4385,7 @@ function QuickViewModal({ product: initialProduct, allProducts, colData: initial
           <div style={{
             background: active.img ? '#fff' : `${G}06`,
             height: isNarrow ? 160 : 'auto',
-            minHeight: isNarrow ? 'unset' : 280,
+            minHeight: isNarrow ? 'unset' : 450,
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             padding: isNarrow ? 10 : 16, position: 'relative',
             flexShrink: 0,
@@ -5038,7 +5088,7 @@ function ProductCard({ product, added, onAdd, rank, showRank, variant = 'normal'
   return (
     <div className="mn-card" style={{ display: 'flex', flexDirection: 'column' }}>
       <div className="mn-card-img" style={{
-        position: 'relative', aspectRatio: isTop ? '1/1' : '5/4', background: p.img ? '#fff' : `${G}08`,
+        position: 'relative', aspectRatio: isTop ? '1/1' : '4/3', background: p.img ? '#fff' : `${G}08`,
         borderRadius: 2, overflow: 'hidden',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
       }}>
@@ -5133,7 +5183,7 @@ function ProductCard({ product, added, onAdd, rank, showRank, variant = 'normal'
         <div className="mn-card-price-row" style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 6 }}>
           <div style={{ minWidth: 0 }}>
             <h4 className="mn-serif mn-card-title" style={{
-              fontSize: isTop ? 18 : 17, fontWeight: 400, lineHeight: 1.15, margin: 0,
+              fontSize: isTop ? 18 : 17, fontWeight: 700, lineHeight: 1.15, margin: 0,
             }}>{p.name}</h4>
             {shapeObj && (
               <span style={{
