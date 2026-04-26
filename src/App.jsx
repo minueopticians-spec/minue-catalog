@@ -1022,9 +1022,6 @@ const PRODUCTS = [
   { id:199, name:"Grant Black",   col:"Icons", shape:"rectangular", colors:["negro"],    rank:93 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233752/IMG_5614_1512x_ocrzst.webp" },
 
   // Kerr: 16 uds (sin imagen)
-  { id:44,  name:"Kerr Carey",      col:"Icons", shape:"rectangular", colors:["carey"],       rank:43 },
-  { id:200, name:"Kerr Emerald",    col:"Icons", shape:"rectangular", colors:["verde"],        rank:94 },
-  { id:201, name:"Kerr Black Gray", col:"Icons", shape:"rectangular", colors:["negro","gris"], rank:95 },
 
   // Stone: 13 uds (sin imagen)
   { id:31,  name:"Stone Gold Black", col:"Icons", shape:"square", colors:["dorado","negro"], rank:42 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235611/IMG_0231_1080x_houngo.webp" },
@@ -1137,15 +1134,13 @@ const PRODUCTS = [
   { id:49,  name:"Juno",           col:"Acetato", shape:"round",                     colors:["negro"],           rank:101 },
   { id:45,  name:"Sienna",         col:"Acetato", shape:"square",                    colors:["marrón","negro"],  rank:102 },
   // ── Añadidos desde PDF SS26 ──────────────────────────────────────
-  { id:228, name:"Baker Tea",          col:"Essential", shape:"rectangular", colors:["marrón","cálido"],  rank:108 },
-  { id:229, name:"Baker Cloud",        col:"Essential", shape:"rectangular", colors:["gris","crema"],     rank:109 },
-  { id:230, name:"Baker Mint",         col:"Essential", shape:"rectangular", colors:["verde","menta"],    rank:110 },
-  { id:231, name:"Baker Black",        col:"Essential", shape:"rectangular", colors:["negro"],            rank:111 },
+  { id:228, name:"Baker Tea",          col:"Essential", shape:"rectangular", colors:["marrón","cálido"],  rank:108 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777241610/170_1080x_aum7jk.webp" },
+  { id:229, name:"Baker Cloud",        col:"Essential", shape:"rectangular", colors:["gris","crema"],     rank:109 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777241607/169_1080x_ctu7xj.webp" },
+  { id:230, name:"Baker Mint",         col:"Essential", shape:"rectangular", colors:["verde","menta"],    rank:110 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777241608/168_1080x_pcrdjp.webp" },
+  { id:231, name:"Baker Black",        col:"Essential", shape:"rectangular", colors:["negro"],            rank:111 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777241609/167_5f067309-28f6-48a3-8f95-e40cc91e27f5_1080x_p2ydrr.webp" },
   { id:226, name:"Hart Black",         col:"Essential", shape:"square",      colors:["negro"],            rank:112 },
   { id:227, name:"Hedy Jara",          col:"Essential", shape:"round",       colors:["verde"],            rank:113 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777238292/39_1080x_ljvzuy.webp" },
-  { id:233, name:"Tura Coffee",        col:"Essential", shape:"oval",        colors:["marrón","café"],    rank:115 },
-  { id:234, name:"Tura Velvet",        col:"Essential", shape:"oval",        colors:["burdeos"],          rank:116 },
-  { id:235, name:"Moore Kaffa",        col:"Icons",     shape:"rectangular", colors:["marrón","café"],    rank:117 },
+  { id:235, name:"Moore Kaffa",        col:"Icons",     shape:"rectangular", colors:["marrón","café"],    rank:117 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777242114/IMG_2563_1512x_1_u7dveu.webp" },
   { id:236, name:"Hazel Carey",        col:"Essential", shape:"square",      colors:["carey"],            rank:118 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777238421/51_1080x_gdsyrw.webp" },
   { id:237, name:"Hazel Noir",         col:"Essential", shape:"square",      colors:["negro"],            rank:119 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777238421/52_1080x_wawued.webp" },
   { id:238, name:"Rainer Caramel",     col:"Essential", shape:"oval",        colors:["caramelo"],         rank:120 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777238348/9_1080x_ladhto.webp" },
@@ -1810,11 +1805,11 @@ export default function App() {
 
         /* Card interna — responsive por container */
         .mn-card-body { padding: 10px 8px 8px; }
-        .mn-card-title { font-size: 18px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .mn-card-title { font-size: 22px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: "DM Sans", sans-serif; font-weight: 800; }
         .mn-card-img { padding: 0; }
         @media (max-width: 600px) {
           .mn-card-body { padding: 8px 6px 6px; }
-          .mn-card-title { font-size: 12px !important; }
+          .mn-card-title { font-size: 17px !important; }
           .mn-card-img { padding: 0 !important; }
           .mn-card-price-row { flex-direction: column !important; gap: 2px !important; align-items: flex-start !important; }
           .mn-card-price-badge { display: none !important; }
@@ -2760,9 +2755,10 @@ export default function App() {
                                   {/* Info */}
                                   <div className="mn-card-body" style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
                                     <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 6 }}>
-                                      <h4 className="mn-serif mn-card-title" style={{
-                                        fontSize: 17, fontWeight: 800, lineHeight: 1.2, margin: 0,
-                                        letterSpacing: '-0.01em', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
+                                      <h4 className="mn-card-title" style={{
+                                        fontSize: 22, fontWeight: 800, lineHeight: 1.2, margin: 0,
+                                        fontFamily: 'DM Sans, sans-serif',
+                                        letterSpacing: '-0.02em', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
                                       }}>{base}</h4>
                                       <div style={{
                                         flexShrink: 0, padding: '2px 7px', borderRadius: 999,
@@ -5404,9 +5400,10 @@ function ProductCard({ product, added, onAdd, rank, showRank, variant = 'normal'
       <div className="mn-card-body" style={{ display: 'flex', flexDirection: 'column', gap: 7 }}>
         <div className="mn-card-price-row" style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 6 }}>
           <div style={{ minWidth: 0 }}>
-            <h4 className="mn-serif mn-card-title" style={{
-              fontSize: isTop ? 19 : 17, fontWeight: 800, lineHeight: 1.2, margin: 0,
-              letterSpacing: '-0.01em', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
+            <h4 className="mn-card-title" style={{
+              fontSize: isTop ? 21 : 19, fontWeight: 800, lineHeight: 1.2, margin: 0,
+              fontFamily: 'DM Sans, sans-serif',
+              letterSpacing: '-0.02em', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
             }}>{p.name}</h4>
             {shapeObj && (
               <span style={{
