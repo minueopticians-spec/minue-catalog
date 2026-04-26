@@ -921,17 +921,19 @@ const PRODUCTS = [
   { id:132, name:"Lamarr Dark",        col:"Icons", shape:"cateye",               colors:["marrón"],          rank:57, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235608/IMG_3772_1080x_rmz7kx.webp" },
 
   // Loren: 455 uds total (tiene imágenes individuales)
-  { id:24,  name:"Loren Carey",  col:"Icons", shape:"cateye", colors:["carey"],           rank:13, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776986730/LORENCAREY_1728x_edxhjx.webp" },
+  { id:24,  name:"Loren Carey",  col:"Icons", shape:"cateye", colors:["carey"],           rank:13, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776986730/LORENCAREY_1728x_edxhjx.webp" },
   { id:96,  name:"Loren Toffee", col:"Icons", shape:"cateye", colors:["caramelo","marrón"],rank:21, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776986730/LORENTOFFEEMINUEWEB_1728x_oxyoj1.webp" },
   { id:97,  name:"Loren Black",  col:"Icons", shape:"cateye", colors:["negro"],           rank:22, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776986729/IMG_8167_1296x_oqut39.webp" },
   { id:95,  name:"Loren Cream",  col:"Icons", shape:"cateye", colors:["crema","beige"],   rank:23, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776986729/IMG_5845_1296x_egicjl.webp" },
 
   // Berry: 332 uds total
   { id:30,  name:"Berry Tea",         col:"Icons", shape:"round", urgency:"trending", colors:["marrón","cálido"],  rank:10, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776278629/IMG_0263_720x_uln010.webp" },
-  { id:140, name:"Berry Carbon",      col:"Icons", shape:"round",                    colors:["negro","carbono"],   rank:58, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776278629/IMG_0263_720x_uln010.webp" },
-  { id:141, name:"Berry Navy Blue",   col:"Icons", shape:"round",                    colors:["azul"],              rank:59, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776278629/IMG_0263_720x_uln010.webp" },
-  { id:142, name:"Berry Brown Carey", col:"Icons", shape:"round",                    colors:["marrón","carey"],    rank:60, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776278629/IMG_0263_720x_uln010.webp" },
+  { id:140, name:"Berry Carbon",      col:"Icons", shape:"round",                    colors:["negro","carbono"],   rank:58, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777241614/IMG_0241_1080x_qkxc8c.webp" },
+  { id:141, name:"Berry Navy Blue",   col:"Icons", shape:"round",                    colors:["azul"],              rank:59, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777241615/IMG_0256_1080x_cvdsjb.webp" },
+  { id:142, name:"Berry Brown Carey", col:"Icons", shape:"round",                    colors:["marrón","carey"],    rank:60, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777241611/IMG_3770_1080x_zcz0yh.webp" },
   { id:143, name:"Berry Leopard",     col:"Icons", shape:"round",                    colors:["marrón","negro"],    rank:61, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776278629/IMG_0263_720x_uln010.webp" },
+  { id:241, name:"Berry Carey",  col:"Icons", shape:"round", colors:["carey"],           rank:62, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777241612/IMG_0255_1080x_ii4ywg.webp" },
+  { id:242, name:"Berry Rosse",  col:"Icons", shape:"round", colors:["rosa","burdeos"],  rank:63, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777241613/IMG_3778_1080x_gohv9s.webp" },
 
   // Makey: 300 uds (sin imagen)
   { id:38,  name:"Makey Carey",        col:"Icons", shape:"rectangular", colors:["carey"],       rank:24, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777231858/MAKEYCAREYWEB_1080x_ncdvtb.webp" },
@@ -963,7 +965,7 @@ const PRODUCTS = [
   { id:180, name:"Maclaine Black", col:"Icons", shape:"round", colors:["negro"],            rank:75, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233400/IMG_4504_1080x_su4xqk.webp" },
 
   // Cleo: 127 uds (tiene imágenes)
-  { id:28,  name:"Cleo Tea",   col:"Icons", shape:"cateye", colors:["marrón","cálido"], rank:14, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776986729/IMG_2571_3f836e1a-078b-4f97-8b6e-0e6d0dbc30d7_1512x_qkwmvv.webp" },
+  { id:28,  name:"Cleo Tea",   col:"Icons", shape:"cateye", colors:["marrón","cálido"], rank:14, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776986729/IMG_2571_3f836e1a-078b-4f97-8b6e-0e6d0dbc30d7_1512x_qkwmvv.webp" },
   { id:98,  name:"Cleo Black",  col:"Icons", shape:"cateye", colors:["negro"],           rank:29, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776986729/IMG_2568_0cdea3e3-91be-451b-97a0-301f495895da_1512x_pmfpjj.webp" },
 
   // Thurman: 147 uds (sin imagen — CARBONO THURMAN en CSV)
@@ -988,7 +990,7 @@ const PRODUCTS = [
   { id:27,  name:"Moore Black", col:"Icons", shape:"rectangular", colors:["negro"], rank:35, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776986730/MOOREBLACK_2048x_olbjuu.webp" },
 
   // Gugu: 73 uds (tiene imágenes)
-  { id:26,  name:"Gugu Gold Green",       col:"Icons", shape:"geometric", urgency:"stock_low", colors:["dorado","verde"],         rank:4,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776277357/84_vxh8iz.png" },
+  { id:26,  name:"Gugu Gold Green",       col:"Icons", shape:"geometric", urgency:"stock_low", colors:["dorado","verde"],         rank:4,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776277357/84_vxh8iz.png" },
   { id:64,  name:"Gugu Gold Brown Carey", col:"Icons", shape:"geometric",                      colors:["dorado","marrón","carey"],rank:36, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590220/196_mctzzt.png" },
 
   // Foster: 60 uds (sin imagen)
@@ -1030,9 +1032,9 @@ const PRODUCTS = [
 
   // ── ESSENTIAL ────────────────────────────────────────────────────────
   { id:1,  name:"Bergman Noire",       col:"Essential", shape:"rectangular", urgency:"stock_low", colors:["negro","carey"],  rank:46,  isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590223/221_oeycry.png" },
-  { id:54, name:"Bergman Honey",       col:"Essential", shape:"rectangular",                      colors:["miel","cálido"],  rank:15, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590223/220_mutoia.png" },
+  { id:54, name:"Bergman Honey",       col:"Essential", shape:"rectangular",                      colors:["miel","cálido"],  rank:15, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590223/220_mutoia.png" },
   { id:3,  name:"Bergman Rust",        col:"Essential", shape:"rectangular",                      colors:["marrón","cálido"],rank:44, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590223/217_skjewv.png" },
-  { id:55, name:"Bergman Carey Brown", col:"Essential", shape:"rectangular",                      colors:["carey","marrón"], rank:1, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590222/213_r9bzfx.png" },
+  { id:55, name:"Bergman Carey Brown", col:"Essential", shape:"rectangular",                      colors:["carey","marrón"], rank:1, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590222/213_r9bzfx.png" },
   { id:56, name:"Bergman Carbon",      col:"Essential", shape:"rectangular",                      colors:["negro","carbono"],rank:46, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590222/211_mv2omz.png" },
   { id:57, name:"Bergman Brown",       col:"Essential", shape:"rectangular",                      colors:["marrón"],         rank:47, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590222/210_jnsxlo.png" },
   { id:62, name:"Bergman Carey",       col:"Essential", shape:"rectangular",                      colors:["carey"],          rank:48, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590221/199_roiwuk.png" },
@@ -1062,19 +1064,19 @@ const PRODUCTS = [
   { id:63,  name:"Bolden Oliva", col:"Essential", shape:"rectangular", colors:["verde"],         rank:57, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590220/195_qakpdg.png" },
   { id:66,  name:"Bolden Ebony", col:"Essential", shape:"rectangular", colors:["negro"],          rank:58, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590220/193_bjptue.png" },
   { id:65,  name:"Bolden Nude",  col:"Essential", shape:"rectangular", colors:["nude"],           rank:59, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590220/192_mvmgmk.png" },
-  { id:60,  name:"Bolden Bruma", col:"Essential", shape:"rectangular", colors:["gris","neutro"],  rank:6, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590220/194_hwuk8l.png" },
+  { id:60,  name:"Bolden Bruma", col:"Essential", shape:"rectangular", colors:["gris","neutro"],  rank:6, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590220/194_hwuk8l.png" },
   // Rainer: 20 uds
   { id:10,  name:"Rainer Mandarine", col:"Essential", shape:"round", colors:["naranja"], rank:61, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590208/116_z2owvq.png" },
   { id:74,  name:"Rainer Carey",     col:"Essential", shape:"round", colors:["carey"],   rank:62, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590208/115_xhcrlb.png" },
   // Arielle: rank 7 top pick
-  { id:11,  name:"Arielle Dusty",  col:"Essential", shape:"oval", colors:["rosa","beige"],rank:7,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590207/105_wxiarw.png" },
+  { id:11,  name:"Arielle Dusty",  col:"Essential", shape:"oval", colors:["rosa","beige"],rank:7,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590207/105_wxiarw.png" },
   { id:78,  name:"Arielle Carey",  col:"Essential", shape:"oval", colors:["carey"],       rank:63, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590207/104_ijc9wd.png" },
   { id:82,  name:"Arielle Velvet", col:"Essential", shape:"oval", colors:["burdeos"],     rank:64, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590200/75_zjvevs.png" },
   // Blyth: 11 uds
   { id:18,  name:"Blyth Emerald", col:"Essential", shape:"rectangular", colors:["verde"], rank:65, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590210/124_a4teov.png" },
   { id:70,  name:"Blyth Carey",   col:"Essential", shape:"rectangular", colors:["carey"], rank:66, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590210/123_pucyjo.png" },
   // Hedy: rank 8 top pick
-  { id:15,  name:"Hedy Guiza",  col:"Essential", shape:"round", colors:["miel","dorado"], rank:8,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590207/109_lmyt8j.png" },
+  { id:15,  name:"Hedy Guiza",  col:"Essential", shape:"round", colors:["miel","dorado"], rank:8,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590207/109_lmyt8j.png" },
   { id:87,  name:"Hedy Matcha", col:"Essential", shape:"round", colors:["verde"],          rank:67, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777238291/38_1080x_g67jni.webp" },
   { id:88,  name:"Hedy Carey",  col:"Essential", shape:"round", colors:["carey"],          rank:68, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590194/39_j5xr3i.png" },
   // Colette: 14 uds
@@ -1102,7 +1104,7 @@ const PRODUCTS = [
   { id:58,  name:"Cardinale Guiza", col:"Essential", shape:"panto", colors:["miel","dorado"],       rank:86, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590221/207_useou6.png" },
   { id:59,  name:"Cardinale Apple", col:"Essential", shape:"panto", colors:["verde"],               rank:87, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590221/206_p7m4so.png" },
   // Chastain: rank 5 top pick
-  { id:20,  name:"Chastain Black",        col:"Essential", shape:"cateye", urgency:"trending", colors:["negro","carey","verde"],rank:5,  isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590223/216_tjup92.png" },
+  { id:20,  name:"Chastain Black",        col:"Essential", shape:"cateye", urgency:"trending", colors:["negro","carey","verde"],rank:5,  isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590223/216_tjup92.png" },
   { id:68,  name:"Chastain Carey",        col:"Essential", shape:"cateye",                     colors:["carey"],               rank:88, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590212/132_zild1l.png" },
   { id:69,  name:"Chastain Noire Violet", col:"Essential", shape:"cateye",                     colors:["negro","burdeos"],     rank:89, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235610/sadascas_1080x_asvwdj.webp" },
   { id:225, name:"Chastain Red Light", col:"Essential", shape:"cateye", colors:["rojo"], rank:90, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235609/sa_1080x_siluhw.webp" },
@@ -1119,14 +1121,14 @@ const PRODUCTS = [
 
   // ── ACETATO ──────────────────────────────────────────────────────────
   { id:53,  name:"Hayek Olive",    col:"Acetato", shape:"square",      urgency:"hot", colors:["verde","oliva"],  rank:50,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590203/86_i09mqr.png" },
-  { id:52,  name:"Leigh Chalk",    col:"Acetato", shape:"rectangular",               colors:["blanco"],          rank:16, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590208/112_pmpzcn.png" },
-  { id:47,  name:"Arden Cocoa",    col:"Acetato", shape:"cateye",                    colors:["marrón"],          rank:11, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590211/122_ivwzqu.png" },
-  { id:50,  name:"Novak Mocha",    col:"Acetato", shape:"square",                    colors:["moca","marrón"],   rank:12, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590203/92_txomis.png" },
+  { id:52,  name:"Leigh Chalk",    col:"Acetato", shape:"rectangular",               colors:["blanco"],          rank:16, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590208/112_pmpzcn.png" },
+  { id:47,  name:"Arden Cocoa",    col:"Acetato", shape:"cateye",                    colors:["marrón"],          rank:11, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590211/122_ivwzqu.png" },
+  { id:50,  name:"Novak Mocha",    col:"Acetato", shape:"square",                    colors:["moca","marrón"],   rank:12, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590203/92_txomis.png" },
   { id:224, name:"Chastain Olive",     col:"Essential", shape:"cateye", urgency:"trending", colors:["verde","oliva"], rank:2, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777235610/saxaa_1080x_p0gxws.webp" },
-  { id:81,  name:"Hayek Carey",    col:"Acetato", shape:"square",                    colors:["carey"],           rank:17, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590202/85_r9q8ec.png" },
-  { id:71,  name:"Arden Carey",    col:"Acetato", shape:"cateye",                    colors:["carey"],           rank:18, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590209/121_wvm2wp.png" },
-  { id:72,  name:"Arden Champagne",col:"Acetato", shape:"cateye",                    colors:["champán","dorado"],rank:19, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590209/120_s8exzo.png" },
-  { id:80,  name:"Novak Carey",    col:"Acetato", shape:"square",                    colors:["carey"],           rank:20, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590203/91_yctpcq.png" },
+  { id:81,  name:"Hayek Carey",    col:"Acetato", shape:"square",                    colors:["carey"],           rank:17, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590202/85_r9q8ec.png" },
+  { id:71,  name:"Arden Carey",    col:"Acetato", shape:"cateye",                    colors:["carey"],           rank:18, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590209/121_wvm2wp.png" },
+  { id:72,  name:"Arden Champagne",col:"Acetato", shape:"cateye",                    colors:["champán","dorado"],rank:19, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590209/120_s8exzo.png" },
+  { id:80,  name:"Novak Carey",    col:"Acetato", shape:"square",                    colors:["carey"],           rank:20, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590203/91_yctpcq.png" },
   { id:84,  name:"Fonda Sepia",    col:"Acetato", shape:"square",                    colors:["marrón"],          rank:96, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590193/28_qoduia.png" },
   { id:46,  name:"Astor Green",    col:"Acetato", shape:"rectangular",               colors:["verde"],           rank:97, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590194/30_sm0o9h.png" },
   { id:85,  name:"Astor Bronce",   col:"Acetato", shape:"rectangular",               colors:["bronce"],          rank:98, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590194/34_w3ugnz.png" },
@@ -4555,10 +4557,10 @@ function QuickViewModal({ product: initialProduct, allProducts, colData: initial
           {/* Imagen */}
           <div style={{
             background: active.img ? 'transparent' : `${G}06`,
-            height: isNarrow ? 160 : 'auto',
+            height: isNarrow ? 232 : 'auto',
             minHeight: isNarrow ? 'unset' : 450,
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            padding: isNarrow ? 10 : 16, position: 'relative',
+            padding: isNarrow ? 8 : 16, position: 'relative',
             flexShrink: 0,
           }}>
             {active.urgency && (
@@ -4576,7 +4578,7 @@ function QuickViewModal({ product: initialProduct, allProducts, colData: initial
                 alt={active.name}
                 onClick={() => window.open(active.img.replace(/w_(600|800|900),/, 'w_1200,'), '_blank')}
                 style={{
-                  maxWidth: '100%', maxHeight: '100%', objectFit: 'contain',
+                  width: '100%', height: '100%', objectFit: 'contain',
                   cursor: 'zoom-in',
                   animation: 'mn-fadein 0.2s ease-out both',
                 }}
