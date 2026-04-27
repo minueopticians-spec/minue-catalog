@@ -1608,9 +1608,16 @@ export default function App() {
   const CODE = familyCode.trim().toUpperCase();
   const discountPct = CODE === 'FAMILY' ? 5 : 0;
   const ouardaActive = CODE === 'OUARDA';
-  // Precio Ouarda: Essential+Icons → 16,60€ fijo; Acetato sin cambio
+  const zubietaActive = CODE === 'ZUBIETA';
+  // Precios por código especial (IVA no incluido)
   const getItemPrice = (item) => {
-    if (ouardaActive && item.col !== 'Acetato') return 16.60;
+    if (ouardaActive) {
+      if (item.col !== 'Acetato') return 16.60;
+    }
+    if (zubietaActive) {
+      if (item.col === 'Acetato') return 20.90;
+      return 16.90; // Essential + Icons
+    }
     const col = COLLECTIONS.find(c => c.id === item.col);
     return col?.unitCost ?? unitPrice ?? DISPLAY_PRICE;
   };
@@ -1676,7 +1683,9 @@ export default function App() {
   const currentTier = getTier(cartCount);
   const nextTier = getNextTier(cartCount);
   const unitPrice = currentTier?.price ?? null;
-  const cartTotal = unitPrice ? unitPrice * cartCount : null;
+  const cartTotal = (ouardaActive || zubietaActive)
+    ? cartItems.reduce((sum, it) => sum + getItemPrice(it) * it.qty, 0)
+    : unitPrice ? unitPrice * cartCount : null;
 
   const addToCart = (id) => {
     setCart(c => ({ ...c, [id]: (c[id] || 0) + 1 }));
@@ -1756,7 +1765,8 @@ export default function App() {
 
   const sendWhatsApp = (lf = {}) => {
     if (!cartItems.length) return;
-    if (typeof window !== 'undefined') window.open(`https://wa.me/${distributor.whatsapp}?text=${encodeURIComponent(buildOrderMessage(lf))}`, '_blank');
+    const waNumber = ouardaActive ? '34661018380' : distributor.whatsapp;
+    if (typeof window !== 'undefined') window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(buildOrderMessage(lf))}`, '_blank');
   };
   const sendEmail = (lf = {}) => {
     if (!cartItems.length) return;
@@ -2438,6 +2448,29 @@ export default function App() {
 
         {/* ANCHOR para auto-scroll al filtrar */}
         <div id="catalog-start" style={{ scrollMarginTop: 140 }} />
+
+        {/* ENCABEZADO COLECCIONES */}
+        <div style={{ maxWidth: 1280, margin: '0 auto', padding: 'clamp(40px,6vw,72px) 24px clamp(16px,3vw,28px)' }}>
+          <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 24, flexWrap: 'wrap' }}>
+            <div>
+              <div className="mn-label" style={{ color: D, marginBottom: 10, fontSize: 11, letterSpacing: 2.5, fontWeight: 700 }}>SS26 · Wholesale</div>
+              <h2 className="mn-serif" style={{
+                fontSize: 'clamp(42px, 7vw, 80px)', fontWeight: 300,
+                letterSpacing: '-0.03em', lineHeight: 0.95, margin: 0, color: G,
+              }}>
+                Colecciones
+                <span className="mn-serif-i" style={{ color: D, marginLeft: 12 }}>.</span>
+              </h2>
+            </div>
+            <p style={{
+              maxWidth: 320, fontSize: 13, lineHeight: 1.6,
+              opacity: 0.5, margin: 0, fontWeight: 300, fontStyle: 'italic',
+              paddingBottom: 6,
+            }}>
+              Essential · Icons · Acetato — tres líneas, un solo lenguaje de diseño.
+            </p>
+          </div>
+        </div>
 
         {/* BARRA FILTROS SIMPLIFICADA */}
         <div style={{
@@ -3996,7 +4029,7 @@ function OrderPanel({
               display: 'flex', alignItems: 'center', gap: 8,
             }}>
               <div style={{ flex: 1 }}>
-                <div className="mn-label-xs" style={{ color: discountPct > 0 ? D : G, opacity: discountPct > 0 ? 1 : 0.5, marginBottom: 4 }}>
+                <div className="mn-label-xs" style={{ color: (discountPct > 0 || ouardaActive || zubietaActive) ? D : G, opacity: (discountPct > 0 || ouardaActive || zubietaActive) ? 1 : 0.5, marginBottom: 4 }}>
                   {t('code_label')}
                 </div>
                 <input
@@ -4007,20 +4040,28 @@ function OrderPanel({
                   style={{
                     width: '100%', background: 'transparent', border: 'none', outline: 'none',
                     fontSize: 13, fontFamily: 'DM Sans, sans-serif', fontWeight: 600,
-                    color: discountPct > 0 ? D : G, letterSpacing: 0.5,
+                    color: (discountPct > 0 || ouardaActive || zubietaActive) ? D : G, letterSpacing: 0.5,
                     textTransform: 'uppercase',
                   }}
                 />
               </div>
-              {familyCode.trim().length > 0 && (
-                <div style={{
-                  fontSize: 10, fontWeight: 700,
-                  color: discountPct > 0 ? D : '#e85a00',
-                  flexShrink: 0,
-                }}>
-                  {discountPct > 0 ? t('code_applied') : t('code_invalid')}
-                </div>
-              )}
+              {familyCode.trim().length > 0 && (() => {
+                const isValid = discountPct > 0 || ouardaActive || zubietaActive;
+                const label = isValid
+                  ? ouardaActive ? '✓ OUARDA · Precio especial'
+                    : zubietaActive ? '✓ ZUBIETA · Precio especial'
+                    : t('code_applied')
+                  : t('code_invalid');
+                return (
+                  <div style={{
+                    fontSize: 10, fontWeight: 700,
+                    color: isValid ? D : '#e85a00',
+                    flexShrink: 0,
+                  }}>
+                    {label}
+                  </div>
+                );
+              })()}
             </div>
 
             {/* Región */}
