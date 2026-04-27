@@ -1608,9 +1608,16 @@ export default function App() {
   const CODE = familyCode.trim().toUpperCase();
   const discountPct = CODE === 'FAMILY' ? 5 : 0;
   const ouardaActive = CODE === 'OUARDA';
-  // Precio Ouarda: Essential+Icons → 16,60€ fijo; Acetato sin cambio
+  const zubietaActive = CODE === 'ZUBIETA';
+  // Precios por código especial (IVA no incluido)
   const getItemPrice = (item) => {
-    if (ouardaActive && item.col !== 'Acetato') return 16.60;
+    if (ouardaActive) {
+      if (item.col !== 'Acetato') return 16.60;
+    }
+    if (zubietaActive) {
+      if (item.col === 'Acetato') return 20.90;
+      return 16.90; // Essential + Icons
+    }
     const col = COLLECTIONS.find(c => c.id === item.col);
     return col?.unitCost ?? unitPrice ?? DISPLAY_PRICE;
   };
@@ -1676,7 +1683,9 @@ export default function App() {
   const currentTier = getTier(cartCount);
   const nextTier = getNextTier(cartCount);
   const unitPrice = currentTier?.price ?? null;
-  const cartTotal = unitPrice ? unitPrice * cartCount : null;
+  const cartTotal = (ouardaActive || zubietaActive)
+    ? cartItems.reduce((sum, it) => sum + getItemPrice(it) * it.qty, 0)
+    : unitPrice ? unitPrice * cartCount : null;
 
   const addToCart = (id) => {
     setCart(c => ({ ...c, [id]: (c[id] || 0) + 1 }));
@@ -1746,7 +1755,7 @@ export default function App() {
     const lines = cartItems.map(it => `${it.qty}x ${it.name} (${it.col})`);
     const tierLabel = currentTier?.label || '';
     const priceLine = unitPrice != null
-      ? `${t('order_total_line')}: ${cartCount} ${t('panel_units')} × ${unitPrice.toFixed(2).replace('.', ',')}€ = ${cartTotal.toFixed(2).replace('.', ',')}€`
+      ? `${t('order_total_line')}: ${cartCount} ${t('panel_units')} × ${(ouardaActive ? 16.60 : zubietaActive ? 16.90 : unitPrice).toFixed(2).replace('.', ',')}€ = ${cartTotal.toFixed(2).replace('.', ',')}€`
       : t('order_plus60').replace('{n}', cartCount);
     const leadLine = lf.name || lf.store
       ? `\n${lf.name}${lf.store ? ' — ' + lf.store : ''}${lf.email ? ' — ' + lf.email : ''}`
@@ -1756,7 +1765,8 @@ export default function App() {
 
   const sendWhatsApp = (lf = {}) => {
     if (!cartItems.length) return;
-    if (typeof window !== 'undefined') window.open(`https://wa.me/${distributor.whatsapp}?text=${encodeURIComponent(buildOrderMessage(lf))}`, '_blank');
+    const waNumber = ouardaActive ? '34661018380' : distributor.whatsapp;
+    if (typeof window !== 'undefined') window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(buildOrderMessage(lf))}`, '_blank');
   };
   const sendEmail = (lf = {}) => {
     if (!cartItems.length) return;
@@ -3612,7 +3622,7 @@ export default function App() {
             currentTier={currentTier} nextTier={nextTier}
             unitPrice={unitPrice} cartTotal={cartTotal}
             familyCode={familyCode} setFamilyCode={setFamilyCode}
-            discountPct={discountPct}
+            discountPct={discountPct} ouardaActive={ouardaActive} zubietaActive={zubietaActive}
             onClose={() => setPanelOpen(false)}
             onUpdateQty={updateQty}
             onRemove={removeFromCart}
@@ -3738,7 +3748,7 @@ function LangSelector({ lang, onChange }) {
 function OrderPanel({
   t, lang, region, setRegion, distributor,
   cartItems, cartCount, currentTier, nextTier, unitPrice, cartTotal,
-  familyCode, setFamilyCode, discountPct,
+  familyCode, setFamilyCode, discountPct, ouardaActive, zubietaActive,
   onClose, onUpdateQty, onRemove, onSendWA, onSendEmail,
 }) {
   const isDistributor = distributor.name !== 'Minuë Opticians';
@@ -3776,12 +3786,14 @@ function OrderPanel({
     setStep(null);
   };
 
-  // Cálculos
-  const cost = cartItems.reduce((sum, item) => {
+  // Cálculos — usa precios de código especial si aplica
+  const getPrice = (item) => {
+    if (ouardaActive) return item.col === 'Acetato' ? (COLLECTIONS.find(c=>c.id==='Acetato')?.unitCost ?? 25.95) : 16.60;
+    if (zubietaActive) return item.col === 'Acetato' ? 20.90 : 16.90;
     const col = COLLECTIONS.find(c => c.id === item.col);
-    const itemCost = col?.unitCost ?? unitPrice ?? DISPLAY_PRICE;
-    return sum + itemCost * item.qty;
-  }, 0);
+    return col?.unitCost ?? unitPrice ?? DISPLAY_PRICE;
+  };
+  const cost = cartItems.reduce((sum, item) => sum + getPrice(item) * item.qty, 0);
   const revenue = cartItems.reduce((sum, item) => {
     const col = COLLECTIONS.find(c => c.id === item.col);
     return sum + (col?.rrp ?? 50) * item.qty;
@@ -3789,6 +3801,7 @@ function OrderPanel({
   const gainEur = revenue - cost;
   const gainPct = revenue > 0 ? Math.round((gainEur / revenue) * 100) : 0;
   const totalCost = discountPct > 0 ? cost * (1 - discountPct / 100) : cost;
+  const effectiveUnitPrice = ouardaActive ? 16.60 : zubietaActive ? 16.90 : unitPrice;
   const hasItems = cartItems.length > 0;
   const hasUrgent = cartItems.some(item => PRODUCTS.find(p => p.id === item.id)?.urgency === 'stock_low');
 
@@ -4013,13 +4026,14 @@ function OrderPanel({
 
             {/* Código de descuento */}
             <div style={{
-              padding: '10px 14px', marginBottom: 10, borderRadius: 6,
-              border: `1px solid ${discountPct > 0 ? D : G}22`,
-              background: discountPct > 0 ? `${D}08` : `${G}04`,
+              padding: '10px 14px', marginBottom: (ouardaActive || zubietaActive) ? 0 : 10, borderRadius: (ouardaActive || zubietaActive) ? '6px 6px 0 0' : 6,
+              border: `1px solid ${(discountPct > 0 || ouardaActive || zubietaActive) ? D : G}22`,
+              borderBottom: (ouardaActive || zubietaActive) ? 'none' : undefined,
+              background: (discountPct > 0 || ouardaActive || zubietaActive) ? `${D}08` : `${G}04`,
               display: 'flex', alignItems: 'center', gap: 8,
             }}>
               <div style={{ flex: 1 }}>
-                <div className="mn-label-xs" style={{ color: discountPct > 0 ? D : G, opacity: discountPct > 0 ? 1 : 0.5, marginBottom: 4 }}>
+                <div className="mn-label-xs" style={{ color: (discountPct > 0 || ouardaActive || zubietaActive) ? D : G, opacity: (discountPct > 0 || ouardaActive || zubietaActive) ? 1 : 0.5, marginBottom: 4 }}>
                   {t('code_label')}
                 </div>
                 <input
@@ -4030,21 +4044,75 @@ function OrderPanel({
                   style={{
                     width: '100%', background: 'transparent', border: 'none', outline: 'none',
                     fontSize: 13, fontFamily: 'DM Sans, sans-serif', fontWeight: 600,
-                    color: discountPct > 0 ? D : G, letterSpacing: 0.5,
+                    color: (discountPct > 0 || ouardaActive || zubietaActive) ? D : G, letterSpacing: 0.5,
                     textTransform: 'uppercase',
                   }}
                 />
               </div>
-              {familyCode.trim().length > 0 && (
-                <div style={{
-                  fontSize: 10, fontWeight: 700,
-                  color: discountPct > 0 ? D : '#e85a00',
-                  flexShrink: 0,
-                }}>
-                  {discountPct > 0 ? t('code_applied') : t('code_invalid')}
-                </div>
-              )}
+              {familyCode.trim().length > 0 && (() => {
+                const isValid = discountPct > 0 || ouardaActive || zubietaActive;
+                const label = isValid
+                  ? ouardaActive ? '✓ Precio especial'
+                    : zubietaActive ? '✓ Precio especial'
+                    : t('code_applied')
+                  : t('code_invalid');
+                return (
+                  <div style={{
+                    fontSize: 10, fontWeight: 700,
+                    color: isValid ? D : '#e85a00',
+                    flexShrink: 0,
+                  }}>
+                    {label}
+                  </div>
+                );
+              })()}
             </div>
+
+            {/* Bloque antes/después — solo para códigos con precio fijo */}
+            {(ouardaActive || zubietaActive) && (
+              <div style={{
+                padding: '10px 14px', marginBottom: 10,
+                borderRadius: '0 0 6px 6px',
+                border: `1px solid ${D}22`, borderTop: `1px dashed ${D}33`,
+                background: `${D}06`,
+              }}>
+                <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: 1.5, color: D, textTransform: 'uppercase', marginBottom: 8 }}>
+                  Precios con tu código
+                </div>
+                <div style={{ display: 'flex', gap: 8 }}>
+                  {/* Essential + Icons */}
+                  <div style={{ flex: 1, background: `rgba(255,255,255,0.5)`, borderRadius: 4, padding: '8px 10px' }}>
+                    <div style={{ fontSize: 9, opacity: 0.5, marginBottom: 4, fontWeight: 500 }}>Essential · Icons</div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                      <span style={{ fontSize: 11, textDecoration: 'line-through', opacity: 0.35, color: G }}>
+                        {unitPrice ? unitPrice.toFixed(2).replace('.', ',') + '€' : '—'}
+                      </span>
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={D} strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                      <span style={{ fontSize: 14, fontWeight: 800, color: D, fontFamily: 'DM Sans, sans-serif' }}>
+                        {ouardaActive ? '16,60€' : '16,90€'}
+                      </span>
+                    </div>
+                  </div>
+                  {/* Acetato */}
+                  <div style={{ flex: 1, background: `rgba(255,255,255,0.5)`, borderRadius: 4, padding: '8px 10px' }}>
+                    <div style={{ fontSize: 9, opacity: 0.5, marginBottom: 4, fontWeight: 500 }}>Acetato</div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                      <span style={{ fontSize: 11, textDecoration: 'line-through', opacity: 0.35, color: G }}>
+                        25,95€
+                      </span>
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={ouardaActive ? G : D} strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                      <span style={{ fontSize: 14, fontWeight: 800, color: ouardaActive ? G : D, fontFamily: 'DM Sans, sans-serif' }}>
+                        {ouardaActive ? '25,95€' : '20,90€'}
+                      </span>
+                    </div>
+                    {ouardaActive && <div style={{ fontSize: 8, opacity: 0.4, marginTop: 3 }}>sin cambio</div>}
+                  </div>
+                </div>
+                <div style={{ fontSize: 9, opacity: 0.45, marginTop: 8, fontStyle: 'italic' }}>
+                  * IVA no incluido · Precios aplicados automáticamente en tu pedido
+                </div>
+              </div>
+            )}
 
             {/* Región */}
             <div style={{
