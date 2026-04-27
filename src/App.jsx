@@ -1608,16 +1608,9 @@ export default function App() {
   const CODE = familyCode.trim().toUpperCase();
   const discountPct = CODE === 'FAMILY' ? 5 : 0;
   const ouardaActive = CODE === 'OUARDA';
-  const zubietaActive = CODE === 'ZUBIETA';
-  // Precios por código especial (IVA no incluido)
+  // Precio Ouarda: Essential+Icons → 16,60€ fijo; Acetato sin cambio
   const getItemPrice = (item) => {
-    if (ouardaActive) {
-      if (item.col !== 'Acetato') return 16.60;
-    }
-    if (zubietaActive) {
-      if (item.col === 'Acetato') return 20.90;
-      return 16.90; // Essential + Icons
-    }
+    if (ouardaActive && item.col !== 'Acetato') return 16.60;
     const col = COLLECTIONS.find(c => c.id === item.col);
     return col?.unitCost ?? unitPrice ?? DISPLAY_PRICE;
   };
@@ -1683,9 +1676,7 @@ export default function App() {
   const currentTier = getTier(cartCount);
   const nextTier = getNextTier(cartCount);
   const unitPrice = currentTier?.price ?? null;
-  const cartTotal = (ouardaActive || zubietaActive)
-    ? cartItems.reduce((sum, it) => sum + getItemPrice(it) * it.qty, 0)
-    : unitPrice ? unitPrice * cartCount : null;
+  const cartTotal = unitPrice ? unitPrice * cartCount : null;
 
   const addToCart = (id) => {
     setCart(c => ({ ...c, [id]: (c[id] || 0) + 1 }));
@@ -1765,8 +1756,7 @@ export default function App() {
 
   const sendWhatsApp = (lf = {}) => {
     if (!cartItems.length) return;
-    const waNumber = ouardaActive ? '34661018380' : distributor.whatsapp;
-    if (typeof window !== 'undefined') window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(buildOrderMessage(lf))}`, '_blank');
+    if (typeof window !== 'undefined') window.open(`https://wa.me/${distributor.whatsapp}?text=${encodeURIComponent(buildOrderMessage(lf))}`, '_blank');
   };
   const sendEmail = (lf = {}) => {
     if (!cartItems.length) return;
@@ -4029,7 +4019,7 @@ function OrderPanel({
               display: 'flex', alignItems: 'center', gap: 8,
             }}>
               <div style={{ flex: 1 }}>
-                <div className="mn-label-xs" style={{ color: (discountPct > 0 || ouardaActive || zubietaActive) ? D : G, opacity: (discountPct > 0 || ouardaActive || zubietaActive) ? 1 : 0.5, marginBottom: 4 }}>
+                <div className="mn-label-xs" style={{ color: discountPct > 0 ? D : G, opacity: discountPct > 0 ? 1 : 0.5, marginBottom: 4 }}>
                   {t('code_label')}
                 </div>
                 <input
@@ -4040,28 +4030,20 @@ function OrderPanel({
                   style={{
                     width: '100%', background: 'transparent', border: 'none', outline: 'none',
                     fontSize: 13, fontFamily: 'DM Sans, sans-serif', fontWeight: 600,
-                    color: (discountPct > 0 || ouardaActive || zubietaActive) ? D : G, letterSpacing: 0.5,
+                    color: discountPct > 0 ? D : G, letterSpacing: 0.5,
                     textTransform: 'uppercase',
                   }}
                 />
               </div>
-              {familyCode.trim().length > 0 && (() => {
-                const isValid = discountPct > 0 || ouardaActive || zubietaActive;
-                const label = isValid
-                  ? ouardaActive ? '✓ OUARDA · Precio especial'
-                    : zubietaActive ? '✓ ZUBIETA · Precio especial'
-                    : t('code_applied')
-                  : t('code_invalid');
-                return (
-                  <div style={{
-                    fontSize: 10, fontWeight: 700,
-                    color: isValid ? D : '#e85a00',
-                    flexShrink: 0,
-                  }}>
-                    {label}
-                  </div>
-                );
-              })()}
+              {familyCode.trim().length > 0 && (
+                <div style={{
+                  fontSize: 10, fontWeight: 700,
+                  color: discountPct > 0 ? D : '#e85a00',
+                  flexShrink: 0,
+                }}>
+                  {discountPct > 0 ? t('code_applied') : t('code_invalid')}
+                </div>
+              )}
             </div>
 
             {/* Región */}
