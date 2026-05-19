@@ -907,244 +907,244 @@ const PRODUCTS = [
   // ── ICONS — cada variante de color es su propia entrada, orden por ventas ─
 
   // Lawrence: 526 uds total — mayor vendedor Icons
-  { id:23,  name:"Lawrence Guiza",    col:"Icons", shape:"square", colors:["miel","dorado"],   rank:9,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776278426/fvfdcrfdwed_tkuq62.webp" , imgScale:1.2},
-  { id:123, name:"Lawrence Velvet",   col:"Icons", shape:"square", colors:["burdeos"],          rank:50, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777237096/IMG_5850_1296x_goovpe.webp" },
-  { id:124, name:"Lawrence Carey",    col:"Icons", shape:"square", colors:["carey"],            rank:51, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777237097/IMG_0266_1296x_rucknr.webp" },
-  { id:125, name:"Lawrence Bay",      col:"Icons", shape:"square", colors:["azul"],             rank:52, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777237096/Miproyecto_12_1512x_epy8bc.webp" },
-  { id:126, name:"Lawrence Caramel",  col:"Icons", shape:"square", colors:["caramelo"],         rank:53, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777237095/Miproyecto_11_900x_xuv5q1.webp" },
-  { id:127, name:"Lawrence Black",    col:"Icons", shape:"square", colors:["negro"],            rank:54, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776278426/fvfdcrfdwed_tkuq62.webp" },
+  { id:23,  name:"Lawrence Guiza",    col:"Icons", shape:"square", colors:["miel","dorado"],   rank:9,  img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/image_b5a853c2-8868-432d-b7a6-df3510f4be8c.webp" , imgScale:1.2},
+  { id:123, name:"Lawrence Velvet",   col:"Icons", shape:"square", colors:["burdeos"],          rank:50, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5843.jpg" },
+  { id:124, name:"Lawrence Carey",    col:"Icons", shape:"square", colors:["carey"],            rank:51, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0211.jpg" },
+  { id:125, name:"Lawrence Bay",      col:"Icons", shape:"square", colors:["azul"],             rank:52, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_4505.jpg" },
+  { id:126, name:"Lawrence Caramel",  col:"Icons", shape:"square", colors:["caramelo"],         rank:53, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_4508.jpg" },
+  { id:127, name:"Lawrence Black",    col:"Icons", shape:"square", colors:["negro"],            rank:54, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_4505.jpg" },
 
   // Lamarr: 495 uds total
-  { id:43,  name:"Lamarr Carbon Mate", col:"Icons", shape:"cateye", urgency:"hot", colors:["negro","carbono"], rank:3,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777235608/IMG_4646_1080x_w3jhp7.webp" , imgScale:1.25},
-  { id:130, name:"Lamarr Louvre",      col:"Icons", shape:"cateye",               colors:["beige","nude"],    rank:55, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776277706/LAMARRBIC_900x_nuvcqj.webp" },
-  { id:131, name:"Lamarr Carey",       col:"Icons", shape:"cateye",               colors:["carey"],           rank:56, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235607/IMG_4649_1080x_wxyeia.webp" },
-  { id:132, name:"Lamarr Dark",        col:"Icons", shape:"cateye",               colors:["marrón"],          rank:57, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235608/IMG_3772_1080x_rmz7kx.webp" },
+  { id:43,  name:"Lamarr Carbon Mate", col:"Icons", shape:"cateye", urgency:"hot", colors:["negro","carbono"], rank:3,  img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_4646.jpg" , imgScale:1.25},
+  { id:130, name:"Lamarr Louvre",      col:"Icons", shape:"cateye",               colors:["beige","nude"],    rank:55, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_4639.jpg" },
+  { id:131, name:"Lamarr Carey",       col:"Icons", shape:"cateye",               colors:["carey"],           rank:56, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_4649.jpg" },
+  { id:132, name:"Lamarr Dark",        col:"Icons", shape:"cateye",               colors:["marrón"],          rank:57, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_3772.jpg" },
 
   // Loren: 455 uds total (tiene imágenes individuales)
-  { id:24,  name:"Loren Carey",  col:"Icons", shape:"cateye", colors:["carey"],           rank:13, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776986730/LORENCAREY_1728x_edxhjx.webp" },
-  { id:96,  name:"Loren Toffee", col:"Icons", shape:"cateye", colors:["caramelo","marrón"],rank:36, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776986730/LORENTOFFEEMINUEWEB_1728x_oxyoj1.webp" },
-  { id:97,  name:"Loren Black",  col:"Icons", shape:"cateye", colors:["negro"],           rank:37, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776986729/IMG_8167_1296x_oqut39.webp" },
-  { id:95,  name:"Loren Cream",  col:"Icons", shape:"cateye", colors:["crema","beige"],   rank:38, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776986729/IMG_5845_1296x_egicjl.webp" },
+  { id:24,  name:"Loren Carey",  col:"Icons", shape:"cateye", colors:["carey"],           rank:13, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_4647.jpg" },
+  { id:96,  name:"Loren Toffee", col:"Icons", shape:"cateye", colors:["caramelo","marrón"],rank:36, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_4650.jpg" },
+  { id:97,  name:"Loren Black",  col:"Icons", shape:"cateye", colors:["negro"],           rank:37, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_8114.jpg" },
+  { id:95,  name:"Loren Cream",  col:"Icons", shape:"cateye", colors:["crema","beige"],   rank:38, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5838.jpg" },
 
   // Berry: 332 uds total
-  { id:30,  name:"Berry Tea",         col:"Icons", shape:"round", urgency:"trending", colors:["marrón","cálido"],  rank:10, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776278629/IMG_0263_720x_uln010.webp" , imgScale:1.2},
-  { id:140, name:"Berry Carbon",      col:"Icons", shape:"round",                    colors:["negro","carbono"],   rank:58, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777241614/IMG_0241_1080x_qkxc8c.webp" },
-  { id:141, name:"Berry Navy Blue",   col:"Icons", shape:"round",                    colors:["azul"],              rank:59, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777241615/IMG_0256_1080x_cvdsjb.webp" },
-  { id:142, name:"Berry Brown Carey", col:"Icons", shape:"round",                    colors:["marrón","carey"],    rank:60, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777241611/IMG_3770_1080x_zcz0yh.webp" },
-  { id:143, name:"Berry Leopard",     col:"Icons", shape:"round",                    colors:["marrón","negro"],    rank:61, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776278629/IMG_0263_720x_uln010.webp" },
-  { id:241, name:"Berry Carey",  col:"Icons", shape:"round", colors:["carey"],           rank:62, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777241612/IMG_0255_1080x_ii4ywg.webp" },
-  { id:242, name:"Berry Rosse",  col:"Icons", shape:"round", colors:["rosa","burdeos"],  rank:63, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777241613/IMG_3778_1080x_gohv9s.webp" },
+  { id:30,  name:"Berry Tea",         col:"Icons", shape:"round", urgency:"trending", colors:["marrón","cálido"],  rank:10, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0263.jpg" , imgScale:1.2},
+  { id:140, name:"Berry Carbon",      col:"Icons", shape:"round",                    colors:["negro","carbono"],   rank:58, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0241.jpg" },
+  { id:141, name:"Berry Navy Blue",   col:"Icons", shape:"round",                    colors:["azul"],              rank:59, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0256.jpg" },
+  { id:142, name:"Berry Brown Carey", col:"Icons", shape:"round",                    colors:["marrón","carey"],    rank:60, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_3770.jpg" },
+  { id:143, name:"Berry Leopard",     col:"Icons", shape:"round",                    colors:["marrón","negro"],    rank:61, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_3778.jpg" },
+  { id:241, name:"Berry Carey",  col:"Icons", shape:"round", colors:["carey"],           rank:62, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0255.jpg" },
+  { id:242, name:"Berry Rosse",  col:"Icons", shape:"round", colors:["rosa","burdeos"],  rank:63, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_3778.jpg" },
 
   // Makey: 300 uds (sin imagen)
-  { id:38,  name:"Makey Carey",        col:"Icons", shape:"rectangular", colors:["carey"],       rank:24, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777231858/MAKEYCAREYWEB_1080x_ncdvtb.webp" },
-  { id:150, name:"Makey Black",        col:"Icons", shape:"rectangular", colors:["negro"],        rank:62, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777231883/MAKEYBLACKWEB_1080x_ulaedl.webp" },
-  { id:151, name:"Makey Snow",         col:"Icons", shape:"rectangular", colors:["blanco"],       rank:63, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777231858/MBLNEGW_1080x_pxxqdf.webp" },
-  { id:152, name:"Makey Cherry",       col:"Icons", shape:"rectangular", colors:["rojo"],         rank:64, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777231858/MAKEYREDWEB_1080x_qvpsfw.webp" },
-  { id:153, name:"Makey Red Black",    col:"Icons", shape:"rectangular", colors:["rojo","negro"], rank:65, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777231858/M2_1080x_sjyy1u.webp" },
+  { id:38,  name:"Makey Carey",        col:"Icons", shape:"rectangular", colors:["carey"],       rank:24, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/MAKEYCAREYWEB.png" },
+  { id:150, name:"Makey Black",        col:"Icons", shape:"rectangular", colors:["negro"],        rank:62, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/MAKEYBLACKWEB.png" },
+  { id:151, name:"Makey Snow",         col:"Icons", shape:"rectangular", colors:["blanco"],       rank:63, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/MBLNEGW.png" },
+  { id:152, name:"Makey Cherry",       col:"Icons", shape:"rectangular", colors:["rojo"],         rank:64, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/MAKEYREDWEB.png" },
+  { id:153, name:"Makey Red Black",    col:"Icons", shape:"rectangular", colors:["rojo","negro"], rank:65, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/M2.png" },
 
   // Aretha: 220 uds (sin imagen — Roses descatalogado)
-  { id:40,  name:"Aretha Carey", col:"Icons", shape:"round", colors:["carey"], rank:25, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777232755/IMG_8156_1080x_akqlyh.webp" },
-  { id:160, name:"Aretha Black", col:"Icons", shape:"round", colors:["negro"], rank:67, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777232755/IMG_8160_1080x_tvssen.webp" },
-  { id:223, name:"Aretha Rosse", col:"Icons", shape:"round", colors:["rosa"],  rank:68, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777232754/IMG_8147_1080x_pjprsu.webp" },
+  { id:40,  name:"Aretha Carey", col:"Icons", shape:"round", colors:["carey"], rank:25, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_8156.jpg" },
+  { id:160, name:"Aretha Black", col:"Icons", shape:"round", colors:["negro"], rank:67, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_8160.jpg" },
+  { id:223, name:"Aretha Rosse", col:"Icons", shape:"round", colors:["rosa"],  rank:68, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_8147.jpg" },
 
   // Ziyi: ~200 uds (sin imagen — nombres con color primero en CSV)
-  { id:42,  name:"Ziyi Mandarina", col:"Icons", shape:"square", colors:["naranja"],  rank:26, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777232015/IMG_5842_1512x_xgnwe0.webp" , imgScale:1.15},
-  { id:161, name:"Ziyi Ágata",     col:"Icons", shape:"square", colors:["verde"],    rank:68, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777232015/IMG_5839_1080x_c2fyio.webp" },
-  { id:162, name:"Ziyi Ámbar",     col:"Icons", shape:"square", colors:["ámbar"],   rank:69, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777232014/IMG_5840_1080x_bzjtbw.webp" },
-  { id:163, name:"Ziyi Jaspe",     col:"Icons", shape:"square", colors:["marrón"],  rank:70, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777232015/IMG_5844_1080x_pqlbnu.webp" },
-  { id:164, name:"Ziyi Rosas",     col:"Icons", shape:"square", colors:["rosa"],    rank:71, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777232015/IMG_0220_1080x_wf6yrs.webp" },
+  { id:42,  name:"Ziyi Mandarina", col:"Icons", shape:"square", colors:["naranja"],  rank:26, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5840.jpg" , imgScale:1.15},
+  { id:161, name:"Ziyi Ágata",     col:"Icons", shape:"square", colors:["verde"],    rank:68, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5839.jpg" },
+  { id:162, name:"Ziyi Ámbar",     col:"Icons", shape:"square", colors:["ámbar"],   rank:69, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5840.jpg" },
+  { id:163, name:"Ziyi Jaspe",     col:"Icons", shape:"square", colors:["marrón"],  rank:70, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5844.jpg" },
+  { id:164, name:"Ziyi Rosas",     col:"Icons", shape:"square", colors:["rosa"],    rank:71, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0220.jpg" },
 
   // Karina: 158 uds (sin imagen)
-  { id:41,  name:"Karina Jade",  col:"Icons", shape:"cateye", colors:["verde"],          rank:27, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777232565/Minueoptician210222-010_1080x_cdjfa1.webp" , imgScale:1.25},
-  { id:170, name:"Karina Ruby",  col:"Icons", shape:"cateye", colors:["rojo"],           rank:72, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777232564/Minueoptician210222-011_1080x_ys1csw.webp" },
-  { id:171, name:"Karina Black", col:"Icons", shape:"cateye", colors:["negro"],          rank:73, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777232564/IMG_4507_1080x_ukknez.webp" },
-  { id:172, name:"Karina Copo",  col:"Icons", shape:"cateye", colors:["blanco","crema"], rank:74, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777232564/IMG_0235_1080x_cmzzxa.webp" },
+  { id:41,  name:"Karina Jade",  col:"Icons", shape:"cateye", colors:["verde"],          rank:27, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/Minueoptician210222-010.jpg" , imgScale:1.25},
+  { id:170, name:"Karina Ruby",  col:"Icons", shape:"cateye", colors:["rojo"],           rank:72, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/Minueoptician210222-011.jpg" },
+  { id:171, name:"Karina Black", col:"Icons", shape:"cateye", colors:["negro"],          rank:73, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_4507.jpg" },
+  { id:172, name:"Karina Copo",  col:"Icons", shape:"cateye", colors:["blanco","crema"], rank:74, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0235.jpg" },
 
   // Maclaine: 306 uds (TÉ MACLAINE 173 + BLACK 131, sin imagen)
-  { id:25,  name:"Maclaine Tea",   col:"Icons", shape:"round", colors:["marrón","cálido"], rank:28, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233400/IMG_4503_1080x_qgdqtl.webp" , imgScale:1.25},
-  { id:180, name:"Maclaine Black", col:"Icons", shape:"round", colors:["negro"],            rank:75, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233400/IMG_4504_1080x_su4xqk.webp" },
+  { id:25,  name:"Maclaine Tea",   col:"Icons", shape:"round", colors:["marrón","cálido"], rank:28, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_4503.jpg" , imgScale:1.25},
+  { id:180, name:"Maclaine Black", col:"Icons", shape:"round", colors:["negro"],            rank:75, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_4504.jpg" },
 
   // Cleo: 127 uds (tiene imágenes)
-  { id:28,  name:"Cleo Tea",   col:"Icons", shape:"cateye", colors:["marrón","cálido"], rank:14, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776986729/IMG_2571_3f836e1a-078b-4f97-8b6e-0e6d0dbc30d7_1512x_qkwmvv.webp" },
-  { id:98,  name:"Cleo Black",  col:"Icons", shape:"cateye", colors:["negro"],           rank:29, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776986729/IMG_2568_0cdea3e3-91be-451b-97a0-301f495895da_1512x_pmfpjj.webp" },
+  { id:28,  name:"Cleo Tea",   col:"Icons", shape:"cateye", colors:["marrón","cálido"], rank:14, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_2571_3f836e1a-078b-4f97-8b6e-0e6d0dbc30d7.jpg" },
+  { id:98,  name:"Cleo Black",  col:"Icons", shape:"cateye", colors:["negro"],           rank:29, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_2568_0cdea3e3-91be-451b-97a0-301f495895da.jpg" },
 
   // Thurman: 147 uds (sin imagen — CARBONO THURMAN en CSV)
-  { id:34,  name:"Thurman Carey",   col:"Essential", shape:"rectangular", colors:["carey"],          rank:30, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777230867/IMG_2556_1512x_tmkqfm.webp" , imgScale:1.3},
-  { id:181, name:"Thurman Cloud",   col:"Essential", shape:"rectangular", colors:["gris"],            rank:76, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777230867/IMG_3764_1512x_wku82m.webp" },
-  { id:182, name:"Thurman Black",   col:"Essential", shape:"rectangular", colors:["negro"],           rank:77, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777230866/IMG_2553_1512x_wavffv.webp" },
-  { id:184, name:"Thurman Ember",   col:"Essential", shape:"rectangular", colors:["naranja"],         rank:79, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777230866/IMG_5592_1512x_eaobsj.webp" },
-  { id:183, name:"Thurman Caramel", col:"Essential", shape:"rectangular", colors:["caramelo"],        rank:78, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777230866/IMG_5625_1512x_pt0pwp.webp" },
+  { id:34,  name:"Thurman Carey",   col:"Essential", shape:"rectangular", colors:["carey"],          rank:30, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_2556.jpg" , imgScale:1.3},
+  { id:181, name:"Thurman Cloud",   col:"Essential", shape:"rectangular", colors:["gris"],            rank:76, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_3764.jpg" },
+  { id:182, name:"Thurman Black",   col:"Essential", shape:"rectangular", colors:["negro"],           rank:77, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_2553.jpg" },
+  { id:184, name:"Thurman Ember",   col:"Essential", shape:"rectangular", colors:["naranja"],         rank:79, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5592.jpg" },
+  { id:183, name:"Thurman Caramel", col:"Essential", shape:"rectangular", colors:["caramelo"],        rank:78, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5625.jpg" },
 
   // Harlow: 117 uds (sin imagen)
-  { id:37,  name:"Harlow Gold Green", col:"Icons", shape:"panto", colors:["dorado","verde"],  rank:31 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233643/Myproject-1_4_1080x_b7yaek.webp" },
-  { id:185, name:"Harlow Gold Brown", col:"Icons", shape:"panto", colors:["dorado","marrón"], rank:80 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233642/IMG_0251_1080x_hsbmjz.webp" },
-  { id:186, name:"Harlow Gold Black", col:"Icons", shape:"panto", colors:["dorado","negro"],  rank:81 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233642/Myproject-1_1080x_hbofmp.webp" },
+  { id:37,  name:"Harlow Gold Green", col:"Icons", shape:"panto", colors:["dorado","verde"],  rank:31 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/Myproject-1_4.png" },
+  { id:185, name:"Harlow Gold Brown", col:"Icons", shape:"panto", colors:["dorado","marrón"], rank:80 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0251.jpg" },
+  { id:186, name:"Harlow Gold Black", col:"Icons", shape:"panto", colors:["dorado","negro"],  rank:81 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/Myproject-1.png" },
 
   // Roberts: 100 uds (tiene imágenes)
-  { id:33,  name:"Roberts Carrot", col:"Icons", shape:"square", colors:["naranja"],  rank:32, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776986920/IMG_2576_900x_z2fnsz.webp" },
-  { id:93,  name:"Roberts Peanut", col:"Icons", shape:"square", colors:["marrón"],   rank:33, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776986920/IMG_2575_1296x_b9smpp.webp" },
-  { id:94,  name:"Roberts Salmon", col:"Icons", shape:"square", colors:["rosa"],     rank:34, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776986920/IMG_3775_1512x_iapwst.webp" },
-  { id:220, name:"Roberts Black",  col:"Icons", shape:"square", colors:["negro"],    rank:35, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776986920/IMG_3768_1512x_g5gmge.webp" },
+  { id:33,  name:"Roberts Carrot", col:"Icons", shape:"square", colors:["naranja"],  rank:32, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_2547.jpg" },
+  { id:93,  name:"Roberts Peanut", col:"Icons", shape:"square", colors:["marrón"],   rank:33, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_2546.jpg" },
+  { id:94,  name:"Roberts Salmon", col:"Icons", shape:"square", colors:["rosa"],     rank:34, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_3775.jpg" },
+  { id:220, name:"Roberts Black",  col:"Icons", shape:"square", colors:["negro"],    rank:35, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_3768.jpg" },
 
   // Moore: 90 uds (tiene imagen)
-  { id:27,  name:"Moore Black", col:"Icons", shape:"rectangular", colors:["negro"], rank:35, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776986730/MOOREBLACK_2048x_olbjuu.webp" },
+  { id:27,  name:"Moore Black", col:"Icons", shape:"rectangular", colors:["negro"], rank:35, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/MOOREBLACK.png" },
 
   // Gugu: 73 uds (tiene imágenes)
-  { id:26,  name:"Gugu Gold Green",       col:"Icons", shape:"geometric", urgency:"stock_low", colors:["dorado","verde"],         rank:4,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776277357/84_vxh8iz.png" },
-  { id:64,  name:"Gugu Gold Brown Carey", col:"Icons", shape:"geometric",                      colors:["dorado","marrón","carey"],rank:36, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590220/196_mctzzt.png" },
+  { id:26,  name:"Gugu Gold Green",       col:"Icons", shape:"geometric", urgency:"stock_low", colors:["dorado","verde"],         rank:4,  img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/GUGUGOLDGREENMINUEWEB.png" },
+  { id:64,  name:"Gugu Gold Brown Carey", col:"Icons", shape:"geometric",                      colors:["dorado","marrón","carey"],rank:36, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/GUGUGOLDGREENMINUEWEB.png" },
 
   // Foster: 60 uds (sin imagen)
-  { id:32,  name:"Foster Gold Brown",   col:"Icons", shape:"panto", colors:["dorado","marrón"], rank:37 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233952/IMG_0246_1080x_lecyyk.webp" },
-  { id:187, name:"Foster Carbon Black", col:"Icons", shape:"panto", colors:["negro","carbono"], rank:82 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233953/IMG_0250_1080x_hgn78a.webp" },
-  { id:188, name:"Foster Gold Grey",    col:"Icons", shape:"panto", colors:["dorado","gris"],   rank:83 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233953/IMG_0248_1080x_zfmzfl.webp" },
+  { id:32,  name:"Foster Gold Brown",   col:"Icons", shape:"panto", colors:["dorado","marrón"], rank:37 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0246.jpg" },
+  { id:187, name:"Foster Carbon Black", col:"Icons", shape:"panto", colors:["negro","carbono"], rank:82 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0250.jpg" },
+  { id:188, name:"Foster Gold Grey",    col:"Icons", shape:"panto", colors:["dorado","gris"],   rank:83 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0248.jpg" },
 
   // Lane: 135 uds (sin imagen)
-  { id:36,  name:"Lane Grass",      col:"Essential", shape:"round", colors:["verde"],           rank:38, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777231418/IMG_3769_1512x_a7rtfi.webp" , imgScale:1.3},
-  { id:190, name:"Lane Tea",        col:"Essential", shape:"round", colors:["marrón","cálido"],  rank:84, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777231418/IMG_3771_1512x_nvruml.webp" },
-  { id:191, name:"Lane Light Blue", col:"Essential", shape:"round", colors:["azul"],             rank:85, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777231418/IMG_3766_1512x_wrb3vz.webp" },
-  { id:192, name:"Lane Ámbar",      col:"Essential", shape:"round", colors:["ámbar"],            rank:86, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777231418/IMG_3765_0ea890dd-6f6c-4337-99c9-739cea390cba_1512x_zg7bhj.webp" },
+  { id:36,  name:"Lane Grass",      col:"Essential", shape:"round", colors:["verde"],           rank:38, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_3769.jpg" , imgScale:1.3},
+  { id:190, name:"Lane Tea",        col:"Essential", shape:"round", colors:["marrón","cálido"],  rank:84, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_3771.jpg" },
+  { id:191, name:"Lane Light Blue", col:"Essential", shape:"round", colors:["azul"],             rank:85, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_3766.jpg" },
+  { id:192, name:"Lane Ámbar",      col:"Essential", shape:"round", colors:["ámbar"],            rank:86, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_3765.jpg" },
   { id:193, name:"Lane Black",      col:"Essential", shape:"round", colors:["negro"],            rank:87 },
-  { id:194, name:"Lane Carey",      col:"Essential", shape:"round", colors:["carey"],            rank:88, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777231418/IMG_3767_d9fd096e-b787-435c-9c15-18dd34ea86ce_1080x_wkewlp.webp" },
-  { id:222, name:"Lane Opal",       col:"Essential", shape:"round", colors:["blanco","perla"],   rank:89, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777231418/IMG_3776_1512x_atccne.webp" },
+  { id:194, name:"Lane Carey",      col:"Essential", shape:"round", colors:["carey"],            rank:88, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_3767_d9fd096e-b787-435c-9c15-18dd34ea86ce.jpg" },
+  { id:222, name:"Lane Opal",       col:"Essential", shape:"round", colors:["blanco","perla"],   rank:89, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_3776.jpg" },
 
   // Carrol: 53 uds (sin imagen)
-  { id:39,  name:"Carrol Cedar", col:"Icons", shape:"oval", colors:["marrón","cedro"], rank:39 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235618/IMG_0254_1080x_ayvfd4.webp" },
-  { id:195, name:"Carrol Rowan", col:"Icons", shape:"oval", colors:["gris"],           rank:89 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235617/IMG_0258_1080x_ueg64y.webp" },
+  { id:39,  name:"Carrol Cedar", col:"Icons", shape:"oval", colors:["marrón","cedro"], rank:39 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0254.jpg" },
+  { id:195, name:"Carrol Rowan", col:"Icons", shape:"oval", colors:["gris"],           rank:89 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0258.jpg" },
 
   // Mirren: 50 uds (sin imagen — TÉ MIRREN en CSV)
-  { id:35,  name:"Mirren Tea",   col:"Icons", shape:"oval", colors:["marrón","cálido"], rank:40 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233652/IMG_4510_1080x_nyfbyr.webp" , imgScale:1.2},
-  { id:196, name:"Mirren Carey", col:"Icons", shape:"oval", colors:["carey"],           rank:90 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233651/IMG_0212_1080x_bhj4hf.webp" },
-  { id:197, name:"Mirren Black", col:"Icons", shape:"oval", colors:["negro"],           rank:91 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233643/IMG_4511_1080x_uhdghh.webp" },
+  { id:35,  name:"Mirren Tea",   col:"Icons", shape:"oval", colors:["marrón","cálido"], rank:40 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_4510.jpg" , imgScale:1.2},
+  { id:196, name:"Mirren Carey", col:"Icons", shape:"oval", colors:["carey"],           rank:90 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0212.jpg" },
+  { id:197, name:"Mirren Black", col:"Icons", shape:"oval", colors:["negro"],           rank:91 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_4511.jpg" },
 
   // Grant: 37 uds (sin imagen)
-  { id:29,  name:"Grant Carey",   col:"Icons", shape:"rectangular", colors:["carey"],    rank:41 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233753/IMG_5612_1512x_beesly.webp" },
-  { id:198, name:"Grant Caramel", col:"Icons", shape:"rectangular", colors:["caramelo"], rank:92 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233753/IMG_5613_1080x_qqay9v.webp" },
-  { id:199, name:"Grant Black",   col:"Icons", shape:"rectangular", colors:["negro"],    rank:93 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233752/IMG_5614_1512x_ocrzst.webp" },
+  { id:29,  name:"Grant Carey",   col:"Icons", shape:"rectangular", colors:["carey"],    rank:41 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5612.jpg" },
+  { id:198, name:"Grant Caramel", col:"Icons", shape:"rectangular", colors:["caramelo"], rank:92 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5613.jpg" },
+  { id:199, name:"Grant Black",   col:"Icons", shape:"rectangular", colors:["negro"],    rank:93 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5614.jpg" },
 
   // Kerr: 16 uds (sin imagen)
 
   // Stone: 13 uds (sin imagen)
-  { id:31,  name:"Stone Gold Black", col:"Icons", shape:"square", colors:["dorado","negro"], rank:42 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235611/IMG_0231_1080x_houngo.webp" },
-  { id:225, name:"Stone Gold Brown", col:"Icons", shape:"square", colors:["dorado","marrón"], rank:43, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235612/IMG_0217_1080x_lghewj.webp" },
+  { id:31,  name:"Stone Gold Black", col:"Icons", shape:"square", colors:["dorado","negro"], rank:42 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0231.jpg" },
+  { id:225, name:"Stone Gold Brown", col:"Icons", shape:"square", colors:["dorado","marrón"], rank:43, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0217.jpg" },
 
   // ── ESSENTIAL ────────────────────────────────────────────────────────
-  { id:1,  name:"Bergman Noire",       col:"Essential", shape:"rectangular", urgency:"stock_low", colors:["negro","carey"],  rank:46,  isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590223/221_oeycry.png" },
-  { id:54, name:"Bergman Honey",       col:"Essential", shape:"rectangular",                      colors:["miel","cálido"],  rank:15, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590223/220_mutoia.png" },
-  { id:3,  name:"Bergman Rust",        col:"Essential", shape:"rectangular",                      colors:["marrón","cálido"],rank:44, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590223/217_skjewv.png" },
-  { id:55, name:"Bergman Carey Brown", col:"Essential", shape:"rectangular",                      colors:["carey","marrón"], rank:1, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590222/213_r9bzfx.png" },
-  { id:56, name:"Bergman Carbon",      col:"Essential", shape:"rectangular",                      colors:["negro","carbono"],rank:46, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590222/211_mv2omz.png" },
-  { id:57, name:"Bergman Brown",       col:"Essential", shape:"rectangular",                      colors:["marrón"],         rank:16, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590222/210_jnsxlo.png" },
-  { id:62, name:"Bergman Carey",       col:"Essential", shape:"rectangular",                      colors:["carey"],          rank:48, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590221/199_roiwuk.png" },
+  { id:1,  name:"Bergman Noire",       col:"Essential", shape:"rectangular", urgency:"stock_low", colors:["negro","carey"],  rank:46,  isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/162_e0717571-de57-4592-a6c6-72077ee6b45c.png" },
+  { id:54, name:"Bergman Honey",       col:"Essential", shape:"rectangular",                      colors:["miel","cálido"],  rank:15, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/162.png" },
+  { id:3,  name:"Bergman Rust",        col:"Essential", shape:"rectangular",                      colors:["marrón","cálido"],rank:44, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/209.png" },
+  { id:55, name:"Bergman Carey Brown", col:"Essential", shape:"rectangular",                      colors:["carey","marrón"], rank:1, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/BERGMANCAREY.png" },
+  { id:56, name:"Bergman Carbon",      col:"Essential", shape:"rectangular",                      colors:["negro","carbono"],rank:46, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/162_e0717571-de57-4592-a6c6-72077ee6b45c.png" },
+  { id:57, name:"Bergman Brown",       col:"Essential", shape:"rectangular",                      colors:["marrón"],         rank:16, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/159.png" },
+  { id:62, name:"Bergman Carey",       col:"Essential", shape:"rectangular",                      colors:["carey"],          rank:48, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/BERGMANCAREY.png" },
   // Deneuve: 55 uds (sin imagen)
-  { id:8,   name:"Deneuve Tea",   col:"Essential", shape:"cateye", colors:["marrón","cálido"],rank:49 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235619/4_1080x_tpnoai.webp" , imgScale:1.2},
-  { id:202, name:"Deneuve Carey", col:"Essential", shape:"cateye", colors:["carey"],          rank:96 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235618/5_1080x_a6mvkj.webp" },
-  { id:203, name:"Deneuve Apple", col:"Essential", shape:"cateye", colors:["verde"],          rank:97 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235619/3_1512x_qlli1g.webp" },
+  { id:8,   name:"Deneuve Tea",   col:"Essential", shape:"cateye", colors:["marrón","cálido"],rank:49 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/4.png" , imgScale:1.2},
+  { id:202, name:"Deneuve Carey", col:"Essential", shape:"cateye", colors:["carey"],          rank:96 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/5.png" },
+  { id:203, name:"Deneuve Apple", col:"Essential", shape:"cateye", colors:["verde"],          rank:97 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/3.png" },
   // Bacall: 40 uds (sin imagen)
   // Cooper II: 53 uds (sin imagen)
-  { id:19,  name:"Cooper II Grass",     col:"Essential", shape:"round", colors:["verde"],   rank:49 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235612/IMG_5620_1080x_qgcmby.webp" , imgScale:1.3},
-  { id:207, name:"Cooper II Buttercup", col:"Essential", shape:"round", colors:["amarillo"],rank:101 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235613/IMG_5622_1512x_1_vdhrbl.webp" },
-  { id:208, name:"Cooper II Sierra",    col:"Essential", shape:"round", colors:["marrón"],  rank:102 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235614/IMG_5616_1080x_rfydzw.webp" },
-  { id:209, name:"Cooper II Caramel",     col:"Essential", shape:"round", colors:["caramelo"],   rank:103 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235616/IMG_5615_1080x_n9xtaq.webp" },
+  { id:19,  name:"Cooper II Grass",     col:"Essential", shape:"round", colors:["verde"],   rank:49 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5620.jpg" , imgScale:1.3},
+  { id:207, name:"Cooper II Buttercup", col:"Essential", shape:"round", colors:["amarillo"],rank:101 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5622.jpg" },
+  { id:208, name:"Cooper II Sierra",    col:"Essential", shape:"round", colors:["marrón"],  rank:102 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5616.jpg" },
+  { id:209, name:"Cooper II Caramel",     col:"Essential", shape:"round", colors:["caramelo"],   rank:103 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5615.jpg" },
   { id:233, name:"Cooper II Tiger", col:"Essential", shape:"round", colors:["tigre","carey"], rank:113 },
-  { id:210, name:"Cooper II Moonlight", col:"Essential", shape:"round", colors:["beige"],   rank:104 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235614/IMG_5619_1080x_ngaigy.webp" },
-  { id:211, name:"Cooper II Havana",    col:"Essential", shape:"round", colors:["havana"],  rank:105 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235615/IMG_5618_1080x_qokuvs.webp" },
+  { id:210, name:"Cooper II Moonlight", col:"Essential", shape:"round", colors:["beige"],   rank:104 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5619.jpg" },
+  { id:211, name:"Cooper II Havana",    col:"Essential", shape:"round", colors:["havana"],  rank:105 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5618.jpg" },
   // Hart: 37 uds
-  { id:7,   name:"Hart Honey",  col:"Essential", shape:"square", colors:["miel","cálido"],  rank:51, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590199/72_jjyjef.png" },
-  { id:83,  name:"Hart Carey",  col:"Essential", shape:"square", colors:["carey"],          rank:17, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590192/20_ovz0a0.png" },
-  { id:86,  name:"Hart Sunset", col:"Essential", shape:"square", colors:["naranja","cálido"],rank:53, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590194/36_oxag8z.png" },
+  { id:7,   name:"Hart Honey",  col:"Essential", shape:"square", colors:["miel","cálido"],  rank:51, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Captura_de_pantalla_2025-05-26_a_las_12.54.08.png" },
+  { id:83,  name:"Hart Carey",  col:"Essential", shape:"square", colors:["carey"],          rank:17, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/24651be0773ae9139225c10bff875975.png" },
+  { id:86,  name:"Hart Sunset", col:"Essential", shape:"square", colors:["naranja","cálido"],rank:53, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/24651be0773ae9139225c10bff875975.png" },
   // Roger: 36 uds (isNew SS26)
-  { id:54,  name:"Roger Carey",  col:"Essential", shape:"rectangular", colors:["carey"],        rank:54, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590224/230_ybcxjk.png" },
-  { id:55,  name:"Roger Velvet", col:"Essential", shape:"rectangular", colors:["burdeos"],      rank:55, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590224/229_puavtb.png" },
-  { id:56,  name:"Roger Wine",   col:"Essential", shape:"rectangular", colors:["burdeos","rojo"],rank:56, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590224/227_xigzba.png" },
+  { id:54,  name:"Roger Carey",  col:"Essential", shape:"rectangular", colors:["carey"],        rank:54, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/ROGERSCAREYWEBMINUEGAFASDESOL.png" },
+  { id:55,  name:"Roger Velvet", col:"Essential", shape:"rectangular", colors:["burdeos"],      rank:55, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/ROGERSTANT.png" },
+  { id:56,  name:"Roger Wine",   col:"Essential", shape:"rectangular", colors:["burdeos","rojo"],rank:56, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/ROGERSTANT.png" },
   // Bolden: rank 6 top pick
   { id:16,  name:"Bolden Wine",  col:"Essential", shape:"rectangular", colors:["burdeos"], rank:55 },
-  { id:63,  name:"Bolden Oliva", col:"Essential", shape:"rectangular", colors:["verde"],         rank:57, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590220/195_qakpdg.png" },
-  { id:66,  name:"Bolden Ebony", col:"Essential", shape:"rectangular", colors:["negro"],          rank:58, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590220/193_bjptue.png" },
-  { id:65,  name:"Bolden Nude",  col:"Essential", shape:"rectangular", colors:["nude"],           rank:59, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590220/192_mvmgmk.png" },
-  { id:60,  name:"Bolden Bruma", col:"Essential", shape:"rectangular", colors:["gris","neutro"],  rank:6, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590220/194_hwuk8l.png" },
+  { id:63,  name:"Bolden Oliva", col:"Essential", shape:"rectangular", colors:["verde"],         rank:57, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/MINUE_12.png" },
+  { id:66,  name:"Bolden Ebony", col:"Essential", shape:"rectangular", colors:["negro"],          rank:58, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/193.png" },
+  { id:65,  name:"Bolden Nude",  col:"Essential", shape:"rectangular", colors:["nude"],           rank:59, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/MINUE_11.png" },
+  { id:60,  name:"Bolden Bruma", col:"Essential", shape:"rectangular", colors:["gris","neutro"],  rank:6, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/194.png" },
   // Rainer: 20 uds
-  { id:10,  name:"Rainer Mandarine", col:"Essential", shape:"round", colors:["naranja"], rank:61, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590208/116_z2owvq.png" },
-  { id:74,  name:"Rainer Carey",     col:"Essential", shape:"round", colors:["carey"],   rank:62, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590208/115_xhcrlb.png" },
+  { id:10,  name:"Rainer Mandarine", col:"Essential", shape:"round", colors:["naranja"], rank:61, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/8.png" },
+  { id:74,  name:"Rainer Carey",     col:"Essential", shape:"round", colors:["carey"],   rank:62, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/10.png" },
   // Arielle: rank 7 top pick
-  { id:11,  name:"Arielle Dusty",  col:"Essential", shape:"oval", colors:["rosa","beige"],rank:7,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590207/105_wxiarw.png" },
-  { id:78,  name:"Arielle Carey",  col:"Essential", shape:"oval", colors:["carey"],       rank:63, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590207/104_ijc9wd.png" },
-  { id:82,  name:"Arielle Velvet", col:"Essential", shape:"oval", colors:["burdeos"],     rank:64, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590200/75_zjvevs.png" },
+  { id:11,  name:"Arielle Dusty",  col:"Essential", shape:"oval", colors:["rosa","beige"],rank:7,  img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/53.png" },
+  { id:78,  name:"Arielle Carey",  col:"Essential", shape:"oval", colors:["carey"],       rank:63, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/54.png" },
+  { id:82,  name:"Arielle Velvet", col:"Essential", shape:"oval", colors:["burdeos"],     rank:64, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/55.png" },
   // Blyth: 11 uds
-  { id:18,  name:"Blyth Emerald", col:"Essential", shape:"rectangular", colors:["verde"], rank:65, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590210/124_a4teov.png" },
-  { id:70,  name:"Blyth Carey",   col:"Essential", shape:"rectangular", colors:["carey"], rank:66, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590210/123_pucyjo.png" },
+  { id:18,  name:"Blyth Emerald", col:"Essential", shape:"rectangular", colors:["verde"], rank:65, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/11.png" },
+  { id:70,  name:"Blyth Carey",   col:"Essential", shape:"rectangular", colors:["carey"], rank:66, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/12.png" },
   // Hedy: rank 8 top pick
-  { id:15,  name:"Hedy Guiza",  col:"Essential", shape:"round", colors:["miel","dorado"], rank:8,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590207/109_lmyt8j.png" },
-  { id:87,  name:"Hedy Matcha", col:"Essential", shape:"round", colors:["verde"],          rank:67, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777238291/38_1080x_g67jni.webp" },
-  { id:88,  name:"Hedy Carey",  col:"Essential", shape:"round", colors:["carey"],          rank:68, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590194/39_j5xr3i.png" },
+  { id:15,  name:"Hedy Guiza",  col:"Essential", shape:"round", colors:["miel","dorado"], rank:8,  img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/37.png" },
+  { id:87,  name:"Hedy Matcha", col:"Essential", shape:"round", colors:["verde"],          rank:67, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/38.png" },
+  { id:88,  name:"Hedy Carey",  col:"Essential", shape:"round", colors:["carey"],          rank:68, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/37.png" },
   // Colette: 14 uds
-  { id:14,  name:"Colette Burnt",  col:"Essential", shape:"cateye", colors:["naranja"], rank:69, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590209/119_twux0d.png" },
-  { id:73,  name:"Colette Jungle", col:"Essential", shape:"cateye", colors:["verde"],   rank:70, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590209/118_qjnnlr.png" },
-  { id:89,  name:"Colette Cocoa",  col:"Essential", shape:"cateye", colors:["marrón"],  rank:18, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590195/44_xyxshu.png" },
+  { id:14,  name:"Colette Burnt",  col:"Essential", shape:"cateye", colors:["naranja"], rank:69, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/46.png" },
+  { id:73,  name:"Colette Jungle", col:"Essential", shape:"cateye", colors:["verde"],   rank:70, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/118.png" },
+  { id:89,  name:"Colette Cocoa",  col:"Essential", shape:"cateye", colors:["marrón"],  rank:18, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/44.png" },
   // Dover: 15 uds
-  { id:12,  name:"Dover Hunter Blend", col:"Essential", shape:"rectangular", colors:["verde"],          rank:72, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590196/47_lzlfga.png" },
-  { id:90,  name:"Dover Tea",          col:"Essential", shape:"rectangular", colors:["marrón","cálido"],rank:73, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590197/48_ocj5up.png" },
-  { id:91,  name:"Dover Shadow",       col:"Essential", shape:"rectangular", colors:["gris"],           rank:74, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590197/48_ocj5up.png" },
+  { id:12,  name:"Dover Hunter Blend", col:"Essential", shape:"rectangular", colors:["verde"],          rank:72, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/47.png" },
+  { id:90,  name:"Dover Tea",          col:"Essential", shape:"rectangular", colors:["marrón","cálido"],rank:73, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/48.png" },
+  { id:91,  name:"Dover Shadow",       col:"Essential", shape:"rectangular", colors:["gris"],           rank:74, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/49.png" },
   // Hazel: 13 uds
-  { id:67,  name:"Hazel Petal", col:"Essential", shape:"oval", colors:["rosa"],  rank:19, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777238423/50_1080x_avjg1r.webp" },
+  { id:67,  name:"Hazel Petal", col:"Essential", shape:"oval", colors:["rosa"],  rank:19, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/50.png" },
   // Tura: 12 uds
-  { id:4,   name:"Tura Guiza", col:"Essential", shape:"square", colors:["miel","dorado"],rank:77, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590207/103_ze0plj.png" },
-  { id:75,  name:"Tura Nude",  col:"Essential", shape:"square", colors:["nude"],         rank:78, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590207/108_ccrl79.png" },
-  { id:76,  name:"Tura Noir",  col:"Essential", shape:"square", colors:["negro"],        rank:79, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590207/106_orwzvv.png" },
-  { id:77,  name:"Tura Carey", col:"Essential", shape:"square", colors:["carey"],        rank:80, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590207/107_ovzxrn.png" },
+  { id:4,   name:"Tura Guiza", col:"Essential", shape:"square", colors:["miel","dorado"],rank:77, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/63.png" },
+  { id:75,  name:"Tura Nude",  col:"Essential", shape:"square", colors:["nude"],         rank:78, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/65.png" },
+  { id:76,  name:"Tura Noir",  col:"Essential", shape:"square", colors:["negro"],        rank:79, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/67.png" },
+  { id:77,  name:"Tura Carey", col:"Essential", shape:"square", colors:["carey"],        rank:80, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/65.png" },
   // Vitti: nuevo SS26
-  { id:2,   name:"Vitti Brown",       col:"Essential", shape:"cateye", colors:["marrón"],         rank:20, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590221/203_bvypll.png" },
-  { id:212, name:"Vitti Velvet",      col:"Essential", shape:"cateye", colors:["burdeos"],         rank:82, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590221/201_vzqsat.png" },
-  { id:213, name:"Vitti Caramel",     col:"Essential", shape:"cateye", colors:["caramelo"],        rank:83, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590221/202_gusxcv.png" },
-  { id:214, name:"Vitti Brown Carey", col:"Essential", shape:"cateye", colors:["carey","marrón"],  rank:84, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590221/204_yuculq.png" },
+  { id:2,   name:"Vitti Brown",       col:"Essential", shape:"cateye", colors:["marrón"],         rank:20, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/202.png" },
+  { id:212, name:"Vitti Velvet",      col:"Essential", shape:"cateye", colors:["burdeos"],         rank:82, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/201.png" },
+  { id:213, name:"Vitti Caramel",     col:"Essential", shape:"cateye", colors:["caramelo"],        rank:83, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/202.png" },
+  { id:214, name:"Vitti Brown Carey", col:"Essential", shape:"cateye", colors:["carey","marrón"],  rank:84, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/acaxasx.png" },
   // Cardinale: nuevo SS26
-  { id:5,   name:"Cardinale Carey", col:"Essential", shape:"panto", colors:["carey","verde","miel"],rank:85, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590222/208_kg1lxu.png" },
-  { id:58,  name:"Cardinale Guiza", col:"Essential", shape:"panto", colors:["miel","dorado"],       rank:86, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590221/207_useou6.png" },
-  { id:59,  name:"Cardinale Apple", col:"Essential", shape:"panto", colors:["verde"],               rank:21, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590221/206_p7m4so.png" },
+  { id:5,   name:"Cardinale Carey", col:"Essential", shape:"panto", colors:["carey","verde","miel"],rank:85, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/gtwed.png" },
+  { id:58,  name:"Cardinale Guiza", col:"Essential", shape:"panto", colors:["miel","dorado"],       rank:86, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/6w4rw.png" },
+  { id:59,  name:"Cardinale Apple", col:"Essential", shape:"panto", colors:["verde"],               rank:21, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/gtwed.png" },
   // Chastain: rank 5 top pick
-  { id:20,  name:"Chastain Black",        col:"Essential", shape:"cateye", urgency:"trending", colors:["negro","carey","verde"],rank:5,  isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590223/216_tjup92.png" },
-  { id:68,  name:"Chastain Carey",        col:"Essential", shape:"cateye",                     colors:["carey"],               rank:88, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590212/132_zild1l.png" },
-  { id:69,  name:"Chastain Noire Violet", col:"Essential", shape:"cateye",                     colors:["negro","burdeos"],     rank:89, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235610/sadascas_1080x_asvwdj.webp" },
-  { id:225, name:"Chastain Red Light", col:"Essential", shape:"cateye", colors:["rojo"], rank:23, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235609/sa_1080x_siluhw.webp" },
+  { id:20,  name:"Chastain Black",        col:"Essential", shape:"cateye", urgency:"trending", colors:["negro","carey","verde"],rank:5,  isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/jjiasda.png" },
+  { id:68,  name:"Chastain Carey",        col:"Essential", shape:"cateye",                     colors:["carey"],               rank:88, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/jjiasda.png" },
+  { id:69,  name:"Chastain Noire Violet", col:"Essential", shape:"cateye",                     colors:["negro","burdeos"],     rank:89, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/sadascas.png" },
+  { id:225, name:"Chastain Red Light", col:"Essential", shape:"cateye", colors:["rojo"], rank:23, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/sa.png" },
   // Gardner: 3 uds
-  { id:6,   name:"Gardner Carey", col:"Essential", shape:"round", colors:["carey"],  rank:90, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590206/102_awq6kg.png" },
-  { id:79,  name:"Gardner Amber Doré", col:"Essential", shape:"round", colors:["ámbar"],  rank:22, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590206/100_kesd63.png" },
-  { id:92,  name:"Gardner Black", col:"Essential", shape:"round", colors:["negro"],  rank:92, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590206/101_pg1660.png" },
+  { id:6,   name:"Gardner Carey", col:"Essential", shape:"round", colors:["carey"],  rank:90, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/60.png" },
+  { id:79,  name:"Gardner Amber Doré", col:"Essential", shape:"round", colors:["ámbar"],  rank:22, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/60.png" },
+  { id:92,  name:"Gardner Black", col:"Essential", shape:"round", colors:["negro"],  rank:92, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/60.png" },
   // Sin imagen
   { id:237, name:"Nova Black", col:"Essential", shape:"geometric", colors:["negro"], rank:117 },
-  { id:17,  name:"Nova Ruby",       col:"Essential", shape:"geometric",   colors:["rojo","rubí"],   rank:93, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590217/172_e8julb.png" },
-  { id:221, name:"Nova Jade",       col:"Essential", shape:"geometric",   colors:["verde","jade"],  rank:94, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590217/171_aavi3l.png" },
+  { id:17,  name:"Nova Ruby",       col:"Essential", shape:"geometric",   colors:["rojo","rubí"],   rank:93, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/91.png" },
+  { id:221, name:"Nova Jade",       col:"Essential", shape:"geometric",   colors:["verde","jade"],  rank:94, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/91.png" },
   { id:9,   name:"Totter Leaf",     col:"Essential", shape:"rectangular", colors:["verde"],           rank:95 },
   { id:217, name:"Totter Carey",    col:"Essential", shape:"rectangular", colors:["carey"],           rank:108 },
 
   // ── ACETATO ──────────────────────────────────────────────────────────
-  { id:53,  name:"Hayek Olive",    col:"Acetato", shape:"square",      urgency:"hot", colors:["verde","oliva"],  rank:50,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590203/86_i09mqr.png" },
-  { id:52,  name:"Leigh Chalk",    col:"Acetato", shape:"rectangular",               colors:["blanco"],          rank:31, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590208/112_pmpzcn.png" },
-  { id:47,  name:"Arden Cocoa",    col:"Acetato", shape:"cateye",                    colors:["marrón"],          rank:11, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590211/122_ivwzqu.png" },
-  { id:50,  name:"Novak Mocha",    col:"Acetato", shape:"square",                    colors:["moca","marrón"],   rank:12, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590203/92_txomis.png" },
-  { id:224, name:"Chastain Olive",     col:"Essential", shape:"cateye", urgency:"trending", colors:["verde","oliva"], rank:2, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777235610/saxaa_1080x_p0gxws.webp" , imgScale:1.2},
-  { id:81,  name:"Hayek Carey",    col:"Acetato", shape:"square",                    colors:["carey"],           rank:32, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590202/85_r9q8ec.png" },
-  { id:71,  name:"Arden Carey",    col:"Acetato", shape:"cateye",                    colors:["carey"],           rank:33, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590209/121_wvm2wp.png" },
-  { id:72,  name:"Arden Champagne",col:"Acetato", shape:"cateye",                    colors:["champán","dorado"],rank:34, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590209/120_s8exzo.png" },
-  { id:80,  name:"Novak Carey",    col:"Acetato", shape:"square",                    colors:["carey"],           rank:35, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590203/91_yctpcq.png" },
+  { id:53,  name:"Hayek Olive",    col:"Acetato", shape:"square",      urgency:"hot", colors:["verde","oliva"],  rank:50,  img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/86.png" },
+  { id:52,  name:"Leigh Chalk",    col:"Acetato", shape:"rectangular",               colors:["blanco"],          rank:31, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/112.png" },
+  { id:47,  name:"Arden Cocoa",    col:"Acetato", shape:"cateye",                    colors:["marrón"],          rank:11, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/98.png" },
+  { id:50,  name:"Novak Mocha",    col:"Acetato", shape:"square",                    colors:["moca","marrón"],   rank:12, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/92.png" },
+  { id:224, name:"Chastain Olive",     col:"Essential", shape:"cateye", urgency:"trending", colors:["verde","oliva"], rank:2, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/saxaa.png" , imgScale:1.2},
+  { id:81,  name:"Hayek Carey",    col:"Acetato", shape:"square",                    colors:["carey"],           rank:32, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/85.png" },
+  { id:71,  name:"Arden Carey",    col:"Acetato", shape:"cateye",                    colors:["carey"],           rank:33, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/121.png" },
+  { id:72,  name:"Arden Champagne",col:"Acetato", shape:"cateye",                    colors:["champán","dorado"],rank:34, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/120.png" },
+  { id:80,  name:"Novak Carey",    col:"Acetato", shape:"square",                    colors:["carey"],           rank:35, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/91.png" },
   { id:84,  name:"Fonda Sepia",    col:"Acetato", shape:"square",                    colors:["marrón"],          rank:96, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590193/28_qoduia.png" },
-  { id:46,  name:"Astor Green",    col:"Acetato", shape:"rectangular",               colors:["verde"],           rank:97, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590194/30_sm0o9h.png" },
-  { id:85,  name:"Astor Bronce",   col:"Acetato", shape:"rectangular",               colors:["bronce"],          rank:98, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590194/34_w3ugnz.png" },
-  { id:51,  name:"Ivy Felline",    col:"Acetato", shape:"oval",                      colors:["ámbar"],          rank:99, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590208/113_ib6mfy.png" },
+  { id:46,  name:"Astor Green",    col:"Acetato", shape:"rectangular",               colors:["verde"],           rank:97, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/31.png" },
+  { id:85,  name:"Astor Bronce",   col:"Acetato", shape:"rectangular",               colors:["bronce"],          rank:98, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/27.png" },
+  { id:51,  name:"Ivy Felline",    col:"Acetato", shape:"oval",                      colors:["ámbar"],          rank:99, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/113.png" },
   { id:48,  name:"Bardot",         col:"Acetato", shape:"cateye",                    colors:["carey"],           rank:100 },
-  { id:243, name:"Hayworth",       col:"Acetato", shape:"rectangular",               colors:["negro","dorado"],  rank:103, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590193/26_y5oqxr.png" },
-  { id:49,  name:"Juno",           col:"Acetato", shape:"round",                     colors:["negro"],           rank:101, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590193/27_b8ubbk.png" },
+  { id:243, name:"Hayworth",       col:"Acetato", shape:"rectangular",               colors:["negro","dorado"],  rank:103, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/26.png" },
+  { id:49,  name:"Juno",           col:"Acetato", shape:"round",                     colors:["negro"],           rank:101, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/28.png" },
   { id:45,  name:"Sienna",         col:"Acetato", shape:"square",                    colors:["marrón","negro"],  rank:102 },
   // ── Añadidos desde PDF SS26 ──────────────────────────────────────
-  { id:228, name:"Baker Tea",          col:"Essential", shape:"rectangular", colors:["marrón","cálido"],  rank:108 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777241610/170_1080x_aum7jk.webp" },
-  { id:229, name:"Baker Cloud",        col:"Essential", shape:"rectangular", colors:["gris","crema"],     rank:109 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777241607/169_1080x_ctu7xj.webp" },
-  { id:230, name:"Baker Mint",         col:"Essential", shape:"rectangular", colors:["verde","menta"],    rank:110 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777241608/168_1080x_pcrdjp.webp" },
-  { id:231, name:"Baker Black",        col:"Essential", shape:"rectangular", colors:["negro"],            rank:111 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777241609/167_5f067309-28f6-48a3-8f95-e40cc91e27f5_1080x_p2ydrr.webp" },
+  { id:228, name:"Baker Tea",          col:"Essential", shape:"rectangular", colors:["marrón","cálido"],  rank:108 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/170.png" },
+  { id:229, name:"Baker Cloud",        col:"Essential", shape:"rectangular", colors:["gris","crema"],     rank:109 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/169.png" },
+  { id:230, name:"Baker Mint",         col:"Essential", shape:"rectangular", colors:["verde","menta"],    rank:110 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/168.png" },
+  { id:231, name:"Baker Black",        col:"Essential", shape:"rectangular", colors:["negro"],            rank:111 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/167.png" },
   { id:226, name:"Hart Black",         col:"Essential", shape:"square",      colors:["negro"],            rank:112 },
-  { id:227, name:"Hedy Jara",          col:"Essential", shape:"round",       colors:["verde"],            rank:113 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777238292/39_1080x_ljvzuy.webp" },
-  { id:235, name:"Moore Kaffa",        col:"Icons",     shape:"rectangular", colors:["marrón","café"],    rank:117 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777242114/IMG_2563_1512x_1_u7dveu.webp" },
-  { id:236, name:"Hazel Carey",        col:"Essential", shape:"square",      colors:["carey"],            rank:118 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777238421/51_1080x_gdsyrw.webp" },
-  { id:237, name:"Hazel Noir",         col:"Essential", shape:"square",      colors:["negro"],            rank:119 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777238421/52_1080x_wawued.webp" },
-  { id:238, name:"Rainer Caramel",     col:"Essential", shape:"oval",        colors:["caramelo"],         rank:120 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777238348/9_1080x_ladhto.webp" },
+  { id:227, name:"Hedy Jara",          col:"Essential", shape:"round",       colors:["verde"],            rank:113 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/39.png" },
+  { id:235, name:"Moore Kaffa",        col:"Icons",     shape:"rectangular", colors:["marrón","café"],    rank:117 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_2563.jpg" },
+  { id:236, name:"Hazel Carey",        col:"Essential", shape:"square",      colors:["carey"],            rank:118 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/51.png" },
+  { id:237, name:"Hazel Noir",         col:"Essential", shape:"square",      colors:["negro"],            rank:119 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/52.png" },
+  { id:238, name:"Rainer Caramel",     col:"Essential", shape:"oval",        colors:["caramelo"],         rank:120 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/9.png" },
   { id:239, name:"Cardinale Tea",      col:"Essential", shape:"oval",        colors:["marrón","cálido"],  rank:121 },
 ];
 
@@ -1405,7 +1405,7 @@ function FlyingItem({ item, onDone }) {
 }
 
 // ── generatePDF — abre ventana de impresión con pedido formateado ─────
-function generatePDF({ cartItems, cartCount, cartTotal, unitPrice, currentTier, distributor, region, lang, t, discountPct, cost, gainEur, gainPct }) {
+function generatePDF({ cartItems, cartCount, cartTotal, unitPrice, currentTier, distributor, region, lang, t, discountPct, cost, gainEur, gainPct, ouardaActive, zubietaActive, familyCode }) {
   const isLatam = region === 'latam';
   const contact = isLatam
     ? { name: 'Minuë Latam', address: 'CRA 19a 85 69, Bogotá, Colombia', phone: '+57 (322) 770-1800', email: 'hola@minueopticians.co', web: 'minueopticians.co' }
@@ -1494,7 +1494,9 @@ function generatePDF({ cartItems, cartCount, cartTotal, unitPrice, currentTier, 
       <div class="totals-row"><span>Unidades</span><span>${cartCount}</span></div>
       <div class="totals-row"><span>Tarifa aplicada</span><span>${currentTier?.label || '—'} · ${unitPrice != null ? unitPrice.toFixed(2).replace('.',',') + '€/ud' : 'Consultar'}</span></div>
       ${currentTier?.freeShip ? '<div class="totals-row"><span>Envío</span><span style="color:#18332f;font-weight:600;">Incluido ✓</span></div>' : ''}
-      ${discountPct > 0 ? `<div class="totals-row"><span>Descuento aplicado</span><span style="color:#b8860b;font-weight:600;">−${discountPct}%</span></div>` : ''}
+      ${discountPct > 0 ? `<div class="totals-row"><span>Código aplicado</span><span style="color:#b8860b;font-weight:600;">${familyCode.toUpperCase()} · −${discountPct}% sobre tarifa</span></div>` : ''}
+      ${ouardaActive ? `<div class="totals-row"><span>Código aplicado</span><span style="color:#b8860b;font-weight:600;">OUARDA · Essential/Icons 16,60€/ud · Acetato precio estándar</span></div>` : ''}
+      ${zubietaActive ? `<div class="totals-row"><span>Código aplicado</span><span style="color:#b8860b;font-weight:600;">ZUBIETA · Essential/Icons 16,90€/ud · Acetato 20,90€/ud</span></div>` : ''}
       <div class="totals-row"><span>Total pedido</span><span>${totalCost.toFixed(2).replace('.',',')}€</span></div>
       ${gainEur > 0 ? `<div class="gain-row"><span>Ganancia potencial a PVP</span><span>+${gainEur.toFixed(0)}€ (~${gainPct}%)</span></div>` : ''}
     </div>
@@ -1606,7 +1608,7 @@ export default function App() {
     try { return typeof localStorage !== 'undefined' ? (localStorage.getItem('minue_code') || '') : ''; } catch { return ''; }
   });
   const CODE = familyCode.trim().toUpperCase();
-  const discountPct = CODE === 'FAMILY' ? 5 : 0;
+  const discountPct = CODE === 'FAMILY' ? 5 : CODE === 'RAMON' ? 10 : 0;
   const ouardaActive = CODE === 'OUARDA';
   const zubietaActive = CODE === 'ZUBIETA';
   // Precios por código especial (IVA no incluido)
@@ -1760,7 +1762,15 @@ export default function App() {
     const leadLine = lf.name || lf.store
       ? `\n${lf.name}${lf.store ? ' — ' + lf.store : ''}${lf.email ? ' — ' + lf.email : ''}`
       : '';
-    return `${t('order_greeting')}${leadLine}\n\n${lines.join('\n')}\n\n${t('order_tier')}: ${tierLabel}\n${priceLine}\n\n${t('order_closing')}`;
+    // Línea de código especial aplicado
+    const codeLine = ouardaActive
+      ? `\n🏷️ Código aplicado: OUARDA — Essential/Icons 16,60€ · Acetato precio estándar`
+      : zubietaActive
+      ? `\n🏷️ Código aplicado: ZUBIETA — Essential/Icons 16,90€ · Acetato 20,90€`
+      : discountPct > 0
+      ? `\n🏷️ Código aplicado: ${familyCode.toUpperCase()} — ${discountPct}% de descuento`
+      : '';
+    return `${t('order_greeting')}${leadLine}\n\n${lines.join('\n')}\n\n${t('order_tier')}: ${tierLabel}${codeLine}\n${priceLine}\n\n${t('order_closing')}`;
   };
 
   const sendWhatsApp = (lf = {}) => {
@@ -3031,6 +3041,182 @@ export default function App() {
           </div>
         </section>
         <GlobalMap t={t} />
+        {/* ── MINUË JUNIOR — próximamente ─────────────────────────── */}
+        <section style={{ background: `linear-gradient(160deg, ${G} 0%, #0f2420 100%)`, overflow: 'hidden', position: 'relative' }}>
+
+          {/* Círculos decorativos animados */}
+          <style>{`
+            @keyframes mn-float-1 { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-18px) scale(1.04); } }
+            @keyframes mn-float-2 { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-12px) rotate(8deg); } }
+            @keyframes mn-float-3 { 0%,100% { transform: translateX(0); } 50% { transform: translateX(14px); } }
+            @keyframes mn-shimmer { 0% { opacity: 0.15; } 50% { opacity: 0.35; } 100% { opacity: 0.15; } }
+            @keyframes mn-kids-in { from { opacity:0; transform: translateY(32px); } to { opacity:1; transform: translateY(0); } }
+          `}</style>
+
+          {/* Fondos decorativos */}
+          <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none' }}>
+            <div style={{ position: 'absolute', width: 400, height: 400, borderRadius: '50%', background: 'rgba(184,134,11,0.08)', top: -100, right: -80, animation: 'mn-float-1 7s ease-in-out infinite' }} />
+            <div style={{ position: 'absolute', width: 240, height: 240, borderRadius: '50%', background: 'rgba(248,239,230,0.04)', bottom: -60, left: -40, animation: 'mn-float-2 9s ease-in-out infinite' }} />
+            <div style={{ position: 'absolute', width: 120, height: 120, borderRadius: '50%', border: '1px solid rgba(184,134,11,0.2)', top: '40%', left: '15%', animation: 'mn-shimmer 4s ease-in-out infinite' }} />
+            <div style={{ position: 'absolute', width: 60, height: 60, borderRadius: '50%', border: '1px solid rgba(248,239,230,0.12)', top: '20%', right: '20%', animation: 'mn-float-3 6s ease-in-out infinite' }} />
+          </div>
+
+          <div style={{ maxWidth: 1280, margin: '0 auto', padding: 'clamp(56px,8vw,96px) 24px', position: 'relative' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(32px,5vw,80px)', alignItems: 'center' }}>
+
+              {/* Columna izquierda — copy */}
+              <div style={{ animation: 'mn-kids-in 0.7s ease-out both' }}>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(184,134,11,0.15)', border: '1px solid rgba(184,134,11,0.3)', borderRadius: 999, padding: '4px 14px', marginBottom: 24 }}>
+                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: D, display: 'inline-block', animation: 'mn-shimmer 2s ease-in-out infinite' }} />
+                  <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: 2.5, textTransform: 'uppercase', color: D }}>Próximamente · SS26</span>
+                </div>
+
+                <h2 className="mn-serif" style={{
+                  fontSize: 'clamp(36px,5.5vw,68px)', fontWeight: 300,
+                  color: C, lineHeight: 1.0, letterSpacing: '-0.03em',
+                  margin: '0 0 12px',
+                }}>
+                  Pequeñas<br />
+                  <span className="mn-serif-i" style={{ color: D }}>grandes miradas.</span>
+                </h2>
+
+                <p style={{ fontSize: 13, color: C, opacity: 0.55, lineHeight: 1.7, margin: '0 0 32px', fontWeight: 300, maxWidth: 380 }}>
+                  Minuë llega a los más pequeños. El mismo acetato artesanal, las mismas bisagras cuidadas, los mismos colores que no piden permiso. Para niños de 3 a 14 años que ya tienen su propio estilo.
+                </p>
+
+                {/* Pills de características */}
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 36 }}>
+                  {[
+                    { icon: '🌿', text: 'Acetato hipoalergénico' },
+                    { icon: '🔧', text: 'Bisagras flexibles' },
+                    { icon: '☀️', text: 'UV400 certificado' },
+                    { icon: '📐', text: '2 tallas · 3–8 y 8–14 años' },
+                  ].map((p, i) => (
+                    <div key={i} style={{
+                      display: 'inline-flex', alignItems: 'center', gap: 6,
+                      background: 'rgba(248,239,230,0.06)', border: '1px solid rgba(248,239,230,0.12)',
+                      borderRadius: 999, padding: '6px 12px',
+                      animation: `mn-kids-in 0.6s ${0.1 * i + 0.4}s ease-out both`,
+                    }}>
+                      <span style={{ fontSize: 12 }}>{p.icon}</span>
+                      <span style={{ fontSize: 10, color: C, opacity: 0.7, fontWeight: 500 }}>{p.text}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Slogan secundario */}
+                <div style={{ borderLeft: `2px solid ${D}`, paddingLeft: 16, marginBottom: 36 }}>
+                  <p className="mn-serif-i" style={{ fontSize: 17, color: C, opacity: 0.75, margin: 0, lineHeight: 1.5 }}>
+                    "Porque los niños también merecen<br />ver el mundo con estilo."
+                  </p>
+                </div>
+
+                {/* CTA aviso de lanzamiento */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
+                  <button
+                    onClick={() => {
+                      const el = document.querySelector('[data-kids-notify]');
+                      el?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }}
+                    style={{
+                      display: 'inline-flex', alignItems: 'center', gap: 8,
+                      background: D, color: G,
+                      padding: '12px 24px', borderRadius: 999, border: 'none', cursor: 'pointer',
+                      fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: 'uppercase',
+                      fontFamily: 'DM Sans, sans-serif',
+                    }}
+                  >
+                    Avísame del lanzamiento
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                  </button>
+                  <span style={{ fontSize: 11, color: C, opacity: 0.35 }}>Lanzamiento SS26</span>
+                </div>
+              </div>
+
+              {/* Columna derecha — placeholders de producto */}
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+                {[
+                  { label: 'Modelo · XS', color: 'rgba(200,168,136,0.2)', delay: '0.1s', size: 'grande' },
+                  { label: 'Modelo · XS', color: 'rgba(184,200,160,0.2)', delay: '0.2s', size: 'grande' },
+                  { label: 'Modelo · XS', color: 'rgba(168,184,200,0.2)', delay: '0.3s', size: 'pequeño' },
+                  { label: 'Modelo · XS', color: 'rgba(200,160,168,0.2)', delay: '0.4s', size: 'pequeño' },
+                ].map((item, i) => (
+                  <div key={i} style={{
+                    aspectRatio: '1/1',
+                    background: item.color,
+                    border: '1px solid rgba(248,239,230,0.08)',
+                    borderRadius: 8,
+                    display: 'flex', flexDirection: 'column',
+                    alignItems: 'center', justifyContent: 'center', gap: 12,
+                    animation: `mn-float-${(i % 3) + 1} ${6 + i}s ease-in-out infinite, mn-kids-in 0.6s ${item.delay} ease-out both`,
+                    position: 'relative', overflow: 'hidden',
+                  }}>
+                    {/* Icono de gafas placeholder */}
+                    <svg width="52" height="32" viewBox="0 0 52 32" fill="none" style={{ opacity: 0.3 }}>
+                      <rect x="1" y="5" width="20" height="14" rx="7" stroke={C} strokeWidth="1.5"/>
+                      <rect x="31" y="5" width="20" height="14" rx="7" stroke={C} strokeWidth="1.5"/>
+                      <line x1="21" y1="12" x2="31" y2="12" stroke={C} strokeWidth="1.5"/>
+                      <line x1="1" y1="12" x2="0" y2="8" stroke={C} strokeWidth="1.5" strokeLinecap="round"/>
+                      <line x1="51" y1="12" x2="52" y2="8" stroke={C} strokeWidth="1.5" strokeLinecap="round"/>
+                    </svg>
+                    <span style={{ fontSize: 8, fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase', color: C, opacity: 0.25 }}>
+                      {item.label}
+                    </span>
+                    {/* Badge próximamente */}
+                    <div style={{
+                      position: 'absolute', top: 8, right: 8,
+                      background: 'rgba(184,134,11,0.25)', borderRadius: 999,
+                      padding: '2px 8px',
+                      fontSize: 7, fontWeight: 700, color: D, letterSpacing: 1, textTransform: 'uppercase',
+                    }}>Soon</div>
+                  </div>
+                ))}
+              </div>
+
+            </div>
+
+            {/* Franja inferior — formulario de notificación */}
+            <div data-kids-notify="true" style={{
+              marginTop: 'clamp(40px,5vw,64px)',
+              padding: 'clamp(20px,3vw,32px)',
+              background: 'rgba(248,239,230,0.04)',
+              border: '1px solid rgba(248,239,230,0.08)',
+              borderRadius: 8,
+              display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+              gap: 24, flexWrap: 'wrap',
+            }}>
+              <div>
+                <p className="mn-serif" style={{ fontSize: 20, fontWeight: 300, color: C, margin: '0 0 4px' }}>
+                  ¿Eres retailer? Sé el primero en conocer <em style={{ color: D }}>Minuë Junior.</em>
+                </p>
+                <p style={{ fontSize: 11, color: C, opacity: 0.4, margin: 0, fontWeight: 300 }}>
+                  Te avisamos cuando el catálogo Junior esté listo para pedidos.
+                </p>
+              </div>
+              <div style={{ display: 'flex', gap: 8, flexShrink: 0 }}>
+                <input
+                  type="email"
+                  placeholder="tu@optica.com"
+                  style={{
+                    padding: '10px 14px', borderRadius: 6, border: '1px solid rgba(248,239,230,0.2)',
+                    background: 'rgba(248,239,230,0.06)', color: C, fontSize: 12,
+                    fontFamily: 'DM Sans, sans-serif', outline: 'none', width: 220,
+                  }}
+                />
+                <button style={{
+                  padding: '10px 18px', borderRadius: 6, background: D, color: G, border: 'none',
+                  fontSize: 11, fontWeight: 700, letterSpacing: 1, textTransform: 'uppercase',
+                  fontFamily: 'DM Sans, sans-serif', cursor: 'pointer', whiteSpace: 'nowrap',
+                }}>
+                  Notificarme
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </section>
+        {/* ── FIN MINUË JUNIOR ──────────────────────────────────────── */}
+
         <FaireRating />
 
         {/* ESPECIFICACIONES TÉCNICAS — bloque sutil sobre fondo crema */}
@@ -3752,6 +3938,11 @@ function OrderPanel({
   onClose, onUpdateQty, onRemove, onSendWA, onSendEmail,
 }) {
   const isDistributor = distributor.name !== 'Minuë Opticians';
+  // Detección de móvil para mostrar/ocultar WhatsApp
+  const isMobile = typeof window !== 'undefined' && (
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+    window.innerWidth <= 768
+  );
   // Estados: null = CTAs, 'wa'/'email' = lead form post-envío, 'sent' = confirmación
   const [step, setStep] = useState(null); // null | 'lead_wa' | 'lead_email' | 'sent'
   const [sentChannel, setSentChannel] = useState(null);
@@ -4153,35 +4344,51 @@ function OrderPanel({
             {step === null && (
               <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
 
-                {/* 1. WhatsApp — PRINCIPAL */}
-                <button onClick={handleWA} className="mn-btn" style={{
-                  width: '100%', padding: '16px 18px', borderRadius: 6,
-                  background: CHOCOLATE, color: C,
-                  fontSize: 14, fontWeight: 700, letterSpacing: 0.3,
-                  display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 10,
-                  boxShadow: `0 4px 20px -6px ${CHOCOLATE}80`,
-                }}>
-                  <IconWA size={18} />
-                  Enviar pedido por WhatsApp
-                </button>
-                <div style={{ textAlign: 'center', fontSize: 10, opacity: 0.4, marginTop: -2 }}>
-                  Respuesta en menos de 24h · Sin compromiso de pago
-                </div>
+                {/* 1. WhatsApp — PRINCIPAL (solo móvil) */}
+                {isMobile && (
+                  <>
+                    <button onClick={handleWA} className="mn-btn" style={{
+                      width: '100%', padding: '16px 18px', borderRadius: 6,
+                      background: CHOCOLATE, color: C,
+                      fontSize: 14, fontWeight: 700, letterSpacing: 0.3,
+                      display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 10,
+                      boxShadow: `0 4px 20px -6px ${CHOCOLATE}80`,
+                    }}>
+                      <IconWA size={18} />
+                      Enviar pedido por WhatsApp
+                    </button>
+                    <div style={{ textAlign: 'center', fontSize: 10, opacity: 0.4, marginTop: -2 }}>
+                      Respuesta en menos de 24h · Sin compromiso de pago
+                    </div>
+                  </>
+                )}
 
-                {/* 2. Email — secundario */}
+                {/* 2. Email — principal en desktop, secundario en móvil */}
                 <button onClick={handleEmail} className="mn-btn" style={{
-                  width: '100%', padding: '12px 18px', borderRadius: 6,
-                  background: 'transparent', color: G, fontSize: 12, fontWeight: 500,
-                  border: `1px solid ${G}33`, letterSpacing: 0.2,
+                  width: '100%', padding: isMobile ? '12px 18px' : '16px 18px', borderRadius: 6,
+                  background: isMobile ? 'transparent' : G,
+                  color: isMobile ? G : C,
+                  fontSize: isMobile ? 12 : 14,
+                  fontWeight: isMobile ? 500 : 700,
+                  border: isMobile ? `1px solid ${G}33` : 'none',
+                  letterSpacing: 0.2,
                   display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+                  boxShadow: isMobile ? 'none' : `0 4px 20px -6px rgba(24,51,47,0.35)`,
                 }}>
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
                   {t('panel_email')}
                 </button>
 
+                {/* Nota desktop: sin WhatsApp */}
+                {!isMobile && (
+                  <div style={{ textAlign: 'center', fontSize: 10, opacity: 0.4, marginTop: -4 }}>
+                    Respuesta en menos de 24h · Sin compromiso de pago
+                  </div>
+                )}
+
                 {/* 3. PDF — terciario */}
                 <button
-                  onClick={() => generatePDF({ cartItems, cartCount, cartTotal, unitPrice, currentTier, distributor, region, lang, t, discountPct, cost, gainEur, gainPct })}
+                  onClick={() => generatePDF({ cartItems, cartCount, cartTotal, unitPrice, currentTier, distributor, region, lang, t, discountPct, cost, gainEur, gainPct, ouardaActive, zubietaActive, familyCode })}
                   className="mn-btn"
                   style={{
                     width: '100%', padding: '10px 18px', borderRadius: 6,
@@ -4209,7 +4416,7 @@ function OrderPanel({
                 }}>
                   <div style={{ fontSize: 28, marginBottom: 6 }}>✓</div>
                   <div style={{ fontSize: 14, fontWeight: 700, marginBottom: 4 }}>
-                    {sentChannel === 'wa' ? 'WhatsApp abierto' : 'Email preparado'}
+                    {sentChannel === 'wa' ? 'WhatsApp abierto' : 'Email preparado ✓'}
                   </div>
                   <p style={{ fontSize: 11, opacity: 0.55, margin: 0, lineHeight: 1.5 }}>
                     Te confirmamos stock y plazos en menos de 24h.
