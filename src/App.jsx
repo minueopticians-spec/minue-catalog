@@ -1003,7 +1003,7 @@ const PRODUCTS = [
   { id:190, name:"Lane Tea",        col:"Essential", shape:"round", colors:["marrón","cálido"],  rank:84, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_3771.jpg" },
   { id:191, name:"Lane Light Blue", col:"Essential", shape:"round", colors:["azul"],             rank:85, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_3766.jpg" },
   { id:192, name:"Lane Ámbar",      col:"Essential", shape:"round", colors:["ámbar"],            rank:86, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_3765.jpg" },
-  { id:193, name:"Lane Black",      col:"Essential", shape:"round", colors:["negro"],            rank:87 },
+  { id:193, name:"Lane Black",      col:"Essential", shape:"round", colors:["negro"],            img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5628.jpg", rank:87 },
   { id:194, name:"Lane Carey",      col:"Essential", shape:"round", colors:["carey"],            rank:88, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_3767_d9fd096e-b787-435c-9c15-18dd34ea86ce.jpg" },
   { id:222, name:"Lane Opal",       col:"Essential", shape:"round", colors:["blanco","perla"],   rank:89, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_3776.jpg" },
 
@@ -1045,7 +1045,7 @@ const PRODUCTS = [
   { id:207, name:"Cooper II Buttercup", col:"Essential", shape:"round", colors:["amarillo"],rank:101 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5622.jpg" },
   { id:208, name:"Cooper II Sierra",    col:"Essential", shape:"round", colors:["marrón"],  rank:102 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5616.jpg" },
   { id:209, name:"Cooper II Caramel",     col:"Essential", shape:"round", colors:["caramelo"],   rank:103 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5615.jpg" },
-  { id:233, name:"Cooper II Tiger", col:"Essential", shape:"round", colors:["tigre","carey"], rank:113 },
+  { id:233, name:"Cooper II Tiger", col:"Essential", shape:"round", colors:["tigre","carey"], img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5617.jpg", rank:113 },
   { id:210, name:"Cooper II Moonlight", col:"Essential", shape:"round", colors:["beige"],   rank:104 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5619.jpg" },
   { id:211, name:"Cooper II Havana",    col:"Essential", shape:"round", colors:["havana"],  rank:105 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5618.jpg" },
   // Hart: 37 uds
@@ -1057,7 +1057,7 @@ const PRODUCTS = [
   { id:55,  name:"Roger Velvet", col:"Essential", shape:"rectangular", colors:["burdeos"],      rank:55, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/ROGERSTANT.png" },
   { id:56,  name:"Roger Wine",   col:"Essential", shape:"rectangular", colors:["burdeos","rojo"],rank:56, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/ROGERSTANT.png" },
   // Bolden: rank 6 top pick
-  { id:16,  name:"Bolden Wine",  col:"Essential", shape:"rectangular", colors:["burdeos"], rank:55 },
+  { id:16,  name:"Bolden Wine",  col:"Essential", shape:"rectangular", colors:["burdeos"], img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/43.png", rank:55 },
   { id:63,  name:"Bolden Oliva", col:"Essential", shape:"rectangular", colors:["verde"],         rank:57, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/MINUE_12.png" },
   { id:66,  name:"Bolden Ebony", col:"Essential", shape:"rectangular", colors:["negro"],          rank:58, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/193.png" },
   { id:65,  name:"Bolden Nude",  col:"Essential", shape:"rectangular", colors:["nude"],           rank:59, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/MINUE_11.png" },
@@ -1110,11 +1110,11 @@ const PRODUCTS = [
   { id:79,  name:"Gardner Amber Doré", col:"Essential", shape:"round", colors:["ámbar"],  rank:22, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/60.png" },
   { id:92,  name:"Gardner Black", col:"Essential", shape:"round", colors:["negro"],  rank:92, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/60.png" },
   // Sin imagen
-  { id:237, name:"Nova Black", col:"Essential", shape:"geometric", colors:["negro"], rank:117 },
+  { id:237, name:"Nova Black", col:"Essential", shape:"geometric", colors:["negro"], img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/92.png", rank:117 },
   { id:17,  name:"Nova Ruby",       col:"Essential", shape:"geometric",   colors:["rojo","rubí"],   rank:93, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/91.png" },
   { id:221, name:"Nova Jade",       col:"Essential", shape:"geometric",   colors:["verde","jade"],  rank:94, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/91.png" },
-  { id:9,   name:"Totter Leaf",     col:"Essential", shape:"rectangular", colors:["verde"],           rank:95 },
-  { id:217, name:"Totter Carey",    col:"Essential", shape:"rectangular", colors:["carey"],           rank:108 },
+  { id:9,   name:"Totter Leaf",     col:"Essential", shape:"rectangular", colors:["verde"],           img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5627.jpg", rank:95 },
+  { id:217, name:"Totter Carey",    col:"Essential", shape:"rectangular", colors:["carey"],           img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5629.jpg", rank:108 },
 
   // ── ACETATO ──────────────────────────────────────────────────────────
   { id:53,  name:"Hayek Olive",    col:"Acetato", shape:"square",      urgency:"hot", colors:["verde","oliva"],  rank:50,  img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/86.png" },
@@ -1130,22 +1130,22 @@ const PRODUCTS = [
   { id:46,  name:"Astor Green",    col:"Acetato", shape:"rectangular",               colors:["verde"],           rank:97, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/31.png" },
   { id:85,  name:"Astor Bronce",   col:"Acetato", shape:"rectangular",               colors:["bronce"],          rank:98, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/27.png" },
   { id:51,  name:"Ivy Felline",    col:"Acetato", shape:"oval",                      colors:["ámbar"],          rank:99, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/113.png" },
-  { id:48,  name:"Bardot",         col:"Acetato", shape:"cateye",                    colors:["carey"],           rank:100 },
+  { id:48,  name:"Bardot",         col:"Acetato", shape:"cateye",                    colors:["carey"],           img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/33.png", rank:100 },
   { id:243, name:"Hayworth",       col:"Acetato", shape:"rectangular",               colors:["negro","dorado"],  rank:103, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/26.png" },
   { id:49,  name:"Juno",           col:"Acetato", shape:"round",                     colors:["negro"],           rank:101, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/28.png" },
-  { id:45,  name:"Sienna",         col:"Acetato", shape:"square",                    colors:["marrón","negro"],  rank:102 },
+  { id:45,  name:"Sienna",         col:"Acetato", shape:"square",                    colors:["marrón","negro"],  img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/29.png", rank:102 },
   // ── Añadidos desde PDF SS26 ──────────────────────────────────────
   { id:228, name:"Baker Tea",          col:"Essential", shape:"rectangular", colors:["marrón","cálido"],  rank:108 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/170.png" },
   { id:229, name:"Baker Cloud",        col:"Essential", shape:"rectangular", colors:["gris","crema"],     rank:109 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/169.png" },
   { id:230, name:"Baker Mint",         col:"Essential", shape:"rectangular", colors:["verde","menta"],    rank:110 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/168.png" },
   { id:231, name:"Baker Black",        col:"Essential", shape:"rectangular", colors:["negro"],            rank:111 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/167.png" },
-  { id:226, name:"Hart Black",         col:"Essential", shape:"square",      colors:["negro"],            rank:112 },
+  { id:226, name:"Hart Black",         col:"Essential", shape:"square",      colors:["negro"],            img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/20.png", rank:112 },
   { id:227, name:"Hedy Jara",          col:"Essential", shape:"round",       colors:["verde"],            rank:113 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/39.png" },
   { id:235, name:"Moore Kaffa",        col:"Icons",     shape:"rectangular", colors:["marrón","café"],    rank:117 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_2563.jpg" },
   { id:236, name:"Hazel Carey",        col:"Essential", shape:"square",      colors:["carey"],            rank:118 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/51.png" },
   { id:237, name:"Hazel Noir",         col:"Essential", shape:"square",      colors:["negro"],            rank:119 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/52.png" },
   { id:238, name:"Rainer Caramel",     col:"Essential", shape:"oval",        colors:["caramelo"],         rank:120 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/9.png" },
-  { id:239, name:"Cardinale Tea",      col:"Essential", shape:"oval",        colors:["marrón","cálido"],  rank:121 },
+  { id:239, name:"Cardinale Tea",      col:"Essential", shape:"oval",        colors:["marrón","cálido"],  img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/164.png", rank:121 },
 ];
 
 const SHAPES = [
@@ -2527,7 +2527,7 @@ export default function App() {
                         }}
                         onMouseEnter={e => e.currentTarget.style.background = `${G}08`}
                         onMouseLeave={e => e.currentTarget.style.background = 'transparent'}>
-                          {p.img ? <img src={p.img} alt={p.name} style={{ width: 32, height: 24, objectFit: 'contain', background: '#fff', padding: 2, borderRadius: 2 }} /> :
+                          {p.img ? <img src={p.img} alt={p.name} style={{ width: 32, height: 24, objectFit: 'contain', background: 'transparent', mixBlendMode: 'multiply', padding: 2, borderRadius: 2 }} /> :
                             <div style={{ width: 32, height: 24, background: `${G}10`, borderRadius: 2 }} />}
                           <div>
                             <div style={{ fontSize: 12, fontWeight: 500 }}>{p.name}</div>
@@ -2660,7 +2660,7 @@ export default function App() {
                             overflow: 'hidden', padding: 3,
                             boxShadow: '0 1px 4px rgba(0,0,0,0.1)',
                           }}>
-                            <img src={p.img} alt={p.name} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+                            <img src={p.img} alt={p.name} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
                           </div>
                         ))}
                         {previewItems.length === 0 && (
@@ -2779,7 +2779,7 @@ export default function App() {
                                   {/* Imagen */}
                                   <div className="mn-card-img" style={{
                                     position: 'relative', aspectRatio: '3/2',
-                                    background: 'transparent', borderRadius: 2, overflow: 'hidden',
+                                    background: '#f5ede0', borderRadius: 2, overflow: 'hidden',
                                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                                   }}>
                                     {rep.img ? (
@@ -4059,7 +4059,7 @@ function OrderPanel({
                     padding: 5, overflow: 'hidden', border: `1px solid ${G}0a`,
                   }}>
                     {item.img
-                      ? <img src={item.img} alt={item.name} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+                      ? <img src={item.img} alt={item.name} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
                       : <svg width="28" height="18" viewBox="0 0 42 28" fill="none" style={{ opacity: 0.2 }}><rect x="1" y="4" width="16" height="12" rx="6" stroke={G} strokeWidth="1.5"/><rect x="25" y="4" width="16" height="12" rx="6" stroke={G} strokeWidth="1.5"/><line x1="17" y1="10" x2="25" y2="10" stroke={G} strokeWidth="1.5"/></svg>
                     }
                   </div>
@@ -5124,7 +5124,7 @@ function QuickViewModal({ product: initialProduct, allProducts, colData: initial
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                     }}>
                       {v.img ? (
-                        <img src={v.img} alt={v.name} style={{ width: '100%', height: '100%', objectFit: 'contain', padding: '6px' }} />
+                        <img src={v.img} alt={v.name} style={{ width: '100%', height: '100%', objectFit: 'contain', padding: '6px', mixBlendMode: 'multiply' }} />
                       ) : (
                         <svg width="28" height="18" viewBox="0 0 42 28" fill="none" style={{ opacity: 0.2 }}>
                           <rect x="1" y="4" width="16" height="12" rx="6" stroke={G} strokeWidth="1.5"/>
@@ -5737,7 +5737,7 @@ function ProductCard({ product, added, onAdd, rank, showRank, variant = 'normal'
       }}>
         {p.img ? (
           <img src={p.img} alt={p.name} className="mn-img" style={{
-            width: '100%', height: '100%', objectFit: 'contain', padding: '8px',
+            width: '100%', height: '100%', objectFit: 'contain', padding: '8px', mixBlendMode: 'multiply',
             transform: p.imgScale ? `scale(${p.imgScale})` : 'none',
           }} />
         ) : (
