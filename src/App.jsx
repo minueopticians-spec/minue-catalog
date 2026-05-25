@@ -1282,7 +1282,7 @@ const PRODUCTS = [
   { id:225, name:"Stone Gold Brown", col:"Icons", shape:"square", colors:["dorado","marrón"], rank:43, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0217.jpg" },
 
   // ── ESSENTIAL ────────────────────────────────────────────────────────
-  { id:1,  name:"Bergman Noire",       col:"Essential", shape:"rectangular", urgency:"stock_low", colors:["negro","carey"],  rank:5,  isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590223/221_oeycry.png" },
+  { id:1,  name:"Bergman Noire",       col:"Essential", shape:"rectangular", urgency:"stock_low", colors:["negro","carey"],  rank:5,  isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/221.png" },
   { id:54, name:"Bergman Honey",       col:"Essential", shape:"rectangular",                      colors:["miel","cálido"],  rank:4, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/220.png" },
   { id:3,  name:"Bergman Rust",        col:"Essential", shape:"rectangular",                      colors:["marrón","cálido"],rank:44, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/209.png" },
   { id:56, name:"Bergman Carbon",      col:"Essential", shape:"rectangular",                      colors:["negro","carbono"],rank:2, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/211.png" },
@@ -3352,13 +3352,13 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Columna derecha — placeholders de producto */}
+              {/* Columna derecha — productos Kids reales */}
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
                 {[
-                  { label: 'Modelo · XS', color: 'rgba(200,168,136,0.2)', delay: '0.1s', size: 'grande' },
-                  { label: 'Modelo · XS', color: 'rgba(184,200,160,0.2)', delay: '0.2s', size: 'grande' },
-                  { label: 'Modelo · XS', color: 'rgba(168,184,200,0.2)', delay: '0.3s', size: 'pequeño' },
-                  { label: 'Modelo · XS', color: 'rgba(200,160,168,0.2)', delay: '0.4s', size: 'pequeño' },
+                  { url: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Captura_de_pantalla_2026-05-25_a_las_19.05.59.png', label: 'Sage  · XS', color: 'rgba(184,200,160,0.18)', delay: '0.1s' },
+                  { url: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Captura_de_pantalla_2026-05-25_a_las_19.05.40.png', label: 'Amber · XS', color: 'rgba(200,168,136,0.18)', delay: '0.2s' },
+                  { url: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Captura_de_pantalla_2026-05-25_a_las_19.05.55.png', label: 'Sky   · XS', color: 'rgba(168,184,200,0.18)', delay: '0.3s' },
+                  { url: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Captura_de_pantalla_2026-05-25_a_las_19.05.45.png', label: 'Coral · XS', color: 'rgba(200,160,168,0.18)', delay: '0.4s' },
                 ].map((item, i) => (
                   <div key={i} style={{
                     aspectRatio: '1/1',
@@ -3366,25 +3366,21 @@ export default function App() {
                     border: '1px solid rgba(248,239,230,0.08)',
                     borderRadius: 8,
                     display: 'flex', flexDirection: 'column',
-                    alignItems: 'center', justifyContent: 'center', gap: 12,
+                    alignItems: 'center', justifyContent: 'center',
                     animation: `mn-float-${(i % 3) + 1} ${6 + i}s ease-in-out infinite, mn-kids-in 0.6s ${item.delay} ease-out both`,
                     position: 'relative', overflow: 'hidden',
                   }}>
-                    {/* Icono de gafas placeholder */}
-                    <svg width="52" height="32" viewBox="0 0 52 32" fill="none" style={{ opacity: 0.3 }}>
-                      <rect x="1" y="5" width="20" height="14" rx="7" stroke={C} strokeWidth="1.5"/>
-                      <rect x="31" y="5" width="20" height="14" rx="7" stroke={C} strokeWidth="1.5"/>
-                      <line x1="21" y1="12" x2="31" y2="12" stroke={C} strokeWidth="1.5"/>
-                      <line x1="1" y1="12" x2="0" y2="8" stroke={C} strokeWidth="1.5" strokeLinecap="round"/>
-                      <line x1="51" y1="12" x2="52" y2="8" stroke={C} strokeWidth="1.5" strokeLinecap="round"/>
-                    </svg>
-                    <span style={{ fontSize: 8, fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase', color: C, opacity: 0.25 }}>
-                      {item.label}
-                    </span>
-                    {/* Badge próximamente */}
+                    <img src={item.url} alt={item.label} style={{
+                      width: '85%', height: '85%', objectFit: 'contain',
+                    }} />
+                    <div style={{ position: 'absolute', inset: 0, background: 'rgba(248,239,230,0.04)', mixBlendMode: 'multiply', pointerEvents: 'none' }} />
+                    <span style={{
+                      position: 'absolute', bottom: 10, left: 0, right: 0, textAlign: 'center',
+                      fontSize: 8, fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase', color: C, opacity: 0.55,
+                    }}>{item.label}</span>
                     <div style={{
                       position: 'absolute', top: 8, right: 8,
-                      background: 'rgba(184,134,11,0.25)', borderRadius: 999,
+                      background: 'rgba(184,134,11,0.3)', borderRadius: 999,
                       padding: '2px 8px',
                       fontSize: 7, fontWeight: 700, color: D, letterSpacing: 1, textTransform: 'uppercase',
                     }}>Soon</div>
