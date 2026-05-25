@@ -2678,16 +2678,64 @@ export default function App() {
         {/* ANCHOR para auto-scroll al filtrar */}
         <div id="catalog-start" style={{ scrollMarginTop: 140 }} />
 
+        {/* BANDA VERDE DIVISORIA — anuncia las colecciones */}
+        <div style={{
+          background: G, color: C,
+          padding: 'clamp(28px, 4vw, 48px) 24px',
+          textAlign: 'center', position: 'relative', overflow: 'hidden',
+        }}>
+          {/* Decoración sutil — líneas dorada */}
+          <div style={{
+            position: 'absolute', top: '50%', left: 0, right: 0, height: 1,
+            background: `linear-gradient(90deg, transparent, ${D}33, transparent)`,
+          }} />
+          <div style={{
+            display: 'inline-flex', alignItems: 'center', gap: 18,
+            position: 'relative', background: G, padding: '0 24px',
+          }}>
+            <span style={{
+              width: 28, height: 1, background: D, opacity: 0.6,
+            }} />
+            <span style={{
+              fontSize: 9, fontWeight: 700, letterSpacing: 3,
+              textTransform: 'uppercase', color: D,
+            }}>SS26 · Wholesale</span>
+            <span style={{
+              width: 28, height: 1, background: D, opacity: 0.6,
+            }} />
+          </div>
+          <h2 className="mn-serif" style={{
+            fontSize: 'clamp(38px, 6vw, 68px)', fontWeight: 300,
+            letterSpacing: '-0.025em', lineHeight: 1, margin: '12px 0 8px', color: C,
+          }}>
+            {t('nav_catalog') === 'Catálogo' ? 'Colecciones' :
+             t('nav_catalog') === 'Catalogue' ? 'Collections' :
+             t('nav_catalog') === 'Katalog' ? 'Kollektionen' :
+             t('nav_catalog') === 'Catalogo' ? 'Collezioni' : 'Coleções'}
+            <span className="mn-serif-i" style={{ color: D, marginLeft: 8 }}>.</span>
+          </h2>
+          <p style={{
+            fontSize: 13, opacity: 0.6, margin: 0, fontWeight: 300, fontStyle: 'italic',
+          }}>
+            Essential · Icons · Acetato
+          </p>
+        </div>
+
         {/* ENCABEZADO COLECCIONES */}
-        <div style={{ maxWidth: 1280, margin: '0 auto', padding: 'clamp(40px,6vw,72px) 24px clamp(16px,3vw,28px)' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto', padding: 'clamp(24px,4vw,40px) 24px clamp(16px,3vw,28px)' }}>
           <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 24, flexWrap: 'wrap' }}>
             <div>
               <div className="mn-label" style={{ color: D, marginBottom: 10, fontSize: 11, letterSpacing: 2.5, fontWeight: 700 }}>SS26 · Wholesale</div>
               <h2 className="mn-serif" style={{
-                fontSize: 'clamp(42px, 7vw, 80px)', fontWeight: 300,
+                fontSize: 'clamp(36px, 5vw, 56px)', fontWeight: 300,
                 letterSpacing: '-0.03em', lineHeight: 0.95, margin: 0, color: G,
               }}>
-                Colecciones
+                {t('nav_catalog') === 'Catálogo' ? 'Tres líneas, un lenguaje' :
+                 t('nav_catalog') === 'Catalogue' ? 'Trois lignes, un langage' :
+                 t('nav_catalog') === 'Katalog' ? 'Drei Linien, eine Sprache' :
+                 t('nav_catalog') === 'Catalogo' ? 'Tre linee, un linguaggio' :
+                 t('nav_catalog') === 'Coleção' || t('nav_catalog') === 'Catálogo' ? 'Três linhas, uma linguagem' :
+                 'Three lines, one language'}
                 <span className="mn-serif-i" style={{ color: D, marginLeft: 12 }}>.</span>
               </h2>
             </div>
