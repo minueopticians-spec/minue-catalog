@@ -41,6 +41,7 @@ const LANGS = [
   { code: 'en', label: 'EN', name: 'English' },
   { code: 'de', label: 'DE', name: 'Deutsch' },
   { code: 'pt', label: 'PT', name: 'Português' },
+  { code: 'it', label: 'IT', name: 'Italiano' },
 ];
 
 const I18N = {
@@ -864,6 +865,13 @@ const DISTRIBUTORS = {
     email: 'hola@minueopticians.co',
     flag: '🌎',
   },
+  it: {
+    name: 'Minuë Italia',
+    contact: 'NOMBRE_DISTRIBUIDOR',
+    whatsapp: 'WHATSAPP_IT',
+    email: 'EMAIL_IT',
+    flag: '🇮🇹',
+  },
   default: {
     name: 'Minuë Opticians',
     contact: '',
@@ -874,22 +882,24 @@ const DISTRIBUTORS = {
 
 const REGIONS = [
   { id: 'es',    flag: '🇪🇸', distributor: 'default',
-    label: { es: 'España', fr: 'Espagne', en: 'Spain', de: 'Spanien', pt: 'Espanha' } },
+    label: { es: 'España', fr: 'Espagne', en: 'Spain', de: 'Spanien', pt: 'Espanha', it: 'Spagna' } },
   { id: 'latam', flag: '🌎', distributor: 'latam',
-    label: { es: 'Latinoamérica', fr: 'Amérique latine', en: 'Latin America', de: 'Lateinamerika', pt: 'América Latina' },
+    label: { es: 'Latinoamérica', fr: 'Amérique latine', en: 'Latin America', de: 'Lateinamerika', pt: 'América Latina', it: 'America Latina' },
     esOnly: false },
   { id: 'fr',    flag: '🇫🇷', distributor: 'fr',
-    label: { es: 'Francia', fr: 'France', en: 'France', de: 'Frankreich', pt: 'França' } },
+    label: { es: 'Francia', fr: 'France', en: 'France', de: 'Frankreich', pt: 'França', it: 'Francia' } },
   { id: 'pt',    flag: '🇵🇹', distributor: 'default',
-    label: { es: 'Portugal', fr: 'Portugal', en: 'Portugal', de: 'Portugal', pt: 'Portugal' } },
+    label: { es: 'Portugal', fr: 'Portugal', en: 'Portugal', de: 'Portugal', pt: 'Portugal', it: 'Portogallo' } },
   { id: 'de',    flag: '🇩🇪', distributor: 'default',
-    label: { es: 'Alemania', fr: 'Allemagne', en: 'Germany', de: 'Deutschland', pt: 'Alemanha' } },
+    label: { es: 'Alemania', fr: 'Allemagne', en: 'Germany', de: 'Deutschland', pt: 'Alemanha', it: 'Germania' } },
+  { id: 'it',    flag: '🇮🇹', distributor: 'it',
+    label: { es: 'Italia', fr: 'Italie', en: 'Italy', de: 'Italien', pt: 'Itália', it: 'Italia' } },
   { id: 'intl',  flag: '🌍', distributor: 'default',
-    label: { es: 'Otro país', fr: 'Autre pays', en: 'Other country', de: 'Anderes Land', pt: 'Outro país' } },
+    label: { es: 'Otro país', fr: 'Autre pays', en: 'Other country', de: 'Anderes Land', pt: 'Outro país', it: 'Altro paese' } },
 ];
 
 function detectRegion(lang) {
-  const map = { fr: 'fr', es: 'es', pt: 'pt', de: 'de', en: 'intl' };
+  const map = { fr: 'fr', es: 'es', pt: 'pt', de: 'de', en: 'intl', it: 'it' };
   return map[lang] || 'intl';
 }
 
@@ -948,11 +958,11 @@ const PRODUCTS = [
   { id:223, name:"Aretha Rosse", col:"Icons", shape:"round", colors:["rosa"],  rank:68, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_8147.jpg" },
 
   // Ziyi: ~200 uds (sin imagen — nombres con color primero en CSV)
-  { id:42,  name:"Ziyi Mandarina", col:"Icons", shape:"square", colors:["naranja"],  rank:26, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5840.jpg" , imgScale:1.15},
-  { id:161, name:"Ziyi Ágata",     col:"Icons", shape:"square", colors:["verde"],    rank:68, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5839.jpg" },
-  { id:162, name:"Ziyi Ámbar",     col:"Icons", shape:"square", colors:["ámbar"],   rank:69, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5840.jpg" },
-  { id:163, name:"Ziyi Jaspe",     col:"Icons", shape:"square", colors:["marrón"],  rank:70, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5844.jpg" },
-  { id:164, name:"Ziyi Rosas",     col:"Icons", shape:"square", colors:["rosa"],    rank:71, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0220.jpg" },
+  { id:42,  name:"Ziyi Mandarina", col:"Icons", shape:"square", colors:["naranja","mandarina"],  rank:26, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5842.jpg" , imgScale:1.15},
+  { id:161, name:"Ziyi Ágata",     col:"Icons", shape:"square", colors:["verde","ágata"],    rank:68, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5839.jpg" },
+  { id:162, name:"Ziyi Ámbar",     col:"Icons", shape:"square", colors:["ámbar","dorado"],   rank:69, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5840.jpg" },
+  { id:163, name:"Ziyi Jaspe",     col:"Icons", shape:"square", colors:["marrón","jaspe"],  rank:70, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5844.jpg" },
+  { id:164, name:"Ziyi Rosas",     col:"Icons", shape:"square", colors:["rosa","coral"],    rank:71, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0220.jpg" },
 
   // Karina: 158 uds (sin imagen)
   { id:41,  name:"Karina Jade",  col:"Icons", shape:"cateye", colors:["verde"],          rank:27, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/Minueoptician210222-010.jpg" , imgScale:1.25},
@@ -1029,12 +1039,12 @@ const PRODUCTS = [
 
   // ── ESSENTIAL ────────────────────────────────────────────────────────
   { id:1,  name:"Bergman Noire",       col:"Essential", shape:"rectangular", urgency:"stock_low", colors:["negro","carey"],  rank:46,  isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/162_e0717571-de57-4592-a6c6-72077ee6b45c.png" },
-  { id:54, name:"Bergman Honey",       col:"Essential", shape:"rectangular",                      colors:["miel","cálido"],  rank:15, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/162.png" },
+  { id:54, name:"Bergman Honey",       col:"Essential", shape:"rectangular",                      colors:["miel","cálido"],  rank:15, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/220.png" },
   { id:3,  name:"Bergman Rust",        col:"Essential", shape:"rectangular",                      colors:["marrón","cálido"],rank:44, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/209.png" },
   { id:55, name:"Bergman Carey Brown", col:"Essential", shape:"rectangular",                      colors:["carey","marrón"], rank:1, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/BERGMANCAREY.png" },
-  { id:56, name:"Bergman Carbon",      col:"Essential", shape:"rectangular",                      colors:["negro","carbono"],rank:46, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/162_e0717571-de57-4592-a6c6-72077ee6b45c.png" },
+  { id:56, name:"Bergman Carbon",      col:"Essential", shape:"rectangular",                      colors:["negro","carbono"],rank:46, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/211.png" },
   { id:57, name:"Bergman Brown",       col:"Essential", shape:"rectangular",                      colors:["marrón"],         rank:16, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/159.png" },
-  { id:62, name:"Bergman Carey",       col:"Essential", shape:"rectangular",                      colors:["carey"],          rank:48, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/BERGMANCAREY.png" },
+  { id:62, name:"Bergman Carey",       col:"Essential", shape:"rectangular",                      colors:["carey"],          rank:48, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/213.png" },
   // Deneuve: 55 uds (sin imagen)
   { id:8,   name:"Deneuve Tea",   col:"Essential", shape:"cateye", colors:["marrón","cálido"],rank:49 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/4.png" , imgScale:1.2},
   { id:202, name:"Deneuve Carey", col:"Essential", shape:"cateye", colors:["carey"],          rank:96 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/5.png" },
@@ -1050,12 +1060,11 @@ const PRODUCTS = [
   { id:211, name:"Cooper II Havana",    col:"Essential", shape:"round", colors:["havana"],  rank:105 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5618.jpg" },
   // Hart: 37 uds
   { id:7,   name:"Hart Honey",  col:"Essential", shape:"square", colors:["miel","cálido"],  rank:51, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Captura_de_pantalla_2025-05-26_a_las_12.54.08.png" },
-  { id:83,  name:"Hart Carey",  col:"Essential", shape:"square", colors:["carey"],          rank:17, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/24651be0773ae9139225c10bff875975.png" },
   { id:86,  name:"Hart Sunset", col:"Essential", shape:"square", colors:["naranja","cálido"],rank:53, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/24651be0773ae9139225c10bff875975.png" },
   // Roger: 36 uds (isNew SS26)
-  { id:54,  name:"Roger Carey",  col:"Essential", shape:"rectangular", colors:["carey"],        rank:54, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/ROGERSCAREYWEBMINUEGAFASDESOL.png" },
-  { id:55,  name:"Roger Velvet", col:"Essential", shape:"rectangular", colors:["burdeos"],      rank:55, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/ROGERSTANT.png" },
-  { id:56,  name:"Roger Wine",   col:"Essential", shape:"rectangular", colors:["burdeos","rojo"],rank:56, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/ROGERSTANT.png" },
+  { id:54,  name:"Roger Carey",  col:"Essential", shape:"rectangular", colors:["carey"],        rank:54, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/230.png" },
+  { id:55,  name:"Roger Velvet", col:"Essential", shape:"rectangular", colors:["burdeos","morado"],      rank:55, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/229.png" },
+  { id:56,  name:"Roger Wine",   col:"Essential", shape:"rectangular", colors:["burdeos","rojo"],rank:56, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/228.png" },
   // Bolden: rank 6 top pick
   { id:16,  name:"Bolden Wine",  col:"Essential", shape:"rectangular", colors:["burdeos"], img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/43.png", rank:55 },
   { id:63,  name:"Bolden Oliva", col:"Essential", shape:"rectangular", colors:["verde"],         rank:57, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/MINUE_12.png" },
@@ -1067,15 +1076,15 @@ const PRODUCTS = [
   { id:74,  name:"Rainer Carey",     col:"Essential", shape:"round", colors:["carey"],   rank:62, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/10.png" },
   // Arielle: rank 7 top pick
   { id:11,  name:"Arielle Dusty",  col:"Essential", shape:"oval", colors:["rosa","beige"],rank:7,  img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/53.png" },
+  { id:301, name:"Arielle Pale Sandstone", col:"Essential", shape:"cateye", colors:["beige","crema"], rank:46, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/56.png" },
   { id:78,  name:"Arielle Carey",  col:"Essential", shape:"oval", colors:["carey"],       rank:63, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/54.png" },
-  { id:82,  name:"Arielle Velvet", col:"Essential", shape:"oval", colors:["burdeos"],     rank:64, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/55.png" },
+  { id:82,  name:"Arielle Velvet", col:"Essential", shape:"oval", colors:["burdeos","morado"],     rank:64, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/55.png" },
   // Blyth: 11 uds
   { id:18,  name:"Blyth Emerald", col:"Essential", shape:"rectangular", colors:["verde"], rank:65, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/11.png" },
   { id:70,  name:"Blyth Carey",   col:"Essential", shape:"rectangular", colors:["carey"], rank:66, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/12.png" },
   // Hedy: rank 8 top pick
   { id:15,  name:"Hedy Guiza",  col:"Essential", shape:"round", colors:["miel","dorado"], rank:8,  img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/37.png" },
-  { id:87,  name:"Hedy Matcha", col:"Essential", shape:"round", colors:["verde"],          rank:67, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/38.png" },
-  { id:88,  name:"Hedy Carey",  col:"Essential", shape:"round", colors:["carey"],          rank:68, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/37.png" },
+  { id:87,  name:"Hedy Matcha", col:"Essential", shape:"round", colors:["verde","claro"],          rank:67, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/38.png" },
   // Colette: 14 uds
   { id:14,  name:"Colette Burnt",  col:"Essential", shape:"cateye", colors:["naranja"], rank:69, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/46.png" },
   { id:73,  name:"Colette Jungle", col:"Essential", shape:"cateye", colors:["verde"],   rank:70, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/118.png" },
@@ -1092,27 +1101,26 @@ const PRODUCTS = [
   { id:76,  name:"Tura Noir",  col:"Essential", shape:"square", colors:["negro"],        rank:79, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/67.png" },
   { id:77,  name:"Tura Carey", col:"Essential", shape:"square", colors:["carey"],        rank:80, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/65.png" },
   // Vitti: nuevo SS26
-  { id:2,   name:"Vitti Brown",       col:"Essential", shape:"cateye", colors:["marrón"],         rank:20, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/202.png" },
-  { id:212, name:"Vitti Velvet",      col:"Essential", shape:"cateye", colors:["burdeos"],         rank:82, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/201.png" },
-  { id:213, name:"Vitti Caramel",     col:"Essential", shape:"cateye", colors:["caramelo"],        rank:83, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/202.png" },
+  { id:2,   name:"Vitti Brown",       col:"Essential", shape:"cateye", colors:["marrón"],         rank:20, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/203.png" },
+  { id:212, name:"Vitti Velvet",      col:"Essential", shape:"cateye", colors:["burdeos","morado"],         rank:82, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/201.png" },
+  { id:213, name:"Vitti Caramel",     col:"Essential", shape:"cateye", colors:["caramelo","cálido"],        rank:83, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/202.png" },
   { id:214, name:"Vitti Brown Carey", col:"Essential", shape:"cateye", colors:["carey","marrón"],  rank:84, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/acaxasx.png" },
   // Cardinale: nuevo SS26
-  { id:5,   name:"Cardinale Carey", col:"Essential", shape:"panto", colors:["carey","verde","miel"],rank:85, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/gtwed.png" },
+  { id:5,   name:"Cardinale Carey", col:"Essential", shape:"panto", colors:["carey","marrón"],rank:85, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/208.png" },
   { id:58,  name:"Cardinale Guiza", col:"Essential", shape:"panto", colors:["miel","dorado"],       rank:86, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/6w4rw.png" },
-  { id:59,  name:"Cardinale Apple", col:"Essential", shape:"panto", colors:["verde"],               rank:21, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/gtwed.png" },
+  { id:59,  name:"Cardinale Apple", col:"Essential", shape:"panto", colors:["verde","manzana"],               rank:21, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/gtwed.png" },
   // Chastain: rank 5 top pick
-  { id:20,  name:"Chastain Black",        col:"Essential", shape:"cateye", urgency:"trending", colors:["negro","carey","verde"],rank:5,  isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/jjiasda.png" },
   { id:68,  name:"Chastain Carey",        col:"Essential", shape:"cateye",                     colors:["carey"],               rank:88, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/jjiasda.png" },
-  { id:69,  name:"Chastain Noire Violet", col:"Essential", shape:"cateye",                     colors:["negro","burdeos"],     rank:89, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/sadascas.png" },
+  { id:69,  name:"Chastain Noir Violet", col:"Essential", shape:"cateye",                     colors:["negro","burdeos"],     rank:89, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/sadascas.png" },
   { id:225, name:"Chastain Red Light", col:"Essential", shape:"cateye", colors:["rojo"], rank:23, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/sa.png" },
   // Gardner: 3 uds
-  { id:6,   name:"Gardner Carey", col:"Essential", shape:"round", colors:["carey"],  rank:90, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/60.png" },
-  { id:79,  name:"Gardner Amber Doré", col:"Essential", shape:"round", colors:["ámbar"],  rank:22, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/60.png" },
-  { id:92,  name:"Gardner Black", col:"Essential", shape:"round", colors:["negro"],  rank:92, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/60.png" },
+  { id:6,   name:"Gardner Carey", col:"Essential", shape:"round", colors:["carey"],  rank:90, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/102.png" },
+  { id:79,  name:"Gardner Amber Doré", col:"Essential", shape:"round", colors:["ámbar","dorado"],  rank:22, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/60.png" },
+  { id:92,  name:"Gardner Black", col:"Essential", shape:"round", colors:["negro"],  rank:92, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/101.png" },
   // Sin imagen
-  { id:237, name:"Nova Black", col:"Essential", shape:"geometric", colors:["negro"], img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/92.png", rank:117 },
-  { id:17,  name:"Nova Ruby",       col:"Essential", shape:"geometric",   colors:["rojo","rubí"],   rank:93, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/91.png" },
-  { id:221, name:"Nova Jade",       col:"Essential", shape:"geometric",   colors:["verde","jade"],  rank:94, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/91.png" },
+  { id:237, name:"Nova Black", col:"Essential", shape:"geometric", colors:["negro"], img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/150.png", rank:117 },
+  { id:17,  name:"Nova Ruby",       col:"Essential", shape:"geometric",   colors:["rojo","rubí"],   rank:93, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/172.png" },
+  { id:221, name:"Nova Jade",       col:"Essential", shape:"geometric",   colors:["verde","jade"],  rank:94, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/171.png" },
   { id:9,   name:"Totter Leaf",     col:"Essential", shape:"rectangular", colors:["verde"],           img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5627.jpg", rank:95 },
   { id:217, name:"Totter Carey",    col:"Essential", shape:"rectangular", colors:["carey"],           img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5629.jpg", rank:108 },
 
@@ -1139,8 +1147,8 @@ const PRODUCTS = [
   { id:229, name:"Baker Cloud",        col:"Essential", shape:"rectangular", colors:["gris","crema"],     rank:109 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/169.png" },
   { id:230, name:"Baker Mint",         col:"Essential", shape:"rectangular", colors:["verde","menta"],    rank:110 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/168.png" },
   { id:231, name:"Baker Black",        col:"Essential", shape:"rectangular", colors:["negro"],            rank:111 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/167.png" },
-  { id:226, name:"Hart Black",         col:"Essential", shape:"square",      colors:["negro"],            img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/20.png", rank:112 },
-  { id:227, name:"Hedy Jara",          col:"Essential", shape:"round",       colors:["verde"],            rank:113 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/39.png" },
+  { id:226, name:"Hart Black",         col:"Essential", shape:"square",      colors:["negro"],            img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/MINUE_18.png", rank:112 },
+  { id:227, name:"Hedy Jara",          col:"Essential", shape:"round",       colors:["verde","oscuro"],            rank:113 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/39.png" },
   { id:235, name:"Moore Kaffa",        col:"Icons",     shape:"rectangular", colors:["marrón","café"],    rank:117 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_2563.jpg" },
   { id:236, name:"Hazel Carey",        col:"Essential", shape:"square",      colors:["carey"],            rank:118 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/51.png" },
   { id:237, name:"Hazel Noir",         col:"Essential", shape:"square",      colors:["negro"],            rank:119 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/52.png" },
@@ -1538,11 +1546,11 @@ function generatePDF({ cartItems, cartCount, cartTotal, unitPrice, currentTier, 
 // ── PkgCarousel — carrusel de imágenes de packaging ──────────────────
 function PkgCarousel() {
   const imgs = [
-    { src: 'https://res.cloudinary.com/dekvzwn7b/image/upload/w_800,q_auto,f_auto/v1776287609/MINUE_5_v6cnmm.png', alt: 'Packaging Minuë' },
-    { src: 'https://res.cloudinary.com/dekvzwn7b/image/upload/w_800,q_auto,f_auto/v1776287608/fundas2_bblep7.png', alt: 'Fundas Minuë' },
-    { src: 'https://res.cloudinary.com/dekvzwn7b/image/upload/w_800,q_auto,f_auto/v1776287608/fundas4_lhvdxb.png', alt: 'Fundas colores' },
-    { src: 'https://res.cloudinary.com/dekvzwn7b/image/upload/w_800,q_auto,f_auto/v1776287571/FUNDAS3_10b1cf63-84b9-41ab-8ed6-5a48ad481b0b_1080x_l2xarm.webp', alt: 'Fundas detalle' },
-    { src: 'https://res.cloudinary.com/dekvzwn7b/image/upload/w_800,q_auto,f_auto/v1776287571/IMG_4498-2_0c5572d3-da68-42b0-b605-9c1441e02a98_540x_z8awbq.webp', alt: 'Packaging caja' },
+    { src: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/MINUE_11.png', alt: 'Packaging Minuë' },
+    { src: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/MINUE_12.png', alt: 'Fundas Minuë' },
+    { src: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0235.jpg', alt: 'Fundas colores' },
+    { src: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0212.jpg', alt: 'Fundas detalle' },
+    { src: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0241.jpg', alt: 'Packaging caja' },
   ];
   const [idx, setIdx] = useState(0);
   useEffect(() => {
@@ -2260,23 +2268,45 @@ export default function App() {
               </div>
             </div>
 
-            {/* Imagen derecha */}
-            <div style={{
-              position: 'relative', borderRadius: 4, overflow: 'hidden',
-              aspectRatio: '4/5', maxHeight: 'clamp(320px, 55vw, 580px)',
-            }}>
-              <img
-                src="https://res.cloudinary.com/dekvzwn7b/image/upload/w_900,q_auto,f_auto/v1776281360/_ABD8565_vyyr2r.jpg"
-                alt="Minuë — lookbook SS26"
-                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-              />
-              {/* Overlay sutil */}
-              <div style={{
-                position: 'absolute', inset: 0,
-                background: `linear-gradient(135deg, ${G}22 0%, transparent 60%)`,
-                pointerEvents: 'none',
-              }} />
-            </div>
+            {/* Imagen derecha — carrusel automático */}
+            {(() => {
+              const HERO_IMGS = [
+                { src: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/products/Minueoptician210222-010.jpg', alt: 'Karina Jade — Minuë SS26' },
+                { src: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_8156.jpg', alt: 'Aretha Carey — Minuë SS26' },
+                { src: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/products/Minueoptician210222-011.jpg', alt: 'Karina Ruby — Minuë SS26' },
+                { src: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_8114.jpg', alt: 'Loren Black — Minuë SS26' },
+                { src: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/products/Minueoptician210222-029.jpg', alt: 'Grace Brown — Minuë SS26' },
+              ];
+              const [heroIdx, setHeroIdx] = React.useState(0);
+              React.useEffect(() => {
+                const timer = setInterval(() => setHeroIdx(i => (i + 1) % HERO_IMGS.length), 4000);
+                return () => clearInterval(timer);
+              }, []);
+              const img = HERO_IMGS[heroIdx];
+              return (
+                <div style={{ position: 'relative', borderRadius: 4, overflow: 'hidden', aspectRatio: '4/5', maxHeight: 'clamp(320px, 55vw, 580px)' }}>
+                  <img
+                    key={heroIdx}
+                    src={img.src}
+                    alt={img.alt}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', animation: 'mn-fadein 0.8s ease-out both' }}
+                  />
+                  {/* Overlay sutil */}
+                  <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(135deg, ${G}22 0%, transparent 60%)`, pointerEvents: 'none' }} />
+                  {/* Dots navegación */}
+                  <div style={{ position: 'absolute', bottom: 12, left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: 6 }}>
+                    {HERO_IMGS.map((_, i) => (
+                      <button key={i} onClick={() => setHeroIdx(i)} style={{
+                        width: i === heroIdx ? 18 : 6, height: 6, borderRadius: 999,
+                        background: i === heroIdx ? C : `${C}66`,
+                        border: 'none', cursor: 'pointer', padding: 0,
+                        transition: 'all 0.3s ease',
+                      }} />
+                    ))}
+                  </div>
+                </div>
+              );
+            })()}
 
           </div>
         </header>
@@ -3841,6 +3871,26 @@ export default function App() {
 }
 
 // ============================================================
+// DropdownPortal — escapa del stacking context del nav usando position:fixed
+function DropdownPortal({ anchorRef, children }) {
+  const [pos, setPos] = React.useState({ top: 0, right: 0 });
+  useLayoutEffect(() => {
+    if (!anchorRef.current) return;
+    const rect = anchorRef.current.getBoundingClientRect();
+    const viewportWidth = window.innerWidth;
+    setPos({
+      top: rect.bottom + 6,
+      right: viewportWidth - rect.right,
+    });
+  }, [anchorRef]);
+  return React.createPortal(
+    <div style={{ position: 'fixed', top: pos.top, right: pos.right, zIndex: 9999 }}>
+      {children}
+    </div>,
+    document.body
+  );
+}
+
 // LangSelector
 // ============================================================
 function LangSelector({ lang, onChange }) {
@@ -3890,8 +3940,8 @@ function LangSelector({ lang, onChange }) {
       </button>
 
       {open && (
+        <DropdownPortal anchorRef={ref}>
         <div style={{
-          position: 'absolute', top: 'calc(100% + 6px)', right: 0, zIndex: 45,
           background: C, border: `1px solid ${G}22`, borderRadius: 10,
           boxShadow: '0 12px 32px -10px rgba(24,51,47,0.28)',
           padding: 6, minWidth: 160,
@@ -3923,6 +3973,7 @@ function LangSelector({ lang, onChange }) {
             );
           })}
         </div>
+        </DropdownPortal>
       )}
     </div>
   );
@@ -4068,7 +4119,8 @@ function OrderPanel({
                     <div className="mn-serif" style={{ fontSize: 15, fontWeight: 700, lineHeight: 1.2, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.name}</div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 3 }}>
                       <span style={{ fontSize: 11, opacity: 0.6 }}>
-                        {item.qty} × {unitPrice != null ? `${unitPrice.toFixed(2).replace('.', ',')}€` : '—'}
+                        {item.qty} × {(() => { const p = item.col === 'Acetato' ? 25.95 : unitPrice; return p != null ? `${p.toFixed(2).replace('.', ',')}€` : '—'; })()}
+                        {item.col === 'Acetato' && <span style={{ marginLeft: 4, fontSize: 8, color: D, fontWeight: 600 }}>★</span>}
                       </span>
                       {isLow && <span style={{ fontSize: 8, fontWeight: 700, color: '#e85a00', letterSpacing: 0.5 }}>⚡ POCAS UDS</span>}
                     </div>
@@ -4926,7 +4978,7 @@ function QuickViewModal({ product: initialProduct, allProducts, colData: initial
             <div>
               <div className="mn-label-xs" style={{ color: D, marginBottom: 2 }}>
                 {t('qv_collection')} — {active.col}
-                {active.col === 'Acetato' && <span style={{ marginLeft: 6, color: D, fontWeight: 700 }}>★</span>}
+                {active.col === 'Acetato' && <span style={{ marginLeft: 6, color: D, fontWeight: 600, fontSize: 8, letterSpacing: 0.5 }}>★ PRECIO ESPECIAL 25,95€/ud</span>}
               </div>
               <h2 className="mn-serif" style={{
                 fontSize: isNarrow ? 22 : 28, fontWeight: 300, margin: 0,
@@ -4962,7 +5014,7 @@ function QuickViewModal({ product: initialProduct, allProducts, colData: initial
         }}>
           {/* Imagen */}
           <div style={{
-            background: active.img ? 'transparent' : `${G}06`,
+            background: '#F7F2EA',
             height: isNarrow ? 232 : 'auto',
             minHeight: isNarrow ? 'unset' : 450,
             display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -4985,7 +5037,7 @@ function QuickViewModal({ product: initialProduct, allProducts, colData: initial
                 onClick={() => window.open(active.img.replace(/w_(600|800|900),/, 'w_1200,'), '_blank')}
                 style={{
                   width: '100%', height: '100%', objectFit: 'contain',
-                  cursor: 'zoom-in',
+                  cursor: 'zoom-in', mixBlendMode: 'multiply',
                   animation: 'mn-variant-in 0.35s cubic-bezier(0.25,0.46,0.45,0.94) both',
                 }}
               />
@@ -5035,7 +5087,7 @@ function QuickViewModal({ product: initialProduct, allProducts, colData: initial
               )}
             </div>
 
-            {/* Precio + margen */}
+            {/* Precio + margen + tramo */}
             <div style={{ display: 'flex', gap: 8 }}>
               <div style={{ padding: '7px 11px', background: `${G}08`, borderRadius: 4, flex: '1 1 70px' }}>
                 <div className="mn-label-xs" style={{ opacity: 0.5, marginBottom: 2 }}>{t('qv_rrp')}</div>
@@ -5045,6 +5097,36 @@ function QuickViewModal({ product: initialProduct, allProducts, colData: initial
                 <div className="mn-label-xs" style={{ color: D, marginBottom: 2 }}>{t('margin_label')}</div>
                 <div className="mn-serif" style={{ fontSize: 19, fontWeight: 400 }}>~{marginPct}%</div>
               </div>
+            </div>
+            {/* Tu precio de compra + tramo */}
+            <div style={{ padding: '8px 11px', background: `${G}06`, borderRadius: 4, border: `1px solid ${G}12` }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div>
+                  <div className="mn-label-xs" style={{ opacity: 0.45, marginBottom: 1 }}>{t('panel_price')}</div>
+                  <div style={{ fontSize: 17, fontWeight: 700, fontFamily: 'DM Sans, sans-serif', letterSpacing: '-0.02em' }}>
+                    {displayCost.toFixed(2).replace('.', ',')}€
+                    {active.col === 'Acetato' && <span style={{ fontSize: 9, fontWeight: 500, color: D, marginLeft: 5 }}>★ Acetato</span>}
+                    <span style={{ fontSize: 9, fontWeight: 400, opacity: 0.45, marginLeft: 2 }}>/ud</span>
+                  </div>
+                </div>
+                {currentTierPrice != null && active.col !== 'Acetato' && (
+                  <div style={{ textAlign: 'right' }}>
+                    <div className="mn-label-xs" style={{ opacity: 0.45, marginBottom: 1 }}>{t('panel_tier')}</div>
+                    <div style={{ fontSize: 12, fontWeight: 600, color: D }}>{getTier(Object.values(cart).reduce((a,b)=>a+b,0) || 0)?.label || '<10'}</div>
+                  </div>
+                )}
+              </div>
+              {currentTierPrice != null && active.col !== 'Acetato' && (() => {
+                const totalUnits = Object.values(cart).reduce((a,b)=>a+b,0) || 0;
+                const nt = getNextTier(totalUnits);
+                if (!nt) return null;
+                const toNext = nt.min - totalUnits;
+                return (
+                  <div style={{ marginTop: 5, fontSize: 9, opacity: 0.5, lineHeight: 1.4 }}>
+                    + {toNext} {t('panel_add_more_b')} <strong style={{ color: D }}>{nt.price.toFixed(2).replace('.', ',')}€/ud</strong>
+                  </div>
+                );
+              })()}
             </div>
 
             {/* Dots de colores de la variante activa */}
@@ -5062,6 +5144,7 @@ function QuickViewModal({ product: initialProduct, allProducts, colData: initial
 
             {/* CTA — solo visible en desktop dentro del panel info */}
             {!isNarrow && (
+              <>
               <button
                 onClick={() => { onAddAny(active.id); }}
                 className="mn-btn"
@@ -5076,6 +5159,15 @@ function QuickViewModal({ product: initialProduct, allProducts, colData: initial
               >
                 {added ? (<><IconCheck size={13} /> {t('qv_added')} ({added})</>) : (<><IconPlus /> {t('qv_add')}</>)}
               </button>
+              <button onClick={onClose} style={{
+                background: 'none', border: 'none', cursor: 'pointer', padding: 0, marginTop: 2,
+                fontSize: 9, opacity: 0.32, letterSpacing: 0.4, color: G, textAlign: 'center', width: '100%',
+                display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4,
+              }}>
+                <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                Cerrar y seguir viendo
+              </button>
+              </>
             )}
 
           </div>
@@ -5093,6 +5185,10 @@ function QuickViewModal({ product: initialProduct, allProducts, colData: initial
                 Otras opciones de {baseModel}
               </span>
               <div style={{ flex: 1, height: 1, background: `${G}12` }} />
+              <span style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 9, opacity: 0.35, letterSpacing: 0.3 }}>
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M5 12h14M15 8l4 4-4 4"/></svg>
+                desliza
+              </span>
             </div>
             <div style={{
               display: 'flex', gap: 8, overflowX: 'auto', paddingBottom: 2,
@@ -5119,7 +5215,7 @@ function QuickViewModal({ product: initialProduct, allProducts, colData: initial
                     {/* Imagen mini o placeholder */}
                     <div style={{
                       width: '100%', aspectRatio: '1/1',
-                      background: v.img ? 'transparent' : `${G}06`,
+                      background: '#F7F2EA',
                       borderRadius: 3, marginBottom: 8, overflow: 'hidden',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                     }}>
@@ -5172,9 +5268,19 @@ function QuickViewModal({ product: initialProduct, allProducts, colData: initial
         {/* Botón sticky móvil */}
         {isNarrow && (
           <div style={{
-            padding: '12px 16px', borderTop: `1px solid ${G}12`,
+            padding: '10px 16px 12px', borderTop: `1px solid ${G}12`,
             background: C, flexShrink: 0,
           }}>
+            <div style={{ textAlign: 'center', marginBottom: 6 }}>
+              <button onClick={onClose} style={{
+                background: 'none', border: 'none', cursor: 'pointer',
+                fontSize: 9, opacity: 0.35, letterSpacing: 0.4,
+                display: 'inline-flex', alignItems: 'center', gap: 4, color: G,
+              }}>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                Cerrar y seguir viendo el catálogo
+              </button>
+            </div>
             <button
               onClick={() => { onAddAny(active.id); }}
               className="mn-btn"
