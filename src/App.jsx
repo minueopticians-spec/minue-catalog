@@ -1038,13 +1038,12 @@ const PRODUCTS = [
   { id:225, name:"Stone Gold Brown", col:"Icons", shape:"square", colors:["dorado","marrón"], rank:43, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0217.jpg" },
 
   // ── ESSENTIAL ────────────────────────────────────────────────────────
-  { id:1,  name:"Bergman Noire",       col:"Essential", shape:"rectangular", urgency:"stock_low", colors:["negro","carey"],  rank:46,  isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/162_e0717571-de57-4592-a6c6-72077ee6b45c.png" },
-  { id:54, name:"Bergman Honey",       col:"Essential", shape:"rectangular",                      colors:["miel","cálido"],  rank:15, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/220.png" },
+  { id:1,  name:"Bergman Noire",       col:"Essential", shape:"rectangular", urgency:"stock_low", colors:["negro","carey"],  rank:5,  isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/162_e0717571-de57-4592-a6c6-72077ee6b45c.png" },
+  { id:54, name:"Bergman Honey",       col:"Essential", shape:"rectangular",                      colors:["miel","cálido"],  rank:4, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/220.png" },
   { id:3,  name:"Bergman Rust",        col:"Essential", shape:"rectangular",                      colors:["marrón","cálido"],rank:44, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/209.png" },
-  { id:55, name:"Bergman Carey Brown", col:"Essential", shape:"rectangular",                      colors:["carey","marrón"], rank:1, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/BERGMANCAREY.png" },
-  { id:56, name:"Bergman Carbon",      col:"Essential", shape:"rectangular",                      colors:["negro","carbono"],rank:46, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/211.png" },
-  { id:57, name:"Bergman Brown",       col:"Essential", shape:"rectangular",                      colors:["marrón"],         rank:16, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/159.png" },
-  { id:62, name:"Bergman Carey",       col:"Essential", shape:"rectangular",                      colors:["carey"],          rank:48, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/213.png" },
+  { id:56, name:"Bergman Carbon",      col:"Essential", shape:"rectangular",                      colors:["negro","carbono"],rank:2, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/211.png" },
+  { id:57, name:"Bergman Brown",       col:"Essential", shape:"rectangular",                      colors:["marrón"],         rank:3, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/159.png" },
+  { id:62, name:"Bergman Carey",       col:"Essential", shape:"rectangular",                      colors:["carey"],          rank:1, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/213.png" },
   // Deneuve: 55 uds (sin imagen)
   { id:8,   name:"Deneuve Tea",   col:"Essential", shape:"cateye", colors:["marrón","cálido"],rank:49 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/4.png" , imgScale:1.2},
   { id:202, name:"Deneuve Carey", col:"Essential", shape:"cateye", colors:["carey"],          rank:96 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/5.png" },
@@ -1110,9 +1109,9 @@ const PRODUCTS = [
   { id:58,  name:"Cardinale Guiza", col:"Essential", shape:"panto", colors:["miel","dorado"],       rank:86, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/6w4rw.png" },
   { id:59,  name:"Cardinale Apple", col:"Essential", shape:"panto", colors:["verde","manzana"],               rank:21, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/gtwed.png" },
   // Chastain: rank 5 top pick
-  { id:68,  name:"Chastain Carey",        col:"Essential", shape:"cateye",                     colors:["carey"],               rank:88, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/jjiasda.png" },
-  { id:69,  name:"Chastain Noir Violet", col:"Essential", shape:"cateye",                     colors:["negro","burdeos"],     rank:89, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/sadascas.png" },
-  { id:225, name:"Chastain Red Light", col:"Essential", shape:"cateye", colors:["rojo"], rank:23, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/sa.png" },
+  { id:68,  name:"Chastain Carey",        col:"Essential", shape:"cateye",                     colors:["carey"],               rank:11, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/jjiasda.png" },
+  { id:69,  name:"Chastain Noir Violet", col:"Essential", shape:"cateye",                     colors:["negro","burdeos"],     rank:12, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/sadascas.png" },
+  { id:225, name:"Chastain Red Light", col:"Essential", shape:"cateye", colors:["rojo"], rank:13, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/sa.png" },
   // Gardner: 3 uds
   { id:6,   name:"Gardner Carey", col:"Essential", shape:"round", colors:["carey"],  rank:90, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/102.png" },
   { id:79,  name:"Gardner Amber Doré", col:"Essential", shape:"round", colors:["ámbar","dorado"],  rank:22, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/60.png" },
@@ -1129,7 +1128,7 @@ const PRODUCTS = [
   { id:52,  name:"Leigh Chalk",    col:"Acetato", shape:"rectangular",               colors:["blanco"],          rank:31, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/112.png" },
   { id:47,  name:"Arden Cocoa",    col:"Acetato", shape:"cateye",                    colors:["marrón"],          rank:11, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/98.png" },
   { id:50,  name:"Novak Mocha",    col:"Acetato", shape:"square",                    colors:["moca","marrón"],   rank:12, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/92.png" },
-  { id:224, name:"Chastain Olive",     col:"Essential", shape:"cateye", urgency:"trending", colors:["verde","oliva"], rank:2, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/saxaa.png" , imgScale:1.2},
+  { id:224, name:"Chastain Olive",     col:"Essential", shape:"cateye", urgency:"trending", colors:["verde","oliva"], rank:10, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/saxaa.png" , imgScale:1.2},
   { id:81,  name:"Hayek Carey",    col:"Acetato", shape:"square",                    colors:["carey"],           rank:32, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/85.png" },
   { id:71,  name:"Arden Carey",    col:"Acetato", shape:"cateye",                    colors:["carey"],           rank:33, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/121.png" },
   { id:72,  name:"Arden Champagne",col:"Acetato", shape:"cateye",                    colors:["champán","dorado"],rank:34, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/120.png" },
@@ -1186,9 +1185,9 @@ const COLOR_FILTERS = [
 ];
 
 const COLLECTIONS = [
-  { id: 'Essential', label: 'Essential', tagKey: 'col_essential_tag', rrp: 50, unitCost: null },
+  { id: 'Essential', label: 'Essential', tagKey: 'col_essential_tag', rrp: 48, unitCost: null },
   { id: 'Icons',     label: 'Icons',     tagKey: 'col_icons_tag',     rrp: 50, unitCost: null },
-  { id: 'Acetato',   label: 'Acetato',   tagKey: 'col_acetato_tag',   rrp: 69, unitCost: 25.95 },
+  { id: 'Acetato',   label: 'Acetato',   tagKey: 'col_acetato_tag',   rrp: 70, unitCost: 25.95 },
 ];
 
 const URGENCY_LABELS = { stock_low: 'urgency_stock_low', hot: 'urgency_hot', trending: 'urgency_trending' };
@@ -1546,7 +1545,7 @@ function generatePDF({ cartItems, cartCount, cartTotal, unitPrice, currentTier, 
 // ── PkgCarousel — carrusel de imágenes de packaging ──────────────────
 function PkgCarousel() {
   const imgs = [
-    { src: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/MINUE_11.png', alt: 'Packaging Minuë' },
+    { src: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/MINUE_5_8e68a53d-c6e9-45b3-9d40-fb9d012eace9.png', alt: 'Packaging Minuë' },
     { src: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/MINUE_12.png', alt: 'Fundas Minuë' },
     { src: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0235.jpg', alt: 'Fundas colores' },
     { src: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0212.jpg', alt: 'Fundas detalle' },
@@ -1887,7 +1886,7 @@ export default function App() {
         /* Card interna — responsive por container */
         .mn-card-body { padding: 10px 8px 8px; }
         .mn-card-title { font-size: 19px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: "DM Sans", sans-serif; font-weight: 800; }
-        .mn-card-img { padding: 0; }
+        .mn-card-img { padding: 0; background: #F2EDE4; }
         @media (max-width: 600px) {
           .mn-card-body { padding: 8px 6px 6px; }
           .mn-card-title { font-size: 15px !important; }
@@ -2007,11 +2006,10 @@ export default function App() {
         {/* NAV */}
         <nav style={{
           position: 'sticky', top: 0, zIndex: 40,
-          background: 'rgba(248,239,230,0.72)',
-          backdropFilter: 'saturate(1.8) blur(22px) brightness(1.04)',
-          WebkitBackdropFilter: 'saturate(1.8) blur(22px) brightness(1.04)',
-          borderBottom: `1px solid rgba(255,255,255,0.45)`,
+          background: 'rgba(248,239,230,0.97)',
+          borderBottom: `1px solid rgba(24,51,47,0.10)`,
           boxShadow: '0 1px 0 rgba(24,51,47,0.06), 0 4px 24px -8px rgba(24,51,47,0.08)',
+          overflow: 'visible',
         }}>
           <div style={{
             maxWidth: 1280, margin: '0 auto', padding: '14px 24px',
@@ -2271,6 +2269,7 @@ export default function App() {
             {/* Imagen derecha — carrusel automático */}
             {(() => {
               const HERO_IMGS = [
+                { src: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/ANT6439_29112697-19ed-4483-b2f9-7f2bb2bbc0d8.jpg', alt: 'Minuë SS26' },
                 { src: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/products/Minueoptician210222-010.jpg', alt: 'Karina Jade — Minuë SS26' },
                 { src: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_8156.jpg', alt: 'Aretha Carey — Minuë SS26' },
                 { src: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/products/Minueoptician210222-011.jpg', alt: 'Karina Ruby — Minuë SS26' },
@@ -2403,7 +2402,9 @@ export default function App() {
           }}>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: 16 }}>
               <div>
-                <div className="mn-label" style={{ color: D, marginBottom: 6 }}>{t('top_eyebrow')}</div>
+                <div style={{ color: D, marginBottom: 8, fontSize: 13, letterSpacing: 2, fontWeight: 800, textTransform: 'uppercase', display: 'flex', alignItems: 'center', gap: 8 }}>
+                  <span style={{ fontSize: 16 }}>★</span> {t('top_eyebrow').replace('★ ','')}
+                </div>
                 <h2 className="mn-serif" style={{
                   fontSize: 'clamp(26px, 3.5vw, 38px)', fontWeight: 300,
                   letterSpacing: '-0.01em', margin: 0, lineHeight: 1.08,
@@ -2690,7 +2691,7 @@ export default function App() {
                             overflow: 'hidden', padding: 3,
                             boxShadow: '0 1px 4px rgba(0,0,0,0.1)',
                           }}>
-                            <img src={p.img} alt={p.name} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
+                            <img src={p.img} alt={p.name} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
                           </div>
                         ))}
                         {previewItems.length === 0 && (
@@ -3313,7 +3314,7 @@ export default function App() {
 
               {/* Celda grande — foto */}
               <div className="mn-bento-photo" style={{ gridColumn: '1/6', gridRow: '1/3', borderRadius: 8, overflow:'hidden', minHeight: 280, position: 'relative' }}>
-                <img src="https://res.cloudinary.com/dekvzwn7b/image/upload/w_800,q_auto,f_auto/v1777241615/IMG_0256_1080x_cvdsjb.webp"
+                <img src="https://cdn.shopify.com/s/files/1/0052/2797/0629/files/_ABD8364.jpg"
                   alt="Minuë SS26" style={{ width:'100%', height:'100%', objectFit:'cover', display:'block', filter:'brightness(0.85)' }} />
                 <div style={{ position:'absolute', inset:0, background:`linear-gradient(135deg,${G}44 0%,transparent 70%)`, pointerEvents:'none' }} />
                 <div style={{ position:'absolute', bottom:20, left:20 }}>
@@ -3388,6 +3389,12 @@ export default function App() {
 
         {/* FAQ */}
         <FaqSection t={t} />
+        {/* ══════════════════════════════════════════════════════
+            SECCIÓN DISTRIBUIDORES & SHOWROOMS
+        ══════════════════════════════════════════════════════ */}
+        <DistributorSection t={t} lang={lang} />
+
+
 
         {/* CTA TARIFAS */}
         <section style={{ maxWidth: 1280, margin: '0 auto', padding: '40px 24px 60px' }}>
@@ -3871,26 +3878,6 @@ export default function App() {
 }
 
 // ============================================================
-// DropdownPortal — escapa del stacking context del nav usando position:fixed
-function DropdownPortal({ anchorRef, children }) {
-  const [pos, setPos] = React.useState({ top: 0, right: 0 });
-  useLayoutEffect(() => {
-    if (!anchorRef.current) return;
-    const rect = anchorRef.current.getBoundingClientRect();
-    const viewportWidth = window.innerWidth;
-    setPos({
-      top: rect.bottom + 6,
-      right: viewportWidth - rect.right,
-    });
-  }, [anchorRef]);
-  return React.createPortal(
-    <div style={{ position: 'fixed', top: pos.top, right: pos.right, zIndex: 9999 }}>
-      {children}
-    </div>,
-    document.body
-  );
-}
-
 // LangSelector
 // ============================================================
 function LangSelector({ lang, onChange }) {
@@ -3940,8 +3927,8 @@ function LangSelector({ lang, onChange }) {
       </button>
 
       {open && (
-        <DropdownPortal anchorRef={ref}>
         <div style={{
+          position: 'absolute', top: 'calc(100% + 6px)', right: 0, zIndex: 9999,
           background: C, border: `1px solid ${G}22`, borderRadius: 10,
           boxShadow: '0 12px 32px -10px rgba(24,51,47,0.28)',
           padding: 6, minWidth: 160,
@@ -3973,7 +3960,6 @@ function LangSelector({ lang, onChange }) {
             );
           })}
         </div>
-        </DropdownPortal>
       )}
     </div>
   );
@@ -4105,12 +4091,12 @@ function OrderPanel({
                   background: isLow ? 'rgba(232,90,0,0.03)' : 'transparent',
                 }}>
                   <div style={{
-                    width: 64, height: 50, background: '#fff', borderRadius: 3,
+                    width: 64, height: 50, background: '#F2EDE4', borderRadius: 3,
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     padding: 5, overflow: 'hidden', border: `1px solid ${G}0a`,
                   }}>
                     {item.img
-                      ? <img src={item.img} alt={item.name} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
+                      ? <img src={item.img} alt={item.name} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
                       : <svg width="28" height="18" viewBox="0 0 42 28" fill="none" style={{ opacity: 0.2 }}><rect x="1" y="4" width="16" height="12" rx="6" stroke={G} strokeWidth="1.5"/><rect x="25" y="4" width="16" height="12" rx="6" stroke={G} strokeWidth="1.5"/><line x1="17" y1="10" x2="25" y2="10" stroke={G} strokeWidth="1.5"/></svg>
                     }
                   </div>
@@ -5014,7 +5000,7 @@ function QuickViewModal({ product: initialProduct, allProducts, colData: initial
         }}>
           {/* Imagen */}
           <div style={{
-            background: '#F7F2EA',
+            background: '#F2EDE4',
             height: isNarrow ? 232 : 'auto',
             minHeight: isNarrow ? 'unset' : 450,
             display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -5030,6 +5016,7 @@ function QuickViewModal({ product: initialProduct, allProducts, colData: initial
               }}>{t(URGENCY_LABELS[active.urgency])}</span>
             )}
             {active.img ? (
+              <>
               <img
                 key={active.id}
                 src={active.img}
@@ -5037,10 +5024,12 @@ function QuickViewModal({ product: initialProduct, allProducts, colData: initial
                 onClick={() => window.open(active.img.replace(/w_(600|800|900),/, 'w_1200,'), '_blank')}
                 style={{
                   width: '100%', height: '100%', objectFit: 'contain',
-                  cursor: 'zoom-in', mixBlendMode: 'multiply',
+                  cursor: 'zoom-in',
                   animation: 'mn-variant-in 0.35s cubic-bezier(0.25,0.46,0.45,0.94) both',
                 }}
               />
+              <div style={{ position: 'absolute', inset: 0, background: '#F2EDE4', mixBlendMode: 'multiply', pointerEvents: 'none' }} />
+              </>
             ) : (
               <div key={active.id} style={{
                 display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10, opacity: 0.25,
@@ -5215,12 +5204,15 @@ function QuickViewModal({ product: initialProduct, allProducts, colData: initial
                     {/* Imagen mini o placeholder */}
                     <div style={{
                       width: '100%', aspectRatio: '1/1',
-                      background: '#F7F2EA',
+                      background: '#F2EDE4',
                       borderRadius: 3, marginBottom: 8, overflow: 'hidden',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                     }}>
                       {v.img ? (
-                        <img src={v.img} alt={v.name} style={{ width: '100%', height: '100%', objectFit: 'contain', padding: '6px', mixBlendMode: 'multiply' }} />
+                        <>
+                        <img src={v.img} alt={v.name} style={{ width: '100%', height: '100%', objectFit: 'contain', padding: '6px' }} />
+                        <div style={{ position: 'absolute', inset: 0, background: '#F2EDE4', mixBlendMode: 'multiply', pointerEvents: 'none' }} />
+                        </>
                       ) : (
                         <svg width="28" height="18" viewBox="0 0 42 28" fill="none" style={{ opacity: 0.2 }}>
                           <rect x="1" y="4" width="16" height="12" rx="6" stroke={G} strokeWidth="1.5"/>
@@ -5761,6 +5753,137 @@ function MobileStickyBar({ cartCount, cartTotal, discountPct, onOpenPanel }) {
   );
 }
 
+
+// ── DistributorSection ──────────────────────────────────────────────────────
+function DistributorSection({ t, lang }) {
+  const [formSent, setFormSent] = React.useState(false);
+  const [formData, setFormData] = React.useState({ name: '', company: '', email: '', type: 'distributor', message: '' });
+
+  const labels = {
+    es: { eyebrow: 'Red Internacional', h2a: 'Distribuidores', h2b: '& Showrooms', sub: 'Trabajamos con distribuidores y showrooms en Europa, LATAM y mercados emergentes. Si quieres representar Minuë en tu territorio, escríbenos.', activeTitle: 'Presencia actual', contactTitle: 'Únete a la red', nameLbl: 'Nombre', companyLbl: 'Empresa / Showroom', emailLbl: 'Email', typeLbl: 'Tipo de colaboración', typeOpts: ['Distribuidor exclusivo', 'Showroom / Agente', 'Representante comercial', 'Otro'], msgLbl: 'Cuéntanos tu territorio y propuesta', send: 'Enviar consulta', sent: '✓ Mensaje enviado — te escribimos en 48h', disclaimer: 'Consulta sin compromiso. Respondemos en menos de 48h.' },
+    fr: { eyebrow: 'Réseau International', h2a: 'Distributeurs', h2b: '& Showrooms', sub: 'Nous travaillons avec des distributeurs et showrooms en Europe, LATAM et marchés émergents. Écrivez-nous pour représenter Minuë sur votre territoire.', activeTitle: 'Présence actuelle', contactTitle: 'Rejoindre le réseau', nameLbl: 'Nom', companyLbl: 'Entreprise / Showroom', emailLbl: 'Email', typeLbl: 'Type de collaboration', typeOpts: ['Distributeur exclusif', 'Showroom / Agent', 'Représentant commercial', 'Autre'], msgLbl: 'Parlez-nous de votre territoire', send: 'Envoyer', sent: '✓ Message envoyé — nous répondons sous 48h', disclaimer: 'Sans engagement. Réponse sous 48h.' },
+    en: { eyebrow: 'International Network', h2a: 'Distributors', h2b: '& Showrooms', sub: 'We work with distributors and showrooms across Europe, LATAM and emerging markets. Get in touch to represent Minuë in your territory.', activeTitle: 'Current presence', contactTitle: 'Join the network', nameLbl: 'Name', companyLbl: 'Company / Showroom', emailLbl: 'Email', typeLbl: 'Type of collaboration', typeOpts: ['Exclusive distributor', 'Showroom / Agent', 'Sales representative', 'Other'], msgLbl: 'Tell us about your territory', send: 'Send enquiry', sent: "✓ Sent — we'll reply within 48h", disclaimer: 'No commitment. Reply within 48h.' },
+    it: { eyebrow: 'Rete Internazionale', h2a: 'Distributori', h2b: '& Showroom', sub: 'Collaboriamo con distributori e showroom in Europa, LATAM e mercati emergenti. Scrivici per rappresentare Minuë nel tuo territorio.', activeTitle: 'Presenza attuale', contactTitle: 'Unisciti alla rete', nameLbl: 'Nome', companyLbl: 'Azienda / Showroom', emailLbl: 'Email', typeLbl: 'Tipo di collaborazione', typeOpts: ['Distributore esclusivo', 'Showroom / Agente', 'Rappresentante commerciale', 'Altro'], msgLbl: 'Raccontaci del tuo territorio', send: 'Invia richiesta', sent: '✓ Inviato — ti rispondiamo entro 48h', disclaimer: 'Senza impegno. Risposta entro 48h.' },
+    de: { eyebrow: 'Internationales Netzwerk', h2a: 'Distributoren', h2b: '& Showrooms', sub: 'Wir arbeiten mit Distributoren und Showrooms in Europa, LATAM und Schwellenmärkten. Schreiben Sie uns, um Minuë in Ihrem Gebiet zu vertreten.', activeTitle: 'Aktuelle Präsenz', contactTitle: 'Netzwerk beitreten', nameLbl: 'Name', companyLbl: 'Unternehmen / Showroom', emailLbl: 'Email', typeLbl: 'Kooperationsart', typeOpts: ['Exklusivdistributor', 'Showroom / Agent', 'Handelsvertreter', 'Sonstiges'], msgLbl: 'Erzählen Sie uns von Ihrem Gebiet', send: 'Anfrage senden', sent: '✓ Gesendet — Antwort innerhalb von 48h', disclaimer: 'Unverbindlich. Antwort in 48h.' },
+    pt: { eyebrow: 'Rede Internacional', h2a: 'Distribuidores', h2b: '& Showrooms', sub: 'Trabalhamos com distribuidores e showrooms na Europa, LATAM e mercados emergentes. Escreva-nos para representar Minuë no seu território.', activeTitle: 'Presença atual', contactTitle: 'Junte-se à rede', nameLbl: 'Nome', companyLbl: 'Empresa / Showroom', emailLbl: 'Email', typeLbl: 'Tipo de colaboração', typeOpts: ['Distribuidor exclusivo', 'Showroom / Agente', 'Representante comercial', 'Outro'], msgLbl: 'Conte-nos sobre o seu território', send: 'Enviar consulta', sent: '✓ Enviado — respondemos em 48h', disclaimer: 'Sem compromisso. Resposta em 48h.' },
+  };
+  const l = labels[lang] || labels.es;
+
+  const ACTIVE_DISTRIBUTORS = [
+    { flag: '🇫🇷', country: 'France', name: 'MPM Diffusion', contact: 'Pierre', zone: 'Midi-Pyrénées · Sud-Ouest', type: 'Showroom' },
+    { flag: '🇨🇴', country: 'Colombia', name: 'Minuë Colombia', contact: '', zone: 'Bogotá · Nacional', type: 'Distribuidor' },
+    { flag: '🇪🇸', country: 'España', name: 'Minuë Opticians', contact: '', zone: 'España · Faire Global', type: 'Directo' },
+  ];
+
+  const inputStyle = {
+    width: '100%', padding: '10px 13px', borderRadius: 6,
+    border: `1px solid ${G}22`, background: 'rgba(248,239,230,0.5)',
+    fontSize: 13, color: G, outline: 'none', boxSizing: 'border-box',
+    fontFamily: 'DM Sans, sans-serif',
+  };
+
+  const handleSend = () => {
+    const subject = encodeURIComponent(`[Minuë B2B] ${formData.type} — ${formData.company}`);
+    const body = encodeURIComponent(`Nombre: ${formData.name}\nEmpresa: ${formData.company}\nEmail: ${formData.email}\nTipo: ${formData.type}\n\n${formData.message}`);
+    window.open(`mailto:hola@minueopticians.com?subject=${subject}&body=${body}`);
+    setFormSent(true);
+  };
+
+  return (
+    <section id="distributors" style={{
+      background: G, color: C,
+      padding: 'clamp(48px, 6vw, 80px) clamp(16px, 4vw, 48px)',
+      scrollMarginTop: 80,
+    }}>
+      <div style={{ maxWidth: 1100, margin: '0 auto' }}>
+        {/* Header */}
+        <div style={{ marginBottom: 40, display: 'flex', flexDirection: 'column', gap: 10 }}>
+          <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: 3, textTransform: 'uppercase', color: D }}>{l.eyebrow}</div>
+          <h2 className="mn-serif" style={{ fontSize: 'clamp(28px,4vw,48px)', fontWeight: 300, margin: 0, letterSpacing: '-0.02em', lineHeight: 1.05 }}>
+            {l.h2a} <span style={{ color: D, fontStyle: 'italic' }}>{l.h2b}</span>
+          </h2>
+          <p style={{ fontSize: 15, lineHeight: 1.6, opacity: 0.7, maxWidth: 580, margin: 0, fontWeight: 300 }}>{l.sub}</p>
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 32 }}>
+
+          {/* Presencia actual */}
+          <div>
+            <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase', opacity: 0.45, marginBottom: 16 }}>{l.activeTitle}</div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+              {ACTIVE_DISTRIBUTORS.map((d, i) => (
+                <div key={i} style={{
+                  padding: '14px 16px', borderRadius: 8,
+                  border: `1px solid ${C}14`, background: `${C}06`,
+                  display: 'flex', gap: 14, alignItems: 'center',
+                }}>
+                  <span style={{ fontSize: 24 }}>{d.flag}</span>
+                  <div style={{ minWidth: 0 }}>
+                    <div style={{ fontSize: 13, fontWeight: 600, marginBottom: 2 }}>{d.name}</div>
+                    <div style={{ fontSize: 11, opacity: 0.55 }}>{d.zone}</div>
+                  </div>
+                  <span style={{
+                    marginLeft: 'auto', flexShrink: 0,
+                    fontSize: 8, fontWeight: 700, letterSpacing: 0.8,
+                    padding: '3px 8px', borderRadius: 999,
+                    background: d.type === 'Showroom' ? `${D}22` : `${C}12`,
+                    color: d.type === 'Showroom' ? D : C, textTransform: 'uppercase',
+                  }}>{d.type}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Foto editorial */}
+            <div style={{ marginTop: 20, borderRadius: 8, overflow: 'hidden', aspectRatio: '16/9' }}>
+              <img
+                src="https://cdn.shopify.com/s/files/1/0052/2797/0629/products/Minueoptician210222-032.jpg"
+                alt="Minuë SS26"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.8)' }}
+              />
+            </div>
+          </div>
+
+          {/* Formulario de contacto */}
+          <div>
+            <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase', opacity: 0.45, marginBottom: 16 }}>{l.contactTitle}</div>
+            {formSent ? (
+              <div style={{ padding: '20px', borderRadius: 8, background: `${D}18`, border: `1px solid ${D}44`, fontSize: 14, color: D, fontWeight: 500 }}>
+                {l.sent}
+              </div>
+            ) : (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                <input value={formData.name} onChange={e => setFormData(p => ({...p, name: e.target.value}))}
+                  placeholder={l.nameLbl} style={{ ...inputStyle }} />
+                <input value={formData.company} onChange={e => setFormData(p => ({...p, company: e.target.value}))}
+                  placeholder={l.companyLbl} style={{ ...inputStyle }} />
+                <input value={formData.email} onChange={e => setFormData(p => ({...p, email: e.target.value}))}
+                  type="email" placeholder={l.emailLbl} style={{ ...inputStyle }} />
+                <select value={formData.type} onChange={e => setFormData(p => ({...p, type: e.target.value}))}
+                  style={{ ...inputStyle, appearance: 'none' }}>
+                  {l.typeOpts.map((o, i) => <option key={i} value={o}>{o}</option>)}
+                </select>
+                <textarea value={formData.message} onChange={e => setFormData(p => ({...p, message: e.target.value}))}
+                  placeholder={l.msgLbl} rows={4}
+                  style={{ ...inputStyle, resize: 'vertical', lineHeight: 1.5 }} />
+                <button onClick={handleSend} style={{
+                  padding: '12px 20px', borderRadius: 6,
+                  background: D, color: G,
+                  border: 'none', fontSize: 13, fontWeight: 700, cursor: 'pointer',
+                  letterSpacing: 0.5,
+                }}>
+                  {l.send}
+                </button>
+                <p style={{ fontSize: 10, opacity: 0.4, margin: 0, lineHeight: 1.4 }}>{l.disclaimer}</p>
+              </div>
+            )}
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ── FaqSection ────────────────────────────────────────────────────────
 
 function FaqSection({ t }) {
@@ -5835,17 +5958,20 @@ function ProductCard({ product, added, onAdd, rank, showRank, variant = 'normal'
   const marginPct = Math.round((marginEur / rrp) * 100);
 
   return (
-    <div className="mn-card" style={{ display: 'flex', flexDirection: 'column' }}>
+    <div className="mn-card" onClick={() => onQuickView && onQuickView(p)} style={{ display: 'flex', flexDirection: 'column', cursor: onQuickView ? 'pointer' : 'default' }}>
       <div className="mn-card-img" style={{
-        position: 'relative', aspectRatio: '1/1', background: 'transparent',
+        position: 'relative', aspectRatio: '1/1', background: '#F2EDE4',
         borderRadius: 2, overflow: 'hidden',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
       }}>
         {p.img ? (
-          <img src={p.img} alt={p.name} className="mn-img" style={{
-            width: '100%', height: '100%', objectFit: 'contain', padding: '8px', mixBlendMode: 'multiply',
-            transform: p.imgScale ? `scale(${p.imgScale})` : 'none',
-          }} />
+          <>
+            <img src={p.img} alt={p.name} className="mn-img" style={{
+              width: '100%', height: '100%', objectFit: 'contain', padding: '8px',
+              transform: p.imgScale ? `scale(${p.imgScale})` : 'none',
+            }} />
+            <div style={{ position: 'absolute', inset: 0, background: '#F2EDE4', mixBlendMode: 'multiply', pointerEvents: 'none' }} />
+          </>
         ) : (
           <div className="mn-img" style={{
             display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
