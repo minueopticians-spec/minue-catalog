@@ -251,6 +251,17 @@ const I18N = {
     save_done: '✓ Guardada',
     share_partner: 'Compartir con socio',
     qv_qty_label: 'Cantidad',
+    aw_models: 'modelos',
+    aw_add: 'Añadir',
+    aw_close: 'Cerrar',
+    aw_expand: 'Desplegar modelos',
+    vb_title: 'Equilibrio de tu vitrina',
+    vb_units: 'uds',
+    vb_tip_dom: 'Tu selección se concentra en',
+    vb_tip_ok: 'Buen equilibrio de tonos.',
+    vb_tip_missing: 'Te falta',
+    aw_cta: 'Ver los modelos',
+    aw_cta_on: 'Filtrando por este tono',
     aw_eyebrow: 'Los colores de la temporada',
     aw_h2a: 'La paleta AW26/27,',
     aw_h2b: 'ya en catálogo.',
@@ -485,6 +496,17 @@ const I18N = {
     save_done: '✓ Sauvegardé',
     share_partner: 'Partager avec un partenaire',
     qv_qty_label: 'Quantité',
+    aw_models: 'modèles',
+    aw_add: 'Ajouter',
+    aw_close: 'Fermer',
+    aw_expand: 'Voir les modèles',
+    vb_title: 'Équilibre de votre vitrine',
+    vb_units: 'pcs',
+    vb_tip_dom: 'Votre sélection se concentre sur',
+    vb_tip_ok: 'Bon équilibre de tons.',
+    vb_tip_missing: 'Il vous manque',
+    aw_cta: 'Voir les modèles',
+    aw_cta_on: 'Filtré sur cette teinte',
     aw_eyebrow: 'Les couleurs de la saison',
     aw_h2a: 'La palette AW26/27,',
     aw_h2b: 'déjà au catalogue.',
@@ -717,6 +739,17 @@ const I18N = {
     save_done: '✓ Saved',
     share_partner: 'Share with partner',
     qv_qty_label: 'Quantity',
+    aw_models: 'models',
+    aw_add: 'Add',
+    aw_close: 'Close',
+    aw_expand: 'Expand models',
+    vb_title: 'Your display balance',
+    vb_units: 'pcs',
+    vb_tip_dom: 'Your selection is concentrated in',
+    vb_tip_ok: 'Good tonal balance.',
+    vb_tip_missing: 'You are missing',
+    aw_cta: 'See the models',
+    aw_cta_on: 'Filtering this tone',
     aw_eyebrow: 'The colours of the season',
     aw_h2a: 'The AW26/27 palette,',
     aw_h2b: 'already in stock.',
@@ -949,6 +982,17 @@ const I18N = {
     save_done: '✓ Gespeichert',
     share_partner: 'Mit Partner teilen',
     qv_qty_label: 'Menge',
+    aw_models: 'Modelle',
+    aw_add: 'Hinzufügen',
+    aw_close: 'Schließen',
+    aw_expand: 'Modelle anzeigen',
+    vb_title: 'Balance Ihres Schaufensters',
+    vb_units: 'Stk',
+    vb_tip_dom: 'Ihre Auswahl konzentriert sich auf',
+    vb_tip_ok: 'Gute Farbbalance.',
+    vb_tip_missing: 'Es fehlt',
+    aw_cta: 'Modelle ansehen',
+    aw_cta_on: 'Nach diesem Ton gefiltert',
     aw_eyebrow: 'Die Farben der Saison',
     aw_h2a: 'Die AW26/27-Palette,',
     aw_h2b: 'schon im Katalog.',
@@ -1181,6 +1225,17 @@ const I18N = {
     save_done: '✓ Guardado',
     share_partner: 'Partilhar com parceiro',
     qv_qty_label: 'Quantidade',
+    aw_models: 'modelos',
+    aw_add: 'Adicionar',
+    aw_close: 'Fechar',
+    aw_expand: 'Ver modelos',
+    vb_title: 'Equilíbrio da sua montra',
+    vb_units: 'uds',
+    vb_tip_dom: 'A sua seleção concentra-se em',
+    vb_tip_ok: 'Bom equilíbrio de tons.',
+    vb_tip_missing: 'Falta-lhe',
+    aw_cta: 'Ver os modelos',
+    aw_cta_on: 'A filtrar por este tom',
     aw_eyebrow: 'As cores da estação',
     aw_h2a: 'A paleta AW26/27,',
     aw_h2b: 'já em catálogo.',
@@ -1359,6 +1414,17 @@ const I18N = {
     save_done: '✓ Salvato',
     share_partner: 'Condividi con socio',
     qv_qty_label: 'Quantità',
+    aw_models: 'modelli',
+    aw_add: 'Aggiungi',
+    aw_close: 'Chiudi',
+    aw_expand: 'Mostra modelli',
+    vb_title: 'Equilibrio della tua vetrina',
+    vb_units: 'pz',
+    vb_tip_dom: 'La tua selezione si concentra su',
+    vb_tip_ok: 'Buon equilibrio di toni.',
+    vb_tip_missing: 'Ti manca',
+    aw_cta: 'Vedi i modelli',
+    aw_cta_on: 'Filtrato su questo tono',
     aw_eyebrow: 'I colori della stagione',
     aw_h2a: 'La palette AW26/27,',
     aw_h2b: 'già a catalogo.',
@@ -1513,7 +1579,7 @@ const PRODUCTS = [
   { id:43,  name:"Lamarr Carbon Mate", col:"Icons", shape:"cateye", urgency:"hot", colors:["negro","carbono"], rank:3,  img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_4646.jpg" , imgScale:1.25},
   { id:130, name:"Lamarr Louvre",      col:"Icons", shape:"cateye",               colors:["beige","nude"],    rank:55, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_4639.jpg" },
   { id:131, name:"Lamarr Carey",       col:"Icons", shape:"cateye",               colors:["carey"],           rank:56, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_4649.jpg" },
-  { id:132, name:"Lamarr Dark",        col:"Icons", shape:"cateye",               colors:["marrón"],          rank:57, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235608/IMG_3772_1080x_rmz7kx.webp" },
+  { id:132, name:"Lamarr Dark",        col:"Icons", shape:"cateye",               colors:["marrón"],          rank:57, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_3772.jpg" },
 
   // Loren: 455 uds total (tiene imágenes individuales)
   { id:24,  name:"Loren Carey",  col:"Icons", shape:"cateye", colors:["carey"],           rank:13, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_4647.jpg" },
@@ -1525,7 +1591,7 @@ const PRODUCTS = [
   { id:30,  name:"Berry Tea",         col:"Icons", shape:"round", urgency:"trending", colors:["marrón","cálido"],  rank:10, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0263.jpg" , imgScale:1.2},
   { id:140, name:"Berry Carbon",      col:"Icons", shape:"round",                    colors:["negro","carbono"],   rank:58, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0241.jpg" },
   { id:141, name:"Berry Navy Blue",   col:"Icons", shape:"round",                    colors:["azul"],              rank:59, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0256.jpg" },
-  { id:142, name:"Berry Brown Carey", col:"Icons", shape:"round",                    colors:["marrón","carey"],    rank:60, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777241611/IMG_3770_1080x_zcz0yh.webp" },
+  { id:142, name:"Berry Brown Carey", col:"Icons", shape:"round",                    colors:["marrón","carey"],    rank:60, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_3770.jpg" },
   { id:143, name:"Berry Leopard",     col:"Icons", shape:"round",                    colors:["marrón","negro"],    rank:61, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776278629/IMG_0263_720x_uln010.webp" },
   { id:241, name:"Berry Carey",  col:"Icons", shape:"round", colors:["carey"],           rank:62, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0255.jpg" },
   { id:242, name:"Berry Rosse",  col:"Icons", shape:"round", colors:["rosa","burdeos"],  rank:63, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_3778.jpg" },
@@ -1571,9 +1637,9 @@ const PRODUCTS = [
   { id:183, name:"Thurman Caramel", col:"Essential", shape:"rectangular", colors:["caramelo"],        rank:78, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5625.jpg" },
 
   // Harlow: 117 uds (sin imagen)
-  { id:37,  name:"Harlow Gold Green", col:"Icons", shape:"panto", colors:["dorado","verde"],  rank:31 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233643/Myproject-1_4_1080x_b7yaek.webp" },
-  { id:185, name:"Harlow Gold Brown", col:"Icons", shape:"panto", colors:["dorado","marrón"], rank:80 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233642/IMG_0251_1080x_hsbmjz.webp" },
-  { id:186, name:"Harlow Gold Black", col:"Icons", shape:"panto", colors:["dorado","negro"],  rank:81 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233642/Myproject-1_1080x_hbofmp.webp" },
+  { id:37,  name:"Harlow Gold Green", col:"Icons", shape:"panto", colors:["dorado","verde"],  rank:31 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/Myproject-1_4.png" },
+  { id:185, name:"Harlow Gold Brown", col:"Icons", shape:"panto", colors:["dorado","marrón"], rank:80 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0251.jpg" },
+  { id:186, name:"Harlow Gold Black", col:"Icons", shape:"panto", colors:["dorado","negro"],  rank:81 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/Myproject-1.png" },
 
   // Roberts: 100 uds (tiene imágenes)
   { id:33,  name:"Roberts Carrot", col:"Icons", shape:"square", colors:["naranja"],  rank:32, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_2547.jpg" },
@@ -1582,7 +1648,7 @@ const PRODUCTS = [
   { id:220, name:"Roberts Black",  col:"Icons", shape:"square", colors:["negro"],    rank:35, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_3768.jpg" },
 
   // Moore: 90 uds (tiene imagen)
-  { id:27,  name:"Moore Black", col:"Icons", shape:"rectangular", colors:["negro"], rank:35, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776986730/MOOREBLACK_2048x_olbjuu.webp" },
+  { id:27,  name:"Moore Black", col:"Icons", shape:"rectangular", colors:["negro"], rank:35, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/MOOREBLACK.png" },
 
   // Gugu: 73 uds (tiene imágenes)
   { id:26,  name:"Gugu Gold Green",       col:"Icons", shape:"geometric", urgency:"stock_low", colors:["dorado","verde"],         rank:4,  img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/GUGUGOLDGREENMINUEWEB.png" },
@@ -1656,7 +1722,7 @@ const PRODUCTS = [
   { id:65,  name:"Bolden Nude",  col:"Essential", shape:"rectangular", colors:["nude"],           rank:59, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/MINUE_11.png" },
   { id:60,  name:"Bolden Bruma", col:"Essential", shape:"rectangular", colors:["gris","neutro"],  rank:6, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/194.png" },
   // Rainer: 20 uds
-  { id:10,  name:"Rainer Mandarine", col:"Essential", shape:"round", colors:["naranja"], rank:61, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590208/116_z2owvq.png" },
+  { id:10,  name:"Rainer Mandarine", col:"Essential", shape:"round", colors:["naranja"], rank:61, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/8.png" },
   { id:74,  name:"Rainer Carey",     col:"Essential", shape:"round", colors:["carey"],   rank:62, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/10.png" },
   // Arielle: rank 7 top pick
   { id:11,  name:"Arielle Dusty",  col:"Essential", shape:"oval", colors:["rosa","beige"],rank:7,  img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/53.png" },
@@ -1720,7 +1786,7 @@ const PRODUCTS = [
   { id:80,  name:"Novak Carey",    col:"Acetato", shape:"square",                    colors:["carey"],           rank:35, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/91.png" },
   { id:84,  name:"Fonda Sepia",    col:"Acetato", shape:"square",                    colors:["marrón"],          rank:96, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590193/28_qoduia.png" },
   { id:46,  name:"Astor Green",    col:"Acetato", shape:"rectangular",               colors:["verde"],           rank:97, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/31.png" },
-  { id:85,  name:"Astor Bronce",   col:"Acetato", shape:"rectangular",               colors:["bronce"],          rank:98, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590194/34_w3ugnz.png" },
+  { id:85,  name:"Astor Bronce",   col:"Acetato", shape:"rectangular",               colors:["bronce"],          rank:98, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/27.png" },
   { id:51,  name:"Ivy Felline",    col:"Acetato", shape:"oval",                      colors:["ámbar"],          rank:99, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/113.png" },
   { id:48,  name:"Bardot",         col:"Acetato", shape:"cateye",                    colors:["carey"],           rank:100, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/33.png" },
   { id:243, name:"Hayworth",       col:"Acetato", shape:"rectangular",               colors:["negro","dorado"],  rank:103, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/26.png" },
@@ -2146,6 +2212,7 @@ function PkgCarousel() {
 const AW_GROUPS = [
   {
     "key": "aw_1",
+    "filters": ["carey", "marrón", "moca", "café", "caramelo", "havana", "cedro"],
     "swatch": "#6b4a35",
     "models": [
       {
@@ -2164,6 +2231,7 @@ const AW_GROUPS = [
   },
   {
     "key": "aw_2",
+    "filters": ["verde", "oliva", "jade", "menta"],
     "swatch": "#5c6042",
     "models": [
       {
@@ -2182,6 +2250,7 @@ const AW_GROUPS = [
   },
   {
     "key": "aw_3",
+    "filters": ["burdeos", "rojo", "rubí", "granate"],
     "swatch": "#7a2d38",
     "models": [
       {
@@ -2200,6 +2269,7 @@ const AW_GROUPS = [
   },
   {
     "key": "aw_4",
+    "filters": ["cálido", "naranja", "rosa", "tigre"],
     "swatch": "#b06a4a",
     "models": [
       {
@@ -2218,6 +2288,7 @@ const AW_GROUPS = [
   },
   {
     "key": "aw_5",
+    "filters": ["miel", "ámbar", "dorado", "amarillo"],
     "swatch": "#c08a3e",
     "models": [
       {
@@ -2236,6 +2307,7 @@ const AW_GROUPS = [
   },
   {
     "key": "aw_6",
+    "filters": ["crema", "blanco", "beige", "perla", "nude", "champán"],
     "swatch": "#ede4d5",
     "models": [
       {
@@ -2254,9 +2326,16 @@ const AW_GROUPS = [
   }
 ];
 
-function AWColorsSection({ t }) {
+function AWColorsSection({ t, onPick, activeColors = [], products = [], cart = {}, onAdd }) {
+  const [openKey, setOpenKey] = React.useState(null);
+  const isActive = (grp) => grp.filters && grp.filters.some(f => activeColors.includes(f));
+
+  const itemsFor = (grp) => products
+    .filter(p => p.img && p.colors && grp.filters.some(f => p.colors.includes(f)))
+    .sort((a, b) => (a.rank || 999) - (b.rank || 999));
+
   return (
-    <div style={{ background: C, padding: 'clamp(48px,7vw,84px) 0', borderTop: `1px solid ${G}0d`, borderBottom: `1px solid ${G}0d` }}>
+    <div style={{ background: C, padding: 'clamp(48px,7vw,84px) 0', borderTop: `3px solid ${RUST}`, borderBottom: `1px solid ${G}0d` }}>
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 24px' }}>
 
         <div style={{ textAlign: 'center', marginBottom: 'clamp(32px,4vw,48px)' }}>
@@ -2277,62 +2356,320 @@ function AWColorsSection({ t }) {
           }}>{t('aw_intro')}</p>
         </div>
 
-        <div style={{
-          display: 'grid', gap: 20,
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-        }}>
-          {AW_GROUPS.map((grp, gi) => (
-            <div key={grp.key} style={{
-              background: '#F0E7D6', borderRadius: 10, padding: '22px 20px',
-              border: `1px solid ${G}12`,
-            }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 14 }}>
-                <span style={{
-                  width: 34, height: 34, borderRadius: '50%', background: grp.swatch,
-                  flexShrink: 0, border: `1px solid ${G}22`,
-                }} />
-                <div style={{ minWidth: 0 }}>
-                  <div style={{
-                    fontFamily: 'Georgia, serif', fontSize: 17, color: G, lineHeight: 1.2,
-                  }}>{t(grp.key + 't')}</div>
-                  <div className="mn-label" style={{
-                    fontSize: 9, letterSpacing: 1.5, color: RUST, fontWeight: 700, marginTop: 2,
-                  }}>PANTONE AW26/27</div>
-                </div>
-              </div>
+        <div style={{ display: 'grid', gap: 20, gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
+          {AW_GROUPS.map((grp) => {
+            const all = itemsFor(grp);
+            const open = openKey === grp.key;
+            const preview = grp.models.slice(0, 3);
+            return (
+              <div key={grp.key} style={{
+                background: open ? C : '#F0E7D6', borderRadius: 10,
+                padding: open ? '24px 22px' : '22px 20px',
+                border: open ? `2px solid ${grp.swatch}` : `1px solid ${G}12`,
+                boxShadow: open ? `0 18px 40px -18px ${grp.swatch}aa` : 'none',
+                gridColumn: open ? '1 / -1' : 'auto',
+                transition: 'border-color .2s, box-shadow .2s, background .2s',
+                position: 'relative',
+              }}>
 
-              <p style={{
-                fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: 13,
-                color: G, opacity: 0.68, lineHeight: 1.55, margin: '0 0 16px',
-              }}>{t(grp.key + 'd')}</p>
-
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 8 }}>
-                {grp.models.map((mo, mi) => (
-                  <div key={mi}>
-                    <div style={{
-                      position: 'relative', aspectRatio: '1/1', background: C,
-                      borderRadius: 6, overflow: 'hidden',
-                    }}>
-                      <img src={mo.img} alt={mo.name} loading="lazy" style={{
-                        position: 'absolute', inset: 0, width: '100%', height: '100%',
-                        objectFit: 'contain', padding: 6, boxSizing: 'border-box',
-                      }} />
-                      <div style={{
-                        position: 'absolute', inset: 0, background: C,
-                        mixBlendMode: 'multiply', pointerEvents: 'none',
-                      }} />
+                {/* Cabecera */}
+                <div
+                  onClick={() => setOpenKey(open ? null : grp.key)}
+                  role="button" tabIndex={0}
+                  onKeyDown={(e) => { if (e.key === 'Enter') setOpenKey(open ? null : grp.key); }}
+                  style={{ cursor: 'pointer' }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 14 }}>
+                    <span style={{
+                      width: 38, height: 38, borderRadius: '50%', background: grp.swatch,
+                      flexShrink: 0, border: `2px solid ${C}`,
+                      boxShadow: `0 0 0 1px ${G}22, 0 3px 8px -2px ${grp.swatch}88`,
+                    }} />
+                    <div style={{ minWidth: 0, flex: 1 }}>
+                      <div style={{ fontFamily: 'Georgia, serif', fontSize: 17, color: G, lineHeight: 1.2 }}>
+                        {t(grp.key + 't')}
+                      </div>
+                      <div className="mn-label" style={{
+                        fontSize: 9, letterSpacing: 1.5, color: RUST, fontWeight: 700, marginTop: 2,
+                      }}>PANTONE AW26/27 · {all.length} {t('aw_models')}</div>
                     </div>
-                    <div style={{
-                      fontFamily: 'Arial, sans-serif', fontSize: 9, color: G, opacity: 0.7,
-                      textAlign: 'center', marginTop: 5, lineHeight: 1.25,
-                    }}>{mo.name}</div>
+                    <span style={{
+                      fontSize: 20, color: open ? grp.swatch : G, opacity: open ? 1 : 0.4,
+                      transform: open ? 'rotate(180deg)' : 'none', transition: 'transform .25s', lineHeight: 1,
+                    }}>⌄</span>
                   </div>
-                ))}
+
+                  <p style={{
+                    fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: 13,
+                    color: G, opacity: 0.68, lineHeight: 1.55, margin: '0 0 16px',
+                  }}>{t(grp.key + 'd')}</p>
+                </div>
+
+                {/* Vista cerrada: 3 miniaturas */}
+                {!open && (
+                  <div
+                    onClick={() => setOpenKey(grp.key)}
+                    style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 8, cursor: 'pointer' }}
+                  >
+                    {preview.map((mo, mi) => (
+                      <div key={mi}>
+                        <div style={{ position: 'relative', aspectRatio: '1/1', background: C, borderRadius: 6, overflow: 'hidden' }}>
+                          <img src={mo.img} alt={mo.name} loading="lazy" style={{
+                            position: 'absolute', inset: 0, width: '100%', height: '100%',
+                            objectFit: 'contain', padding: 6, boxSizing: 'border-box',
+                          }} />
+                          <div style={{ position: 'absolute', inset: 0, background: C, mixBlendMode: 'multiply', pointerEvents: 'none' }} />
+                        </div>
+                        <div style={{
+                          fontFamily: 'Arial, sans-serif', fontSize: 9, color: G, opacity: 0.7,
+                          textAlign: 'center', marginTop: 5, lineHeight: 1.25,
+                        }}>{mo.name}</div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {/* Vista abierta: rejilla completa con añadir al carrito */}
+                {open && (
+                  <div style={{ animation: 'mn-fadein .25s ease-out both' }}>
+                    <div style={{
+                      display: 'grid', gap: 12,
+                      gridTemplateColumns: 'repeat(auto-fill, minmax(132px, 1fr))',
+                      marginBottom: 18,
+                    }}>
+                      {all.slice(0, 18).map(p => {
+                        const qty = cart[p.id] || 0;
+                        return (
+                          <div key={p.id} style={{
+                            background: '#F0E7D6', borderRadius: 8, overflow: 'hidden',
+                            border: qty > 0 ? `1.5px solid ${grp.swatch}` : `1px solid ${G}12`,
+                            transition: 'border-color .18s, transform .18s',
+                          }}
+                            onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-3px)'; }}
+                            onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; }}
+                          >
+                            <div style={{ position: 'relative', aspectRatio: '3/2', overflow: 'hidden' }}>
+                              <img src={p.img} alt={p.name} loading="lazy" style={{
+                                position: 'absolute', inset: 0, width: '100%', height: '100%',
+                                objectFit: 'contain', padding: 7, boxSizing: 'border-box',
+                                transform: p.imgScale ? `scale(${p.imgScale})` : 'none',
+                              }} />
+                              <div style={{ position: 'absolute', inset: 0, background: '#F0E7D6', mixBlendMode: 'multiply', pointerEvents: 'none' }} />
+                              {qty > 0 && (
+                                <span style={{
+                                  position: 'absolute', top: 6, right: 6, minWidth: 20, height: 20,
+                                  borderRadius: 999, background: grp.swatch, color: '#fff',
+                                  fontSize: 10, fontWeight: 800, display: 'inline-flex',
+                                  alignItems: 'center', justifyContent: 'center', padding: '0 6px',
+                                }}>{qty}</span>
+                              )}
+                            </div>
+                            <div style={{ padding: '8px 9px 9px' }}>
+                              <div style={{
+                                fontFamily: 'Georgia, serif', fontSize: 12, color: G,
+                                lineHeight: 1.25, minHeight: 30,
+                              }}>{p.name}</div>
+                              <div className="mn-label" style={{
+                                fontSize: 8, letterSpacing: 1.2, color: G, opacity: 0.45, marginBottom: 7,
+                              }}>{p.col}</div>
+                              <button
+                                onClick={() => onAdd && onAdd(p.id)}
+                                style={{
+                                  width: '100%', padding: '7px 6px', borderRadius: 5,
+                                  border: `1px solid ${qty > 0 ? grp.swatch : G}`,
+                                  background: qty > 0 ? grp.swatch : 'transparent',
+                                  color: qty > 0 ? '#fff' : G,
+                                  fontFamily: 'Arial, sans-serif', fontSize: 10, fontWeight: 800,
+                                  letterSpacing: 1, textTransform: 'uppercase', cursor: 'pointer',
+                                  transition: 'all .15s',
+                                }}>
+                                {qty > 0 ? `+1 · ${qty}` : t('aw_add')}
+                              </button>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+
+                    <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', justifyContent: 'center' }}>
+                      <button onClick={() => onPick && onPick(grp)} style={{
+                        padding: '11px 22px', borderRadius: 999, border: `1px solid ${G}`,
+                        background: G, color: C, fontFamily: 'Arial, sans-serif',
+                        fontSize: 10.5, fontWeight: 800, letterSpacing: 1.5,
+                        textTransform: 'uppercase', cursor: 'pointer',
+                      }}>{all.length > 18 ? `${t('aw_cta')} (${all.length})` : t('aw_cta')}</button>
+                      <button onClick={() => setOpenKey(null)} style={{
+                        padding: '11px 22px', borderRadius: 999, border: `1px solid ${G}33`,
+                        background: 'transparent', color: G, fontFamily: 'Arial, sans-serif',
+                        fontSize: 10.5, fontWeight: 800, letterSpacing: 1.5,
+                        textTransform: 'uppercase', cursor: 'pointer',
+                      }}>{t('aw_close')}</button>
+                    </div>
+                  </div>
+                )}
+
+                {/* Pie en vista cerrada */}
+                {!open && (
+                  <div
+                    onClick={() => setOpenKey(grp.key)}
+                    style={{
+                      marginTop: 14, paddingTop: 12, borderTop: `1px solid ${G}12`,
+                      display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                      gap: 8, cursor: 'pointer',
+                    }}>
+                    <span className="mn-label" style={{
+                      fontSize: 10, letterSpacing: 1.5, fontWeight: 700,
+                      color: isActive(grp) ? grp.swatch : G, opacity: isActive(grp) ? 1 : 0.55,
+                    }}>
+                      {isActive(grp) ? t('aw_cta_on') : t('aw_expand')}
+                    </span>
+                    <span style={{ fontSize: 15, color: G, opacity: 0.4 }}>⌄</span>
+                  </div>
+                )}
+
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
+      </div>
+    </div>
+  );
+}
+
+
+// ============================================================
+// VitrineBalance — equilibrio de tonos de la selección actual
+// ============================================================
+function VitrineBalance({ t, cart, products, onPick }) {
+  const items = Object.entries(cart).filter(([, q]) => q > 0);
+  const total = items.reduce((a, [, q]) => a + q, 0);
+  if (total < 4) return null;
+
+  const byId = {};
+  products.forEach(p => { byId[p.id] = p; });
+
+  const counts = AW_GROUPS.map(grp => {
+    let n = 0;
+    items.forEach(([id, q]) => {
+      const p = byId[id];
+      if (p && p.colors && grp.filters.some(f => p.colors.includes(f))) n += q;
+    });
+    return { grp, n, pct: Math.round((n / total) * 100) };
+  });
+
+  const missing = counts.filter(c => c.n === 0);
+  const top = counts.slice().sort((a, b) => b.n - a.n)[0];
+  const dominante = top && top.pct >= 55 ? top : null;
+
+  return (
+    <div style={{
+      background: C, borderRadius: 10, padding: '20px 20px 18px',
+      border: `1px solid ${G}14`, marginBottom: 18,
+    }}>
+      <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 10, marginBottom: 12 }}>
+        <div className="mn-label" style={{ fontSize: 10, letterSpacing: 2, fontWeight: 700, color: RUST }}>
+          {t('vb_title')}
+        </div>
+        <div style={{ fontFamily: 'Georgia, serif', fontSize: 13, color: G, opacity: 0.55 }}>
+          {total} {t('vb_units')}
+        </div>
+      </div>
+
+      {/* Barra apilada */}
+      <div style={{ display: 'flex', height: 12, borderRadius: 999, overflow: 'hidden', background: `${G}10`, marginBottom: 12 }}>
+        {counts.filter(c => c.n > 0).map(c => (
+          <div key={c.grp.key} title={`${c.pct}%`} style={{
+            width: `${c.pct}%`, background: c.grp.swatch, transition: 'width .35s ease',
+          }} />
+        ))}
+      </div>
+
+      {/* Leyenda */}
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px 12px', marginBottom: missing.length ? 12 : 0 }}>
+        {counts.filter(c => c.n > 0).map(c => (
+          <div key={c.grp.key} style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+            <span style={{ width: 9, height: 9, borderRadius: '50%', background: c.grp.swatch, flexShrink: 0 }} />
+            <span style={{ fontFamily: 'Arial, sans-serif', fontSize: 10, color: G, opacity: 0.7 }}>
+              {t(c.grp.key + 't')} · {c.pct}%
+            </span>
+          </div>
+        ))}
+      </div>
+
+      {/* Consejo accionable */}
+      {(missing.length > 0 || dominante) && (
+        <div style={{
+          borderTop: `1px solid ${G}12`, paddingTop: 11, marginTop: 2,
+          fontFamily: 'Georgia, serif', fontSize: 12.5, fontStyle: 'italic',
+          color: G, opacity: 0.78, lineHeight: 1.5,
+        }}>
+          {dominante
+            ? `${t('vb_tip_dom')} ${t(dominante.grp.key + 't')} (${dominante.pct}%).`
+            : t('vb_tip_ok')}
+          {missing.length > 0 && (
+            <span> {t('vb_tip_missing')}{' '}
+              {missing.slice(0, 3).map((c, i) => (
+                <button key={c.grp.key}
+                  onClick={() => onPick && onPick(c.grp)}
+                  style={{
+                    background: 'transparent', border: 'none', padding: 0, cursor: 'pointer',
+                    fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: 12.5,
+                    color: c.grp.swatch, fontWeight: 700, textDecoration: 'underline',
+                    textUnderlineOffset: 3,
+                  }}>
+                  {t(c.grp.key + 't')}{i < Math.min(missing.length, 3) - 1 ? ', ' : ''}
+                </button>
+              ))}
+              .
+            </span>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+
+// ============================================================
+// Lightbox — ver la montura ampliada
+// ============================================================
+function Lightbox({ item, onClose }) {
+  React.useEffect(() => {
+    if (!item) return;
+    const h = (e) => { if (e.key === 'Escape') onClose(); };
+    document.addEventListener('keydown', h);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => { document.removeEventListener('keydown', h); document.body.style.overflow = prev; };
+  }, [item, onClose]);
+
+  if (!item) return null;
+  return (
+    <div onClick={onClose} style={{
+      position: 'fixed', inset: 0, zIndex: 3000,
+      background: 'rgba(16,31,28,.94)', display: 'flex',
+      alignItems: 'center', justifyContent: 'center',
+      padding: 'clamp(48px,7vw,72px) 24px 24px', cursor: 'zoom-out',
+      animation: 'mn-fade .2s ease-out both',
+    }}>
+      <div onClick={(e) => e.stopPropagation()} style={{ maxWidth: 660, width: '100%', textAlign: 'center', cursor: 'default' }}>
+        <button onClick={onClose} aria-label="Cerrar" style={{
+          position: 'absolute', top: 20, right: 24, background: 'none', border: 'none',
+          color: C, fontSize: 34, lineHeight: 1, cursor: 'pointer', opacity: 0.75,
+        }}>×</button>
+        <div style={{ background: '#F0E7D6', borderRadius: 12, padding: 'clamp(20px,4vw,36px)', position: 'relative', overflow: 'hidden' }}>
+          <img src={item.img} alt={item.name} style={{
+            width: '100%', height: 'auto', maxHeight: '58vh', objectFit: 'contain', display: 'block',
+          }} />
+          <div style={{ position: 'absolute', inset: 0, background: '#F0E7D6', mixBlendMode: 'multiply', pointerEvents: 'none' }} />
+        </div>
+        <div className="mn-serif" style={{ color: C, fontSize: 'clamp(20px,3vw,28px)', fontWeight: 300, marginTop: 18 }}>
+          {item.name}
+        </div>
+        <div className="mn-label" style={{ color: D, fontSize: 10, letterSpacing: 2.5, fontWeight: 700, marginTop: 5 }}>
+          {item.col}{item.shape ? ` · ${item.shape}` : ''}
+        </div>
       </div>
     </div>
   );
@@ -2347,6 +2684,7 @@ export default function App() {
   const [colFilter, setColFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [quickViewProduct, setQuickViewProduct] = useState(null);
+  const [zoomItem, setZoomItem] = useState(null);
   const [panelOpen, setPanelOpen] = useState(false);
   const [tarifasOpen, setTarifasOpen] = useState(false);
   const [lang, setLang] = useState(() => detectLang());
@@ -2424,6 +2762,23 @@ export default function App() {
   }, [cart]);
 
   const t = (k) => (I18N[lang] && I18N[lang][k]) || I18N.es[k] || k;
+
+  // Filtra el catálogo por un grupo de la paleta AW y lleva al listado
+  const pickTone = (grp) => {
+    if (!grp || !grp.filters) return;
+    const already = grp.filters.some(f => activeColors.includes(f));
+    setActiveColors(already ? [] : grp.filters);
+    setActiveShapes([]);
+    setColFilter('all');
+    setSearchQuery('');
+    setPanelOpen(false);
+    if (!already) {
+      setTimeout(() => {
+        const el = document.getElementById('catalogo');
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 120);
+    }
+  };
 
   const cartCount = Object.values(cart).reduce((a, b) => a + b, 0);
 
@@ -2600,6 +2955,9 @@ export default function App() {
         a { color: inherit; text-decoration: none; }
 
         .mn-card { transition: transform 0.35s cubic-bezier(.2,.7,.2,1), box-shadow 0.35s ease; overflow: hidden; height: 100%; box-sizing: border-box; }
+        .mn-card:hover .mn-zoom-btn { opacity: 1 !important; }
+        .mn-zoom-btn:hover { transform: scale(1.12); }
+        @media (hover: none) { .mn-zoom-btn { opacity: .8 !important; } }
         .mn-card:hover { transform: translateY(-3px); box-shadow: 0 22px 50px -24px rgba(24,51,47,0.22); }
         .mn-card .mn-img { transition: transform 0.6s cubic-bezier(.2,.7,.2,1); }
         .mn-card:hover .mn-img { transform: scale(1.08) rotate(2deg); }
@@ -3146,7 +3504,7 @@ export default function App() {
                   onAdd={() => addToCart(p.id)} rank={i + 1} showRank variant="top"
                   colData={COLLECTIONS.find(c => c.id === p.col)}
                   currentTierPrice={unitPrice}
-                  onQuickView={(p) => setQuickViewProduct(p)} t={t} />
+                  onQuickView={(p) => setQuickViewProduct(p)} onZoom={(p) => setZoomItem(p)} t={t} />
               </div>
             ))}
           </div>
@@ -3185,7 +3543,7 @@ export default function App() {
                   onAdd={() => addToCart(p.id)} t={t} isNew
                   colData={COLLECTIONS.find(c => c.id === p.col)}
                   currentTierPrice={unitPrice}
-                  onQuickView={setQuickViewProduct} />
+                  onQuickView={setQuickViewProduct} onZoom={(p) => setZoomItem(p)} />
               ))}
             </div>
 
@@ -3207,11 +3565,19 @@ export default function App() {
         {/* ANCHOR para auto-scroll al filtrar */}
         <div id="catalog-start" style={{ scrollMarginTop: 140 }} />
 
-        <AWColorsSection t={t} />
+        <AWColorsSection
+          t={t}
+          activeColors={activeColors}
+          onPick={pickTone}
+          products={PRODUCTS}
+          cart={cart}
+          onAdd={addToCart}
+        />
 
         {/* BANDA VERDE DIVISORIA — anuncia las colecciones */}
         <div style={{
-          background: G, color: C,
+          background: `linear-gradient(115deg, ${G} 0%, ${G} 55%, #24403a 78%, #3a4436 100%)`,
+          color: C,
           padding: 'clamp(28px, 4vw, 48px) 24px',
           textAlign: 'center', position: 'relative', overflow: 'hidden',
         }}>
@@ -3253,10 +3619,10 @@ export default function App() {
         </div>
 
         {/* ENCABEZADO COLECCIONES */}
-        <div style={{ maxWidth: 1280, margin: '0 auto', padding: 'clamp(24px,4vw,40px) 24px clamp(16px,3vw,28px)' }}>
+        <div id="catalogo" style={{ maxWidth: 1280, margin: '0 auto', padding: 'clamp(24px,4vw,40px) 24px clamp(16px,3vw,28px)', scrollMarginTop: 80 }}>
           <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 24, flexWrap: 'wrap' }}>
             <div>
-              <div className="mn-label" style={{ color: D, marginBottom: 10, fontSize: 11, letterSpacing: 2.5, fontWeight: 700 }}>AW26/27 · Wholesale</div>
+              <div className="mn-label" style={{ color: '#a2542b', marginBottom: 10, fontSize: 11, letterSpacing: 2.5, fontWeight: 700 }}>AW26/27 · Wholesale</div>
               <h2 className="mn-serif" style={{
                 fontSize: 'clamp(36px, 5vw, 56px)', fontWeight: 300,
                 letterSpacing: '-0.03em', lineHeight: 0.95, margin: 0, color: G,
@@ -3325,7 +3691,10 @@ export default function App() {
                         }}
                         onMouseEnter={e => e.currentTarget.style.background = `${G}08`}
                         onMouseLeave={e => e.currentTarget.style.background = 'transparent'}>
-                          {p.img ? <img src={p.img} alt={p.name} style={{ width: 32, height: 24, objectFit: 'contain', background: '#fff', padding: 2, borderRadius: 2 }} /> :
+                          {p.img ? <span style={{ position: 'relative', width: 32, height: 24, borderRadius: 2, overflow: 'hidden', background: '#F0E7D6', display: 'inline-block', flexShrink: 0 }}>
+                            <img src={p.img} alt={p.name} style={{ width: '100%', height: '100%', objectFit: 'contain', padding: 2, boxSizing: 'border-box' }} />
+                            <span style={{ position: 'absolute', inset: 0, background: '#F0E7D6', mixBlendMode: 'multiply', pointerEvents: 'none' }} />
+                          </span> :
                             <div style={{ width: 32, height: 24, background: `${G}10`, borderRadius: 2 }} />}
                           <div>
                             <div style={{ fontSize: 12, fontWeight: 500 }}>{p.name}</div>
@@ -3452,13 +3821,14 @@ export default function App() {
                         {previewItems.slice(0, 3).map((p, i) => (
                           <div key={p.id} style={{
                             width: 40, height: 32, borderRadius: 4,
-                            background: '#fff', border: `2px solid ${C}`,
+                            background: '#F0E7D6', border: `2px solid ${C}`,
                             marginLeft: i > 0 ? -8 : 0,
                             display: 'flex', alignItems: 'center', justifyContent: 'center',
-                            overflow: 'hidden', padding: 3,
+                            overflow: 'hidden', padding: 3, position: 'relative',
                             boxShadow: '0 1px 4px rgba(0,0,0,0.1)',
                           }}>
                             <img src={p.img} alt={p.name} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+                            <span style={{ position: 'absolute', inset: 0, background: '#F0E7D6', mixBlendMode: 'multiply', pointerEvents: 'none' }} />
                           </div>
                         ))}
                         {previewItems.length === 0 && (
@@ -3581,10 +3951,28 @@ export default function App() {
                                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                                   }}>
                                     {rep.img ? (
+                                      <>
                                       <img src={rep.img} alt={base} className="mn-img" style={{
                                         width: '100%', height: '100%', objectFit: 'contain', padding: '8px',
                                         transform: rep.imgScale ? `scale(${rep.imgScale})` : 'none',
                                       }} />
+                                      <button
+                                        className="mn-zoom-btn"
+                                        onClick={(e) => { e.stopPropagation(); setZoomItem(rep); }}
+                                        aria-label="Ampliar"
+                                        style={{
+                                          position: 'absolute', right: 7, bottom: 7, width: 29, height: 29,
+                                          borderRadius: 999, border: `1px solid ${G}22`, background: C,
+                                          display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                                          cursor: 'zoom-in', opacity: 0, transition: 'opacity .18s ease, transform .18s ease',
+                                          boxShadow: '0 3px 10px -3px rgba(24,51,47,.35)', zIndex: 4,
+                                        }}>
+                                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={G} strokeWidth="2" strokeLinecap="round">
+                                          <circle cx="11" cy="11" r="7" /><line x1="16.5" y1="16.5" x2="21" y2="21" />
+                                          <line x1="11" y1="8" x2="11" y2="14" /><line x1="8" y1="11" x2="14" y2="11" />
+                                        </svg>
+                                      </button>
+                                      </>
                                     ) : (
                                       // Placeholder con color del diseño
                                       <div style={{
@@ -4595,6 +4983,7 @@ export default function App() {
         {/* SIDE PANEL */}
         {panelOpen && (
           <OrderPanel
+            cart={cart} products={PRODUCTS} onPickTone={pickTone}
             t={t} lang={lang}
             region={region} setRegion={setRegion}
             distributor={distributor}
@@ -4612,6 +5001,8 @@ export default function App() {
         )}
 
         {/* QUICK VIEW MODAL */}
+        <Lightbox item={zoomItem} onClose={() => setZoomItem(null)} />
+
         {quickViewProduct && (
           <QuickViewModal
             product={quickViewProduct}
@@ -4749,7 +5140,7 @@ function LangSelector({ lang, onChange }) {
 // OrderPanel
 // ============================================================
 function OrderPanel({
-  t, lang, region, setRegion, distributor,
+  t, lang, region, setRegion, distributor, cart, products, onPickTone,
   cartItems, cartCount, currentTier, nextTier, unitPrice, cartTotal,
   familyCode, setFamilyCode, discountPct, ouardaActive, zubietaActive,
   onClose, onUpdateQty, onRemove, onSendWA, onSendEmail,
@@ -4860,7 +5251,11 @@ function OrderPanel({
               <p style={{ fontSize: 13, lineHeight: 1.5, fontWeight: 300 }}>{t('panel_empty_d')}</p>
             </div>
           ) : (
-            cartItems.map(item => {
+            <>
+            <div style={{ padding: '16px 18px 0' }}>
+              <VitrineBalance t={t} cart={cart} products={products} onPick={onPickTone} />
+            </div>
+            {cartItems.map(item => {
               const prod = PRODUCTS.find(p => p.id === item.id);
               const isLow = prod?.urgency === 'stock_low';
               return (
@@ -4871,12 +5266,12 @@ function OrderPanel({
                   background: isLow ? 'rgba(232,90,0,0.03)' : 'transparent',
                 }}>
                   <div style={{
-                    width: 64, height: 50, background: '#fff', borderRadius: 3,
+                    width: 64, height: 50, background: '#F0E7D6', borderRadius: 3,
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    padding: 5, overflow: 'hidden', border: `1px solid ${G}0a`,
+                    padding: 5, overflow: 'hidden', position: 'relative', border: `1px solid ${G}0a`,
                   }}>
                     {item.img
-                      ? <img src={item.img} alt={item.name} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+                      ? <><img src={item.img} alt={item.name} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} /><span style={{ position: 'absolute', inset: 0, background: '#F0E7D6', mixBlendMode: 'multiply', pointerEvents: 'none' }} /></>
                       : <svg width="28" height="18" viewBox="0 0 42 28" fill="none" style={{ opacity: 0.2 }}><rect x="1" y="4" width="16" height="12" rx="6" stroke={G} strokeWidth="1.5"/><rect x="25" y="4" width="16" height="12" rx="6" stroke={G} strokeWidth="1.5"/><line x1="17" y1="10" x2="25" y2="10" stroke={G} strokeWidth="1.5"/></svg>
                     }
                   </div>
@@ -4902,7 +5297,8 @@ function OrderPanel({
                   </div>
                 </div>
               );
-            })
+            })}
+            </>
           )}
 
           {/* ── Zona inferior con totales y CTA ── */}
@@ -5572,7 +5968,7 @@ function GlobalMap({ t }) {
   const COUNTRIES = ['Francia','España','Alemania','Italia','P.Bajos','Bélgica','Suiza','Dinamarca','Portugal','Grecia','R.Unido','Australia','Colombia','EE.UU.'];
 
   return (
-    <section style={{ background: G, color: C, padding: 'clamp(50px,7vw,80px) 0' }}>
+    <section style={{ background: G, borderTop: `3px solid #a2542b`, color: C, padding: 'clamp(50px,7vw,80px) 0' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 24px' }}>
         <Fade d={0}>
           <div style={{ textAlign: 'center', marginBottom: 32 }}>
@@ -6074,6 +6470,7 @@ function StatNumber({ raw }) {
 }
 
 const HERO_SLIDES = [
+  'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/42_e5cf5e2d-2194-49b1-8783-942fa94cf97f.png?v=1783279835',
   'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/ANT6439_29112697-19ed-4483-b2f9-7f2bb2bbc0d8.jpg',
   'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Minueoptician210222-010.jpg',
   'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Minueoptician210222-011.jpg',
@@ -6109,6 +6506,12 @@ function HeroSlider() {
         position: 'absolute', left: 0, right: 0, bottom: 0, height: '40%',
         background: `linear-gradient(to top, ${G} 0%, transparent 100%)`,
         pointerEvents: 'none',
+      }} />
+      {/* Viñeta cálida de temporada */}
+      <div style={{
+        position: 'absolute', inset: 0, pointerEvents: 'none',
+        background: `linear-gradient(to top, ${RUST}55 0%, transparent 45%)`,
+        mixBlendMode: 'multiply',
       }} />
       {/* Dots */}
       <div style={{
@@ -6302,7 +6705,7 @@ function FaireRating({ t }) {
             width: 52, height: 52, borderRadius: 10,
             border: `1.5px solid ${G}18`,
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            background: '#fff', flexShrink: 0,
+            background: '#F0E7D6', flexShrink: 0,
             boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
           }}>
             {FAIRE_LOGO}
@@ -6596,7 +6999,7 @@ function FaqSection({ t }) {
   );
 }
 
-function ProductCard({ product, added, onAdd, rank, showRank, variant = 'normal', isNew, colData, currentTierPrice, onQuickView, t }) {
+function ProductCard({ product, added, onAdd, rank, showRank, variant = 'normal', isNew, colData, currentTierPrice, onQuickView, onZoom, t }) {
   const p = product;
   const isTop = variant === 'top';
   const shapeObj = SHAPES.find(s => s.id === p.shape);
@@ -6622,6 +7025,24 @@ function ProductCard({ product, added, onAdd, rank, showRank, variant = 'normal'
               transform: p.imgScale ? `scale(${p.imgScale})` : 'none',
             }} />
             <div style={{ position: 'absolute', inset: 0, background: '#F0E7D6', mixBlendMode: 'multiply', pointerEvents: 'none' }} />
+            {onZoom && (
+              <button
+                className="mn-zoom-btn"
+                onClick={(e) => { e.stopPropagation(); onZoom(p); }}
+                aria-label="Ampliar"
+                style={{
+                  position: 'absolute', right: 8, bottom: 8, width: 30, height: 30,
+                  borderRadius: 999, border: `1px solid ${G}22`, background: C,
+                  display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                  cursor: 'zoom-in', opacity: 0, transition: 'opacity .18s ease, transform .18s ease',
+                  boxShadow: '0 3px 10px -3px rgba(24,51,47,.35)', zIndex: 3,
+                }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={G} strokeWidth="2" strokeLinecap="round">
+                  <circle cx="11" cy="11" r="7" /><line x1="16.5" y1="16.5" x2="21" y2="21" />
+                  <line x1="11" y1="8" x2="11" y2="14" /><line x1="8" y1="11" x2="14" y2="11" />
+                </svg>
+              </button>
+            )}
           </>
         ) : (
           <div className="mn-img" style={{
