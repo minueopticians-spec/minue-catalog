@@ -25,9 +25,10 @@ const Logo = ({ color, height = 36, className }) => {
 
 // Paleta
 const G = '#18332f';
-const C = '#f8efe6';
+const C = '#f9f1e3';
 const D = '#b8860b';
 const CHOCOLATE = '#8B6B4A';
+const RUST = '#a2542b';
 
 // Precio "vitrina" en cards — el real se calcula por tramos
 const DISPLAY_PRICE = 19.90;
@@ -44,17 +45,39 @@ const LANGS = [
   { code: 'it', label: 'IT', name: 'Italiano' },
 ];
 
+// ════════════════════════════════════════════════════════════
+// Detecta el idioma del navegador y devuelve uno soportado
+// ════════════════════════════════════════════════════════════
+function detectLang() {
+  try {
+    // 1) Si el usuario eligió uno antes, lo respetamos
+    if (typeof window !== 'undefined') {
+      const saved = window.localStorage?.getItem('minue_lang');
+      if (saved && LANGS.find(l => l.code === saved)) return saved;
+    }
+    // 2) Tomamos el idioma del navegador (navigator.languages prioriza)
+    const browserLangs = (typeof navigator !== 'undefined')
+      ? (navigator.languages || [navigator.language || 'es'])
+      : ['es'];
+    for (const raw of browserLangs) {
+      const code = String(raw).toLowerCase().slice(0, 2);
+      if (LANGS.find(l => l.code === code)) return code;
+    }
+  } catch (e) { /* fallback abajo */ }
+  return 'es';
+}
+
 const I18N = {
   es: {
     nav_contact: 'Contacto', nav_catalog: 'Catálogo', nav_rates: 'Tarifas', nav_order: 'Pedido', nav_pdf: 'PDF', nav_faq: 'FAQ',
-    hdr_eyebrow: 'B2B Wholesale · SS26',
+    hdr_eyebrow: 'B2B Wholesale · AW26/27',
     hdr_h1_a: 'Explora, selecciona', hdr_h1_b: 'y haz', hdr_h1_c: 'tu pedido.',
     hdr_sub: 'Navega por nuestro catálogo, añade los modelos que te interesen y envíanos tu selección. Precio por volumen: cuantas más unidades, menor precio unitario.',
     hdr_chip_top: 'Top Ventas', hdr_chip_rates: 'Ver tarifas por volumen',
     banner_expositor: 'Expositores incluidos desde 20 unidades — sin coste adicional',
     bar_your_tier: 'Tu tramo', bar_empty: 'Aún sin unidades — añade productos para ver tu precio.',
     bar_missing_a: 'Te faltan', bar_missing_b: 'uds para bajar a', bar_rate_btn: 'Ver tabla',
-    top_eyebrow: '★ Top Ventas SS26',
+    top_eyebrow: '★ Top Ventas AW26/27',
     top_h2_month_pre: 'Los modelos que más rotan en', top_h2_c: '.',
     top_sub: 'Ordenados por rotación real en nuestros distribuidores actuales.',
     filter_color: 'Color', filter_shape: 'Forma', filter_clear: 'limpiar',
@@ -95,7 +118,7 @@ const I18N = {
     ft_contact: 'Contacto', ft_conditions: 'Condiciones',
     ft_cond1: 'Precio desde 17,90€/ud (40+ uds)', ft_cond2: 'PVP recomendado 55–60€',
     ft_cond3: 'Envío gratuito +20 uds', ft_cond4: '3% dto. pronto pago (2 pagos)',
-    ft_copyright: '© 2026 Minuë Opticians — Catálogo Wholesale SS26',
+    ft_copyright: '© 2026 Minuë Opticians — Catálogo Wholesale AW26/27',
     ft_tagline: 'Un catálogo. Un minué.',
     panel_eyebrow: 'Pedido', panel_h3: 'Mi selección',
     panel_empty_t: 'Aún vacío', panel_empty_d: 'Añade los modelos que te interesen para enviarnos tu solicitud.',
@@ -111,7 +134,7 @@ const I18N = {
     panel_no_pay_sub: 'Envíanos tu selección y te confirmamos disponibilidad, precio final y plazos antes de cualquier pago.',
     panel_mi_pedido: 'Mi pedido', panel_remove: 'eliminar',
     panel_added: 'Añadido', panel_add: 'Añadir',
-    modal_eyebrow: 'Tarifas SS26',
+    modal_eyebrow: 'Tarifas AW26/27',
     modal_h2_a: 'Precio por', modal_h2_b: 'volumen', modal_h2_c: ' — cuanto más pidas, menos pagas.',
     modal_your_tier: 'Tu tramo',
     modal_payments: 'Pagos:', modal_expositor: 'Expositor:', modal_free_ship: '✓ Envío gratuito',
@@ -120,7 +143,7 @@ const I18N = {
     modal_early_t: 'Pronto pago', modal_early_d: '3% de descuento adicional en tarifas con plan de 2 pagos si abonas a la entrega.',
     modal_rrp_t: 'PVP recomendado', modal_rrp_d: 'Entre 55€ y 60€ al cliente final. Margen bruto medio del 67%.',
     modal_ship_t: 'Envío', modal_ship_d: 'Gratuito a partir de 20 unidades. Coste según destino por debajo de ese tramo.',
-    modal_footer: 'Precios en euros, IVA no incluido. Tarifa válida para la temporada SS26.',
+    modal_footer: 'Precios en euros, IVA no incluido. Tarifa válida para la temporada AW26/27.',
     order_greeting: 'Hola, me gustaría hacer un pedido:',
     order_tier: 'Tramo', order_total_line: 'Total',
     order_plus60: 'Total: {n} uds (tramo +60, precio a confirmar)',
@@ -181,7 +204,7 @@ const I18N = {
     qv_added: 'Añadido',
     nav_badge: 'Trade Direct',
     nav_badge_sub: 'Selecciona y pide directo · sin registro',
-    new_eyebrow: '✦ Novedades SS26',
+    new_eyebrow: '✦ Novedades AW26/27',
     new_h2_a: 'Recién', new_h2_b: 'incorporados', new_h2_c: '.',
     new_sub: 'Primeras unidades disponibles. Pide antes de que se agoten.',
     new_show_more: 'Ver más modelos', new_show_less: 'Ver menos',
@@ -205,9 +228,9 @@ const I18N = {
     hiw_2_t: 'Envíanos tu lista', hiw_2_d: 'Por WhatsApp o email en un clic. Confirmamos stock, precio y plazos en menos de 24h.',
     hiw_3_t: 'Listo en tu tienda', hiw_3_d: 'Enviamos con packaging completo que cuida cada detalle. Pago tras confirmación.',
     hdr_claim: 'Márgenes del 60%+ en gafas que rotan de verdad.',
-    hdr_sub_new: 'Colección SS26 para ópticas y multimarca que quieren una marca diferente. Sin mínimos, sin burocracia, con datos reales de venta.',
+    hdr_sub_new: 'Colección AW26/27 para ópticas y multimarca que quieren una marca diferente. Sin mínimos, sin burocracia, con datos reales de venta.',
     sp_opticas: '150+ ópticas', sp_paises: '12 países', sp_sellthrough: '68% sell-through',
-    ss26_banner: '🌿  Temporada SS26 abierta  ·  Nuevos modelos disponibles  ·  Stock limitado en referencias marcadas',
+    ss26_banner: '🍂  Temporada AW26/27 abierta  ·  Carey, cocoa, oliva y burdeos  ·  En vitrina para las fiestas',
     faire_eyebrow: 'También disponible en Faire Wholesale',
     faire_rating: '4.9 / 5', faire_reviews: '47 valoraciones verificadas',
     faire_desc: 'Pedido mínimo reducido · Net 60 disponible · Envío desde España',
@@ -222,12 +245,66 @@ const I18N = {
     ft_cta_d: 'Nuestro equipo responde el mismo día. Sin presión, sin compromiso.',
     ft_cta_wa: 'Escribir por WhatsApp',
     ft_cta_email: 'Enviar email',
-    tier_valid: 'Tarifa válida temporada SS26 · hasta 30 jun 2026',
+    tier_valid: 'Tarifa válida temporada AW26/27 · hasta 28 feb 2027',
     tier_save_label: 'Ahorras vs precio base',
     save_selection: 'Guardar selección',
     save_done: '✓ Guardada',
     share_partner: 'Compartir con socio',
     qv_qty_label: 'Cantidad',
+    aw_eyebrow: 'Los colores de la temporada',
+    aw_h2a: 'La paleta AW26/27,',
+    aw_h2b: 'ya en catálogo.',
+    aw_intro: 'Pantone marcó marrones, burdeos y olivas para este otoño-invierno. No hace falta esperar: los modelos que ya rotan están en esa paleta.',
+    aw_1t: 'Toffee · Cocoa',
+    aw_1d: 'El marrón es el color base de la temporada, del caramelo al espresso.',
+    aw_2t: 'Burnt Olive',
+    aw_2d: 'El verde profundo que acompaña a las lanas y los abrigos.',
+    aw_3t: 'Red Mahogany',
+    aw_3d: 'El burdeos de las fiestas: dramático y elegante.',
+    aw_4t: 'Muted Clay',
+    aw_4d: 'Terracota apagado, el tono tierra más suave del informe.',
+    aw_5t: 'Candied Ginger',
+    aw_5d: 'Miel y ámbar, el neutro cálido que favorece a todas.',
+    aw_6t: 'Egret',
+    aw_6d: 'Blanco cremoso: el contraste que ilumina el resto de la vitrina.',
+    dist_tagline: 'Distribución wholesale internacional · Diseño handcrafted in Spain',
+    kids_optional: 'Opcional — te avisamos de novedades y stock.',
+    kids_response: 'Respuesta en menos de 24h · Sin compromiso de pago',
+    pkg_vivo_label: 'PACKAGING VIVO',
+    pkg_vivo_t: 'Fundas con',
+    pkg_vivo_i: 'personalidad',
+    pkg_vivo_d: 'Las fundas rígidas que acompañan cada montura cambian de colores según la temporada, el clima y las tendencias. No es solo packaging — es una pieza de estilo que el cliente final también lleva.',
+    av_label: 'POSTVENTA',
+    av_h3: 'Estamos contigo después del pedido',
+    av_intro: 'Tu satisfacción y la de tus clientes es nuestra prioridad. Gestionamos cualquier incidencia de forma rápida y sin burocracia.',
+    av_1t: 'Cambios por defecto de fábrica',
+    av_1d: 'Si una montura llega con algún defecto de fabricación, la reponemos o abonamos sin coste. Solo necesitas foto del defecto y número de pedido.',
+    av_2t: 'Roturas accidentales del cliente final',
+    av_2d: 'Ofrecemos precio especial de reposición de piezas sueltas para que puedas dar solución a tu cliente rápidamente y fidelizarlo.',
+    av_3t: 'Garantía de producto',
+    av_3d: 'Todos los modelos tienen garantía de fabricación de 12 meses. Cubrimos defectos en bisagras, patillas y acetato bajo uso normal.',
+    av_4t: 'Respuesta en 24h',
+    av_4d: 'Cualquier incidencia es atendida en menos de 24 horas en días laborables. Contacta directamente por WhatsApp para máxima agilidad.',
+    kids_soon: 'Próximamente · AW26/27',
+    kids_h2a: 'Pequeñas',
+    kids_h2b: 'grandes miradas.',
+    kids_intro: 'Minuë llega a los más pequeños. El mismo acetato artesanal, las mismas bisagras cuidadas, los mismos colores que no piden permiso. Para niños de 3 a 14 años que ya tienen su propio estilo.',
+    kids_f1: 'Acetato hipoalergénico',
+    kids_f2: 'Bisagras flexibles',
+    kids_f3: 'UV400 certificado',
+    kids_f4: '2 tallas · 3–8 y 8–14 años',
+    kids_quote: '"Porque los niños también merecen ver el mundo con estilo."',
+    kids_cta: 'Avísame del lanzamiento',
+    kids_launch: 'Lanzamiento AW26/27',
+    kids_retailer: '¿Eres retailer? Sé el primero en conocer Minuë Junior.',
+    kids_notify_d: 'Te avisamos cuando el catálogo Junior esté listo para pedidos.',
+    kids_notify_btn: 'Notificarme',
+    kids_email_ph: 'tu@optica.com',
+    faire_ship_es: '3–4 días España',
+    faire_ship_eu: '3–6 días Europa',
+    faire_ship_int: '6–9 días internacional',
+    faire_order: 'Pedir en Faire',
+    faire_reviews: 'reseñas',
     stat_cities: 'ciudades',
     stat_countries: 'países',
     stat_years: 'años',
@@ -247,14 +324,14 @@ const I18N = {
   },
   fr: {
     nav_contact: 'Contact', nav_catalog: 'Catalogue', nav_rates: 'Tarifs', nav_order: 'Commande', nav_pdf: 'PDF', nav_faq: 'FAQ',
-    hdr_eyebrow: 'B2B Wholesale · SS26',
+    hdr_eyebrow: 'B2B Wholesale · AW26/27',
     hdr_h1_a: 'Explorez, sélectionnez', hdr_h1_b: 'et passez', hdr_h1_c: 'votre commande.',
     hdr_sub: 'Parcourez notre catalogue, ajoutez les modèles qui vous intéressent et envoyez-nous votre sélection. Prix dégressif : plus vous commandez, plus le prix unitaire baisse.',
     hdr_chip_top: 'Meilleures ventes', hdr_chip_rates: 'Voir les tarifs par volume',
     banner_expositor: 'Présentoirs inclus à partir de 20 unités — sans frais supplémentaires',
     bar_your_tier: 'Votre palier', bar_empty: 'Aucune unité — ajoutez des produits pour voir votre prix.',
     bar_missing_a: 'Il vous manque', bar_missing_b: 'unités pour passer à', bar_rate_btn: 'Voir le tableau',
-    top_eyebrow: '★ Meilleures ventes SS26',
+    top_eyebrow: '★ Meilleures ventes AW26/27',
     top_h2_month_pre: 'Les modèles qui tournent le plus en', top_h2_c: '.',
     top_sub: 'Classés par rotation réelle chez nos distributeurs actuels.',
     filter_color: 'Couleur', filter_shape: 'Forme', filter_clear: 'effacer',
@@ -295,7 +372,7 @@ const I18N = {
     ft_contact: 'Contact', ft_conditions: 'Conditions',
     ft_cond1: 'Prix à partir de 17,90€/u (40+ u)', ft_cond2: 'Prix public conseillé 55–60€',
     ft_cond3: 'Livraison gratuite +20 u', ft_cond4: '3% rem. paiement anticipé',
-    ft_copyright: '© 2026 Minuë Opticians — Catalogue Wholesale SS26',
+    ft_copyright: '© 2026 Minuë Opticians — Catalogue Wholesale AW26/27',
     ft_tagline: 'Un catalogue. Un menuet.',
     panel_eyebrow: 'Commande', panel_h3: 'Ma sélection',
     panel_empty_t: 'Encore vide', panel_empty_d: 'Ajoutez les modèles qui vous intéressent pour nous envoyer votre demande.',
@@ -311,7 +388,7 @@ const I18N = {
     panel_no_pay_sub: 'Envoyez votre sélection et nous confirmons disponibilité, prix final et délais avant tout paiement.',
     panel_mi_pedido: 'Ma commande', panel_remove: 'supprimer',
     panel_added: 'Ajouté', panel_add: 'Ajouter',
-    modal_eyebrow: 'Tarifs SS26',
+    modal_eyebrow: 'Tarifs AW26/27',
     modal_h2_a: 'Prix par', modal_h2_b: 'volume', modal_h2_c: ' — plus vous commandez, moins vous payez.',
     modal_your_tier: 'Votre palier',
     modal_payments: 'Paiements :', modal_expositor: 'Présentoir :', modal_free_ship: '✓ Livraison gratuite',
@@ -320,7 +397,7 @@ const I18N = {
     modal_early_t: 'Paiement anticipé', modal_early_d: '3% de remise supplémentaire sur les plans en 2 fois si vous payez à la livraison.',
     modal_rrp_t: 'Prix public conseillé', modal_rrp_d: 'Entre 55€ et 60€ client final. Marge brute moyenne de 67%.',
     modal_ship_t: 'Livraison', modal_ship_d: 'Gratuite à partir de 20 unités. Frais selon destination en-dessous.',
-    modal_footer: 'Prix en euros, HT. Tarifs valables pour la saison SS26.',
+    modal_footer: 'Prix en euros, HT. Tarifs valables pour la saison AW26/27.',
     order_greeting: 'Bonjour, je voudrais passer une commande :',
     order_tier: 'Palier', order_total_line: 'Total',
     order_plus60: 'Total : {n} u (palier +60, prix à confirmer)',
@@ -367,7 +444,7 @@ const I18N = {
     qv_shape: 'Forme', qv_rrp: 'PPC conseillé', qv_close: 'Fermer', qv_add: 'Ajouter à la commande', qv_added: 'Ajouté',
     nav_badge: 'Trade Direct',
     nav_badge_sub: 'Sélectionnez et commandez · sans inscription',
-    new_eyebrow: '✦ Nouveautés SS26',
+    new_eyebrow: '✦ Nouveautés AW26/27',
     new_h2_a: 'Tout', new_h2_b: 'juste arrivés', new_h2_c: '.',
     new_sub: 'Premières pièces disponibles. Commandez avant rupture de stock.',
     new_show_more: 'Voir plus de modèles', new_show_less: 'Voir moins',
@@ -385,7 +462,7 @@ const I18N = {
     col_models: 'modèles',
     col_expand_hint: 'Cliquez pour explorer',
     tier_best: 'Le plus choisi',
-    ss26_banner: '🌿  Saison SS26 ouverte  ·  Nouveaux modèles disponibles  ·  Stock limité',
+    ss26_banner: '🍂  Saison AW26/27 ouverte  ·  Écaille, cocoa, olive et bordeaux  ·  En vitrine pour les fêtes',
     faq_eyebrow: 'Questions fréquentes', faq_h2: 'Ce que demandent souvent les retailers',
     faq_q1: 'Quelle est la commande minimale ?', faq_a1: "Il n'y a pas de minimum. Vous pouvez commander à partir d'1 unité, mais les prix s'améliorent significativement à partir de 10 unités.",
     faq_q2: 'Comment fonctionne cette plateforme ?', faq_a2: "C'est un catalogue B2B privé, pas une boutique en ligne. Sélectionnez les modèles, ajoutez-les au panier et envoyez-nous votre demande par WhatsApp ou email. Confirmation stock et prix en moins de 24h.",
@@ -402,12 +479,66 @@ const I18N = {
     ft_cta_d: 'Notre équipe répond le jour même. Sans pression.',
     ft_cta_wa: 'Écrire sur WhatsApp',
     ft_cta_email: 'Envoyer un email',
-    tier_valid: "Tarifs valables saison SS26 · jusqu'au 30 juin 2026",
+    tier_valid: "Tarifs valables saison AW26/27 · jusqu'au 28 f\u00e9vr. 2027",
     tier_save_label: 'Économies vs prix de base',
     save_selection: 'Sauvegarder la sélection',
     save_done: '✓ Sauvegardé',
     share_partner: 'Partager avec un partenaire',
     qv_qty_label: 'Quantité',
+    aw_eyebrow: 'Les couleurs de la saison',
+    aw_h2a: 'La palette AW26/27,',
+    aw_h2b: 'déjà au catalogue.',
+    aw_intro: 'Pantone a retenu les bruns, bordeaux et olives pour cet automne-hiver. Pas besoin d\'attendre : les modèles qui tournent déjà sont dans cette palette.',
+    aw_1t: 'Toffee · Cocoa',
+    aw_1d: 'Le brun est la couleur de base de la saison, du caramel à l\'espresso.',
+    aw_2t: 'Burnt Olive',
+    aw_2d: 'Le vert profond qui accompagne les mailles et les manteaux.',
+    aw_3t: 'Red Mahogany',
+    aw_3d: 'Le bordeaux des fêtes : dramatique et élégant.',
+    aw_4t: 'Muted Clay',
+    aw_4d: 'Terracotta assourdi, le ton terre le plus doux du rapport.',
+    aw_5t: 'Candied Ginger',
+    aw_5d: 'Miel et ambre, le neutre chaud qui flatte tous les teints.',
+    aw_6t: 'Egret',
+    aw_6d: 'Blanc crémeux : le contraste qui éclaire toute la vitrine.',
+    dist_tagline: 'Distribution wholesale internationale · Design handcrafted in Spain',
+    kids_optional: 'Optionnel — nous vous tenons informé des nouveautés et du stock.',
+    kids_response: 'Réponse sous 24h · Sans engagement de paiement',
+    pkg_vivo_label: 'PACKAGING VIVANT',
+    pkg_vivo_t: 'Étuis avec',
+    pkg_vivo_i: 'personnalité',
+    pkg_vivo_d: 'Les étuis rigides qui accompagnent chaque monture changent de couleur selon la saison, le climat et les tendances. Ce n\'est pas qu\'un emballage — c\'est une pièce de style que le client final porte aussi.',
+    av_label: 'SERVICE APRÈS-VENTE',
+    av_h3: 'Nous sommes là après la commande',
+    av_intro: 'Votre satisfaction et celle de vos clients est notre priorité. Nous gérons tout incident rapidement et sans bureaucratie.',
+    av_1t: 'Défauts de fabrication',
+    av_1d: 'Si une monture présente un défaut de fabrication, nous la remplaçons ou la remboursons sans frais. Il suffit d\'une photo du défaut et du numéro de commande.',
+    av_2t: 'Casses accidentelles du client final',
+    av_2d: 'Nous proposons un prix spécial de remplacement des pièces détachées pour fidéliser rapidement votre client.',
+    av_3t: 'Garantie produit',
+    av_3d: 'Tous les modèles ont 12 mois de garantie. Nous couvrons les défauts de charnières, branches et acétate en usage normal.',
+    av_4t: 'Réponse sous 24h',
+    av_4d: 'Tout incident est traité en moins de 24h les jours ouvrés. Contactez-nous directement par WhatsApp pour plus de rapidité.',
+    kids_soon: 'Bientôt · AW26/27',
+    kids_h2a: 'Petits',
+    kids_h2b: 'grands regards.',
+    kids_intro: 'Minuë arrive pour les plus petits. Le même acétate artisanal, les mêmes charnières soignées, les mêmes couleurs sans complexe. Pour les enfants de 3 à 14 ans qui ont déjà leur style.',
+    kids_f1: 'Acétate hypoallergénique',
+    kids_f2: 'Charnières flexibles',
+    kids_f3: 'UV400 certifié',
+    kids_f4: '2 tailles · 3–8 et 8–14 ans',
+    kids_quote: '"Parce que les enfants méritent aussi de voir le monde avec style."',
+    kids_cta: 'Prévenez-moi du lancement',
+    kids_launch: 'Lancement AW26/27',
+    kids_retailer: 'Vous êtes détaillant ? Découvrez Minuë Junior en avant-première.',
+    kids_notify_d: 'Nous vous prévenons dès que le catalogue Junior est prêt.',
+    kids_notify_btn: 'Me notifier',
+    kids_email_ph: 'vous@opticien.com',
+    faire_ship_es: '3–4 jours Espagne',
+    faire_ship_eu: '3–6 jours Europe',
+    faire_ship_int: '6–9 jours international',
+    faire_order: 'Commander sur Faire',
+    faire_reviews: 'avis',
     stat_cities: 'villes',
     stat_countries: 'pays',
     stat_years: 'ans',
@@ -425,14 +556,14 @@ const I18N = {
   },
   en: {
     nav_contact: 'Contact', nav_catalog: 'Catalogue', nav_rates: 'Pricing', nav_order: 'Order', nav_pdf: 'PDF', nav_faq: 'FAQ',
-    hdr_eyebrow: 'B2B Wholesale · SS26',
+    hdr_eyebrow: 'B2B Wholesale · AW26/27',
     hdr_h1_a: 'Browse, select', hdr_h1_b: 'and place', hdr_h1_c: 'your order.',
     hdr_sub: 'Explore our catalogue, add the models you like and send us your selection. Volume pricing: the more units, the lower the unit price.',
     hdr_chip_top: 'Top Sellers', hdr_chip_rates: 'See volume pricing',
     banner_expositor: 'Displays included from 20+ units — no extra cost',
     bar_your_tier: 'Your tier', bar_empty: 'No units yet — add products to see your price.',
     bar_missing_a: 'You need', bar_missing_b: 'more units to drop to', bar_rate_btn: 'View table',
-    top_eyebrow: '★ Top Sellers SS26',
+    top_eyebrow: '★ Top Sellers AW26/27',
     top_h2_month_pre: 'The models selling fastest this', top_h2_c: '.',
     top_sub: 'Ranked by actual turnover across our current stockists.',
     filter_color: 'Colour', filter_shape: 'Shape', filter_clear: 'clear',
@@ -473,7 +604,7 @@ const I18N = {
     ft_contact: 'Contact', ft_conditions: 'Terms',
     ft_cond1: 'From €17.90/unit (40+ units)', ft_cond2: 'RRP €55–60',
     ft_cond3: 'Free shipping 20+ units', ft_cond4: '3% early-payment discount (2 instalments)',
-    ft_copyright: '© 2026 Minuë Opticians — Wholesale Catalogue SS26',
+    ft_copyright: '© 2026 Minuë Opticians — Wholesale Catalogue AW26/27',
     ft_tagline: 'One catalogue. One minuet.',
     panel_eyebrow: 'Order', panel_h3: 'My selection',
     panel_empty_t: 'Still empty', panel_empty_d: 'Add the models you\'re interested in to send us your request.',
@@ -489,7 +620,7 @@ const I18N = {
     panel_no_pay_sub: 'Send your selection and we\'ll confirm availability, final price and lead times before any payment.',
     panel_mi_pedido: 'My order', panel_remove: 'remove',
     panel_added: 'Added', panel_add: 'Add',
-    modal_eyebrow: 'SS26 Pricing',
+    modal_eyebrow: 'AW26/27 Pricing',
     modal_h2_a: 'Volume', modal_h2_b: 'pricing', modal_h2_c: ' — the more you order, the less you pay.',
     modal_your_tier: 'Your tier',
     modal_payments: 'Payments:', modal_expositor: 'Display:', modal_free_ship: '✓ Free shipping',
@@ -498,7 +629,7 @@ const I18N = {
     modal_early_t: 'Early payment', modal_early_d: '3% additional discount on 2-instalment plans if you pay at delivery.',
     modal_rrp_t: 'Recommended RRP', modal_rrp_d: 'Between €55 and €60 end customer. Average 67% gross margin.',
     modal_ship_t: 'Shipping', modal_ship_d: 'Free from 20 units. Cost depends on destination below that tier.',
-    modal_footer: 'Prices in euros, VAT excluded. Rates valid for the SS26 season.',
+    modal_footer: 'Prices in euros, VAT excluded. Rates valid for the AW26/27 season.',
     order_greeting: 'Hello, I would like to place an order:',
     order_tier: 'Tier', order_total_line: 'Total',
     order_plus60: 'Total: {n} units (+60 tier, price TBC)',
@@ -545,7 +676,7 @@ const I18N = {
     qv_shape: 'Shape', qv_rrp: 'Recommended RRP', qv_close: 'Close', qv_add: 'Add to order', qv_added: 'Added',
     nav_badge: 'Trade Direct',
     nav_badge_sub: 'Select and order directly · no account needed',
-    new_eyebrow: '✦ New Arrivals SS26',
+    new_eyebrow: '✦ New Arrivals AW26/27',
     new_h2_a: 'Just', new_h2_b: 'landed', new_h2_c: '.',
     new_sub: 'First units available. Order before they sell out.',
     new_show_more: 'Show more models', new_show_less: 'Show less',
@@ -563,7 +694,7 @@ const I18N = {
     col_models: 'models',
     col_expand_hint: 'Click to explore',
     tier_best: 'Most popular',
-    ss26_banner: '🌿  SS26 Season Open  ·  New models available  ·  Limited stock',
+    ss26_banner: '🍂  AW26/27 Season Open  ·  Tortoise, cocoa, olive and bordeaux  ·  In store for the holidays',
     faq_eyebrow: 'FAQs', faq_h2: 'What retailers usually ask',
     faq_q1: 'What is the minimum order?', faq_a1: 'There is no minimum. You can order from 1 unit, but prices improve significantly from 10 units.',
     faq_q2: 'How does this platform work?', faq_a2: 'This is a private B2B catalog, not an online store. Select models, add to cart and send your request via WhatsApp or email. We confirm stock, price and delivery within 24h — no payment required until confirmation.',
@@ -580,12 +711,66 @@ const I18N = {
     ft_cta_d: 'Our team responds same day. No pressure, no commitment.',
     ft_cta_wa: 'Chat on WhatsApp',
     ft_cta_email: 'Send email',
-    tier_valid: 'Rates valid SS26 season · until 30 Jun 2026',
+    tier_valid: 'Rates valid AW26/27 season · until 28 Feb 2027',
     tier_save_label: 'You save vs base price',
     save_selection: 'Save selection',
     save_done: '✓ Saved',
     share_partner: 'Share with partner',
     qv_qty_label: 'Quantity',
+    aw_eyebrow: 'The colours of the season',
+    aw_h2a: 'The AW26/27 palette,',
+    aw_h2b: 'already in stock.',
+    aw_intro: 'Pantone named browns, bordeaux and olives for this autumn-winter. No need to wait: the models already selling are in that palette.',
+    aw_1t: 'Toffee · Cocoa',
+    aw_1d: 'Brown is the season\'s base colour, from caramel to espresso.',
+    aw_2t: 'Burnt Olive',
+    aw_2d: 'The deep green that pairs with knits and coats.',
+    aw_3t: 'Red Mahogany',
+    aw_3d: 'The bordeaux of the festive season: dramatic and elegant.',
+    aw_4t: 'Muted Clay',
+    aw_4d: 'Muted terracotta, the softest earth tone in the report.',
+    aw_5t: 'Candied Ginger',
+    aw_5d: 'Honey and amber, the warm neutral that suits everyone.',
+    aw_6t: 'Egret',
+    aw_6d: 'Creamy white: the contrast that lifts the whole display.',
+    dist_tagline: 'International wholesale distribution · Handcrafted in Spain',
+    kids_optional: 'Optional — we keep you posted on news and stock.',
+    kids_response: 'Response within 24h · No payment commitment',
+    pkg_vivo_label: 'LIVING PACKAGING',
+    pkg_vivo_t: 'Cases with',
+    pkg_vivo_i: 'personality',
+    pkg_vivo_d: 'The hard cases that come with each frame change colours with the season, the weather and trends. It\'s not just packaging — it\'s a style piece your customer carries too.',
+    av_label: 'AFTER-SALES',
+    av_h3: 'We\'re with you after the order',
+    av_intro: 'Your satisfaction and your customers\' is our priority. We handle any issue fast and without bureaucracy.',
+    av_1t: 'Factory defects',
+    av_1d: 'If a frame arrives with a manufacturing defect, we replace or refund it at no cost. Just send a photo of the defect and the order number.',
+    av_2t: 'Accidental customer breakage',
+    av_2d: 'We offer special replacement pricing on spare parts so you can solve your customer\'s problem fast and keep their loyalty.',
+    av_3t: 'Product warranty',
+    av_3d: 'All models carry a 12-month manufacturing warranty. We cover defects in hinges, temples and acetate under normal use.',
+    av_4t: '24h response',
+    av_4d: 'Any issue is handled within 24 hours on business days. Contact us directly on WhatsApp for maximum speed.',
+    kids_soon: 'Coming soon · AW26/27',
+    kids_h2a: 'Little',
+    kids_h2b: 'big gazes.',
+    kids_intro: 'Minuë arrives for the little ones. The same handcrafted acetate, the same careful hinges, the same colours that ask no permission. For kids aged 3 to 14 who already have their own style.',
+    kids_f1: 'Hypoallergenic acetate',
+    kids_f2: 'Flexible hinges',
+    kids_f3: 'UV400 certified',
+    kids_f4: '2 sizes · 3–8 and 8–14 years',
+    kids_quote: '"Because kids deserve to see the world in style too."',
+    kids_cta: 'Notify me at launch',
+    kids_launch: 'AW26/27 Launch',
+    kids_retailer: 'Are you a retailer? Be the first to know Minuë Junior.',
+    kids_notify_d: 'We\'ll let you know when the Junior catalogue is ready for orders.',
+    kids_notify_btn: 'Notify me',
+    kids_email_ph: 'you@optician.com',
+    faire_ship_es: '3–4 days Spain',
+    faire_ship_eu: '3–6 days Europe',
+    faire_ship_int: '6–9 days international',
+    faire_order: 'Order on Faire',
+    faire_reviews: 'reviews',
     stat_cities: 'cities',
     stat_countries: 'countries',
     stat_years: 'years',
@@ -603,14 +788,14 @@ const I18N = {
   },
   de: {
     nav_contact: 'Kontakt', nav_catalog: 'Katalog', nav_rates: 'Preise', nav_order: 'Bestellung', nav_pdf: 'PDF', nav_faq: 'FAQ',
-    hdr_eyebrow: 'B2B Wholesale · SS26',
+    hdr_eyebrow: 'B2B Wholesale · AW26/27',
     hdr_h1_a: 'Stöbern, auswählen', hdr_h1_b: 'und', hdr_h1_c: 'bestellen.',
     hdr_sub: 'Durchstöbern Sie unseren Katalog, fügen Sie die gewünschten Modelle hinzu und senden Sie uns Ihre Auswahl. Mengenrabatt: je mehr Stück, desto niedriger der Stückpreis.',
     hdr_chip_top: 'Bestseller', hdr_chip_rates: 'Mengenstaffelung ansehen',
     banner_expositor: 'Displays inklusive ab 20 Stück — ohne Aufpreis',
     bar_your_tier: 'Ihre Staffel', bar_empty: 'Noch keine Einheiten — fügen Sie Produkte hinzu.',
     bar_missing_a: 'Noch', bar_missing_b: 'Stk. für', bar_rate_btn: 'Tabelle ansehen',
-    top_eyebrow: '★ Bestseller SS26',
+    top_eyebrow: '★ Bestseller AW26/27',
     top_h2_month_pre: 'Die meistverkauften Modelle im', top_h2_c: '.',
     top_sub: 'Nach tatsächlicher Umschlagsrate unserer aktuellen Vertriebspartner.',
     filter_color: 'Farbe', filter_shape: 'Form', filter_clear: 'löschen',
@@ -651,7 +836,7 @@ const I18N = {
     ft_contact: 'Kontakt', ft_conditions: 'Konditionen',
     ft_cond1: 'Ab 17,90€/Stk. (40+ Stk)', ft_cond2: 'UVP 55–60€',
     ft_cond3: 'Gratisversand ab 20 Stk', ft_cond4: '3% Skonto (2 Raten)',
-    ft_copyright: '© 2026 Minuë Opticians — Wholesale-Katalog SS26',
+    ft_copyright: '© 2026 Minuë Opticians — Wholesale-Katalog AW26/27',
     ft_tagline: 'Ein Katalog. Ein Menuett.',
     panel_eyebrow: 'Bestellung', panel_h3: 'Meine Auswahl',
     panel_empty_t: 'Noch leer', panel_empty_d: 'Fügen Sie die gewünschten Modelle hinzu, um Ihre Anfrage zu senden.',
@@ -667,7 +852,7 @@ const I18N = {
     panel_no_pay_sub: 'Senden Sie Ihre Auswahl — wir bestätigen Verfügbarkeit, Endpreis und Lieferfristen vor jeder Zahlung.',
     panel_mi_pedido: 'Meine Bestellung', panel_remove: 'entfernen',
     panel_added: 'Hinzugefügt', panel_add: 'Hinzufügen',
-    modal_eyebrow: 'Preise SS26',
+    modal_eyebrow: 'Preise AW26/27',
     modal_h2_a: 'Preis nach', modal_h2_b: 'Volumen', modal_h2_c: ' — je mehr Sie bestellen, desto weniger zahlen Sie.',
     modal_your_tier: 'Ihre Staffel',
     modal_payments: 'Zahlung:', modal_expositor: 'Display:', modal_free_ship: '✓ Gratisversand',
@@ -676,7 +861,7 @@ const I18N = {
     modal_early_t: 'Skonto', modal_early_d: '3% zusätzlicher Rabatt bei 2-Raten-Plan und Zahlung bei Lieferung.',
     modal_rrp_t: 'UVP', modal_rrp_d: 'Zwischen 55€ und 60€ Endkunde. Durchschnittliche Bruttomarge 67%.',
     modal_ship_t: 'Versand', modal_ship_d: 'Gratis ab 20 Stück. Kosten nach Zielort unterhalb dieser Staffel.',
-    modal_footer: 'Preise in Euro, MwSt. nicht enthalten. Preise gültig für die SS26-Saison.',
+    modal_footer: 'Preise in Euro, MwSt. nicht enthalten. Preise gültig für die AW26/27-Saison.',
     order_greeting: 'Hallo, ich möchte eine Bestellung aufgeben:',
     order_tier: 'Staffel', order_total_line: 'Gesamt',
     order_plus60: 'Gesamt: {n} Stk (Staffel +60, Preis zu bestätigen)',
@@ -723,7 +908,7 @@ const I18N = {
     qv_shape: 'Form', qv_rrp: 'Empfohlener VK', qv_close: 'Schließen', qv_add: 'Zur Bestellung hinzufügen', qv_added: 'Hinzugefügt',
     nav_badge: 'Trade Direct',
     nav_badge_sub: 'Auswählen und direkt bestellen · ohne Registrierung',
-    new_eyebrow: '✦ Neuheiten SS26',
+    new_eyebrow: '✦ Neuheiten AW26/27',
     new_h2_a: 'Frisch', new_h2_b: 'eingetroffen', new_h2_c: '.',
     new_sub: 'Erste Stücke verfügbar. Bestellen Sie, bevor sie ausverkauft sind.',
     new_show_more: 'Mehr Modelle anzeigen', new_show_less: 'Weniger anzeigen',
@@ -741,7 +926,7 @@ const I18N = {
     col_models: 'Modelle',
     col_expand_hint: 'Zum Erkunden klicken',
     tier_best: 'Meistgewählt',
-    ss26_banner: '🌿  SS26 Saison offen  ·  Neue Modelle verfügbar  ·  Begrenzter Bestand',
+    ss26_banner: '🍂  AW26/27 Saison offen  ·  Havanna, Cocoa, Oliv und Bordeaux  ·  Im Schaufenster zum Fest',
     faq_eyebrow: 'Häufige Fragen', faq_h2: 'Was Retailer meistens fragen',
     faq_q1: 'Gibt es eine Mindestbestellmenge?', faq_a1: 'Nein. Ab 10 Stück verbessern sich die Preise erheblich. Siehe Preistabelle.',
     faq_q2: 'Wie funktioniert diese Plattform?', faq_a2: 'Dies ist ein privater B2B-Katalog, kein Online-Shop. Modelle auswählen, in den Warenkorb legen und Anfrage per WhatsApp oder E-Mail senden. Bestätigung innerhalb von 24h.',
@@ -758,12 +943,66 @@ const I18N = {
     ft_cta_d: 'Unser Team antwortet noch am selben Tag. Kein Druck.',
     ft_cta_wa: 'WhatsApp schreiben',
     ft_cta_email: 'E-Mail senden',
-    tier_valid: 'Preise gültig SS26-Saison · bis 30. Jun 2026',
+    tier_valid: 'Preise gültig AW26/27-Saison · bis 28. Feb. 2027',
     tier_save_label: 'Ersparnis ggü. Basispreis',
     save_selection: 'Auswahl speichern',
     save_done: '✓ Gespeichert',
     share_partner: 'Mit Partner teilen',
     qv_qty_label: 'Menge',
+    aw_eyebrow: 'Die Farben der Saison',
+    aw_h2a: 'Die AW26/27-Palette,',
+    aw_h2b: 'schon im Katalog.',
+    aw_intro: 'Pantone setzt für diesen Herbst-Winter auf Brauntöne, Bordeaux und Oliv. Kein Warten nötig: die Modelle, die bereits laufen, sind in dieser Palette.',
+    aw_1t: 'Toffee · Cocoa',
+    aw_1d: 'Braun ist die Basisfarbe der Saison, von Karamell bis Espresso.',
+    aw_2t: 'Burnt Olive',
+    aw_2d: 'Das tiefe Grün zu Strick und Mänteln.',
+    aw_3t: 'Red Mahogany',
+    aw_3d: 'Das Bordeaux der Festtage: dramatisch und elegant.',
+    aw_4t: 'Muted Clay',
+    aw_4d: 'Gedämpftes Terrakotta, der sanfteste Erdton des Reports.',
+    aw_5t: 'Candied Ginger',
+    aw_5d: 'Honig und Bernstein, das warme Neutral für alle Typen.',
+    aw_6t: 'Egret',
+    aw_6d: 'Cremeweiß: der Kontrast, der das ganze Schaufenster aufhellt.',
+    dist_tagline: 'Internationaler Wholesale-Vertrieb · Handcrafted in Spain',
+    kids_optional: 'Optional — wir halten Sie über Neuheiten und Bestand auf dem Laufenden.',
+    kids_response: 'Antwort binnen 24h · Keine Zahlungsverpflichtung',
+    pkg_vivo_label: 'LEBENDIGES PACKAGING',
+    pkg_vivo_t: 'Etuis mit',
+    pkg_vivo_i: 'Persönlichkeit',
+    pkg_vivo_d: 'Die Hartschalen-Etuis zu jeder Fassung wechseln die Farbe je nach Saison, Wetter und Trends. Nicht nur Verpackung — ein Stilstück, das auch Ihr Endkunde trägt.',
+    av_label: 'KUNDENDIENST',
+    av_h3: 'Wir sind nach der Bestellung für Sie da',
+    av_intro: 'Ihre Zufriedenheit und die Ihrer Kunden hat Priorität. Wir bearbeiten jeden Vorfall schnell und ohne Bürokratie.',
+    av_1t: 'Fertigungsdefekte',
+    av_1d: 'Kommt eine Fassung mit Fertigungsdefekt an, ersetzen oder erstatten wir sie kostenlos. Nur ein Foto des Defekts und die Bestellnummer nötig.',
+    av_2t: 'Versehentliche Brüche des Endkunden',
+    av_2d: 'Wir bieten Sonderpreise für Ersatzteile, damit Sie Ihrem Kunden schnell helfen und ihn binden können.',
+    av_3t: 'Produktgarantie',
+    av_3d: 'Alle Modelle haben 12 Monate Herstellergarantie. Wir decken Defekte an Scharnieren, Bügeln und Azetat bei normalem Gebrauch.',
+    av_4t: 'Antwort in 24h',
+    av_4d: 'Jeder Vorfall wird an Werktagen binnen 24 Stunden bearbeitet. Kontaktieren Sie uns direkt per WhatsApp für maximale Geschwindigkeit.',
+    kids_soon: 'Demnächst · AW26/27',
+    kids_h2a: 'Kleine',
+    kids_h2b: 'große Blicke.',
+    kids_intro: 'Minuë kommt für die Kleinen. Dasselbe handgefertigte Azetat, dieselben sorgfältigen Scharniere, dieselben Farben ohne Kompromisse. Für Kinder von 3 bis 14 mit eigenem Stil.',
+    kids_f1: 'Hypoallergenes Azetat',
+    kids_f2: 'Flexible Scharniere',
+    kids_f3: 'UV400 zertifiziert',
+    kids_f4: '2 Größen · 3–8 und 8–14 Jahre',
+    kids_quote: '"Weil auch Kinder es verdienen, die Welt mit Stil zu sehen."',
+    kids_cta: 'Beim Launch benachrichtigen',
+    kids_launch: 'AW26/27 Launch',
+    kids_retailer: 'Sind Sie Händler? Erfahren Sie als Erster von Minuë Junior.',
+    kids_notify_d: 'Wir benachrichtigen Sie, sobald der Junior-Katalog bestellbar ist.',
+    kids_notify_btn: 'Benachrichtigen',
+    kids_email_ph: 'sie@optiker.com',
+    faire_ship_es: '3–4 Tage Spanien',
+    faire_ship_eu: '3–6 Tage Europa',
+    faire_ship_int: '6–9 Tage international',
+    faire_order: 'Auf Faire bestellen',
+    faire_reviews: 'Bewertungen',
     stat_cities: 'Städte',
     stat_countries: 'Länder',
     stat_years: 'Jahre',
@@ -781,14 +1020,14 @@ const I18N = {
   },
   pt: {
     nav_contact: 'Contacto', nav_catalog: 'Catálogo', nav_rates: 'Preços', nav_order: 'Pedido', nav_pdf: 'PDF', nav_faq: 'FAQ',
-    hdr_eyebrow: 'B2B Wholesale · SS26',
+    hdr_eyebrow: 'B2B Wholesale · AW26/27',
     hdr_h1_a: 'Explore, selecione', hdr_h1_b: 'e faça', hdr_h1_c: 'o seu pedido.',
     hdr_sub: 'Navegue pelo nosso catálogo, adicione os modelos que lhe interessam e envie-nos a sua seleção. Preço por volume: quanto mais unidades, menor o preço unitário.',
     hdr_chip_top: 'Mais vendidos', hdr_chip_rates: 'Ver preços por volume',
     banner_expositor: 'Expositores incluídos a partir de 20 unidades — sem custos adicionais',
     bar_your_tier: 'O seu escalão', bar_empty: 'Sem unidades ainda — adicione produtos para ver o seu preço.',
     bar_missing_a: 'Faltam', bar_missing_b: 'uds para descer para', bar_rate_btn: 'Ver tabela',
-    top_eyebrow: '★ Mais vendidos SS26',
+    top_eyebrow: '★ Mais vendidos AW26/27',
     top_h2_month_pre: 'Os modelos que mais rodam em', top_h2_c: '.',
     top_sub: 'Ordenados por rotação real nos nossos distribuidores atuais.',
     filter_color: 'Cor', filter_shape: 'Forma', filter_clear: 'limpar',
@@ -829,7 +1068,7 @@ const I18N = {
     ft_contact: 'Contacto', ft_conditions: 'Condições',
     ft_cond1: 'Desde 17,90€/ud (40+ uds)', ft_cond2: 'PVP recomendado 55–60€',
     ft_cond3: 'Envio grátis +20 uds', ft_cond4: '3% desc. pronto pagamento',
-    ft_copyright: '© 2026 Minuë Opticians — Catálogo Wholesale SS26',
+    ft_copyright: '© 2026 Minuë Opticians — Catálogo Wholesale AW26/27',
     ft_tagline: 'Um catálogo. Um minueto.',
     panel_eyebrow: 'Pedido', panel_h3: 'A minha seleção',
     panel_empty_t: 'Ainda vazio', panel_empty_d: 'Adicione os modelos que lhe interessam para nos enviar o seu pedido.',
@@ -845,7 +1084,7 @@ const I18N = {
     panel_no_pay_sub: 'Envie a sua seleção e confirmamos disponibilidade, preço final e prazos antes de qualquer pagamento.',
     panel_mi_pedido: 'O meu pedido', panel_remove: 'eliminar',
     panel_added: 'Adicionado', panel_add: 'Adicionar',
-    modal_eyebrow: 'Preços SS26',
+    modal_eyebrow: 'Preços AW26/27',
     modal_h2_a: 'Preço por', modal_h2_b: 'volume', modal_h2_c: ' — quanto mais pedir, menos paga.',
     modal_your_tier: 'O seu escalão',
     modal_payments: 'Pagamentos:', modal_expositor: 'Expositor:', modal_free_ship: '✓ Envio grátis',
@@ -854,7 +1093,7 @@ const I18N = {
     modal_early_t: 'Pronto pagamento', modal_early_d: '3% de desconto adicional em planos de 2 pagamentos se pagar à entrega.',
     modal_rrp_t: 'PVP recomendado', modal_rrp_d: 'Entre 55€ e 60€ cliente final. Margem bruta média 67%.',
     modal_ship_t: 'Envio', modal_ship_d: 'Grátis a partir de 20 unidades. Custo conforme destino abaixo desse escalão.',
-    modal_footer: 'Preços em euros, IVA não incluído. Tarifário válido para a época SS26.',
+    modal_footer: 'Preços em euros, IVA não incluído. Tarifário válido para a época AW26/27.',
     order_greeting: 'Olá, gostaria de fazer um pedido:',
     order_tier: 'Escalão', order_total_line: 'Total',
     order_plus60: 'Total: {n} uds (escalão +60, preço a confirmar)',
@@ -901,7 +1140,7 @@ const I18N = {
     qv_shape: 'Forma', qv_rrp: 'PVP recomendado', qv_close: 'Fechar', qv_add: 'Adicionar ao pedido', qv_added: 'Adicionado',
     nav_badge: 'Trade Direct',
     nav_badge_sub: 'Seleciona e pede direto · sem registo',
-    new_eyebrow: '✦ Novidades SS26',
+    new_eyebrow: '✦ Novidades AW26/27',
     new_h2_a: 'Acabados de', new_h2_b: 'chegar', new_h2_c: '.',
     new_sub: 'Primeiras unidades disponíveis. Encomende antes de esgotar.',
     new_show_more: 'Ver mais modelos', new_show_less: 'Ver menos',
@@ -919,7 +1158,7 @@ const I18N = {
     col_models: 'modelos',
     col_expand_hint: 'Clique para explorar',
     tier_best: 'Mais escolhido',
-    ss26_banner: '🌿  Temporada SS26 aberta  ·  Novos modelos disponíveis  ·  Stock limitado',
+    ss26_banner: '🍂  Temporada AW26/27 aberta  ·  Carey, cocoa, oliva e bordeaux  ·  Na montra para as festas',
     faq_eyebrow: 'Perguntas frequentes', faq_h2: 'O que os retailers costumam perguntar',
     faq_q1: 'Qual é o pedido mínimo?', faq_a1: 'Não há pedido mínimo. A partir de 10 unidades os preços melhoram significativamente.',
     faq_q2: 'Como funciona esta plataforma?', faq_a2: 'É um catálogo B2B privado, não uma loja online. Selecione os modelos, adicione ao carrinho e envie-nos o pedido por WhatsApp ou email. Confirmamos stock e preços em menos de 24h.',
@@ -936,12 +1175,66 @@ const I18N = {
     ft_cta_d: 'A nossa equipa responde no próprio dia. Sem pressão.',
     ft_cta_wa: 'Escrever no WhatsApp',
     ft_cta_email: 'Enviar email',
-    tier_valid: 'Tarifas válidas temporada SS26 · até 30 jun 2026',
+    tier_valid: 'Tarifas válidas temporada AW26/27 · até 28 fev 2027',
     tier_save_label: 'Poupa vs preço base',
     save_selection: 'Guardar seleção',
     save_done: '✓ Guardado',
     share_partner: 'Partilhar com parceiro',
     qv_qty_label: 'Quantidade',
+    aw_eyebrow: 'As cores da estação',
+    aw_h2a: 'A paleta AW26/27,',
+    aw_h2b: 'já em catálogo.',
+    aw_intro: 'A Pantone escolheu castanhos, bordeaux e olivas para este outono-inverno. Não é preciso esperar: os modelos que já rodam estão nessa paleta.',
+    aw_1t: 'Toffee · Cocoa',
+    aw_1d: 'O castanho é a cor base da estação, do caramelo ao espresso.',
+    aw_2t: 'Burnt Olive',
+    aw_2d: 'O verde profundo que acompanha as malhas e os casacos.',
+    aw_3t: 'Red Mahogany',
+    aw_3d: 'O bordeaux das festas: dramático e elegante.',
+    aw_4t: 'Muted Clay',
+    aw_4d: 'Terracota suave, o tom terra mais delicado do relatório.',
+    aw_5t: 'Candied Ginger',
+    aw_5d: 'Mel e âmbar, o neutro quente que favorece todas.',
+    aw_6t: 'Egret',
+    aw_6d: 'Branco cremoso: o contraste que ilumina toda a montra.',
+    dist_tagline: 'Distribuição wholesale internacional · Design handcrafted in Spain',
+    kids_optional: 'Opcional — avisamos de novidades e stock.',
+    kids_response: 'Resposta em menos de 24h · Sem compromisso de pagamento',
+    pkg_vivo_label: 'PACKAGING VIVO',
+    pkg_vivo_t: 'Estojos com',
+    pkg_vivo_i: 'personalidade',
+    pkg_vivo_d: 'Os estojos rígidos que acompanham cada armação mudam de cor conforme a estação, o clima e as tendências. Não é só embalagem — é uma peça de estilo que o cliente final também usa.',
+    av_label: 'PÓS-VENDA',
+    av_h3: 'Estamos consigo após o pedido',
+    av_intro: 'A sua satisfação e a dos seus clientes é a nossa prioridade. Gerimos qualquer incidência de forma rápida e sem burocracia.',
+    av_1t: 'Defeitos de fábrica',
+    av_1d: 'Se uma armação chegar com defeito de fabrico, repomos ou reembolsamos sem custo. Só precisa de foto do defeito e número de encomenda.',
+    av_2t: 'Quebras acidentais do cliente final',
+    av_2d: 'Oferecemos preço especial de reposição de peças soltas para resolver rápido e fidelizar o seu cliente.',
+    av_3t: 'Garantia de produto',
+    av_3d: 'Todos os modelos têm 12 meses de garantia de fabrico. Cobrimos defeitos em dobradiças, hastes e acetato em uso normal.',
+    av_4t: 'Resposta em 24h',
+    av_4d: 'Qualquer incidência é atendida em menos de 24 horas em dias úteis. Contacte diretamente por WhatsApp para máxima rapidez.',
+    kids_soon: 'Brevemente · AW26/27',
+    kids_h2a: 'Pequenos',
+    kids_h2b: 'grandes olhares.',
+    kids_intro: 'A Minuë chega aos mais pequenos. O mesmo acetato artesanal, as mesmas dobradiças cuidadas, as mesmas cores sem pedir licença. Para crianças dos 3 aos 14 anos com o seu próprio estilo.',
+    kids_f1: 'Acetato hipoalergénico',
+    kids_f2: 'Dobradiças flexíveis',
+    kids_f3: 'UV400 certificado',
+    kids_f4: '2 tamanhos · 3–8 e 8–14 anos',
+    kids_quote: '"Porque as crianças também merecem ver o mundo com estilo."',
+    kids_cta: 'Avise-me do lançamento',
+    kids_launch: 'Lançamento AW26/27',
+    kids_retailer: 'É retalhista? Seja o primeiro a conhecer a Minuë Junior.',
+    kids_notify_d: 'Avisamos quando o catálogo Junior estiver pronto para encomendas.',
+    kids_notify_btn: 'Notificar-me',
+    kids_email_ph: 'voce@otica.com',
+    faire_ship_es: '3–4 dias Espanha',
+    faire_ship_eu: '3–6 dias Europa',
+    faire_ship_int: '6–9 dias internacional',
+    faire_order: 'Encomendar na Faire',
+    faire_reviews: 'avaliações',
     stat_cities: 'cidades',
     stat_countries: 'países',
     stat_years: 'anos',
@@ -959,14 +1252,14 @@ const I18N = {
   },
   it: {
     nav_contact: 'Contatto', nav_catalog: 'Catalogo', nav_rates: 'Tariffe', nav_order: 'Ordine', nav_pdf: 'PDF', nav_faq: 'FAQ',
-    hdr_eyebrow: 'B2B Wholesale · SS26',
+    hdr_eyebrow: 'B2B Wholesale · AW26/27',
     hdr_h1_a: 'Esplora, seleziona', hdr_h1_b: 'e invia', hdr_h1_c: 'il tuo ordine.',
     hdr_sub: 'Sfoglia il catalogo, aggiungi i modelli che ti interessano e inviaci la tua selezione.',
     hdr_chip_top: 'Top Vendite', hdr_chip_rates: 'Vedi tariffe a volume',
     banner_expositor: 'Espositori inclusi da 20 unità — senza costo aggiuntivo',
     bar_your_tier: 'La tua fascia', bar_empty: 'Nessuna unità — aggiungi prodotti per vedere il tuo prezzo.',
     bar_missing_a: 'Mancano', bar_missing_b: 'pz per scendere a', bar_rate_btn: 'Vedi tabella',
-    top_eyebrow: '★ Top Vendite SS26', top_h2_month_pre: 'I modelli con la migliore rotazione in', top_h2_c: '.',
+    top_eyebrow: '★ Top Vendite AW26/27', top_h2_month_pre: 'I modelli con la migliore rotazione in', top_h2_c: '.',
     top_sub: 'Ordinati per rotazione reale presso i nostri distributori attivi.',
     filter_color: 'Colore', filter_shape: 'Forma', filter_clear: 'cancella',
     col_eyebrow: 'Collezione',
@@ -994,7 +1287,7 @@ const I18N = {
     ft_contact: 'Contatto', ft_conditions: 'Condizioni',
     ft_cond1: 'Prezzo da 17,90€/pz (40+ pz)', ft_cond2: 'Prezzo consigliato 55–60€',
     ft_cond3: 'Spedizione gratuita +20 pz', ft_cond4: '3% sconto pagamento anticipato',
-    ft_copyright: '© 2026 Minuë Opticians — Catalogo Wholesale SS26', ft_tagline: 'Un catalogo. Un minuetto.',
+    ft_copyright: '© 2026 Minuë Opticians — Catalogo Wholesale AW26/27', ft_tagline: 'Un catalogo. Un minuetto.',
     panel_eyebrow: 'Ordine', panel_h3: 'La mia selezione',
     panel_empty_t: 'Ancora vuoto', panel_empty_d: 'Aggiungi i modelli che ti interessano.',
     panel_tier: 'Fascia attuale', panel_price: 'Prezzo/pz', panel_consult: 'Consulta',
@@ -1007,13 +1300,13 @@ const I18N = {
     panel_disclaimer: "Non è un acquisto. È una richiesta d'ordine — confermiamo in meno di 24h.",
     panel_no_pay: '🔓 Non devi pagare adesso', panel_no_pay_sub: "Inviaci la tua selezione e ti confermiamo disponibilità prima di qualsiasi pagamento.",
     panel_mi_pedido: 'Il mio ordine', panel_remove: 'rimuovi', panel_added: 'Aggiunto', panel_add: 'Aggiungi',
-    modal_eyebrow: 'Tariffe SS26', modal_h2_a: 'Prezzo per', modal_h2_b: 'volume', modal_h2_c: ' — più ordini, meno paghi.',
+    modal_eyebrow: 'Tariffe AW26/27', modal_h2_a: 'Prezzo per', modal_h2_b: 'volume', modal_h2_c: ' — più ordini, meno paghi.',
     modal_your_tier: 'La tua fascia', modal_payments: 'Pagamenti:', modal_expositor: 'Espositore:', modal_free_ship: '✓ Spedizione gratuita',
     modal_plus60_label: '+60 pz', modal_plus60_t: 'Condizioni speciali', modal_plus60_d: 'Contattaci direttamente o scrivi a',
     modal_early_t: 'Pagamento anticipato', modal_early_d: 'Sconto aggiuntivo del 3% se paghi alla consegna.',
     modal_rrp_t: 'Prezzo consigliato', modal_rrp_d: 'Tra 55€ e 60€ al cliente finale.',
     modal_ship_t: 'Spedizione', modal_ship_d: 'Gratuita da 20 unità.',
-    modal_footer: 'Prezzi in euro, IVA esclusa. Tariffe valide per la stagione SS26.',
+    modal_footer: 'Prezzi in euro, IVA esclusa. Tariffe valide per la stagione AW26/27.',
     order_greeting: 'Ciao, vorrei fare un ordine:', order_tier: 'Fascia', order_total_line: 'Totale',
     order_plus60: 'Totale: {n} pz (fascia +60, prezzo da confermare)', order_closing: 'Grazie',
     shape_round: 'Rotonda', shape_oval: 'Ovale', shape_square: 'Quadrata', shape_rectangular: 'Rettangolare', shape_cateye: 'Cat-eye', shape_panto: 'Panto', shape_geometric: 'Geometrica',
@@ -1035,7 +1328,7 @@ const I18N = {
     lead_submit_wa: 'Continua su WhatsApp →', lead_submit_email: 'Continua via email →', lead_skip: 'Salta questo passaggio', lead_note: 'I tuoi dati vengono usati solo per gestire il tuo ordine.',
     qv_colors: 'Colori disponibili', qv_sku: 'Riferimento', qv_collection: 'Collezione', qv_shape: 'Forma', qv_rrp: 'Prezzo consigliato', qv_close: 'Chiudi', qv_add: "Aggiungi all'ordine", qv_added: 'Aggiunto',
     nav_badge: 'Trade Direct', nav_badge_sub: 'Seleziona e ordina diretto · senza registrazione',
-    new_eyebrow: '✦ Novità SS26', new_h2_a: 'Appena', new_h2_b: 'arrivati', new_h2_c: '.',
+    new_eyebrow: '✦ Novità AW26/27', new_h2_a: 'Appena', new_h2_b: 'arrivati', new_h2_c: '.',
     new_sub: 'Prime unità disponibili. Ordina prima che finiscano.', new_show_more: 'Vedi altri modelli', new_show_less: 'Vedi meno', new_badge: 'Nuovo',
     progress_browse: 'Esplorando', progress_select: 'Selezionando', progress_send: 'Invio ordine',
     toast_added: "aggiunto all'ordine", filters_btn: 'Filtra', filters_title: 'Filtri',
@@ -1043,7 +1336,7 @@ const I18N = {
     latam_hint: 'Il tuo ordine va a Minuë Latinoamérica · hola@minueopticians.co', latam_badge: 'LATAM',
     region_latam_desc: 'Colombia · Messico · Cile · Argentina e altro',
     col_show_all: 'Vedi tutti i modelli', col_collapse: 'Comprimi', col_models: 'modelli', col_expand_hint: 'Clicca per esplorare',
-    tier_best: 'Più scelto', ss26_banner: '🌿  Stagione SS26 aperta  ·  Nuovi modelli disponibili  ·  Stock limitato',
+    tier_best: 'Più scelto', ss26_banner: '🍂  Stagione AW26/27 aperta  ·  Tartaruga, cocoa, oliva e bordeaux  ·  In vetrina per le feste',
     faq_eyebrow: 'Domande frequenti', faq_h2: 'Quello che chiedono solitamente i retailer',
     faq_q1: 'Qual è il minimo ordine?', faq_a1: 'Non c`è un minimo. Da 10 unità i prezzi migliorano significativamente.',
     faq_q2: 'Come funziona questa piattaforma?', faq_a2: 'È un catalogo B2B privato. Seleziona i modelli, aggiungili al carrello e inviaci il tuo ordine via WhatsApp o email. Confermiamo disponibilità in meno di 24h.',
@@ -1060,12 +1353,66 @@ const I18N = {
     ft_cta_d: 'Il nostro team risponde in giornata. Senza pressioni, senza impegno.',
     ft_cta_wa: 'Scrivici su WhatsApp',
     ft_cta_email: 'Invia email',
-    tier_valid: 'Tariffe valide stagione SS26 · fino al 30 giu 2026',
+    tier_valid: 'Tariffe valide stagione AW26/27 · fino al 28 feb 2027',
     tier_save_label: 'Risparmi vs prezzo base',
     save_selection: 'Salva selezione',
     save_done: '✓ Salvato',
     share_partner: 'Condividi con socio',
     qv_qty_label: 'Quantità',
+    aw_eyebrow: 'I colori della stagione',
+    aw_h2a: 'La palette AW26/27,',
+    aw_h2b: 'già a catalogo.',
+    aw_intro: 'Pantone ha scelto marroni, bordeaux e olive per questo autunno-inverno. Non serve aspettare: i modelli che già girano sono in quella palette.',
+    aw_1t: 'Toffee · Cocoa',
+    aw_1d: 'Il marrone è il colore base della stagione, dal caramello all\'espresso.',
+    aw_2t: 'Burnt Olive',
+    aw_2d: 'Il verde profondo che accompagna maglie e cappotti.',
+    aw_3t: 'Red Mahogany',
+    aw_3d: 'Il bordeaux delle feste: drammatico ed elegante.',
+    aw_4t: 'Muted Clay',
+    aw_4d: 'Terracotta attenuato, il tono terra più morbido del report.',
+    aw_5t: 'Candied Ginger',
+    aw_5d: 'Miele e ambra, il neutro caldo che sta bene a tutte.',
+    aw_6t: 'Egret',
+    aw_6d: 'Bianco crema: il contrasto che illumina tutta la vetrina.',
+    dist_tagline: 'Distribuzione wholesale internazionale · Design handcrafted in Spain',
+    kids_optional: 'Opzionale — ti aggiorniamo su novità e disponibilità.',
+    kids_response: 'Risposta entro 24h · Senza impegno di pagamento',
+    pkg_vivo_label: 'PACKAGING VIVO',
+    pkg_vivo_t: 'Custodie con',
+    pkg_vivo_i: 'personalità',
+    pkg_vivo_d: 'Le custodie rigide che accompagnano ogni montatura cambiano colore secondo la stagione, il clima e le tendenze. Non è solo packaging — è un pezzo di stile che anche il cliente finale porta con sé.',
+    av_label: 'ASSISTENZA',
+    av_h3: 'Ci siamo anche dopo l\'ordine',
+    av_intro: 'La tua soddisfazione e quella dei tuoi clienti è la nostra priorità. Gestiamo ogni problema in modo rapido e senza burocrazia.',
+    av_1t: 'Difetti di fabbrica',
+    av_1d: 'Se una montatura arriva con un difetto di fabbricazione, la sostituiamo o rimborsiamo senza costi. Bastano foto del difetto e numero d\'ordine.',
+    av_2t: 'Rotture accidentali del cliente finale',
+    av_2d: 'Offriamo un prezzo speciale di sostituzione dei pezzi singoli per risolvere in fretta e fidelizzare il cliente.',
+    av_3t: 'Garanzia prodotto',
+    av_3d: 'Tutti i modelli hanno 12 mesi di garanzia di fabbrica. Copriamo difetti di cerniere, aste e acetato in uso normale.',
+    av_4t: 'Risposta in 24h',
+    av_4d: 'Ogni problema viene gestito entro 24 ore nei giorni feriali. Contattaci direttamente su WhatsApp per la massima rapidità.',
+    kids_soon: 'Prossimamente · AW26/27',
+    kids_h2a: 'Piccoli',
+    kids_h2b: 'grandi sguardi.',
+    kids_intro: 'Minuë arriva per i più piccoli. Lo stesso acetato artigianale, le stesse cerniere curate, gli stessi colori senza compromessi. Per bambini da 3 a 14 anni con il proprio stile.',
+    kids_f1: 'Acetato ipoallergenico',
+    kids_f2: 'Cerniere flessibili',
+    kids_f3: 'UV400 certificato',
+    kids_f4: '2 taglie · 3–8 e 8–14 anni',
+    kids_quote: '"Perché anche i bambini meritano di guardare il mondo con stile."',
+    kids_cta: 'Avvisami al lancio',
+    kids_launch: 'Lancio AW26/27',
+    kids_retailer: 'Sei un rivenditore? Scopri Minuë Junior in anteprima.',
+    kids_notify_d: 'Ti avvisiamo quando il catalogo Junior sarà pronto per gli ordini.',
+    kids_notify_btn: 'Avvisami',
+    kids_email_ph: 'tu@ottica.com',
+    faire_ship_es: '3–4 giorni Spagna',
+    faire_ship_eu: '3–6 giorni Europa',
+    faire_ship_int: '6–9 giorni internazionale',
+    faire_order: 'Ordina su Faire',
+    faire_reviews: 'recensioni',
     stat_cities: 'città',
     stat_countries: 'paesi',
     stat_years: 'anni',
@@ -1084,12 +1431,6 @@ const I18N = {
     faq_a7: '2 anni di garanzia del produttore. Difetti di fabbrica sostituiti senza costi.',
   },
 };
-
-function detectLang() {
-  if (typeof navigator === 'undefined') return 'es';
-  const l = (navigator.language || 'es').toLowerCase().slice(0, 2);
-  return ['es', 'fr', 'en', 'de', 'pt'].includes(l) ? l : 'es';
-}
 
 // ============================================================
 // DISTRIBUIDORES — routing del pedido según región
@@ -1183,7 +1524,7 @@ const PRODUCTS = [
   // Berry: 332 uds total
   { id:30,  name:"Berry Tea",         col:"Icons", shape:"round", urgency:"trending", colors:["marrón","cálido"],  rank:10, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0263.jpg" , imgScale:1.2},
   { id:140, name:"Berry Carbon",      col:"Icons", shape:"round",                    colors:["negro","carbono"],   rank:58, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0241.jpg" },
-  { id:141, name:"Berry Navy Blue",   col:"Icons", shape:"round",                    colors:["azul"],              rank:59, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777241615/IMG_0256_1080x_cvdsjb.webp" },
+  { id:141, name:"Berry Navy Blue",   col:"Icons", shape:"round",                    colors:["azul"],              rank:59, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0256.jpg" },
   { id:142, name:"Berry Brown Carey", col:"Icons", shape:"round",                    colors:["marrón","carey"],    rank:60, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777241611/IMG_3770_1080x_zcz0yh.webp" },
   { id:143, name:"Berry Leopard",     col:"Icons", shape:"round",                    colors:["marrón","negro"],    rank:61, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776278629/IMG_0263_720x_uln010.webp" },
   { id:241, name:"Berry Carey",  col:"Icons", shape:"round", colors:["carey"],           rank:62, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0255.jpg" },
@@ -1249,7 +1590,7 @@ const PRODUCTS = [
 
   // Foster: 60 uds (sin imagen)
   { id:32,  name:"Foster Gold Brown",   col:"Icons", shape:"panto", colors:["dorado","marrón"], rank:37 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0246.jpg" },
-  { id:187, name:"Foster Carbon Black", col:"Icons", shape:"panto", colors:["negro","carbono"], rank:82 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233953/IMG_0250_1080x_hgn78a.webp" },
+  { id:187, name:"Foster Carbon Black", col:"Icons", shape:"panto", colors:["negro","carbono"], rank:82 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0250.jpg" },
   { id:188, name:"Foster Gold Grey",    col:"Icons", shape:"panto", colors:["dorado","gris"],   rank:83 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233953/IMG_0248_1080x_zfmzfl.webp" },
 
   // Lane: 135 uds (sin imagen)
@@ -1257,7 +1598,7 @@ const PRODUCTS = [
   { id:190, name:"Lane Tea",        col:"Essential", shape:"round", colors:["marrón","cálido"],  rank:84, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_3771.jpg" },
   { id:191, name:"Lane Light Blue", col:"Essential", shape:"round", colors:["azul"],             rank:85, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_3766.jpg" },
   { id:192, name:"Lane Ámbar",      col:"Essential", shape:"round", colors:["ámbar"],            rank:86, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_3765.jpg" },
-  { id:193, name:"Lane Black",      col:"Essential", shape:"round", colors:["negro"],            rank:87 },
+  { id:193, name:"Lane Black",      col:"Essential", shape:"round", colors:["negro"],            rank:87, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5628.jpg" },
   { id:194, name:"Lane Carey",      col:"Essential", shape:"round", colors:["carey"],            rank:88, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_3767_d9fd096e-b787-435c-9c15-18dd34ea86ce.jpg" },
   { id:222, name:"Lane Opal",       col:"Essential", shape:"round", colors:["blanco","perla"],   rank:89, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_3776.jpg" },
 
@@ -1298,18 +1639,18 @@ const PRODUCTS = [
   { id:207, name:"Cooper II Buttercup", col:"Essential", shape:"round", colors:["amarillo"],rank:101 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5622.jpg" },
   { id:208, name:"Cooper II Sierra",    col:"Essential", shape:"round", colors:["marrón"],  rank:102 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5616.jpg" },
   { id:209, name:"Cooper II Caramel",     col:"Essential", shape:"round", colors:["caramelo"],   rank:103 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5615.jpg" },
-  { id:233, name:"Cooper II Tiger", col:"Essential", shape:"round", colors:["tigre","carey"], rank:113 },
+  { id:233, name:"Cooper II Tiger", col:"Essential", shape:"round", colors:["tigre","carey"], rank:113, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5617.jpg" },
   { id:210, name:"Cooper II Moonlight", col:"Essential", shape:"round", colors:["beige"],   rank:104 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5619.jpg" },
   { id:211, name:"Cooper II Havana",    col:"Essential", shape:"round", colors:["havana"],  rank:105 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5618.jpg" },
   // Hart: 37 uds
   { id:7,   name:"Hart Honey",  col:"Essential", shape:"square", colors:["miel","cálido"],  rank:51, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Captura_de_pantalla_2025-05-26_a_las_12.54.08.png" },
   { id:86,  name:"Hart Sunset", col:"Essential", shape:"square", colors:["naranja","cálido"],rank:53, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/24651be0773ae9139225c10bff875975.png" },
-  // Roger: 36 uds (isNew SS26)
-  { id:54,  name:"Roger Carey",  col:"Essential", shape:"rectangular", colors:["carey"],        rank:54, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/230.png" },
+  // Roger: 36 uds (isNew AW26/27)
+  { id:303,  name:"Roger Carey",  col:"Essential", shape:"rectangular", colors:["carey"],        rank:54, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/230.png" },
   { id:55,  name:"Roger Velvet", col:"Essential", shape:"rectangular", colors:["burdeos"],      rank:55, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/229.png" },
-  { id:56,  name:"Roger Wine",   col:"Essential", shape:"rectangular", colors:["burdeos","rojo"],rank:56, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/228.png" },
+  { id:304,  name:"Roger Wine",   col:"Essential", shape:"rectangular", colors:["burdeos","rojo"],rank:56, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/228.png" },
   // Bolden: rank 6 top pick
-  { id:16,  name:"Bolden Wine",  col:"Essential", shape:"rectangular", colors:["burdeos"], rank:55 },
+  { id:16,  name:"Bolden Wine",  col:"Essential", shape:"rectangular", colors:["burdeos"], rank:55, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/43.png" },
   { id:63,  name:"Bolden Oliva", col:"Essential", shape:"rectangular", colors:["verde"],         rank:57, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/MINUE_12.png" },
   { id:66,  name:"Bolden Ebony", col:"Essential", shape:"rectangular", colors:["negro"],          rank:58, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/193.png" },
   { id:65,  name:"Bolden Nude",  col:"Essential", shape:"rectangular", colors:["nude"],           rank:59, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/MINUE_11.png" },
@@ -1343,29 +1684,29 @@ const PRODUCTS = [
   { id:75,  name:"Tura Nude",  col:"Essential", shape:"square", colors:["nude"],         rank:78, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/65.png" },
   { id:76,  name:"Tura Noir",  col:"Essential", shape:"square", colors:["negro"],        rank:79, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/67.png" },
   { id:77,  name:"Tura Carey", col:"Essential", shape:"square", colors:["carey"],        rank:80, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/65.png" },
-  // Vitti: nuevo SS26
+  // Vitti: nuevo AW26/27
   { id:2,   name:"Vitti Brown",       col:"Essential", shape:"cateye", colors:["marrón"],         rank:20, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/203.png" },
   { id:212, name:"Vitti Velvet",      col:"Essential", shape:"cateye", colors:["burdeos"],         rank:82, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/201.png" },
   { id:213, name:"Vitti Caramel",     col:"Essential", shape:"cateye", colors:["caramelo"],        rank:83, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/202.png" },
   { id:214, name:"Vitti Brown Carey", col:"Essential", shape:"cateye", colors:["carey","marrón"],  rank:84, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/acaxasx.png" },
-  // Cardinale: nuevo SS26
+  // Cardinale: nuevo AW26/27
   { id:5,   name:"Cardinale Carey", col:"Essential", shape:"panto", colors:["carey","verde","miel"],rank:85, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/208.png" },
   { id:58,  name:"Cardinale Guiza", col:"Essential", shape:"panto", colors:["miel","dorado"],       rank:86, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/6w4rw.png" },
   { id:59,  name:"Cardinale Apple", col:"Essential", shape:"panto", colors:["verde"],               rank:21, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/gtwed.png" },
   // Chastain: rank 5 top pick
   { id:68,  name:"Chastain Carey",        col:"Essential", shape:"cateye",                     colors:["carey"],               rank:11, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/jjiasda.png" },
   { id:69,  name:"Chastain Noir Violet", col:"Essential", shape:"cateye",                     colors:["negro","burdeos"],     rank:12, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/sadascas.png" },
-  { id:225, name:"Chastain Red Light", col:"Essential", shape:"cateye", colors:["rojo"], rank:13, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/sa.png" },
+  { id:302, name:"Chastain Red Light", col:"Essential", shape:"cateye", colors:["rojo"], rank:13, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/sa.png" },
   // Gardner: 3 uds
   { id:6,   name:"Gardner Carey", col:"Essential", shape:"round", colors:["carey"],  rank:90, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/102.png" },
   { id:79,  name:"Gardner Amber Doré", col:"Essential", shape:"round", colors:["ámbar"],  rank:22, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/60.png" },
   { id:92,  name:"Gardner Black", col:"Essential", shape:"round", colors:["negro"],  rank:92, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/101.png" },
   // Sin imagen
-  { id:237, name:"Nova Black", col:"Essential", shape:"geometric", colors:["negro"], rank:117 },
+  { id:237, name:"Nova Black", col:"Essential", shape:"geometric", colors:["negro"], rank:117, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/150.png" },
   { id:17,  name:"Nova Ruby",       col:"Essential", shape:"geometric",   colors:["rojo","rubí"],   rank:93, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/172.png" },
   { id:221, name:"Nova Jade",       col:"Essential", shape:"geometric",   colors:["verde","jade"],  rank:94, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/171.png" },
-  { id:9,   name:"Totter Leaf",     col:"Essential", shape:"rectangular", colors:["verde"],           rank:95 },
-  { id:217, name:"Totter Carey",    col:"Essential", shape:"rectangular", colors:["carey"],           rank:108 },
+  { id:9,   name:"Totter Leaf",     col:"Essential", shape:"rectangular", colors:["verde"],           rank:95, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5627.jpg" },
+  { id:217, name:"Totter Carey",    col:"Essential", shape:"rectangular", colors:["carey"],           rank:108, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5629.jpg" },
 
   // ── ACETATO ──────────────────────────────────────────────────────────
   { id:53,  name:"Hayek Olive",    col:"Acetato", shape:"square",      urgency:"hot", colors:["verde","oliva"],  rank:50,  img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/86.png" },
@@ -1381,22 +1722,22 @@ const PRODUCTS = [
   { id:46,  name:"Astor Green",    col:"Acetato", shape:"rectangular",               colors:["verde"],           rank:97, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/31.png" },
   { id:85,  name:"Astor Bronce",   col:"Acetato", shape:"rectangular",               colors:["bronce"],          rank:98, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590194/34_w3ugnz.png" },
   { id:51,  name:"Ivy Felline",    col:"Acetato", shape:"oval",                      colors:["ámbar"],          rank:99, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/113.png" },
-  { id:48,  name:"Bardot",         col:"Acetato", shape:"cateye",                    colors:["carey"],           rank:100 },
-  { id:243, name:"Hayworth",       col:"Acetato", shape:"rectangular",               colors:["negro","dorado"],  rank:103, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590193/26_y5oqxr.png" },
-  { id:49,  name:"Juno",           col:"Acetato", shape:"round",                     colors:["negro"],           rank:101, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590193/27_b8ubbk.png" },
-  { id:45,  name:"Sienna",         col:"Acetato", shape:"square",                    colors:["marrón","negro"],  rank:102 },
-  // ── Añadidos desde PDF SS26 ──────────────────────────────────────
+  { id:48,  name:"Bardot",         col:"Acetato", shape:"cateye",                    colors:["carey"],           rank:100, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/33.png" },
+  { id:243, name:"Hayworth",       col:"Acetato", shape:"rectangular",               colors:["negro","dorado"],  rank:103, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/26.png" },
+  { id:49,  name:"Juno",           col:"Acetato", shape:"round",                     colors:["negro"],           rank:101, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/28.png" },
+  { id:45,  name:"Sienna",         col:"Acetato", shape:"square",                    colors:["marrón","negro"],  rank:102, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/29.png" },
+  // ── Añadidos desde PDF AW26/27 ──────────────────────────────────────
   { id:228, name:"Baker Tea",          col:"Essential", shape:"rectangular", colors:["marrón","cálido"],  rank:108 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/170.png" },
   { id:229, name:"Baker Cloud",        col:"Essential", shape:"rectangular", colors:["gris","crema"],     rank:109 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/169.png" },
   { id:230, name:"Baker Mint",         col:"Essential", shape:"rectangular", colors:["verde","menta"],    rank:110 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/168.png" },
   { id:231, name:"Baker Black",        col:"Essential", shape:"rectangular", colors:["negro"],            rank:111 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/167.png" },
-  { id:226, name:"Hart Black",         col:"Essential", shape:"square",      colors:["negro"],            rank:112 },
+  { id:226, name:"Hart Black",         col:"Essential", shape:"square",      colors:["negro"],            rank:112, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/MINUE_18.png" },
   { id:227, name:"Hedy Jara",          col:"Essential", shape:"round",       colors:["verde"],            rank:113 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/39.png" },
   { id:235, name:"Moore Kaffa",        col:"Icons",     shape:"rectangular", colors:["marrón","café"],    rank:117 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_2563.jpg" },
   { id:236, name:"Hazel Carey",        col:"Essential", shape:"square",      colors:["carey"],            rank:118 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/51.png" },
-  { id:237, name:"Hazel Noir",         col:"Essential", shape:"square",      colors:["negro"],            rank:119 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/52.png" },
+  { id:305, name:"Hazel Noir",         col:"Essential", shape:"square",      colors:["negro"],            rank:119 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/52.png" },
   { id:238, name:"Rainer Caramel",     col:"Essential", shape:"oval",        colors:["caramelo"],         rank:120 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/9.png" },
-  { id:239, name:"Cardinale Tea",      col:"Essential", shape:"oval",        colors:["marrón","cálido"],  rank:121 },
+  { id:239, name:"Cardinale Tea",      col:"Essential", shape:"oval",        colors:["marrón","cálido"],  rank:121, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/164.png" },
 ];
 
 const SHAPES = [
@@ -1670,11 +2011,11 @@ function generatePDF({ cartItems, cartCount, cartTotal, unitPrice, currentTier, 
     const col = COLLECTIONS.find(c => c.id === item.col);
     const price = col?.unitCost ?? unitPrice ?? DISPLAY_PRICE;
     return `<tr>
-      <td style="padding:8px 10px;border-bottom:1px solid #e8dfd8;font-size:12px;">${item.name}</td>
-      <td style="padding:8px 10px;border-bottom:1px solid #e8dfd8;font-size:12px;text-align:center;">${item.col}</td>
-      <td style="padding:8px 10px;border-bottom:1px solid #e8dfd8;font-size:12px;text-align:center;">${item.qty}</td>
-      <td style="padding:8px 10px;border-bottom:1px solid #e8dfd8;font-size:12px;text-align:right;">${price.toFixed(2).replace('.',',')}€</td>
-      <td style="padding:8px 10px;border-bottom:1px solid #e8dfd8;font-size:12px;text-align:right;font-weight:600;">${(item.qty * price).toFixed(2).replace('.',',')}€</td>
+      <td style="padding:8px 10px;border-bottom:1px solid #e3d6c4;font-size:12px;">${item.name}</td>
+      <td style="padding:8px 10px;border-bottom:1px solid #e3d6c4;font-size:12px;text-align:center;">${item.col}</td>
+      <td style="padding:8px 10px;border-bottom:1px solid #e3d6c4;font-size:12px;text-align:center;">${item.qty}</td>
+      <td style="padding:8px 10px;border-bottom:1px solid #e3d6c4;font-size:12px;text-align:right;">${price.toFixed(2).replace('.',',')}€</td>
+      <td style="padding:8px 10px;border-bottom:1px solid #e3d6c4;font-size:12px;text-align:right;font-weight:600;">${(item.qty * price).toFixed(2).replace('.',',')}€</td>
     </tr>`;
   }).join('');
 
@@ -1702,13 +2043,13 @@ function generatePDF({ cartItems, cartCount, cartTotal, unitPrice, currentTier, 
     .meta strong{font-size:13px;opacity:1;color:#b8860b;}
     h2{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;margin-bottom:12px;letter-spacing:-0.01em;}
     table{width:100%;border-collapse:collapse;margin-bottom:28px;}
-    thead th{padding:10px;background:#18332f;color:#f8efe6;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-align:left;}
+    thead th{padding:10px;background:#18332f;color:#f9f1e3;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-align:left;}
     thead th:nth-child(3),thead th:nth-child(4),thead th:nth-child(5){text-align:center;}
     thead th:nth-child(4),thead th:nth-child(5){text-align:right;}
     .totals{display:flex;justify-content:flex-end;margin-bottom:28px;}
     .totals-box{width:260px;border:1px solid #18332f20;border-radius:4px;overflow:hidden;}
     .totals-row{display:flex;justify-content:space-between;padding:8px 14px;font-size:12px;border-bottom:1px solid #18332f10;}
-    .totals-row:last-child{border-bottom:none;background:#18332f;color:#f8efe6;padding:12px 14px;}
+    .totals-row:last-child{border-bottom:none;background:#18332f;color:#f9f1e3;padding:12px 14px;}
     .totals-row:last-child span:last-child{font-size:18px;font-weight:700;font-family:'Cormorant Garamond',serif;}
     .gain-row{background:#b8860b10;display:flex;justify-content:space-between;padding:7px 14px;font-size:11px;color:#8a6000;}
     .conditions{background:#18332f05;border:1px solid #18332f12;border-radius:4px;padding:16px 18px;margin-bottom:24px;font-size:11px;line-height:1.7;}
@@ -1730,7 +2071,7 @@ function generatePDF({ cartItems, cartCount, cartTotal, unitPrice, currentTier, 
     </div>
   </header>
 
-  <div class="seal">⬡ &nbsp;Pedido SS26 · Sin compromiso de pago</div>
+  <div class="seal">⬡ &nbsp;Pedido AW26/27 · Sin compromiso de pago</div>
 
   <h2>Productos seleccionados</h2>
   <table>
@@ -1799,6 +2140,204 @@ function PkgCarousel() {
   );
 }
 
+// ============================================================
+// AWColorsSection — la paleta AW26/27 cruzada con el catálogo
+// ============================================================
+const AW_GROUPS = [
+  {
+    "key": "aw_1",
+    "swatch": "#6b4a35",
+    "models": [
+      {
+        "name": "Colette Cocoa",
+        "img": "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/44.png"
+      },
+      {
+        "name": "Deneuve Carey",
+        "img": "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/5.png"
+      },
+      {
+        "name": "Thurman Carey",
+        "img": "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_2556.jpg"
+      }
+    ]
+  },
+  {
+    "key": "aw_2",
+    "swatch": "#5c6042",
+    "models": [
+      {
+        "name": "Bolden Oliva",
+        "img": "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/MINUE_12.png"
+      },
+      {
+        "name": "Chastain Olive",
+        "img": "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/saxaa.png"
+      },
+      {
+        "name": "Dover Hunter Blend",
+        "img": "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/47.png"
+      }
+    ]
+  },
+  {
+    "key": "aw_3",
+    "swatch": "#7a2d38",
+    "models": [
+      {
+        "name": "Lawrence Velvet",
+        "img": "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5843.jpg"
+      },
+      {
+        "name": "Chastain Red Light",
+        "img": "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/sa.png"
+      },
+      {
+        "name": "Aretha Rosse",
+        "img": "https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_8147.jpg"
+      }
+    ]
+  },
+  {
+    "key": "aw_4",
+    "swatch": "#b06a4a",
+    "models": [
+      {
+        "name": "Hart Sunset",
+        "img": "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/24651be0773ae9139225c10bff875975.png"
+      },
+      {
+        "name": "Arielle Dusty",
+        "img": "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/53.png"
+      },
+      {
+        "name": "Hazel Petal",
+        "img": "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/50.png"
+      }
+    ]
+  },
+  {
+    "key": "aw_5",
+    "swatch": "#c08a3e",
+    "models": [
+      {
+        "name": "Lawrence Guiza",
+        "img": "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/image_b5a853c2-8868-432d-b7a6-df3510f4be8c.webp"
+      },
+      {
+        "name": "Hedy Guiza",
+        "img": "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/37.png"
+      },
+      {
+        "name": "Deneuve Tea",
+        "img": "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/4.png"
+      }
+    ]
+  },
+  {
+    "key": "aw_6",
+    "swatch": "#ede4d5",
+    "models": [
+      {
+        "name": "Loren Cream",
+        "img": "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5838.jpg"
+      },
+      {
+        "name": "Leigh Chalk",
+        "img": "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/112.png"
+      },
+      {
+        "name": "Bolden Nude",
+        "img": "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/MINUE_11.png"
+      }
+    ]
+  }
+];
+
+function AWColorsSection({ t }) {
+  return (
+    <div style={{ background: C, padding: 'clamp(48px,7vw,84px) 0', borderTop: `1px solid ${G}0d`, borderBottom: `1px solid ${G}0d` }}>
+      <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 24px' }}>
+
+        <div style={{ textAlign: 'center', marginBottom: 'clamp(32px,4vw,48px)' }}>
+          <div className="mn-label" style={{
+            color: RUST, fontSize: 11, letterSpacing: 3, fontWeight: 700,
+            marginBottom: 12, textTransform: 'uppercase',
+          }}>{t('aw_eyebrow')}</div>
+          <h2 className="mn-serif" style={{
+            fontSize: 'clamp(30px,4.6vw,52px)', fontWeight: 300,
+            letterSpacing: '-0.03em', lineHeight: 1.05, color: G, margin: 0,
+          }}>
+            {t('aw_h2a')}<br />
+            <span style={{ fontStyle: 'italic', color: RUST }}>{t('aw_h2b')}</span>
+          </h2>
+          <p style={{
+            fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: 'clamp(14px,1.7vw,17px)',
+            color: G, opacity: 0.65, lineHeight: 1.6, maxWidth: 620, margin: '18px auto 0',
+          }}>{t('aw_intro')}</p>
+        </div>
+
+        <div style={{
+          display: 'grid', gap: 20,
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+        }}>
+          {AW_GROUPS.map((grp, gi) => (
+            <div key={grp.key} style={{
+              background: '#F0E7D6', borderRadius: 10, padding: '22px 20px',
+              border: `1px solid ${G}12`,
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 14 }}>
+                <span style={{
+                  width: 34, height: 34, borderRadius: '50%', background: grp.swatch,
+                  flexShrink: 0, border: `1px solid ${G}22`,
+                }} />
+                <div style={{ minWidth: 0 }}>
+                  <div style={{
+                    fontFamily: 'Georgia, serif', fontSize: 17, color: G, lineHeight: 1.2,
+                  }}>{t(grp.key + '_t')}</div>
+                  <div className="mn-label" style={{
+                    fontSize: 9, letterSpacing: 1.5, color: RUST, fontWeight: 700, marginTop: 2,
+                  }}>PANTONE AW26/27</div>
+                </div>
+              </div>
+
+              <p style={{
+                fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: 13,
+                color: G, opacity: 0.68, lineHeight: 1.55, margin: '0 0 16px',
+              }}>{t(grp.key + '_d')}</p>
+
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 8 }}>
+                {grp.models.map((mo, mi) => (
+                  <div key={mi}>
+                    <div style={{
+                      position: 'relative', aspectRatio: '1/1', background: C,
+                      borderRadius: 6, overflow: 'hidden',
+                    }}>
+                      <img src={mo.img} alt={mo.name} loading="lazy" style={{
+                        position: 'absolute', inset: 0, width: '100%', height: '100%',
+                        objectFit: 'contain', padding: 6, boxSizing: 'border-box',
+                      }} />
+                      <div style={{
+                        position: 'absolute', inset: 0, background: C,
+                        mixBlendMode: 'multiply', pointerEvents: 'none',
+                      }} />
+                    </div>
+                    <div style={{
+                      fontFamily: 'Arial, sans-serif', fontSize: 9, color: G, opacity: 0.7,
+                      textAlign: 'center', marginTop: 5, lineHeight: 1.25,
+                    }}>{mo.name}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
 export default function App() {
   const [cart, setCart] = useState(() => {
     try { const s = typeof localStorage !== 'undefined' ? localStorage.getItem('minue_cart_v2') : null; return s ? JSON.parse(s) : {}; } catch { return {}; }
@@ -1810,7 +2349,7 @@ export default function App() {
   const [quickViewProduct, setQuickViewProduct] = useState(null);
   const [panelOpen, setPanelOpen] = useState(false);
   const [tarifasOpen, setTarifasOpen] = useState(false);
-  const [lang, setLang] = useState('es');
+  const [lang, setLang] = useState(() => detectLang());
   const [region, setRegion] = useState('es');
   const [newExpanded, setNewExpanded] = useState(false);
   const [openCollections, setOpenCollections] = useState({});
@@ -1887,6 +2426,12 @@ export default function App() {
   const t = (k) => (I18N[lang] && I18N[lang][k]) || I18N.es[k] || k;
 
   const cartCount = Object.values(cart).reduce((a, b) => a + b, 0);
+
+    // Guarda la elección de idioma del usuario
+  const handleLangChange = React.useCallback((newLang) => {
+    setLang(newLang);
+    try { window.localStorage?.setItem('minue_lang', newLang); } catch (e) {}
+  }, []);
 
   // Scroll-reveal para secciones
   useEffect(() => {
@@ -2000,7 +2545,7 @@ export default function App() {
   };
   const sendEmail = (lf = {}) => {
     if (!cartItems.length) return;
-    if (typeof window !== 'undefined') window.location.href = `mailto:${distributor.email}?subject=${encodeURIComponent('Pedido Wholesale Minuë SS26')}&body=${encodeURIComponent(buildOrderMessage(lf))}`;
+    if (typeof window !== 'undefined') window.location.href = `mailto:${distributor.email}?subject=${encodeURIComponent('Pedido Wholesale Minuë AW26/27')}&body=${encodeURIComponent(buildOrderMessage(lf))}`;
   };
 
   useEffect(() => {
@@ -2246,7 +2791,7 @@ export default function App() {
             </div>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: 6 }} className="mn-nav-gap mn-nav-actions">
-              <LangSelector lang={lang} onChange={setLang} />
+              <LangSelector lang={lang} onChange={handleLangChange} />
               <button onClick={() => setTarifasOpen(true)} className="mn-pill mn-nav-pill" style={{
                 display: 'inline-flex', alignItems: 'center', gap: 7,
                 padding: '9px 14px', border: `1px solid ${D}`, color: D, borderRadius: 999,
@@ -2314,7 +2859,7 @@ export default function App() {
 
             {/* HAMBURGUESA — solo móvil <560px */}
             <div className="mn-hamburger" style={{ display: 'none', alignItems: 'center', gap: 8 }}>
-              <LangSelector lang={lang} onChange={setLang} />
+              <LangSelector lang={lang} onChange={handleLangChange} />
               {cartCount > 0 && (
                 <button onClick={() => setPanelOpen(true)} style={{
                   display: 'inline-flex', alignItems: 'center', gap: 6,
@@ -2479,23 +3024,7 @@ export default function App() {
               </div>
             </div>
 
-            {/* Imagen derecha */}
-            <div style={{
-              position: 'relative', borderRadius: 4, overflow: 'hidden',
-              aspectRatio: '4/5', maxHeight: 'clamp(320px, 55vw, 580px)',
-            }}>
-              <img
-                src="https://cdn.shopify.com/s/files/1/0052/2797/0629/files/ANT6439_29112697-19ed-4483-b2f9-7f2bb2bbc0d8.jpg"
-                alt="Minuë — lookbook SS26"
-                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-              />
-              {/* Overlay sutil */}
-              <div style={{
-                position: 'absolute', inset: 0,
-                background: `linear-gradient(135deg, ${G}22 0%, transparent 60%)`,
-                pointerEvents: 'none',
-              }} />
-            </div>
+            {/* Imagen hero quitada */}
 
           </div>
         </header>
@@ -2678,6 +3207,8 @@ export default function App() {
         {/* ANCHOR para auto-scroll al filtrar */}
         <div id="catalog-start" style={{ scrollMarginTop: 140 }} />
 
+        <AWColorsSection t={t} />
+
         {/* BANDA VERDE DIVISORIA — anuncia las colecciones */}
         <div style={{
           background: G, color: C,
@@ -2699,7 +3230,7 @@ export default function App() {
             <span style={{
               fontSize: 9, fontWeight: 700, letterSpacing: 3,
               textTransform: 'uppercase', color: D,
-            }}>SS26 · Wholesale</span>
+            }}>AW26/27 · Wholesale</span>
             <span style={{
               width: 28, height: 1, background: D, opacity: 0.6,
             }} />
@@ -2725,7 +3256,7 @@ export default function App() {
         <div style={{ maxWidth: 1280, margin: '0 auto', padding: 'clamp(24px,4vw,40px) 24px clamp(16px,3vw,28px)' }}>
           <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 24, flexWrap: 'wrap' }}>
             <div>
-              <div className="mn-label" style={{ color: D, marginBottom: 10, fontSize: 11, letterSpacing: 2.5, fontWeight: 700 }}>SS26 · Wholesale</div>
+              <div className="mn-label" style={{ color: D, marginBottom: 10, fontSize: 11, letterSpacing: 2.5, fontWeight: 700 }}>AW26/27 · Wholesale</div>
               <h2 className="mn-serif" style={{
                 fontSize: 'clamp(36px, 5vw, 56px)', fontWeight: 300,
                 letterSpacing: '-0.03em', lineHeight: 0.95, margin: 0, color: G,
@@ -3243,9 +3774,9 @@ export default function App() {
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={G} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="8.5" cy="14" r="1.5" fill={G}/><circle cx="12" cy="9" r="1.5" fill={G}/><circle cx="15.5" cy="14" r="1.5" fill={G}/></svg>
             </div>
             <div style={{ flex: 1, minWidth: 220 }}>
-              <div className="mn-label" style={{ color: D, marginBottom: 6, fontSize: 11, letterSpacing: 2, fontWeight: 700 }}>PACKAGING VIVO</div>
+              <div className="mn-label" style={{ color: D, marginBottom: 6, fontSize: 11, letterSpacing: 2, fontWeight: 700 }}>{t('pkg_vivo_label')}</div>
               <h4 className="mn-serif" style={{ fontSize: 'clamp(18px,2.5vw,26px)', fontWeight: 300, margin: '0 0 8px', letterSpacing: '-0.01em' }}>
-                Fundas con <span className="mn-serif-i">personalidad</span>
+                {t('pkg_vivo_t')} <span className="mn-serif-i">{t('pkg_vivo_i')}</span>
               </h4>
               <p style={{ fontSize: 13, lineHeight: 1.6, opacity: 0.65, margin: 0, fontWeight: 300, maxWidth: 520 }}>
                 Las fundas rígidas que acompañan cada montura cambian de colores según la temporada, el clima y las tendencias. No es solo packaging — es una pieza de estilo que el cliente final también lleva.
@@ -3259,12 +3790,12 @@ export default function App() {
           <div style={{ maxWidth: 1280, margin: '0 auto', padding: 'clamp(40px,6vw,64px) 24px' }}>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: 16, flexWrap: 'wrap', marginBottom: 32, justifyContent: 'space-between' }}>
               <div>
-                <div className="mn-label" style={{ color: D, marginBottom: 10, fontSize: 11, letterSpacing: 2.5, fontWeight: 700 }}>POSTVENTA</div>
+                <div className="mn-label" style={{ color: D, marginBottom: 10, fontSize: 11, letterSpacing: 2.5, fontWeight: 700 }}>{t('av_label')}</div>
                 <h3 className="mn-serif" style={{ fontSize: 'clamp(28px,4vw,44px)', fontWeight: 400, letterSpacing: '-0.02em', margin: 0, display: 'flex', alignItems: 'center', gap: 14 }}>
                   <span style={{ width: 36, height: 36, borderRadius: 999, background: G, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f8efe6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f9f1e3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
                   </span>
-                  Estamos contigo después del pedido
+                  {t('av_h3')}
                 </h3>
               </div>
               <p style={{ maxWidth: 360, fontSize: 13, lineHeight: 1.6, opacity: 0.6, margin: 0, fontWeight: 300, fontStyle: 'italic' }}>
@@ -3275,23 +3806,23 @@ export default function App() {
               {[
                 {
                   svg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#18332f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.78"/></svg>',
-                  title: 'Cambios por defecto de fábrica',
-                  desc: 'Si una montura llega con algún defecto de fabricación, la reponemos o abonamos sin coste. Solo necesitas foto del defecto y número de pedido.'
+                  title: t('av_1t'),
+                  desc: t('av_1d')
                 },
                 {
                   svg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#18332f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>',
-                  title: 'Roturas accidentales del cliente final',
-                  desc: 'Ofrecemos precio especial de reposición de piezas sueltas para que puedas dar solución a tu cliente rápidamente y fidelizarlo.'
+                  title: t('av_2t'),
+                  desc: t('av_2d')
                 },
                 {
                   svg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#18332f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>',
-                  title: 'Garantía de producto',
-                  desc: 'Todos los modelos tienen garantía de fabricación de 12 meses. Cubrimos defectos en bisagras, patillas y acetato bajo uso normal.'
+                  title: t('av_3t'),
+                  desc: t('av_3d')
                 },
                 {
                   svg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#18332f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>',
-                  title: 'Respuesta en 24h',
-                  desc: 'Cualquier incidencia es atendida en menos de 24 horas en días laborables. Contacta directamente por WhatsApp para máxima agilidad.'
+                  title: t('av_4t'),
+                  desc: t('av_4d')
                 },
               ].map((item, i) => (
                 <div key={i} style={{
@@ -3335,7 +3866,7 @@ export default function App() {
               <div style={{ animation: 'mn-kids-in 0.7s ease-out both' }}>
                 <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(184,134,11,0.15)', border: '1px solid rgba(184,134,11,0.3)', borderRadius: 999, padding: '4px 14px', marginBottom: 24 }}>
                   <span style={{ width: 6, height: 6, borderRadius: '50%', background: D, display: 'inline-block', animation: 'mn-shimmer 2s ease-in-out infinite' }} />
-                  <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: 2.5, textTransform: 'uppercase', color: D }}>Próximamente · SS26</span>
+                  <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: 2.5, textTransform: 'uppercase', color: D }}>{t('kids_soon')}</span>
                 </div>
 
                 <h2 className="mn-serif" style={{
@@ -3343,8 +3874,8 @@ export default function App() {
                   color: C, lineHeight: 1.0, letterSpacing: '-0.03em',
                   margin: '0 0 12px',
                 }}>
-                  Pequeñas<br />
-                  <span className="mn-serif-i" style={{ color: D }}>grandes miradas.</span>
+                  {t('kids_h2a')}<br />
+                  <span className="mn-serif-i" style={{ color: D }}>{t('kids_h2b')}</span>
                 </h2>
 
                 <p style={{ fontSize: 13, color: C, opacity: 0.55, lineHeight: 1.7, margin: '0 0 32px', fontWeight: 300, maxWidth: 380 }}>
@@ -3396,7 +3927,7 @@ export default function App() {
                     Avísame del lanzamiento
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                   </button>
-                  <span style={{ fontSize: 11, color: C, opacity: 0.35 }}>Lanzamiento SS26</span>
+                  <span style={{ fontSize: 11, color: C, opacity: 0.35 }}>Lanzamiento AW26/27</span>
                 </div>
               </div>
 
@@ -3490,7 +4021,7 @@ export default function App() {
                 <div className="mn-label" style={{ color: D, marginBottom: 10, fontSize: 11, letterSpacing: 2.5, fontWeight: 700 }}>{t('tech_eyebrow')}</div>
                 <h3 className="mn-serif" style={{ fontSize: 'clamp(32px,4vw,46px)', fontWeight: 400, letterSpacing: '-0.02em', margin: 0, display: 'flex', alignItems: 'center', gap: 14 }}>
                   <span style={{ width: 36, height: 36, borderRadius: 999, background: G, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f8efe6" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f9f1e3" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                   </span>
                   {t('tech_h2')}
                 </h3>
@@ -3546,11 +4077,11 @@ export default function App() {
 
               {/* Celda grande — foto */}
               <div className="mn-bento-photo" style={{ gridColumn: '1/6', gridRow: '1/3', borderRadius: 8, overflow:'hidden', minHeight: 280, position: 'relative' }}>
-                <img src="https://cdn.shopify.com/s/files/1/0052/2797/0629/files/_ABD8364.jpg"
-                  alt="Minuë SS26" style={{ width:'100%', height:'100%', objectFit:'cover', display:'block', filter:'brightness(0.85)' }} />
+                <img src="https://cdn.shopify.com/s/files/1/0052/2797/0629/files/ABD8364.jpg"
+                  alt="Minuë AW26/27" style={{ width:'100%', height:'100%', objectFit:'cover', display:'block', filter:'brightness(0.85)' }} />
                 <div style={{ position:'absolute', inset:0, background:`linear-gradient(135deg,${G}44 0%,transparent 70%)`, pointerEvents:'none' }} />
                 <div style={{ position:'absolute', bottom:20, left:20 }}>
-                  <div className="mn-label-xs" style={{ color:D, marginBottom:6 }}>SS26</div>
+                  <div className="mn-label-xs" style={{ color:D, marginBottom:6 }}>AW26/27</div>
                   <div className="mn-serif" style={{ fontSize:22, fontWeight:300, lineHeight:1.1 }}>Berry Navy Blue</div>
                 </div>
               </div>
@@ -3662,7 +4193,7 @@ export default function App() {
               <div>
                 <Logo color={C} height={42} />
                 <p style={{ fontSize: 12, lineHeight: 1.65, opacity: 0.55, fontWeight: 300, maxWidth: 320, marginTop: 12 }}>
-                  Distribución wholesale internacional · Diseño handcrafted in Spain
+                  {t('dist_tagline')}
                 </p>
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 6, fontSize: 12, fontWeight: 300, opacity: 0.6 }}>
@@ -4108,19 +4639,23 @@ export default function App() {
 // ============================================================
 function LangSelector({ lang, onChange }) {
   const [open, setOpen] = React.useState(false);
-  const [pos, setPos] = React.useState({ top: 0, right: 0 });
+  const [pos, setPos] = React.useState(null);
   const btnRef = React.useRef(null);
   const dropRef = React.useRef(null);
   const current = LANGS.find(l => l.code === lang) || LANGS[0];
 
-  const openDropdown = () => {
-    if (btnRef.current) {
+  // Calcula la posición justo después de abrir (antes de pintar)
+  React.useLayoutEffect(() => {
+    if (open && btnRef.current) {
       const rect = btnRef.current.getBoundingClientRect();
-      setPos({ top: rect.bottom + 18, right: window.innerWidth - rect.right });
+      setPos({
+        top: rect.bottom + 10,
+        right: Math.max(12, window.innerWidth - rect.right),
+      });
     }
-    setOpen(true);
-  };
+  }, [open]);
 
+  // Cerrar al hacer click fuera
   React.useEffect(() => {
     if (!open) return;
     const handler = (e) => {
@@ -4131,6 +4666,7 @@ function LangSelector({ lang, onChange }) {
     };
     document.addEventListener('mousedown', handler);
     document.addEventListener('touchstart', handler);
+    window.addEventListener('resize', () => setOpen(false));
     return () => {
       document.removeEventListener('mousedown', handler);
       document.removeEventListener('touchstart', handler);
@@ -4141,7 +4677,7 @@ function LangSelector({ lang, onChange }) {
     <>
       <button
         ref={btnRef}
-        onClick={() => open ? setOpen(false) : openDropdown()}
+        onClick={() => setOpen(o => !o)}
         className="mn-pill mn-nav-pill"
         style={{
           display: 'inline-flex', alignItems: 'center', gap: 6,
@@ -4165,14 +4701,15 @@ function LangSelector({ lang, onChange }) {
         </span>
       </button>
 
-      {open && (
+      {open && pos && (
         <div
           ref={dropRef}
           style={{
-            position: 'fixed', top: pos.top, right: pos.right, zIndex: 9999,
+            position: 'fixed', top: pos.top, right: pos.right, zIndex: 99999,
             background: C, border: `1px solid ${G}22`, borderRadius: 10,
             boxShadow: '0 12px 32px -10px rgba(24,51,47,0.28)',
-            padding: 6, minWidth: 160,
+            padding: 6, minWidth: 170,
+            maxHeight: 'calc(100vh - 120px)', overflowY: 'auto',
             display: 'flex', flexDirection: 'column', gap: 2,
             animation: 'mn-rise 0.18s ease-out both',
           }}
@@ -4184,7 +4721,7 @@ function LangSelector({ lang, onChange }) {
                 key={l.code}
                 onClick={() => { onChange(l.code); setOpen(false); }}
                 style={{
-                  padding: '9px 13px', textAlign: 'left', borderRadius: 6,
+                  padding: '10px 13px', textAlign: 'left', borderRadius: 6,
                   fontSize: 12, fontWeight: active ? 600 : 400,
                   background: active ? `${G}10` : 'transparent',
                   display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12,
@@ -4638,7 +5175,7 @@ function OrderPanel({
                       Enviar pedido por WhatsApp
                     </button>
                     <div style={{ textAlign: 'center', fontSize: 10, opacity: 0.4, marginTop: -2 }}>
-                      Respuesta en menos de 24h · Sin compromiso de pago
+                      {t('kids_response')}
                     </div>
                   </>
                 )}
@@ -4662,7 +5199,7 @@ function OrderPanel({
                 {/* Nota desktop: sin WhatsApp */}
                 {!isMobile && (
                   <div style={{ textAlign: 'center', fontSize: 10, opacity: 0.4, marginTop: -4 }}>
-                    Respuesta en menos de 24h · Sin compromiso de pago
+                    {t('kids_response')}
                   </div>
                 )}
 
@@ -4709,7 +5246,7 @@ function OrderPanel({
                     ¿Quieres que te hagamos seguimiento?
                   </div>
                   <p style={{ fontSize: 10, opacity: 0.5, margin: '0 0 10px', lineHeight: 1.5 }}>
-                    Opcional — te avisamos de novedades y stock.
+                    {t('kids_optional')}
                   </p>
                   {[
                     { ref: refName, placeholder: t('lead_name'), type: 'text' },
@@ -5536,6 +6073,66 @@ function StatNumber({ raw }) {
   );
 }
 
+const HERO_SLIDES = [
+  'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/ANT6439_29112697-19ed-4483-b2f9-7f2bb2bbc0d8.jpg',
+  'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Minueoptician210222-010.jpg',
+  'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Minueoptician210222-011.jpg',
+];
+
+function HeroSlider() {
+  const [idx, setIdx] = React.useState(0);
+  React.useEffect(() => {
+    const timer = setInterval(() => setIdx(i => (i + 1) % HERO_SLIDES.length), 4500);
+    return () => clearInterval(timer);
+  }, []);
+  return (
+    <div style={{
+      position: 'relative', width: '100%',
+      height: 'clamp(220px, 38vw, 460px)', overflow: 'hidden',
+      background: G,
+    }}>
+      {HERO_SLIDES.map((src, i) => (
+        <img
+          key={i}
+          src={src}
+          alt="Minuë AW26/27"
+          style={{
+            position: 'absolute', inset: 0,
+            width: '100%', height: '100%', objectFit: 'cover',
+            opacity: i === idx ? 1 : 0,
+            transition: 'opacity 1s ease-in-out',
+          }}
+        />
+      ))}
+      {/* Degradado inferior para fundir con el bloque oscuro */}
+      <div style={{
+        position: 'absolute', left: 0, right: 0, bottom: 0, height: '40%',
+        background: `linear-gradient(to top, ${G} 0%, transparent 100%)`,
+        pointerEvents: 'none',
+      }} />
+      {/* Dots */}
+      <div style={{
+        position: 'absolute', bottom: 16, left: 0, right: 0,
+        display: 'flex', justifyContent: 'center', gap: 7, zIndex: 2,
+      }}>
+        {HERO_SLIDES.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setIdx(i)}
+            aria-label={`Slide ${i + 1}`}
+            style={{
+              width: i === idx ? 22 : 7, height: 7, borderRadius: 999,
+              background: i === idx ? C : `${C}66`,
+              border: 'none', cursor: 'pointer', padding: 0,
+              transition: 'all 0.3s ease',
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function ImpactSection({ t }) {
   const stats = [
     { n: '+250', label: t('stat_cities') },
@@ -5553,10 +6150,13 @@ function ImpactSection({ t }) {
 
   return (
     <div>
+      {/* ── SLIDER HERO ── */}
+      <HeroSlider />
+
       {/* ── BLOQUE OSCURO: stats ── */}
       <div style={{ background: G, color: C }}>
 
-        {/* Ticker SS26 */}
+        {/* Ticker AW26/27 */}
         <div style={{
           borderBottom: `1px solid rgba(248,239,230,0.08)`,
           padding: '9px 24px', textAlign: 'center',
@@ -5780,7 +6380,7 @@ function FaireRating() {
             transition: 'opacity 0.15s',
           }}
         >
-          Pedir en Faire
+          {t('faire_order')}
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
         </a>
 
@@ -6011,7 +6611,7 @@ function ProductCard({ product, added, onAdd, rank, showRank, variant = 'normal'
   return (
     <div className="mn-card" onClick={() => onQuickView && onQuickView(p)} style={{ display: 'flex', flexDirection: 'column', cursor: onQuickView ? 'pointer' : 'default' }}>
       <div className="mn-card-img" style={{
-        position: 'relative', aspectRatio: '1/1', background: '#F2EDE4',
+        position: 'relative', aspectRatio: '1/1', background: '#F0E7D6',
         borderRadius: 2, overflow: 'hidden',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
       }}>
@@ -6021,7 +6621,7 @@ function ProductCard({ product, added, onAdd, rank, showRank, variant = 'normal'
               width: '100%', height: '100%', objectFit: 'contain', padding: '8px',
               transform: p.imgScale ? `scale(${p.imgScale})` : 'none',
             }} />
-            <div style={{ position: 'absolute', inset: 0, background: '#F2EDE4', mixBlendMode: 'multiply', pointerEvents: 'none' }} />
+            <div style={{ position: 'absolute', inset: 0, background: '#F0E7D6', mixBlendMode: 'multiply', pointerEvents: 'none' }} />
           </>
         ) : (
           <div className="mn-img" style={{
