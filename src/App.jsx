@@ -2294,7 +2294,7 @@ function AWColorsSection({ t }) {
                 <div style={{ minWidth: 0 }}>
                   <div style={{
                     fontFamily: 'Georgia, serif', fontSize: 17, color: G, lineHeight: 1.2,
-                  }}>{t(grp.key + '_t')}</div>
+                  }}>{t(grp.key + 't')}</div>
                   <div className="mn-label" style={{
                     fontSize: 9, letterSpacing: 1.5, color: RUST, fontWeight: 700, marginTop: 2,
                   }}>PANTONE AW26/27</div>
@@ -2304,7 +2304,7 @@ function AWColorsSection({ t }) {
               <p style={{
                 fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: 13,
                 color: G, opacity: 0.68, lineHeight: 1.55, margin: '0 0 16px',
-              }}>{t(grp.key + '_d')}</p>
+              }}>{t(grp.key + 'd')}</p>
 
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 8 }}>
                 {grp.models.map((mo, mi) => (
@@ -4011,7 +4011,7 @@ export default function App() {
         </section>
         {/* ── FIN MINUË JUNIOR ──────────────────────────────────────── */}
 
-        <FaireRating />
+        <FaireRating t={t} />
 
         {/* ESPECIFICACIONES TÉCNICAS — bloque sutil sobre fondo crema */}
         <section style={{ background: `${G}06`, borderTop: `1px solid ${G}12`, borderBottom: `1px solid ${G}12` }}>
@@ -6271,7 +6271,7 @@ function HowItWorks({ t }) { return null; }
 
 
 // ── FaireRating — Bloque valoraciones Faire ──────────────────────────
-function FaireRating() {
+function FaireRating({ t }) {
   const FAIRE_LOGO = (
     <svg width="28" height="28" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect width="80" height="80" fill="white"/>
