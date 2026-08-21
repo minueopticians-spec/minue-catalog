@@ -116,7 +116,7 @@ const I18N = {
     cta_sub: 'Expositores incluidos desde 20 uds · Envío gratuito +20 uds · 3% pronto pago con plan de 2 pagos.',
     cta_btn: 'Ver tabla completa',
     ft_contact: 'Contacto', ft_conditions: 'Condiciones',
-    ft_cond1: 'Precio desde 17,90€/ud (40+ uds)', ft_cond2: 'PVP recomendado 55–60€',
+    ft_cond1: 'Precio desde 17,90€/ud (40+ uds)', ft_cond2: 'PVP recomendado 50€ · Acetato 70€',
     ft_cond3: 'Envío gratuito +20 uds', ft_cond4: '3% dto. pronto pago (2 pagos)',
     ft_copyright: '© 2026 Minuë Opticians — Catálogo Wholesale AW26/27',
     ft_tagline: 'Un catálogo. Un minué.',
@@ -141,7 +141,7 @@ const I18N = {
     modal_plus60_label: '+60 uds', modal_plus60_t: 'Condiciones especiales',
     modal_plus60_d: 'Contáctanos directamente o escribe a',
     modal_early_t: 'Pronto pago', modal_early_d: '3% de descuento adicional en tarifas con plan de 2 pagos si abonas a la entrega.',
-    modal_rrp_t: 'PVP recomendado', modal_rrp_d: 'Entre 55€ y 60€ al cliente final. Margen bruto medio del 67%.',
+    modal_rrp_t: 'PVP recomendado', modal_rrp_d: '50€ al cliente final (Acetato 70€). Margen bruto medio del 64%.',
     modal_ship_t: 'Envío', modal_ship_d: 'Gratuito a partir de 20 unidades. Coste según destino por debajo de ese tramo.',
     modal_footer: 'Precios en euros, IVA no incluido. Tarifa válida para la temporada AW26/27.',
     order_greeting: 'Hola, me gustaría hacer un pedido:',
@@ -251,6 +251,23 @@ const I18N = {
     save_done: '✓ Guardada',
     share_partner: 'Compartir con socio',
     qv_qty_label: 'Cantidad',
+    disp_label: 'Expositor de sobremesa',
+    disp_title: 'Elige tu acabado',
+    disp_eyebrow: 'Expositores incluidos',
+    disp_h_a: 'Tu vitrina,',
+    disp_h_b: 'montada en un minuto.',
+    disp_desc: 'Tres expositores de pie, pequeños y con peso, en tres acabados para que combinen con tu mobiliario. Incluidos a partir de 20 unidades.',
+    disp_b1: 'Formato compacto de sobremesa — no roba espacio en el mostrador',
+    disp_b2: 'Tres acabados: verde botella, dorado y terracota',
+    disp_b3: 'Incluidos sin coste desde 20 uds · 8,90€ sueltos',
+    d1_name: 'Verde',
+    d2_name: 'Dorado',
+    d3_name: 'Terracota',
+    box_label: 'La caja Minüe',
+    box_title: 'Cada montura, en su caja',
+    box_desc: 'Caja rígida con el sello Minüe, lista para entregar al cliente final. El detalle que convierte una venta en un regalo.',
+    acet_note_t: 'Colección Acetato — precio aparte',
+    acet_note_d: 'La línea Acetato no entra en los tramos por volumen: precio fijo de 25,95€/ud, PVP recomendado 70€ (margen ~63%). Suma unidades al total del pedido pero mantiene su propio precio.',
     aw_models: 'modelos',
     aw_add: 'Añadir',
     aw_close: 'Cerrar',
@@ -381,7 +398,7 @@ const I18N = {
     cta_sub: 'Présentoirs offerts dès 20 u · Livraison gratuite +20 u · 3% paiement anticipé (plan en 2 fois).',
     cta_btn: 'Voir le tableau complet',
     ft_contact: 'Contact', ft_conditions: 'Conditions',
-    ft_cond1: 'Prix à partir de 17,90€/u (40+ u)', ft_cond2: 'Prix public conseillé 55–60€',
+    ft_cond1: 'Prix à partir de 17,90€/u (40+ u)', ft_cond2: 'Prix public conseillé 50€ · Acétate 70€',
     ft_cond3: 'Livraison gratuite +20 u', ft_cond4: '3% rem. paiement anticipé',
     ft_copyright: '© 2026 Minuë Opticians — Catalogue Wholesale AW26/27',
     ft_tagline: 'Un catalogue. Un menuet.',
@@ -406,7 +423,7 @@ const I18N = {
     modal_plus60_label: '+60 u', modal_plus60_t: 'Conditions spéciales',
     modal_plus60_d: 'Contactez-nous directement ou écrivez à',
     modal_early_t: 'Paiement anticipé', modal_early_d: '3% de remise supplémentaire sur les plans en 2 fois si vous payez à la livraison.',
-    modal_rrp_t: 'Prix public conseillé', modal_rrp_d: 'Entre 55€ et 60€ client final. Marge brute moyenne de 67%.',
+    modal_rrp_t: 'Prix public conseillé', modal_rrp_d: '50€ client final (Acétate 70€). Marge brute moyenne de 64%.',
     modal_ship_t: 'Livraison', modal_ship_d: 'Gratuite à partir de 20 unités. Frais selon destination en-dessous.',
     modal_footer: 'Prix en euros, HT. Tarifs valables pour la saison AW26/27.',
     order_greeting: 'Bonjour, je voudrais passer une commande :',
@@ -496,6 +513,23 @@ const I18N = {
     save_done: '✓ Sauvegardé',
     share_partner: 'Partager avec un partenaire',
     qv_qty_label: 'Quantité',
+    disp_label: 'Présentoir de comptoir',
+    disp_title: 'Choisissez votre finition',
+    disp_eyebrow: 'Présentoirs inclus',
+    disp_h_a: 'Votre vitrine,',
+    disp_h_b: 'montée en une minute.',
+    disp_desc: 'Trois présentoirs sur pied, compacts et lestés, en trois finitions pour s\'accorder à votre mobilier. Inclus dès 20 unités.',
+    disp_b1: 'Format compact de comptoir — ne vole pas de place',
+    disp_b2: 'Trois finitions : vert bouteille, doré et terracotta',
+    disp_b3: 'Inclus dès 20 pcs · 8,90€ à l\'unité',
+    d1_name: 'Vert',
+    d2_name: 'Doré',
+    d3_name: 'Terracotta',
+    box_label: 'La boîte Minüe',
+    box_title: 'Chaque monture, dans sa boîte',
+    box_desc: 'Boîte rigide au sceau Minüe, prête à remettre au client final. Le détail qui transforme une vente en cadeau.',
+    acet_note_t: 'Collection Acétate — tarif à part',
+    acet_note_d: 'La ligne Acétate n\'entre pas dans les paliers de volume : prix fixe de 25,95€/u, prix public conseillé 70€ (marge ~63%). Les unités comptent dans le total mais gardent leur propre tarif.',
     aw_models: 'modèles',
     aw_add: 'Ajouter',
     aw_close: 'Fermer',
@@ -624,7 +658,7 @@ const I18N = {
     cta_sub: 'Free displays from 20 units · Free shipping 20+ units · 3% early-payment discount on 2-instalment plans.',
     cta_btn: 'See full table',
     ft_contact: 'Contact', ft_conditions: 'Terms',
-    ft_cond1: 'From €17.90/unit (40+ units)', ft_cond2: 'RRP €55–60',
+    ft_cond1: 'From €17.90/unit (40+ units)', ft_cond2: 'RRP €50 · Acetate €70',
     ft_cond3: 'Free shipping 20+ units', ft_cond4: '3% early-payment discount (2 instalments)',
     ft_copyright: '© 2026 Minuë Opticians — Wholesale Catalogue AW26/27',
     ft_tagline: 'One catalogue. One minuet.',
@@ -739,6 +773,23 @@ const I18N = {
     save_done: '✓ Saved',
     share_partner: 'Share with partner',
     qv_qty_label: 'Quantity',
+    disp_label: 'Counter display',
+    disp_title: 'Choose your finish',
+    disp_eyebrow: 'Displays included',
+    disp_h_a: 'Your display,',
+    disp_h_b: 'set up in a minute.',
+    disp_desc: 'Three small weighted standing displays in three finishes to match your furniture. Included from 20 units.',
+    disp_b1: 'Compact counter format — takes no shelf space',
+    disp_b2: 'Three finishes: bottle green, gold and terracotta',
+    disp_b3: 'Free from 20 pcs · €8.90 each',
+    d1_name: 'Green',
+    d2_name: 'Gold',
+    d3_name: 'Terracotta',
+    box_label: 'The Minüe box',
+    box_title: 'Every frame, in its box',
+    box_desc: 'Rigid box with the Minüe seal, ready to hand to the end customer. The detail that turns a sale into a gift.',
+    acet_note_t: 'Acetate collection — priced separately',
+    acet_note_d: 'The Acetate line is not part of the volume tiers: fixed price of €25.95/unit, RRP €70 (margin ~63%). Units count towards the order total but keep their own price.',
     aw_models: 'models',
     aw_add: 'Add',
     aw_close: 'Close',
@@ -867,7 +918,7 @@ const I18N = {
     cta_sub: 'Gratis-Displays ab 20 Stk · Gratisversand ab 20 Stk · 3% Skonto bei 2-Raten-Plan.',
     cta_btn: 'Vollständige Tabelle',
     ft_contact: 'Kontakt', ft_conditions: 'Konditionen',
-    ft_cond1: 'Ab 17,90€/Stk. (40+ Stk)', ft_cond2: 'UVP 55–60€',
+    ft_cond1: 'Ab 17,90€/Stk. (40+ Stk)', ft_cond2: 'UVP 50€ · Azetat 70€',
     ft_cond3: 'Gratisversand ab 20 Stk', ft_cond4: '3% Skonto (2 Raten)',
     ft_copyright: '© 2026 Minuë Opticians — Wholesale-Katalog AW26/27',
     ft_tagline: 'Ein Katalog. Ein Menuett.',
@@ -892,7 +943,7 @@ const I18N = {
     modal_plus60_label: '+60 Stk', modal_plus60_t: 'Sonderkonditionen',
     modal_plus60_d: 'Kontaktieren Sie uns direkt oder schreiben Sie an',
     modal_early_t: 'Skonto', modal_early_d: '3% zusätzlicher Rabatt bei 2-Raten-Plan und Zahlung bei Lieferung.',
-    modal_rrp_t: 'UVP', modal_rrp_d: 'Zwischen 55€ und 60€ Endkunde. Durchschnittliche Bruttomarge 67%.',
+    modal_rrp_t: 'UVP', modal_rrp_d: '50€ Endkunde (Azetat 70€). Durchschnittliche Bruttomarge 64%.',
     modal_ship_t: 'Versand', modal_ship_d: 'Gratis ab 20 Stück. Kosten nach Zielort unterhalb dieser Staffel.',
     modal_footer: 'Preise in Euro, MwSt. nicht enthalten. Preise gültig für die AW26/27-Saison.',
     order_greeting: 'Hallo, ich möchte eine Bestellung aufgeben:',
@@ -982,6 +1033,23 @@ const I18N = {
     save_done: '✓ Gespeichert',
     share_partner: 'Mit Partner teilen',
     qv_qty_label: 'Menge',
+    disp_label: 'Thekendisplay',
+    disp_title: 'Wählen Sie Ihr Finish',
+    disp_eyebrow: 'Displays inklusive',
+    disp_h_a: 'Ihr Schaufenster,',
+    disp_h_b: 'in einer Minute fertig.',
+    disp_desc: 'Drei kompakte, beschwerte Standdisplays in drei Finishes, passend zu Ihrem Mobiliar. Ab 20 Stück inklusive.',
+    disp_b1: 'Kompaktes Thekenformat — nimmt keinen Platz weg',
+    disp_b2: 'Drei Finishes: Flaschengrün, Gold und Terrakotta',
+    disp_b3: 'Ab 20 Stk. gratis · 8,90€ einzeln',
+    d1_name: 'Grün',
+    d2_name: 'Gold',
+    d3_name: 'Terrakotta',
+    box_label: 'Die Minüe-Box',
+    box_title: 'Jede Fassung in ihrer Box',
+    box_desc: 'Feste Box mit Minüe-Siegel, bereit für den Endkunden. Das Detail, das aus einem Verkauf ein Geschenk macht.',
+    acet_note_t: 'Azetat-Kollektion — separater Preis',
+    acet_note_d: 'Die Azetat-Linie fällt nicht unter die Mengenstaffel: Festpreis 25,95€/Stk, UVP 70€ (Marge ~63%). Die Stück zählen zur Gesamtmenge, behalten aber ihren eigenen Preis.',
     aw_models: 'Modelle',
     aw_add: 'Hinzufügen',
     aw_close: 'Schließen',
@@ -1110,7 +1178,7 @@ const I18N = {
     cta_sub: 'Expositores grátis a partir de 20 uds · Envio grátis +20 uds · 3% pronto pagamento (plano 2 pagamentos).',
     cta_btn: 'Ver tabela completa',
     ft_contact: 'Contacto', ft_conditions: 'Condições',
-    ft_cond1: 'Desde 17,90€/ud (40+ uds)', ft_cond2: 'PVP recomendado 55–60€',
+    ft_cond1: 'Desde 17,90€/ud (40+ uds)', ft_cond2: 'PVP recomendado 50€ · Acetato 70€',
     ft_cond3: 'Envio grátis +20 uds', ft_cond4: '3% desc. pronto pagamento',
     ft_copyright: '© 2026 Minuë Opticians — Catálogo Wholesale AW26/27',
     ft_tagline: 'Um catálogo. Um minueto.',
@@ -1135,7 +1203,7 @@ const I18N = {
     modal_plus60_label: '+60 uds', modal_plus60_t: 'Condições especiais',
     modal_plus60_d: 'Contacte-nos diretamente ou escreva para',
     modal_early_t: 'Pronto pagamento', modal_early_d: '3% de desconto adicional em planos de 2 pagamentos se pagar à entrega.',
-    modal_rrp_t: 'PVP recomendado', modal_rrp_d: 'Entre 55€ e 60€ cliente final. Margem bruta média 67%.',
+    modal_rrp_t: 'PVP recomendado', modal_rrp_d: '50€ cliente final (Acetato 70€). Margem bruta média 64%.',
     modal_ship_t: 'Envio', modal_ship_d: 'Grátis a partir de 20 unidades. Custo conforme destino abaixo desse escalão.',
     modal_footer: 'Preços em euros, IVA não incluído. Tarifário válido para a época AW26/27.',
     order_greeting: 'Olá, gostaria de fazer um pedido:',
@@ -1225,6 +1293,23 @@ const I18N = {
     save_done: '✓ Guardado',
     share_partner: 'Partilhar com parceiro',
     qv_qty_label: 'Quantidade',
+    disp_label: 'Expositor de balcão',
+    disp_title: 'Escolha o seu acabamento',
+    disp_eyebrow: 'Expositores incluídos',
+    disp_h_a: 'A sua montra,',
+    disp_h_b: 'montada num minuto.',
+    disp_desc: 'Três expositores de pé, pequenos e com peso, em três acabamentos para combinar com o seu mobiliário. Incluídos a partir de 20 unidades.',
+    disp_b1: 'Formato compacto de balcão — não rouba espaço',
+    disp_b2: 'Três acabamentos: verde garrafa, dourado e terracota',
+    disp_b3: 'Incluídos desde 20 uds · 8,90€ avulso',
+    d1_name: 'Verde',
+    d2_name: 'Dourado',
+    d3_name: 'Terracota',
+    box_label: 'A caixa Minüe',
+    box_title: 'Cada armação, na sua caixa',
+    box_desc: 'Caixa rígida com o selo Minüe, pronta a entregar ao cliente final. O detalhe que transforma uma venda num presente.',
+    acet_note_t: 'Coleção Acetato — preço à parte',
+    acet_note_d: 'A linha Acetato não entra nos escalões por volume: preço fixo de 25,95€/ud, PVP recomendado 70€ (margem ~63%). As unidades somam ao total mas mantêm o seu preço.',
     aw_models: 'modelos',
     aw_add: 'Adicionar',
     aw_close: 'Fechar',
@@ -1340,7 +1425,7 @@ const I18N = {
     cta_eyebrow: 'Tariffe a volume', cta_h3_a: 'Più design ordini,', cta_h3_b: 'meno paghi', cta_h3_c: '.', cta_h3_d: 'Da 17,90€/pz.',
     cta_sub: 'Espositori inclusi da 20 pz · Spedizione gratuita +20 pz.', cta_btn: 'Vedi tabella completa',
     ft_contact: 'Contatto', ft_conditions: 'Condizioni',
-    ft_cond1: 'Prezzo da 17,90€/pz (40+ pz)', ft_cond2: 'Prezzo consigliato 55–60€',
+    ft_cond1: 'Prezzo da 17,90€/pz (40+ pz)', ft_cond2: 'Prezzo consigliato 50€ · Acetato 70€',
     ft_cond3: 'Spedizione gratuita +20 pz', ft_cond4: '3% sconto pagamento anticipato',
     ft_copyright: '© 2026 Minuë Opticians — Catalogo Wholesale AW26/27', ft_tagline: 'Un catalogo. Un minuetto.',
     panel_eyebrow: 'Ordine', panel_h3: 'La mia selezione',
@@ -1359,7 +1444,7 @@ const I18N = {
     modal_your_tier: 'La tua fascia', modal_payments: 'Pagamenti:', modal_expositor: 'Espositore:', modal_free_ship: '✓ Spedizione gratuita',
     modal_plus60_label: '+60 pz', modal_plus60_t: 'Condizioni speciali', modal_plus60_d: 'Contattaci direttamente o scrivi a',
     modal_early_t: 'Pagamento anticipato', modal_early_d: 'Sconto aggiuntivo del 3% se paghi alla consegna.',
-    modal_rrp_t: 'Prezzo consigliato', modal_rrp_d: 'Tra 55€ e 60€ al cliente finale.',
+    modal_rrp_t: 'Prezzo consigliato', modal_rrp_d: '50€ al cliente finale (Acetato 70€).',
     modal_ship_t: 'Spedizione', modal_ship_d: 'Gratuita da 20 unità.',
     modal_footer: 'Prezzi in euro, IVA esclusa. Tariffe valide per la stagione AW26/27.',
     order_greeting: 'Ciao, vorrei fare un ordine:', order_tier: 'Fascia', order_total_line: 'Totale',
@@ -1396,7 +1481,7 @@ const I18N = {
     faq_q1: 'Qual è il minimo ordine?', faq_a1: 'Non c`è un minimo. Da 10 unità i prezzi migliorano significativamente.',
     faq_q2: 'Come funziona questa piattaforma?', faq_a2: 'È un catalogo B2B privato. Seleziona i modelli, aggiungili al carrello e inviaci il tuo ordine via WhatsApp o email. Confermiamo disponibilità in meno di 24h.',
     faq_q3: 'Quali sono i tempi di consegna?', faq_a3: 'Spagna: 2–4 giorni lavorativi. Europa: 4–7 giorni lavorativi.',
-    faq_q4: 'Qual è il margine raccomandato?', faq_a4: 'Con prezzi al pubblico tra 55€ e 60€, il margine lordo medio è del 67%.',
+    faq_q4: 'Qual è il margine raccomandato?', faq_a4: 'Con un prezzo al pubblico di 50€ (Acetato 70€), il margine lordo medio è del 67%.',
     faq_q5: 'Le montature includono imballaggio?', faq_a5: 'Sì. Ogni montatura include scatola, custodia rigida, panno in microfibra, scheda tecnica e adesivo CE+UV400.',
     faq_q6: 'Siete disponibili su Faire?', faq_a6: 'Sì. Cerca "Minuë Opticians" su Faire Wholesale.',
     faq_q7: 'Che garanzia hanno i prodotti?',     code_label: 'Hai un codice speciale?',
@@ -1414,6 +1499,23 @@ const I18N = {
     save_done: '✓ Salvato',
     share_partner: 'Condividi con socio',
     qv_qty_label: 'Quantità',
+    disp_label: 'Espositore da banco',
+    disp_title: 'Scegli la finitura',
+    disp_eyebrow: 'Espositori inclusi',
+    disp_h_a: 'La tua vetrina,',
+    disp_h_b: 'pronta in un minuto.',
+    disp_desc: 'Tre espositori da terra, compatti e zavorrati, in tre finiture per abbinarsi ai tuoi arredi. Inclusi da 20 unità.',
+    disp_b1: 'Formato compatto da banco — non ruba spazio',
+    disp_b2: 'Tre finiture: verde bottiglia, oro e terracotta',
+    disp_b3: 'Inclusi da 20 pz · 8,90€ singolo',
+    d1_name: 'Verde',
+    d2_name: 'Oro',
+    d3_name: 'Terracotta',
+    box_label: 'La scatola Minüe',
+    box_title: 'Ogni montatura, nella sua scatola',
+    box_desc: 'Scatola rigida con il sigillo Minüe, pronta da consegnare al cliente finale. Il dettaglio che trasforma una vendita in un regalo.',
+    acet_note_t: 'Collezione Acetato — prezzo a parte',
+    acet_note_d: 'La linea Acetato non rientra negli scaglioni per volume: prezzo fisso di 25,95€/pz, prezzo consigliato 70€ (margine ~63%). I pezzi contano nel totale ma mantengono il proprio prezzo.',
     aw_models: 'modelli',
     aw_add: 'Aggiungi',
     aw_close: 'Chiudi',
@@ -1836,7 +1938,7 @@ const COLOR_FILTERS = [
 ];
 
 const COLLECTIONS = [
-  { id: 'Essential', label: 'Essential', tagKey: 'col_essential_tag', rrp: 48, unitCost: null },
+  { id: 'Essential', label: 'Essential', tagKey: 'col_essential_tag', rrp: 50, unitCost: null },
   { id: 'Icons',     label: 'Icons',     tagKey: 'col_icons_tag',     rrp: 50, unitCost: null },
   { id: 'Acetato',   label: 'Acetato',   tagKey: 'col_acetato_tag',   rrp: 70, unitCost: 25.95 },
 ];
@@ -2198,10 +2300,90 @@ function PkgCarousel() {
   return (
     <div style={{ borderRadius: 4, overflow: 'hidden', minHeight: 300, position: 'relative' }}>
       <img
-        src="https://cdn.shopify.com/s/files/1/0052/2797/0629/files/MINUE_5_8e68a53d-c6e9-45b3-9d40-fb9d012eace9.png"
+        src="https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Imagen_de_Codex_19_ago_2026_00_42_11.png?v=1787309635"
         alt="Packaging Minuë"
         style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
       />
+    </div>
+  );
+}
+
+// ============================================================
+// DisplaySelector — los 3 expositores de sobremesa, por color
+// ============================================================
+const DISPLAYS = [
+  { key: 'd1', swatch: '#18332f', img: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Imagen_de_Codex_18_ago_2026_23_57_36.png?v=1787309635' },
+  { key: 'd2', swatch: '#b8860b', img: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Imagen_de_Codex_18_ago_2026_23_56_01.png?v=1787309634' },
+  { key: 'd3', swatch: '#a2542b', img: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Imagen_de_Codex_18_ago_2026_23_55_56.png?v=1787309634' },
+];
+
+function DisplaySelector({ t }) {
+  const [idx, setIdx] = React.useState(0);
+  const [auto, setAuto] = React.useState(true);
+
+  React.useEffect(() => {
+    if (!auto) return;
+    const id = setInterval(() => setIdx(i => (i + 1) % DISPLAYS.length), 3800);
+    return () => clearInterval(id);
+  }, [auto]);
+
+  const pick = (i) => { setAuto(false); setIdx(i); };
+
+  return (
+    <div style={{
+      border: `1px solid ${G}1f`, borderRadius: 6, overflow: 'hidden',
+      background: '#F0E7D6', display: 'flex', flexDirection: 'column',
+    }}>
+      <div style={{ padding: '16px 20px 10px' }}>
+        <div className="mn-label-xs" style={{ color: RUST, marginBottom: 6 }}>{t('disp_label')}</div>
+        <div style={{ fontFamily: 'Georgia, serif', fontSize: 15, color: G, lineHeight: 1.35 }}>
+          {t('disp_title')}
+        </div>
+      </div>
+
+      {/* Escenario */}
+      <div style={{ position: 'relative', width: '100%', aspectRatio: '4/3', overflow: 'hidden' }}>
+        {DISPLAYS.map((d, i) => (
+          <img key={d.key} src={d.img} alt={t('disp_title')} loading="lazy" style={{
+            position: 'absolute', inset: 0, width: '100%', height: '100%',
+            objectFit: 'contain', padding: 10, boxSizing: 'border-box',
+            mixBlendMode: 'multiply',
+            opacity: i === idx ? 1 : 0,
+            transform: i === idx ? 'scale(1)' : 'scale(.97)',
+            transition: 'opacity .55s ease, transform .55s ease',
+          }} />
+        ))}
+      </div>
+
+      {/* Selector de color */}
+      <div style={{
+        display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 14,
+        padding: '12px 20px 16px', borderTop: `1px solid ${G}12`,
+      }}>
+        {DISPLAYS.map((d, i) => (
+          <button key={d.key}
+            onClick={() => pick(i)}
+            aria-label={t(d.key + '_name')}
+            title={t(d.key + '_name')}
+            style={{
+              display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 5,
+              background: 'none', border: 'none', cursor: 'pointer', padding: 2,
+            }}>
+            <span style={{
+              width: i === idx ? 26 : 20, height: i === idx ? 26 : 20, borderRadius: '50%',
+              background: d.swatch, display: 'block',
+              border: `2px solid ${i === idx ? C : 'transparent'}`,
+              boxShadow: i === idx ? `0 0 0 2px ${d.swatch}, 0 4px 10px -3px ${d.swatch}aa` : `0 0 0 1px ${G}22`,
+              transition: 'all .22s ease',
+            }} />
+            <span className="mn-label" style={{
+              fontSize: 8, letterSpacing: 1, fontWeight: 700,
+              color: i === idx ? G : G, opacity: i === idx ? 1 : 0.45,
+              transition: 'opacity .2s',
+            }}>{t(d.key + '_name')}</span>
+          </button>
+        ))}
+      </div>
     </div>
   );
 }
@@ -2231,6 +2413,7 @@ const AW_GROUPS = [
   },
   {
     "key": "aw_2",
+    "exclude": ["Ziyi Ágata"],
     "filters": ["verde", "oliva", "jade", "menta"],
     "swatch": "#5c6042",
     "models": [
@@ -2250,6 +2433,7 @@ const AW_GROUPS = [
   },
   {
     "key": "aw_3",
+    "exclude": ["Chastain Noir Violet", "Nova Ruby", "Berry Rosse", "Arielle Velvet", "Karina Ruby"],
     "filters": ["burdeos", "rojo", "rubí", "granate"],
     "swatch": "#7a2d38",
     "models": [
@@ -2269,6 +2453,7 @@ const AW_GROUPS = [
   },
   {
     "key": "aw_4",
+    "exclude": ["Berry Rosse", "Aretha Rosse"],
     "filters": ["cálido", "naranja", "rosa", "tigre"],
     "swatch": "#b06a4a",
     "models": [
@@ -2288,6 +2473,7 @@ const AW_GROUPS = [
   },
   {
     "key": "aw_5",
+    "exclude": ["Ziyi Ámbar", "Ziyi Ambar"],
     "filters": ["miel", "ámbar", "dorado", "amarillo"],
     "swatch": "#c08a3e",
     "models": [
@@ -2307,6 +2493,7 @@ const AW_GROUPS = [
   },
   {
     "key": "aw_6",
+    "exclude": ["Baker Cloud"],
     "filters": ["crema", "blanco", "beige", "perla", "nude", "champán"],
     "swatch": "#ede4d5",
     "models": [
@@ -2332,6 +2519,7 @@ function AWColorsSection({ t, onPick, activeColors = [], products = [], cart = {
 
   const itemsFor = (grp) => products
     .filter(p => p.img && p.colors && grp.filters.some(f => p.colors.includes(f)))
+    .filter(p => !(grp.exclude || []).includes(p.name))
     .sort((a, b) => (a.rank || 999) - (b.rank || 999));
 
   return (
@@ -2416,9 +2604,8 @@ function AWColorsSection({ t, onPick, activeColors = [], products = [], cart = {
                         <div style={{ position: 'relative', aspectRatio: '1/1', background: C, borderRadius: 6, overflow: 'hidden' }}>
                           <img src={mo.img} alt={mo.name} loading="lazy" style={{
                             position: 'absolute', inset: 0, width: '100%', height: '100%',
-                            objectFit: 'contain', padding: 6, boxSizing: 'border-box',
+                            objectFit: 'contain', padding: 6, boxSizing: 'border-box', mixBlendMode: 'multiply',
                           }} />
-                          <div style={{ position: 'absolute', inset: 0, background: C, mixBlendMode: 'multiply', pointerEvents: 'none' }} />
                         </div>
                         <div style={{
                           fontFamily: 'Arial, sans-serif', fontSize: 9, color: G, opacity: 0.7,
@@ -2451,10 +2638,9 @@ function AWColorsSection({ t, onPick, activeColors = [], products = [], cart = {
                             <div style={{ position: 'relative', aspectRatio: '3/2', overflow: 'hidden' }}>
                               <img src={p.img} alt={p.name} loading="lazy" style={{
                                 position: 'absolute', inset: 0, width: '100%', height: '100%',
-                                objectFit: 'contain', padding: 7, boxSizing: 'border-box',
+                                objectFit: 'contain', padding: 7, boxSizing: 'border-box', mixBlendMode: 'multiply',
                                 transform: p.imgScale ? `scale(${p.imgScale})` : 'none',
                               }} />
-                              <div style={{ position: 'absolute', inset: 0, background: '#F0E7D6', mixBlendMode: 'multiply', pointerEvents: 'none' }} />
                               {qty > 0 && (
                                 <span style={{
                                   position: 'absolute', top: 6, right: 6, minWidth: 20, height: 20,
@@ -2660,9 +2846,8 @@ function Lightbox({ item, onClose }) {
         }}>×</button>
         <div style={{ background: '#F0E7D6', borderRadius: 12, padding: 'clamp(20px,4vw,36px)', position: 'relative', overflow: 'hidden' }}>
           <img src={item.img} alt={item.name} style={{
-            width: '100%', height: 'auto', maxHeight: '58vh', objectFit: 'contain', display: 'block',
+            width: '100%', height: 'auto', maxHeight: '58vh', objectFit: 'contain', display: 'block', mixBlendMode: 'multiply',
           }} />
-          <div style={{ position: 'absolute', inset: 0, background: '#F0E7D6', mixBlendMode: 'multiply', pointerEvents: 'none' }} />
         </div>
         <div className="mn-serif" style={{ color: C, fontSize: 'clamp(20px,3vw,28px)', fontWeight: 300, marginTop: 18 }}>
           {item.name}
@@ -3692,8 +3877,7 @@ export default function App() {
                         onMouseEnter={e => e.currentTarget.style.background = `${G}08`}
                         onMouseLeave={e => e.currentTarget.style.background = 'transparent'}>
                           {p.img ? <span style={{ position: 'relative', width: 32, height: 24, borderRadius: 2, overflow: 'hidden', background: '#F0E7D6', display: 'inline-block', flexShrink: 0 }}>
-                            <img src={p.img} alt={p.name} style={{ width: '100%', height: '100%', objectFit: 'contain', padding: 2, boxSizing: 'border-box' }} />
-                            <span style={{ position: 'absolute', inset: 0, background: '#F0E7D6', mixBlendMode: 'multiply', pointerEvents: 'none' }} />
+                            <img src={p.img} alt={p.name} style={{ width: '100%', height: '100%', objectFit: 'contain', padding: 2, boxSizing: 'border-box', mixBlendMode: 'multiply' }} />
                           </span> :
                             <div style={{ width: 32, height: 24, background: `${G}10`, borderRadius: 2 }} />}
                           <div>
@@ -3827,8 +4011,7 @@ export default function App() {
                             overflow: 'hidden', padding: 3, position: 'relative',
                             boxShadow: '0 1px 4px rgba(0,0,0,0.1)',
                           }}>
-                            <img src={p.img} alt={p.name} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
-                            <span style={{ position: 'absolute', inset: 0, background: '#F0E7D6', mixBlendMode: 'multiply', pointerEvents: 'none' }} />
+                            <img src={p.img} alt={p.name} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
                           </div>
                         ))}
                         {previewItems.length === 0 && (
@@ -3947,13 +4130,13 @@ export default function App() {
                                   {/* Imagen */}
                                   <div className="mn-card-img" style={{
                                     position: 'relative', aspectRatio: '3/2',
-                                    background: 'transparent', borderRadius: 2, overflow: 'hidden',
+                                    background: '#F0E7D6', borderRadius: 2, overflow: 'hidden',
                                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                                   }}>
                                     {rep.img ? (
                                       <>
                                       <img src={rep.img} alt={base} className="mn-img" style={{
-                                        width: '100%', height: '100%', objectFit: 'contain', padding: '8px',
+                                        width: '100%', height: '100%', objectFit: 'contain', padding: '8px', mixBlendMode: 'multiply',
                                         transform: rep.imgScale ? `scale(${rep.imgScale})` : 'none',
                                       }} />
                                       <button
@@ -4147,7 +4330,55 @@ export default function App() {
                 </div>
               </div>
 
+              {/* La cajita Minüe */}
+              <div style={{
+                display: 'grid', gridTemplateColumns: 'minmax(120px,180px) 1fr', gap: 18,
+                alignItems: 'center', padding: '16px 18px',
+                border: `1px solid ${G}1f`, borderRadius: 6, background: `${G}05`,
+              }} className="mn-box-row">
+                <div style={{ background: '#F0E7D6', borderRadius: 5, overflow: 'hidden', aspectRatio: '1/1' }}>
+                  <img src="https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Captura_de_pantalla_2026-08-21_a_las_12.55.40.png?v=1787309779" alt={t('box_title')} loading="lazy" style={{
+                    width: '100%', height: '100%', objectFit: 'contain',
+                    padding: 8, boxSizing: 'border-box', mixBlendMode: 'multiply',
+                  }} />
+                </div>
+                <div>
+                  <div className="mn-label-xs" style={{ color: D, marginBottom: 6 }}>{t('box_label')}</div>
+                  <div style={{ fontFamily: 'Georgia, serif', fontSize: 16, color: G, lineHeight: 1.3, marginBottom: 6 }}>
+                    {t('box_title')}
+                  </div>
+                  <div style={{ fontSize: 12.5, lineHeight: 1.55, opacity: 0.7, fontStyle: 'italic', fontFamily: 'Georgia, serif' }}>
+                    {t('box_desc')}
+                  </div>
+                </div>
+              </div>
 
+            </div>
+          </div>
+
+          {/* EXPOSITORES DE SOBREMESA */}
+          <div style={{ marginTop: 'clamp(28px,4vw,44px)' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'minmax(240px,1fr) 1fr', gap: 'clamp(20px,4vw,44px)', alignItems: 'center' }} className="mn-pkg-outer">
+              <DisplaySelector t={t} />
+              <div>
+                <div className="mn-label" style={{ color: RUST, fontSize: 11, letterSpacing: 2.5, fontWeight: 700, marginBottom: 10 }}>
+                  {t('disp_eyebrow')}
+                </div>
+                <h3 className="mn-serif" style={{ fontSize: 'clamp(24px,3.4vw,38px)', fontWeight: 300, letterSpacing: '-0.01em', margin: '0 0 14px', lineHeight: 1.1 }}>
+                  {t('disp_h_a')} <span className="mn-serif-i" style={{ color: RUST }}>{t('disp_h_b')}</span>
+                </h3>
+                <p style={{ fontSize: 13.5, lineHeight: 1.6, opacity: 0.72, fontStyle: 'italic', fontFamily: 'Georgia, serif', marginBottom: 16 }}>
+                  {t('disp_desc')}
+                </p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                  {[t('disp_b1'), t('disp_b2'), t('disp_b3')].map((b, i) => (
+                    <div key={i} style={{ display: 'flex', gap: 9, alignItems: 'flex-start' }}>
+                      <span style={{ color: RUST, fontSize: 13, lineHeight: 1.5 }}>◆</span>
+                      <span style={{ fontSize: 13, lineHeight: 1.5, opacity: 0.8 }}>{b}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -5271,7 +5502,7 @@ function OrderPanel({
                     padding: 5, overflow: 'hidden', position: 'relative', border: `1px solid ${G}0a`,
                   }}>
                     {item.img
-                      ? <><img src={item.img} alt={item.name} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} /><span style={{ position: 'absolute', inset: 0, background: '#F0E7D6', mixBlendMode: 'multiply', pointerEvents: 'none' }} /></>
+                      ? <><img src={item.img} alt={item.name} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', mixBlendMode: 'multiply' }} /></>
                       : <svg width="28" height="18" viewBox="0 0 42 28" fill="none" style={{ opacity: 0.2 }}><rect x="1" y="4" width="16" height="12" rx="6" stroke={G} strokeWidth="1.5"/><rect x="25" y="4" width="16" height="12" rx="6" stroke={G} strokeWidth="1.5"/><line x1="17" y1="10" x2="25" y2="10" stroke={G} strokeWidth="1.5"/></svg>
                     }
                   </div>
@@ -5915,7 +6146,18 @@ function TarifasModal({ onClose, currentTier, t }) {
           }}>
             {t('modal_footer')}
           </p>
-          <p style={{ textAlign: 'center', fontSize: 10, fontWeight: 700, color: D, margin: '4px 0 0', letterSpacing: 0.3 }}>
+          <div style={{
+            marginTop: 14, padding: '12px 14px', borderRadius: 8,
+            background: `${RUST}12`, border: `1px dashed ${RUST}`,
+          }}>
+            <div className="mn-label" style={{ fontSize: 9, letterSpacing: 1.8, fontWeight: 800, color: RUST, marginBottom: 4 }}>
+              {t('acet_note_t')}
+            </div>
+            <div style={{ fontSize: 11.5, lineHeight: 1.5, color: G, opacity: 0.8 }}>
+              {t('acet_note_d')}
+            </div>
+          </div>
+          <p style={{ textAlign: 'center', fontSize: 10, fontWeight: 700, color: D, margin: '10px 0 0', letterSpacing: 0.3 }}>
             📅 {t('tier_valid')}
           </p>
         </div>
@@ -6470,16 +6712,15 @@ function StatNumber({ raw }) {
 }
 
 const HERO_SLIDES = [
-  'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/42_e5cf5e2d-2194-49b1-8783-942fa94cf97f.png?v=1783279835',
-  'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/ANT6439_29112697-19ed-4483-b2f9-7f2bb2bbc0d8.jpg',
-  'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Minueoptician210222-010.jpg',
-  'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Minueoptician210222-011.jpg',
+  'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/48_987c88e3-b13f-4c98-b60e-3f9cba3c7073.png?v=1787309849',
+  'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/49_f6963586-cfb6-43b5-88be-68724b5caef4.png?v=1787309848',
+  'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/47_88cec18e-64bc-4fb7-9ee2-228dfefb383d.png?v=1787309848',
 ];
 
 function HeroSlider() {
   const [idx, setIdx] = React.useState(0);
   React.useEffect(() => {
-    const timer = setInterval(() => setIdx(i => (i + 1) % HERO_SLIDES.length), 4500);
+    const timer = setInterval(() => setIdx(i => (i + 1) % HERO_SLIDES.length), 6000);
     return () => clearInterval(timer);
   }, []);
   return (
@@ -6497,7 +6738,7 @@ function HeroSlider() {
             position: 'absolute', inset: 0,
             width: '100%', height: '100%', objectFit: 'cover',
             opacity: i === idx ? 1 : 0,
-            transition: 'opacity 1s ease-in-out',
+            transition: 'opacity 1.4s ease-in-out',
           }}
         />
       ))}
@@ -7021,11 +7262,10 @@ function ProductCard({ product, added, onAdd, rank, showRank, variant = 'normal'
         {p.img ? (
           <>
             <img src={p.img} alt={p.name} className="mn-img" style={{
-              width: '100%', height: '100%', objectFit: 'contain', padding: '8px',
+              width: '100%', height: '100%', objectFit: 'contain', padding: '8px', mixBlendMode: 'multiply',
               transform: p.imgScale ? `scale(${p.imgScale})` : 'none',
             }} />
-            <div style={{ position: 'absolute', inset: 0, background: '#F0E7D6', mixBlendMode: 'multiply', pointerEvents: 'none' }} />
-            {onZoom && (
+              {onZoom && (
               <button
                 className="mn-zoom-btn"
                 onClick={(e) => { e.stopPropagation(); onZoom(p); }}
