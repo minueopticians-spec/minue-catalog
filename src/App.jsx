@@ -251,6 +251,24 @@ const I18N = {
     save_done: '✓ Guardada',
     share_partner: 'Compartir con socio',
     qv_qty_label: 'Cantidad',
+    pou_eyebrow: 'Fundas de la temporada',
+    pou_h_a: 'Tres combinaciones,',
+    pou_h_b: 'tres formas de entregarla.',
+    pou_sub: 'La funda rígida acompaña cada montura y cambia de color con la temporada. No es packaging: es una pieza más que tu cliente lleva encima.',
+    p1_name: 'Combinación I',
+    p1_desc: 'Funda y caja a juego, el conjunto clásico de la casa.',
+    p2_name: 'Combinación II',
+    p2_desc: 'Contraste cálido para las monturas carey y cocoa.',
+    p3_name: 'Combinación III',
+    p3_desc: 'Tonos tierra, el acabado de la cápsula de otoño.',
+    pou_foot: 'Incluida con cada montura, sin coste · Pulsa para ampliar',
+    filt_active: 'Filtrando por la paleta AW26/27',
+    filt_clear: 'Quitar filtro',
+    acet_tier_label: 'Acetato · fuera de tramos',
+    acet_tier_unit: '/ ud · precio fijo',
+    acet_tier_d: 'La línea Acetato no baja de precio por volumen: mantiene su tarifa fija todo el año.',
+    acet_tier_b1: 'PVP recomendado 70€ · margen ~63%',
+    acet_tier_b2: 'Sus unidades sí cuentan para alcanzar tu tramo',
     ft_it_area: 'Distribución Italia · Pedidos y visitas de showroom',
     hero_eyebrow: 'Colección Otoño-Invierno 26/27',
     hero_h_a: 'La luz baja',
@@ -531,6 +549,24 @@ const I18N = {
     save_done: '✓ Sauvegardé',
     share_partner: 'Partager avec un partenaire',
     qv_qty_label: 'Quantité',
+    pou_eyebrow: 'Étuis de la saison',
+    pou_h_a: 'Trois combinaisons,',
+    pou_h_b: 'trois façons de la remettre.',
+    pou_sub: 'L\'étui rigide accompagne chaque monture et change de couleur avec la saison. Ce n\'est pas un emballage : c\'est une pièce que votre cliente emporte.',
+    p1_name: 'Combinaison I',
+    p1_desc: 'Étui et boîte assortis, l\'ensemble classique de la maison.',
+    p2_name: 'Combinaison II',
+    p2_desc: 'Contraste chaud pour les montures écaille et cocoa.',
+    p3_name: 'Combinaison III',
+    p3_desc: 'Tons terre, la finition de la capsule d\'automne.',
+    pou_foot: 'Inclus avec chaque monture, sans frais · Cliquez pour agrandir',
+    filt_active: 'Filtré par la palette AH26/27',
+    filt_clear: 'Retirer le filtre',
+    acet_tier_label: 'Acétate · hors paliers',
+    acet_tier_unit: '/ u · prix fixe',
+    acet_tier_d: 'La ligne Acétate ne baisse pas avec le volume : tarif fixe toute l\'année.',
+    acet_tier_b1: 'Prix public conseillé 70€ · marge ~63%',
+    acet_tier_b2: 'Ses unités comptent pour atteindre votre palier',
     ft_it_area: 'Distribution Italie · Commandes et visites showroom',
     hero_eyebrow: 'Collection Automne-Hiver 26/27',
     hero_h_a: 'La lumière basse',
@@ -809,6 +845,24 @@ const I18N = {
     save_done: '✓ Saved',
     share_partner: 'Share with partner',
     qv_qty_label: 'Quantity',
+    pou_eyebrow: 'Season pouches',
+    pou_h_a: 'Three combinations,',
+    pou_h_b: 'three ways to hand it over.',
+    pou_sub: 'The hard case comes with every frame and changes colour with the season. Not packaging: a piece your customer carries.',
+    p1_name: 'Combination I',
+    p1_desc: 'Matching case and box, the classic house set.',
+    p2_name: 'Combination II',
+    p2_desc: 'Warm contrast for tortoise and cocoa frames.',
+    p3_name: 'Combination III',
+    p3_desc: 'Earth tones, the autumn capsule finish.',
+    pou_foot: 'Included with every frame at no cost · Click to enlarge',
+    filt_active: 'Filtered by the AW26/27 palette',
+    filt_clear: 'Clear filter',
+    acet_tier_label: 'Acetate · outside tiers',
+    acet_tier_unit: '/ unit · fixed price',
+    acet_tier_d: 'The Acetate line does not drop with volume: fixed rate all year round.',
+    acet_tier_b1: 'RRP €70 · margin ~63%',
+    acet_tier_b2: 'Its units do count towards reaching your tier',
     ft_it_area: 'Italy distribution · Orders and showroom visits',
     hero_eyebrow: 'Autumn-Winter 26/27 Collection',
     hero_h_a: 'Low light',
@@ -1087,6 +1141,24 @@ const I18N = {
     save_done: '✓ Gespeichert',
     share_partner: 'Mit Partner teilen',
     qv_qty_label: 'Menge',
+    pou_eyebrow: 'Etuis der Saison',
+    pou_h_a: 'Drei Kombinationen,',
+    pou_h_b: 'drei Arten der Übergabe.',
+    pou_sub: 'Das Hartschalen-Etui begleitet jede Fassung und wechselt mit der Saison die Farbe. Keine Verpackung: ein Stück, das Ihr Kunde mitnimmt.',
+    p1_name: 'Kombination I',
+    p1_desc: 'Etui und Box im Set, der Klassiker des Hauses.',
+    p2_name: 'Kombination II',
+    p2_desc: 'Warmer Kontrast für Havanna- und Cocoa-Fassungen.',
+    p3_name: 'Kombination III',
+    p3_desc: 'Erdtöne, das Finish der Herbst-Capsule.',
+    pou_foot: 'Bei jeder Fassung kostenlos enthalten · Zum Vergrößern klicken',
+    filt_active: 'Nach AW26/27-Palette gefiltert',
+    filt_clear: 'Filter entfernen',
+    acet_tier_label: 'Azetat · außerhalb der Staffel',
+    acet_tier_unit: '/ Stk · Festpreis',
+    acet_tier_d: 'Die Azetat-Linie sinkt nicht mit der Menge: ganzjährig fester Preis.',
+    acet_tier_b1: 'UVP 70€ · Marge ~63%',
+    acet_tier_b2: 'Die Stück zählen zum Erreichen Ihrer Staffel',
     ft_it_area: 'Vertrieb Italien · Bestellungen und Showroom-Besuche',
     hero_eyebrow: 'Herbst-Winter-Kollektion 26/27',
     hero_h_a: 'Tiefes Licht',
@@ -1365,6 +1437,24 @@ const I18N = {
     save_done: '✓ Guardado',
     share_partner: 'Partilhar com parceiro',
     qv_qty_label: 'Quantidade',
+    pou_eyebrow: 'Estojos da estação',
+    pou_h_a: 'Três combinações,',
+    pou_h_b: 'três formas de a entregar.',
+    pou_sub: 'O estojo rígido acompanha cada armação e muda de cor com a estação. Não é embalagem: é uma peça que a sua cliente leva consigo.',
+    p1_name: 'Combinação I',
+    p1_desc: 'Estojo e caixa a condizer, o conjunto clássico da casa.',
+    p2_name: 'Combinação II',
+    p2_desc: 'Contraste quente para as armações carey e cocoa.',
+    p3_name: 'Combinação III',
+    p3_desc: 'Tons terra, o acabamento da cápsula de outono.',
+    pou_foot: 'Incluído com cada armação, sem custo · Toque para ampliar',
+    filt_active: 'A filtrar pela paleta OI26/27',
+    filt_clear: 'Remover filtro',
+    acet_tier_label: 'Acetato · fora dos escalões',
+    acet_tier_unit: '/ ud · preço fixo',
+    acet_tier_d: 'A linha Acetato não desce com o volume: tarifa fixa todo o ano.',
+    acet_tier_b1: 'PVP recomendado 70€ · margem ~63%',
+    acet_tier_b2: 'As unidades contam para alcançar o escalão',
     ft_it_area: 'Distribuição Itália · Encomendas e visitas ao showroom',
     hero_eyebrow: 'Coleção Outono-Inverno 26/27',
     hero_h_a: 'A luz baixa',
@@ -1589,6 +1679,24 @@ const I18N = {
     save_done: '✓ Salvato',
     share_partner: 'Condividi con socio',
     qv_qty_label: 'Quantità',
+    pou_eyebrow: 'Custodie della stagione',
+    pou_h_a: 'Tre combinazioni,',
+    pou_h_b: 'tre modi di consegnarla.',
+    pou_sub: 'La custodia rigida accompagna ogni montatura e cambia colore con la stagione. Non è packaging: è un pezzo che la tua cliente porta con sé.',
+    p1_name: 'Combinazione I',
+    p1_desc: 'Custodia e scatola coordinate, il set classico della casa.',
+    p2_name: 'Combinazione II',
+    p2_desc: 'Contrasto caldo per le montature tartaruga e cocoa.',
+    p3_name: 'Combinazione III',
+    p3_desc: 'Toni terra, la finitura della capsule autunnale.',
+    pou_foot: 'Inclusa con ogni montatura, senza costi · Clicca per ingrandire',
+    filt_active: 'Filtrato per la palette AI26/27',
+    filt_clear: 'Rimuovi filtro',
+    acet_tier_label: 'Acetato · fuori scaglioni',
+    acet_tier_unit: '/ pz · prezzo fisso',
+    acet_tier_d: 'La linea Acetato non scende con il volume: tariffa fissa tutto l\'anno.',
+    acet_tier_b1: 'Prezzo consigliato 70€ · margine ~63%',
+    acet_tier_b2: 'I pezzi contano per raggiungere il tuo scaglione',
     ft_it_area: 'Distribuzione Italia · Ordini e visite in showroom',
     hero_eyebrow: 'Collezione Autunno-Inverno 26/27',
     hero_h_a: 'La luce bassa',
@@ -2492,6 +2600,91 @@ function DisplaySelector({ t }) {
             }}>{t(d.key + '_name')}</span>
           </button>
         ))}
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+// PouchGallery — combinaciones de funda de la temporada
+// ============================================================
+const POUCHES = [
+  { key: 'p1', img: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Imagen_de_Codex_18_ago_2026_23_20_12.png?v=1787309635' },
+  { key: 'p2', img: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Imagen_de_Codex_18_ago_2026_22_46_53.png?v=1787309635' },
+  { key: 'p3', img: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Imagen_de_Codex_18_ago_2026_22_43_28.png?v=1787309635' },
+];
+
+function PouchGallery({ t, onZoom }) {
+  const [idx, setIdx] = React.useState(0);
+
+  return (
+    <div style={{
+      background: `linear-gradient(180deg, #F0E7D6 0%, ${C} 100%)`,
+      padding: 'clamp(44px,6vw,76px) 0',
+      borderTop: `1px solid ${G}0d`, borderBottom: `1px solid ${G}0d`,
+    }}>
+      <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 24px' }}>
+
+        <div style={{ textAlign: 'center', marginBottom: 'clamp(26px,3.4vw,40px)' }}>
+          <div className="mn-label" style={{ color: RUST, fontSize: 10, letterSpacing: 3, fontWeight: 800, marginBottom: 10 }}>
+            {t('pou_eyebrow')}
+          </div>
+          <h3 className="mn-serif" style={{
+            fontSize: 'clamp(26px,4vw,46px)', fontWeight: 300,
+            letterSpacing: '-0.02em', lineHeight: 1.06, color: G, margin: 0,
+          }}>
+            {t('pou_h_a')} <span className="mn-serif-i" style={{ color: RUST }}>{t('pou_h_b')}</span>
+          </h3>
+          <p style={{
+            fontFamily: 'Georgia, serif', fontStyle: 'italic',
+            fontSize: 'clamp(13px,1.6vw,16px)', color: G, opacity: 0.65,
+            lineHeight: 1.6, maxWidth: 580, margin: '14px auto 0',
+          }}>{t('pou_sub')}</p>
+        </div>
+
+        {/* Rejilla de combinaciones */}
+        <div className="mn-pouch-grid" style={{
+          display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16,
+        }}>
+          {POUCHES.map((p, i) => (
+            <div key={p.key}
+              onMouseEnter={() => setIdx(i)}
+              onClick={() => onZoom && onZoom({ img: p.img, name: t(p.key + '_name'), col: t('pou_eyebrow') })}
+              style={{
+                position: 'relative', borderRadius: 10, overflow: 'hidden',
+                background: '#F0E7D6', border: `1px solid ${G}14`,
+                cursor: 'zoom-in',
+                transform: idx === i ? 'translateY(-5px)' : 'translateY(0)',
+                boxShadow: idx === i ? `0 20px 40px -20px ${G}88` : 'none',
+                transition: 'transform .25s cubic-bezier(.4,0,.2,1), box-shadow .25s',
+              }}>
+              <div style={{ position: 'relative', aspectRatio: '4/3', overflow: 'hidden' }}>
+                <img src={p.img} alt={t(p.key + '_name')} loading="lazy" style={{
+                  position: 'absolute', inset: 0, width: '100%', height: '100%',
+                  objectFit: 'contain', padding: 12, boxSizing: 'border-box',
+                  mixBlendMode: 'multiply',
+                  transform: idx === i ? 'scale(1.04)' : 'scale(1)',
+                  transition: 'transform .4s ease',
+                }} />
+              </div>
+              <div style={{ padding: '14px 16px 16px', borderTop: `1px solid ${G}10` }}>
+                <div style={{ fontFamily: 'Georgia, serif', fontSize: 15, color: G, lineHeight: 1.25 }}>
+                  {t(p.key + '_name')}
+                </div>
+                <div style={{
+                  fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: 12,
+                  color: G, opacity: 0.6, lineHeight: 1.5, marginTop: 4,
+                }}>{t(p.key + '_desc')}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <p style={{
+          textAlign: 'center', marginTop: 20,
+          fontFamily: 'Arial, sans-serif', fontSize: 11.5, color: G, opacity: 0.55,
+        }}>{t('pou_foot')}</p>
+
       </div>
     </div>
   );
@@ -3405,6 +3598,9 @@ export default function App() {
         .mn-card { transition: transform 0.35s cubic-bezier(.2,.7,.2,1), box-shadow 0.35s ease; overflow: hidden; height: 100%; box-sizing: border-box; }
         /* ── HERO 2 columnas ── */
         .mn-hero-grid { display: grid; grid-template-columns: 1.15fr 1fr; align-items: stretch; }
+        @media (max-width: 780px) { .mn-pouch-grid { grid-template-columns: 1fr !important; max-width: 420px; margin: 0 auto; } }
+        @media (max-width: 900px) { .mn-lang-row button { padding: 4px 6px !important; font-size: 9px !important; } }
+        @media (max-width: 560px) { .mn-lang-row { gap: 0 !important; padding: 2px !important; } .mn-lang-row button { padding: 4px 5px !important; font-size: 8.5px !important; } }
         .mn-pal-strip button:hover { z-index: 2; }
         @media (max-width: 720px) {
           .mn-pal-strip { grid-template-columns: repeat(3, 1fr) !important; }
@@ -4085,6 +4281,43 @@ export default function App() {
           </p>
         </div>
 
+        {/* AVISO DE FILTRO POR PALETA */}
+        {(() => {
+          const grp = AW_GROUPS.find(g => g.filters && g.filters.some(f => activeColors.includes(f)));
+          if (!grp) return null;
+          const n = PRODUCTS.filter(p => p.img && p.colors && grp.filters.some(f => p.colors.includes(f)) && !(grp.exclude || []).includes(p.name)).length;
+          return (
+            <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 24px' }}>
+              <div style={{
+                display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap',
+                margin: 'clamp(18px,3vw,28px) 0 0',
+                padding: '14px 18px', borderRadius: 10,
+                background: `${grp.swatch}12`, border: `1.5px solid ${grp.swatch}`,
+                animation: 'mn-fadein .3s ease-out both',
+              }}>
+                <span style={{
+                  width: 34, height: 34, borderRadius: '50%', background: grp.swatch,
+                  flexShrink: 0, border: `2px solid ${C}`, boxShadow: `0 0 0 1px ${G}22`,
+                }} />
+                <div style={{ flex: 1, minWidth: 180 }}>
+                  <div className="mn-label" style={{ fontSize: 9.5, letterSpacing: 2, fontWeight: 800, color: grp.swatch, marginBottom: 3 }}>
+                    {t('filt_active')}
+                  </div>
+                  <div style={{ fontFamily: 'Georgia, serif', fontSize: 16, color: G, lineHeight: 1.25 }}>
+                    {t(grp.key + 't')} <span style={{ opacity: 0.5, fontSize: 13 }}>· {n} {t('aw_models')}</span>
+                  </div>
+                </div>
+                <button onClick={() => setActiveColors([])} style={{
+                  padding: '9px 16px', borderRadius: 999, cursor: 'pointer',
+                  border: `1px solid ${G}33`, background: C, color: G,
+                  fontFamily: 'Arial, sans-serif', fontSize: 10, fontWeight: 800,
+                  letterSpacing: 1.2, textTransform: 'uppercase', flexShrink: 0,
+                }}>{t('filt_clear')}</button>
+              </div>
+            </div>
+          );
+        })()}
+
         {/* ENCABEZADO COLECCIONES */}
         <div id="catalogo" style={{ maxWidth: 1280, margin: '0 auto', padding: 'clamp(24px,4vw,40px) 24px clamp(16px,3vw,28px)', scrollMarginTop: 96 }}>
           <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 24, flexWrap: 'wrap' }}>
@@ -4664,6 +4897,8 @@ export default function App() {
             </div>
           </div>
         </section>
+
+        <PouchGallery t={t} onZoom={(x) => setZoomItem(x)} />
 
         {/* FUNDAS CON PERSONALIDAD */}
         <section style={{ maxWidth: 1280, margin: '0 auto', padding: 'clamp(24px,4vw,48px) 24px' }}>
@@ -5590,124 +5825,43 @@ export default function App() {
 // LangSelector
 // ============================================================
 function LangSelector({ lang, onChange }) {
-  const [open, setOpen] = React.useState(false);
-  const [pos, setPos] = React.useState(null);
-  const btnRef = React.useRef(null);
-  const dropRef = React.useRef(null);
-  const current = LANGS.find(l => l.code === lang) || LANGS[0];
-
-  // Calcula la posición justo después de abrir (antes de pintar)
-  React.useLayoutEffect(() => {
-    if (open && btnRef.current) {
-      const rect = btnRef.current.getBoundingClientRect();
-      const needed = LANGS.length * 40 + 20;
-      const below = window.innerHeight - rect.bottom - 16;
-      const flip = below < needed && rect.top > below;
-      setPos({
-        flip,
-        maxH: Math.max(190, (flip ? rect.top : below) - 14),
-      });
-    }
-  }, [open]);
-
-  // Cerrar al hacer click fuera
-  React.useEffect(() => {
-    if (!open) return;
-    const handler = (e) => {
-      if (btnRef.current && !btnRef.current.contains(e.target) &&
-          dropRef.current && !dropRef.current.contains(e.target)) {
-        setOpen(false);
-      }
-    };
-    document.addEventListener('mousedown', handler);
-    document.addEventListener('touchstart', handler);
-    const onMove = () => setOpen(false);
-    window.addEventListener('resize', onMove);
-    return () => {
-      document.removeEventListener('mousedown', handler);
-      document.removeEventListener('touchstart', handler);
-      window.removeEventListener('resize', onMove);
-    };
-  }, [open]);
-
   return (
-    <span style={{ position: 'relative', display: 'inline-block' }}>
-      <button
-        ref={btnRef}
-        onClick={() => setOpen(o => !o)}
-        className="mn-pill mn-nav-pill"
-        style={{
-          display: 'inline-flex', alignItems: 'center', gap: 6,
-          padding: '9px 12px', border: `1px solid ${open ? G : `${G}33`}`,
-          borderRadius: 999, fontSize: 12, fontWeight: 500, letterSpacing: 0.3,
-          background: open ? `${G}08` : 'transparent',
-          transition: 'border-color 0.2s, background 0.2s',
-        }}
-        aria-label="Language"
-        aria-expanded={open}
-      >
-        <IconGlobe size={13} />
-        <span className="mn-nav-text">{current.label}</span>
-        <span style={{
-          display: 'inline-block',
-          transform: open ? 'rotate(180deg)' : 'rotate(0deg)',
-          transition: 'transform 0.2s ease',
-          lineHeight: 0,
-        }}>
-          <IconChevron size={10} />
-        </span>
-      </button>
-
-      {open && pos && (
-        <div
-          ref={dropRef}
-          style={{
-            position: 'absolute', right: 0,
-            top: pos.flip ? 'auto' : 'calc(100% + 10px)',
-            bottom: pos.flip ? 'calc(100% + 10px)' : 'auto',
-            zIndex: 9999,
-            background: C, border: `1px solid ${G}22`, borderRadius: 10,
-            boxShadow: '0 16px 40px -12px rgba(24,51,47,0.35)',
-            padding: 6, minWidth: 178,
-            maxHeight: pos.maxH, overflowY: 'auto', WebkitOverflowScrolling: 'touch',
-            display: 'flex', flexDirection: 'column', gap: 2,
-            animation: 'mn-rise 0.18s ease-out both',
-          }}
-        >
-          {LANGS.map(l => {
-            const active = l.code === lang;
-            return (
-              <button
-                key={l.code}
-                onClick={() => { onChange(l.code); setOpen(false); }}
-                style={{
-                  padding: '10px 13px', textAlign: 'left', borderRadius: 6,
-                  fontSize: 12, fontWeight: active ? 600 : 400,
-                  background: active ? `${G}10` : 'transparent',
-                  display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12,
-                  transition: 'background 0.15s',
-                  border: 'none', cursor: 'pointer', width: '100%',
-                }}
-                onMouseEnter={e => { if (!active) e.currentTarget.style.background = `${G}06`; }}
-                onMouseLeave={e => { if (!active) e.currentTarget.style.background = 'transparent'; }}
-              >
-                <span>{l.name}</span>
-                <span style={{
-                  fontSize: 9, fontWeight: 700, letterSpacing: 2,
-                  color: active ? D : `${G}66`, textTransform: 'uppercase',
-                }}>{l.label}</span>
-              </button>
-            );
-          })}
-        </div>
-      )}
-    </span>
+    <div className="mn-lang-row" style={{
+      display: 'inline-flex', alignItems: 'center', gap: 2,
+      padding: 3, borderRadius: 999, border: `1px solid ${G}22`,
+      background: `${G}05`,
+    }}>
+      {LANGS.map(l => {
+        const active = l.code === lang;
+        return (
+          <button
+            key={l.code}
+            onClick={() => onChange(l.code)}
+            title={l.name}
+            aria-label={l.name}
+            aria-current={active ? 'true' : undefined}
+            style={{
+              padding: '5px 8px', borderRadius: 999, border: 'none',
+              fontSize: 10, fontWeight: active ? 800 : 600, letterSpacing: 0.8,
+              textTransform: 'uppercase', cursor: 'pointer',
+              background: active ? G : 'transparent',
+              color: active ? C : G,
+              opacity: active ? 1 : 0.5,
+              transition: 'background .15s, opacity .15s, color .15s',
+              lineHeight: 1.1,
+            }}
+            onMouseEnter={e => { if (!active) { e.currentTarget.style.opacity = '1'; e.currentTarget.style.background = `${G}0e`; } }}
+            onMouseLeave={e => { if (!active) { e.currentTarget.style.opacity = '0.5'; e.currentTarget.style.background = 'transparent'; } }}
+          >
+            {l.label}
+          </button>
+        );
+      })}
+    </div>
   );
 }
 
-// ============================================================
-// OrderPanel
-// ============================================================
+
 function OrderPanel({
   t, lang, region, setRegion, distributor, cart, products, onPickTone,
   acetatoUnits = 0, acetatoCost = 0, tierUnits = 0, tierCost = 0,
@@ -6469,6 +6623,26 @@ function TarifasModal({ onClose, currentTier, t }) {
                 </div>
               );
             })}
+
+            {/* ACETATO — fuera de tramos */}
+            <div style={{
+              padding: '20px 18px', borderRadius: 4,
+              background: `${RUST}0f`,
+              border: `1.5px solid ${RUST}`,
+            }}>
+              <div className="mn-label-xs" style={{ color: RUST, marginBottom: 8 }}>{t('acet_tier_label')}</div>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 10 }}>
+                <span className="mn-serif" style={{ fontSize: 30, fontWeight: 300, color: G, lineHeight: 1 }}>25,95€</span>
+                <span style={{ fontSize: 11, opacity: 0.6 }}>{t('acet_tier_unit')}</span>
+              </div>
+              <div style={{ fontSize: 11, opacity: 0.8, lineHeight: 1.55, marginBottom: 8 }}>
+                {t('acet_tier_d')}
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 4, fontSize: 10.5, opacity: 0.7 }}>
+                <span>· {t('acet_tier_b1')}</span>
+                <span>· {t('acet_tier_b2')}</span>
+              </div>
+            </div>
 
             <div style={{
               padding: '20px 18px', borderRadius: 4,
