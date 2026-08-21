@@ -78,7 +78,7 @@ const I18N = {
     bar_your_tier: 'Tu tramo', bar_empty: 'Aún sin unidades — añade productos para ver tu precio.',
     bar_missing_a: 'Te faltan', bar_missing_b: 'uds para bajar a', bar_rate_btn: 'Ver tabla',
     top_eyebrow: '★ Top Ventas AW26/27',
-    top_h2_month_pre: 'Los modelos que más rotan en', top_h2_c: '.',
+    top_h2_month_pre: 'Los modelos que apuntan a top ventas', top_h2_c: '.',
     top_sub: 'Ordenados por rotación real en nuestros distribuidores actuales.',
     filter_color: 'Color', filter_shape: 'Forma', filter_clear: 'limpiar',
     col_eyebrow: 'Colección',
@@ -251,6 +251,10 @@ const I18N = {
     save_done: '✓ Guardada',
     share_partner: 'Compartir con socio',
     qv_qty_label: 'Cantidad',
+    pt_eyebrow: 'Compra por color de temporada',
+    pt_title: 'La paleta AW26/27,',
+    pt_title_i: 'en un clic.',
+    pt_hint: 'Pulsa un tono y el catálogo se filtra al instante.',
     disp_label: 'Expositor de sobremesa',
     disp_title: 'Elige tu acabado',
     disp_eyebrow: 'Expositores incluidos',
@@ -360,7 +364,7 @@ const I18N = {
     bar_your_tier: 'Votre palier', bar_empty: 'Aucune unité — ajoutez des produits pour voir votre prix.',
     bar_missing_a: 'Il vous manque', bar_missing_b: 'unités pour passer à', bar_rate_btn: 'Voir le tableau',
     top_eyebrow: '★ Meilleures ventes AW26/27',
-    top_h2_month_pre: 'Les modèles qui tournent le plus en', top_h2_c: '.',
+    top_h2_month_pre: 'Les modèles qui seront best-sellers', top_h2_c: '.',
     top_sub: 'Classés par rotation réelle chez nos distributeurs actuels.',
     filter_color: 'Couleur', filter_shape: 'Forme', filter_clear: 'effacer',
     col_eyebrow: 'Collection',
@@ -513,6 +517,10 @@ const I18N = {
     save_done: '✓ Sauvegardé',
     share_partner: 'Partager avec un partenaire',
     qv_qty_label: 'Quantité',
+    pt_eyebrow: 'Achetez par couleur de saison',
+    pt_title: 'La palette AW26/27,',
+    pt_title_i: 'en un clic.',
+    pt_hint: 'Cliquez sur une teinte, le catalogue se filtre aussitôt.',
     disp_label: 'Présentoir de comptoir',
     disp_title: 'Choisissez votre finition',
     disp_eyebrow: 'Présentoirs inclus',
@@ -620,7 +628,7 @@ const I18N = {
     bar_your_tier: 'Your tier', bar_empty: 'No units yet — add products to see your price.',
     bar_missing_a: 'You need', bar_missing_b: 'more units to drop to', bar_rate_btn: 'View table',
     top_eyebrow: '★ Top Sellers AW26/27',
-    top_h2_month_pre: 'The models selling fastest this', top_h2_c: '.',
+    top_h2_month_pre: 'The models set to be best-sellers', top_h2_c: '.',
     top_sub: 'Ranked by actual turnover across our current stockists.',
     filter_color: 'Colour', filter_shape: 'Shape', filter_clear: 'clear',
     col_eyebrow: 'Collection',
@@ -773,6 +781,10 @@ const I18N = {
     save_done: '✓ Saved',
     share_partner: 'Share with partner',
     qv_qty_label: 'Quantity',
+    pt_eyebrow: 'Shop by season colour',
+    pt_title: 'The AW26/27 palette,',
+    pt_title_i: 'one click away.',
+    pt_hint: 'Tap a tone and the catalogue filters instantly.',
     disp_label: 'Counter display',
     disp_title: 'Choose your finish',
     disp_eyebrow: 'Displays included',
@@ -880,7 +892,7 @@ const I18N = {
     bar_your_tier: 'Ihre Staffel', bar_empty: 'Noch keine Einheiten — fügen Sie Produkte hinzu.',
     bar_missing_a: 'Noch', bar_missing_b: 'Stk. für', bar_rate_btn: 'Tabelle ansehen',
     top_eyebrow: '★ Bestseller AW26/27',
-    top_h2_month_pre: 'Die meistverkauften Modelle im', top_h2_c: '.',
+    top_h2_month_pre: 'Die Modelle, die Bestseller werden', top_h2_c: '.',
     top_sub: 'Nach tatsächlicher Umschlagsrate unserer aktuellen Vertriebspartner.',
     filter_color: 'Farbe', filter_shape: 'Form', filter_clear: 'löschen',
     col_eyebrow: 'Kollektion',
@@ -1033,6 +1045,10 @@ const I18N = {
     save_done: '✓ Gespeichert',
     share_partner: 'Mit Partner teilen',
     qv_qty_label: 'Menge',
+    pt_eyebrow: 'Nach Saisonfarbe kaufen',
+    pt_title: 'Die AW26/27-Palette,',
+    pt_title_i: 'mit einem Klick.',
+    pt_hint: 'Ton anklicken und der Katalog filtert sofort.',
     disp_label: 'Thekendisplay',
     disp_title: 'Wählen Sie Ihr Finish',
     disp_eyebrow: 'Displays inklusive',
@@ -1140,7 +1156,7 @@ const I18N = {
     bar_your_tier: 'O seu escalão', bar_empty: 'Sem unidades ainda — adicione produtos para ver o seu preço.',
     bar_missing_a: 'Faltam', bar_missing_b: 'uds para descer para', bar_rate_btn: 'Ver tabela',
     top_eyebrow: '★ Mais vendidos AW26/27',
-    top_h2_month_pre: 'Os modelos que mais rodam em', top_h2_c: '.',
+    top_h2_month_pre: 'Os modelos que apontam a top vendas', top_h2_c: '.',
     top_sub: 'Ordenados por rotação real nos nossos distribuidores atuais.',
     filter_color: 'Cor', filter_shape: 'Forma', filter_clear: 'limpar',
     col_eyebrow: 'Coleção',
@@ -1293,6 +1309,10 @@ const I18N = {
     save_done: '✓ Guardado',
     share_partner: 'Partilhar com parceiro',
     qv_qty_label: 'Quantidade',
+    pt_eyebrow: 'Compre por cor da estação',
+    pt_title: 'A paleta AW26/27,',
+    pt_title_i: 'num clique.',
+    pt_hint: 'Toque num tom e o catálogo filtra na hora.',
     disp_label: 'Expositor de balcão',
     disp_title: 'Escolha o seu acabamento',
     disp_eyebrow: 'Expositores incluídos',
@@ -1399,7 +1419,7 @@ const I18N = {
     banner_expositor: 'Espositori inclusi da 20 unità — senza costo aggiuntivo',
     bar_your_tier: 'La tua fascia', bar_empty: 'Nessuna unità — aggiungi prodotti per vedere il tuo prezzo.',
     bar_missing_a: 'Mancano', bar_missing_b: 'pz per scendere a', bar_rate_btn: 'Vedi tabella',
-    top_eyebrow: '★ Top Vendite AW26/27', top_h2_month_pre: 'I modelli con la migliore rotazione in', top_h2_c: '.',
+    top_eyebrow: '★ Top Vendite AW26/27', top_h2_month_pre: 'I modelli che puntano a best-seller', top_h2_c: '.',
     top_sub: 'Ordinati per rotazione reale presso i nostri distributori attivi.',
     filter_color: 'Colore', filter_shape: 'Forma', filter_clear: 'cancella',
     col_eyebrow: 'Collezione',
@@ -1499,6 +1519,10 @@ const I18N = {
     save_done: '✓ Salvato',
     share_partner: 'Condividi con socio',
     qv_qty_label: 'Quantità',
+    pt_eyebrow: 'Acquista per colore di stagione',
+    pt_title: 'La palette AW26/27,',
+    pt_title_i: 'in un clic.',
+    pt_hint: 'Tocca un tono e il catalogo si filtra subito.',
     disp_label: 'Espositore da banco',
     disp_title: 'Scegli la finitura',
     disp_eyebrow: 'Espositori inclusi',
@@ -1619,10 +1643,11 @@ const DISTRIBUTORS = {
     flag: '🌎',
   },
   it: {
-    name: 'Minuë Italia',
-    contact: 'PENDIENTE',
-    whatsapp: 'PENDIENTE',
-    email: 'PENDIENTE',
+    name: 'Cretella Showroom',
+    contact: 'Marcello',
+    whatsapp: '393317621348',
+    email: '',
+    instagram: 'https://www.instagram.com/cretellashowroom_',
     flag: '🇮🇹',
   },
   default: {
@@ -2725,6 +2750,83 @@ function AWColorsSection({ t, onPick, activeColors = [], products = [], cart = {
 
 
 // ============================================================
+// PaletteTeaser — acceso rápido a la paleta AW26/27
+// ============================================================
+function PaletteTeaser({ t, onPick, activeColors = [], products = [] }) {
+  const countFor = (grp) => products.filter(p =>
+    p.img && p.colors && grp.filters.some(f => p.colors.includes(f)) &&
+    !(grp.exclude || []).includes(p.name)
+  ).length;
+  const isActive = (grp) => grp.filters && grp.filters.some(f => activeColors.includes(f));
+
+  return (
+    <div style={{
+      background: `linear-gradient(180deg, ${C} 0%, #F0E7D6 100%)`,
+      borderTop: `1px solid ${G}0d`, borderBottom: `1px solid ${G}0d`,
+      padding: 'clamp(26px,3.6vw,42px) 0',
+    }}>
+      <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 24px' }}>
+        <div style={{
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+          gap: 18, flexWrap: 'wrap', marginBottom: 16,
+        }}>
+          <div>
+            <div className="mn-label" style={{ color: RUST, fontSize: 10, letterSpacing: 2.5, fontWeight: 800, marginBottom: 5 }}>
+              {t('pt_eyebrow')}
+            </div>
+            <div className="mn-serif" style={{ fontSize: 'clamp(19px,2.4vw,26px)', fontWeight: 300, color: G, lineHeight: 1.15 }}>
+              {t('pt_title')} <span className="mn-serif-i" style={{ color: RUST }}>{t('pt_title_i')}</span>
+            </div>
+          </div>
+          <div style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: 12.5, color: G, opacity: 0.6, maxWidth: 300 }}>
+            {t('pt_hint')}
+          </div>
+        </div>
+
+        <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+          {AW_GROUPS.map(grp => {
+            const on = isActive(grp);
+            return (
+              <button key={grp.key}
+                onClick={() => onPick && onPick(grp)}
+                style={{
+                  display: 'inline-flex', alignItems: 'center', gap: 9,
+                  padding: '9px 16px 9px 10px', borderRadius: 999,
+                  border: on ? `1.5px solid ${grp.swatch}` : `1px solid ${G}20`,
+                  background: on ? `${grp.swatch}14` : C,
+                  cursor: 'pointer', transition: 'all .18s ease',
+                  boxShadow: on ? `0 6px 16px -8px ${grp.swatch}` : 'none',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.borderColor = grp.swatch;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.borderColor = on ? grp.swatch : `${G}20`;
+                }}
+              >
+                <span style={{
+                  width: 20, height: 20, borderRadius: '50%', background: grp.swatch,
+                  border: `2px solid ${C}`, boxShadow: `0 0 0 1px ${G}1a`, flexShrink: 0,
+                }} />
+                <span style={{ fontFamily: 'Georgia, serif', fontSize: 13, color: G, whiteSpace: 'nowrap' }}>
+                  {t(grp.key + 't')}
+                </span>
+                <span className="mn-label" style={{
+                  fontSize: 9, fontWeight: 800, letterSpacing: 0.5,
+                  color: on ? grp.swatch : G, opacity: on ? 1 : 0.4,
+                }}>{countFor(grp)}</span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
 // VitrineBalance — equilibrio de tonos de la selección actual
 // ============================================================
 function VitrineBalance({ t, cart, products, onPick }) {
@@ -3502,6 +3604,8 @@ export default function App() {
         {/* CLIENTS TICKER — debajo de los stats, refuerza los números */}
         <ClientTicker t={t} />
 
+        <PaletteTeaser t={t} onPick={pickTone} activeColors={activeColors} products={PRODUCTS} />
+
         {/* BANNER EXPOSITORES */}
         <div className="mn-banner-anim" style={{
           background: D, color: G, overflow: 'hidden',
@@ -3670,8 +3774,8 @@ export default function App() {
                   letterSpacing: '-0.01em', margin: 0, lineHeight: 1.08,
                 }}>
                   {t('top_h2_month_pre')}{' '}
-                  <span className="mn-serif-i" style={{ color: D }}>
-                    {(MONTH_NAMES[lang] || MONTH_NAMES.es)[new Date().getMonth()]}
+                  <span className="mn-serif-i" style={{ color: RUST }}>
+                    AW26/27
                   </span>
                   {t('top_h2_c')}
                 </h2>
@@ -4700,8 +4804,7 @@ export default function App() {
                   alt="Minuë AW26/27" style={{ width:'100%', height:'100%', objectFit:'cover', display:'block', filter:'brightness(0.85)' }} />
                 <div style={{ position:'absolute', inset:0, background:`linear-gradient(135deg,${G}44 0%,transparent 70%)`, pointerEvents:'none' }} />
                 <div style={{ position:'absolute', bottom:20, left:20 }}>
-                  <div className="mn-label-xs" style={{ color:D, marginBottom:6 }}>AW26/27</div>
-                  <div className="mn-serif" style={{ fontSize:22, fontWeight:300, lineHeight:1.1 }}>Berry Navy Blue</div>
+                  <div className="mn-label-xs" style={{ color:D }}>AW26/27</div>
                 </div>
               </div>
 
@@ -6726,21 +6829,28 @@ function HeroSlider() {
   return (
     <div style={{
       position: 'relative', width: '100%',
-      height: 'clamp(220px, 38vw, 460px)', overflow: 'hidden',
+      height: 'clamp(300px, 46vw, 620px)', overflow: 'hidden',
       background: G,
     }}>
       {HERO_SLIDES.map((src, i) => (
-        <img
-          key={i}
-          src={src}
-          alt="Minuë AW26/27"
-          style={{
+        <div key={i} style={{
+          position: 'absolute', inset: 0,
+          opacity: i === idx ? 1 : 0,
+          transition: 'opacity 1.4s ease-in-out',
+        }}>
+          {/* Fondo desenfocado: rellena el banner sin deformar */}
+          <img src={src} alt="" aria-hidden="true" style={{
             position: 'absolute', inset: 0,
             width: '100%', height: '100%', objectFit: 'cover',
-            opacity: i === idx ? 1 : 0,
-            transition: 'opacity 1.4s ease-in-out',
-          }}
-        />
+            filter: 'blur(26px) saturate(1.05)', transform: 'scale(1.12)',
+            opacity: 0.55,
+          }} />
+          {/* Imagen real: completa, sin recorte ni ampliación */}
+          <img src={src} alt="Minuë AW26/27" style={{
+            position: 'absolute', inset: 0,
+            width: '100%', height: '100%', objectFit: 'contain',
+          }} />
+        </div>
       ))}
       {/* Degradado inferior para fundir con el bloque oscuro */}
       <div style={{
