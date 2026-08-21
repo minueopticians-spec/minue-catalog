@@ -251,6 +251,20 @@ const I18N = {
     save_done: '✓ Guardada',
     share_partner: 'Compartir con socio',
     qv_qty_label: 'Cantidad',
+    ft_it_area: 'Distribución Italia · Pedidos y visitas de showroom',
+    hero_eyebrow: 'Colección Otoño-Invierno 26/27',
+    hero_h_a: 'La luz baja',
+    hero_h_b: 'pide otro filtro.',
+    hero_sub: 'Carey, cocoa, guiza y oliva: la paleta que se lleva esta temporada ya está en catálogo. Elige un tono y monta tu vitrina en minutos.',
+    hero_palette: 'Paleta de la temporada',
+    hero_s1_n: 'Desde 17,90€',
+    hero_s1_l: 'POR UNIDAD',
+    hero_s2_n: 'Margen 64%',
+    hero_s2_l: 'PVP 50€',
+    hero_s3_n: '24–48h',
+    hero_s3_l: 'ENVÍO',
+    acet_split_t: 'Desglose del pedido',
+    acet_split_d: 'El acetato mantiene su precio fijo de 25,95€/ud y no entra en los tramos por volumen, aunque sus unidades sí cuentan para alcanzar el tramo.',
     pt_eyebrow: 'Compra por color de temporada',
     pt_title: 'La paleta AW26/27,',
     pt_title_i: 'en un clic.',
@@ -300,7 +314,7 @@ const I18N = {
     aw_6t: 'Egret',
     aw_6d: 'Blanco cremoso: el contraste que ilumina el resto de la vitrina.',
     dist_tagline: 'Distribución wholesale internacional · Diseño handcrafted in Spain',
-    kids_optional: 'Opcional — te avisamos de novedades y stock.',
+    kids_optional: 'Te respondemos con tarifas y stock disponible.',
     kids_response: 'Respuesta en menos de 24h · Sin compromiso de pago',
     pkg_vivo_label: 'PACKAGING VIVO',
     pkg_vivo_t: 'Fundas con',
@@ -317,7 +331,7 @@ const I18N = {
     av_3d: 'Todos los modelos tienen garantía de fabricación de 12 meses. Cubrimos defectos en bisagras, patillas y acetato bajo uso normal.',
     av_4t: 'Respuesta en 24h',
     av_4d: 'Cualquier incidencia es atendida en menos de 24 horas en días laborables. Contacta directamente por WhatsApp para máxima agilidad.',
-    kids_soon: 'Próximamente · AW26/27',
+    kids_soon: 'Ya disponible · Cápsula AW26/27',
     kids_h2a: 'Pequeñas',
     kids_h2b: 'grandes miradas.',
     kids_intro: 'Minuë llega a los más pequeños. El mismo acetato artesanal, las mismas bisagras cuidadas, los mismos colores que no piden permiso. Para niños de 3 a 14 años que ya tienen su propio estilo.',
@@ -326,11 +340,11 @@ const I18N = {
     kids_f3: 'UV400 certificado',
     kids_f4: '2 tallas · 3–8 y 8–14 años',
     kids_quote: '"Porque los niños también merecen ver el mundo con estilo."',
-    kids_cta: 'Avísame del lanzamiento',
-    kids_launch: 'Lanzamiento AW26/27',
-    kids_retailer: '¿Eres retailer? Sé el primero en conocer Minuë Junior.',
-    kids_notify_d: 'Te avisamos cuando el catálogo Junior esté listo para pedidos.',
-    kids_notify_btn: 'Notificarme',
+    kids_cta: 'Consultar Minuë Junior',
+    kids_launch: 'Cápsula limitada',
+    kids_retailer: 'Cápsula pequeña de edición limitada: tarifas y precio a consultar.',
+    kids_notify_d: 'Escríbenos y te pasamos disponibilidad, tarifas y condiciones de la cápsula Junior.',
+    kids_notify_btn: 'Pedir información',
     kids_email_ph: 'tu@optica.com',
     faire_ship_es: '3–4 días España',
     faire_ship_eu: '3–6 días Europa',
@@ -517,6 +531,20 @@ const I18N = {
     save_done: '✓ Sauvegardé',
     share_partner: 'Partager avec un partenaire',
     qv_qty_label: 'Quantité',
+    ft_it_area: 'Distribution Italie · Commandes et visites showroom',
+    hero_eyebrow: 'Collection Automne-Hiver 26/27',
+    hero_h_a: 'La lumière basse',
+    hero_h_b: 'appelle un autre filtre.',
+    hero_sub: 'Écaille, cocoa, guiza et olive : la palette de la saison est déjà au catalogue. Choisissez une teinte et montez votre vitrine en quelques minutes.',
+    hero_palette: 'Palette de la saison',
+    hero_s1_n: 'Dès 17,90€',
+    hero_s1_l: 'PAR UNITÉ',
+    hero_s2_n: 'Marge 64%',
+    hero_s2_l: 'PPC 50€',
+    hero_s3_n: '24–48h',
+    hero_s3_l: 'LIVRAISON',
+    acet_split_t: 'Détail de la commande',
+    acet_split_d: 'L\'acétate garde son prix fixe de 25,95€/u et n\'entre pas dans les paliers de volume, même si ses unités comptent pour atteindre le palier.',
     pt_eyebrow: 'Achetez par couleur de saison',
     pt_title: 'La palette AW26/27,',
     pt_title_i: 'en un clic.',
@@ -566,7 +594,7 @@ const I18N = {
     aw_6t: 'Egret',
     aw_6d: 'Blanc crémeux : le contraste qui éclaire toute la vitrine.',
     dist_tagline: 'Distribution wholesale internationale · Design handcrafted in Spain',
-    kids_optional: 'Optionnel — nous vous tenons informé des nouveautés et du stock.',
+    kids_optional: 'Nous répondons avec les tarifs et le stock disponible.',
     kids_response: 'Réponse sous 24h · Sans engagement de paiement',
     pkg_vivo_label: 'PACKAGING VIVANT',
     pkg_vivo_t: 'Étuis avec',
@@ -583,7 +611,7 @@ const I18N = {
     av_3d: 'Tous les modèles ont 12 mois de garantie. Nous couvrons les défauts de charnières, branches et acétate en usage normal.',
     av_4t: 'Réponse sous 24h',
     av_4d: 'Tout incident est traité en moins de 24h les jours ouvrés. Contactez-nous directement par WhatsApp pour plus de rapidité.',
-    kids_soon: 'Bientôt · AW26/27',
+    kids_soon: 'Disponible · Capsule AH26/27',
     kids_h2a: 'Petits',
     kids_h2b: 'grands regards.',
     kids_intro: 'Minuë arrive pour les plus petits. Le même acétate artisanal, les mêmes charnières soignées, les mêmes couleurs sans complexe. Pour les enfants de 3 à 14 ans qui ont déjà leur style.',
@@ -592,11 +620,11 @@ const I18N = {
     kids_f3: 'UV400 certifié',
     kids_f4: '2 tailles · 3–8 et 8–14 ans',
     kids_quote: '"Parce que les enfants méritent aussi de voir le monde avec style."',
-    kids_cta: 'Prévenez-moi du lancement',
-    kids_launch: 'Lancement AW26/27',
-    kids_retailer: 'Vous êtes détaillant ? Découvrez Minuë Junior en avant-première.',
-    kids_notify_d: 'Nous vous prévenons dès que le catalogue Junior est prêt.',
-    kids_notify_btn: 'Me notifier',
+    kids_cta: 'Demander Minuë Junior',
+    kids_launch: 'Capsule limitée',
+    kids_retailer: 'Petite capsule en édition limitée : tarifs et prix sur demande.',
+    kids_notify_d: 'Écrivez-nous et nous vous transmettons disponibilité, tarifs et conditions de la capsule Junior.',
+    kids_notify_btn: 'Demander les tarifs',
     kids_email_ph: 'vous@opticien.com',
     faire_ship_es: '3–4 jours Espagne',
     faire_ship_eu: '3–6 jours Europe',
@@ -781,6 +809,20 @@ const I18N = {
     save_done: '✓ Saved',
     share_partner: 'Share with partner',
     qv_qty_label: 'Quantity',
+    ft_it_area: 'Italy distribution · Orders and showroom visits',
+    hero_eyebrow: 'Autumn-Winter 26/27 Collection',
+    hero_h_a: 'Low light',
+    hero_h_b: 'calls for another lens.',
+    hero_sub: 'Tortoise, cocoa, honey and olive: this season\'s palette is already in the catalogue. Pick a tone and build your display in minutes.',
+    hero_palette: 'Season palette',
+    hero_s1_n: 'From €17.90',
+    hero_s1_l: 'PER UNIT',
+    hero_s2_n: '64% margin',
+    hero_s2_l: 'RRP €50',
+    hero_s3_n: '24–48h',
+    hero_s3_l: 'SHIPPING',
+    acet_split_t: 'Order breakdown',
+    acet_split_d: 'Acetate keeps its fixed price of €25.95/unit and is outside the volume tiers, although its units do count towards reaching the tier.',
     pt_eyebrow: 'Shop by season colour',
     pt_title: 'The AW26/27 palette,',
     pt_title_i: 'one click away.',
@@ -830,7 +872,7 @@ const I18N = {
     aw_6t: 'Egret',
     aw_6d: 'Creamy white: the contrast that lifts the whole display.',
     dist_tagline: 'International wholesale distribution · Handcrafted in Spain',
-    kids_optional: 'Optional — we keep you posted on news and stock.',
+    kids_optional: 'We reply with rates and available stock.',
     kids_response: 'Response within 24h · No payment commitment',
     pkg_vivo_label: 'LIVING PACKAGING',
     pkg_vivo_t: 'Cases with',
@@ -847,7 +889,7 @@ const I18N = {
     av_3d: 'All models carry a 12-month manufacturing warranty. We cover defects in hinges, temples and acetate under normal use.',
     av_4t: '24h response',
     av_4d: 'Any issue is handled within 24 hours on business days. Contact us directly on WhatsApp for maximum speed.',
-    kids_soon: 'Coming soon · AW26/27',
+    kids_soon: 'Now available · AW26/27 capsule',
     kids_h2a: 'Little',
     kids_h2b: 'big gazes.',
     kids_intro: 'Minuë arrives for the little ones. The same handcrafted acetate, the same careful hinges, the same colours that ask no permission. For kids aged 3 to 14 who already have their own style.',
@@ -856,11 +898,11 @@ const I18N = {
     kids_f3: 'UV400 certified',
     kids_f4: '2 sizes · 3–8 and 8–14 years',
     kids_quote: '"Because kids deserve to see the world in style too."',
-    kids_cta: 'Notify me at launch',
-    kids_launch: 'AW26/27 Launch',
-    kids_retailer: 'Are you a retailer? Be the first to know Minuë Junior.',
+    kids_cta: 'Enquire about Minüe Junior',
+    kids_launch: 'Limited capsule',
+    kids_retailer: 'Small limited-edition capsule: rates and pricing on request.',
     kids_notify_d: 'We\'ll let you know when the Junior catalogue is ready for orders.',
-    kids_notify_btn: 'Notify me',
+    kids_notify_btn: 'Request pricing',
     kids_email_ph: 'you@optician.com',
     faire_ship_es: '3–4 days Spain',
     faire_ship_eu: '3–6 days Europe',
@@ -1045,6 +1087,20 @@ const I18N = {
     save_done: '✓ Gespeichert',
     share_partner: 'Mit Partner teilen',
     qv_qty_label: 'Menge',
+    ft_it_area: 'Vertrieb Italien · Bestellungen und Showroom-Besuche',
+    hero_eyebrow: 'Herbst-Winter-Kollektion 26/27',
+    hero_h_a: 'Tiefes Licht',
+    hero_h_b: 'braucht ein anderes Glas.',
+    hero_sub: 'Havanna, Cocoa, Honig und Oliv: die Palette der Saison ist bereits im Katalog. Wählen Sie einen Ton und bauen Sie Ihr Schaufenster in Minuten.',
+    hero_palette: 'Palette der Saison',
+    hero_s1_n: 'Ab 17,90€',
+    hero_s1_l: 'PRO STÜCK',
+    hero_s2_n: '64% Marge',
+    hero_s2_l: 'UVP 50€',
+    hero_s3_n: '24–48h',
+    hero_s3_l: 'VERSAND',
+    acet_split_t: 'Bestellaufschlüsselung',
+    acet_split_d: 'Azetat behält seinen Festpreis von 25,95€/Stk und fällt nicht unter die Mengenstaffel, die Stück zählen aber zum Erreichen der Staffel.',
     pt_eyebrow: 'Nach Saisonfarbe kaufen',
     pt_title: 'Die AW26/27-Palette,',
     pt_title_i: 'mit einem Klick.',
@@ -1094,7 +1150,7 @@ const I18N = {
     aw_6t: 'Egret',
     aw_6d: 'Cremeweiß: der Kontrast, der das ganze Schaufenster aufhellt.',
     dist_tagline: 'Internationaler Wholesale-Vertrieb · Handcrafted in Spain',
-    kids_optional: 'Optional — wir halten Sie über Neuheiten und Bestand auf dem Laufenden.',
+    kids_optional: 'Wir antworten mit Preisen und verfügbarem Bestand.',
     kids_response: 'Antwort binnen 24h · Keine Zahlungsverpflichtung',
     pkg_vivo_label: 'LEBENDIGES PACKAGING',
     pkg_vivo_t: 'Etuis mit',
@@ -1111,7 +1167,7 @@ const I18N = {
     av_3d: 'Alle Modelle haben 12 Monate Herstellergarantie. Wir decken Defekte an Scharnieren, Bügeln und Azetat bei normalem Gebrauch.',
     av_4t: 'Antwort in 24h',
     av_4d: 'Jeder Vorfall wird an Werktagen binnen 24 Stunden bearbeitet. Kontaktieren Sie uns direkt per WhatsApp für maximale Geschwindigkeit.',
-    kids_soon: 'Demnächst · AW26/27',
+    kids_soon: 'Jetzt verfügbar · AW26/27-Capsule',
     kids_h2a: 'Kleine',
     kids_h2b: 'große Blicke.',
     kids_intro: 'Minuë kommt für die Kleinen. Dasselbe handgefertigte Azetat, dieselben sorgfältigen Scharniere, dieselben Farben ohne Kompromisse. Für Kinder von 3 bis 14 mit eigenem Stil.',
@@ -1120,11 +1176,11 @@ const I18N = {
     kids_f3: 'UV400 zertifiziert',
     kids_f4: '2 Größen · 3–8 und 8–14 Jahre',
     kids_quote: '"Weil auch Kinder es verdienen, die Welt mit Stil zu sehen."',
-    kids_cta: 'Beim Launch benachrichtigen',
-    kids_launch: 'AW26/27 Launch',
-    kids_retailer: 'Sind Sie Händler? Erfahren Sie als Erster von Minuë Junior.',
-    kids_notify_d: 'Wir benachrichtigen Sie, sobald der Junior-Katalog bestellbar ist.',
-    kids_notify_btn: 'Benachrichtigen',
+    kids_cta: 'Minüe Junior anfragen',
+    kids_launch: 'Limitierte Capsule',
+    kids_retailer: 'Kleine limitierte Capsule: Preise und Konditionen auf Anfrage.',
+    kids_notify_d: 'Schreiben Sie uns und wir senden Verfügbarkeit, Preise und Konditionen der Junior-Capsule.',
+    kids_notify_btn: 'Preise anfragen',
     kids_email_ph: 'sie@optiker.com',
     faire_ship_es: '3–4 Tage Spanien',
     faire_ship_eu: '3–6 Tage Europa',
@@ -1309,6 +1365,20 @@ const I18N = {
     save_done: '✓ Guardado',
     share_partner: 'Partilhar com parceiro',
     qv_qty_label: 'Quantidade',
+    ft_it_area: 'Distribuição Itália · Encomendas e visitas ao showroom',
+    hero_eyebrow: 'Coleção Outono-Inverno 26/27',
+    hero_h_a: 'A luz baixa',
+    hero_h_b: 'pede outro filtro.',
+    hero_sub: 'Carey, cocoa, mel e oliva: a paleta desta estação já está em catálogo. Escolha um tom e monte a sua montra em minutos.',
+    hero_palette: 'Paleta da estação',
+    hero_s1_n: 'Desde 17,90€',
+    hero_s1_l: 'POR UNIDADE',
+    hero_s2_n: 'Margem 64%',
+    hero_s2_l: 'PVP 50€',
+    hero_s3_n: '24–48h',
+    hero_s3_l: 'ENVIO',
+    acet_split_t: 'Detalhe da encomenda',
+    acet_split_d: 'O acetato mantém o preço fixo de 25,95€/ud e não entra nos escalões por volume, embora as unidades contem para alcançar o escalão.',
     pt_eyebrow: 'Compre por cor da estação',
     pt_title: 'A paleta AW26/27,',
     pt_title_i: 'num clique.',
@@ -1358,7 +1428,7 @@ const I18N = {
     aw_6t: 'Egret',
     aw_6d: 'Branco cremoso: o contraste que ilumina toda a montra.',
     dist_tagline: 'Distribuição wholesale internacional · Design handcrafted in Spain',
-    kids_optional: 'Opcional — avisamos de novidades e stock.',
+    kids_optional: 'Respondemos com tarifas e stock disponível.',
     kids_response: 'Resposta em menos de 24h · Sem compromisso de pagamento',
     pkg_vivo_label: 'PACKAGING VIVO',
     pkg_vivo_t: 'Estojos com',
@@ -1375,7 +1445,7 @@ const I18N = {
     av_3d: 'Todos os modelos têm 12 meses de garantia de fabrico. Cobrimos defeitos em dobradiças, hastes e acetato em uso normal.',
     av_4t: 'Resposta em 24h',
     av_4d: 'Qualquer incidência é atendida em menos de 24 horas em dias úteis. Contacte diretamente por WhatsApp para máxima rapidez.',
-    kids_soon: 'Brevemente · AW26/27',
+    kids_soon: 'Já disponível · Cápsula OI26/27',
     kids_h2a: 'Pequenos',
     kids_h2b: 'grandes olhares.',
     kids_intro: 'A Minuë chega aos mais pequenos. O mesmo acetato artesanal, as mesmas dobradiças cuidadas, as mesmas cores sem pedir licença. Para crianças dos 3 aos 14 anos com o seu próprio estilo.',
@@ -1384,11 +1454,11 @@ const I18N = {
     kids_f3: 'UV400 certificado',
     kids_f4: '2 tamanhos · 3–8 e 8–14 anos',
     kids_quote: '"Porque as crianças também merecem ver o mundo com estilo."',
-    kids_cta: 'Avise-me do lançamento',
-    kids_launch: 'Lançamento AW26/27',
-    kids_retailer: 'É retalhista? Seja o primeiro a conhecer a Minuë Junior.',
-    kids_notify_d: 'Avisamos quando o catálogo Junior estiver pronto para encomendas.',
-    kids_notify_btn: 'Notificar-me',
+    kids_cta: 'Consultar Minüe Junior',
+    kids_launch: 'Cápsula limitada',
+    kids_retailer: 'Cápsula pequena de edição limitada: tarifas e preço sob consulta.',
+    kids_notify_d: 'Escreva-nos e enviamos disponibilidade, tarifas e condições da cápsula Junior.',
+    kids_notify_btn: 'Pedir informação',
     kids_email_ph: 'voce@otica.com',
     faire_ship_es: '3–4 dias Espanha',
     faire_ship_eu: '3–6 dias Europa',
@@ -1519,6 +1589,20 @@ const I18N = {
     save_done: '✓ Salvato',
     share_partner: 'Condividi con socio',
     qv_qty_label: 'Quantità',
+    ft_it_area: 'Distribuzione Italia · Ordini e visite in showroom',
+    hero_eyebrow: 'Collezione Autunno-Inverno 26/27',
+    hero_h_a: 'La luce bassa',
+    hero_h_b: 'chiede un altro filtro.',
+    hero_sub: 'Tartaruga, cocoa, miele e oliva: la palette della stagione è già a catalogo. Scegli un tono e allestisci la tua vetrina in pochi minuti.',
+    hero_palette: 'Palette della stagione',
+    hero_s1_n: 'Da 17,90€',
+    hero_s1_l: 'AL PEZZO',
+    hero_s2_n: 'Margine 64%',
+    hero_s2_l: 'Prezzo 50€',
+    hero_s3_n: '24–48h',
+    hero_s3_l: 'SPEDIZIONE',
+    acet_split_t: 'Dettaglio ordine',
+    acet_split_d: 'L\'acetato mantiene il prezzo fisso di 25,95€/pz e non rientra negli scaglioni per volume, anche se i pezzi contano per raggiungere lo scaglione.',
     pt_eyebrow: 'Acquista per colore di stagione',
     pt_title: 'La palette AW26/27,',
     pt_title_i: 'in un clic.',
@@ -1568,7 +1652,7 @@ const I18N = {
     aw_6t: 'Egret',
     aw_6d: 'Bianco crema: il contrasto che illumina tutta la vetrina.',
     dist_tagline: 'Distribuzione wholesale internazionale · Design handcrafted in Spain',
-    kids_optional: 'Opzionale — ti aggiorniamo su novità e disponibilità.',
+    kids_optional: 'Rispondiamo con tariffe e stock disponibile.',
     kids_response: 'Risposta entro 24h · Senza impegno di pagamento',
     pkg_vivo_label: 'PACKAGING VIVO',
     pkg_vivo_t: 'Custodie con',
@@ -1585,7 +1669,7 @@ const I18N = {
     av_3d: 'Tutti i modelli hanno 12 mesi di garanzia di fabbrica. Copriamo difetti di cerniere, aste e acetato in uso normale.',
     av_4t: 'Risposta in 24h',
     av_4d: 'Ogni problema viene gestito entro 24 ore nei giorni feriali. Contattaci direttamente su WhatsApp per la massima rapidità.',
-    kids_soon: 'Prossimamente · AW26/27',
+    kids_soon: 'Già disponibile · Capsule AI26/27',
     kids_h2a: 'Piccoli',
     kids_h2b: 'grandi sguardi.',
     kids_intro: 'Minuë arriva per i più piccoli. Lo stesso acetato artigianale, le stesse cerniere curate, gli stessi colori senza compromessi. Per bambini da 3 a 14 anni con il proprio stile.',
@@ -1594,11 +1678,11 @@ const I18N = {
     kids_f3: 'UV400 certificato',
     kids_f4: '2 taglie · 3–8 e 8–14 anni',
     kids_quote: '"Perché anche i bambini meritano di guardare il mondo con stile."',
-    kids_cta: 'Avvisami al lancio',
-    kids_launch: 'Lancio AW26/27',
-    kids_retailer: 'Sei un rivenditore? Scopri Minuë Junior in anteprima.',
-    kids_notify_d: 'Ti avvisiamo quando il catalogo Junior sarà pronto per gli ordini.',
-    kids_notify_btn: 'Avvisami',
+    kids_cta: 'Richiedi Minüe Junior',
+    kids_launch: 'Capsule limitata',
+    kids_retailer: 'Piccola capsule in edizione limitata: tariffe e prezzo su richiesta.',
+    kids_notify_d: 'Scrivici e ti inviamo disponibilità, tariffe e condizioni della capsule Junior.',
+    kids_notify_btn: 'Richiedi tariffe',
     kids_email_ph: 'tu@ottica.com',
     faire_ship_es: '3–4 giorni Spagna',
     faire_ship_eu: '3–6 giorni Europa',
@@ -2753,28 +2837,31 @@ function AWColorsSection({ t, onPick, activeColors = [], products = [], cart = {
 // PaletteTeaser — acceso rápido a la paleta AW26/27
 // ============================================================
 function PaletteTeaser({ t, onPick, activeColors = [], products = [] }) {
-  const countFor = (grp) => products.filter(p =>
+  const [hover, setHover] = React.useState(null);
+
+  const itemsFor = (grp) => products.filter(p =>
     p.img && p.colors && grp.filters.some(f => p.colors.includes(f)) &&
     !(grp.exclude || []).includes(p.name)
-  ).length;
+  ).sort((a, b) => (a.rank || 999) - (b.rank || 999));
+
   const isActive = (grp) => grp.filters && grp.filters.some(f => activeColors.includes(f));
+  const shown = hover !== null ? AW_GROUPS[hover] : null;
+  const preview = shown ? itemsFor(shown).slice(0, 5) : [];
 
   return (
     <div style={{
       background: `linear-gradient(180deg, ${C} 0%, #F0E7D6 100%)`,
       borderTop: `1px solid ${G}0d`, borderBottom: `1px solid ${G}0d`,
-      padding: 'clamp(26px,3.6vw,42px) 0',
+      padding: 'clamp(28px,3.8vw,46px) 0', overflow: 'hidden',
     }}>
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 24px' }}>
-        <div style={{
-          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-          gap: 18, flexWrap: 'wrap', marginBottom: 16,
-        }}>
+
+        <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 18, flexWrap: 'wrap', marginBottom: 18 }}>
           <div>
             <div className="mn-label" style={{ color: RUST, fontSize: 10, letterSpacing: 2.5, fontWeight: 800, marginBottom: 5 }}>
               {t('pt_eyebrow')}
             </div>
-            <div className="mn-serif" style={{ fontSize: 'clamp(19px,2.4vw,26px)', fontWeight: 300, color: G, lineHeight: 1.15 }}>
+            <div className="mn-serif" style={{ fontSize: 'clamp(20px,2.6vw,30px)', fontWeight: 300, color: G, lineHeight: 1.12 }}>
               {t('pt_title')} <span className="mn-serif-i" style={{ color: RUST }}>{t('pt_title_i')}</span>
             </div>
           </div>
@@ -2783,48 +2870,106 @@ function PaletteTeaser({ t, onPick, activeColors = [], products = [] }) {
           </div>
         </div>
 
-        <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-          {AW_GROUPS.map(grp => {
+        {/* Franja de tonos */}
+        <div className="mn-pal-strip" style={{ display: 'grid', gridTemplateColumns: `repeat(${AW_GROUPS.length}, 1fr)`, gap: 8 }}>
+          {AW_GROUPS.map((grp, i) => {
             const on = isActive(grp);
+            const hot = hover === i;
+            const n = itemsFor(grp).length;
             return (
               <button key={grp.key}
                 onClick={() => onPick && onPick(grp)}
+                onMouseEnter={() => setHover(i)}
+                onMouseLeave={() => setHover(null)}
                 style={{
-                  display: 'inline-flex', alignItems: 'center', gap: 9,
-                  padding: '9px 16px 9px 10px', borderRadius: 999,
-                  border: on ? `1.5px solid ${grp.swatch}` : `1px solid ${G}20`,
-                  background: on ? `${grp.swatch}14` : C,
-                  cursor: 'pointer', transition: 'all .18s ease',
-                  boxShadow: on ? `0 6px 16px -8px ${grp.swatch}` : 'none',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                  e.currentTarget.style.borderColor = grp.swatch;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.borderColor = on ? grp.swatch : `${G}20`;
-                }}
-              >
-                <span style={{
-                  width: 20, height: 20, borderRadius: '50%', background: grp.swatch,
-                  border: `2px solid ${C}`, boxShadow: `0 0 0 1px ${G}1a`, flexShrink: 0,
-                }} />
-                <span style={{ fontFamily: 'Georgia, serif', fontSize: 13, color: G, whiteSpace: 'nowrap' }}>
-                  {t(grp.key + 't')}
-                </span>
-                <span className="mn-label" style={{
-                  fontSize: 9, fontWeight: 800, letterSpacing: 0.5,
-                  color: on ? grp.swatch : G, opacity: on ? 1 : 0.4,
-                }}>{countFor(grp)}</span>
+                  position: 'relative', border: 'none', padding: 0, cursor: 'pointer',
+                  borderRadius: 10, overflow: 'hidden', background: 'transparent',
+                  transform: hot ? 'translateY(-4px)' : 'translateY(0)',
+                  transition: 'transform .22s cubic-bezier(.4,0,.2,1)',
+                }}>
+                {/* Bloque de color */}
+                <div style={{
+                  height: hot || on ? 78 : 62, background: grp.swatch,
+                  borderRadius: 10, position: 'relative', overflow: 'hidden',
+                  boxShadow: on ? `0 10px 24px -10px ${grp.swatch}` : hot ? `0 12px 26px -12px ${grp.swatch}` : 'none',
+                  transition: 'height .25s cubic-bezier(.4,0,.2,1), box-shadow .25s',
+                }}>
+                  <div style={{
+                    position: 'absolute', inset: 0,
+                    background: `linear-gradient(135deg, rgba(255,255,255,.22) 0%, transparent 55%)`,
+                  }} />
+                  <span style={{
+                    position: 'absolute', top: 7, right: 9,
+                    fontFamily: 'Arial, sans-serif', fontSize: 9, fontWeight: 800,
+                    color: '#fff', opacity: on || hot ? 0.95 : 0.6, letterSpacing: 0.5,
+                    transition: 'opacity .2s',
+                  }}>{n}</span>
+                  {on && (
+                    <span style={{
+                      position: 'absolute', bottom: 7, left: 9, width: 16, height: 16,
+                      borderRadius: '50%', background: '#fff',
+                      display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                      fontSize: 10, color: grp.swatch, fontWeight: 900,
+                    }}>✓</span>
+                  )}
+                </div>
+                <div style={{
+                  fontFamily: 'Georgia, serif', fontSize: 11.5, color: G,
+                  marginTop: 7, lineHeight: 1.2, textAlign: 'center',
+                  opacity: on || hot ? 1 : 0.7, transition: 'opacity .2s',
+                  fontWeight: on ? 700 : 400,
+                }}>{t(grp.key + 't')}</div>
               </button>
             );
           })}
         </div>
+
+        {/* Vista previa al pasar el ratón */}
+        <div className="mn-pal-preview" style={{
+          marginTop: 14, minHeight: 92,
+          display: 'flex', alignItems: 'center', gap: 14,
+          padding: shown ? '12px 16px' : 0,
+          borderRadius: 10,
+          background: shown ? C : 'transparent',
+          border: shown ? `1px solid ${G}14` : '1px solid transparent',
+          opacity: shown ? 1 : 0,
+          transform: shown ? 'translateY(0)' : 'translateY(-6px)',
+          transition: 'opacity .25s ease, transform .25s ease, padding .2s',
+          pointerEvents: 'none',
+        }}>
+          {shown && (
+            <>
+              <div style={{ flexShrink: 0, maxWidth: 190 }}>
+                <div className="mn-label" style={{ fontSize: 9, letterSpacing: 1.5, color: shown.swatch, fontWeight: 800, marginBottom: 3 }}>
+                  {t(shown.key + 't')}
+                </div>
+                <div style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: 11.5, color: G, opacity: 0.65, lineHeight: 1.4 }}>
+                  {t(shown.key + 'd')}
+                </div>
+              </div>
+              <div style={{ display: 'flex', gap: 8, flex: 1, justifyContent: 'flex-end' }}>
+                {preview.map((p, k) => (
+                  <div key={p.id} style={{
+                    width: 84, height: 62, background: '#F0E7D6', borderRadius: 6,
+                    overflow: 'hidden', flexShrink: 0,
+                    animation: `mn-fadein .3s ease-out ${k * 0.05}s both`,
+                  }}>
+                    <img src={p.img} alt={p.name} loading="lazy" style={{
+                      width: '100%', height: '100%', objectFit: 'contain',
+                      padding: 5, boxSizing: 'border-box', mixBlendMode: 'multiply',
+                    }} />
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+
       </div>
     </div>
   );
 }
+
 
 // ============================================================
 // VitrineBalance — equilibrio de tonos de la selección actual
@@ -3059,12 +3204,19 @@ export default function App() {
     setColFilter('all');
     setSearchQuery('');
     setPanelOpen(false);
-    if (!already) {
-      setTimeout(() => {
-        const el = document.getElementById('catalogo');
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 120);
-    }
+    if (already) return;
+    // Abrir todas las colecciones para que el filtro se vea
+    setOpenCollections({ Essential: true, Icons: true, Acetato: true });
+    // Esperar a que el acordeón se despliegue antes de bajar
+    let tries = 0;
+    const go = () => {
+      const el = document.getElementById('catalogo');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (++tries < 3) setTimeout(go, 260);
+      }
+    };
+    requestAnimationFrame(() => requestAnimationFrame(() => setTimeout(go, 60)));
   };
 
   const cartCount = Object.values(cart).reduce((a, b) => a + b, 0);
@@ -3092,9 +3244,18 @@ export default function App() {
   const currentTier = getTier(cartCount);
   const nextTier = getNextTier(cartCount);
   const unitPrice = currentTier?.price ?? null;
-  const cartTotal = (ouardaActive || zubietaActive)
+  // El acetato tiene precio fijo propio (25,95€) y no entra en los tramos:
+  // el total se suma siempre artículo a artículo.
+  const cartTotal = cartItems.length
     ? cartItems.reduce((sum, it) => sum + getItemPrice(it) * it.qty, 0)
-    : unitPrice ? unitPrice * cartCount : null;
+    : null;
+
+  // Desglose para mostrar el acetato aparte
+  const acetatoItems = cartItems.filter(it => it.col === 'Acetato');
+  const acetatoUnits = acetatoItems.reduce((s, it) => s + it.qty, 0);
+  const acetatoCost = acetatoItems.reduce((s, it) => s + getItemPrice(it) * it.qty, 0);
+  const tierUnits = cartCount - acetatoUnits;
+  const tierCost = (cartTotal || 0) - acetatoCost;
 
   const addToCart = (id) => {
     setCart(c => ({ ...c, [id]: (c[id] || 0) + 1 }));
@@ -3242,6 +3403,23 @@ export default function App() {
         a { color: inherit; text-decoration: none; }
 
         .mn-card { transition: transform 0.35s cubic-bezier(.2,.7,.2,1), box-shadow 0.35s ease; overflow: hidden; height: 100%; box-sizing: border-box; }
+        /* ── HERO 2 columnas ── */
+        .mn-hero-grid { display: grid; grid-template-columns: 1.15fr 1fr; align-items: stretch; }
+        .mn-pal-strip button:hover { z-index: 2; }
+        @media (max-width: 720px) {
+          .mn-pal-strip { grid-template-columns: repeat(3, 1fr) !important; }
+          .mn-pal-preview { display: none !important; }
+        }
+        .mn-hero-frame { position: relative; overflow: hidden; min-height: 460px; height: 100%; background: #18332f; }
+        .mn-hero-aside { padding: clamp(32px,4vw,60px) clamp(24px,3.5vw,54px); display: flex; flex-direction: column; justify-content: center; }
+        @media (max-width: 900px) {
+          .mn-hero-grid { grid-template-columns: 1fr; }
+          .mn-hero-aside { display: none; }
+          .mn-hero-frame { min-height: 0; aspect-ratio: 4/5; max-height: 78vh; }
+        }
+        @media (max-width: 520px) {
+          .mn-hero-frame { aspect-ratio: 3/4; }
+        }
         .mn-card:hover .mn-zoom-btn { opacity: 1 !important; }
         .mn-zoom-btn:hover { transform: scale(1.12); }
         @media (hover: none) { .mn-zoom-btn { opacity: .8 !important; } }
@@ -3599,7 +3777,7 @@ export default function App() {
         </nav>
 
         {/* IMPACT SECTION — stats + proceso unificados */}
-        <ImpactSection t={t} />
+        <ImpactSection t={t} onPick={pickTone} activeColors={activeColors} />
 
         {/* CLIENTS TICKER — debajo de los stats, refuerza los números */}
         <ClientTicker t={t} />
@@ -3761,7 +3939,7 @@ export default function App() {
         )}
 
         {/* TOP VENTAS */}
-        <section id="top-ventas" className="mn-reveal" style={{ maxWidth: 1280, margin: '0 auto', padding: 'clamp(50px, 7vw, 80px) 24px 30px', scrollMarginTop: 80 }}>
+        <section id="top-ventas" className="mn-reveal" style={{ maxWidth: 1280, margin: '0 auto', padding: 'clamp(50px, 7vw, 80px) 24px 30px', scrollMarginTop: 96 }}>
           <div style={{
             display: 'flex', alignItems: 'baseline', justifyContent: 'space-between',
             gap: 20, flexWrap: 'wrap', marginBottom: 'clamp(24px, 3vw, 36px)',
@@ -3908,7 +4086,7 @@ export default function App() {
         </div>
 
         {/* ENCABEZADO COLECCIONES */}
-        <div id="catalogo" style={{ maxWidth: 1280, margin: '0 auto', padding: 'clamp(24px,4vw,40px) 24px clamp(16px,3vw,28px)', scrollMarginTop: 80 }}>
+        <div id="catalogo" style={{ maxWidth: 1280, margin: '0 auto', padding: 'clamp(24px,4vw,40px) 24px clamp(16px,3vw,28px)', scrollMarginTop: 96 }}>
           <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 24, flexWrap: 'wrap' }}>
             <div>
               <div className="mn-label" style={{ color: '#a2542b', marginBottom: 10, fontSize: 11, letterSpacing: 2.5, fontWeight: 700 }}>AW26/27 · Wholesale</div>
@@ -5031,6 +5209,54 @@ export default function App() {
                 </div>
               </div>
 
+              {/* Italia — Cretella Showroom */}
+              <div style={{
+                padding: '22px 20px', borderRadius: 8,
+                border: `1px solid ${RUST}40`,
+                background: `${RUST}0a`,
+                display: 'flex', flexDirection: 'column', gap: 10,
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <span style={{ fontSize: 18 }}>🇮🇹</span>
+                  <span style={{ fontSize: 8, fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase', color: RUST, border: `1px solid ${RUST}66`, padding: '2px 7px', borderRadius: 999 }}>Italia</span>
+                </div>
+                <div>
+                  <div className="mn-serif" style={{ fontSize: 18, fontWeight: 400, marginBottom: 2 }}>Cretella Showroom</div>
+                  <div style={{ fontSize: 11, opacity: 0.5, fontStyle: 'italic' }}>Marcello</div>
+                </div>
+                <div style={{ fontSize: 11, opacity: 0.4, lineHeight: 1.4, fontWeight: 300 }}>
+                  {t('ft_it_area')}
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 7, fontSize: 12, fontWeight: 300 }}>
+                  <a href="https://wa.me/393317621348" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: 7, color: C, opacity: 0.8, textDecoration: 'none' }}>
+                    <IconWA size={12} /> +39 331 762 1348
+                  </a>
+                  <a href="https://www.instagram.com/cretellashowroom_" target="_blank" rel="noreferrer" style={{ color: C, opacity: 0.8, textDecoration: 'none' }}>
+                    @cretellashowroom_
+                  </a>
+                  <div style={{ display: 'flex', gap: 8, marginTop: 8 }}>
+                    <a href="https://wa.me/393317621348?text=Ciao%20Marcello%2C%20sono%20interessato%20al%20catalogo%20Min%C3%BCe%20Wholesale" target="_blank" rel="noreferrer" style={{
+                      flex: 1, padding: '9px 0', borderRadius: 6,
+                      border: `1px solid ${C}28`, color: C, textDecoration: 'none',
+                      fontSize: 11, fontWeight: 500, textAlign: 'center',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 5,
+                      background: `${C}08`,
+                    }}>
+                      <IconWA size={11} /> WhatsApp
+                    </a>
+                    <a href="https://www.instagram.com/cretellashowroom_" target="_blank" rel="noreferrer" style={{
+                      flex: 1, padding: '9px 0', borderRadius: 6,
+                      border: `1px solid ${C}28`, color: C, textDecoration: 'none',
+                      fontSize: 11, fontWeight: 500, textAlign: 'center',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 5,
+                      background: `${C}08`,
+                    }}>
+                      Instagram
+                    </a>
+                  </div>
+                </div>
+              </div>
+
               {/* Colombia / Latam */}
               <div style={{
                 padding: '22px 20px', borderRadius: 8,
@@ -5318,6 +5544,7 @@ export default function App() {
         {panelOpen && (
           <OrderPanel
             cart={cart} products={PRODUCTS} onPickTone={pickTone}
+            acetatoUnits={acetatoUnits} acetatoCost={acetatoCost} tierUnits={tierUnits} tierCost={tierCost}
             t={t} lang={lang}
             region={region} setRegion={setRegion}
             distributor={distributor}
@@ -5373,9 +5600,12 @@ function LangSelector({ lang, onChange }) {
   React.useLayoutEffect(() => {
     if (open && btnRef.current) {
       const rect = btnRef.current.getBoundingClientRect();
+      const needed = LANGS.length * 40 + 20;
+      const below = window.innerHeight - rect.bottom - 16;
+      const flip = below < needed && rect.top > below;
       setPos({
-        top: rect.bottom + 10,
-        right: Math.max(12, window.innerWidth - rect.right),
+        flip,
+        maxH: Math.max(190, (flip ? rect.top : below) - 14),
       });
     }
   }, [open]);
@@ -5391,15 +5621,17 @@ function LangSelector({ lang, onChange }) {
     };
     document.addEventListener('mousedown', handler);
     document.addEventListener('touchstart', handler);
-    window.addEventListener('resize', () => setOpen(false));
+    const onMove = () => setOpen(false);
+    window.addEventListener('resize', onMove);
     return () => {
       document.removeEventListener('mousedown', handler);
       document.removeEventListener('touchstart', handler);
+      window.removeEventListener('resize', onMove);
     };
   }, [open]);
 
   return (
-    <>
+    <span style={{ position: 'relative', display: 'inline-block' }}>
       <button
         ref={btnRef}
         onClick={() => setOpen(o => !o)}
@@ -5430,11 +5662,14 @@ function LangSelector({ lang, onChange }) {
         <div
           ref={dropRef}
           style={{
-            position: 'fixed', top: pos.top, right: pos.right, zIndex: 99999,
+            position: 'absolute', right: 0,
+            top: pos.flip ? 'auto' : 'calc(100% + 10px)',
+            bottom: pos.flip ? 'calc(100% + 10px)' : 'auto',
+            zIndex: 9999,
             background: C, border: `1px solid ${G}22`, borderRadius: 10,
-            boxShadow: '0 12px 32px -10px rgba(24,51,47,0.28)',
-            padding: 6, minWidth: 170,
-            maxHeight: 'calc(100vh - 120px)', overflowY: 'auto',
+            boxShadow: '0 16px 40px -12px rgba(24,51,47,0.35)',
+            padding: 6, minWidth: 178,
+            maxHeight: pos.maxH, overflowY: 'auto', WebkitOverflowScrolling: 'touch',
             display: 'flex', flexDirection: 'column', gap: 2,
             animation: 'mn-rise 0.18s ease-out both',
           }}
@@ -5466,7 +5701,7 @@ function LangSelector({ lang, onChange }) {
           })}
         </div>
       )}
-    </>
+    </span>
   );
 }
 
@@ -5475,6 +5710,7 @@ function LangSelector({ lang, onChange }) {
 // ============================================================
 function OrderPanel({
   t, lang, region, setRegion, distributor, cart, products, onPickTone,
+  acetatoUnits = 0, acetatoCost = 0, tierUnits = 0, tierCost = 0,
   cartItems, cartCount, currentTier, nextTier, unitPrice, cartTotal,
   familyCode, setFamilyCode, discountPct, ouardaActive, zubietaActive,
   onClose, onUpdateQty, onRemove, onSendWA, onSendEmail,
@@ -5848,6 +6084,31 @@ function OrderPanel({
                 </div>
                 <div style={{ fontSize: 9, opacity: 0.45, marginTop: 8, fontStyle: 'italic' }}>
                   * IVA no incluido · Precios aplicados automáticamente en tu pedido
+                </div>
+              </div>
+            )}
+
+            {/* Desglose acetato — precio fuera de tramos */}
+            {acetatoUnits > 0 && (
+              <div style={{
+                padding: '12px 14px', marginBottom: 10, borderRadius: 6,
+                border: `1px dashed ${RUST}`, background: `${RUST}0d`,
+              }}>
+                <div className="mn-label-xs" style={{ color: RUST, marginBottom: 8 }}>
+                  {t('acet_split_t')}
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11.5, marginBottom: 5 }}>
+                  <span style={{ opacity: 0.7 }}>
+                    {tierUnits} {t('panel_units')} · Essential/Icons {unitPrice ? `× ${unitPrice.toFixed(2).replace('.', ',')}€` : ''}
+                  </span>
+                  <span style={{ fontWeight: 700 }}>{tierCost.toFixed(2).replace('.', ',')}€</span>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11.5, marginBottom: 7 }}>
+                  <span style={{ opacity: 0.7 }}>{acetatoUnits} {t('panel_units')} · Acetato × 25,95€</span>
+                  <span style={{ fontWeight: 700, color: RUST }}>{acetatoCost.toFixed(2).replace('.', ',')}€</span>
+                </div>
+                <div style={{ fontSize: 9.5, opacity: 0.55, fontStyle: 'italic', borderTop: `1px solid ${G}14`, paddingTop: 6 }}>
+                  {t('acet_split_d')}
                 </div>
               </div>
             )}
@@ -6820,74 +7081,115 @@ const HERO_SLIDES = [
   'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/47_88cec18e-64bc-4fb7-9ee2-228dfefb383d.png?v=1787309848',
 ];
 
-function HeroSlider() {
+function HeroSlider({ t, onPick, activeColors = [] }) {
   const [idx, setIdx] = React.useState(0);
   React.useEffect(() => {
     const timer = setInterval(() => setIdx(i => (i + 1) % HERO_SLIDES.length), 6000);
     return () => clearInterval(timer);
   }, []);
-  return (
-    <div style={{
-      position: 'relative', width: '100%',
-      height: 'clamp(300px, 46vw, 620px)', overflow: 'hidden',
-      background: G,
-    }}>
+
+  const Slides = (
+    <div className="mn-hero-frame">
       {HERO_SLIDES.map((src, i) => (
-        <div key={i} style={{
+        <img key={i} src={src} alt="Minuë AW26/27" style={{
           position: 'absolute', inset: 0,
+          width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%',
           opacity: i === idx ? 1 : 0,
-          transition: 'opacity 1.4s ease-in-out',
-        }}>
-          {/* Fondo desenfocado: rellena el banner sin deformar */}
-          <img src={src} alt="" aria-hidden="true" style={{
-            position: 'absolute', inset: 0,
-            width: '100%', height: '100%', objectFit: 'cover',
-            filter: 'blur(26px) saturate(1.05)', transform: 'scale(1.12)',
-            opacity: 0.55,
-          }} />
-          {/* Imagen real: completa, sin recorte ni ampliación */}
-          <img src={src} alt="Minuë AW26/27" style={{
-            position: 'absolute', inset: 0,
-            width: '100%', height: '100%', objectFit: 'contain',
-          }} />
-        </div>
+          transform: i === idx ? 'scale(1)' : 'scale(1.04)',
+          transition: 'opacity 1.4s ease-in-out, transform 7s ease-out',
+        }} />
       ))}
-      {/* Degradado inferior para fundir con el bloque oscuro */}
-      <div style={{
-        position: 'absolute', left: 0, right: 0, bottom: 0, height: '40%',
-        background: `linear-gradient(to top, ${G} 0%, transparent 100%)`,
-        pointerEvents: 'none',
-      }} />
-      {/* Viñeta cálida de temporada */}
       <div style={{
         position: 'absolute', inset: 0, pointerEvents: 'none',
-        background: `linear-gradient(to top, ${RUST}55 0%, transparent 45%)`,
+        background: `linear-gradient(to top, ${G}cc 0%, transparent 55%)`,
+      }} />
+      <div style={{
+        position: 'absolute', inset: 0, pointerEvents: 'none',
+        background: `linear-gradient(to top, ${RUST}44 0%, transparent 40%)`,
         mixBlendMode: 'multiply',
       }} />
-      {/* Dots */}
       <div style={{
         position: 'absolute', bottom: 16, left: 0, right: 0,
         display: 'flex', justifyContent: 'center', gap: 7, zIndex: 2,
       }}>
         {HERO_SLIDES.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setIdx(i)}
-            aria-label={`Slide ${i + 1}`}
-            style={{
-              width: i === idx ? 22 : 7, height: 7, borderRadius: 999,
-              background: i === idx ? C : `${C}66`,
-              border: 'none', cursor: 'pointer', padding: 0,
-              transition: 'all 0.3s ease',
-            }}
-          />
+          <button key={i} onClick={() => setIdx(i)} aria-label={`Slide ${i + 1}`} style={{
+            width: i === idx ? 22 : 7, height: 7, borderRadius: 999,
+            background: i === idx ? C : `${C}66`,
+            border: 'none', cursor: 'pointer', padding: 0, transition: 'all .3s ease',
+          }} />
         ))}
+      </div>
+    </div>
+  );
+
+  return (
+    <div style={{ background: G, color: C }}>
+      <div className="mn-hero-grid">
+        {Slides}
+
+        {/* Panel derecho — oculto en móvil */}
+        <div className="mn-hero-aside">
+          <div className="mn-label" style={{ color: RUST, fontSize: 10, letterSpacing: 3.5, fontWeight: 800, marginBottom: 14 }}>
+            {t('hero_eyebrow')}
+          </div>
+          <h2 className="mn-serif" style={{
+            fontSize: 'clamp(30px,3.4vw,50px)', fontWeight: 300,
+            letterSpacing: '-0.03em', lineHeight: 1.02, margin: '0 0 16px',
+          }}>
+            {t('hero_h_a')}<br />
+            <span className="mn-serif-i" style={{ color: D }}>{t('hero_h_b')}</span>
+          </h2>
+          <p style={{
+            fontFamily: 'Georgia, serif', fontStyle: 'italic',
+            fontSize: 'clamp(13px,1.4vw,16px)', lineHeight: 1.6,
+            opacity: 0.7, margin: '0 0 24px', maxWidth: 420,
+          }}>{t('hero_sub')}</p>
+
+          {/* Paleta rápida */}
+          <div className="mn-label" style={{ fontSize: 9, letterSpacing: 2.5, fontWeight: 800, opacity: 0.5, marginBottom: 10 }}>
+            {t('hero_palette')}
+          </div>
+          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 26 }}>
+            {AW_GROUPS.map(grp => {
+              const on = grp.filters && grp.filters.some(f => activeColors.includes(f));
+              return (
+                <button key={grp.key} onClick={() => onPick && onPick(grp)} title={t(grp.key + 't')}
+                  style={{
+                    width: on ? 34 : 28, height: on ? 34 : 28, borderRadius: '50%',
+                    background: grp.swatch, cursor: 'pointer', padding: 0,
+                    border: `2px solid ${on ? C : 'transparent'}`,
+                    boxShadow: on ? `0 0 0 2px ${grp.swatch}` : `0 0 0 1px ${C}33`,
+                    transition: 'all .2s ease',
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.14)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
+                />
+              );
+            })}
+          </div>
+
+          {/* Datos clave */}
+          <div style={{ display: 'flex', gap: 26, flexWrap: 'wrap' }}>
+            {[
+              { n: t('hero_s1_n'), l: t('hero_s1_l') },
+              { n: t('hero_s2_n'), l: t('hero_s2_l') },
+              { n: t('hero_s3_n'), l: t('hero_s3_l') },
+            ].map((s, i) => (
+              <div key={i}>
+                <div className="mn-serif" style={{ fontSize: 'clamp(20px,2.2vw,28px)', fontWeight: 300, lineHeight: 1 }}>{s.n}</div>
+                <div className="mn-label" style={{ fontSize: 8.5, letterSpacing: 1.8, opacity: 0.5, marginTop: 4 }}>{s.l}</div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
 }
 
-function ImpactSection({ t }) {
+
+function ImpactSection({ t, onPick, activeColors }) {
   const stats = [
     { n: '+250', label: t('stat_cities') },
     { n: '14',   label: t('stat_countries') },
@@ -6905,7 +7207,7 @@ function ImpactSection({ t }) {
   return (
     <div>
       {/* ── SLIDER HERO ── */}
-      <HeroSlider />
+      <HeroSlider t={t} onPick={onPick} activeColors={activeColors} />
 
       {/* ── BLOQUE OSCURO: stats ── */}
       <div style={{ background: G, color: C }}>
@@ -7301,7 +7603,7 @@ function FaqSection({ t }) {
   }));
 
   return (
-    <section id="faq" className="mn-reveal" style={{ maxWidth: 860, margin: '0 auto', padding: '60px 24px', scrollMarginTop: 80 }}>
+    <section id="faq" className="mn-reveal" style={{ maxWidth: 860, margin: '0 auto', padding: '60px 24px', scrollMarginTop: 96 }}>
       <div style={{ marginBottom: 36 }}>
         <div className="mn-label" style={{ color: D, marginBottom: 10, fontSize: 11, letterSpacing: 2.5, fontWeight: 700 }}>{t('faq_eyebrow')}</div>
         <h2 className="mn-serif" style={{ fontSize: 'clamp(28px,4vw,42px)', fontWeight: 300, margin: 0, letterSpacing: '-0.02em' }}>
