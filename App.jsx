@@ -25,9 +25,10 @@ const Logo = ({ color, height = 36, className }) => {
 
 // Paleta
 const G = '#18332f';
-const C = '#f8efe6';
+const C = '#f9f1e3';
 const D = '#b8860b';
 const CHOCOLATE = '#8B6B4A';
+const RUST = '#a2542b';
 
 // Precio "vitrina" en cards — el real se calcula por tramos
 const DISPLAY_PRICE = 19.90;
@@ -41,20 +42,43 @@ const LANGS = [
   { code: 'en', label: 'EN', name: 'English' },
   { code: 'de', label: 'DE', name: 'Deutsch' },
   { code: 'pt', label: 'PT', name: 'Português' },
+  { code: 'it', label: 'IT', name: 'Italiano' },
 ];
+
+// ════════════════════════════════════════════════════════════
+// Detecta el idioma del navegador y devuelve uno soportado
+// ════════════════════════════════════════════════════════════
+function detectLang() {
+  try {
+    // 1) Si el usuario eligió uno antes, lo respetamos
+    if (typeof window !== 'undefined') {
+      const saved = window.localStorage?.getItem('minue_lang');
+      if (saved && LANGS.find(l => l.code === saved)) return saved;
+    }
+    // 2) Tomamos el idioma del navegador (navigator.languages prioriza)
+    const browserLangs = (typeof navigator !== 'undefined')
+      ? (navigator.languages || [navigator.language || 'es'])
+      : ['es'];
+    for (const raw of browserLangs) {
+      const code = String(raw).toLowerCase().slice(0, 2);
+      if (LANGS.find(l => l.code === code)) return code;
+    }
+  } catch (e) { /* fallback abajo */ }
+  return 'es';
+}
 
 const I18N = {
   es: {
     nav_contact: 'Contacto', nav_catalog: 'Catálogo', nav_rates: 'Tarifas', nav_order: 'Pedido', nav_pdf: 'PDF', nav_faq: 'FAQ',
-    hdr_eyebrow: 'B2B Wholesale · SS26',
+    hdr_eyebrow: 'B2B Wholesale · AW26/27',
     hdr_h1_a: 'Explora, selecciona', hdr_h1_b: 'y haz', hdr_h1_c: 'tu pedido.',
     hdr_sub: 'Navega por nuestro catálogo, añade los modelos que te interesen y envíanos tu selección. Precio por volumen: cuantas más unidades, menor precio unitario.',
     hdr_chip_top: 'Top Ventas', hdr_chip_rates: 'Ver tarifas por volumen',
     banner_expositor: 'Expositores incluidos desde 20 unidades — sin coste adicional',
     bar_your_tier: 'Tu tramo', bar_empty: 'Aún sin unidades — añade productos para ver tu precio.',
     bar_missing_a: 'Te faltan', bar_missing_b: 'uds para bajar a', bar_rate_btn: 'Ver tabla',
-    top_eyebrow: '★ Top Ventas SS26',
-    top_h2_month_pre: 'Los modelos que más rotan en', top_h2_c: '.',
+    top_eyebrow: '★ Top Ventas AW26/27',
+    top_h2_month_pre: 'Los modelos que apuntan a top ventas', top_h2_c: '.',
     top_sub: 'Ordenados por rotación real en nuestros distribuidores actuales.',
     filter_color: 'Color', filter_shape: 'Forma', filter_clear: 'limpiar',
     col_eyebrow: 'Colección',
@@ -63,10 +87,10 @@ const I18N = {
     col_acetato_tag: 'Monturas artesanales de alta gama. Para el cliente más exigente.',
     empty_filter_t: 'Sin modelos con este filtro',
     empty_filter_d: 'Prueba a ampliar la selección.',
-    pkg_eyebrow: 'Packaging', pkg_h2_a: 'Listo para', pkg_h2_b: 'vitrina', pkg_h2_c: '.',
-    pkg_sub: 'Cada montura llega preparada para exhibir. Sin reprocesar, sin empaquetar, sin perder tiempo.',
+    pkg_eyebrow: 'Packaging', pkg_h2_a: 'Detrás de', pkg_h2_b: 'cada frame', pkg_h2_c: '.',
+    pkg_sub: 'Cuidamos cada detalle que rodea a cada diseño.',
     pkg1_t: 'Packaging completo incluido',
-    pkg1_d: 'Cada montura incluye: caja de presentación con logo, funda rígida, gamuza de microfibra, tarjeta con especificaciones técnicas y pegatina CE + UV400. Todo listo para entregar al cliente final sin ningún reprocesado.',
+    pkg1_d: 'Cuidamos cada detalle que rodea a cada diseño. Caja con logo, funda rígida, gamuza de microfibra, tarjeta técnica y pegatina CE + UV400.',
     pkg_contents_label: 'En cada caja',
     pkg_item1: 'Caja de presentación con logo',
     pkg_item2: 'Funda rígida individual',
@@ -80,7 +104,7 @@ const I18N = {
     tech_cat: 'Categoría 3', tech_cat_d: 'Lentes con alta capacidad de filtrado para uso en exteriores con sol intenso. Transmisión luminosa entre 8-18%.',
     tech_ce: 'Certificado CE', tech_ce_d: 'Conformidad con la normativa europea EN ISO 12312-1. Aptas para comercialización en toda la Unión Europea.',
     tech_pol: 'Lentes polarizadas', tech_pol_d: 'Eliminación de reflejos y deslumbramientos. Mayor contraste y definición visual en cualquier condición.',
-    tech_impact: 'Resistencia al impacto', tech_impact_d: 'Superan el test de resistencia al impacto según normativa ISO. Patillas con alma de acero inoxidable en colección Acetato.',
+    tech_impact: 'Resistencia al impacto', tech_impact_d: 'Superan el test de resistencia al impacto según normativa ISO. Patillas con alma de metal en colección Acetato. Diseños en policarbonato de alta resistencia para mayor durabilidad.',
     tech_drop: 'Drop Ball Test', tech_drop_d: 'Superan el test de impacto Drop Ball según EN ISO 12312-1. Resistencia certificada ante impactos frontales directos.',
     tech_fod: 'FOD — Free of Defects', tech_fod_d: 'Control de calidad individual por unidad. Cada montura sale de fábrica inspeccionada y aprobada.',
     pkg2_t: 'Protección premium',
@@ -92,9 +116,9 @@ const I18N = {
     cta_sub: 'Expositores incluidos desde 20 uds · Envío gratuito +20 uds · 3% pronto pago con plan de 2 pagos.',
     cta_btn: 'Ver tabla completa',
     ft_contact: 'Contacto', ft_conditions: 'Condiciones',
-    ft_cond1: 'Precio desde 17,90€/ud (40+ uds)', ft_cond2: 'PVP recomendado 55–60€',
+    ft_cond1: 'Precio desde 17,90€/ud (40+ uds)', ft_cond2: 'PVP recomendado 50€ · Acetato 70€',
     ft_cond3: 'Envío gratuito +20 uds', ft_cond4: '3% dto. pronto pago (2 pagos)',
-    ft_copyright: '© 2026 Minuë Opticians — Catálogo Wholesale SS26',
+    ft_copyright: '© 2026 Minuë Opticians — Catálogo Wholesale AW26/27',
     ft_tagline: 'Un catálogo. Un minué.',
     panel_eyebrow: 'Pedido', panel_h3: 'Mi selección',
     panel_empty_t: 'Aún vacío', panel_empty_d: 'Añade los modelos que te interesen para enviarnos tu solicitud.',
@@ -110,16 +134,16 @@ const I18N = {
     panel_no_pay_sub: 'Envíanos tu selección y te confirmamos disponibilidad, precio final y plazos antes de cualquier pago.',
     panel_mi_pedido: 'Mi pedido', panel_remove: 'eliminar',
     panel_added: 'Añadido', panel_add: 'Añadir',
-    modal_eyebrow: 'Tarifas SS26',
+    modal_eyebrow: 'Tarifas AW26/27',
     modal_h2_a: 'Precio por', modal_h2_b: 'volumen', modal_h2_c: ' — cuanto más pidas, menos pagas.',
     modal_your_tier: 'Tu tramo',
     modal_payments: 'Pagos:', modal_expositor: 'Expositor:', modal_free_ship: '✓ Envío gratuito',
     modal_plus60_label: '+60 uds', modal_plus60_t: 'Condiciones especiales',
     modal_plus60_d: 'Contáctanos directamente o escribe a',
     modal_early_t: 'Pronto pago', modal_early_d: '3% de descuento adicional en tarifas con plan de 2 pagos si abonas a la entrega.',
-    modal_rrp_t: 'PVP recomendado', modal_rrp_d: 'Entre 55€ y 60€ al cliente final. Margen bruto medio del 67%.',
+    modal_rrp_t: 'PVP recomendado', modal_rrp_d: '50€ al cliente final (Acetato 70€). Margen bruto medio del 64%.',
     modal_ship_t: 'Envío', modal_ship_d: 'Gratuito a partir de 20 unidades. Coste según destino por debajo de ese tramo.',
-    modal_footer: 'Precios en euros, IVA no incluido. Tarifa válida para la temporada SS26.',
+    modal_footer: 'Precios en euros, IVA no incluido. Tarifa válida para la temporada AW26/27.',
     order_greeting: 'Hola, me gustaría hacer un pedido:',
     order_tier: 'Tramo', order_total_line: 'Total',
     order_plus60: 'Total: {n} uds (tramo +60, precio a confirmar)',
@@ -180,7 +204,7 @@ const I18N = {
     qv_added: 'Añadido',
     nav_badge: 'Trade Direct',
     nav_badge_sub: 'Selecciona y pide directo · sin registro',
-    new_eyebrow: '✦ Novedades SS26',
+    new_eyebrow: '✦ Novedades AW26/27',
     new_h2_a: 'Recién', new_h2_b: 'incorporados', new_h2_c: '.',
     new_sub: 'Primeras unidades disponibles. Pide antes de que se agoten.',
     new_show_more: 'Ver más modelos', new_show_less: 'Ver menos',
@@ -202,11 +226,11 @@ const I18N = {
     hiw_eyebrow: 'El proceso', hiw_h2_a: 'Tres pasos', hiw_h2_b: ', todo claro.',
     hiw_1_t: 'Explora y añade', hiw_1_d: 'Navega por el catálogo y añade los modelos que te interesan. Sin registro, sin pago previo.',
     hiw_2_t: 'Envíanos tu lista', hiw_2_d: 'Por WhatsApp o email en un clic. Confirmamos stock, precio y plazos en menos de 24h.',
-    hiw_3_t: 'Listo en tu tienda', hiw_3_d: 'Enviamos con packaging completo listo para vitrina. Pago tras confirmación.',
+    hiw_3_t: 'Listo en tu tienda', hiw_3_d: 'Enviamos con packaging completo que cuida cada detalle. Pago tras confirmación.',
     hdr_claim: 'Márgenes del 60%+ en gafas que rotan de verdad.',
-    hdr_sub_new: 'Colección SS26 para ópticas y multimarca que quieren una marca diferente. Sin mínimos, sin burocracia, con datos reales de venta.',
+    hdr_sub_new: 'Colección AW26/27 para ópticas y multimarca que quieren una marca diferente. Sin mínimos, sin burocracia, con datos reales de venta.',
     sp_opticas: '150+ ópticas', sp_paises: '12 países', sp_sellthrough: '68% sell-through',
-    ss26_banner: '🌿  Temporada SS26 abierta  ·  Nuevos modelos disponibles  ·  Stock limitado en referencias marcadas',
+    ss26_banner: '🍂  Temporada AW26/27 abierta  ·  Carey, cocoa, oliva y burdeos  ·  En vitrina para las fiestas',
     faire_eyebrow: 'También disponible en Faire Wholesale',
     faire_rating: '4.9 / 5', faire_reviews: '47 valoraciones verificadas',
     faire_desc: 'Pedido mínimo reducido · Net 60 disponible · Envío desde España',
@@ -221,12 +245,140 @@ const I18N = {
     ft_cta_d: 'Nuestro equipo responde el mismo día. Sin presión, sin compromiso.',
     ft_cta_wa: 'Escribir por WhatsApp',
     ft_cta_email: 'Enviar email',
-    tier_valid: 'Tarifa válida temporada SS26 · hasta 30 jun 2026',
+    tier_valid: 'Tarifa válida temporada AW26/27 · hasta 28 feb 2027',
     tier_save_label: 'Ahorras vs precio base',
     save_selection: 'Guardar selección',
     save_done: '✓ Guardada',
     share_partner: 'Compartir con socio',
     qv_qty_label: 'Cantidad',
+    geo_detected: 'Detectamos que estás en',
+    geo_orders_to: 'Tus pedidos irán a',
+    geo_change: 'Cambiar',
+    nav_lang: 'Idioma',
+    pou_eyebrow: 'Fundas de la temporada',
+    pou_h_a: 'Tres combinaciones,',
+    pou_h_b: 'tres formas de entregarla.',
+    pou_sub: 'La funda rígida acompaña cada montura y cambia de color con la temporada. No es packaging: es una pieza más que tu cliente lleva encima.',
+    p1_name: 'Combinación I',
+    p1_desc: 'Funda y caja a juego, el conjunto clásico de la casa.',
+    p2_name: 'Combinación II',
+    p2_desc: 'Contraste cálido para las monturas carey y cocoa.',
+    p3_name: 'Combinación III',
+    p3_desc: 'Tonos tierra, el acabado de la cápsula de otoño.',
+    pou_foot: 'Incluida con cada montura, sin coste · Pulsa para ampliar',
+    filt_active: 'Filtrando por la paleta AW26/27',
+    filt_clear: 'Quitar filtro',
+    acet_tier_label: 'Acetato · fuera de tramos',
+    acet_tier_unit: '/ ud · precio fijo',
+    acet_tier_d: 'La línea Acetato no baja de precio por volumen: mantiene su tarifa fija todo el año.',
+    acet_tier_b1: 'PVP recomendado 70€ · margen ~63%',
+    acet_tier_b2: 'Sus unidades sí cuentan para alcanzar tu tramo',
+    ft_it_area: 'Distribución Italia · Pedidos y visitas de showroom',
+    hero_eyebrow: 'Colección Otoño-Invierno 26/27',
+    hero_h_a: 'La luz baja',
+    hero_h_b: 'pide otro filtro.',
+    hero_sub: 'Carey, cocoa, guiza y oliva: la paleta que se lleva esta temporada ya está en catálogo. Elige un tono y monta tu vitrina en minutos.',
+    hero_palette: 'Paleta de la temporada',
+    hero_s1_n: 'Desde 17,90€',
+    hero_s1_l: 'POR UNIDAD',
+    hero_s2_n: 'Margen 64%',
+    hero_s2_l: 'PVP 50€',
+    hero_s3_n: '24–48h',
+    hero_s3_l: 'ENVÍO',
+    acet_split_t: 'Desglose del pedido',
+    acet_split_d: 'El acetato mantiene su precio fijo de 25,95€/ud y no entra en los tramos por volumen, aunque sus unidades sí cuentan para alcanzar el tramo.',
+    pt_eyebrow: 'Compra por color de temporada',
+    pt_title: 'La paleta AW26/27,',
+    pt_title_i: 'en un clic.',
+    pt_hint: 'Pulsa un tono y el catálogo se filtra al instante.',
+    disp_label: 'Expositor de sobremesa',
+    disp_title: 'Elige tu acabado',
+    disp_eyebrow: 'Expositores incluidos',
+    disp_h_a: 'Tu vitrina,',
+    disp_h_b: 'montada en un minuto.',
+    disp_desc: 'Tres expositores de pie, pequeños y con peso, en tres acabados para que combinen con tu mobiliario. Incluidos a partir de 20 unidades.',
+    disp_b1: 'Formato compacto de sobremesa — no roba espacio en el mostrador',
+    disp_b2: 'Tres acabados: verde botella, dorado y terracota',
+    disp_b3: 'Incluidos sin coste desde 20 uds · 8,90€ sueltos',
+    d1_name: 'Verde',
+    d2_name: 'Dorado',
+    d3_name: 'Terracota',
+    box_label: 'La caja Minüe',
+    box_title: 'Cada montura, en su caja',
+    box_desc: 'Caja rígida con el sello Minüe, lista para entregar al cliente final. El detalle que convierte una venta en un regalo.',
+    acet_note_t: 'Colección Acetato — precio aparte',
+    acet_note_d: 'La línea Acetato no entra en los tramos por volumen: precio fijo de 25,95€/ud, PVP recomendado 70€ (margen ~63%). Suma unidades al total del pedido pero mantiene su propio precio.',
+    aw_models: 'modelos',
+    aw_add: 'Añadir',
+    aw_close: 'Cerrar',
+    aw_expand: 'Desplegar modelos',
+    vb_title: 'Equilibrio de tu vitrina',
+    vb_units: 'uds',
+    vb_tip_dom: 'Tu selección se concentra en',
+    vb_tip_ok: 'Buen equilibrio de tonos.',
+    vb_tip_missing: 'Te falta',
+    aw_cta: 'Ver los modelos',
+    aw_cta_on: 'Filtrando por este tono',
+    aw_eyebrow: 'Los colores de la temporada',
+    aw_h2a: 'La paleta AW26/27,',
+    aw_h2b: 'ya en catálogo.',
+    aw_intro: 'Pantone marcó marrones, burdeos y olivas para este otoño-invierno. No hace falta esperar: los modelos que ya rotan están en esa paleta.',
+    aw_1t: 'Toffee · Cocoa',
+    aw_1d: 'El marrón es el color base de la temporada, del caramelo al espresso.',
+    aw_2t: 'Burnt Olive',
+    aw_2d: 'El verde profundo que acompaña a las lanas y los abrigos.',
+    aw_3t: 'Red Mahogany',
+    aw_3d: 'El burdeos de las fiestas: dramático y elegante.',
+    aw_4t: 'Muted Clay',
+    aw_4d: 'Terracota apagado, el tono tierra más suave del informe.',
+    aw_5t: 'Candied Ginger',
+    aw_5d: 'Miel y ámbar, el neutro cálido que favorece a todas.',
+    aw_6t: 'Egret',
+    aw_6d: 'Blanco cremoso: el contraste que ilumina el resto de la vitrina.',
+    dist_tagline: 'Distribución wholesale internacional · Diseño handcrafted in Spain',
+    kids_optional: 'Te respondemos con tarifas y stock disponible.',
+    kids_response: 'Respuesta en menos de 24h · Sin compromiso de pago',
+    pkg_vivo_label: 'PACKAGING VIVO',
+    pkg_vivo_t: 'Fundas con',
+    pkg_vivo_i: 'personalidad',
+    pkg_vivo_d: 'Las fundas rígidas que acompañan cada montura cambian de colores según la temporada, el clima y las tendencias. No es solo packaging — es una pieza de estilo que el cliente final también lleva.',
+    av_label: 'POSTVENTA',
+    av_h3: 'Estamos contigo después del pedido',
+    av_intro: 'Tu satisfacción y la de tus clientes es nuestra prioridad. Gestionamos cualquier incidencia de forma rápida y sin burocracia.',
+    av_1t: 'Cambios por defecto de fábrica',
+    av_1d: 'Si una montura llega con algún defecto de fabricación, la reponemos o abonamos sin coste. Solo necesitas foto del defecto y número de pedido.',
+    av_2t: 'Roturas accidentales del cliente final',
+    av_2d: 'Ofrecemos precio especial de reposición de piezas sueltas para que puedas dar solución a tu cliente rápidamente y fidelizarlo.',
+    av_3t: 'Garantía de producto',
+    av_3d: 'Todos los modelos tienen garantía de fabricación de 12 meses. Cubrimos defectos en bisagras, patillas y acetato bajo uso normal.',
+    av_4t: 'Respuesta en 24h',
+    av_4d: 'Cualquier incidencia es atendida en menos de 24 horas en días laborables. Contacta directamente por WhatsApp para máxima agilidad.',
+    kids_soon: 'Ya disponible · Cápsula AW26/27',
+    kids_h2a: 'Pequeñas',
+    kids_h2b: 'grandes miradas.',
+    kids_intro: 'Minuë llega a los más pequeños. El mismo acetato artesanal, las mismas bisagras cuidadas, los mismos colores que no piden permiso. Para niños de 3 a 14 años que ya tienen su propio estilo.',
+    kids_f1: 'Acetato hipoalergénico',
+    kids_f2: 'Bisagras flexibles',
+    kids_f3: 'UV400 certificado',
+    kids_f4: '2 tallas · 3–8 y 8–14 años',
+    kids_quote: '"Porque los niños también merecen ver el mundo con estilo."',
+    kids_cta: 'Consultar Minuë Junior',
+    kids_launch: 'Cápsula limitada',
+    kids_retailer: 'Cápsula pequeña de edición limitada: tarifas y precio a consultar.',
+    kids_notify_d: 'Escríbenos y te pasamos disponibilidad, tarifas y condiciones de la cápsula Junior.',
+    kids_notify_btn: 'Pedir información',
+    kids_email_ph: 'tu@optica.com',
+    faire_ship_es: '3–4 días España',
+    faire_ship_eu: '3–6 días Europa',
+    faire_ship_int: '6–9 días internacional',
+    faire_order: 'Pedir en Faire',
+    faire_reviews: 'reseñas',
+    stat_cities: 'ciudades',
+    stat_countries: 'países',
+    stat_years: 'años',
+    stat_models: 'modelos',
+    stat_products: 'productos',
+    hiw_no_pay: 'Sin pago previo',
     // FAQ
     faq_eyebrow: 'Preguntas frecuentes',
     faq_h2: 'Lo que suelen preguntar los retailers',
@@ -240,15 +392,15 @@ const I18N = {
   },
   fr: {
     nav_contact: 'Contact', nav_catalog: 'Catalogue', nav_rates: 'Tarifs', nav_order: 'Commande', nav_pdf: 'PDF', nav_faq: 'FAQ',
-    hdr_eyebrow: 'B2B Wholesale · SS26',
+    hdr_eyebrow: 'B2B Wholesale · AW26/27',
     hdr_h1_a: 'Explorez, sélectionnez', hdr_h1_b: 'et passez', hdr_h1_c: 'votre commande.',
     hdr_sub: 'Parcourez notre catalogue, ajoutez les modèles qui vous intéressent et envoyez-nous votre sélection. Prix dégressif : plus vous commandez, plus le prix unitaire baisse.',
     hdr_chip_top: 'Meilleures ventes', hdr_chip_rates: 'Voir les tarifs par volume',
     banner_expositor: 'Présentoirs inclus à partir de 20 unités — sans frais supplémentaires',
     bar_your_tier: 'Votre palier', bar_empty: 'Aucune unité — ajoutez des produits pour voir votre prix.',
     bar_missing_a: 'Il vous manque', bar_missing_b: 'unités pour passer à', bar_rate_btn: 'Voir le tableau',
-    top_eyebrow: '★ Meilleures ventes SS26',
-    top_h2_month_pre: 'Les modèles qui tournent le plus en', top_h2_c: '.',
+    top_eyebrow: '★ Meilleures ventes AW26/27',
+    top_h2_month_pre: 'Les modèles qui seront best-sellers', top_h2_c: '.',
     top_sub: 'Classés par rotation réelle chez nos distributeurs actuels.',
     filter_color: 'Couleur', filter_shape: 'Forme', filter_clear: 'effacer',
     col_eyebrow: 'Collection',
@@ -258,7 +410,7 @@ const I18N = {
     empty_filter_t: 'Aucun modèle avec ce filtre',
     empty_filter_d: 'Essayez d\'élargir la sélection.',
     pkg_eyebrow: 'Packaging', pkg_h2_a: 'Prêt pour la', pkg_h2_b: 'vitrine', pkg_h2_c: '.',
-    pkg_sub: 'Chaque monture arrive prête à être exposée. Sans retraitement, sans ré-emballage, sans perte de temps.',
+    pkg_sub: 'Nous soignons chaque détail qui entoure chaque design.',
     pkg1_t: 'Packaging complet inclus',
     pkg1_d: 'Chaque monture inclut : boîte de présentation avec logo, étui rigide, chiffon microfibre, carte de spécifications techniques et autocollant CE + UV400. Prêt pour le client final.',
     pkg_contents_label: 'Dans chaque boîte',
@@ -274,7 +426,7 @@ const I18N = {
     tech_cat: 'Catégorie 3', tech_cat_d: 'Verres à haute capacité de filtrage pour usage en extérieur par fort ensoleillement.',
     tech_ce: 'Certificat CE', tech_ce_d: 'Conformité EN ISO 12312-1. Commercialisables dans toute l\'Union Européenne.',
     tech_pol: 'Verres polarisés', tech_pol_d: 'Élimination des reflets. Meilleur contraste et définition visuelle.',
-    tech_impact: 'Résistance aux chocs', tech_impact_d: 'Tests de résistance ISO réussis. Branches avec âme acier (collection Acétate).',
+    tech_impact: 'Résistance aux chocs', tech_impact_d: 'Tests de résistance ISO réussis. Branches avec âme métal (collection Acétate).',
     tech_drop: 'Drop Ball Test', tech_drop_d: 'Test d\'impact Drop Ball réussi selon EN ISO 12312-1.',
     tech_fod: 'FOD — Sans défaut', tech_fod_d: 'Contrôle qualité individuel. Chaque monture inspectée et approuvée à la sortie d\'usine.',
     pkg2_t: 'Protection premium',
@@ -286,9 +438,9 @@ const I18N = {
     cta_sub: 'Présentoirs offerts dès 20 u · Livraison gratuite +20 u · 3% paiement anticipé (plan en 2 fois).',
     cta_btn: 'Voir le tableau complet',
     ft_contact: 'Contact', ft_conditions: 'Conditions',
-    ft_cond1: 'Prix à partir de 17,90€/u (40+ u)', ft_cond2: 'Prix public conseillé 55–60€',
+    ft_cond1: 'Prix à partir de 17,90€/u (40+ u)', ft_cond2: 'Prix public conseillé 50€ · Acétate 70€',
     ft_cond3: 'Livraison gratuite +20 u', ft_cond4: '3% rem. paiement anticipé',
-    ft_copyright: '© 2026 Minuë Opticians — Catalogue Wholesale SS26',
+    ft_copyright: '© 2026 Minuë Opticians — Catalogue Wholesale AW26/27',
     ft_tagline: 'Un catalogue. Un menuet.',
     panel_eyebrow: 'Commande', panel_h3: 'Ma sélection',
     panel_empty_t: 'Encore vide', panel_empty_d: 'Ajoutez les modèles qui vous intéressent pour nous envoyer votre demande.',
@@ -304,16 +456,16 @@ const I18N = {
     panel_no_pay_sub: 'Envoyez votre sélection et nous confirmons disponibilité, prix final et délais avant tout paiement.',
     panel_mi_pedido: 'Ma commande', panel_remove: 'supprimer',
     panel_added: 'Ajouté', panel_add: 'Ajouter',
-    modal_eyebrow: 'Tarifs SS26',
+    modal_eyebrow: 'Tarifs AW26/27',
     modal_h2_a: 'Prix par', modal_h2_b: 'volume', modal_h2_c: ' — plus vous commandez, moins vous payez.',
     modal_your_tier: 'Votre palier',
     modal_payments: 'Paiements :', modal_expositor: 'Présentoir :', modal_free_ship: '✓ Livraison gratuite',
     modal_plus60_label: '+60 u', modal_plus60_t: 'Conditions spéciales',
     modal_plus60_d: 'Contactez-nous directement ou écrivez à',
     modal_early_t: 'Paiement anticipé', modal_early_d: '3% de remise supplémentaire sur les plans en 2 fois si vous payez à la livraison.',
-    modal_rrp_t: 'Prix public conseillé', modal_rrp_d: 'Entre 55€ et 60€ client final. Marge brute moyenne de 67%.',
+    modal_rrp_t: 'Prix public conseillé', modal_rrp_d: '50€ client final (Acétate 70€). Marge brute moyenne de 64%.',
     modal_ship_t: 'Livraison', modal_ship_d: 'Gratuite à partir de 20 unités. Frais selon destination en-dessous.',
-    modal_footer: 'Prix en euros, HT. Tarifs valables pour la saison SS26.',
+    modal_footer: 'Prix en euros, HT. Tarifs valables pour la saison AW26/27.',
     order_greeting: 'Bonjour, je voudrais passer une commande :',
     order_tier: 'Palier', order_total_line: 'Total',
     order_plus60: 'Total : {n} u (palier +60, prix à confirmer)',
@@ -360,7 +512,7 @@ const I18N = {
     qv_shape: 'Forme', qv_rrp: 'PPC conseillé', qv_close: 'Fermer', qv_add: 'Ajouter à la commande', qv_added: 'Ajouté',
     nav_badge: 'Trade Direct',
     nav_badge_sub: 'Sélectionnez et commandez · sans inscription',
-    new_eyebrow: '✦ Nouveautés SS26',
+    new_eyebrow: '✦ Nouveautés AW26/27',
     new_h2_a: 'Tout', new_h2_b: 'juste arrivés', new_h2_c: '.',
     new_sub: 'Premières pièces disponibles. Commandez avant rupture de stock.',
     new_show_more: 'Voir plus de modèles', new_show_less: 'Voir moins',
@@ -378,7 +530,7 @@ const I18N = {
     col_models: 'modèles',
     col_expand_hint: 'Cliquez pour explorer',
     tier_best: 'Le plus choisi',
-    ss26_banner: '🌿  Saison SS26 ouverte  ·  Nouveaux modèles disponibles  ·  Stock limité',
+    ss26_banner: '🍂  Saison AW26/27 ouverte  ·  Écaille, cocoa, olive et bordeaux  ·  En vitrine pour les fêtes',
     faq_eyebrow: 'Questions fréquentes', faq_h2: 'Ce que demandent souvent les retailers',
     faq_q1: 'Quelle est la commande minimale ?', faq_a1: "Il n'y a pas de minimum. Vous pouvez commander à partir d'1 unité, mais les prix s'améliorent significativement à partir de 10 unités.",
     faq_q2: 'Comment fonctionne cette plateforme ?', faq_a2: "C'est un catalogue B2B privé, pas une boutique en ligne. Sélectionnez les modèles, ajoutez-les au panier et envoyez-nous votre demande par WhatsApp ou email. Confirmation stock et prix en moins de 24h.",
@@ -386,19 +538,169 @@ const I18N = {
     faq_q4: "Qu'est-ce qui est inclus dans le présentoir ?", faq_a4: 'Un présentoir de comptoir compact, conçu pour 5 montures. Volontairement petit : il prend moins de place et évite de saturer le client avec trop de choix. Inclus sans frais à partir de 20 unités.',
     faq_q5: 'Les lunettes incluent-elles un packaging ?', faq_a5: 'Oui. Chaque monture est livrée avec boîte, étui rigide, chiffon microfibre, fiche technique et autocollant CE+UV400.',
     faq_q6: 'Sont-ils disponibles sur Faire ?', faq_a6: 'Oui. Commandez directement sur Faire Wholesale en cherchant "Minuë Opticians".',
-    faq_q7: 'Quelle est la garantie ?', faq_a7: '2 ans de garantie fabricant. Défaut de fabrication = remplacement sans frais.',
+    faq_q7: 'Quelle est la garantie ?',     code_label: 'Vous avez un code spécial ?',
+    code_placeholder: 'Entrez votre code',
+    code_applied: '✓ Remise de 5% appliquée',
+    code_invalid: 'Code invalide',
+    code_discount: 'Remise code',
+    ft_cta_h: 'Vous préférez parler avant de commander ?',
+    ft_cta_d: 'Notre équipe répond le jour même. Sans pression.',
+    ft_cta_wa: 'Écrire sur WhatsApp',
+    ft_cta_email: 'Envoyer un email',
+    tier_valid: "Tarifs valables saison AW26/27 · jusqu'au 28 f\u00e9vr. 2027",
+    tier_save_label: 'Économies vs prix de base',
+    save_selection: 'Sauvegarder la sélection',
+    save_done: '✓ Sauvegardé',
+    share_partner: 'Partager avec un partenaire',
+    qv_qty_label: 'Quantité',
+    geo_detected: 'Nous avons détecté que vous êtes en',
+    geo_orders_to: 'Vos commandes iront à',
+    geo_change: 'Changer',
+    nav_lang: 'Langue',
+    pou_eyebrow: 'Étuis de la saison',
+    pou_h_a: 'Trois combinaisons,',
+    pou_h_b: 'trois façons de la remettre.',
+    pou_sub: 'L\'étui rigide accompagne chaque monture et change de couleur avec la saison. Ce n\'est pas un emballage : c\'est une pièce que votre cliente emporte.',
+    p1_name: 'Combinaison I',
+    p1_desc: 'Étui et boîte assortis, l\'ensemble classique de la maison.',
+    p2_name: 'Combinaison II',
+    p2_desc: 'Contraste chaud pour les montures écaille et cocoa.',
+    p3_name: 'Combinaison III',
+    p3_desc: 'Tons terre, la finition de la capsule d\'automne.',
+    pou_foot: 'Inclus avec chaque monture, sans frais · Cliquez pour agrandir',
+    filt_active: 'Filtré par la palette AH26/27',
+    filt_clear: 'Retirer le filtre',
+    acet_tier_label: 'Acétate · hors paliers',
+    acet_tier_unit: '/ u · prix fixe',
+    acet_tier_d: 'La ligne Acétate ne baisse pas avec le volume : tarif fixe toute l\'année.',
+    acet_tier_b1: 'Prix public conseillé 70€ · marge ~63%',
+    acet_tier_b2: 'Ses unités comptent pour atteindre votre palier',
+    ft_it_area: 'Distribution Italie · Commandes et visites showroom',
+    hero_eyebrow: 'Collection Automne-Hiver 26/27',
+    hero_h_a: 'La lumière basse',
+    hero_h_b: 'appelle un autre filtre.',
+    hero_sub: 'Écaille, cocoa, guiza et olive : la palette de la saison est déjà au catalogue. Choisissez une teinte et montez votre vitrine en quelques minutes.',
+    hero_palette: 'Palette de la saison',
+    hero_s1_n: 'Dès 17,90€',
+    hero_s1_l: 'PAR UNITÉ',
+    hero_s2_n: 'Marge 64%',
+    hero_s2_l: 'PPC 50€',
+    hero_s3_n: '24–48h',
+    hero_s3_l: 'LIVRAISON',
+    acet_split_t: 'Détail de la commande',
+    acet_split_d: 'L\'acétate garde son prix fixe de 25,95€/u et n\'entre pas dans les paliers de volume, même si ses unités comptent pour atteindre le palier.',
+    pt_eyebrow: 'Achetez par couleur de saison',
+    pt_title: 'La palette AW26/27,',
+    pt_title_i: 'en un clic.',
+    pt_hint: 'Cliquez sur une teinte, le catalogue se filtre aussitôt.',
+    disp_label: 'Présentoir de comptoir',
+    disp_title: 'Choisissez votre finition',
+    disp_eyebrow: 'Présentoirs inclus',
+    disp_h_a: 'Votre vitrine,',
+    disp_h_b: 'montée en une minute.',
+    disp_desc: 'Trois présentoirs sur pied, compacts et lestés, en trois finitions pour s\'accorder à votre mobilier. Inclus dès 20 unités.',
+    disp_b1: 'Format compact de comptoir — ne vole pas de place',
+    disp_b2: 'Trois finitions : vert bouteille, doré et terracotta',
+    disp_b3: 'Inclus dès 20 pcs · 8,90€ à l\'unité',
+    d1_name: 'Vert',
+    d2_name: 'Doré',
+    d3_name: 'Terracotta',
+    box_label: 'La boîte Minüe',
+    box_title: 'Chaque monture, dans sa boîte',
+    box_desc: 'Boîte rigide au sceau Minüe, prête à remettre au client final. Le détail qui transforme une vente en cadeau.',
+    acet_note_t: 'Collection Acétate — tarif à part',
+    acet_note_d: 'La ligne Acétate n\'entre pas dans les paliers de volume : prix fixe de 25,95€/u, prix public conseillé 70€ (marge ~63%). Les unités comptent dans le total mais gardent leur propre tarif.',
+    aw_models: 'modèles',
+    aw_add: 'Ajouter',
+    aw_close: 'Fermer',
+    aw_expand: 'Voir les modèles',
+    vb_title: 'Équilibre de votre vitrine',
+    vb_units: 'pcs',
+    vb_tip_dom: 'Votre sélection se concentre sur',
+    vb_tip_ok: 'Bon équilibre de tons.',
+    vb_tip_missing: 'Il vous manque',
+    aw_cta: 'Voir les modèles',
+    aw_cta_on: 'Filtré sur cette teinte',
+    aw_eyebrow: 'Les couleurs de la saison',
+    aw_h2a: 'La palette AW26/27,',
+    aw_h2b: 'déjà au catalogue.',
+    aw_intro: 'Pantone a retenu les bruns, bordeaux et olives pour cet automne-hiver. Pas besoin d\'attendre : les modèles qui tournent déjà sont dans cette palette.',
+    aw_1t: 'Toffee · Cocoa',
+    aw_1d: 'Le brun est la couleur de base de la saison, du caramel à l\'espresso.',
+    aw_2t: 'Burnt Olive',
+    aw_2d: 'Le vert profond qui accompagne les mailles et les manteaux.',
+    aw_3t: 'Red Mahogany',
+    aw_3d: 'Le bordeaux des fêtes : dramatique et élégant.',
+    aw_4t: 'Muted Clay',
+    aw_4d: 'Terracotta assourdi, le ton terre le plus doux du rapport.',
+    aw_5t: 'Candied Ginger',
+    aw_5d: 'Miel et ambre, le neutre chaud qui flatte tous les teints.',
+    aw_6t: 'Egret',
+    aw_6d: 'Blanc crémeux : le contraste qui éclaire toute la vitrine.',
+    dist_tagline: 'Distribution wholesale internationale · Design handcrafted in Spain',
+    kids_optional: 'Nous répondons avec les tarifs et le stock disponible.',
+    kids_response: 'Réponse sous 24h · Sans engagement de paiement',
+    pkg_vivo_label: 'PACKAGING VIVANT',
+    pkg_vivo_t: 'Étuis avec',
+    pkg_vivo_i: 'personnalité',
+    pkg_vivo_d: 'Les étuis rigides qui accompagnent chaque monture changent de couleur selon la saison, le climat et les tendances. Ce n\'est pas qu\'un emballage — c\'est une pièce de style que le client final porte aussi.',
+    av_label: 'SERVICE APRÈS-VENTE',
+    av_h3: 'Nous sommes là après la commande',
+    av_intro: 'Votre satisfaction et celle de vos clients est notre priorité. Nous gérons tout incident rapidement et sans bureaucratie.',
+    av_1t: 'Défauts de fabrication',
+    av_1d: 'Si une monture présente un défaut de fabrication, nous la remplaçons ou la remboursons sans frais. Il suffit d\'une photo du défaut et du numéro de commande.',
+    av_2t: 'Casses accidentelles du client final',
+    av_2d: 'Nous proposons un prix spécial de remplacement des pièces détachées pour fidéliser rapidement votre client.',
+    av_3t: 'Garantie produit',
+    av_3d: 'Tous les modèles ont 12 mois de garantie. Nous couvrons les défauts de charnières, branches et acétate en usage normal.',
+    av_4t: 'Réponse sous 24h',
+    av_4d: 'Tout incident est traité en moins de 24h les jours ouvrés. Contactez-nous directement par WhatsApp pour plus de rapidité.',
+    kids_soon: 'Disponible · Capsule AH26/27',
+    kids_h2a: 'Petits',
+    kids_h2b: 'grands regards.',
+    kids_intro: 'Minuë arrive pour les plus petits. Le même acétate artisanal, les mêmes charnières soignées, les mêmes couleurs sans complexe. Pour les enfants de 3 à 14 ans qui ont déjà leur style.',
+    kids_f1: 'Acétate hypoallergénique',
+    kids_f2: 'Charnières flexibles',
+    kids_f3: 'UV400 certifié',
+    kids_f4: '2 tailles · 3–8 et 8–14 ans',
+    kids_quote: '"Parce que les enfants méritent aussi de voir le monde avec style."',
+    kids_cta: 'Demander Minuë Junior',
+    kids_launch: 'Capsule limitée',
+    kids_retailer: 'Petite capsule en édition limitée : tarifs et prix sur demande.',
+    kids_notify_d: 'Écrivez-nous et nous vous transmettons disponibilité, tarifs et conditions de la capsule Junior.',
+    kids_notify_btn: 'Demander les tarifs',
+    kids_email_ph: 'vous@opticien.com',
+    faire_ship_es: '3–4 jours Espagne',
+    faire_ship_eu: '3–6 jours Europe',
+    faire_ship_int: '6–9 jours international',
+    faire_order: 'Commander sur Faire',
+    faire_reviews: 'avis',
+    stat_cities: 'villes',
+    stat_countries: 'pays',
+    stat_years: 'ans',
+    stat_models: 'modèles',
+    stat_products: 'produits',
+    hiw_eyebrow: 'Comment ça marche',
+    hiw_no_pay: 'Sans paiement préalable',
+    hiw_1_t: 'Explorez',
+    hiw_1_d: 'Ajoutez au panier ce qui vous intéresse. Sans inscription.',
+    hiw_2_t: 'Envoyez-nous',
+    hiw_2_d: 'Envoyez votre liste par WhatsApp ou email. Sans payer.',
+    hiw_3_t: 'Nous confirmons',
+    hiw_3_d: 'Stock, prix et délais confirmés en moins de 24h.',
+    faq_a7: '2 ans de garantie fabricant. Défaut de fabrication = remplacement sans frais.',
   },
   en: {
     nav_contact: 'Contact', nav_catalog: 'Catalogue', nav_rates: 'Pricing', nav_order: 'Order', nav_pdf: 'PDF', nav_faq: 'FAQ',
-    hdr_eyebrow: 'B2B Wholesale · SS26',
+    hdr_eyebrow: 'B2B Wholesale · AW26/27',
     hdr_h1_a: 'Browse, select', hdr_h1_b: 'and place', hdr_h1_c: 'your order.',
     hdr_sub: 'Explore our catalogue, add the models you like and send us your selection. Volume pricing: the more units, the lower the unit price.',
     hdr_chip_top: 'Top Sellers', hdr_chip_rates: 'See volume pricing',
     banner_expositor: 'Displays included from 20+ units — no extra cost',
     bar_your_tier: 'Your tier', bar_empty: 'No units yet — add products to see your price.',
     bar_missing_a: 'You need', bar_missing_b: 'more units to drop to', bar_rate_btn: 'View table',
-    top_eyebrow: '★ Top Sellers SS26',
-    top_h2_month_pre: 'The models selling fastest this', top_h2_c: '.',
+    top_eyebrow: '★ Top Sellers AW26/27',
+    top_h2_month_pre: 'The models set to be best-sellers', top_h2_c: '.',
     top_sub: 'Ranked by actual turnover across our current stockists.',
     filter_color: 'Colour', filter_shape: 'Shape', filter_clear: 'clear',
     col_eyebrow: 'Collection',
@@ -408,7 +710,7 @@ const I18N = {
     empty_filter_t: 'No models with this filter',
     empty_filter_d: 'Try broadening the selection.',
     pkg_eyebrow: 'Packaging', pkg_h2_a: 'Shelf-', pkg_h2_b: 'ready', pkg_h2_c: '.',
-    pkg_sub: 'Every frame arrives ready to display. No repackaging, no unboxing work, no time wasted.',
+    pkg_sub: 'We care for every detail surrounding each design.',
     pkg1_t: 'Full packaging included',
     pkg1_d: 'Each frame includes: branded presentation box, hard case, microfibre cloth, technical specs card and CE + UV400 sticker. Ready for end customer, no repackaging needed.',
     pkg_contents_label: 'In every box',
@@ -424,7 +726,7 @@ const I18N = {
     tech_cat: 'Category 3', tech_cat_d: 'High-filter lenses for outdoor use in bright sunlight. Light transmission 8-18%.',
     tech_ce: 'CE Certified', tech_ce_d: 'Compliant with EN ISO 12312-1. Approved for sale across the European Union.',
     tech_pol: 'Polarised lenses', tech_pol_d: 'Eliminates glare and reflections. Enhanced contrast and visual definition.',
-    tech_impact: 'Impact resistance', tech_impact_d: 'ISO impact resistance tests passed. Steel-core temples on Acetato collection.',
+    tech_impact: 'Impact resistance', tech_impact_d: 'ISO impact resistance tests passed. Metal-core temples on Acetato collection.',
     tech_drop: 'Drop Ball Test', tech_drop_d: 'Pass the Drop Ball impact test per EN ISO 12312-1. Certified resistance to direct frontal impact.',
     tech_fod: 'FOD — Free of Defects', tech_fod_d: 'Individual quality control per unit. Every frame inspected and approved at factory.',
     pkg2_t: 'Premium protection',
@@ -436,9 +738,9 @@ const I18N = {
     cta_sub: 'Free displays from 20 units · Free shipping 20+ units · 3% early-payment discount on 2-instalment plans.',
     cta_btn: 'See full table',
     ft_contact: 'Contact', ft_conditions: 'Terms',
-    ft_cond1: 'From €17.90/unit (40+ units)', ft_cond2: 'RRP €55–60',
+    ft_cond1: 'From €17.90/unit (40+ units)', ft_cond2: 'RRP €50 · Acetate €70',
     ft_cond3: 'Free shipping 20+ units', ft_cond4: '3% early-payment discount (2 instalments)',
-    ft_copyright: '© 2026 Minuë Opticians — Wholesale Catalogue SS26',
+    ft_copyright: '© 2026 Minuë Opticians — Wholesale Catalogue AW26/27',
     ft_tagline: 'One catalogue. One minuet.',
     panel_eyebrow: 'Order', panel_h3: 'My selection',
     panel_empty_t: 'Still empty', panel_empty_d: 'Add the models you\'re interested in to send us your request.',
@@ -454,7 +756,7 @@ const I18N = {
     panel_no_pay_sub: 'Send your selection and we\'ll confirm availability, final price and lead times before any payment.',
     panel_mi_pedido: 'My order', panel_remove: 'remove',
     panel_added: 'Added', panel_add: 'Add',
-    modal_eyebrow: 'SS26 Pricing',
+    modal_eyebrow: 'AW26/27 Pricing',
     modal_h2_a: 'Volume', modal_h2_b: 'pricing', modal_h2_c: ' — the more you order, the less you pay.',
     modal_your_tier: 'Your tier',
     modal_payments: 'Payments:', modal_expositor: 'Display:', modal_free_ship: '✓ Free shipping',
@@ -463,7 +765,7 @@ const I18N = {
     modal_early_t: 'Early payment', modal_early_d: '3% additional discount on 2-instalment plans if you pay at delivery.',
     modal_rrp_t: 'Recommended RRP', modal_rrp_d: 'Between €55 and €60 end customer. Average 67% gross margin.',
     modal_ship_t: 'Shipping', modal_ship_d: 'Free from 20 units. Cost depends on destination below that tier.',
-    modal_footer: 'Prices in euros, VAT excluded. Rates valid for the SS26 season.',
+    modal_footer: 'Prices in euros, VAT excluded. Rates valid for the AW26/27 season.',
     order_greeting: 'Hello, I would like to place an order:',
     order_tier: 'Tier', order_total_line: 'Total',
     order_plus60: 'Total: {n} units (+60 tier, price TBC)',
@@ -510,7 +812,7 @@ const I18N = {
     qv_shape: 'Shape', qv_rrp: 'Recommended RRP', qv_close: 'Close', qv_add: 'Add to order', qv_added: 'Added',
     nav_badge: 'Trade Direct',
     nav_badge_sub: 'Select and order directly · no account needed',
-    new_eyebrow: '✦ New Arrivals SS26',
+    new_eyebrow: '✦ New Arrivals AW26/27',
     new_h2_a: 'Just', new_h2_b: 'landed', new_h2_c: '.',
     new_sub: 'First units available. Order before they sell out.',
     new_show_more: 'Show more models', new_show_less: 'Show less',
@@ -528,7 +830,7 @@ const I18N = {
     col_models: 'models',
     col_expand_hint: 'Click to explore',
     tier_best: 'Most popular',
-    ss26_banner: '🌿  SS26 Season Open  ·  New models available  ·  Limited stock',
+    ss26_banner: '🍂  AW26/27 Season Open  ·  Tortoise, cocoa, olive and bordeaux  ·  In store for the holidays',
     faq_eyebrow: 'FAQs', faq_h2: 'What retailers usually ask',
     faq_q1: 'What is the minimum order?', faq_a1: 'There is no minimum. You can order from 1 unit, but prices improve significantly from 10 units.',
     faq_q2: 'How does this platform work?', faq_a2: 'This is a private B2B catalog, not an online store. Select models, add to cart and send your request via WhatsApp or email. We confirm stock, price and delivery within 24h — no payment required until confirmation.',
@@ -536,19 +838,169 @@ const I18N = {
     faq_q4: 'What does the display stand include?', faq_a4: 'A compact countertop display designed for 5 frames. Intentionally small: takes up less counter space and avoids overwhelming customers with too many options at once. Included at no extra cost from 20 units.',
     faq_q5: 'Do the glasses include packaging?', faq_a5: 'Yes. Each frame comes with box, rigid case, microfibre cloth, tech card and CE+UV400 sticker — ready to display immediately.',
     faq_q6: 'Are they available on Faire?', faq_a6: 'Yes. Order directly on Faire Wholesale by searching "Minuë Opticians".',
-    faq_q7: 'What warranty do the products have?', faq_a7: '2-year manufacturer warranty. Factory defects replaced at no cost.',
+    faq_q7: 'What warranty do the products have?',     code_label: 'Have a special code?',
+    code_placeholder: 'Enter your code',
+    code_applied: '✓ 5% discount applied',
+    code_invalid: 'Invalid code',
+    code_discount: 'Code discount',
+    ft_cta_h: 'Prefer to talk before ordering?',
+    ft_cta_d: 'Our team responds same day. No pressure, no commitment.',
+    ft_cta_wa: 'Chat on WhatsApp',
+    ft_cta_email: 'Send email',
+    tier_valid: 'Rates valid AW26/27 season · until 28 Feb 2027',
+    tier_save_label: 'You save vs base price',
+    save_selection: 'Save selection',
+    save_done: '✓ Saved',
+    share_partner: 'Share with partner',
+    qv_qty_label: 'Quantity',
+    geo_detected: 'We detected you are in',
+    geo_orders_to: 'Your orders will go to',
+    geo_change: 'Change',
+    nav_lang: 'Language',
+    pou_eyebrow: 'Season pouches',
+    pou_h_a: 'Three combinations,',
+    pou_h_b: 'three ways to hand it over.',
+    pou_sub: 'The hard case comes with every frame and changes colour with the season. Not packaging: a piece your customer carries.',
+    p1_name: 'Combination I',
+    p1_desc: 'Matching case and box, the classic house set.',
+    p2_name: 'Combination II',
+    p2_desc: 'Warm contrast for tortoise and cocoa frames.',
+    p3_name: 'Combination III',
+    p3_desc: 'Earth tones, the autumn capsule finish.',
+    pou_foot: 'Included with every frame at no cost · Click to enlarge',
+    filt_active: 'Filtered by the AW26/27 palette',
+    filt_clear: 'Clear filter',
+    acet_tier_label: 'Acetate · outside tiers',
+    acet_tier_unit: '/ unit · fixed price',
+    acet_tier_d: 'The Acetate line does not drop with volume: fixed rate all year round.',
+    acet_tier_b1: 'RRP €70 · margin ~63%',
+    acet_tier_b2: 'Its units do count towards reaching your tier',
+    ft_it_area: 'Italy distribution · Orders and showroom visits',
+    hero_eyebrow: 'Autumn-Winter 26/27 Collection',
+    hero_h_a: 'Low light',
+    hero_h_b: 'calls for another lens.',
+    hero_sub: 'Tortoise, cocoa, honey and olive: this season\'s palette is already in the catalogue. Pick a tone and build your display in minutes.',
+    hero_palette: 'Season palette',
+    hero_s1_n: 'From €17.90',
+    hero_s1_l: 'PER UNIT',
+    hero_s2_n: '64% margin',
+    hero_s2_l: 'RRP €50',
+    hero_s3_n: '24–48h',
+    hero_s3_l: 'SHIPPING',
+    acet_split_t: 'Order breakdown',
+    acet_split_d: 'Acetate keeps its fixed price of €25.95/unit and is outside the volume tiers, although its units do count towards reaching the tier.',
+    pt_eyebrow: 'Shop by season colour',
+    pt_title: 'The AW26/27 palette,',
+    pt_title_i: 'one click away.',
+    pt_hint: 'Tap a tone and the catalogue filters instantly.',
+    disp_label: 'Counter display',
+    disp_title: 'Choose your finish',
+    disp_eyebrow: 'Displays included',
+    disp_h_a: 'Your display,',
+    disp_h_b: 'set up in a minute.',
+    disp_desc: 'Three small weighted standing displays in three finishes to match your furniture. Included from 20 units.',
+    disp_b1: 'Compact counter format — takes no shelf space',
+    disp_b2: 'Three finishes: bottle green, gold and terracotta',
+    disp_b3: 'Free from 20 pcs · €8.90 each',
+    d1_name: 'Green',
+    d2_name: 'Gold',
+    d3_name: 'Terracotta',
+    box_label: 'The Minüe box',
+    box_title: 'Every frame, in its box',
+    box_desc: 'Rigid box with the Minüe seal, ready to hand to the end customer. The detail that turns a sale into a gift.',
+    acet_note_t: 'Acetate collection — priced separately',
+    acet_note_d: 'The Acetate line is not part of the volume tiers: fixed price of €25.95/unit, RRP €70 (margin ~63%). Units count towards the order total but keep their own price.',
+    aw_models: 'models',
+    aw_add: 'Add',
+    aw_close: 'Close',
+    aw_expand: 'Expand models',
+    vb_title: 'Your display balance',
+    vb_units: 'pcs',
+    vb_tip_dom: 'Your selection is concentrated in',
+    vb_tip_ok: 'Good tonal balance.',
+    vb_tip_missing: 'You are missing',
+    aw_cta: 'See the models',
+    aw_cta_on: 'Filtering this tone',
+    aw_eyebrow: 'The colours of the season',
+    aw_h2a: 'The AW26/27 palette,',
+    aw_h2b: 'already in stock.',
+    aw_intro: 'Pantone named browns, bordeaux and olives for this autumn-winter. No need to wait: the models already selling are in that palette.',
+    aw_1t: 'Toffee · Cocoa',
+    aw_1d: 'Brown is the season\'s base colour, from caramel to espresso.',
+    aw_2t: 'Burnt Olive',
+    aw_2d: 'The deep green that pairs with knits and coats.',
+    aw_3t: 'Red Mahogany',
+    aw_3d: 'The bordeaux of the festive season: dramatic and elegant.',
+    aw_4t: 'Muted Clay',
+    aw_4d: 'Muted terracotta, the softest earth tone in the report.',
+    aw_5t: 'Candied Ginger',
+    aw_5d: 'Honey and amber, the warm neutral that suits everyone.',
+    aw_6t: 'Egret',
+    aw_6d: 'Creamy white: the contrast that lifts the whole display.',
+    dist_tagline: 'International wholesale distribution · Handcrafted in Spain',
+    kids_optional: 'We reply with rates and available stock.',
+    kids_response: 'Response within 24h · No payment commitment',
+    pkg_vivo_label: 'LIVING PACKAGING',
+    pkg_vivo_t: 'Cases with',
+    pkg_vivo_i: 'personality',
+    pkg_vivo_d: 'The hard cases that come with each frame change colours with the season, the weather and trends. It\'s not just packaging — it\'s a style piece your customer carries too.',
+    av_label: 'AFTER-SALES',
+    av_h3: 'We\'re with you after the order',
+    av_intro: 'Your satisfaction and your customers\' is our priority. We handle any issue fast and without bureaucracy.',
+    av_1t: 'Factory defects',
+    av_1d: 'If a frame arrives with a manufacturing defect, we replace or refund it at no cost. Just send a photo of the defect and the order number.',
+    av_2t: 'Accidental customer breakage',
+    av_2d: 'We offer special replacement pricing on spare parts so you can solve your customer\'s problem fast and keep their loyalty.',
+    av_3t: 'Product warranty',
+    av_3d: 'All models carry a 12-month manufacturing warranty. We cover defects in hinges, temples and acetate under normal use.',
+    av_4t: '24h response',
+    av_4d: 'Any issue is handled within 24 hours on business days. Contact us directly on WhatsApp for maximum speed.',
+    kids_soon: 'Now available · AW26/27 capsule',
+    kids_h2a: 'Little',
+    kids_h2b: 'big gazes.',
+    kids_intro: 'Minuë arrives for the little ones. The same handcrafted acetate, the same careful hinges, the same colours that ask no permission. For kids aged 3 to 14 who already have their own style.',
+    kids_f1: 'Hypoallergenic acetate',
+    kids_f2: 'Flexible hinges',
+    kids_f3: 'UV400 certified',
+    kids_f4: '2 sizes · 3–8 and 8–14 years',
+    kids_quote: '"Because kids deserve to see the world in style too."',
+    kids_cta: 'Enquire about Minüe Junior',
+    kids_launch: 'Limited capsule',
+    kids_retailer: 'Small limited-edition capsule: rates and pricing on request.',
+    kids_notify_d: 'We\'ll let you know when the Junior catalogue is ready for orders.',
+    kids_notify_btn: 'Request pricing',
+    kids_email_ph: 'you@optician.com',
+    faire_ship_es: '3–4 days Spain',
+    faire_ship_eu: '3–6 days Europe',
+    faire_ship_int: '6–9 days international',
+    faire_order: 'Order on Faire',
+    faire_reviews: 'reviews',
+    stat_cities: 'cities',
+    stat_countries: 'countries',
+    stat_years: 'years',
+    stat_models: 'models',
+    stat_products: 'products',
+    hiw_eyebrow: 'How it works',
+    hiw_no_pay: 'No upfront payment',
+    hiw_1_t: 'Browse',
+    hiw_1_d: 'Add to cart anything you like. No signup required.',
+    hiw_2_t: 'Send it',
+    hiw_2_d: 'Send your list by WhatsApp or email. No payment needed.',
+    hiw_3_t: 'We confirm',
+    hiw_3_d: 'Stock, price and delivery times confirmed in under 24h.',
+    faq_a7: '2-year manufacturer warranty. Factory defects replaced at no cost.',
   },
   de: {
     nav_contact: 'Kontakt', nav_catalog: 'Katalog', nav_rates: 'Preise', nav_order: 'Bestellung', nav_pdf: 'PDF', nav_faq: 'FAQ',
-    hdr_eyebrow: 'B2B Wholesale · SS26',
+    hdr_eyebrow: 'B2B Wholesale · AW26/27',
     hdr_h1_a: 'Stöbern, auswählen', hdr_h1_b: 'und', hdr_h1_c: 'bestellen.',
     hdr_sub: 'Durchstöbern Sie unseren Katalog, fügen Sie die gewünschten Modelle hinzu und senden Sie uns Ihre Auswahl. Mengenrabatt: je mehr Stück, desto niedriger der Stückpreis.',
     hdr_chip_top: 'Bestseller', hdr_chip_rates: 'Mengenstaffelung ansehen',
     banner_expositor: 'Displays inklusive ab 20 Stück — ohne Aufpreis',
     bar_your_tier: 'Ihre Staffel', bar_empty: 'Noch keine Einheiten — fügen Sie Produkte hinzu.',
     bar_missing_a: 'Noch', bar_missing_b: 'Stk. für', bar_rate_btn: 'Tabelle ansehen',
-    top_eyebrow: '★ Bestseller SS26',
-    top_h2_month_pre: 'Die meistverkauften Modelle im', top_h2_c: '.',
+    top_eyebrow: '★ Bestseller AW26/27',
+    top_h2_month_pre: 'Die Modelle, die Bestseller werden', top_h2_c: '.',
     top_sub: 'Nach tatsächlicher Umschlagsrate unserer aktuellen Vertriebspartner.',
     filter_color: 'Farbe', filter_shape: 'Form', filter_clear: 'löschen',
     col_eyebrow: 'Kollektion',
@@ -558,7 +1010,7 @@ const I18N = {
     empty_filter_t: 'Keine Modelle mit diesem Filter',
     empty_filter_d: 'Versuchen Sie, die Auswahl zu erweitern.',
     pkg_eyebrow: 'Verpackung', pkg_h2_a: 'Vitrinen-', pkg_h2_b: 'fertig', pkg_h2_c: '.',
-    pkg_sub: 'Jede Fassung kommt ausstellungsbereit an. Kein Umpacken, kein Zeitverlust.',
+    pkg_sub: 'Wir kümmern uns um jedes Detail rund um jedes Design.',
     pkg1_t: 'Vollständige Verpackung inklusive',
     pkg1_d: 'Jede Fassung enthält: gebrandete Präsentationsbox, Hartschalen-Etui, Mikrofasertuch, Karte mit technischen Daten und CE + UV400 Aufkleber. Bereit für den Endkunden.',
     pkg_contents_label: 'In jeder Box',
@@ -574,7 +1026,7 @@ const I18N = {
     tech_cat: 'Kategorie 3', tech_cat_d: 'Hochfiltergläser für Outdoor-Einsatz bei starker Sonneneinstrahlung.',
     tech_ce: 'CE-Zertifikat', tech_ce_d: 'Konform mit EN ISO 12312-1. Zugelassen für den Verkauf in der EU.',
     tech_pol: 'Polarisierte Gläser', tech_pol_d: 'Eliminiert Blendung und Reflexionen.',
-    tech_impact: 'Stoßfestigkeit', tech_impact_d: 'ISO-Stoßfestigkeitstests bestanden. Stahlkernbügel bei der Acetato-Kollektion.',
+    tech_impact: 'Stoßfestigkeit', tech_impact_d: 'ISO-Stoßfestigkeitstests bestanden. Metallkernbügel bei der Acetato-Kollektion.',
     tech_drop: 'Drop Ball Test', tech_drop_d: 'Drop-Ball-Test nach EN ISO 12312-1 bestanden.',
     tech_fod: 'FOD — Defektfrei', tech_fod_d: 'Individuelle Qualitätskontrolle. Jede Fassung geprüft und freigegeben.',
     pkg2_t: 'Premium-Schutz',
@@ -586,9 +1038,9 @@ const I18N = {
     cta_sub: 'Gratis-Displays ab 20 Stk · Gratisversand ab 20 Stk · 3% Skonto bei 2-Raten-Plan.',
     cta_btn: 'Vollständige Tabelle',
     ft_contact: 'Kontakt', ft_conditions: 'Konditionen',
-    ft_cond1: 'Ab 17,90€/Stk. (40+ Stk)', ft_cond2: 'UVP 55–60€',
+    ft_cond1: 'Ab 17,90€/Stk. (40+ Stk)', ft_cond2: 'UVP 50€ · Azetat 70€',
     ft_cond3: 'Gratisversand ab 20 Stk', ft_cond4: '3% Skonto (2 Raten)',
-    ft_copyright: '© 2026 Minuë Opticians — Wholesale-Katalog SS26',
+    ft_copyright: '© 2026 Minuë Opticians — Wholesale-Katalog AW26/27',
     ft_tagline: 'Ein Katalog. Ein Menuett.',
     panel_eyebrow: 'Bestellung', panel_h3: 'Meine Auswahl',
     panel_empty_t: 'Noch leer', panel_empty_d: 'Fügen Sie die gewünschten Modelle hinzu, um Ihre Anfrage zu senden.',
@@ -604,16 +1056,16 @@ const I18N = {
     panel_no_pay_sub: 'Senden Sie Ihre Auswahl — wir bestätigen Verfügbarkeit, Endpreis und Lieferfristen vor jeder Zahlung.',
     panel_mi_pedido: 'Meine Bestellung', panel_remove: 'entfernen',
     panel_added: 'Hinzugefügt', panel_add: 'Hinzufügen',
-    modal_eyebrow: 'Preise SS26',
+    modal_eyebrow: 'Preise AW26/27',
     modal_h2_a: 'Preis nach', modal_h2_b: 'Volumen', modal_h2_c: ' — je mehr Sie bestellen, desto weniger zahlen Sie.',
     modal_your_tier: 'Ihre Staffel',
     modal_payments: 'Zahlung:', modal_expositor: 'Display:', modal_free_ship: '✓ Gratisversand',
     modal_plus60_label: '+60 Stk', modal_plus60_t: 'Sonderkonditionen',
     modal_plus60_d: 'Kontaktieren Sie uns direkt oder schreiben Sie an',
     modal_early_t: 'Skonto', modal_early_d: '3% zusätzlicher Rabatt bei 2-Raten-Plan und Zahlung bei Lieferung.',
-    modal_rrp_t: 'UVP', modal_rrp_d: 'Zwischen 55€ und 60€ Endkunde. Durchschnittliche Bruttomarge 67%.',
+    modal_rrp_t: 'UVP', modal_rrp_d: '50€ Endkunde (Azetat 70€). Durchschnittliche Bruttomarge 64%.',
     modal_ship_t: 'Versand', modal_ship_d: 'Gratis ab 20 Stück. Kosten nach Zielort unterhalb dieser Staffel.',
-    modal_footer: 'Preise in Euro, MwSt. nicht enthalten. Preise gültig für die SS26-Saison.',
+    modal_footer: 'Preise in Euro, MwSt. nicht enthalten. Preise gültig für die AW26/27-Saison.',
     order_greeting: 'Hallo, ich möchte eine Bestellung aufgeben:',
     order_tier: 'Staffel', order_total_line: 'Gesamt',
     order_plus60: 'Gesamt: {n} Stk (Staffel +60, Preis zu bestätigen)',
@@ -660,7 +1112,7 @@ const I18N = {
     qv_shape: 'Form', qv_rrp: 'Empfohlener VK', qv_close: 'Schließen', qv_add: 'Zur Bestellung hinzufügen', qv_added: 'Hinzugefügt',
     nav_badge: 'Trade Direct',
     nav_badge_sub: 'Auswählen und direkt bestellen · ohne Registrierung',
-    new_eyebrow: '✦ Neuheiten SS26',
+    new_eyebrow: '✦ Neuheiten AW26/27',
     new_h2_a: 'Frisch', new_h2_b: 'eingetroffen', new_h2_c: '.',
     new_sub: 'Erste Stücke verfügbar. Bestellen Sie, bevor sie ausverkauft sind.',
     new_show_more: 'Mehr Modelle anzeigen', new_show_less: 'Weniger anzeigen',
@@ -678,7 +1130,7 @@ const I18N = {
     col_models: 'Modelle',
     col_expand_hint: 'Zum Erkunden klicken',
     tier_best: 'Meistgewählt',
-    ss26_banner: '🌿  SS26 Saison offen  ·  Neue Modelle verfügbar  ·  Begrenzter Bestand',
+    ss26_banner: '🍂  AW26/27 Saison offen  ·  Havanna, Cocoa, Oliv und Bordeaux  ·  Im Schaufenster zum Fest',
     faq_eyebrow: 'Häufige Fragen', faq_h2: 'Was Retailer meistens fragen',
     faq_q1: 'Gibt es eine Mindestbestellmenge?', faq_a1: 'Nein. Ab 10 Stück verbessern sich die Preise erheblich. Siehe Preistabelle.',
     faq_q2: 'Wie funktioniert diese Plattform?', faq_a2: 'Dies ist ein privater B2B-Katalog, kein Online-Shop. Modelle auswählen, in den Warenkorb legen und Anfrage per WhatsApp oder E-Mail senden. Bestätigung innerhalb von 24h.',
@@ -686,19 +1138,169 @@ const I18N = {
     faq_q4: 'Was beinhaltet das Display?', faq_a4: 'Ein kompakter Tischaufsteller für 5 Fassungen. Bewusst klein gehalten: weniger Platzbedarf und keine Reizüberflutung für den Kunden. Ab 20 Stück kostenlos inklusive.',
     faq_q5: 'Ist Verpackung inklusive?', faq_a5: 'Ja. Jede Fassung kommt mit Box, Hartschale, Mikrofasertuch, Technik-Karte und CE+UV400-Aufkleber.',
     faq_q6: 'Sind sie auf Faire erhältlich?', faq_a6: 'Ja. Auf Faire Wholesale "Minuë Opticians" suchen.',
-    faq_q7: 'Welche Garantie haben die Produkte?', faq_a7: '2 Jahre Herstellergarantie. Fabrikfehler werden kostenlos ersetzt.',
+    faq_q7: 'Welche Garantie haben die Produkte?',     code_label: 'Haben Sie einen Sondercode?',
+    code_placeholder: 'Code eingeben',
+    code_applied: '✓ 5% Rabatt angewendet',
+    code_invalid: 'Ungültiger Code',
+    code_discount: 'Code-Rabatt',
+    ft_cta_h: 'Lieber erst sprechen?',
+    ft_cta_d: 'Unser Team antwortet noch am selben Tag. Kein Druck.',
+    ft_cta_wa: 'WhatsApp schreiben',
+    ft_cta_email: 'E-Mail senden',
+    tier_valid: 'Preise gültig AW26/27-Saison · bis 28. Feb. 2027',
+    tier_save_label: 'Ersparnis ggü. Basispreis',
+    save_selection: 'Auswahl speichern',
+    save_done: '✓ Gespeichert',
+    share_partner: 'Mit Partner teilen',
+    qv_qty_label: 'Menge',
+    geo_detected: 'Wir haben erkannt, Sie sind in',
+    geo_orders_to: 'Ihre Bestellungen gehen an',
+    geo_change: 'Ändern',
+    nav_lang: 'Sprache',
+    pou_eyebrow: 'Etuis der Saison',
+    pou_h_a: 'Drei Kombinationen,',
+    pou_h_b: 'drei Arten der Übergabe.',
+    pou_sub: 'Das Hartschalen-Etui begleitet jede Fassung und wechselt mit der Saison die Farbe. Keine Verpackung: ein Stück, das Ihr Kunde mitnimmt.',
+    p1_name: 'Kombination I',
+    p1_desc: 'Etui und Box im Set, der Klassiker des Hauses.',
+    p2_name: 'Kombination II',
+    p2_desc: 'Warmer Kontrast für Havanna- und Cocoa-Fassungen.',
+    p3_name: 'Kombination III',
+    p3_desc: 'Erdtöne, das Finish der Herbst-Capsule.',
+    pou_foot: 'Bei jeder Fassung kostenlos enthalten · Zum Vergrößern klicken',
+    filt_active: 'Nach AW26/27-Palette gefiltert',
+    filt_clear: 'Filter entfernen',
+    acet_tier_label: 'Azetat · außerhalb der Staffel',
+    acet_tier_unit: '/ Stk · Festpreis',
+    acet_tier_d: 'Die Azetat-Linie sinkt nicht mit der Menge: ganzjährig fester Preis.',
+    acet_tier_b1: 'UVP 70€ · Marge ~63%',
+    acet_tier_b2: 'Die Stück zählen zum Erreichen Ihrer Staffel',
+    ft_it_area: 'Vertrieb Italien · Bestellungen und Showroom-Besuche',
+    hero_eyebrow: 'Herbst-Winter-Kollektion 26/27',
+    hero_h_a: 'Tiefes Licht',
+    hero_h_b: 'braucht ein anderes Glas.',
+    hero_sub: 'Havanna, Cocoa, Honig und Oliv: die Palette der Saison ist bereits im Katalog. Wählen Sie einen Ton und bauen Sie Ihr Schaufenster in Minuten.',
+    hero_palette: 'Palette der Saison',
+    hero_s1_n: 'Ab 17,90€',
+    hero_s1_l: 'PRO STÜCK',
+    hero_s2_n: '64% Marge',
+    hero_s2_l: 'UVP 50€',
+    hero_s3_n: '24–48h',
+    hero_s3_l: 'VERSAND',
+    acet_split_t: 'Bestellaufschlüsselung',
+    acet_split_d: 'Azetat behält seinen Festpreis von 25,95€/Stk und fällt nicht unter die Mengenstaffel, die Stück zählen aber zum Erreichen der Staffel.',
+    pt_eyebrow: 'Nach Saisonfarbe kaufen',
+    pt_title: 'Die AW26/27-Palette,',
+    pt_title_i: 'mit einem Klick.',
+    pt_hint: 'Ton anklicken und der Katalog filtert sofort.',
+    disp_label: 'Thekendisplay',
+    disp_title: 'Wählen Sie Ihr Finish',
+    disp_eyebrow: 'Displays inklusive',
+    disp_h_a: 'Ihr Schaufenster,',
+    disp_h_b: 'in einer Minute fertig.',
+    disp_desc: 'Drei kompakte, beschwerte Standdisplays in drei Finishes, passend zu Ihrem Mobiliar. Ab 20 Stück inklusive.',
+    disp_b1: 'Kompaktes Thekenformat — nimmt keinen Platz weg',
+    disp_b2: 'Drei Finishes: Flaschengrün, Gold und Terrakotta',
+    disp_b3: 'Ab 20 Stk. gratis · 8,90€ einzeln',
+    d1_name: 'Grün',
+    d2_name: 'Gold',
+    d3_name: 'Terrakotta',
+    box_label: 'Die Minüe-Box',
+    box_title: 'Jede Fassung in ihrer Box',
+    box_desc: 'Feste Box mit Minüe-Siegel, bereit für den Endkunden. Das Detail, das aus einem Verkauf ein Geschenk macht.',
+    acet_note_t: 'Azetat-Kollektion — separater Preis',
+    acet_note_d: 'Die Azetat-Linie fällt nicht unter die Mengenstaffel: Festpreis 25,95€/Stk, UVP 70€ (Marge ~63%). Die Stück zählen zur Gesamtmenge, behalten aber ihren eigenen Preis.',
+    aw_models: 'Modelle',
+    aw_add: 'Hinzufügen',
+    aw_close: 'Schließen',
+    aw_expand: 'Modelle anzeigen',
+    vb_title: 'Balance Ihres Schaufensters',
+    vb_units: 'Stk',
+    vb_tip_dom: 'Ihre Auswahl konzentriert sich auf',
+    vb_tip_ok: 'Gute Farbbalance.',
+    vb_tip_missing: 'Es fehlt',
+    aw_cta: 'Modelle ansehen',
+    aw_cta_on: 'Nach diesem Ton gefiltert',
+    aw_eyebrow: 'Die Farben der Saison',
+    aw_h2a: 'Die AW26/27-Palette,',
+    aw_h2b: 'schon im Katalog.',
+    aw_intro: 'Pantone setzt für diesen Herbst-Winter auf Brauntöne, Bordeaux und Oliv. Kein Warten nötig: die Modelle, die bereits laufen, sind in dieser Palette.',
+    aw_1t: 'Toffee · Cocoa',
+    aw_1d: 'Braun ist die Basisfarbe der Saison, von Karamell bis Espresso.',
+    aw_2t: 'Burnt Olive',
+    aw_2d: 'Das tiefe Grün zu Strick und Mänteln.',
+    aw_3t: 'Red Mahogany',
+    aw_3d: 'Das Bordeaux der Festtage: dramatisch und elegant.',
+    aw_4t: 'Muted Clay',
+    aw_4d: 'Gedämpftes Terrakotta, der sanfteste Erdton des Reports.',
+    aw_5t: 'Candied Ginger',
+    aw_5d: 'Honig und Bernstein, das warme Neutral für alle Typen.',
+    aw_6t: 'Egret',
+    aw_6d: 'Cremeweiß: der Kontrast, der das ganze Schaufenster aufhellt.',
+    dist_tagline: 'Internationaler Wholesale-Vertrieb · Handcrafted in Spain',
+    kids_optional: 'Wir antworten mit Preisen und verfügbarem Bestand.',
+    kids_response: 'Antwort binnen 24h · Keine Zahlungsverpflichtung',
+    pkg_vivo_label: 'LEBENDIGES PACKAGING',
+    pkg_vivo_t: 'Etuis mit',
+    pkg_vivo_i: 'Persönlichkeit',
+    pkg_vivo_d: 'Die Hartschalen-Etuis zu jeder Fassung wechseln die Farbe je nach Saison, Wetter und Trends. Nicht nur Verpackung — ein Stilstück, das auch Ihr Endkunde trägt.',
+    av_label: 'KUNDENDIENST',
+    av_h3: 'Wir sind nach der Bestellung für Sie da',
+    av_intro: 'Ihre Zufriedenheit und die Ihrer Kunden hat Priorität. Wir bearbeiten jeden Vorfall schnell und ohne Bürokratie.',
+    av_1t: 'Fertigungsdefekte',
+    av_1d: 'Kommt eine Fassung mit Fertigungsdefekt an, ersetzen oder erstatten wir sie kostenlos. Nur ein Foto des Defekts und die Bestellnummer nötig.',
+    av_2t: 'Versehentliche Brüche des Endkunden',
+    av_2d: 'Wir bieten Sonderpreise für Ersatzteile, damit Sie Ihrem Kunden schnell helfen und ihn binden können.',
+    av_3t: 'Produktgarantie',
+    av_3d: 'Alle Modelle haben 12 Monate Herstellergarantie. Wir decken Defekte an Scharnieren, Bügeln und Azetat bei normalem Gebrauch.',
+    av_4t: 'Antwort in 24h',
+    av_4d: 'Jeder Vorfall wird an Werktagen binnen 24 Stunden bearbeitet. Kontaktieren Sie uns direkt per WhatsApp für maximale Geschwindigkeit.',
+    kids_soon: 'Jetzt verfügbar · AW26/27-Capsule',
+    kids_h2a: 'Kleine',
+    kids_h2b: 'große Blicke.',
+    kids_intro: 'Minuë kommt für die Kleinen. Dasselbe handgefertigte Azetat, dieselben sorgfältigen Scharniere, dieselben Farben ohne Kompromisse. Für Kinder von 3 bis 14 mit eigenem Stil.',
+    kids_f1: 'Hypoallergenes Azetat',
+    kids_f2: 'Flexible Scharniere',
+    kids_f3: 'UV400 zertifiziert',
+    kids_f4: '2 Größen · 3–8 und 8–14 Jahre',
+    kids_quote: '"Weil auch Kinder es verdienen, die Welt mit Stil zu sehen."',
+    kids_cta: 'Minüe Junior anfragen',
+    kids_launch: 'Limitierte Capsule',
+    kids_retailer: 'Kleine limitierte Capsule: Preise und Konditionen auf Anfrage.',
+    kids_notify_d: 'Schreiben Sie uns und wir senden Verfügbarkeit, Preise und Konditionen der Junior-Capsule.',
+    kids_notify_btn: 'Preise anfragen',
+    kids_email_ph: 'sie@optiker.com',
+    faire_ship_es: '3–4 Tage Spanien',
+    faire_ship_eu: '3–6 Tage Europa',
+    faire_ship_int: '6–9 Tage international',
+    faire_order: 'Auf Faire bestellen',
+    faire_reviews: 'Bewertungen',
+    stat_cities: 'Städte',
+    stat_countries: 'Länder',
+    stat_years: 'Jahre',
+    stat_models: 'Modelle',
+    stat_products: 'Produkte',
+    hiw_eyebrow: 'So funktioniert es',
+    hiw_no_pay: 'Keine Vorauszahlung',
+    hiw_1_t: 'Stöbern',
+    hiw_1_d: 'Fügen Sie hinzu, was Ihnen gefällt. Keine Anmeldung nötig.',
+    hiw_2_t: 'Senden',
+    hiw_2_d: 'Schicken Sie uns die Liste per WhatsApp oder Email.',
+    hiw_3_t: 'Wir bestätigen',
+    hiw_3_d: 'Bestand, Preis und Lieferzeit binnen 24h.',
+    faq_a7: '2 Jahre Herstellergarantie. Fabrikfehler werden kostenlos ersetzt.',
   },
   pt: {
     nav_contact: 'Contacto', nav_catalog: 'Catálogo', nav_rates: 'Preços', nav_order: 'Pedido', nav_pdf: 'PDF', nav_faq: 'FAQ',
-    hdr_eyebrow: 'B2B Wholesale · SS26',
+    hdr_eyebrow: 'B2B Wholesale · AW26/27',
     hdr_h1_a: 'Explore, selecione', hdr_h1_b: 'e faça', hdr_h1_c: 'o seu pedido.',
     hdr_sub: 'Navegue pelo nosso catálogo, adicione os modelos que lhe interessam e envie-nos a sua seleção. Preço por volume: quanto mais unidades, menor o preço unitário.',
     hdr_chip_top: 'Mais vendidos', hdr_chip_rates: 'Ver preços por volume',
     banner_expositor: 'Expositores incluídos a partir de 20 unidades — sem custos adicionais',
     bar_your_tier: 'O seu escalão', bar_empty: 'Sem unidades ainda — adicione produtos para ver o seu preço.',
     bar_missing_a: 'Faltam', bar_missing_b: 'uds para descer para', bar_rate_btn: 'Ver tabela',
-    top_eyebrow: '★ Mais vendidos SS26',
-    top_h2_month_pre: 'Os modelos que mais rodam em', top_h2_c: '.',
+    top_eyebrow: '★ Mais vendidos AW26/27',
+    top_h2_month_pre: 'Os modelos que apontam a top vendas', top_h2_c: '.',
     top_sub: 'Ordenados por rotação real nos nossos distribuidores atuais.',
     filter_color: 'Cor', filter_shape: 'Forma', filter_clear: 'limpar',
     col_eyebrow: 'Coleção',
@@ -724,7 +1326,7 @@ const I18N = {
     tech_cat: 'Categoria 3', tech_cat_d: 'Lentes de alta filtragem para uso exterior com sol intenso.',
     tech_ce: 'Certificado CE', tech_ce_d: 'Conformidade EN ISO 12312-1. Aprovado para venda em toda a UE.',
     tech_pol: 'Lentes polarizadas', tech_pol_d: 'Elimina reflexos e encandeamentos.',
-    tech_impact: 'Resistência ao impacto', tech_impact_d: 'Testes ISO aprovados. Hastes com alma de aço na coleção Acetato.',
+    tech_impact: 'Resistência ao impacto', tech_impact_d: 'Testes ISO aprovados. Hastes com alma de metal na coleção Acetato.',
     tech_drop: 'Drop Ball Test', tech_drop_d: 'Teste Drop Ball EN ISO 12312-1 aprovado.',
     tech_fod: 'FOD — Sem defeitos', tech_fod_d: 'Controlo de qualidade individual. Cada armação inspecionada e aprovada.',
     pkg2_t: 'Proteção premium',
@@ -736,9 +1338,9 @@ const I18N = {
     cta_sub: 'Expositores grátis a partir de 20 uds · Envio grátis +20 uds · 3% pronto pagamento (plano 2 pagamentos).',
     cta_btn: 'Ver tabela completa',
     ft_contact: 'Contacto', ft_conditions: 'Condições',
-    ft_cond1: 'Desde 17,90€/ud (40+ uds)', ft_cond2: 'PVP recomendado 55–60€',
+    ft_cond1: 'Desde 17,90€/ud (40+ uds)', ft_cond2: 'PVP recomendado 50€ · Acetato 70€',
     ft_cond3: 'Envio grátis +20 uds', ft_cond4: '3% desc. pronto pagamento',
-    ft_copyright: '© 2026 Minuë Opticians — Catálogo Wholesale SS26',
+    ft_copyright: '© 2026 Minuë Opticians — Catálogo Wholesale AW26/27',
     ft_tagline: 'Um catálogo. Um minueto.',
     panel_eyebrow: 'Pedido', panel_h3: 'A minha seleção',
     panel_empty_t: 'Ainda vazio', panel_empty_d: 'Adicione os modelos que lhe interessam para nos enviar o seu pedido.',
@@ -754,16 +1356,16 @@ const I18N = {
     panel_no_pay_sub: 'Envie a sua seleção e confirmamos disponibilidade, preço final e prazos antes de qualquer pagamento.',
     panel_mi_pedido: 'O meu pedido', panel_remove: 'eliminar',
     panel_added: 'Adicionado', panel_add: 'Adicionar',
-    modal_eyebrow: 'Preços SS26',
+    modal_eyebrow: 'Preços AW26/27',
     modal_h2_a: 'Preço por', modal_h2_b: 'volume', modal_h2_c: ' — quanto mais pedir, menos paga.',
     modal_your_tier: 'O seu escalão',
     modal_payments: 'Pagamentos:', modal_expositor: 'Expositor:', modal_free_ship: '✓ Envio grátis',
     modal_plus60_label: '+60 uds', modal_plus60_t: 'Condições especiais',
     modal_plus60_d: 'Contacte-nos diretamente ou escreva para',
     modal_early_t: 'Pronto pagamento', modal_early_d: '3% de desconto adicional em planos de 2 pagamentos se pagar à entrega.',
-    modal_rrp_t: 'PVP recomendado', modal_rrp_d: 'Entre 55€ e 60€ cliente final. Margem bruta média 67%.',
+    modal_rrp_t: 'PVP recomendado', modal_rrp_d: '50€ cliente final (Acetato 70€). Margem bruta média 64%.',
     modal_ship_t: 'Envio', modal_ship_d: 'Grátis a partir de 20 unidades. Custo conforme destino abaixo desse escalão.',
-    modal_footer: 'Preços em euros, IVA não incluído. Tarifário válido para a época SS26.',
+    modal_footer: 'Preços em euros, IVA não incluído. Tarifário válido para a época AW26/27.',
     order_greeting: 'Olá, gostaria de fazer um pedido:',
     order_tier: 'Escalão', order_total_line: 'Total',
     order_plus60: 'Total: {n} uds (escalão +60, preço a confirmar)',
@@ -810,7 +1412,7 @@ const I18N = {
     qv_shape: 'Forma', qv_rrp: 'PVP recomendado', qv_close: 'Fechar', qv_add: 'Adicionar ao pedido', qv_added: 'Adicionado',
     nav_badge: 'Trade Direct',
     nav_badge_sub: 'Seleciona e pede direto · sem registo',
-    new_eyebrow: '✦ Novidades SS26',
+    new_eyebrow: '✦ Novidades AW26/27',
     new_h2_a: 'Acabados de', new_h2_b: 'chegar', new_h2_c: '.',
     new_sub: 'Primeiras unidades disponíveis. Encomende antes de esgotar.',
     new_show_more: 'Ver mais modelos', new_show_less: 'Ver menos',
@@ -828,7 +1430,7 @@ const I18N = {
     col_models: 'modelos',
     col_expand_hint: 'Clique para explorar',
     tier_best: 'Mais escolhido',
-    ss26_banner: '🌿  Temporada SS26 aberta  ·  Novos modelos disponíveis  ·  Stock limitado',
+    ss26_banner: '🍂  Temporada AW26/27 aberta  ·  Carey, cocoa, oliva e bordeaux  ·  Na montra para as festas',
     faq_eyebrow: 'Perguntas frequentes', faq_h2: 'O que os retailers costumam perguntar',
     faq_q1: 'Qual é o pedido mínimo?', faq_a1: 'Não há pedido mínimo. A partir de 10 unidades os preços melhoram significativamente.',
     faq_q2: 'Como funciona esta plataforma?', faq_a2: 'É um catálogo B2B privado, não uma loja online. Selecione os modelos, adicione ao carrinho e envie-nos o pedido por WhatsApp ou email. Confirmamos stock e preços em menos de 24h.',
@@ -836,15 +1438,407 @@ const I18N = {
     faq_q4: 'O que inclui o expositor?', faq_a4: 'Um expositor de balcão compacto, pensado para 5 armações. Intencionalmente pequeno: ocupa menos espaço e evita saturar o cliente com demasiadas opções. Incluído sem custo a partir de 20 unidades.',
     faq_q5: 'As armações incluem embalagem?', faq_a5: 'Sim. Cada armação inclui caixa, estojo rígido, pano de microfibra, ficha técnica e autocolante CE+UV400.',
     faq_q6: 'Estão disponíveis no Faire?', faq_a6: 'Sim. Pesquise "Minuë Opticians" no Faire Wholesale.',
-    faq_q7: 'Que garantia têm os produtos?', faq_a7: '2 anos de garantia do fabricante. Defeitos de fábrica substituídos sem custos.',
+    faq_q7: 'Que garantia têm os produtos?',     code_label: 'Tem um código especial?',
+    code_placeholder: 'Introduza o seu código',
+    code_applied: '✓ Desconto de 5% aplicado',
+    code_invalid: 'Código inválido',
+    code_discount: 'Desconto código',
+    ft_cta_h: 'Prefere falar antes de encomendar?',
+    ft_cta_d: 'A nossa equipa responde no próprio dia. Sem pressão.',
+    ft_cta_wa: 'Escrever no WhatsApp',
+    ft_cta_email: 'Enviar email',
+    tier_valid: 'Tarifas válidas temporada AW26/27 · até 28 fev 2027',
+    tier_save_label: 'Poupa vs preço base',
+    save_selection: 'Guardar seleção',
+    save_done: '✓ Guardado',
+    share_partner: 'Partilhar com parceiro',
+    qv_qty_label: 'Quantidade',
+    geo_detected: 'Detetámos que está em',
+    geo_orders_to: 'As suas encomendas irão para',
+    geo_change: 'Alterar',
+    nav_lang: 'Idioma',
+    pou_eyebrow: 'Estojos da estação',
+    pou_h_a: 'Três combinações,',
+    pou_h_b: 'três formas de a entregar.',
+    pou_sub: 'O estojo rígido acompanha cada armação e muda de cor com a estação. Não é embalagem: é uma peça que a sua cliente leva consigo.',
+    p1_name: 'Combinação I',
+    p1_desc: 'Estojo e caixa a condizer, o conjunto clássico da casa.',
+    p2_name: 'Combinação II',
+    p2_desc: 'Contraste quente para as armações carey e cocoa.',
+    p3_name: 'Combinação III',
+    p3_desc: 'Tons terra, o acabamento da cápsula de outono.',
+    pou_foot: 'Incluído com cada armação, sem custo · Toque para ampliar',
+    filt_active: 'A filtrar pela paleta OI26/27',
+    filt_clear: 'Remover filtro',
+    acet_tier_label: 'Acetato · fora dos escalões',
+    acet_tier_unit: '/ ud · preço fixo',
+    acet_tier_d: 'A linha Acetato não desce com o volume: tarifa fixa todo o ano.',
+    acet_tier_b1: 'PVP recomendado 70€ · margem ~63%',
+    acet_tier_b2: 'As unidades contam para alcançar o escalão',
+    ft_it_area: 'Distribuição Itália · Encomendas e visitas ao showroom',
+    hero_eyebrow: 'Coleção Outono-Inverno 26/27',
+    hero_h_a: 'A luz baixa',
+    hero_h_b: 'pede outro filtro.',
+    hero_sub: 'Carey, cocoa, mel e oliva: a paleta desta estação já está em catálogo. Escolha um tom e monte a sua montra em minutos.',
+    hero_palette: 'Paleta da estação',
+    hero_s1_n: 'Desde 17,90€',
+    hero_s1_l: 'POR UNIDADE',
+    hero_s2_n: 'Margem 64%',
+    hero_s2_l: 'PVP 50€',
+    hero_s3_n: '24–48h',
+    hero_s3_l: 'ENVIO',
+    acet_split_t: 'Detalhe da encomenda',
+    acet_split_d: 'O acetato mantém o preço fixo de 25,95€/ud e não entra nos escalões por volume, embora as unidades contem para alcançar o escalão.',
+    pt_eyebrow: 'Compre por cor da estação',
+    pt_title: 'A paleta AW26/27,',
+    pt_title_i: 'num clique.',
+    pt_hint: 'Toque num tom e o catálogo filtra na hora.',
+    disp_label: 'Expositor de balcão',
+    disp_title: 'Escolha o seu acabamento',
+    disp_eyebrow: 'Expositores incluídos',
+    disp_h_a: 'A sua montra,',
+    disp_h_b: 'montada num minuto.',
+    disp_desc: 'Três expositores de pé, pequenos e com peso, em três acabamentos para combinar com o seu mobiliário. Incluídos a partir de 20 unidades.',
+    disp_b1: 'Formato compacto de balcão — não rouba espaço',
+    disp_b2: 'Três acabamentos: verde garrafa, dourado e terracota',
+    disp_b3: 'Incluídos desde 20 uds · 8,90€ avulso',
+    d1_name: 'Verde',
+    d2_name: 'Dourado',
+    d3_name: 'Terracota',
+    box_label: 'A caixa Minüe',
+    box_title: 'Cada armação, na sua caixa',
+    box_desc: 'Caixa rígida com o selo Minüe, pronta a entregar ao cliente final. O detalhe que transforma uma venda num presente.',
+    acet_note_t: 'Coleção Acetato — preço à parte',
+    acet_note_d: 'A linha Acetato não entra nos escalões por volume: preço fixo de 25,95€/ud, PVP recomendado 70€ (margem ~63%). As unidades somam ao total mas mantêm o seu preço.',
+    aw_models: 'modelos',
+    aw_add: 'Adicionar',
+    aw_close: 'Fechar',
+    aw_expand: 'Ver modelos',
+    vb_title: 'Equilíbrio da sua montra',
+    vb_units: 'uds',
+    vb_tip_dom: 'A sua seleção concentra-se em',
+    vb_tip_ok: 'Bom equilíbrio de tons.',
+    vb_tip_missing: 'Falta-lhe',
+    aw_cta: 'Ver os modelos',
+    aw_cta_on: 'A filtrar por este tom',
+    aw_eyebrow: 'As cores da estação',
+    aw_h2a: 'A paleta AW26/27,',
+    aw_h2b: 'já em catálogo.',
+    aw_intro: 'A Pantone escolheu castanhos, bordeaux e olivas para este outono-inverno. Não é preciso esperar: os modelos que já rodam estão nessa paleta.',
+    aw_1t: 'Toffee · Cocoa',
+    aw_1d: 'O castanho é a cor base da estação, do caramelo ao espresso.',
+    aw_2t: 'Burnt Olive',
+    aw_2d: 'O verde profundo que acompanha as malhas e os casacos.',
+    aw_3t: 'Red Mahogany',
+    aw_3d: 'O bordeaux das festas: dramático e elegante.',
+    aw_4t: 'Muted Clay',
+    aw_4d: 'Terracota suave, o tom terra mais delicado do relatório.',
+    aw_5t: 'Candied Ginger',
+    aw_5d: 'Mel e âmbar, o neutro quente que favorece todas.',
+    aw_6t: 'Egret',
+    aw_6d: 'Branco cremoso: o contraste que ilumina toda a montra.',
+    dist_tagline: 'Distribuição wholesale internacional · Design handcrafted in Spain',
+    kids_optional: 'Respondemos com tarifas e stock disponível.',
+    kids_response: 'Resposta em menos de 24h · Sem compromisso de pagamento',
+    pkg_vivo_label: 'PACKAGING VIVO',
+    pkg_vivo_t: 'Estojos com',
+    pkg_vivo_i: 'personalidade',
+    pkg_vivo_d: 'Os estojos rígidos que acompanham cada armação mudam de cor conforme a estação, o clima e as tendências. Não é só embalagem — é uma peça de estilo que o cliente final também usa.',
+    av_label: 'PÓS-VENDA',
+    av_h3: 'Estamos consigo após o pedido',
+    av_intro: 'A sua satisfação e a dos seus clientes é a nossa prioridade. Gerimos qualquer incidência de forma rápida e sem burocracia.',
+    av_1t: 'Defeitos de fábrica',
+    av_1d: 'Se uma armação chegar com defeito de fabrico, repomos ou reembolsamos sem custo. Só precisa de foto do defeito e número de encomenda.',
+    av_2t: 'Quebras acidentais do cliente final',
+    av_2d: 'Oferecemos preço especial de reposição de peças soltas para resolver rápido e fidelizar o seu cliente.',
+    av_3t: 'Garantia de produto',
+    av_3d: 'Todos os modelos têm 12 meses de garantia de fabrico. Cobrimos defeitos em dobradiças, hastes e acetato em uso normal.',
+    av_4t: 'Resposta em 24h',
+    av_4d: 'Qualquer incidência é atendida em menos de 24 horas em dias úteis. Contacte diretamente por WhatsApp para máxima rapidez.',
+    kids_soon: 'Já disponível · Cápsula OI26/27',
+    kids_h2a: 'Pequenos',
+    kids_h2b: 'grandes olhares.',
+    kids_intro: 'A Minuë chega aos mais pequenos. O mesmo acetato artesanal, as mesmas dobradiças cuidadas, as mesmas cores sem pedir licença. Para crianças dos 3 aos 14 anos com o seu próprio estilo.',
+    kids_f1: 'Acetato hipoalergénico',
+    kids_f2: 'Dobradiças flexíveis',
+    kids_f3: 'UV400 certificado',
+    kids_f4: '2 tamanhos · 3–8 e 8–14 anos',
+    kids_quote: '"Porque as crianças também merecem ver o mundo com estilo."',
+    kids_cta: 'Consultar Minüe Junior',
+    kids_launch: 'Cápsula limitada',
+    kids_retailer: 'Cápsula pequena de edição limitada: tarifas e preço sob consulta.',
+    kids_notify_d: 'Escreva-nos e enviamos disponibilidade, tarifas e condições da cápsula Junior.',
+    kids_notify_btn: 'Pedir informação',
+    kids_email_ph: 'voce@otica.com',
+    faire_ship_es: '3–4 dias Espanha',
+    faire_ship_eu: '3–6 dias Europa',
+    faire_ship_int: '6–9 dias internacional',
+    faire_order: 'Encomendar na Faire',
+    faire_reviews: 'avaliações',
+    stat_cities: 'cidades',
+    stat_countries: 'países',
+    stat_years: 'anos',
+    stat_models: 'modelos',
+    stat_products: 'produtos',
+    hiw_eyebrow: 'Como funciona',
+    hiw_no_pay: 'Sem pagamento prévio',
+    hiw_1_t: 'Explore',
+    hiw_1_d: 'Adicione ao carrinho o que lhe interessa. Sem registo.',
+    hiw_2_t: 'Envie-nos',
+    hiw_2_d: 'Envie a sua lista por WhatsApp ou email. Sem pagar.',
+    hiw_3_t: 'Confirmamos',
+    hiw_3_d: 'Stock, preço e prazos confirmados em menos de 24h.',
+    faq_a7: '2 anos de garantia do fabricante. Defeitos de fábrica substituídos sem custos.',
+  },
+  it: {
+    nav_contact: 'Contatto', nav_catalog: 'Catalogo', nav_rates: 'Tariffe', nav_order: 'Ordine', nav_pdf: 'PDF', nav_faq: 'FAQ',
+    hdr_eyebrow: 'B2B Wholesale · AW26/27',
+    hdr_h1_a: 'Esplora, seleziona', hdr_h1_b: 'e invia', hdr_h1_c: 'il tuo ordine.',
+    hdr_sub: 'Sfoglia il catalogo, aggiungi i modelli che ti interessano e inviaci la tua selezione.',
+    hdr_chip_top: 'Top Vendite', hdr_chip_rates: 'Vedi tariffe a volume',
+    banner_expositor: 'Espositori inclusi da 20 unità — senza costo aggiuntivo',
+    bar_your_tier: 'La tua fascia', bar_empty: 'Nessuna unità — aggiungi prodotti per vedere il tuo prezzo.',
+    bar_missing_a: 'Mancano', bar_missing_b: 'pz per scendere a', bar_rate_btn: 'Vedi tabella',
+    top_eyebrow: '★ Top Vendite AW26/27', top_h2_month_pre: 'I modelli che puntano a best-seller', top_h2_c: '.',
+    top_sub: 'Ordinati per rotazione reale presso i nostri distributori attivi.',
+    filter_color: 'Colore', filter_shape: 'Forma', filter_clear: 'cancella',
+    col_eyebrow: 'Collezione',
+    col_essential_tag: "La base dell'assortimento. Forme senza tempo, acetato standard.",
+    col_icons_tag: 'Design riconoscibili con personalità. Dettagli premium.',
+    col_acetato_tag: "Montature artigianali di alta gamma. Per il cliente più esigente.",
+    empty_filter_t: 'Nessun modello con questo filtro', empty_filter_d: 'Prova ad ampliare la selezione.',
+    pkg_eyebrow: 'Packaging', pkg_h2_a: 'Dietro', pkg_h2_b: 'ogni frame', pkg_h2_c: '.',
+    pkg_sub: 'Curiamo ogni dettaglio che accompagna ogni design.',
+    pkg1_t: 'Packaging completo incluso', pkg1_d: "Curiamo ogni dettaglio. Scatola con logo, custodia rigida, panno in microfibra, scheda tecnica e adesivo CE + UV400.",
+    pkg_contents_label: 'In ogni scatola', pkg_item1: 'Scatola di presentazione con logo', pkg_item2: 'Custodia rigida individuale', pkg_item3: 'Panno in microfibra', pkg_item4: 'Scheda con specifiche tecniche', pkg_item5: 'Adesivo CE · UV400',
+    tech_eyebrow: 'Specifiche tecniche', tech_h2: 'Qualità certificata',
+    tech_sub: 'Tutti i modelli Minuë sono conformi alla normativa europea.',
+    tech_uv: 'Protezione UV400', tech_uv_d: 'Filtraggio totale UVA e UVB fino a 400nm.',
+    tech_cat: 'Categoria 3', tech_cat_d: 'Trasmissione luminosa tra 8-18%.',
+    tech_ce: 'Certificato CE', tech_ce_d: "Conformità EN ISO 12312-1.",
+    tech_pol: 'Lenti polarizzate', tech_pol_d: 'Eliminazione di riflessi e abbagliamenti.',
+    tech_impact: 'Resistenza agli impatti', tech_impact_d: 'Test ISO superati. Aste con anima in metallo nella collezione Acetato.',
+    tech_drop: 'Drop Ball Test', tech_drop_d: 'Superano il test Drop Ball EN ISO 12312-1.',
+    tech_fod: 'FOD — Free of Defects', tech_fod_d: 'Controllo qualità individuale per unità.',
+    pkg2_t: 'Protezione premium', pkg2_d: 'Busta antigraffio e scatola master rinforzata.',
+    pkg3_t: 'Display-ready', pkg3_d: 'Etichettato con codice modello e colore.',
+    cta_eyebrow: 'Tariffe a volume', cta_h3_a: 'Più design ordini,', cta_h3_b: 'meno paghi', cta_h3_c: '.', cta_h3_d: 'Da 17,90€/pz.',
+    cta_sub: 'Espositori inclusi da 20 pz · Spedizione gratuita +20 pz.', cta_btn: 'Vedi tabella completa',
+    ft_contact: 'Contatto', ft_conditions: 'Condizioni',
+    ft_cond1: 'Prezzo da 17,90€/pz (40+ pz)', ft_cond2: 'Prezzo consigliato 50€ · Acetato 70€',
+    ft_cond3: 'Spedizione gratuita +20 pz', ft_cond4: '3% sconto pagamento anticipato',
+    ft_copyright: '© 2026 Minuë Opticians — Catalogo Wholesale AW26/27', ft_tagline: 'Un catalogo. Un minuetto.',
+    panel_eyebrow: 'Ordine', panel_h3: 'La mia selezione',
+    panel_empty_t: 'Ancora vuoto', panel_empty_d: 'Aggiungi i modelli che ti interessano.',
+    panel_tier: 'Fascia attuale', panel_price: 'Prezzo/pz', panel_consult: 'Consulta',
+    panel_add_more_a: 'Aggiungi', panel_add_more_b: 'pz in più →', panel_savings: 'risparmio',
+    panel_total: 'Totale', panel_units: 'pz', panel_free_ship: '+ spedizione gratuita',
+    panel_region_label: 'Dove si trova il tuo negozio?',
+    panel_region_hint_default: 'Il tuo ordine viene inviato a Minuë Opticians.',
+    panel_region_hint_dist: 'Il tuo ordine viene inviato al nostro distributore',
+    panel_wa: 'Invia via WhatsApp', panel_email: 'Invia via email',
+    panel_disclaimer: "Non è un acquisto. È una richiesta d'ordine — confermiamo in meno di 24h.",
+    panel_no_pay: '🔓 Non devi pagare adesso', panel_no_pay_sub: "Inviaci la tua selezione e ti confermiamo disponibilità prima di qualsiasi pagamento.",
+    panel_mi_pedido: 'Il mio ordine', panel_remove: 'rimuovi', panel_added: 'Aggiunto', panel_add: 'Aggiungi',
+    modal_eyebrow: 'Tariffe AW26/27', modal_h2_a: 'Prezzo per', modal_h2_b: 'volume', modal_h2_c: ' — più ordini, meno paghi.',
+    modal_your_tier: 'La tua fascia', modal_payments: 'Pagamenti:', modal_expositor: 'Espositore:', modal_free_ship: '✓ Spedizione gratuita',
+    modal_plus60_label: '+60 pz', modal_plus60_t: 'Condizioni speciali', modal_plus60_d: 'Contattaci direttamente o scrivi a',
+    modal_early_t: 'Pagamento anticipato', modal_early_d: 'Sconto aggiuntivo del 3% se paghi alla consegna.',
+    modal_rrp_t: 'Prezzo consigliato', modal_rrp_d: '50€ al cliente finale (Acetato 70€).',
+    modal_ship_t: 'Spedizione', modal_ship_d: 'Gratuita da 20 unità.',
+    modal_footer: 'Prezzi in euro, IVA esclusa. Tariffe valide per la stagione AW26/27.',
+    order_greeting: 'Ciao, vorrei fare un ordine:', order_tier: 'Fascia', order_total_line: 'Totale',
+    order_plus60: 'Totale: {n} pz (fascia +60, prezzo da confermare)', order_closing: 'Grazie',
+    shape_round: 'Rotonda', shape_oval: 'Ovale', shape_square: 'Quadrata', shape_rectangular: 'Rettangolare', shape_cateye: 'Cat-eye', shape_panto: 'Panto', shape_geometric: 'Geometrica',
+    color_brown: 'Marrone', color_black: 'Nero', color_green: 'Verde', color_gold: 'Dorato', color_pink: 'Rosa', color_beige: 'Beige', color_gray: 'Grigio', color_carey: 'Carey',
+    hint_by_volume: 'in base al volume', pvp_label: 'Prezzo cons.', margin_label: 'Margine', from_label: 'da', most_popular: 'Più scelto',
+    roi_title: 'Redditività stimata', roi_revenue: 'Ricavi', roi_margin: 'Margine lordo', roi_sell_at: 'Vendendo a prezzo ~', roi_disclaimer: 'Prezzo orientativo.',
+    urgency_stock_low: '⚡ Poche unità', urgency_hot: '🔥 Molto richiesto', urgency_trending: '📈 Tendenza',
+    search_placeholder: 'Cerca modello... (es. Lawrence, Bergman)', search_empty: 'Nessun risultato per',
+    tab_all: 'Tutti',
+    why_eyebrow: 'Il marchio che lavora con te', why_h2_a: 'Non vendiamo solo', why_h2_b: ' occhiali', why_h2_c: '.',
+    why_sub: 'Siamo un marchio emergente che costruisce la propria reputazione prendendosi cura di ogni negozio.',
+    why_1_t: 'Senza minimi. Senza complicazioni.', why_1_d: "Non c'è un minimo d'ordine per modello.",
+    why_2_t: 'Modelli con alta rotazione + ricambi coperti', why_2_d: 'I nostri design sono validati da dati reali.',
+    why_3_t: 'Supporto digitale per il tuo business', why_3_d: 'Contenuti per i social e campagne ads geolocalizzate.',
+    why_4_t: 'Non competiamo con i nostri clienti', why_4_d: 'Non facciamo sconti aggressivi online. Il tuo margine è tuo.',
+    why_presente: 'Presenza internazionale', why_presente_d: 'Distribuiamo in Spagna, Francia, Portogallo, Germania e mercati emergenti.', why_faire: 'Anche su Faire',
+    lead_title: 'Un passo prima di inviare', lead_sub: 'Lasciaci i tuoi dati e ti confermiamo disponibilità.',
+    lead_name: 'Il tuo nome', lead_store: 'Nome del tuo negozio / ottica', lead_email: 'Email di contatto',
+    lead_submit_wa: 'Continua su WhatsApp →', lead_submit_email: 'Continua via email →', lead_skip: 'Salta questo passaggio', lead_note: 'I tuoi dati vengono usati solo per gestire il tuo ordine.',
+    qv_colors: 'Colori disponibili', qv_sku: 'Riferimento', qv_collection: 'Collezione', qv_shape: 'Forma', qv_rrp: 'Prezzo consigliato', qv_close: 'Chiudi', qv_add: "Aggiungi all'ordine", qv_added: 'Aggiunto',
+    nav_badge: 'Trade Direct', nav_badge_sub: 'Seleziona e ordina diretto · senza registrazione',
+    new_eyebrow: '✦ Novità AW26/27', new_h2_a: 'Appena', new_h2_b: 'arrivati', new_h2_c: '.',
+    new_sub: 'Prime unità disponibili. Ordina prima che finiscano.', new_show_more: 'Vedi altri modelli', new_show_less: 'Vedi meno', new_badge: 'Nuovo',
+    progress_browse: 'Esplorando', progress_select: 'Selezionando', progress_send: 'Invio ordine',
+    toast_added: "aggiunto all'ordine", filters_btn: 'Filtra', filters_title: 'Filtri',
+    share_btn: 'Condividi selezione', share_copied: 'Link copiato!', acetato_premium: 'Premium',
+    latam_hint: 'Il tuo ordine va a Minuë Latinoamérica · hola@minueopticians.co', latam_badge: 'LATAM',
+    region_latam_desc: 'Colombia · Messico · Cile · Argentina e altro',
+    col_show_all: 'Vedi tutti i modelli', col_collapse: 'Comprimi', col_models: 'modelli', col_expand_hint: 'Clicca per esplorare',
+    tier_best: 'Più scelto', ss26_banner: '🍂  Stagione AW26/27 aperta  ·  Tartaruga, cocoa, oliva e bordeaux  ·  In vetrina per le feste',
+    faq_eyebrow: 'Domande frequenti', faq_h2: 'Quello che chiedono solitamente i retailer',
+    faq_q1: 'Qual è il minimo ordine?', faq_a1: 'Non c`è un minimo. Da 10 unità i prezzi migliorano significativamente.',
+    faq_q2: 'Come funziona questa piattaforma?', faq_a2: 'È un catalogo B2B privato. Seleziona i modelli, aggiungili al carrello e inviaci il tuo ordine via WhatsApp o email. Confermiamo disponibilità in meno di 24h.',
+    faq_q3: 'Quali sono i tempi di consegna?', faq_a3: 'Spagna: 2–4 giorni lavorativi. Europa: 4–7 giorni lavorativi.',
+    faq_q4: 'Qual è il margine raccomandato?', faq_a4: 'Con un prezzo al pubblico di 50€ (Acetato 70€), il margine lordo medio è del 67%.',
+    faq_q5: 'Le montature includono imballaggio?', faq_a5: 'Sì. Ogni montatura include scatola, custodia rigida, panno in microfibra, scheda tecnica e adesivo CE+UV400.',
+    faq_q6: 'Siete disponibili su Faire?', faq_a6: 'Sì. Cerca "Minuë Opticians" su Faire Wholesale.',
+    faq_q7: 'Che garanzia hanno i prodotti?',     code_label: 'Hai un codice speciale?',
+    code_placeholder: 'Inserisci il tuo codice',
+    code_applied: '✓ Sconto del 5% applicato',
+    code_invalid: 'Codice non valido',
+    code_discount: 'Sconto codice',
+    ft_cta_h: 'Preferisci parlare prima di ordinare?',
+    ft_cta_d: 'Il nostro team risponde in giornata. Senza pressioni, senza impegno.',
+    ft_cta_wa: 'Scrivici su WhatsApp',
+    ft_cta_email: 'Invia email',
+    tier_valid: 'Tariffe valide stagione AW26/27 · fino al 28 feb 2027',
+    tier_save_label: 'Risparmi vs prezzo base',
+    save_selection: 'Salva selezione',
+    save_done: '✓ Salvato',
+    share_partner: 'Condividi con socio',
+    qv_qty_label: 'Quantità',
+    geo_detected: 'Abbiamo rilevato che sei in',
+    geo_orders_to: 'I tuoi ordini andranno a',
+    geo_change: 'Cambia',
+    nav_lang: 'Lingua',
+    pou_eyebrow: 'Custodie della stagione',
+    pou_h_a: 'Tre combinazioni,',
+    pou_h_b: 'tre modi di consegnarla.',
+    pou_sub: 'La custodia rigida accompagna ogni montatura e cambia colore con la stagione. Non è packaging: è un pezzo che la tua cliente porta con sé.',
+    p1_name: 'Combinazione I',
+    p1_desc: 'Custodia e scatola coordinate, il set classico della casa.',
+    p2_name: 'Combinazione II',
+    p2_desc: 'Contrasto caldo per le montature tartaruga e cocoa.',
+    p3_name: 'Combinazione III',
+    p3_desc: 'Toni terra, la finitura della capsule autunnale.',
+    pou_foot: 'Inclusa con ogni montatura, senza costi · Clicca per ingrandire',
+    filt_active: 'Filtrato per la palette AI26/27',
+    filt_clear: 'Rimuovi filtro',
+    acet_tier_label: 'Acetato · fuori scaglioni',
+    acet_tier_unit: '/ pz · prezzo fisso',
+    acet_tier_d: 'La linea Acetato non scende con il volume: tariffa fissa tutto l\'anno.',
+    acet_tier_b1: 'Prezzo consigliato 70€ · margine ~63%',
+    acet_tier_b2: 'I pezzi contano per raggiungere il tuo scaglione',
+    ft_it_area: 'Distribuzione Italia · Ordini e visite in showroom',
+    hero_eyebrow: 'Collezione Autunno-Inverno 26/27',
+    hero_h_a: 'La luce bassa',
+    hero_h_b: 'chiede un altro filtro.',
+    hero_sub: 'Tartaruga, cocoa, miele e oliva: la palette della stagione è già a catalogo. Scegli un tono e allestisci la tua vetrina in pochi minuti.',
+    hero_palette: 'Palette della stagione',
+    hero_s1_n: 'Da 17,90€',
+    hero_s1_l: 'AL PEZZO',
+    hero_s2_n: 'Margine 64%',
+    hero_s2_l: 'Prezzo 50€',
+    hero_s3_n: '24–48h',
+    hero_s3_l: 'SPEDIZIONE',
+    acet_split_t: 'Dettaglio ordine',
+    acet_split_d: 'L\'acetato mantiene il prezzo fisso di 25,95€/pz e non rientra negli scaglioni per volume, anche se i pezzi contano per raggiungere lo scaglione.',
+    pt_eyebrow: 'Acquista per colore di stagione',
+    pt_title: 'La palette AW26/27,',
+    pt_title_i: 'in un clic.',
+    pt_hint: 'Tocca un tono e il catalogo si filtra subito.',
+    disp_label: 'Espositore da banco',
+    disp_title: 'Scegli la finitura',
+    disp_eyebrow: 'Espositori inclusi',
+    disp_h_a: 'La tua vetrina,',
+    disp_h_b: 'pronta in un minuto.',
+    disp_desc: 'Tre espositori da terra, compatti e zavorrati, in tre finiture per abbinarsi ai tuoi arredi. Inclusi da 20 unità.',
+    disp_b1: 'Formato compatto da banco — non ruba spazio',
+    disp_b2: 'Tre finiture: verde bottiglia, oro e terracotta',
+    disp_b3: 'Inclusi da 20 pz · 8,90€ singolo',
+    d1_name: 'Verde',
+    d2_name: 'Oro',
+    d3_name: 'Terracotta',
+    box_label: 'La scatola Minüe',
+    box_title: 'Ogni montatura, nella sua scatola',
+    box_desc: 'Scatola rigida con il sigillo Minüe, pronta da consegnare al cliente finale. Il dettaglio che trasforma una vendita in un regalo.',
+    acet_note_t: 'Collezione Acetato — prezzo a parte',
+    acet_note_d: 'La linea Acetato non rientra negli scaglioni per volume: prezzo fisso di 25,95€/pz, prezzo consigliato 70€ (margine ~63%). I pezzi contano nel totale ma mantengono il proprio prezzo.',
+    aw_models: 'modelli',
+    aw_add: 'Aggiungi',
+    aw_close: 'Chiudi',
+    aw_expand: 'Mostra modelli',
+    vb_title: 'Equilibrio della tua vetrina',
+    vb_units: 'pz',
+    vb_tip_dom: 'La tua selezione si concentra su',
+    vb_tip_ok: 'Buon equilibrio di toni.',
+    vb_tip_missing: 'Ti manca',
+    aw_cta: 'Vedi i modelli',
+    aw_cta_on: 'Filtrato su questo tono',
+    aw_eyebrow: 'I colori della stagione',
+    aw_h2a: 'La palette AW26/27,',
+    aw_h2b: 'già a catalogo.',
+    aw_intro: 'Pantone ha scelto marroni, bordeaux e olive per questo autunno-inverno. Non serve aspettare: i modelli che già girano sono in quella palette.',
+    aw_1t: 'Toffee · Cocoa',
+    aw_1d: 'Il marrone è il colore base della stagione, dal caramello all\'espresso.',
+    aw_2t: 'Burnt Olive',
+    aw_2d: 'Il verde profondo che accompagna maglie e cappotti.',
+    aw_3t: 'Red Mahogany',
+    aw_3d: 'Il bordeaux delle feste: drammatico ed elegante.',
+    aw_4t: 'Muted Clay',
+    aw_4d: 'Terracotta attenuato, il tono terra più morbido del report.',
+    aw_5t: 'Candied Ginger',
+    aw_5d: 'Miele e ambra, il neutro caldo che sta bene a tutte.',
+    aw_6t: 'Egret',
+    aw_6d: 'Bianco crema: il contrasto che illumina tutta la vetrina.',
+    dist_tagline: 'Distribuzione wholesale internazionale · Design handcrafted in Spain',
+    kids_optional: 'Rispondiamo con tariffe e stock disponibile.',
+    kids_response: 'Risposta entro 24h · Senza impegno di pagamento',
+    pkg_vivo_label: 'PACKAGING VIVO',
+    pkg_vivo_t: 'Custodie con',
+    pkg_vivo_i: 'personalità',
+    pkg_vivo_d: 'Le custodie rigide che accompagnano ogni montatura cambiano colore secondo la stagione, il clima e le tendenze. Non è solo packaging — è un pezzo di stile che anche il cliente finale porta con sé.',
+    av_label: 'ASSISTENZA',
+    av_h3: 'Ci siamo anche dopo l\'ordine',
+    av_intro: 'La tua soddisfazione e quella dei tuoi clienti è la nostra priorità. Gestiamo ogni problema in modo rapido e senza burocrazia.',
+    av_1t: 'Difetti di fabbrica',
+    av_1d: 'Se una montatura arriva con un difetto di fabbricazione, la sostituiamo o rimborsiamo senza costi. Bastano foto del difetto e numero d\'ordine.',
+    av_2t: 'Rotture accidentali del cliente finale',
+    av_2d: 'Offriamo un prezzo speciale di sostituzione dei pezzi singoli per risolvere in fretta e fidelizzare il cliente.',
+    av_3t: 'Garanzia prodotto',
+    av_3d: 'Tutti i modelli hanno 12 mesi di garanzia di fabbrica. Copriamo difetti di cerniere, aste e acetato in uso normale.',
+    av_4t: 'Risposta in 24h',
+    av_4d: 'Ogni problema viene gestito entro 24 ore nei giorni feriali. Contattaci direttamente su WhatsApp per la massima rapidità.',
+    kids_soon: 'Già disponibile · Capsule AI26/27',
+    kids_h2a: 'Piccoli',
+    kids_h2b: 'grandi sguardi.',
+    kids_intro: 'Minuë arriva per i più piccoli. Lo stesso acetato artigianale, le stesse cerniere curate, gli stessi colori senza compromessi. Per bambini da 3 a 14 anni con il proprio stile.',
+    kids_f1: 'Acetato ipoallergenico',
+    kids_f2: 'Cerniere flessibili',
+    kids_f3: 'UV400 certificato',
+    kids_f4: '2 taglie · 3–8 e 8–14 anni',
+    kids_quote: '"Perché anche i bambini meritano di guardare il mondo con stile."',
+    kids_cta: 'Richiedi Minüe Junior',
+    kids_launch: 'Capsule limitata',
+    kids_retailer: 'Piccola capsule in edizione limitata: tariffe e prezzo su richiesta.',
+    kids_notify_d: 'Scrivici e ti inviamo disponibilità, tariffe e condizioni della capsule Junior.',
+    kids_notify_btn: 'Richiedi tariffe',
+    kids_email_ph: 'tu@ottica.com',
+    faire_ship_es: '3–4 giorni Spagna',
+    faire_ship_eu: '3–6 giorni Europa',
+    faire_ship_int: '6–9 giorni internazionale',
+    faire_order: 'Ordina su Faire',
+    faire_reviews: 'recensioni',
+    stat_cities: 'città',
+    stat_countries: 'paesi',
+    stat_years: 'anni',
+    stat_models: 'modelli',
+    stat_products: 'prodotti',
+    hiw_eyebrow: 'Come funziona',
+    hiw_no_pay: 'Senza pagamento anticipato',
+    hiw_1_t: 'Esplora',
+    hiw_1_d: 'Aggiungi al carrello ciò che ti interessa. Senza registrazione.',
+    hiw_2_t: 'Inviaci',
+    hiw_2_d: 'Invia la tua lista via WhatsApp o email. Senza pagare.',
+    hiw_3_t: 'Confermiamo',
+    hiw_3_d: 'Stock, prezzo e tempi confermati in meno di 24h.',
+    faq_eyebrow: 'Domande frequenti',
+    faq_h2: 'Quello che i retailer chiedono di solito',
+    faq_a7: '2 anni di garanzia del produttore. Difetti di fabbrica sostituiti senza costi.',
   },
 };
-
-function detectLang() {
-  if (typeof navigator === 'undefined') return 'es';
-  const l = (navigator.language || 'es').toLowerCase().slice(0, 2);
-  return ['es', 'fr', 'en', 'de', 'pt'].includes(l) ? l : 'es';
-}
 
 // ============================================================
 // DISTRIBUIDORES — routing del pedido según región
@@ -863,6 +1857,14 @@ const DISTRIBUTORS = {
     whatsapp: '573227701800',
     email: 'hola@minueopticians.co',
     flag: '🌎',
+  },
+  it: {
+    name: 'Cretella Showroom',
+    contact: 'Marcello',
+    whatsapp: '393317621348',
+    email: '',
+    instagram: 'https://www.instagram.com/cretellashowroom_',
+    flag: '🇮🇹',
   },
   default: {
     name: 'Minuë Opticians',
@@ -884,12 +1886,45 @@ const REGIONS = [
     label: { es: 'Portugal', fr: 'Portugal', en: 'Portugal', de: 'Portugal', pt: 'Portugal' } },
   { id: 'de',    flag: '🇩🇪', distributor: 'default',
     label: { es: 'Alemania', fr: 'Allemagne', en: 'Germany', de: 'Deutschland', pt: 'Alemanha' } },
+  { id: 'it',    flag: '🇮🇹', distributor: 'it',
+    label: { es: 'Italia', fr: 'Italie', en: 'Italy', de: 'Italien', pt: 'Itália', it: 'Italia' } },
   { id: 'intl',  flag: '🌍', distributor: 'default',
-    label: { es: 'Otro país', fr: 'Autre pays', en: 'Other country', de: 'Anderes Land', pt: 'Outro país' } },
+    label: { es: 'Otro país', fr: 'Autre pays', en: 'Other country', de: 'Anderes Land', pt: 'Outro país', it: 'Altro paese' } },
+];
+
+// Región detectada por zona horaria del navegador (sin API externa ni permisos).
+// Es más fiable que deducirla del idioma: un óptico italiano que navegue en
+// inglés debe seguir viendo a su distribuidor de Italia.
+const TZ_REGION = {
+  'Europe/Madrid': 'es', 'Africa/Ceuta': 'es', 'Atlantic/Canary': 'es',
+  'Europe/Paris': 'fr', 'Europe/Monaco': 'fr', 'Indian/Reunion': 'fr',
+  'Europe/Rome': 'it', 'Europe/Vatican': 'it', 'Europe/San_Marino': 'it', 'Europe/Malta': 'it',
+  'Europe/Lisbon': 'pt', 'Atlantic/Madeira': 'pt', 'Atlantic/Azores': 'pt',
+  'Europe/Berlin': 'de', 'Europe/Vienna': 'de', 'Europe/Zurich': 'de', 'Europe/Busingen': 'de',
+};
+const TZ_LATAM = [
+  'America/Bogota', 'America/Mexico_City', 'America/Lima', 'America/Santiago',
+  'America/Argentina', 'America/Sao_Paulo', 'America/Caracas', 'America/Guayaquil',
+  'America/La_Paz', 'America/Montevideo', 'America/Asuncion', 'America/Panama',
+  'America/Costa_Rica', 'America/Guatemala', 'America/Santo_Domingo', 'America/Havana',
+  'America/Tegucigalpa', 'America/Managua', 'America/El_Salvador', 'America/Cancun',
+  'America/Monterrey', 'America/Tijuana', 'America/Puerto_Rico',
 ];
 
 function detectRegion(lang) {
-  const map = { fr: 'fr', es: 'es', pt: 'pt', de: 'de', en: 'intl' };
+  try {
+    if (typeof window !== 'undefined') {
+      const saved = window.localStorage?.getItem('minue_region');
+      if (saved && REGIONS.find(r => r.id === saved)) return saved;
+    }
+    if (typeof Intl !== 'undefined' && Intl.DateTimeFormat) {
+      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+      if (TZ_REGION[tz]) return TZ_REGION[tz];
+      if (TZ_LATAM.some(z => tz.startsWith(z))) return 'latam';
+      if (tz.startsWith('America/')) return 'latam';
+    }
+  } catch (e) { /* seguimos con el idioma */ }
+  const map = { fr: 'fr', es: 'es', pt: 'pt', de: 'de', en: 'intl', it: 'it' };
   return map[lang] || 'intl';
 }
 
@@ -907,245 +1942,242 @@ const PRODUCTS = [
   // ── ICONS — cada variante de color es su propia entrada, orden por ventas ─
 
   // Lawrence: 526 uds total — mayor vendedor Icons
-  { id:23,  name:"Lawrence Guiza",    col:"Icons", shape:"square", colors:["miel","dorado"],   rank:9,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776278426/fvfdcrfdwed_tkuq62.webp" , imgScale:1.2},
-  { id:123, name:"Lawrence Velvet",   col:"Icons", shape:"square", colors:["burdeos"],          rank:50, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777237096/IMG_5850_1296x_goovpe.webp" },
-  { id:124, name:"Lawrence Carey",    col:"Icons", shape:"square", colors:["carey"],            rank:51, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777237097/IMG_0266_1296x_rucknr.webp" },
-  { id:125, name:"Lawrence Bay",      col:"Icons", shape:"square", colors:["azul"],             rank:52, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777237096/Miproyecto_12_1512x_epy8bc.webp" },
-  { id:126, name:"Lawrence Caramel",  col:"Icons", shape:"square", colors:["caramelo"],         rank:53, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777237095/Miproyecto_11_900x_xuv5q1.webp" },
-  { id:127, name:"Lawrence Black",    col:"Icons", shape:"square", colors:["negro"],            rank:54, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776278426/fvfdcrfdwed_tkuq62.webp" },
+  { id:23,  name:"Lawrence Guiza",    col:"Icons", shape:"square", colors:["miel","dorado"],   rank:9,  img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/image_b5a853c2-8868-432d-b7a6-df3510f4be8c.webp" , imgScale:1.2},
+  { id:123, name:"Lawrence Velvet",   col:"Icons", shape:"square", colors:["burdeos"],          rank:50, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5843.jpg" },
+  { id:124, name:"Lawrence Carey",    col:"Icons", shape:"square", colors:["carey"],            rank:51, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0211.jpg" },
+  { id:125, name:"Lawrence Bay",      col:"Icons", shape:"square", colors:["azul"],             rank:52, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_4505.jpg" },
+  { id:126, name:"Lawrence Caramel",  col:"Icons", shape:"square", colors:["caramelo"],         rank:53, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_4508.jpg" },
+  { id:127, name:"Lawrence Black",    col:"Icons", shape:"square", colors:["negro"],            rank:54, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_4505.jpg" },
 
   // Lamarr: 495 uds total
-  { id:43,  name:"Lamarr Carbon Mate", col:"Icons", shape:"cateye", urgency:"hot", colors:["negro","carbono"], rank:3,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777235608/IMG_4646_1080x_w3jhp7.webp" , imgScale:1.25},
-  { id:130, name:"Lamarr Louvre",      col:"Icons", shape:"cateye",               colors:["beige","nude"],    rank:55, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776277706/LAMARRBIC_900x_nuvcqj.webp" },
-  { id:131, name:"Lamarr Carey",       col:"Icons", shape:"cateye",               colors:["carey"],           rank:56, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235607/IMG_4649_1080x_wxyeia.webp" },
-  { id:132, name:"Lamarr Dark",        col:"Icons", shape:"cateye",               colors:["marrón"],          rank:57, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235608/IMG_3772_1080x_rmz7kx.webp" },
+  { id:43,  name:"Lamarr Carbon Mate", col:"Icons", shape:"cateye", urgency:"hot", colors:["negro","carbono"], rank:3,  img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_4646.jpg" , imgScale:1.25},
+  { id:130, name:"Lamarr Louvre",      col:"Icons", shape:"cateye",               colors:["beige","nude"],    rank:55, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_4639.jpg" },
+  { id:131, name:"Lamarr Carey",       col:"Icons", shape:"cateye",               colors:["carey"],           rank:56, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_4649.jpg" },
+  { id:132, name:"Lamarr Dark",        col:"Icons", shape:"cateye",               colors:["marrón"],          rank:57, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_3772.jpg" },
 
   // Loren: 455 uds total (tiene imágenes individuales)
-  { id:24,  name:"Loren Carey",  col:"Icons", shape:"cateye", colors:["carey"],           rank:13, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776986730/LORENCAREY_1728x_edxhjx.webp" },
-  { id:96,  name:"Loren Toffee", col:"Icons", shape:"cateye", colors:["caramelo","marrón"],rank:21, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776986730/LORENTOFFEEMINUEWEB_1728x_oxyoj1.webp" },
-  { id:97,  name:"Loren Black",  col:"Icons", shape:"cateye", colors:["negro"],           rank:22, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776986729/IMG_8167_1296x_oqut39.webp" },
-  { id:95,  name:"Loren Cream",  col:"Icons", shape:"cateye", colors:["crema","beige"],   rank:23, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776986729/IMG_5845_1296x_egicjl.webp" },
+  { id:24,  name:"Loren Carey",  col:"Icons", shape:"cateye", colors:["carey"],           rank:13, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_4647.jpg" },
+  { id:96,  name:"Loren Toffee", col:"Icons", shape:"cateye", colors:["caramelo","marrón"],rank:36, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_4650.jpg" },
+  { id:97,  name:"Loren Black",  col:"Icons", shape:"cateye", colors:["negro"],           rank:37, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_8114.jpg" },
+  { id:95,  name:"Loren Cream",  col:"Icons", shape:"cateye", colors:["crema","beige"],   rank:38, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5838.jpg" },
 
   // Berry: 332 uds total
-  { id:30,  name:"Berry Tea",         col:"Icons", shape:"round", urgency:"trending", colors:["marrón","cálido"],  rank:10, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776278629/IMG_0263_720x_uln010.webp" , imgScale:1.2},
-  { id:140, name:"Berry Carbon",      col:"Icons", shape:"round",                    colors:["negro","carbono"],   rank:58, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777241614/IMG_0241_1080x_qkxc8c.webp" },
-  { id:141, name:"Berry Navy Blue",   col:"Icons", shape:"round",                    colors:["azul"],              rank:59, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777241615/IMG_0256_1080x_cvdsjb.webp" },
-  { id:142, name:"Berry Brown Carey", col:"Icons", shape:"round",                    colors:["marrón","carey"],    rank:60, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777241611/IMG_3770_1080x_zcz0yh.webp" },
+  { id:30,  name:"Berry Tea",         col:"Icons", shape:"round", urgency:"trending", colors:["marrón","cálido"],  rank:10, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0263.jpg" , imgScale:1.2},
+  { id:140, name:"Berry Carbon",      col:"Icons", shape:"round",                    colors:["negro","carbono"],   rank:58, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0241.jpg" },
+  { id:141, name:"Berry Navy Blue",   col:"Icons", shape:"round",                    colors:["azul"],              rank:59, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0256.jpg" },
+  { id:142, name:"Berry Brown Carey", col:"Icons", shape:"round",                    colors:["marrón","carey"],    rank:60, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_3770.jpg" },
   { id:143, name:"Berry Leopard",     col:"Icons", shape:"round",                    colors:["marrón","negro"],    rank:61, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776278629/IMG_0263_720x_uln010.webp" },
-  { id:241, name:"Berry Carey",  col:"Icons", shape:"round", colors:["carey"],           rank:62, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777241612/IMG_0255_1080x_ii4ywg.webp" },
-  { id:242, name:"Berry Rosse",  col:"Icons", shape:"round", colors:["rosa","burdeos"],  rank:63, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777241613/IMG_3778_1080x_gohv9s.webp" },
+  { id:241, name:"Berry Carey",  col:"Icons", shape:"round", colors:["carey"],           rank:62, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0255.jpg" },
+  { id:242, name:"Berry Rosse",  col:"Icons", shape:"round", colors:["rosa","burdeos"],  rank:63, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_3778.jpg" },
 
   // Makey: 300 uds (sin imagen)
-  { id:38,  name:"Makey Carey",        col:"Icons", shape:"rectangular", colors:["carey"],       rank:24, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777231858/MAKEYCAREYWEB_1080x_ncdvtb.webp" },
-  { id:150, name:"Makey Black",        col:"Icons", shape:"rectangular", colors:["negro"],        rank:62, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777231883/MAKEYBLACKWEB_1080x_ulaedl.webp" },
-  { id:151, name:"Makey Snow",         col:"Icons", shape:"rectangular", colors:["blanco"],       rank:63, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777231858/MBLNEGW_1080x_pxxqdf.webp" },
-  { id:152, name:"Makey Cherry",       col:"Icons", shape:"rectangular", colors:["rojo"],         rank:64, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777231858/MAKEYREDWEB_1080x_qvpsfw.webp" },
-  { id:153, name:"Makey Red Black",    col:"Icons", shape:"rectangular", colors:["rojo","negro"], rank:65, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777231858/M2_1080x_sjyy1u.webp" },
+  { id:38,  name:"Makey Carey",        col:"Icons", shape:"rectangular", colors:["carey"],       rank:24, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/MAKEYCAREYWEB.png" },
+  { id:150, name:"Makey Black",        col:"Icons", shape:"rectangular", colors:["negro"],        rank:62, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/MAKEYBLACKWEB.png" },
+  { id:151, name:"Makey Snow",         col:"Icons", shape:"rectangular", colors:["blanco"],       rank:63, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/MBLNEGW.png" },
+  { id:152, name:"Makey Cherry",       col:"Icons", shape:"rectangular", colors:["rojo"],         rank:64, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/MAKEYREDWEB.png" },
+  { id:153, name:"Makey Red Black",    col:"Icons", shape:"rectangular", colors:["rojo","negro"], rank:65, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/M2.png" },
 
   // Aretha: 220 uds (sin imagen — Roses descatalogado)
-  { id:40,  name:"Aretha Carey", col:"Icons", shape:"round", colors:["carey"], rank:25, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777232755/IMG_8156_1080x_akqlyh.webp" },
-  { id:160, name:"Aretha Black", col:"Icons", shape:"round", colors:["negro"], rank:67, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777232755/IMG_8160_1080x_tvssen.webp" },
-  { id:223, name:"Aretha Rosse", col:"Icons", shape:"round", colors:["rosa"],  rank:68, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777232754/IMG_8147_1080x_pjprsu.webp" },
+  { id:40,  name:"Aretha Carey", col:"Icons", shape:"round", colors:["carey"], rank:25, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_8156.jpg" },
+  { id:160, name:"Aretha Black", col:"Icons", shape:"round", colors:["negro"], rank:67, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_8160.jpg" },
+  { id:223, name:"Aretha Rosse", col:"Icons", shape:"round", colors:["rosa"],  rank:68, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_8147.jpg" },
 
   // Ziyi: ~200 uds (sin imagen — nombres con color primero en CSV)
-  { id:42,  name:"Ziyi Mandarina", col:"Icons", shape:"square", colors:["naranja"],  rank:26, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777232015/IMG_5842_1512x_xgnwe0.webp" , imgScale:1.15},
-  { id:161, name:"Ziyi Ágata",     col:"Icons", shape:"square", colors:["verde"],    rank:68, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777232015/IMG_5839_1080x_c2fyio.webp" },
-  { id:162, name:"Ziyi Ámbar",     col:"Icons", shape:"square", colors:["ámbar"],   rank:69, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777232014/IMG_5840_1080x_bzjtbw.webp" },
-  { id:163, name:"Ziyi Jaspe",     col:"Icons", shape:"square", colors:["marrón"],  rank:70, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777232015/IMG_5844_1080x_pqlbnu.webp" },
-  { id:164, name:"Ziyi Rosas",     col:"Icons", shape:"square", colors:["rosa"],    rank:71, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777232015/IMG_0220_1080x_wf6yrs.webp" },
+  { id:42,  name:"Ziyi Mandarina", col:"Icons", shape:"square", colors:["naranja"],  rank:26, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5842.jpg" , imgScale:1.15},
+  { id:161, name:"Ziyi Ágata",     col:"Icons", shape:"square", colors:["verde"],    rank:68, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5839.jpg" },
+  { id:162, name:"Ziyi Ámbar",     col:"Icons", shape:"square", colors:["ámbar"],   rank:69, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5840.jpg" },
+  { id:163, name:"Ziyi Jaspe",     col:"Icons", shape:"square", colors:["marrón"],  rank:70, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5844.jpg" },
+  { id:164, name:"Ziyi Rosas",     col:"Icons", shape:"square", colors:["rosa"],    rank:71, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0220.jpg" },
 
   // Karina: 158 uds (sin imagen)
-  { id:41,  name:"Karina Jade",  col:"Icons", shape:"cateye", colors:["verde"],          rank:27, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777232565/Minueoptician210222-010_1080x_cdjfa1.webp" , imgScale:1.25},
-  { id:170, name:"Karina Ruby",  col:"Icons", shape:"cateye", colors:["rojo"],           rank:72, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777232564/Minueoptician210222-011_1080x_ys1csw.webp" },
-  { id:171, name:"Karina Black", col:"Icons", shape:"cateye", colors:["negro"],          rank:73, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777232564/IMG_4507_1080x_ukknez.webp" },
-  { id:172, name:"Karina Copo",  col:"Icons", shape:"cateye", colors:["blanco","crema"], rank:74, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777232564/IMG_0235_1080x_cmzzxa.webp" },
+  { id:41,  name:"Karina Jade",  col:"Icons", shape:"cateye", colors:["verde"],          rank:27, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/Minueoptician210222-010.jpg" , imgScale:1.25},
+  { id:170, name:"Karina Ruby",  col:"Icons", shape:"cateye", colors:["rojo"],           rank:72, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/Minueoptician210222-011.jpg" },
+  { id:171, name:"Karina Black", col:"Icons", shape:"cateye", colors:["negro"],          rank:73, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_4507.jpg" },
+  { id:172, name:"Karina Copo",  col:"Icons", shape:"cateye", colors:["blanco","crema"], rank:74, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0235.jpg" },
 
   // Maclaine: 306 uds (TÉ MACLAINE 173 + BLACK 131, sin imagen)
-  { id:25,  name:"Maclaine Tea",   col:"Icons", shape:"round", colors:["marrón","cálido"], rank:28, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233400/IMG_4503_1080x_qgdqtl.webp" , imgScale:1.25},
-  { id:180, name:"Maclaine Black", col:"Icons", shape:"round", colors:["negro"],            rank:75, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233400/IMG_4504_1080x_su4xqk.webp" },
+  { id:25,  name:"Maclaine Tea",   col:"Icons", shape:"round", colors:["marrón","cálido"], rank:28, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_4503.jpg" , imgScale:1.25},
+  { id:180, name:"Maclaine Black", col:"Icons", shape:"round", colors:["negro"],            rank:75, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_4504.jpg" },
 
   // Cleo: 127 uds (tiene imágenes)
-  { id:28,  name:"Cleo Tea",   col:"Icons", shape:"cateye", colors:["marrón","cálido"], rank:14, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776986729/IMG_2571_3f836e1a-078b-4f97-8b6e-0e6d0dbc30d7_1512x_qkwmvv.webp" },
-  { id:98,  name:"Cleo Black",  col:"Icons", shape:"cateye", colors:["negro"],           rank:29, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776986729/IMG_2568_0cdea3e3-91be-451b-97a0-301f495895da_1512x_pmfpjj.webp" },
+  { id:28,  name:"Cleo Tea",   col:"Icons", shape:"cateye", colors:["marrón","cálido"], rank:14, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_2571_3f836e1a-078b-4f97-8b6e-0e6d0dbc30d7.jpg" },
+  { id:98,  name:"Cleo Black",  col:"Icons", shape:"cateye", colors:["negro"],           rank:29, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_2568_0cdea3e3-91be-451b-97a0-301f495895da.jpg" },
 
   // Thurman: 147 uds (sin imagen — CARBONO THURMAN en CSV)
-  { id:34,  name:"Thurman Carey",   col:"Essential", shape:"rectangular", colors:["carey"],          rank:30, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777230867/IMG_2556_1512x_tmkqfm.webp" , imgScale:1.3},
-  { id:181, name:"Thurman Cloud",   col:"Essential", shape:"rectangular", colors:["gris"],            rank:76, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777230867/IMG_3764_1512x_wku82m.webp" },
-  { id:182, name:"Thurman Black",   col:"Essential", shape:"rectangular", colors:["negro"],           rank:77, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777230866/IMG_2553_1512x_wavffv.webp" },
-  { id:184, name:"Thurman Ember",   col:"Essential", shape:"rectangular", colors:["naranja"],         rank:79, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777230866/IMG_5592_1512x_eaobsj.webp" },
-  { id:183, name:"Thurman Caramel", col:"Essential", shape:"rectangular", colors:["caramelo"],        rank:78, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777230866/IMG_5625_1512x_pt0pwp.webp" },
+  { id:34,  name:"Thurman Carey",   col:"Essential", shape:"rectangular", colors:["carey"],          rank:30, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_2556.jpg" , imgScale:1.3},
+  { id:181, name:"Thurman Cloud",   col:"Essential", shape:"rectangular", colors:["gris"],            rank:76, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_3764.jpg" },
+  { id:182, name:"Thurman Black",   col:"Essential", shape:"rectangular", colors:["negro"],           rank:77, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_2553.jpg" },
+  { id:184, name:"Thurman Ember",   col:"Essential", shape:"rectangular", colors:["naranja"],         rank:79, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5592.jpg" },
+  { id:183, name:"Thurman Caramel", col:"Essential", shape:"rectangular", colors:["caramelo"],        rank:78, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5625.jpg" },
 
   // Harlow: 117 uds (sin imagen)
-  { id:37,  name:"Harlow Gold Green", col:"Icons", shape:"panto", colors:["dorado","verde"],  rank:31 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233643/Myproject-1_4_1080x_b7yaek.webp" },
-  { id:185, name:"Harlow Gold Brown", col:"Icons", shape:"panto", colors:["dorado","marrón"], rank:80 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233642/IMG_0251_1080x_hsbmjz.webp" },
-  { id:186, name:"Harlow Gold Black", col:"Icons", shape:"panto", colors:["dorado","negro"],  rank:81 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233642/Myproject-1_1080x_hbofmp.webp" },
+  { id:37,  name:"Harlow Gold Green", col:"Icons", shape:"panto", colors:["dorado","verde"],  rank:31 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/Myproject-1_4.png" },
+  { id:185, name:"Harlow Gold Brown", col:"Icons", shape:"panto", colors:["dorado","marrón"], rank:80 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0251.jpg" },
+  { id:186, name:"Harlow Gold Black", col:"Icons", shape:"panto", colors:["dorado","negro"],  rank:81 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/Myproject-1.png" },
 
   // Roberts: 100 uds (tiene imágenes)
-  { id:33,  name:"Roberts Carrot", col:"Icons", shape:"square", colors:["naranja"],  rank:32, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776986920/IMG_2576_900x_z2fnsz.webp" },
-  { id:93,  name:"Roberts Peanut", col:"Icons", shape:"square", colors:["marrón"],   rank:33, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776986920/IMG_2575_1296x_b9smpp.webp" },
-  { id:94,  name:"Roberts Salmon", col:"Icons", shape:"square", colors:["rosa"],     rank:34, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776986920/IMG_3775_1512x_iapwst.webp" },
-  { id:220, name:"Roberts Black",  col:"Icons", shape:"square", colors:["negro"],    rank:35, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776986920/IMG_3768_1512x_g5gmge.webp" },
+  { id:33,  name:"Roberts Carrot", col:"Icons", shape:"square", colors:["naranja"],  rank:32, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_2547.jpg" },
+  { id:93,  name:"Roberts Peanut", col:"Icons", shape:"square", colors:["marrón"],   rank:33, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_2546.jpg" },
+  { id:94,  name:"Roberts Salmon", col:"Icons", shape:"square", colors:["rosa"],     rank:34, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_3775.jpg" },
+  { id:220, name:"Roberts Black",  col:"Icons", shape:"square", colors:["negro"],    rank:35, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_3768.jpg" },
 
   // Moore: 90 uds (tiene imagen)
-  { id:27,  name:"Moore Black", col:"Icons", shape:"rectangular", colors:["negro"], rank:35, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776986730/MOOREBLACK_2048x_olbjuu.webp" },
+  { id:27,  name:"Moore Black", col:"Icons", shape:"rectangular", colors:["negro"], rank:35, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/MOOREBLACK.png" },
 
   // Gugu: 73 uds (tiene imágenes)
-  { id:26,  name:"Gugu Gold Green",       col:"Icons", shape:"geometric", urgency:"stock_low", colors:["dorado","verde"],         rank:4,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776277357/84_vxh8iz.png" },
+  { id:26,  name:"Gugu Gold Green",       col:"Icons", shape:"geometric", urgency:"stock_low", colors:["dorado","verde"],         rank:4,  img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/GUGUGOLDGREENMINUEWEB.png" },
   { id:64,  name:"Gugu Gold Brown Carey", col:"Icons", shape:"geometric",                      colors:["dorado","marrón","carey"],rank:36, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590220/196_mctzzt.png" },
 
   // Foster: 60 uds (sin imagen)
-  { id:32,  name:"Foster Gold Brown",   col:"Icons", shape:"panto", colors:["dorado","marrón"], rank:37 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233952/IMG_0246_1080x_lecyyk.webp" },
-  { id:187, name:"Foster Carbon Black", col:"Icons", shape:"panto", colors:["negro","carbono"], rank:82 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233953/IMG_0250_1080x_hgn78a.webp" },
+  { id:32,  name:"Foster Gold Brown",   col:"Icons", shape:"panto", colors:["dorado","marrón"], rank:37 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0246.jpg" },
+  { id:187, name:"Foster Carbon Black", col:"Icons", shape:"panto", colors:["negro","carbono"], rank:82 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0250.jpg" },
   { id:188, name:"Foster Gold Grey",    col:"Icons", shape:"panto", colors:["dorado","gris"],   rank:83 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233953/IMG_0248_1080x_zfmzfl.webp" },
 
   // Lane: 135 uds (sin imagen)
-  { id:36,  name:"Lane Grass",      col:"Essential", shape:"round", colors:["verde"],           rank:38, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777231418/IMG_3769_1512x_a7rtfi.webp" , imgScale:1.3},
-  { id:190, name:"Lane Tea",        col:"Essential", shape:"round", colors:["marrón","cálido"],  rank:84, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777231418/IMG_3771_1512x_nvruml.webp" },
-  { id:191, name:"Lane Light Blue", col:"Essential", shape:"round", colors:["azul"],             rank:85, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777231418/IMG_3766_1512x_wrb3vz.webp" },
-  { id:192, name:"Lane Ámbar",      col:"Essential", shape:"round", colors:["ámbar"],            rank:86, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777231418/IMG_3765_0ea890dd-6f6c-4337-99c9-739cea390cba_1512x_zg7bhj.webp" },
-  { id:193, name:"Lane Black",      col:"Essential", shape:"round", colors:["negro"],            rank:87 },
-  { id:194, name:"Lane Carey",      col:"Essential", shape:"round", colors:["carey"],            rank:88, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777231418/IMG_3767_d9fd096e-b787-435c-9c15-18dd34ea86ce_1080x_wkewlp.webp" },
-  { id:222, name:"Lane Opal",       col:"Essential", shape:"round", colors:["blanco","perla"],   rank:89, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777231418/IMG_3776_1512x_atccne.webp" },
+  { id:36,  name:"Lane Grass",      col:"Essential", shape:"round", colors:["verde"],           rank:38, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_3769.jpg" , imgScale:1.3},
+  { id:190, name:"Lane Tea",        col:"Essential", shape:"round", colors:["marrón","cálido"],  rank:84, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_3771.jpg" },
+  { id:191, name:"Lane Light Blue", col:"Essential", shape:"round", colors:["azul"],             rank:85, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_3766.jpg" },
+  { id:192, name:"Lane Ámbar",      col:"Essential", shape:"round", colors:["ámbar"],            rank:86, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_3765.jpg" },
+  { id:193, name:"Lane Black",      col:"Essential", shape:"round", colors:["negro"],            rank:87, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5628.jpg" },
+  { id:194, name:"Lane Carey",      col:"Essential", shape:"round", colors:["carey"],            rank:88, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_3767_d9fd096e-b787-435c-9c15-18dd34ea86ce.jpg" },
+  { id:222, name:"Lane Opal",       col:"Essential", shape:"round", colors:["blanco","perla"],   rank:89, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_3776.jpg" },
 
   // Carrol: 53 uds (sin imagen)
-  { id:39,  name:"Carrol Cedar", col:"Icons", shape:"oval", colors:["marrón","cedro"], rank:39 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235618/IMG_0254_1080x_ayvfd4.webp" },
-  { id:195, name:"Carrol Rowan", col:"Icons", shape:"oval", colors:["gris"],           rank:89 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235617/IMG_0258_1080x_ueg64y.webp" },
+  { id:39,  name:"Carrol Cedar", col:"Icons", shape:"oval", colors:["marrón","cedro"], rank:39 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0254.jpg" },
+  { id:195, name:"Carrol Rowan", col:"Icons", shape:"oval", colors:["gris"],           rank:89 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0258.jpg" },
 
   // Mirren: 50 uds (sin imagen — TÉ MIRREN en CSV)
-  { id:35,  name:"Mirren Tea",   col:"Icons", shape:"oval", colors:["marrón","cálido"], rank:40 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233652/IMG_4510_1080x_nyfbyr.webp" , imgScale:1.2},
-  { id:196, name:"Mirren Carey", col:"Icons", shape:"oval", colors:["carey"],           rank:90 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233651/IMG_0212_1080x_bhj4hf.webp" },
-  { id:197, name:"Mirren Black", col:"Icons", shape:"oval", colors:["negro"],           rank:91 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233643/IMG_4511_1080x_uhdghh.webp" },
+  { id:35,  name:"Mirren Tea",   col:"Icons", shape:"oval", colors:["marrón","cálido"], rank:40 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_4510.jpg" , imgScale:1.2},
+  { id:196, name:"Mirren Carey", col:"Icons", shape:"oval", colors:["carey"],           rank:90 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0212.jpg" },
+  { id:197, name:"Mirren Black", col:"Icons", shape:"oval", colors:["negro"],           rank:91 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_4511.jpg" },
 
   // Grant: 37 uds (sin imagen)
-  { id:29,  name:"Grant Carey",   col:"Icons", shape:"rectangular", colors:["carey"],    rank:41 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233753/IMG_5612_1512x_beesly.webp" },
-  { id:198, name:"Grant Caramel", col:"Icons", shape:"rectangular", colors:["caramelo"], rank:92 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233753/IMG_5613_1080x_qqay9v.webp" },
-  { id:199, name:"Grant Black",   col:"Icons", shape:"rectangular", colors:["negro"],    rank:93 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777233752/IMG_5614_1512x_ocrzst.webp" },
+  { id:29,  name:"Grant Carey",   col:"Icons", shape:"rectangular", colors:["carey"],    rank:41 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5612.jpg" },
+  { id:198, name:"Grant Caramel", col:"Icons", shape:"rectangular", colors:["caramelo"], rank:92 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5613.jpg" },
+  { id:199, name:"Grant Black",   col:"Icons", shape:"rectangular", colors:["negro"],    rank:93 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5614.jpg" },
 
   // Kerr: 16 uds (sin imagen)
 
   // Stone: 13 uds (sin imagen)
-  { id:31,  name:"Stone Gold Black", col:"Icons", shape:"square", colors:["dorado","negro"], rank:42 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235611/IMG_0231_1080x_houngo.webp" },
-  { id:225, name:"Stone Gold Brown", col:"Icons", shape:"square", colors:["dorado","marrón"], rank:43, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235612/IMG_0217_1080x_lghewj.webp" },
+  { id:31,  name:"Stone Gold Black", col:"Icons", shape:"square", colors:["dorado","negro"], rank:42 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0231.jpg" },
+  { id:225, name:"Stone Gold Brown", col:"Icons", shape:"square", colors:["dorado","marrón"], rank:43, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0217.jpg" },
 
   // ── ESSENTIAL ────────────────────────────────────────────────────────
-  { id:1,  name:"Bergman Noire",       col:"Essential", shape:"rectangular", urgency:"stock_low", colors:["negro","carey"],  rank:46,  isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590223/221_oeycry.png" },
-  { id:54, name:"Bergman Honey",       col:"Essential", shape:"rectangular",                      colors:["miel","cálido"],  rank:15, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590223/220_mutoia.png" },
-  { id:3,  name:"Bergman Rust",        col:"Essential", shape:"rectangular",                      colors:["marrón","cálido"],rank:44, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590223/217_skjewv.png" },
-  { id:55, name:"Bergman Carey Brown", col:"Essential", shape:"rectangular",                      colors:["carey","marrón"], rank:1, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590222/213_r9bzfx.png" },
-  { id:56, name:"Bergman Carbon",      col:"Essential", shape:"rectangular",                      colors:["negro","carbono"],rank:46, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590222/211_mv2omz.png" },
-  { id:57, name:"Bergman Brown",       col:"Essential", shape:"rectangular",                      colors:["marrón"],         rank:47, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590222/210_jnsxlo.png" },
-  { id:62, name:"Bergman Carey",       col:"Essential", shape:"rectangular",                      colors:["carey"],          rank:48, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590221/199_roiwuk.png" },
+  { id:1,  name:"Bergman Noire",       col:"Essential", shape:"rectangular", urgency:"stock_low", colors:["negro","carey"],  rank:5,  isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/221.png" },
+  { id:54, name:"Bergman Honey",       col:"Essential", shape:"rectangular",                      colors:["miel","cálido"],  rank:4, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/220.png" },
+  { id:3,  name:"Bergman Rust",        col:"Essential", shape:"rectangular",                      colors:["marrón","cálido"],rank:44, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/209.png" },
+  { id:56, name:"Bergman Carbon",      col:"Essential", shape:"rectangular",                      colors:["negro","carbono"],rank:2, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/211.png" },
+  { id:57, name:"Bergman Brown",       col:"Essential", shape:"rectangular",                      colors:["marrón"],         rank:3, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/159.png" },
+  { id:62, name:"Bergman Carey",       col:"Essential", shape:"rectangular",                      colors:["carey"],          rank:1, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/213.png" },
   // Deneuve: 55 uds (sin imagen)
-  { id:8,   name:"Deneuve Tea",   col:"Essential", shape:"cateye", colors:["marrón","cálido"],rank:49 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235619/4_1080x_tpnoai.webp" , imgScale:1.2},
-  { id:202, name:"Deneuve Carey", col:"Essential", shape:"cateye", colors:["carey"],          rank:96 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235618/5_1080x_a6mvkj.webp" },
-  { id:203, name:"Deneuve Apple", col:"Essential", shape:"cateye", colors:["verde"],          rank:97 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235619/3_1512x_qlli1g.webp" },
+  { id:8,   name:"Deneuve Tea",   col:"Essential", shape:"cateye", colors:["marrón","cálido"],rank:49 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/4.png" , imgScale:1.2},
+  { id:202, name:"Deneuve Carey", col:"Essential", shape:"cateye", colors:["carey"],          rank:96 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/5.png" },
+  { id:203, name:"Deneuve Apple", col:"Essential", shape:"cateye", colors:["verde"],          rank:97 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/3.png" },
   // Bacall: 40 uds (sin imagen)
   // Cooper II: 53 uds (sin imagen)
-  { id:19,  name:"Cooper II Grass",     col:"Essential", shape:"round", colors:["verde"],   rank:49 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235612/IMG_5620_1080x_qgcmby.webp" , imgScale:1.3},
-  { id:207, name:"Cooper II Buttercup", col:"Essential", shape:"round", colors:["amarillo"],rank:101 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235613/IMG_5622_1512x_1_vdhrbl.webp" },
-  { id:208, name:"Cooper II Sierra",    col:"Essential", shape:"round", colors:["marrón"],  rank:102 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235614/IMG_5616_1080x_rfydzw.webp" },
-  { id:209, name:"Cooper II Caramel",     col:"Essential", shape:"round", colors:["caramelo"],   rank:103 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235616/IMG_5615_1080x_n9xtaq.webp" },
-  { id:233, name:"Cooper II Tiger", col:"Essential", shape:"round", colors:["tigre","carey"], rank:113 },
-  { id:210, name:"Cooper II Moonlight", col:"Essential", shape:"round", colors:["beige"],   rank:104 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235614/IMG_5619_1080x_ngaigy.webp" },
-  { id:211, name:"Cooper II Havana",    col:"Essential", shape:"round", colors:["havana"],  rank:105 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235615/IMG_5618_1080x_qokuvs.webp" },
+  { id:19,  name:"Cooper II Grass",     col:"Essential", shape:"round", colors:["verde"],   rank:49 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5620.jpg" , imgScale:1.3},
+  { id:207, name:"Cooper II Buttercup", col:"Essential", shape:"round", colors:["amarillo"],rank:101 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5622.jpg" },
+  { id:208, name:"Cooper II Sierra",    col:"Essential", shape:"round", colors:["marrón"],  rank:102 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5616.jpg" },
+  { id:209, name:"Cooper II Caramel",     col:"Essential", shape:"round", colors:["caramelo"],   rank:103 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5615.jpg" },
+  { id:233, name:"Cooper II Tiger", col:"Essential", shape:"round", colors:["tigre","carey"], rank:113, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5617.jpg" },
+  { id:210, name:"Cooper II Moonlight", col:"Essential", shape:"round", colors:["beige"],   rank:104 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5619.jpg" },
+  { id:211, name:"Cooper II Havana",    col:"Essential", shape:"round", colors:["havana"],  rank:105 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5618.jpg" },
   // Hart: 37 uds
-  { id:7,   name:"Hart Honey",  col:"Essential", shape:"square", colors:["miel","cálido"],  rank:51, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590199/72_jjyjef.png" },
-  { id:83,  name:"Hart Carey",  col:"Essential", shape:"square", colors:["carey"],          rank:52, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590192/20_ovz0a0.png" },
-  { id:86,  name:"Hart Sunset", col:"Essential", shape:"square", colors:["naranja","cálido"],rank:53, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590194/36_oxag8z.png" },
-  // Roger: 36 uds (isNew SS26)
-  { id:54,  name:"Roger Carey",  col:"Essential", shape:"rectangular", colors:["carey"],        rank:54, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590224/230_ybcxjk.png" },
-  { id:55,  name:"Roger Velvet", col:"Essential", shape:"rectangular", colors:["burdeos"],      rank:55, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590224/229_puavtb.png" },
-  { id:56,  name:"Roger Wine",   col:"Essential", shape:"rectangular", colors:["burdeos","rojo"],rank:56, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590224/227_xigzba.png" },
+  { id:7,   name:"Hart Honey",  col:"Essential", shape:"square", colors:["miel","cálido"],  rank:51, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Captura_de_pantalla_2025-05-26_a_las_12.54.08.png" },
+  { id:86,  name:"Hart Sunset", col:"Essential", shape:"square", colors:["naranja","cálido"],rank:53, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/24651be0773ae9139225c10bff875975.png" },
+  // Roger: 36 uds (isNew AW26/27)
+  { id:303,  name:"Roger Carey",  col:"Essential", shape:"rectangular", colors:["carey"],        rank:54, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/230.png" },
+  { id:55,  name:"Roger Velvet", col:"Essential", shape:"rectangular", colors:["burdeos"],      rank:55, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/229.png" },
+  { id:304,  name:"Roger Wine",   col:"Essential", shape:"rectangular", colors:["burdeos","rojo"],rank:56, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/228.png" },
   // Bolden: rank 6 top pick
-  { id:16,  name:"Bolden Wine",  col:"Essential", shape:"rectangular", colors:["burdeos"], rank:55 },
-  { id:63,  name:"Bolden Oliva", col:"Essential", shape:"rectangular", colors:["verde"],         rank:57, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590220/195_qakpdg.png" },
-  { id:66,  name:"Bolden Ebony", col:"Essential", shape:"rectangular", colors:["negro"],          rank:58, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590220/193_bjptue.png" },
-  { id:65,  name:"Bolden Nude",  col:"Essential", shape:"rectangular", colors:["nude"],           rank:59, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590220/192_mvmgmk.png" },
-  { id:60,  name:"Bolden Bruma", col:"Essential", shape:"rectangular", colors:["gris","neutro"],  rank:6, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590220/194_hwuk8l.png" },
+  { id:16,  name:"Bolden Wine",  col:"Essential", shape:"rectangular", colors:["burdeos"], rank:55, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/43.png" },
+  { id:63,  name:"Bolden Oliva", col:"Essential", shape:"rectangular", colors:["verde"],         rank:57, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/MINUE_12.png" },
+  { id:66,  name:"Bolden Ebony", col:"Essential", shape:"rectangular", colors:["negro"],          rank:58, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/193.png" },
+  { id:65,  name:"Bolden Nude",  col:"Essential", shape:"rectangular", colors:["nude"],           rank:59, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/MINUE_11.png" },
+  { id:60,  name:"Bolden Bruma", col:"Essential", shape:"rectangular", colors:["gris","neutro"],  rank:6, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/194.png" },
   // Rainer: 20 uds
-  { id:10,  name:"Rainer Mandarine", col:"Essential", shape:"round", colors:["naranja"], rank:61, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590208/116_z2owvq.png" },
-  { id:74,  name:"Rainer Carey",     col:"Essential", shape:"round", colors:["carey"],   rank:62, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590208/115_xhcrlb.png" },
+  { id:10,  name:"Rainer Mandarine", col:"Essential", shape:"round", colors:["naranja"], rank:61, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/8.png" },
+  { id:74,  name:"Rainer Carey",     col:"Essential", shape:"round", colors:["carey"],   rank:62, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/10.png" },
   // Arielle: rank 7 top pick
-  { id:11,  name:"Arielle Dusty",  col:"Essential", shape:"oval", colors:["rosa","beige"],rank:7,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590207/105_wxiarw.png" },
-  { id:78,  name:"Arielle Carey",  col:"Essential", shape:"oval", colors:["carey"],       rank:63, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590207/104_ijc9wd.png" },
-  { id:82,  name:"Arielle Velvet", col:"Essential", shape:"oval", colors:["burdeos"],     rank:64, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590200/75_zjvevs.png" },
+  { id:11,  name:"Arielle Dusty",  col:"Essential", shape:"oval", colors:["rosa","beige"],rank:7,  img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/53.png" },
+  { id:301, name:"Arielle Pale Sandstone", col:"Essential", shape:"cateye", colors:["beige","crema"], rank:46, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/56.png" },
+  { id:78,  name:"Arielle Carey",  col:"Essential", shape:"oval", colors:["carey"],       rank:63, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/54.png" },
+  { id:82,  name:"Arielle Velvet", col:"Essential", shape:"oval", colors:["burdeos"],     rank:64, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/55.png" },
   // Blyth: 11 uds
   { id:18,  name:"Blyth Emerald", col:"Essential", shape:"rectangular", colors:["verde"], rank:65, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590210/124_a4teov.png" },
-  { id:70,  name:"Blyth Carey",   col:"Essential", shape:"rectangular", colors:["carey"], rank:66, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590210/123_pucyjo.png" },
+  { id:70,  name:"Blyth Carey",   col:"Essential", shape:"rectangular", colors:["carey"], rank:66, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/12.png" },
   // Hedy: rank 8 top pick
-  { id:15,  name:"Hedy Guiza",  col:"Essential", shape:"round", colors:["miel","dorado"], rank:8,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590207/109_lmyt8j.png" },
-  { id:87,  name:"Hedy Matcha", col:"Essential", shape:"round", colors:["verde"],          rank:67, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777238291/38_1080x_g67jni.webp" },
-  { id:88,  name:"Hedy Carey",  col:"Essential", shape:"round", colors:["carey"],          rank:68, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590194/39_j5xr3i.png" },
+  { id:15,  name:"Hedy Guiza",  col:"Essential", shape:"round", colors:["miel","dorado"], rank:8,  img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/37.png" },
+  { id:87,  name:"Hedy Matcha", col:"Essential", shape:"round", colors:["verde"],          rank:67, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/38.png" },
   // Colette: 14 uds
-  { id:14,  name:"Colette Burnt",  col:"Essential", shape:"cateye", colors:["naranja"], rank:69, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590209/119_twux0d.png" },
-  { id:73,  name:"Colette Jungle", col:"Essential", shape:"cateye", colors:["verde"],   rank:70, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590209/118_qjnnlr.png" },
-  { id:89,  name:"Colette Cocoa",  col:"Essential", shape:"cateye", colors:["marrón"],  rank:71, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590195/44_xyxshu.png" },
+  { id:14,  name:"Colette Burnt",  col:"Essential", shape:"cateye", colors:["naranja"], rank:69, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/46.png" },
+  { id:73,  name:"Colette Jungle", col:"Essential", shape:"cateye", colors:["verde"],   rank:70, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/118.png" },
+  { id:89,  name:"Colette Cocoa",  col:"Essential", shape:"cateye", colors:["marrón"],  rank:18, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/44.png" },
   // Dover: 15 uds
-  { id:12,  name:"Dover Hunter Blend", col:"Essential", shape:"rectangular", colors:["verde"],          rank:72, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590196/47_lzlfga.png" },
-  { id:90,  name:"Dover Tea",          col:"Essential", shape:"rectangular", colors:["marrón","cálido"],rank:73, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590197/48_ocj5up.png" },
-  { id:91,  name:"Dover Shadow",       col:"Essential", shape:"rectangular", colors:["gris"],           rank:74, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590197/48_ocj5up.png" },
+  { id:12,  name:"Dover Hunter Blend", col:"Essential", shape:"rectangular", colors:["verde"],          rank:72, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/47.png" },
+  { id:90,  name:"Dover Tea",          col:"Essential", shape:"rectangular", colors:["marrón","cálido"],rank:73, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/48.png" },
+  { id:91,  name:"Dover Shadow",       col:"Essential", shape:"rectangular", colors:["gris"],           rank:74, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/49.png" },
   // Hazel: 13 uds
-  { id:67,  name:"Hazel Petal", col:"Essential", shape:"oval", colors:["rosa"],  rank:76, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777238423/50_1080x_avjg1r.webp" },
+  { id:67,  name:"Hazel Petal", col:"Essential", shape:"oval", colors:["rosa"],  rank:19, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/50.png" },
   // Tura: 12 uds
-  { id:4,   name:"Tura Guiza", col:"Essential", shape:"square", colors:["miel","dorado"],rank:77, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590207/103_ze0plj.png" },
-  { id:75,  name:"Tura Nude",  col:"Essential", shape:"square", colors:["nude"],         rank:78, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590207/108_ccrl79.png" },
-  { id:76,  name:"Tura Noir",  col:"Essential", shape:"square", colors:["negro"],        rank:79, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590207/106_orwzvv.png" },
-  { id:77,  name:"Tura Carey", col:"Essential", shape:"square", colors:["carey"],        rank:80, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590207/107_ovzxrn.png" },
-  // Vitti: nuevo SS26
-  { id:2,   name:"Vitti Brown",       col:"Essential", shape:"cateye", colors:["marrón"],         rank:81, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590221/203_bvypll.png" },
-  { id:212, name:"Vitti Velvet",      col:"Essential", shape:"cateye", colors:["burdeos"],         rank:82, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590221/201_vzqsat.png" },
-  { id:213, name:"Vitti Caramel",     col:"Essential", shape:"cateye", colors:["caramelo"],        rank:83, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590221/202_gusxcv.png" },
-  { id:214, name:"Vitti Brown Carey", col:"Essential", shape:"cateye", colors:["carey","marrón"],  rank:84, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590221/204_yuculq.png" },
-  // Cardinale: nuevo SS26
-  { id:5,   name:"Cardinale Carey", col:"Essential", shape:"panto", colors:["carey","verde","miel"],rank:85, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590222/208_kg1lxu.png" },
-  { id:58,  name:"Cardinale Guiza", col:"Essential", shape:"panto", colors:["miel","dorado"],       rank:86, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590221/207_useou6.png" },
-  { id:59,  name:"Cardinale Apple", col:"Essential", shape:"panto", colors:["verde"],               rank:87, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590221/206_p7m4so.png" },
+  { id:4,   name:"Tura Guiza", col:"Essential", shape:"square", colors:["miel","dorado"],rank:77, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/63.png" },
+  { id:75,  name:"Tura Nude",  col:"Essential", shape:"square", colors:["nude"],         rank:78, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/65.png" },
+  { id:76,  name:"Tura Noir",  col:"Essential", shape:"square", colors:["negro"],        rank:79, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/67.png" },
+  { id:77,  name:"Tura Carey", col:"Essential", shape:"square", colors:["carey"],        rank:80, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/65.png" },
+  // Vitti: nuevo AW26/27
+  { id:2,   name:"Vitti Brown",       col:"Essential", shape:"cateye", colors:["marrón"],         rank:20, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/203.png" },
+  { id:212, name:"Vitti Velvet",      col:"Essential", shape:"cateye", colors:["burdeos"],         rank:82, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/201.png" },
+  { id:213, name:"Vitti Caramel",     col:"Essential", shape:"cateye", colors:["caramelo"],        rank:83, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/202.png" },
+  { id:214, name:"Vitti Brown Carey", col:"Essential", shape:"cateye", colors:["carey","marrón"],  rank:84, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/acaxasx.png" },
+  // Cardinale: nuevo AW26/27
+  { id:5,   name:"Cardinale Carey", col:"Essential", shape:"panto", colors:["carey","verde","miel"],rank:85, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/208.png" },
+  { id:58,  name:"Cardinale Guiza", col:"Essential", shape:"panto", colors:["miel","dorado"],       rank:86, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/6w4rw.png" },
+  { id:59,  name:"Cardinale Apple", col:"Essential", shape:"panto", colors:["verde"],               rank:21, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/gtwed.png" },
   // Chastain: rank 5 top pick
-  { id:20,  name:"Chastain Black",        col:"Essential", shape:"cateye", urgency:"trending", colors:["negro","carey","verde"],rank:5,  isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590223/216_tjup92.png" },
-  { id:68,  name:"Chastain Carey",        col:"Essential", shape:"cateye",                     colors:["carey"],               rank:88, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590212/132_zild1l.png" },
-  { id:69,  name:"Chastain Noire Violet", col:"Essential", shape:"cateye",                     colors:["negro","burdeos"],     rank:89, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235610/sadascas_1080x_asvwdj.webp" },
-  { id:225, name:"Chastain Red Light", col:"Essential", shape:"cateye", colors:["rojo"], rank:90, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777235609/sa_1080x_siluhw.webp" },
+  { id:68,  name:"Chastain Carey",        col:"Essential", shape:"cateye",                     colors:["carey"],               rank:11, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/jjiasda.png" },
+  { id:69,  name:"Chastain Noir Violet", col:"Essential", shape:"cateye",                     colors:["negro","burdeos"],     rank:12, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/sadascas.png" },
+  { id:302, name:"Chastain Red Light", col:"Essential", shape:"cateye", colors:["rojo"], rank:13, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/sa.png" },
   // Gardner: 3 uds
-  { id:6,   name:"Gardner Carey", col:"Essential", shape:"round", colors:["carey"],  rank:90, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590206/102_awq6kg.png" },
-  { id:79,  name:"Gardner Amber Doré", col:"Essential", shape:"round", colors:["ámbar"],  rank:91, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590206/100_kesd63.png" },
-  { id:92,  name:"Gardner Black", col:"Essential", shape:"round", colors:["negro"],  rank:92, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590206/101_pg1660.png" },
+  { id:6,   name:"Gardner Carey", col:"Essential", shape:"round", colors:["carey"],  rank:90, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/102.png" },
+  { id:79,  name:"Gardner Amber Doré", col:"Essential", shape:"round", colors:["ámbar"],  rank:22, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/60.png" },
+  { id:92,  name:"Gardner Black", col:"Essential", shape:"round", colors:["negro"],  rank:92, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/101.png" },
   // Sin imagen
-  { id:237, name:"Nova Black", col:"Essential", shape:"geometric", colors:["negro"], rank:117 },
-  { id:17,  name:"Nova Ruby",       col:"Essential", shape:"geometric",   colors:["rojo","rubí"],   rank:93, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590217/172_e8julb.png" },
-  { id:221, name:"Nova Jade",       col:"Essential", shape:"geometric",   colors:["verde","jade"],  rank:94, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590217/171_aavi3l.png" },
-  { id:9,   name:"Totter Leaf",     col:"Essential", shape:"rectangular", colors:["verde"],           rank:95 },
-  { id:217, name:"Totter Carey",    col:"Essential", shape:"rectangular", colors:["carey"],           rank:108 },
+  { id:237, name:"Nova Black", col:"Essential", shape:"geometric", colors:["negro"], rank:117, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/150.png" },
+  { id:17,  name:"Nova Ruby",       col:"Essential", shape:"geometric",   colors:["rojo","rubí"],   rank:93, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/172.png" },
+  { id:221, name:"Nova Jade",       col:"Essential", shape:"geometric",   colors:["verde","jade"],  rank:94, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/171.png" },
+  { id:9,   name:"Totter Leaf",     col:"Essential", shape:"rectangular", colors:["verde"],           rank:95, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5627.jpg" },
+  { id:217, name:"Totter Carey",    col:"Essential", shape:"rectangular", colors:["carey"],           rank:108, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5629.jpg" },
 
   // ── ACETATO ──────────────────────────────────────────────────────────
-  { id:53,  name:"Hayek Olive",    col:"Acetato", shape:"square",      urgency:"hot", colors:["verde","oliva"],  rank:50,  img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590203/86_i09mqr.png" },
-  { id:52,  name:"Leigh Chalk",    col:"Acetato", shape:"rectangular",               colors:["blanco"],          rank:16, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590208/112_pmpzcn.png" },
-  { id:47,  name:"Arden Cocoa",    col:"Acetato", shape:"cateye",                    colors:["marrón"],          rank:11, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590211/122_ivwzqu.png" },
-  { id:50,  name:"Novak Mocha",    col:"Acetato", shape:"square",                    colors:["moca","marrón"],   rank:12, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590203/92_txomis.png" },
-  { id:224, name:"Chastain Olive",     col:"Essential", shape:"cateye", urgency:"trending", colors:["verde","oliva"], rank:2, isNew:true, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777235610/saxaa_1080x_p0gxws.webp" , imgScale:1.2},
-  { id:81,  name:"Hayek Carey",    col:"Acetato", shape:"square",                    colors:["carey"],           rank:17, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590202/85_r9q8ec.png" },
-  { id:71,  name:"Arden Carey",    col:"Acetato", shape:"cateye",                    colors:["carey"],           rank:18, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590209/121_wvm2wp.png" },
-  { id:72,  name:"Arden Champagne",col:"Acetato", shape:"cateye",                    colors:["champán","dorado"],rank:19, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590209/120_s8exzo.png" },
-  { id:80,  name:"Novak Carey",    col:"Acetato", shape:"square",                    colors:["carey"],           rank:20, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1776590203/91_yctpcq.png" },
+  { id:53,  name:"Hayek Olive",    col:"Acetato", shape:"square",      urgency:"hot", colors:["verde","oliva"],  rank:50,  img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/86.png" },
+  { id:52,  name:"Leigh Chalk",    col:"Acetato", shape:"rectangular",               colors:["blanco"],          rank:31, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/112.png" },
+  { id:47,  name:"Arden Cocoa",    col:"Acetato", shape:"cateye",                    colors:["marrón"],          rank:11, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/98.png" },
+  { id:50,  name:"Novak Mocha",    col:"Acetato", shape:"square",                    colors:["moca","marrón"],   rank:12, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/92.png" },
+  { id:224, name:"Chastain Olive",     col:"Essential", shape:"cateye", urgency:"trending", colors:["verde","oliva"], rank:10, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/saxaa.png" , imgScale:1.2},
+  { id:81,  name:"Hayek Carey",    col:"Acetato", shape:"square",                    colors:["carey"],           rank:32, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/85.png" },
+  { id:71,  name:"Arden Carey",    col:"Acetato", shape:"cateye",                    colors:["carey"],           rank:33, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/121.png" },
+  { id:72,  name:"Arden Champagne",col:"Acetato", shape:"cateye",                    colors:["champán","dorado"],rank:34, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/120.png" },
+  { id:80,  name:"Novak Carey",    col:"Acetato", shape:"square",                    colors:["carey"],           rank:35, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/91.png" },
   { id:84,  name:"Fonda Sepia",    col:"Acetato", shape:"square",                    colors:["marrón"],          rank:96, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590193/28_qoduia.png" },
-  { id:46,  name:"Astor Green",    col:"Acetato", shape:"rectangular",               colors:["verde"],           rank:97, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590194/30_sm0o9h.png" },
-  { id:85,  name:"Astor Bronce",   col:"Acetato", shape:"rectangular",               colors:["bronce"],          rank:98, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590194/34_w3ugnz.png" },
-  { id:51,  name:"Ivy Felline",    col:"Acetato", shape:"oval",                      colors:["ámbar"],          rank:99, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590208/113_ib6mfy.png" },
-  { id:48,  name:"Bardot",         col:"Acetato", shape:"cateye",                    colors:["carey"],           rank:100 },
-  { id:243, name:"Hayworth",       col:"Acetato", shape:"rectangular",               colors:["negro","dorado"],  rank:103, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590193/26_y5oqxr.png" },
-  { id:49,  name:"Juno",           col:"Acetato", shape:"round",                     colors:["negro"],           rank:101, img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1776590193/27_b8ubbk.png" },
-  { id:45,  name:"Sienna",         col:"Acetato", shape:"square",                    colors:["marrón","negro"],  rank:102 },
-  // ── Añadidos desde PDF SS26 ──────────────────────────────────────
-  { id:228, name:"Baker Tea",          col:"Essential", shape:"rectangular", colors:["marrón","cálido"],  rank:108 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777241610/170_1080x_aum7jk.webp" },
-  { id:229, name:"Baker Cloud",        col:"Essential", shape:"rectangular", colors:["gris","crema"],     rank:109 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777241607/169_1080x_ctu7xj.webp" },
-  { id:230, name:"Baker Mint",         col:"Essential", shape:"rectangular", colors:["verde","menta"],    rank:110 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777241608/168_1080x_pcrdjp.webp" },
-  { id:231, name:"Baker Black",        col:"Essential", shape:"rectangular", colors:["negro"],            rank:111 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777241609/167_5f067309-28f6-48a3-8f95-e40cc91e27f5_1080x_p2ydrr.webp" },
-  { id:226, name:"Hart Black",         col:"Essential", shape:"square",      colors:["negro"],            rank:112 },
-  { id:227, name:"Hedy Jara",          col:"Essential", shape:"round",       colors:["verde"],            rank:113 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777238292/39_1080x_ljvzuy.webp" },
-  { id:235, name:"Moore Kaffa",        col:"Icons",     shape:"rectangular", colors:["marrón","café"],    rank:117 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_900,q_auto,f_auto/v1777242114/IMG_2563_1512x_1_u7dveu.webp" },
-  { id:236, name:"Hazel Carey",        col:"Essential", shape:"square",      colors:["carey"],            rank:118 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777238421/51_1080x_gdsyrw.webp" },
-  { id:237, name:"Hazel Noir",         col:"Essential", shape:"square",      colors:["negro"],            rank:119 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777238421/52_1080x_wawued.webp" },
-  { id:238, name:"Rainer Caramel",     col:"Essential", shape:"oval",        colors:["caramelo"],         rank:120 , img:"https://res.cloudinary.com/dekvzwn7b/image/upload/e_background_removal/w_800,q_auto,f_auto/v1777238348/9_1080x_ladhto.webp" },
-  { id:239, name:"Cardinale Tea",      col:"Essential", shape:"oval",        colors:["marrón","cálido"],  rank:121 },
+  { id:46,  name:"Astor Green",    col:"Acetato", shape:"rectangular",               colors:["verde"],           rank:97, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/31.png" },
+  { id:85,  name:"Astor Bronce",   col:"Acetato", shape:"rectangular",               colors:["bronce"],          rank:98, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/27.png" },
+  { id:51,  name:"Ivy Felline",    col:"Acetato", shape:"oval",                      colors:["ámbar"],          rank:99, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/113.png" },
+  { id:48,  name:"Bardot",         col:"Acetato", shape:"cateye",                    colors:["carey"],           rank:100, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/33.png" },
+  { id:243, name:"Hayworth",       col:"Acetato", shape:"rectangular",               colors:["negro","dorado"],  rank:103, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/26.png" },
+  { id:49,  name:"Juno",           col:"Acetato", shape:"round",                     colors:["negro"],           rank:101, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/28.png" },
+  { id:45,  name:"Sienna",         col:"Acetato", shape:"square",                    colors:["marrón","negro"],  rank:102, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/29.png" },
+  // ── Añadidos desde PDF AW26/27 ──────────────────────────────────────
+  { id:228, name:"Baker Tea",          col:"Essential", shape:"rectangular", colors:["marrón","cálido"],  rank:108 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/170.png" },
+  { id:229, name:"Baker Cloud",        col:"Essential", shape:"rectangular", colors:["gris","crema"],     rank:109 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/169.png" },
+  { id:230, name:"Baker Mint",         col:"Essential", shape:"rectangular", colors:["verde","menta"],    rank:110 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/168.png" },
+  { id:231, name:"Baker Black",        col:"Essential", shape:"rectangular", colors:["negro"],            rank:111 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/167.png" },
+  { id:226, name:"Hart Black",         col:"Essential", shape:"square",      colors:["negro"],            rank:112, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/MINUE_18.png" },
+  { id:227, name:"Hedy Jara",          col:"Essential", shape:"round",       colors:["verde"],            rank:113 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/39.png" },
+  { id:235, name:"Moore Kaffa",        col:"Icons",     shape:"rectangular", colors:["marrón","café"],    rank:117 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_2563.jpg" },
+  { id:236, name:"Hazel Carey",        col:"Essential", shape:"square",      colors:["carey"],            rank:118 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/51.png" },
+  { id:305, name:"Hazel Noir",         col:"Essential", shape:"square",      colors:["negro"],            rank:119 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/52.png" },
+  { id:238, name:"Rainer Caramel",     col:"Essential", shape:"oval",        colors:["caramelo"],         rank:120 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/9.png" },
+  { id:239, name:"Cardinale Tea",      col:"Essential", shape:"oval",        colors:["marrón","cálido"],  rank:121, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/164.png" },
 ];
 
 const SHAPES = [
@@ -1180,7 +2212,7 @@ const COLOR_FILTERS = [
 const COLLECTIONS = [
   { id: 'Essential', label: 'Essential', tagKey: 'col_essential_tag', rrp: 50, unitCost: null },
   { id: 'Icons',     label: 'Icons',     tagKey: 'col_icons_tag',     rrp: 50, unitCost: null },
-  { id: 'Acetato',   label: 'Acetato',   tagKey: 'col_acetato_tag',   rrp: 69, unitCost: 25.95 },
+  { id: 'Acetato',   label: 'Acetato',   tagKey: 'col_acetato_tag',   rrp: 70, unitCost: 25.95 },
 ];
 
 const URGENCY_LABELS = { stock_low: 'urgency_stock_low', hot: 'urgency_hot', trending: 'urgency_trending' };
@@ -1405,7 +2437,7 @@ function FlyingItem({ item, onDone }) {
 }
 
 // ── generatePDF — abre ventana de impresión con pedido formateado ─────
-function generatePDF({ cartItems, cartCount, cartTotal, unitPrice, currentTier, distributor, region, lang, t, discountPct, cost, gainEur, gainPct }) {
+function generatePDF({ cartItems, cartCount, cartTotal, unitPrice, currentTier, distributor, region, lang, t, discountPct, cost, gainEur, gainPct, ouardaActive, zubietaActive, familyCode }) {
   const isLatam = region === 'latam';
   const contact = isLatam
     ? { name: 'Minuë Latam', address: 'CRA 19a 85 69, Bogotá, Colombia', phone: '+57 (322) 770-1800', email: 'hola@minueopticians.co', web: 'minueopticians.co' }
@@ -1419,11 +2451,11 @@ function generatePDF({ cartItems, cartCount, cartTotal, unitPrice, currentTier, 
     const col = COLLECTIONS.find(c => c.id === item.col);
     const price = col?.unitCost ?? unitPrice ?? DISPLAY_PRICE;
     return `<tr>
-      <td style="padding:8px 10px;border-bottom:1px solid #e8dfd8;font-size:12px;">${item.name}</td>
-      <td style="padding:8px 10px;border-bottom:1px solid #e8dfd8;font-size:12px;text-align:center;">${item.col}</td>
-      <td style="padding:8px 10px;border-bottom:1px solid #e8dfd8;font-size:12px;text-align:center;">${item.qty}</td>
-      <td style="padding:8px 10px;border-bottom:1px solid #e8dfd8;font-size:12px;text-align:right;">${price.toFixed(2).replace('.',',')}€</td>
-      <td style="padding:8px 10px;border-bottom:1px solid #e8dfd8;font-size:12px;text-align:right;font-weight:600;">${(item.qty * price).toFixed(2).replace('.',',')}€</td>
+      <td style="padding:8px 10px;border-bottom:1px solid #e3d6c4;font-size:12px;">${item.name}</td>
+      <td style="padding:8px 10px;border-bottom:1px solid #e3d6c4;font-size:12px;text-align:center;">${item.col}</td>
+      <td style="padding:8px 10px;border-bottom:1px solid #e3d6c4;font-size:12px;text-align:center;">${item.qty}</td>
+      <td style="padding:8px 10px;border-bottom:1px solid #e3d6c4;font-size:12px;text-align:right;">${price.toFixed(2).replace('.',',')}€</td>
+      <td style="padding:8px 10px;border-bottom:1px solid #e3d6c4;font-size:12px;text-align:right;font-weight:600;">${(item.qty * price).toFixed(2).replace('.',',')}€</td>
     </tr>`;
   }).join('');
 
@@ -1451,13 +2483,13 @@ function generatePDF({ cartItems, cartCount, cartTotal, unitPrice, currentTier, 
     .meta strong{font-size:13px;opacity:1;color:#b8860b;}
     h2{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;margin-bottom:12px;letter-spacing:-0.01em;}
     table{width:100%;border-collapse:collapse;margin-bottom:28px;}
-    thead th{padding:10px;background:#18332f;color:#f8efe6;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-align:left;}
+    thead th{padding:10px;background:#18332f;color:#f9f1e3;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-align:left;}
     thead th:nth-child(3),thead th:nth-child(4),thead th:nth-child(5){text-align:center;}
     thead th:nth-child(4),thead th:nth-child(5){text-align:right;}
     .totals{display:flex;justify-content:flex-end;margin-bottom:28px;}
     .totals-box{width:260px;border:1px solid #18332f20;border-radius:4px;overflow:hidden;}
     .totals-row{display:flex;justify-content:space-between;padding:8px 14px;font-size:12px;border-bottom:1px solid #18332f10;}
-    .totals-row:last-child{border-bottom:none;background:#18332f;color:#f8efe6;padding:12px 14px;}
+    .totals-row:last-child{border-bottom:none;background:#18332f;color:#f9f1e3;padding:12px 14px;}
     .totals-row:last-child span:last-child{font-size:18px;font-weight:700;font-family:'Cormorant Garamond',serif;}
     .gain-row{background:#b8860b10;display:flex;justify-content:space-between;padding:7px 14px;font-size:11px;color:#8a6000;}
     .conditions{background:#18332f05;border:1px solid #18332f12;border-radius:4px;padding:16px 18px;margin-bottom:24px;font-size:11px;line-height:1.7;}
@@ -1479,7 +2511,7 @@ function generatePDF({ cartItems, cartCount, cartTotal, unitPrice, currentTier, 
     </div>
   </header>
 
-  <div class="seal">⬡ &nbsp;Pedido SS26 · Sin compromiso de pago</div>
+  <div class="seal">⬡ &nbsp;Pedido AW26/27 · Sin compromiso de pago</div>
 
   <h2>Productos seleccionados</h2>
   <table>
@@ -1494,7 +2526,9 @@ function generatePDF({ cartItems, cartCount, cartTotal, unitPrice, currentTier, 
       <div class="totals-row"><span>Unidades</span><span>${cartCount}</span></div>
       <div class="totals-row"><span>Tarifa aplicada</span><span>${currentTier?.label || '—'} · ${unitPrice != null ? unitPrice.toFixed(2).replace('.',',') + '€/ud' : 'Consultar'}</span></div>
       ${currentTier?.freeShip ? '<div class="totals-row"><span>Envío</span><span style="color:#18332f;font-weight:600;">Incluido ✓</span></div>' : ''}
-      ${discountPct > 0 ? `<div class="totals-row"><span>Descuento aplicado</span><span style="color:#b8860b;font-weight:600;">−${discountPct}%</span></div>` : ''}
+      ${discountPct > 0 ? `<div class="totals-row"><span>Código aplicado</span><span style="color:#b8860b;font-weight:600;">${familyCode.toUpperCase()} · −${discountPct}% sobre tarifa</span></div>` : ''}
+      ${ouardaActive ? `<div class="totals-row"><span>Código aplicado</span><span style="color:#b8860b;font-weight:600;">OUARDA · Essential/Icons 16,60€/ud · Acetato precio estándar</span></div>` : ''}
+      ${zubietaActive ? `<div class="totals-row"><span>Código aplicado</span><span style="color:#b8860b;font-weight:600;">ZUBIETA · Essential/Icons 16,90€/ud · Acetato 20,90€/ud</span></div>` : ''}
       <div class="totals-row"><span>Total pedido</span><span>${totalCost.toFixed(2).replace('.',',')}€</span></div>
       ${gainEur > 0 ? `<div class="gain-row"><span>Ganancia potencial a PVP</span><span>+${gainEur.toFixed(0)}€ (~${gainPct}%)</span></div>` : ''}
     </div>
@@ -1533,45 +2567,789 @@ function generatePDF({ cartItems, cartCount, cartTotal, unitPrice, currentTier, 
   setTimeout(() => URL.revokeObjectURL(url), 10000);
 }
 
-// ── PkgCarousel — carrusel de imágenes de packaging ──────────────────
+// ── PkgImg — imagen de packaging ──────────────────
 function PkgCarousel() {
-  const imgs = [
-    { src: 'https://res.cloudinary.com/dekvzwn7b/image/upload/w_800,q_auto,f_auto/v1776287609/MINUE_5_v6cnmm.png', alt: 'Packaging Minuë' },
-    { src: 'https://res.cloudinary.com/dekvzwn7b/image/upload/w_800,q_auto,f_auto/v1776287608/fundas2_bblep7.png', alt: 'Fundas Minuë' },
-    { src: 'https://res.cloudinary.com/dekvzwn7b/image/upload/w_800,q_auto,f_auto/v1776287608/fundas4_lhvdxb.png', alt: 'Fundas colores' },
-    { src: 'https://res.cloudinary.com/dekvzwn7b/image/upload/w_800,q_auto,f_auto/v1776287571/FUNDAS3_10b1cf63-84b9-41ab-8ed6-5a48ad481b0b_1080x_l2xarm.webp', alt: 'Fundas detalle' },
-    { src: 'https://res.cloudinary.com/dekvzwn7b/image/upload/w_800,q_auto,f_auto/v1776287571/IMG_4498-2_0c5572d3-da68-42b0-b605-9c1441e02a98_540x_z8awbq.webp', alt: 'Packaging caja' },
-  ];
-  const [idx, setIdx] = useState(0);
-  useEffect(() => {
-    const t = setTimeout(() => setIdx(i => (i + 1) % imgs.length), 3500);
-    return () => clearTimeout(t);
-  }, [idx]);
   return (
-    <div style={{ borderRadius: 4, overflow: 'hidden', background: G, minHeight: 300, position: 'relative', cursor: 'pointer' }}
-      onClick={() => setIdx(i => (i + 1) % imgs.length)}>
-      {imgs.map((img, i) => (
-        <img key={i} src={img.src} alt={img.alt} style={{
-          position: i === 0 ? 'relative' : 'absolute',
-          inset: 0, width: '100%', height: '100%',
-          objectFit: 'cover', display: 'block',
-          opacity: i === idx ? 1 : 0,
-          transition: 'opacity 0.6s ease',
-        }} />
-      ))}
-      {/* Dots */}
-      <div style={{
-        position: 'absolute', bottom: 12, left: '50%', transform: 'translateX(-50%)',
-        display: 'flex', gap: 6,
-      }}>
-        {imgs.map((_, i) => (
-          <button key={i} onClick={(e) => { e.stopPropagation(); setIdx(i); }} style={{
-            width: i === idx ? 18 : 6, height: 6, borderRadius: 999,
-            background: i === idx ? 'rgba(248,239,230,0.95)' : 'rgba(248,239,230,0.4)',
-            border: 'none', padding: 0, cursor: 'pointer',
-            transition: 'width 0.3s, background 0.3s',
+    <div style={{ borderRadius: 4, overflow: 'hidden', minHeight: 300, position: 'relative' }}>
+      <img
+        src="https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Imagen_de_Codex_19_ago_2026_00_42_11.png?v=1787309635"
+        alt="Packaging Minuë"
+        style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+      />
+    </div>
+  );
+}
+
+// ============================================================
+// DisplaySelector — los 3 expositores de sobremesa, por color
+// ============================================================
+const DISPLAYS = [
+  { key: 'd1', swatch: '#18332f', img: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Imagen_de_Codex_18_ago_2026_23_57_36.png?v=1787309635' },
+  { key: 'd2', swatch: '#b8860b', img: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Imagen_de_Codex_18_ago_2026_23_56_01.png?v=1787309634' },
+  { key: 'd3', swatch: '#a2542b', img: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Imagen_de_Codex_18_ago_2026_23_55_56.png?v=1787309634' },
+];
+
+function DisplaySelector({ t }) {
+  const [idx, setIdx] = React.useState(0);
+  const [auto, setAuto] = React.useState(true);
+
+  React.useEffect(() => {
+    if (!auto) return;
+    const id = setInterval(() => setIdx(i => (i + 1) % DISPLAYS.length), 3800);
+    return () => clearInterval(id);
+  }, [auto]);
+
+  const pick = (i) => { setAuto(false); setIdx(i); };
+
+  return (
+    <div style={{
+      border: `1px solid ${G}1f`, borderRadius: 6, overflow: 'hidden',
+      background: '#F0E7D6', display: 'flex', flexDirection: 'column',
+    }}>
+      <div style={{ padding: '16px 20px 10px' }}>
+        <div className="mn-label-xs" style={{ color: RUST, marginBottom: 6 }}>{t('disp_label')}</div>
+        <div style={{ fontFamily: 'Georgia, serif', fontSize: 15, color: G, lineHeight: 1.35 }}>
+          {t('disp_title')}
+        </div>
+      </div>
+
+      {/* Escenario */}
+      <div style={{ position: 'relative', width: '100%', aspectRatio: '4/3', overflow: 'hidden' }}>
+        {DISPLAYS.map((d, i) => (
+          <img key={d.key} src={d.img} alt={t('disp_title')} loading="lazy" style={{
+            position: 'absolute', inset: 0, width: '100%', height: '100%',
+            objectFit: 'contain', padding: 10, boxSizing: 'border-box',
+            mixBlendMode: 'multiply',
+            opacity: i === idx ? 1 : 0,
+            transform: i === idx ? 'scale(1)' : 'scale(.97)',
+            transition: 'opacity .55s ease, transform .55s ease',
           }} />
         ))}
+      </div>
+
+      {/* Selector de color */}
+      <div style={{
+        display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 14,
+        padding: '12px 20px 16px', borderTop: `1px solid ${G}12`,
+      }}>
+        {DISPLAYS.map((d, i) => (
+          <button key={d.key}
+            onClick={() => pick(i)}
+            aria-label={t(d.key + '_name')}
+            title={t(d.key + '_name')}
+            style={{
+              display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 5,
+              background: 'none', border: 'none', cursor: 'pointer', padding: 2,
+            }}>
+            <span style={{
+              width: i === idx ? 26 : 20, height: i === idx ? 26 : 20, borderRadius: '50%',
+              background: d.swatch, display: 'block',
+              border: `2px solid ${i === idx ? C : 'transparent'}`,
+              boxShadow: i === idx ? `0 0 0 2px ${d.swatch}, 0 4px 10px -3px ${d.swatch}aa` : `0 0 0 1px ${G}22`,
+              transition: 'all .22s ease',
+            }} />
+            <span className="mn-label" style={{
+              fontSize: 8, letterSpacing: 1, fontWeight: 700,
+              color: i === idx ? G : G, opacity: i === idx ? 1 : 0.45,
+              transition: 'opacity .2s',
+            }}>{t(d.key + '_name')}</span>
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+// PouchGallery — combinaciones de funda de la temporada
+// ============================================================
+const POUCHES = [
+  { key: 'p1', img: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Imagen_de_Codex_18_ago_2026_23_20_12.png?v=1787309635' },
+  { key: 'p2', img: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Imagen_de_Codex_18_ago_2026_22_46_53.png?v=1787309635' },
+  { key: 'p3', img: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Imagen_de_Codex_18_ago_2026_22_43_28.png?v=1787309635' },
+];
+
+function PouchGallery({ t, onZoom }) {
+  const [idx, setIdx] = React.useState(0);
+
+  return (
+    <div style={{
+      background: `linear-gradient(180deg, #F0E7D6 0%, ${C} 100%)`,
+      padding: 'clamp(44px,6vw,76px) 0',
+      borderTop: `1px solid ${G}0d`, borderBottom: `1px solid ${G}0d`,
+    }}>
+      <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 24px' }}>
+
+        <div style={{ textAlign: 'center', marginBottom: 'clamp(26px,3.4vw,40px)' }}>
+          <div className="mn-label" style={{ color: RUST, fontSize: 10, letterSpacing: 3, fontWeight: 800, marginBottom: 10 }}>
+            {t('pou_eyebrow')}
+          </div>
+          <h3 className="mn-serif" style={{
+            fontSize: 'clamp(26px,4vw,46px)', fontWeight: 300,
+            letterSpacing: '-0.02em', lineHeight: 1.06, color: G, margin: 0,
+          }}>
+            {t('pou_h_a')} <span className="mn-serif-i" style={{ color: RUST }}>{t('pou_h_b')}</span>
+          </h3>
+          <p style={{
+            fontFamily: 'Georgia, serif', fontStyle: 'italic',
+            fontSize: 'clamp(13px,1.6vw,16px)', color: G, opacity: 0.65,
+            lineHeight: 1.6, maxWidth: 580, margin: '14px auto 0',
+          }}>{t('pou_sub')}</p>
+        </div>
+
+        {/* Rejilla de combinaciones */}
+        <div className="mn-pouch-grid" style={{
+          display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16,
+        }}>
+          {POUCHES.map((p, i) => (
+            <div key={p.key}
+              onMouseEnter={() => setIdx(i)}
+              onClick={() => onZoom && onZoom({ img: p.img, name: t(p.key + '_name'), col: t('pou_eyebrow') })}
+              style={{
+                position: 'relative', borderRadius: 10, overflow: 'hidden',
+                background: '#F0E7D6', border: `1px solid ${G}14`,
+                cursor: 'zoom-in',
+                transform: idx === i ? 'translateY(-5px)' : 'translateY(0)',
+                boxShadow: idx === i ? `0 20px 40px -20px ${G}88` : 'none',
+                transition: 'transform .25s cubic-bezier(.4,0,.2,1), box-shadow .25s',
+              }}>
+              <div style={{ position: 'relative', aspectRatio: '4/3', overflow: 'hidden' }}>
+                <img src={p.img} alt={t(p.key + '_name')} loading="lazy" style={{
+                  position: 'absolute', inset: 0, width: '100%', height: '100%',
+                  objectFit: 'contain', padding: 12, boxSizing: 'border-box',
+                  mixBlendMode: 'multiply',
+                  transform: idx === i ? 'scale(1.04)' : 'scale(1)',
+                  transition: 'transform .4s ease',
+                }} />
+              </div>
+              <div style={{ padding: '14px 16px 16px', borderTop: `1px solid ${G}10` }}>
+                <div style={{ fontFamily: 'Georgia, serif', fontSize: 15, color: G, lineHeight: 1.25 }}>
+                  {t(p.key + '_name')}
+                </div>
+                <div style={{
+                  fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: 12,
+                  color: G, opacity: 0.6, lineHeight: 1.5, marginTop: 4,
+                }}>{t(p.key + '_desc')}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <p style={{
+          textAlign: 'center', marginTop: 20,
+          fontFamily: 'Arial, sans-serif', fontSize: 11.5, color: G, opacity: 0.55,
+        }}>{t('pou_foot')}</p>
+
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+// AWColorsSection — la paleta AW26/27 cruzada con el catálogo
+// ============================================================
+const AW_GROUPS = [
+  {
+    "key": "aw_1",
+    "filters": ["carey", "marrón", "moca", "café", "caramelo", "havana", "cedro"],
+    "swatch": "#6b4a35",
+    "models": [
+      {
+        "name": "Colette Cocoa",
+        "img": "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/44.png"
+      },
+      {
+        "name": "Deneuve Carey",
+        "img": "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/5.png"
+      },
+      {
+        "name": "Thurman Carey",
+        "img": "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_2556.jpg"
+      }
+    ]
+  },
+  {
+    "key": "aw_2",
+    "exclude": ["Ziyi Ágata"],
+    "filters": ["verde", "oliva", "jade", "menta"],
+    "swatch": "#5c6042",
+    "models": [
+      {
+        "name": "Bolden Oliva",
+        "img": "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/MINUE_12.png"
+      },
+      {
+        "name": "Chastain Olive",
+        "img": "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/saxaa.png"
+      },
+      {
+        "name": "Dover Hunter Blend",
+        "img": "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/47.png"
+      }
+    ]
+  },
+  {
+    "key": "aw_3",
+    "exclude": ["Chastain Noir Violet", "Nova Ruby", "Berry Rosse", "Arielle Velvet", "Karina Ruby"],
+    "filters": ["burdeos", "rojo", "rubí", "granate"],
+    "swatch": "#7a2d38",
+    "models": [
+      {
+        "name": "Lawrence Velvet",
+        "img": "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5843.jpg"
+      },
+      {
+        "name": "Chastain Red Light",
+        "img": "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/sa.png"
+      },
+      {
+        "name": "Aretha Rosse",
+        "img": "https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_8147.jpg"
+      }
+    ]
+  },
+  {
+    "key": "aw_4",
+    "exclude": ["Berry Rosse", "Aretha Rosse"],
+    "filters": ["cálido", "naranja", "rosa", "tigre"],
+    "swatch": "#b06a4a",
+    "models": [
+      {
+        "name": "Hart Sunset",
+        "img": "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/24651be0773ae9139225c10bff875975.png"
+      },
+      {
+        "name": "Arielle Dusty",
+        "img": "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/53.png"
+      },
+      {
+        "name": "Hazel Petal",
+        "img": "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/50.png"
+      }
+    ]
+  },
+  {
+    "key": "aw_5",
+    "exclude": ["Ziyi Ámbar", "Ziyi Ambar"],
+    "filters": ["miel", "ámbar", "dorado", "amarillo"],
+    "swatch": "#c08a3e",
+    "models": [
+      {
+        "name": "Lawrence Guiza",
+        "img": "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/image_b5a853c2-8868-432d-b7a6-df3510f4be8c.webp"
+      },
+      {
+        "name": "Hedy Guiza",
+        "img": "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/37.png"
+      },
+      {
+        "name": "Deneuve Tea",
+        "img": "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/4.png"
+      }
+    ]
+  },
+  {
+    "key": "aw_6",
+    "exclude": ["Baker Cloud"],
+    "filters": ["crema", "blanco", "beige", "perla", "nude", "champán"],
+    "swatch": "#ede4d5",
+    "models": [
+      {
+        "name": "Loren Cream",
+        "img": "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5838.jpg"
+      },
+      {
+        "name": "Leigh Chalk",
+        "img": "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/112.png"
+      },
+      {
+        "name": "Bolden Nude",
+        "img": "https://cdn.shopify.com/s/files/1/0052/2797/0629/files/MINUE_11.png"
+      }
+    ]
+  }
+];
+
+function AWColorsSection({ t, onPick, activeColors = [], products = [], cart = {}, onAdd }) {
+  const [openKey, setOpenKey] = React.useState(null);
+  const isActive = (grp) => grp.filters && grp.filters.some(f => activeColors.includes(f));
+
+  const itemsFor = (grp) => products
+    .filter(p => p.img && p.colors && grp.filters.some(f => p.colors.includes(f)))
+    .filter(p => !(grp.exclude || []).includes(p.name))
+    .sort((a, b) => (a.rank || 999) - (b.rank || 999));
+
+  return (
+    <div style={{ background: C, padding: 'clamp(48px,7vw,84px) 0', borderTop: `3px solid ${RUST}`, borderBottom: `1px solid ${G}0d` }}>
+      <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 24px' }}>
+
+        <div style={{ textAlign: 'center', marginBottom: 'clamp(32px,4vw,48px)' }}>
+          <div className="mn-label" style={{
+            color: RUST, fontSize: 11, letterSpacing: 3, fontWeight: 700,
+            marginBottom: 12, textTransform: 'uppercase',
+          }}>{t('aw_eyebrow')}</div>
+          <h2 className="mn-serif" style={{
+            fontSize: 'clamp(30px,4.6vw,52px)', fontWeight: 300,
+            letterSpacing: '-0.03em', lineHeight: 1.05, color: G, margin: 0,
+          }}>
+            {t('aw_h2a')}<br />
+            <span style={{ fontStyle: 'italic', color: RUST }}>{t('aw_h2b')}</span>
+          </h2>
+          <p style={{
+            fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: 'clamp(14px,1.7vw,17px)',
+            color: G, opacity: 0.65, lineHeight: 1.6, maxWidth: 620, margin: '18px auto 0',
+          }}>{t('aw_intro')}</p>
+        </div>
+
+        <div style={{ display: 'grid', gap: 20, gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
+          {AW_GROUPS.map((grp) => {
+            const all = itemsFor(grp);
+            const open = openKey === grp.key;
+            const preview = grp.models.slice(0, 3);
+            return (
+              <div key={grp.key} style={{
+                background: open ? C : '#F0E7D6', borderRadius: 10,
+                padding: open ? '24px 22px' : '22px 20px',
+                border: open ? `2px solid ${grp.swatch}` : `1px solid ${G}12`,
+                boxShadow: open ? `0 18px 40px -18px ${grp.swatch}aa` : 'none',
+                gridColumn: open ? '1 / -1' : 'auto',
+                transition: 'border-color .2s, box-shadow .2s, background .2s',
+                position: 'relative',
+              }}>
+
+                {/* Cabecera */}
+                <div
+                  onClick={() => setOpenKey(open ? null : grp.key)}
+                  role="button" tabIndex={0}
+                  onKeyDown={(e) => { if (e.key === 'Enter') setOpenKey(open ? null : grp.key); }}
+                  style={{ cursor: 'pointer' }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 14 }}>
+                    <span style={{
+                      width: 38, height: 38, borderRadius: '50%', background: grp.swatch,
+                      flexShrink: 0, border: `2px solid ${C}`,
+                      boxShadow: `0 0 0 1px ${G}22, 0 3px 8px -2px ${grp.swatch}88`,
+                    }} />
+                    <div style={{ minWidth: 0, flex: 1 }}>
+                      <div style={{ fontFamily: 'Georgia, serif', fontSize: 17, color: G, lineHeight: 1.2 }}>
+                        {t(grp.key + 't')}
+                      </div>
+                      <div className="mn-label" style={{
+                        fontSize: 9, letterSpacing: 1.5, color: RUST, fontWeight: 700, marginTop: 2,
+                      }}>PANTONE AW26/27 · {all.length} {t('aw_models')}</div>
+                    </div>
+                    <span style={{
+                      fontSize: 20, color: open ? grp.swatch : G, opacity: open ? 1 : 0.4,
+                      transform: open ? 'rotate(180deg)' : 'none', transition: 'transform .25s', lineHeight: 1,
+                    }}>⌄</span>
+                  </div>
+
+                  <p style={{
+                    fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: 13,
+                    color: G, opacity: 0.68, lineHeight: 1.55, margin: '0 0 16px',
+                  }}>{t(grp.key + 'd')}</p>
+                </div>
+
+                {/* Vista cerrada: 3 miniaturas */}
+                {!open && (
+                  <div
+                    onClick={() => setOpenKey(grp.key)}
+                    style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 8, cursor: 'pointer' }}
+                  >
+                    {preview.map((mo, mi) => (
+                      <div key={mi}>
+                        <div style={{ position: 'relative', aspectRatio: '1/1', background: C, borderRadius: 6, overflow: 'hidden' }}>
+                          <img src={mo.img} alt={mo.name} loading="lazy" style={{
+                            position: 'absolute', inset: 0, width: '100%', height: '100%',
+                            objectFit: 'contain', padding: 6, boxSizing: 'border-box', mixBlendMode: 'multiply',
+                          }} />
+                        </div>
+                        <div style={{
+                          fontFamily: 'Arial, sans-serif', fontSize: 9, color: G, opacity: 0.7,
+                          textAlign: 'center', marginTop: 5, lineHeight: 1.25,
+                        }}>{mo.name}</div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {/* Vista abierta: rejilla completa con añadir al carrito */}
+                {open && (
+                  <div style={{ animation: 'mn-fadein .25s ease-out both' }}>
+                    <div style={{
+                      display: 'grid', gap: 12,
+                      gridTemplateColumns: 'repeat(auto-fill, minmax(132px, 1fr))',
+                      marginBottom: 18,
+                    }}>
+                      {all.slice(0, 18).map(p => {
+                        const qty = cart[p.id] || 0;
+                        return (
+                          <div key={p.id} style={{
+                            background: '#F0E7D6', borderRadius: 8, overflow: 'hidden',
+                            border: qty > 0 ? `1.5px solid ${grp.swatch}` : `1px solid ${G}12`,
+                            transition: 'border-color .18s, transform .18s',
+                          }}
+                            onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-3px)'; }}
+                            onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; }}
+                          >
+                            <div style={{ position: 'relative', aspectRatio: '3/2', overflow: 'hidden' }}>
+                              <img src={p.img} alt={p.name} loading="lazy" style={{
+                                position: 'absolute', inset: 0, width: '100%', height: '100%',
+                                objectFit: 'contain', padding: 7, boxSizing: 'border-box', mixBlendMode: 'multiply',
+                                transform: p.imgScale ? `scale(${p.imgScale})` : 'none',
+                              }} />
+                              {qty > 0 && (
+                                <span style={{
+                                  position: 'absolute', top: 6, right: 6, minWidth: 20, height: 20,
+                                  borderRadius: 999, background: grp.swatch, color: '#fff',
+                                  fontSize: 10, fontWeight: 800, display: 'inline-flex',
+                                  alignItems: 'center', justifyContent: 'center', padding: '0 6px',
+                                }}>{qty}</span>
+                              )}
+                            </div>
+                            <div style={{ padding: '8px 9px 9px' }}>
+                              <div style={{
+                                fontFamily: 'Georgia, serif', fontSize: 12, color: G,
+                                lineHeight: 1.25, minHeight: 30,
+                              }}>{p.name}</div>
+                              <div className="mn-label" style={{
+                                fontSize: 8, letterSpacing: 1.2, color: G, opacity: 0.45, marginBottom: 7,
+                              }}>{p.col}</div>
+                              <button
+                                onClick={() => onAdd && onAdd(p.id)}
+                                style={{
+                                  width: '100%', padding: '7px 6px', borderRadius: 5,
+                                  border: `1px solid ${qty > 0 ? grp.swatch : G}`,
+                                  background: qty > 0 ? grp.swatch : 'transparent',
+                                  color: qty > 0 ? '#fff' : G,
+                                  fontFamily: 'Arial, sans-serif', fontSize: 10, fontWeight: 800,
+                                  letterSpacing: 1, textTransform: 'uppercase', cursor: 'pointer',
+                                  transition: 'all .15s',
+                                }}>
+                                {qty > 0 ? `+1 · ${qty}` : t('aw_add')}
+                              </button>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+
+                    <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', justifyContent: 'center' }}>
+                      <button onClick={() => onPick && onPick(grp)} style={{
+                        padding: '11px 22px', borderRadius: 999, border: `1px solid ${G}`,
+                        background: G, color: C, fontFamily: 'Arial, sans-serif',
+                        fontSize: 10.5, fontWeight: 800, letterSpacing: 1.5,
+                        textTransform: 'uppercase', cursor: 'pointer',
+                      }}>{all.length > 18 ? `${t('aw_cta')} (${all.length})` : t('aw_cta')}</button>
+                      <button onClick={() => setOpenKey(null)} style={{
+                        padding: '11px 22px', borderRadius: 999, border: `1px solid ${G}33`,
+                        background: 'transparent', color: G, fontFamily: 'Arial, sans-serif',
+                        fontSize: 10.5, fontWeight: 800, letterSpacing: 1.5,
+                        textTransform: 'uppercase', cursor: 'pointer',
+                      }}>{t('aw_close')}</button>
+                    </div>
+                  </div>
+                )}
+
+                {/* Pie en vista cerrada */}
+                {!open && (
+                  <div
+                    onClick={() => setOpenKey(grp.key)}
+                    style={{
+                      marginTop: 14, paddingTop: 12, borderTop: `1px solid ${G}12`,
+                      display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                      gap: 8, cursor: 'pointer',
+                    }}>
+                    <span className="mn-label" style={{
+                      fontSize: 10, letterSpacing: 1.5, fontWeight: 700,
+                      color: isActive(grp) ? grp.swatch : G, opacity: isActive(grp) ? 1 : 0.55,
+                    }}>
+                      {isActive(grp) ? t('aw_cta_on') : t('aw_expand')}
+                    </span>
+                    <span style={{ fontSize: 15, color: G, opacity: 0.4 }}>⌄</span>
+                  </div>
+                )}
+
+              </div>
+            );
+          })}
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
+
+// ============================================================
+// PaletteTeaser — acceso rápido a la paleta AW26/27
+// ============================================================
+function PaletteTeaser({ t, onPick, activeColors = [], products = [] }) {
+  const [hover, setHover] = React.useState(null);
+
+  const itemsFor = (grp) => products.filter(p =>
+    p.img && p.colors && grp.filters.some(f => p.colors.includes(f)) &&
+    !(grp.exclude || []).includes(p.name)
+  ).sort((a, b) => (a.rank || 999) - (b.rank || 999));
+
+  const isActive = (grp) => grp.filters && grp.filters.some(f => activeColors.includes(f));
+  const shown = hover !== null ? AW_GROUPS[hover] : null;
+  const preview = shown ? itemsFor(shown).slice(0, 5) : [];
+
+  return (
+    <div style={{
+      background: `linear-gradient(180deg, ${C} 0%, #F0E7D6 100%)`,
+      borderTop: `1px solid ${G}0d`, borderBottom: `1px solid ${G}0d`,
+      padding: 'clamp(28px,3.8vw,46px) 0', overflow: 'hidden',
+    }}>
+      <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 24px' }}>
+
+        <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 18, flexWrap: 'wrap', marginBottom: 18 }}>
+          <div>
+            <div className="mn-label" style={{ color: RUST, fontSize: 10, letterSpacing: 2.5, fontWeight: 800, marginBottom: 5 }}>
+              {t('pt_eyebrow')}
+            </div>
+            <div className="mn-serif" style={{ fontSize: 'clamp(20px,2.6vw,30px)', fontWeight: 300, color: G, lineHeight: 1.12 }}>
+              {t('pt_title')} <span className="mn-serif-i" style={{ color: RUST }}>{t('pt_title_i')}</span>
+            </div>
+          </div>
+          <div style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: 12.5, color: G, opacity: 0.6, maxWidth: 300 }}>
+            {t('pt_hint')}
+          </div>
+        </div>
+
+        {/* Franja de tonos */}
+        <div className="mn-pal-strip" style={{ display: 'grid', gridTemplateColumns: `repeat(${AW_GROUPS.length}, 1fr)`, gap: 8 }}>
+          {AW_GROUPS.map((grp, i) => {
+            const on = isActive(grp);
+            const hot = hover === i;
+            const n = itemsFor(grp).length;
+            return (
+              <button key={grp.key}
+                onClick={() => onPick && onPick(grp)}
+                onMouseEnter={() => setHover(i)}
+                onMouseLeave={() => setHover(null)}
+                style={{
+                  position: 'relative', border: 'none', padding: 0, cursor: 'pointer',
+                  borderRadius: 10, overflow: 'hidden', background: 'transparent',
+                  transform: hot ? 'translateY(-4px)' : 'translateY(0)',
+                  transition: 'transform .22s cubic-bezier(.4,0,.2,1)',
+                }}>
+                {/* Bloque de color */}
+                <div style={{
+                  height: hot || on ? 78 : 62, background: grp.swatch,
+                  borderRadius: 10, position: 'relative', overflow: 'hidden',
+                  boxShadow: on ? `0 10px 24px -10px ${grp.swatch}` : hot ? `0 12px 26px -12px ${grp.swatch}` : 'none',
+                  transition: 'height .25s cubic-bezier(.4,0,.2,1), box-shadow .25s',
+                }}>
+                  <div style={{
+                    position: 'absolute', inset: 0,
+                    background: `linear-gradient(135deg, rgba(255,255,255,.22) 0%, transparent 55%)`,
+                  }} />
+                  <span style={{
+                    position: 'absolute', top: 7, right: 9,
+                    fontFamily: 'Arial, sans-serif', fontSize: 9, fontWeight: 800,
+                    color: '#fff', opacity: on || hot ? 0.95 : 0.6, letterSpacing: 0.5,
+                    transition: 'opacity .2s',
+                  }}>{n}</span>
+                  {on && (
+                    <span style={{
+                      position: 'absolute', bottom: 7, left: 9, width: 16, height: 16,
+                      borderRadius: '50%', background: '#fff',
+                      display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                      fontSize: 10, color: grp.swatch, fontWeight: 900,
+                    }}>✓</span>
+                  )}
+                </div>
+                <div style={{
+                  fontFamily: 'Georgia, serif', fontSize: 11.5, color: G,
+                  marginTop: 7, lineHeight: 1.2, textAlign: 'center',
+                  opacity: on || hot ? 1 : 0.7, transition: 'opacity .2s',
+                  fontWeight: on ? 700 : 400,
+                }}>{t(grp.key + 't')}</div>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Vista previa al pasar el ratón */}
+        <div className="mn-pal-preview" style={{
+          marginTop: 14, minHeight: 92,
+          display: 'flex', alignItems: 'center', gap: 14,
+          padding: shown ? '12px 16px' : 0,
+          borderRadius: 10,
+          background: shown ? C : 'transparent',
+          border: shown ? `1px solid ${G}14` : '1px solid transparent',
+          opacity: shown ? 1 : 0,
+          transform: shown ? 'translateY(0)' : 'translateY(-6px)',
+          transition: 'opacity .25s ease, transform .25s ease, padding .2s',
+          pointerEvents: 'none',
+        }}>
+          {shown && (
+            <>
+              <div style={{ flexShrink: 0, maxWidth: 190 }}>
+                <div className="mn-label" style={{ fontSize: 9, letterSpacing: 1.5, color: shown.swatch, fontWeight: 800, marginBottom: 3 }}>
+                  {t(shown.key + 't')}
+                </div>
+                <div style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: 11.5, color: G, opacity: 0.65, lineHeight: 1.4 }}>
+                  {t(shown.key + 'd')}
+                </div>
+              </div>
+              <div style={{ display: 'flex', gap: 8, flex: 1, justifyContent: 'flex-end' }}>
+                {preview.map((p, k) => (
+                  <div key={p.id} style={{
+                    width: 84, height: 62, background: '#F0E7D6', borderRadius: 6,
+                    overflow: 'hidden', flexShrink: 0,
+                    animation: `mn-fadein .3s ease-out ${k * 0.05}s both`,
+                  }}>
+                    <img src={p.img} alt={p.name} loading="lazy" style={{
+                      width: '100%', height: '100%', objectFit: 'contain',
+                      padding: 5, boxSizing: 'border-box', mixBlendMode: 'multiply',
+                    }} />
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
+
+// ============================================================
+// VitrineBalance — equilibrio de tonos de la selección actual
+// ============================================================
+function VitrineBalance({ t, cart, products, onPick }) {
+  const items = Object.entries(cart).filter(([, q]) => q > 0);
+  const total = items.reduce((a, [, q]) => a + q, 0);
+  if (total < 4) return null;
+
+  const byId = {};
+  products.forEach(p => { byId[p.id] = p; });
+
+  const counts = AW_GROUPS.map(grp => {
+    let n = 0;
+    items.forEach(([id, q]) => {
+      const p = byId[id];
+      if (p && p.colors && grp.filters.some(f => p.colors.includes(f))) n += q;
+    });
+    return { grp, n, pct: Math.round((n / total) * 100) };
+  });
+
+  const missing = counts.filter(c => c.n === 0);
+  const top = counts.slice().sort((a, b) => b.n - a.n)[0];
+  const dominante = top && top.pct >= 55 ? top : null;
+
+  return (
+    <div style={{
+      background: C, borderRadius: 10, padding: '20px 20px 18px',
+      border: `1px solid ${G}14`, marginBottom: 18,
+    }}>
+      <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 10, marginBottom: 12 }}>
+        <div className="mn-label" style={{ fontSize: 10, letterSpacing: 2, fontWeight: 700, color: RUST }}>
+          {t('vb_title')}
+        </div>
+        <div style={{ fontFamily: 'Georgia, serif', fontSize: 13, color: G, opacity: 0.55 }}>
+          {total} {t('vb_units')}
+        </div>
+      </div>
+
+      {/* Barra apilada */}
+      <div style={{ display: 'flex', height: 12, borderRadius: 999, overflow: 'hidden', background: `${G}10`, marginBottom: 12 }}>
+        {counts.filter(c => c.n > 0).map(c => (
+          <div key={c.grp.key} title={`${c.pct}%`} style={{
+            width: `${c.pct}%`, background: c.grp.swatch, transition: 'width .35s ease',
+          }} />
+        ))}
+      </div>
+
+      {/* Leyenda */}
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px 12px', marginBottom: missing.length ? 12 : 0 }}>
+        {counts.filter(c => c.n > 0).map(c => (
+          <div key={c.grp.key} style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+            <span style={{ width: 9, height: 9, borderRadius: '50%', background: c.grp.swatch, flexShrink: 0 }} />
+            <span style={{ fontFamily: 'Arial, sans-serif', fontSize: 10, color: G, opacity: 0.7 }}>
+              {t(c.grp.key + 't')} · {c.pct}%
+            </span>
+          </div>
+        ))}
+      </div>
+
+      {/* Consejo accionable */}
+      {(missing.length > 0 || dominante) && (
+        <div style={{
+          borderTop: `1px solid ${G}12`, paddingTop: 11, marginTop: 2,
+          fontFamily: 'Georgia, serif', fontSize: 12.5, fontStyle: 'italic',
+          color: G, opacity: 0.78, lineHeight: 1.5,
+        }}>
+          {dominante
+            ? `${t('vb_tip_dom')} ${t(dominante.grp.key + 't')} (${dominante.pct}%).`
+            : t('vb_tip_ok')}
+          {missing.length > 0 && (
+            <span> {t('vb_tip_missing')}{' '}
+              {missing.slice(0, 3).map((c, i) => (
+                <button key={c.grp.key}
+                  onClick={() => onPick && onPick(c.grp)}
+                  style={{
+                    background: 'transparent', border: 'none', padding: 0, cursor: 'pointer',
+                    fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: 12.5,
+                    color: c.grp.swatch, fontWeight: 700, textDecoration: 'underline',
+                    textUnderlineOffset: 3,
+                  }}>
+                  {t(c.grp.key + 't')}{i < Math.min(missing.length, 3) - 1 ? ', ' : ''}
+                </button>
+              ))}
+              .
+            </span>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+
+// ============================================================
+// Lightbox — ver la montura ampliada
+// ============================================================
+function Lightbox({ item, onClose }) {
+  React.useEffect(() => {
+    if (!item) return;
+    const h = (e) => { if (e.key === 'Escape') onClose(); };
+    document.addEventListener('keydown', h);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => { document.removeEventListener('keydown', h); document.body.style.overflow = prev; };
+  }, [item, onClose]);
+
+  if (!item) return null;
+  return (
+    <div onClick={onClose} style={{
+      position: 'fixed', inset: 0, zIndex: 3000,
+      background: 'rgba(16,31,28,.94)', display: 'flex',
+      alignItems: 'center', justifyContent: 'center',
+      padding: 'clamp(48px,7vw,72px) 24px 24px', cursor: 'zoom-out',
+      animation: 'mn-fade .2s ease-out both',
+    }}>
+      <div onClick={(e) => e.stopPropagation()} style={{ maxWidth: 660, width: '100%', textAlign: 'center', cursor: 'default' }}>
+        <button onClick={onClose} aria-label="Cerrar" style={{
+          position: 'absolute', top: 20, right: 24, background: 'none', border: 'none',
+          color: C, fontSize: 34, lineHeight: 1, cursor: 'pointer', opacity: 0.75,
+        }}>×</button>
+        <div style={{ background: '#F0E7D6', borderRadius: 12, padding: 'clamp(20px,4vw,36px)', position: 'relative', overflow: 'hidden' }}>
+          <img src={item.img} alt={item.name} style={{
+            width: '100%', height: 'auto', maxHeight: '58vh', objectFit: 'contain', display: 'block', mixBlendMode: 'multiply',
+          }} />
+        </div>
+        <div className="mn-serif" style={{ color: C, fontSize: 'clamp(20px,3vw,28px)', fontWeight: 300, marginTop: 18 }}>
+          {item.name}
+        </div>
+        <div className="mn-label" style={{ color: D, fontSize: 10, letterSpacing: 2.5, fontWeight: 700, marginTop: 5 }}>
+          {item.col}{item.shape ? ` · ${item.shape}` : ''}
+        </div>
       </div>
     </div>
   );
@@ -1586,10 +3364,12 @@ export default function App() {
   const [colFilter, setColFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [quickViewProduct, setQuickViewProduct] = useState(null);
+  const [zoomItem, setZoomItem] = useState(null);
   const [panelOpen, setPanelOpen] = useState(false);
   const [tarifasOpen, setTarifasOpen] = useState(false);
-  const [lang, setLang] = useState('es');
+  const [lang, setLang] = useState(() => detectLang());
   const [region, setRegion] = useState('es');
+  const [regionAuto, setRegionAuto] = useState(false);
   const [newExpanded, setNewExpanded] = useState(false);
   const [openCollections, setOpenCollections] = useState({});
   const pendingScrollCol = useRef(null);
@@ -1605,7 +3385,22 @@ export default function App() {
   const [familyCode, setFamilyCode] = useState(() => {
     try { return typeof localStorage !== 'undefined' ? (localStorage.getItem('minue_code') || '') : ''; } catch { return ''; }
   });
-  const discountPct = familyCode.trim().toUpperCase() === 'FAMILY' ? 5 : 0;
+  const CODE = familyCode.trim().toUpperCase();
+  const discountPct = CODE === 'FAMILY' || CODE === 'FAMILYMINUE' ? 5 : CODE === 'RAMON' ? 10 : 0;
+  const ouardaActive = CODE === 'OUARDA';
+  const zubietaActive = CODE === 'ZUBIETA';
+  // Precios por código especial (IVA no incluido)
+  const getItemPrice = (item) => {
+    if (ouardaActive) {
+      if (item.col !== 'Acetato') return 16.60;
+    }
+    if (zubietaActive) {
+      if (item.col === 'Acetato') return 20.90;
+      return 16.90; // Essential + Icons
+    }
+    const col = COLLECTIONS.find(c => c.id === item.col);
+    return col?.unitCost ?? unitPrice ?? DISPLAY_PRICE;
+  };
   useEffect(() => {
     try { if (typeof localStorage !== 'undefined') localStorage.setItem('minue_code', familyCode); } catch {}
   }, [familyCode]);
@@ -1633,7 +3428,13 @@ export default function App() {
     const savedRegion = typeof localStorage !== 'undefined' ? localStorage.getItem('minue_region') : null;
     const l = savedLang || detectLang();
     setLang(l);
-    setRegion(savedRegion || detectRegion(l));
+    const r = savedRegion || detectRegion(l);
+    setRegion(r);
+    // Solo avisamos si la hemos deducido nosotros y hay distribuidor propio
+    if (!savedRegion) {
+      const d = getDistributor(r);
+      if (d && d !== DISTRIBUTORS.default) setRegionAuto(true);
+    }
   }, []);
 
   useEffect(() => {
@@ -1649,7 +3450,37 @@ export default function App() {
 
   const t = (k) => (I18N[lang] && I18N[lang][k]) || I18N.es[k] || k;
 
+  // Filtra el catálogo por un grupo de la paleta AW y lleva al listado
+  const pickTone = (grp) => {
+    if (!grp || !grp.filters) return;
+    const already = grp.filters.some(f => activeColors.includes(f));
+    setActiveColors(already ? [] : grp.filters);
+    setActiveShapes([]);
+    setColFilter('all');
+    setSearchQuery('');
+    setPanelOpen(false);
+    if (already) return;
+    // Abrir todas las colecciones para que el filtro se vea
+    setOpenCollections({ Essential: true, Icons: true, Acetato: true });
+    // Esperar a que el acordeón se despliegue antes de bajar
+    let tries = 0;
+    const go = () => {
+      const el = document.getElementById('catalogo');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (++tries < 3) setTimeout(go, 260);
+      }
+    };
+    requestAnimationFrame(() => requestAnimationFrame(() => setTimeout(go, 60)));
+  };
+
   const cartCount = Object.values(cart).reduce((a, b) => a + b, 0);
+
+    // Guarda la elección de idioma del usuario
+  const handleLangChange = React.useCallback((newLang) => {
+    setLang(newLang);
+    try { window.localStorage?.setItem('minue_lang', newLang); } catch (e) {}
+  }, []);
 
   // Scroll-reveal para secciones
   useEffect(() => {
@@ -1668,7 +3499,18 @@ export default function App() {
   const currentTier = getTier(cartCount);
   const nextTier = getNextTier(cartCount);
   const unitPrice = currentTier?.price ?? null;
-  const cartTotal = unitPrice ? unitPrice * cartCount : null;
+  // El acetato tiene precio fijo propio (25,95€) y no entra en los tramos:
+  // el total se suma siempre artículo a artículo.
+  const cartTotal = cartItems.length
+    ? cartItems.reduce((sum, it) => sum + getItemPrice(it) * it.qty, 0)
+    : null;
+
+  // Desglose para mostrar el acetato aparte
+  const acetatoItems = cartItems.filter(it => it.col === 'Acetato');
+  const acetatoUnits = acetatoItems.reduce((s, it) => s + it.qty, 0);
+  const acetatoCost = acetatoItems.reduce((s, it) => s + getItemPrice(it) * it.qty, 0);
+  const tierUnits = cartCount - acetatoUnits;
+  const tierCost = (cartTotal || 0) - acetatoCost;
 
   const addToCart = (id) => {
     setCart(c => ({ ...c, [id]: (c[id] || 0) + 1 }));
@@ -1738,21 +3580,30 @@ export default function App() {
     const lines = cartItems.map(it => `${it.qty}x ${it.name} (${it.col})`);
     const tierLabel = currentTier?.label || '';
     const priceLine = unitPrice != null
-      ? `${t('order_total_line')}: ${cartCount} ${t('panel_units')} × ${unitPrice.toFixed(2).replace('.', ',')}€ = ${cartTotal.toFixed(2).replace('.', ',')}€`
+      ? `${t('order_total_line')}: ${cartCount} ${t('panel_units')} × ${(ouardaActive ? 16.60 : zubietaActive ? 16.90 : unitPrice).toFixed(2).replace('.', ',')}€ = ${cartTotal.toFixed(2).replace('.', ',')}€`
       : t('order_plus60').replace('{n}', cartCount);
     const leadLine = lf.name || lf.store
       ? `\n${lf.name}${lf.store ? ' — ' + lf.store : ''}${lf.email ? ' — ' + lf.email : ''}`
       : '';
-    return `${t('order_greeting')}${leadLine}\n\n${lines.join('\n')}\n\n${t('order_tier')}: ${tierLabel}\n${priceLine}\n\n${t('order_closing')}`;
+    // Línea de código especial aplicado
+    const codeLine = ouardaActive
+      ? `\n🏷️ Código aplicado: OUARDA — Essential/Icons 16,60€ · Acetato precio estándar`
+      : zubietaActive
+      ? `\n🏷️ Código aplicado: ZUBIETA — Essential/Icons 16,90€ · Acetato 20,90€`
+      : discountPct > 0
+      ? `\n🏷️ Código aplicado: ${familyCode.toUpperCase()} — ${discountPct}% de descuento`
+      : '';
+    return `${t('order_greeting')}${leadLine}\n\n${lines.join('\n')}\n\n${t('order_tier')}: ${tierLabel}${codeLine}\n${priceLine}\n\n${t('order_closing')}`;
   };
 
   const sendWhatsApp = (lf = {}) => {
     if (!cartItems.length) return;
-    if (typeof window !== 'undefined') window.open(`https://wa.me/${distributor.whatsapp}?text=${encodeURIComponent(buildOrderMessage(lf))}`, '_blank');
+    const waNumber = ouardaActive ? '34661018380' : distributor.whatsapp;
+    if (typeof window !== 'undefined') window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(buildOrderMessage(lf))}`, '_blank');
   };
   const sendEmail = (lf = {}) => {
     if (!cartItems.length) return;
-    if (typeof window !== 'undefined') window.location.href = `mailto:${distributor.email}?subject=${encodeURIComponent('Pedido Wholesale Minuë SS26')}&body=${encodeURIComponent(buildOrderMessage(lf))}`;
+    if (typeof window !== 'undefined') window.location.href = `mailto:${distributor.email}?subject=${encodeURIComponent('Pedido Wholesale Minuë AW26/27')}&body=${encodeURIComponent(buildOrderMessage(lf))}`;
   };
 
   useEffect(() => {
@@ -1807,6 +3658,29 @@ export default function App() {
         a { color: inherit; text-decoration: none; }
 
         .mn-card { transition: transform 0.35s cubic-bezier(.2,.7,.2,1), box-shadow 0.35s ease; overflow: hidden; height: 100%; box-sizing: border-box; }
+        /* ── HERO 2 columnas ── */
+        .mn-hero-grid { display: grid; grid-template-columns: 1.15fr 1fr; align-items: stretch; }
+        @media (max-width: 780px) { .mn-pouch-grid { grid-template-columns: 1fr !important; max-width: 420px; margin: 0 auto; } }
+        @media (max-width: 900px) { .mn-lang-row button { padding: 4px 6px !important; font-size: 9px !important; } }
+        @media (max-width: 560px) { .mn-lang-row { gap: 0 !important; padding: 2px !important; } .mn-lang-row button { padding: 4px 5px !important; font-size: 8.5px !important; } }
+        .mn-pal-strip button:hover { z-index: 2; }
+        @media (max-width: 720px) {
+          .mn-pal-strip { grid-template-columns: repeat(3, 1fr) !important; }
+          .mn-pal-preview { display: none !important; }
+        }
+        .mn-hero-frame { position: relative; overflow: hidden; min-height: 460px; height: 100%; background: #18332f; }
+        .mn-hero-aside { padding: clamp(32px,4vw,60px) clamp(24px,3.5vw,54px); display: flex; flex-direction: column; justify-content: center; }
+        @media (max-width: 900px) {
+          .mn-hero-grid { grid-template-columns: 1fr; }
+          .mn-hero-aside { display: none; }
+          .mn-hero-frame { min-height: 0; aspect-ratio: 4/5; max-height: 78vh; }
+        }
+        @media (max-width: 520px) {
+          .mn-hero-frame { aspect-ratio: 3/4; }
+        }
+        .mn-card:hover .mn-zoom-btn { opacity: 1 !important; }
+        .mn-zoom-btn:hover { transform: scale(1.12); }
+        @media (hover: none) { .mn-zoom-btn { opacity: .8 !important; } }
         .mn-card:hover { transform: translateY(-3px); box-shadow: 0 22px 50px -24px rgba(24,51,47,0.22); }
         .mn-card .mn-img { transition: transform 0.6s cubic-bezier(.2,.7,.2,1); }
         .mn-card:hover .mn-img { transform: scale(1.08) rotate(2deg); }
@@ -1880,6 +3754,7 @@ export default function App() {
 
         /* ── Animaciones globales ── */
         @keyframes mn-fadein { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+        @keyframes mn-variant-in { from { opacity:0; transform:scale(0.96); } to { opacity:1; transform:scale(1); } }
         @keyframes mn-rise { from { opacity:0; transform:translate(-50%,-48%) scale(0.97); } to { opacity:1; transform:translate(-50%,-50%) scale(1); } }
         @keyframes mn-slidein { from { transform:translateX(100%); opacity:0; } to { transform:translateX(0); opacity:1; } }
         @keyframes mn-shimmer { 0%,100%{ background-position:200% center; } }
@@ -1942,9 +3817,19 @@ export default function App() {
 
         .mn-nav-text { }
         .mn-nav-collections { }
+        /* ── Cabecera responsive por tramos ── */
+        .mn-menu-btn { display: none; }
+        @media (max-width: 1200px) {
+          .mn-nav-secondary { display: none !important; }
+          .mn-menu-btn { display: inline-flex !important; }
+        }
         @media (max-width: 900px) { .mn-nav-collections { display: none !important; } }
+        @media (max-width: 430px) {
+          .mn-hamburger .mn-lang-row button { padding: 4px 4px !important; font-size: 8px !important; letter-spacing: 0.2px !important; }
+          .mn-hamburger .mn-lang-row { padding: 2px !important; }
+        }
         .mn-hamburger { display: none; }
-        @media (max-width: 560px) { .mn-hamburger { display: flex !important; } .mn-nav-actions { display: none !important; } }
+        @media (max-width: 900px) { .mn-hamburger { display: flex !important; } .mn-nav-actions { display: none !important; } }
         @media (max-width: 560px) {
           .mn-nav-text { display: none !important; }
           .mn-nav-logo { height: 28px !important; width: calc(28px * 3.08) !important; }
@@ -1970,11 +3855,10 @@ export default function App() {
         {/* NAV */}
         <nav style={{
           position: 'sticky', top: 0, zIndex: 40,
-          background: 'rgba(248,239,230,0.72)',
-          backdropFilter: 'saturate(1.8) blur(22px) brightness(1.04)',
-          WebkitBackdropFilter: 'saturate(1.8) blur(22px) brightness(1.04)',
+          background: 'rgba(248,239,230,0.97)',
           borderBottom: `1px solid rgba(255,255,255,0.45)`,
           boxShadow: '0 1px 0 rgba(24,51,47,0.06), 0 4px 24px -8px rgba(24,51,47,0.08)',
+          overflow: 'visible',
         }}>
           <div style={{
             maxWidth: 1280, margin: '0 auto', padding: '14px 24px',
@@ -1998,7 +3882,7 @@ export default function App() {
             </div>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: 6 }} className="mn-nav-gap mn-nav-actions">
-              <LangSelector lang={lang} onChange={setLang} />
+              <LangSelector lang={lang} onChange={handleLangChange} />
               <button onClick={() => setTarifasOpen(true)} className="mn-pill mn-nav-pill" style={{
                 display: 'inline-flex', alignItems: 'center', gap: 7,
                 padding: '9px 14px', border: `1px solid ${D}`, color: D, borderRadius: 999,
@@ -2023,7 +3907,7 @@ export default function App() {
                 ))}
               </div>
 
-              <a href="#faq" onClick={(e) => { e.preventDefault(); document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' }); }} className="mn-pill mn-nav-pill" style={{
+              <a href="#faq" onClick={(e) => { e.preventDefault(); document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' }); }} className="mn-pill mn-nav-pill mn-nav-secondary" style={{
                 display: 'inline-flex', alignItems: 'center', gap: 7,
                 padding: '9px 14px', border: `1px solid ${G}33`, borderRadius: 999,
                 fontSize: 12, fontWeight: 500, letterSpacing: 0.2,
@@ -2031,7 +3915,7 @@ export default function App() {
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
                 <span className="mn-nav-text">{t('nav_faq')}</span>
               </a>
-              <a href="#contacto" onClick={(e) => { e.preventDefault(); document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' }); }} className="mn-pill mn-nav-pill" style={{
+              <a href="#contacto" onClick={(e) => { e.preventDefault(); document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' }); }} className="mn-pill mn-nav-pill mn-nav-secondary" style={{
                 display: 'inline-flex', alignItems: 'center', gap: 7,
                 padding: '9px 14px', border: `1px solid ${G}33`, borderRadius: 999,
                 fontSize: 12, fontWeight: 500, letterSpacing: 0.2,
@@ -2039,7 +3923,7 @@ export default function App() {
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                 <span className="mn-nav-text">{t('nav_contact')}</span>
               </a>
-              <a href="https://drive.google.com/uc?export=download&id=1NcxVq6PHiDay2mO2iQhN59sQLRrC-Zip" target="_blank" rel="noreferrer" className="mn-pill mn-nav-pill" style={{
+              <a href="https://drive.google.com/uc?export=download&id=1NcxVq6PHiDay2mO2iQhN59sQLRrC-Zip" target="_blank" rel="noreferrer" className="mn-pill mn-nav-pill mn-nav-secondary" style={{
                 display: 'inline-flex', alignItems: 'center', gap: 7,
                 padding: '9px 14px', border: `1px solid ${G}33`, borderRadius: 999,
                 fontSize: 12, fontWeight: 500, letterSpacing: 0.2,
@@ -2047,6 +3931,22 @@ export default function App() {
                 <IconDownload />
                 <span className="mn-nav-text">{t('nav_pdf')}</span>
               </a>
+              <button onClick={() => setMenuOpen(o => !o)} aria-label="Menú" className="mn-pill mn-menu-btn" style={{
+                display: 'none', alignItems: 'center', justifyContent: 'center',
+                width: 36, height: 36, borderRadius: 999, border: `1px solid ${G}22`,
+                background: menuOpen ? G : 'transparent', flexShrink: 0,
+              }}>
+                <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
+                  {menuOpen ? (
+                    <><line x1="1" y1="1" x2="15" y2="11" stroke={C} strokeWidth="1.8" strokeLinecap="round"/>
+                      <line x1="15" y1="1" x2="1" y2="11" stroke={C} strokeWidth="1.8" strokeLinecap="round"/></>
+                  ) : (
+                    <><line x1="0" y1="1" x2="16" y2="1" stroke={G} strokeWidth="1.8" strokeLinecap="round"/>
+                      <line x1="0" y1="6" x2="16" y2="6" stroke={G} strokeWidth="1.8" strokeLinecap="round"/>
+                      <line x1="0" y1="11" x2="16" y2="11" stroke={G} strokeWidth="1.8" strokeLinecap="round"/></>
+                  )}
+                </svg>
+              </button>
               <button ref={cartIconRef} onClick={() => setPanelOpen(true)} className="mn-pill mn-nav-pill" style={{
                 position: 'relative', display: 'inline-flex', alignItems: 'center', gap: 8,
                 padding: '9px 14px', background: G, color: C, borderRadius: 999,
@@ -2064,9 +3964,8 @@ export default function App() {
               </button>
             </div>
 
-            {/* HAMBURGUESA — solo móvil <560px */}
+            {/* HAMBURGUESA — móvil */}
             <div className="mn-hamburger" style={{ display: 'none', alignItems: 'center', gap: 8 }}>
-              <LangSelector lang={lang} onChange={setLang} />
               {cartCount > 0 && (
                 <button onClick={() => setPanelOpen(true)} style={{
                   display: 'inline-flex', alignItems: 'center', gap: 6,
@@ -2111,6 +4010,10 @@ export default function App() {
                 boxShadow: '0 8px 24px -8px rgba(24,51,47,0.2)',
                 display: 'flex', flexDirection: 'column', gap: 8,
               }}>
+                <div className="mn-menu-lang" style={{ display: 'none', marginBottom: 10, paddingBottom: 12, borderBottom: `1px solid ${G}14` }}>
+                  <div className="mn-label-xs" style={{ opacity: 0.45, marginBottom: 7 }}>{t('nav_lang')}</div>
+                  <LangSelector lang={lang} onChange={handleLangChange} />
+                </div>
                 <button onClick={() => { setTarifasOpen(true); setMenuOpen(false); }} style={{
                   padding: '11px 14px', border: `1px solid ${D}`, color: D, borderRadius: 6,
                   fontSize: 13, fontWeight: 500, textAlign: 'left', background: 'transparent', cursor: 'pointer',
@@ -2161,10 +4064,46 @@ export default function App() {
         </nav>
 
         {/* IMPACT SECTION — stats + proceso unificados */}
-        <ImpactSection t={t} />
+        <ImpactSection t={t} onPick={pickTone} activeColors={activeColors} />
 
         {/* CLIENTS TICKER — debajo de los stats, refuerza los números */}
         <ClientTicker t={t} />
+
+        {/* Aviso de región detectada */}
+        {regionAuto && (() => {
+          const r = REGIONS.find(x => x.id === region);
+          const d = getDistributor(region);
+          if (!r || !d) return null;
+          return (
+            <div style={{
+              background: `${D}12`, borderBottom: `1px solid ${D}33`,
+              padding: '10px 24px', animation: 'mn-fadein .35s ease-out both',
+            }}>
+              <div style={{
+                maxWidth: 1280, margin: '0 auto',
+                display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap',
+                justifyContent: 'center', fontSize: 12.5, color: G,
+              }}>
+                <span style={{ fontSize: 15 }}>{r.flag}</span>
+                <span style={{ fontFamily: 'Georgia, serif' }}>
+                  {t('geo_detected')} <strong style={{ fontWeight: 700 }}>{r.label[lang] || r.label.es}</strong>
+                  {' · '}{t('geo_orders_to')} <strong style={{ fontWeight: 700 }}>{d.name}</strong>
+                </span>
+                <button onClick={() => { setRegionAuto(false); setPanelOpen(true); }} style={{
+                  fontSize: 10.5, fontWeight: 800, letterSpacing: 1, textTransform: 'uppercase',
+                  color: G, background: 'transparent', border: `1px solid ${G}33`,
+                  padding: '5px 12px', borderRadius: 999, cursor: 'pointer',
+                }}>{t('geo_change')}</button>
+                <button onClick={() => setRegionAuto(false)} aria-label="Cerrar" style={{
+                  background: 'transparent', border: 'none', cursor: 'pointer',
+                  fontSize: 17, lineHeight: 1, color: G, opacity: 0.4, padding: '0 4px',
+                }}>×</button>
+              </div>
+            </div>
+          );
+        })()}
+
+        <PaletteTeaser t={t} onPick={pickTone} activeColors={activeColors} products={PRODUCTS} />
 
         {/* BANNER EXPOSITORES */}
         <div className="mn-banner-anim" style={{
@@ -2231,23 +4170,7 @@ export default function App() {
               </div>
             </div>
 
-            {/* Imagen derecha */}
-            <div style={{
-              position: 'relative', borderRadius: 4, overflow: 'hidden',
-              aspectRatio: '4/5', maxHeight: 'clamp(320px, 55vw, 580px)',
-            }}>
-              <img
-                src="https://res.cloudinary.com/dekvzwn7b/image/upload/w_900,q_auto,f_auto/v1776281360/_ABD8565_vyyr2r.jpg"
-                alt="Minuë — lookbook SS26"
-                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-              />
-              {/* Overlay sutil */}
-              <div style={{
-                position: 'absolute', inset: 0,
-                background: `linear-gradient(135deg, ${G}22 0%, transparent 60%)`,
-                pointerEvents: 'none',
-              }} />
-            </div>
+            {/* Imagen hero quitada */}
 
           </div>
         </header>
@@ -2337,7 +4260,7 @@ export default function App() {
         )}
 
         {/* TOP VENTAS */}
-        <section id="top-ventas" className="mn-reveal" style={{ maxWidth: 1280, margin: '0 auto', padding: 'clamp(50px, 7vw, 80px) 24px 30px', scrollMarginTop: 80 }}>
+        <section id="top-ventas" className="mn-reveal" style={{ maxWidth: 1280, margin: '0 auto', padding: 'clamp(50px, 7vw, 80px) 24px 30px', scrollMarginTop: 96 }}>
           <div style={{
             display: 'flex', alignItems: 'baseline', justifyContent: 'space-between',
             gap: 20, flexWrap: 'wrap', marginBottom: 'clamp(24px, 3vw, 36px)',
@@ -2350,8 +4273,8 @@ export default function App() {
                   letterSpacing: '-0.01em', margin: 0, lineHeight: 1.08,
                 }}>
                   {t('top_h2_month_pre')}{' '}
-                  <span className="mn-serif-i" style={{ color: D }}>
-                    {(MONTH_NAMES[lang] || MONTH_NAMES.es)[new Date().getMonth()]}
+                  <span className="mn-serif-i" style={{ color: RUST }}>
+                    AW26/27
                   </span>
                   {t('top_h2_c')}
                 </h2>
@@ -2369,7 +4292,7 @@ export default function App() {
                   onAdd={() => addToCart(p.id)} rank={i + 1} showRank variant="top"
                   colData={COLLECTIONS.find(c => c.id === p.col)}
                   currentTierPrice={unitPrice}
-                  onQuickView={(p) => setQuickViewProduct(p)} t={t} />
+                  onQuickView={(p) => setQuickViewProduct(p)} onZoom={(p) => setZoomItem(p)} t={t} />
               </div>
             ))}
           </div>
@@ -2408,7 +4331,7 @@ export default function App() {
                   onAdd={() => addToCart(p.id)} t={t} isNew
                   colData={COLLECTIONS.find(c => c.id === p.col)}
                   currentTierPrice={unitPrice}
-                  onQuickView={setQuickViewProduct} />
+                  onQuickView={setQuickViewProduct} onZoom={(p) => setZoomItem(p)} />
               ))}
             </div>
 
@@ -2429,6 +4352,124 @@ export default function App() {
 
         {/* ANCHOR para auto-scroll al filtrar */}
         <div id="catalog-start" style={{ scrollMarginTop: 140 }} />
+
+        <AWColorsSection
+          t={t}
+          activeColors={activeColors}
+          onPick={pickTone}
+          products={PRODUCTS}
+          cart={cart}
+          onAdd={addToCart}
+        />
+
+        {/* BANDA VERDE DIVISORIA — anuncia las colecciones */}
+        <div style={{
+          background: `linear-gradient(115deg, ${G} 0%, ${G} 55%, #24403a 78%, #3a4436 100%)`,
+          color: C,
+          padding: 'clamp(28px, 4vw, 48px) 24px',
+          textAlign: 'center', position: 'relative', overflow: 'hidden',
+        }}>
+          {/* Decoración sutil — líneas dorada */}
+          <div style={{
+            position: 'absolute', top: '50%', left: 0, right: 0, height: 1,
+            background: `linear-gradient(90deg, transparent, ${D}33, transparent)`,
+          }} />
+          <div style={{
+            display: 'inline-flex', alignItems: 'center', gap: 18,
+            position: 'relative', background: G, padding: '0 24px',
+          }}>
+            <span style={{
+              width: 28, height: 1, background: D, opacity: 0.6,
+            }} />
+            <span style={{
+              fontSize: 9, fontWeight: 700, letterSpacing: 3,
+              textTransform: 'uppercase', color: D,
+            }}>AW26/27 · Wholesale</span>
+            <span style={{
+              width: 28, height: 1, background: D, opacity: 0.6,
+            }} />
+          </div>
+          <h2 className="mn-serif" style={{
+            fontSize: 'clamp(38px, 6vw, 68px)', fontWeight: 300,
+            letterSpacing: '-0.025em', lineHeight: 1, margin: '12px 0 8px', color: C,
+          }}>
+            {t('nav_catalog') === 'Catálogo' ? 'Colecciones' :
+             t('nav_catalog') === 'Catalogue' ? 'Collections' :
+             t('nav_catalog') === 'Katalog' ? 'Kollektionen' :
+             t('nav_catalog') === 'Catalogo' ? 'Collezioni' : 'Coleções'}
+            <span className="mn-serif-i" style={{ color: D, marginLeft: 8 }}>.</span>
+          </h2>
+          <p style={{
+            fontSize: 13, opacity: 0.6, margin: 0, fontWeight: 300, fontStyle: 'italic',
+          }}>
+            Essential · Icons · Acetato
+          </p>
+        </div>
+
+        {/* AVISO DE FILTRO POR PALETA */}
+        {(() => {
+          const grp = AW_GROUPS.find(g => g.filters && g.filters.some(f => activeColors.includes(f)));
+          if (!grp) return null;
+          const n = PRODUCTS.filter(p => p.img && p.colors && grp.filters.some(f => p.colors.includes(f)) && !(grp.exclude || []).includes(p.name)).length;
+          return (
+            <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 24px' }}>
+              <div style={{
+                display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap',
+                margin: 'clamp(18px,3vw,28px) 0 0',
+                padding: '14px 18px', borderRadius: 10,
+                background: `${grp.swatch}12`, border: `1.5px solid ${grp.swatch}`,
+                animation: 'mn-fadein .3s ease-out both',
+              }}>
+                <span style={{
+                  width: 34, height: 34, borderRadius: '50%', background: grp.swatch,
+                  flexShrink: 0, border: `2px solid ${C}`, boxShadow: `0 0 0 1px ${G}22`,
+                }} />
+                <div style={{ flex: 1, minWidth: 180 }}>
+                  <div className="mn-label" style={{ fontSize: 9.5, letterSpacing: 2, fontWeight: 800, color: grp.swatch, marginBottom: 3 }}>
+                    {t('filt_active')}
+                  </div>
+                  <div style={{ fontFamily: 'Georgia, serif', fontSize: 16, color: G, lineHeight: 1.25 }}>
+                    {t(grp.key + 't')} <span style={{ opacity: 0.5, fontSize: 13 }}>· {n} {t('aw_models')}</span>
+                  </div>
+                </div>
+                <button onClick={() => setActiveColors([])} style={{
+                  padding: '9px 16px', borderRadius: 999, cursor: 'pointer',
+                  border: `1px solid ${G}33`, background: C, color: G,
+                  fontFamily: 'Arial, sans-serif', fontSize: 10, fontWeight: 800,
+                  letterSpacing: 1.2, textTransform: 'uppercase', flexShrink: 0,
+                }}>{t('filt_clear')}</button>
+              </div>
+            </div>
+          );
+        })()}
+
+        {/* ENCABEZADO COLECCIONES */}
+        <div id="catalogo" style={{ maxWidth: 1280, margin: '0 auto', padding: 'clamp(24px,4vw,40px) 24px clamp(16px,3vw,28px)', scrollMarginTop: 96 }}>
+          <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 24, flexWrap: 'wrap' }}>
+            <div>
+              <div className="mn-label" style={{ color: '#a2542b', marginBottom: 10, fontSize: 11, letterSpacing: 2.5, fontWeight: 700 }}>AW26/27 · Wholesale</div>
+              <h2 className="mn-serif" style={{
+                fontSize: 'clamp(36px, 5vw, 56px)', fontWeight: 300,
+                letterSpacing: '-0.03em', lineHeight: 0.95, margin: 0, color: G,
+              }}>
+                {t('nav_catalog') === 'Catálogo' ? 'Tres líneas, un lenguaje' :
+                 t('nav_catalog') === 'Catalogue' ? 'Trois lignes, un langage' :
+                 t('nav_catalog') === 'Katalog' ? 'Drei Linien, eine Sprache' :
+                 t('nav_catalog') === 'Catalogo' ? 'Tre linee, un linguaggio' :
+                 t('nav_catalog') === 'Coleção' || t('nav_catalog') === 'Catálogo' ? 'Três linhas, uma linguagem' :
+                 'Three lines, one language'}
+                <span className="mn-serif-i" style={{ color: D, marginLeft: 12 }}>.</span>
+              </h2>
+            </div>
+            <p style={{
+              maxWidth: 320, fontSize: 13, lineHeight: 1.6,
+              opacity: 0.5, margin: 0, fontWeight: 300, fontStyle: 'italic',
+              paddingBottom: 6,
+            }}>
+              Essential · Icons · Acetato — tres líneas, un solo lenguaje de diseño.
+            </p>
+          </div>
+        </div>
 
         {/* BARRA FILTROS SIMPLIFICADA */}
         <div style={{
@@ -2475,7 +4516,9 @@ export default function App() {
                         }}
                         onMouseEnter={e => e.currentTarget.style.background = `${G}08`}
                         onMouseLeave={e => e.currentTarget.style.background = 'transparent'}>
-                          {p.img ? <img src={p.img} alt={p.name} style={{ width: 32, height: 24, objectFit: 'contain', background: '#fff', padding: 2, borderRadius: 2 }} /> :
+                          {p.img ? <span style={{ position: 'relative', width: 32, height: 24, borderRadius: 2, overflow: 'hidden', background: '#F0E7D6', display: 'inline-block', flexShrink: 0 }}>
+                            <img src={p.img} alt={p.name} style={{ width: '100%', height: '100%', objectFit: 'contain', padding: 2, boxSizing: 'border-box', mixBlendMode: 'multiply' }} />
+                          </span> :
                             <div style={{ width: 32, height: 24, background: `${G}10`, borderRadius: 2 }} />}
                           <div>
                             <div style={{ fontSize: 12, fontWeight: 500 }}>{p.name}</div>
@@ -2602,13 +4645,13 @@ export default function App() {
                         {previewItems.slice(0, 3).map((p, i) => (
                           <div key={p.id} style={{
                             width: 40, height: 32, borderRadius: 4,
-                            background: '#fff', border: `2px solid ${C}`,
+                            background: '#F0E7D6', border: `2px solid ${C}`,
                             marginLeft: i > 0 ? -8 : 0,
                             display: 'flex', alignItems: 'center', justifyContent: 'center',
-                            overflow: 'hidden', padding: 3,
+                            overflow: 'hidden', padding: 3, position: 'relative',
                             boxShadow: '0 1px 4px rgba(0,0,0,0.1)',
                           }}>
-                            <img src={p.img} alt={p.name} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+                            <img src={p.img} alt={p.name} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', mixBlendMode: 'multiply' }} />
                           </div>
                         ))}
                         {previewItems.length === 0 && (
@@ -2727,14 +4770,32 @@ export default function App() {
                                   {/* Imagen */}
                                   <div className="mn-card-img" style={{
                                     position: 'relative', aspectRatio: '3/2',
-                                    background: 'transparent', borderRadius: 2, overflow: 'hidden',
+                                    background: '#F0E7D6', borderRadius: 2, overflow: 'hidden',
                                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                                   }}>
                                     {rep.img ? (
+                                      <>
                                       <img src={rep.img} alt={base} className="mn-img" style={{
-                                        width: '100%', height: '100%', objectFit: 'contain', padding: '8px',
+                                        width: '100%', height: '100%', objectFit: 'contain', padding: '8px', mixBlendMode: 'multiply',
                                         transform: rep.imgScale ? `scale(${rep.imgScale})` : 'none',
                                       }} />
+                                      <button
+                                        className="mn-zoom-btn"
+                                        onClick={(e) => { e.stopPropagation(); setZoomItem(rep); }}
+                                        aria-label="Ampliar"
+                                        style={{
+                                          position: 'absolute', right: 7, bottom: 7, width: 29, height: 29,
+                                          borderRadius: 999, border: `1px solid ${G}22`, background: C,
+                                          display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                                          cursor: 'zoom-in', opacity: 0, transition: 'opacity .18s ease, transform .18s ease',
+                                          boxShadow: '0 3px 10px -3px rgba(24,51,47,.35)', zIndex: 4,
+                                        }}>
+                                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={G} strokeWidth="2" strokeLinecap="round">
+                                          <circle cx="11" cy="11" r="7" /><line x1="16.5" y1="16.5" x2="21" y2="21" />
+                                          <line x1="11" y1="8" x2="11" y2="14" /><line x1="8" y1="11" x2="14" y2="11" />
+                                        </svg>
+                                      </button>
+                                      </>
                                     ) : (
                                       // Placeholder con color del diseño
                                       <div style={{
@@ -2909,34 +4970,320 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Puntos restantes */}
-              {[
-                { n: '02', tt: t('pkg2_t'), d: t('pkg2_d') },
-                { n: '03', tt: t('pkg3_t'), d: t('pkg3_d') },
-              ].map((item, i) => (
-                <div key={i} style={{ padding: '20px 22px', border: `1px solid ${G}1f`, borderRadius: 4, background: `${G}05`, flex: 1, display: 'flex', gap: 16, alignItems: 'flex-start' }}>
-                  <span className="mn-serif-i" style={{ fontSize: 24, color: D, fontWeight: 400, lineHeight: 1, flexShrink: 0 }}>{item.n}</span>
-                  <div>
-                    <h4 className="mn-serif" style={{ fontSize: 19, fontWeight: 400, margin: '0 0 6px', letterSpacing: '-0.01em' }}>{item.tt}</h4>
-                    <p style={{ fontSize: 12, lineHeight: 1.6, opacity: 0.75, margin: 0, fontWeight: 300 }}>{item.d}</p>
+              {/* La cajita Minüe */}
+              <div style={{
+                display: 'grid', gridTemplateColumns: 'minmax(120px,180px) 1fr', gap: 18,
+                alignItems: 'center', padding: '16px 18px',
+                border: `1px solid ${G}1f`, borderRadius: 6, background: `${G}05`,
+              }} className="mn-box-row">
+                <div style={{ background: '#F0E7D6', borderRadius: 5, overflow: 'hidden', aspectRatio: '1/1' }}>
+                  <img src="https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Captura_de_pantalla_2026-08-21_a_las_12.55.40.png?v=1787309779" alt={t('box_title')} loading="lazy" style={{
+                    width: '100%', height: '100%', objectFit: 'contain',
+                    padding: 8, boxSizing: 'border-box', mixBlendMode: 'multiply',
+                  }} />
+                </div>
+                <div>
+                  <div className="mn-label-xs" style={{ color: D, marginBottom: 6 }}>{t('box_label')}</div>
+                  <div style={{ fontFamily: 'Georgia, serif', fontSize: 16, color: G, lineHeight: 1.3, marginBottom: 6 }}>
+                    {t('box_title')}
                   </div>
+                  <div style={{ fontSize: 12.5, lineHeight: 1.55, opacity: 0.7, fontStyle: 'italic', fontFamily: 'Georgia, serif' }}>
+                    {t('box_desc')}
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          {/* EXPOSITORES DE SOBREMESA */}
+          <div style={{ marginTop: 'clamp(28px,4vw,44px)' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'minmax(240px,1fr) 1fr', gap: 'clamp(20px,4vw,44px)', alignItems: 'center' }} className="mn-pkg-outer">
+              <DisplaySelector t={t} />
+              <div>
+                <div className="mn-label" style={{ color: RUST, fontSize: 11, letterSpacing: 2.5, fontWeight: 700, marginBottom: 10 }}>
+                  {t('disp_eyebrow')}
+                </div>
+                <h3 className="mn-serif" style={{ fontSize: 'clamp(24px,3.4vw,38px)', fontWeight: 300, letterSpacing: '-0.01em', margin: '0 0 14px', lineHeight: 1.1 }}>
+                  {t('disp_h_a')} <span className="mn-serif-i" style={{ color: RUST }}>{t('disp_h_b')}</span>
+                </h3>
+                <p style={{ fontSize: 13.5, lineHeight: 1.6, opacity: 0.72, fontStyle: 'italic', fontFamily: 'Georgia, serif', marginBottom: 16 }}>
+                  {t('disp_desc')}
+                </p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                  {[t('disp_b1'), t('disp_b2'), t('disp_b3')].map((b, i) => (
+                    <div key={i} style={{ display: 'flex', gap: 9, alignItems: 'flex-start' }}>
+                      <span style={{ color: RUST, fontSize: 13, lineHeight: 1.5 }}>◆</span>
+                      <span style={{ fontSize: 13, lineHeight: 1.5, opacity: 0.8 }}>{b}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <PouchGallery t={t} onZoom={(x) => setZoomItem(x)} />
+
+        {/* FUNDAS CON PERSONALIDAD */}
+        <section style={{ maxWidth: 1280, margin: '0 auto', padding: 'clamp(24px,4vw,48px) 24px' }}>
+          <div style={{
+            background: `${G}06`, border: `1px solid ${G}12`, borderRadius: 8,
+            padding: 'clamp(20px,3vw,36px)', display: 'flex', alignItems: 'center', gap: 24, flexWrap: 'wrap',
+          }}>
+            <div style={{ width: 52, height: 52, borderRadius: 999, background: `${G}12`, border: `1px solid ${G}22`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={G} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="8.5" cy="14" r="1.5" fill={G}/><circle cx="12" cy="9" r="1.5" fill={G}/><circle cx="15.5" cy="14" r="1.5" fill={G}/></svg>
+            </div>
+            <div style={{ flex: 1, minWidth: 220 }}>
+              <div className="mn-label" style={{ color: D, marginBottom: 6, fontSize: 11, letterSpacing: 2, fontWeight: 700 }}>{t('pkg_vivo_label')}</div>
+              <h4 className="mn-serif" style={{ fontSize: 'clamp(18px,2.5vw,26px)', fontWeight: 300, margin: '0 0 8px', letterSpacing: '-0.01em' }}>
+                {t('pkg_vivo_t')} <span className="mn-serif-i">{t('pkg_vivo_i')}</span>
+              </h4>
+              <p style={{ fontSize: 13, lineHeight: 1.6, opacity: 0.65, margin: 0, fontWeight: 300, maxWidth: 520 }}>
+                Las fundas rígidas que acompañan cada montura cambian de colores según la temporada, el clima y las tendencias. No es solo packaging — es una pieza de estilo que el cliente final también lleva.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ATENCIÓN AL CLIENTE — cambios, roturas y defectos */}
+        <section style={{ background: `${G}06`, borderTop: `1px solid ${G}10`, borderBottom: `1px solid ${G}10` }}>
+          <div style={{ maxWidth: 1280, margin: '0 auto', padding: 'clamp(40px,6vw,64px) 24px' }}>
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: 16, flexWrap: 'wrap', marginBottom: 32, justifyContent: 'space-between' }}>
+              <div>
+                <div className="mn-label" style={{ color: D, marginBottom: 10, fontSize: 11, letterSpacing: 2.5, fontWeight: 700 }}>{t('av_label')}</div>
+                <h3 className="mn-serif" style={{ fontSize: 'clamp(28px,4vw,44px)', fontWeight: 400, letterSpacing: '-0.02em', margin: 0, display: 'flex', alignItems: 'center', gap: 14 }}>
+                  <span style={{ width: 36, height: 36, borderRadius: 999, background: G, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f9f1e3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                  </span>
+                  {t('av_h3')}
+                </h3>
+              </div>
+              <p style={{ maxWidth: 360, fontSize: 13, lineHeight: 1.6, opacity: 0.6, margin: 0, fontWeight: 300, fontStyle: 'italic' }}>
+                Tu satisfacción y la de tus clientes es nuestra prioridad. Gestionamos cualquier incidencia de forma rápida y sin burocracia.
+              </p>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16 }}>
+              {[
+                {
+                  svg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#18332f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.78"/></svg>',
+                  title: t('av_1t'),
+                  desc: t('av_1d')
+                },
+                {
+                  svg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#18332f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>',
+                  title: t('av_2t'),
+                  desc: t('av_2d')
+                },
+                {
+                  svg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#18332f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>',
+                  title: t('av_3t'),
+                  desc: t('av_3d')
+                },
+                {
+                  svg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#18332f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>',
+                  title: t('av_4t'),
+                  desc: t('av_4d')
+                },
+              ].map((item, i) => (
+                <div key={i} style={{
+                  padding: '20px 22px', borderRadius: 8,
+                  border: `1px solid ${G}14`, background: `${C}60`,
+                  display: 'flex', flexDirection: 'column', gap: 10,
+                }}>
+                  <div style={{ width: 44, height: 44, borderRadius: 999, background: `${G}12`, border: `1px solid ${G}22`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }} dangerouslySetInnerHTML={{ __html: item.svg }} />
+                  <h4 style={{ fontSize: 15, fontWeight: 700, margin: 0, fontFamily: 'DM Sans, sans-serif', letterSpacing: '-0.01em' }}>{item.title}</h4>
+                  <p style={{ fontSize: 12, lineHeight: 1.6, opacity: 0.65, margin: 0, fontWeight: 300 }}>{item.desc}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
-
-        {/* PRESENCIA GLOBAL + FAIRE RATING */}
         <GlobalMap t={t} />
-        <FaireRating />
+        {/* ── MINUË JUNIOR — próximamente ─────────────────────────── */}
+        <section style={{ background: `linear-gradient(160deg, ${G} 0%, #0f2420 100%)`, overflow: 'hidden', position: 'relative' }}>
+
+          {/* Círculos decorativos animados */}
+          <style>{`
+            @keyframes mn-float-1 { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-18px) scale(1.04); } }
+            @keyframes mn-float-2 { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-12px) rotate(8deg); } }
+            @keyframes mn-float-3 { 0%,100% { transform: translateX(0); } 50% { transform: translateX(14px); } }
+            @keyframes mn-shimmer { 0% { opacity: 0.15; } 50% { opacity: 0.35; } 100% { opacity: 0.15; } }
+            @keyframes mn-kids-in { from { opacity:0; transform: translateY(32px); } to { opacity:1; transform: translateY(0); } }
+          `}</style>
+
+          {/* Fondos decorativos */}
+          <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none' }}>
+            <div style={{ position: 'absolute', width: 400, height: 400, borderRadius: '50%', background: 'rgba(184,134,11,0.08)', top: -100, right: -80, animation: 'mn-float-1 7s ease-in-out infinite' }} />
+            <div style={{ position: 'absolute', width: 240, height: 240, borderRadius: '50%', background: 'rgba(248,239,230,0.04)', bottom: -60, left: -40, animation: 'mn-float-2 9s ease-in-out infinite' }} />
+            <div style={{ position: 'absolute', width: 120, height: 120, borderRadius: '50%', border: '1px solid rgba(184,134,11,0.2)', top: '40%', left: '15%', animation: 'mn-shimmer 4s ease-in-out infinite' }} />
+            <div style={{ position: 'absolute', width: 60, height: 60, borderRadius: '50%', border: '1px solid rgba(248,239,230,0.12)', top: '20%', right: '20%', animation: 'mn-float-3 6s ease-in-out infinite' }} />
+          </div>
+
+          <div style={{ maxWidth: 1280, margin: '0 auto', padding: 'clamp(56px,8vw,96px) 24px', position: 'relative' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(32px,5vw,80px)', alignItems: 'center' }}>
+
+              {/* Columna izquierda — copy */}
+              <div style={{ animation: 'mn-kids-in 0.7s ease-out both' }}>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(184,134,11,0.15)', border: '1px solid rgba(184,134,11,0.3)', borderRadius: 999, padding: '4px 14px', marginBottom: 24 }}>
+                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: D, display: 'inline-block', animation: 'mn-shimmer 2s ease-in-out infinite' }} />
+                  <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: 2.5, textTransform: 'uppercase', color: D }}>{t('kids_soon')}</span>
+                </div>
+
+                <h2 className="mn-serif" style={{
+                  fontSize: 'clamp(36px,5.5vw,68px)', fontWeight: 300,
+                  color: C, lineHeight: 1.0, letterSpacing: '-0.03em',
+                  margin: '0 0 12px',
+                }}>
+                  {t('kids_h2a')}<br />
+                  <span className="mn-serif-i" style={{ color: D }}>{t('kids_h2b')}</span>
+                </h2>
+
+                <p style={{ fontSize: 13, color: C, opacity: 0.55, lineHeight: 1.7, margin: '0 0 32px', fontWeight: 300, maxWidth: 380 }}>
+                  Minuë llega a los más pequeños. El mismo acetato artesanal, las mismas bisagras cuidadas, los mismos colores que no piden permiso. Para niños de 3 a 14 años que ya tienen su propio estilo.
+                </p>
+
+                {/* Pills de características */}
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 36 }}>
+                  {[
+                    { icon: '🌿', text: 'Acetato hipoalergénico' },
+                    { icon: '🔧', text: 'Bisagras flexibles' },
+                    { icon: '☀️', text: 'UV400 certificado' },
+                    { icon: '📐', text: '2 tallas · 3–8 y 8–14 años' },
+                  ].map((p, i) => (
+                    <div key={i} style={{
+                      display: 'inline-flex', alignItems: 'center', gap: 6,
+                      background: 'rgba(248,239,230,0.06)', border: '1px solid rgba(248,239,230,0.12)',
+                      borderRadius: 999, padding: '6px 12px',
+                      animation: `mn-kids-in 0.6s ${0.1 * i + 0.4}s ease-out both`,
+                    }}>
+                      <span style={{ fontSize: 12 }}>{p.icon}</span>
+                      <span style={{ fontSize: 10, color: C, opacity: 0.7, fontWeight: 500 }}>{p.text}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Slogan secundario */}
+                <div style={{ borderLeft: `2px solid ${D}`, paddingLeft: 16, marginBottom: 36 }}>
+                  <p className="mn-serif-i" style={{ fontSize: 17, color: C, opacity: 0.75, margin: 0, lineHeight: 1.5 }}>
+                    "Porque los niños también merecen<br />ver el mundo con estilo."
+                  </p>
+                </div>
+
+                {/* CTA aviso de lanzamiento */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
+                  <button
+                    onClick={() => {
+                      const el = document.querySelector('[data-kids-notify]');
+                      el?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }}
+                    style={{
+                      display: 'inline-flex', alignItems: 'center', gap: 8,
+                      background: D, color: G,
+                      padding: '12px 24px', borderRadius: 999, border: 'none', cursor: 'pointer',
+                      fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: 'uppercase',
+                      fontFamily: 'DM Sans, sans-serif',
+                    }}
+                  >
+                    Avísame del lanzamiento
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                  </button>
+                  <span style={{ fontSize: 11, color: C, opacity: 0.35 }}>Lanzamiento AW26/27</span>
+                </div>
+              </div>
+
+              {/* Columna derecha — productos Kids reales */}
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+                {[
+                  { url: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Captura_de_pantalla_2026-05-25_a_las_19.05.59.png', label: 'Sage  · XS', color: 'rgba(184,200,160,0.18)', delay: '0.1s' },
+                  { url: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Captura_de_pantalla_2026-05-25_a_las_19.05.40.png', label: 'Amber · XS', color: 'rgba(200,168,136,0.18)', delay: '0.2s' },
+                  { url: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Captura_de_pantalla_2026-05-25_a_las_19.05.55.png', label: 'Sky   · XS', color: 'rgba(168,184,200,0.18)', delay: '0.3s' },
+                  { url: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Captura_de_pantalla_2026-05-25_a_las_19.05.45.png', label: 'Coral · XS', color: 'rgba(200,160,168,0.18)', delay: '0.4s' },
+                ].map((item, i) => (
+                  <div key={i} style={{
+                    aspectRatio: '1/1',
+                    background: item.color,
+                    border: '1px solid rgba(248,239,230,0.08)',
+                    borderRadius: 8,
+                    display: 'flex', flexDirection: 'column',
+                    alignItems: 'center', justifyContent: 'center',
+                    animation: `mn-float-${(i % 3) + 1} ${6 + i}s ease-in-out infinite, mn-kids-in 0.6s ${item.delay} ease-out both`,
+                    position: 'relative', overflow: 'hidden',
+                  }}>
+                    <img src={item.url} alt={item.label} style={{
+                      width: '85%', height: '85%', objectFit: 'contain',
+                    }} />
+                    <div style={{ position: 'absolute', inset: 0, background: 'rgba(248,239,230,0.04)', mixBlendMode: 'multiply', pointerEvents: 'none' }} />
+                    <span style={{
+                      position: 'absolute', bottom: 10, left: 0, right: 0, textAlign: 'center',
+                      fontSize: 8, fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase', color: C, opacity: 0.55,
+                    }}>{item.label}</span>
+                    <div style={{
+                      position: 'absolute', top: 8, right: 8,
+                      background: 'rgba(184,134,11,0.3)', borderRadius: 999,
+                      padding: '2px 8px',
+                      fontSize: 7, fontWeight: 700, color: D, letterSpacing: 1, textTransform: 'uppercase',
+                    }}>Soon</div>
+                  </div>
+                ))}
+              </div>
+
+            </div>
+
+            {/* Franja inferior — formulario de notificación */}
+            <div data-kids-notify="true" style={{
+              marginTop: 'clamp(40px,5vw,64px)',
+              padding: 'clamp(20px,3vw,32px)',
+              background: 'rgba(248,239,230,0.04)',
+              border: '1px solid rgba(248,239,230,0.08)',
+              borderRadius: 8,
+              display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+              gap: 24, flexWrap: 'wrap',
+            }}>
+              <div>
+                <p className="mn-serif" style={{ fontSize: 20, fontWeight: 300, color: C, margin: '0 0 4px' }}>
+                  ¿Eres retailer? Sé el primero en conocer <em style={{ color: D }}>Minuë Junior.</em>
+                </p>
+                <p style={{ fontSize: 11, color: C, opacity: 0.4, margin: 0, fontWeight: 300 }}>
+                  Te avisamos cuando el catálogo Junior esté listo para pedidos.
+                </p>
+              </div>
+              <div style={{ display: 'flex', gap: 8, flexShrink: 0 }}>
+                <input
+                  type="email"
+                  placeholder="tu@optica.com"
+                  style={{
+                    padding: '10px 14px', borderRadius: 6, border: '1px solid rgba(248,239,230,0.2)',
+                    background: 'rgba(248,239,230,0.06)', color: C, fontSize: 12,
+                    fontFamily: 'DM Sans, sans-serif', outline: 'none', width: 220,
+                  }}
+                />
+                <button style={{
+                  padding: '10px 18px', borderRadius: 6, background: D, color: G, border: 'none',
+                  fontSize: 11, fontWeight: 700, letterSpacing: 1, textTransform: 'uppercase',
+                  fontFamily: 'DM Sans, sans-serif', cursor: 'pointer', whiteSpace: 'nowrap',
+                }}>
+                  Notificarme
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </section>
+        {/* ── FIN MINUË JUNIOR ──────────────────────────────────────── */}
+
+        <FaireRating t={t} />
 
         {/* ESPECIFICACIONES TÉCNICAS — bloque sutil sobre fondo crema */}
         <section style={{ background: `${G}06`, borderTop: `1px solid ${G}12`, borderBottom: `1px solid ${G}12` }}>
           <div style={{ maxWidth: 1280, margin: '0 auto', padding: 'clamp(40px,6vw,60px) 24px' }}>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: 16, flexWrap: 'wrap', marginBottom: 28, justifyContent: 'space-between' }}>
               <div>
-                <div className="mn-label" style={{ color: D, marginBottom: 6, opacity: 0.7 }}>{t('tech_eyebrow')}</div>
-                <h3 className="mn-serif" style={{ fontSize: 'clamp(32px,4vw,46px)', fontWeight: 400, letterSpacing: '-0.02em', margin: 0 }}>
+                <div className="mn-label" style={{ color: D, marginBottom: 10, fontSize: 11, letterSpacing: 2.5, fontWeight: 700 }}>{t('tech_eyebrow')}</div>
+                <h3 className="mn-serif" style={{ fontSize: 'clamp(32px,4vw,46px)', fontWeight: 400, letterSpacing: '-0.02em', margin: 0, display: 'flex', alignItems: 'center', gap: 14 }}>
+                  <span style={{ width: 36, height: 36, borderRadius: 999, background: G, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f9f1e3" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  </span>
                   {t('tech_h2')}
                 </h3>
               </div>
@@ -2991,12 +5338,11 @@ export default function App() {
 
               {/* Celda grande — foto */}
               <div className="mn-bento-photo" style={{ gridColumn: '1/6', gridRow: '1/3', borderRadius: 8, overflow:'hidden', minHeight: 280, position: 'relative' }}>
-                <img src="https://res.cloudinary.com/dekvzwn7b/image/upload/w_800,q_auto,f_auto/v1776281988/_ANT3201_lhwuw6.jpg"
-                  alt="Minuë SS26" style={{ width:'100%', height:'100%', objectFit:'cover', display:'block', filter:'brightness(0.85)' }} />
+                <img src="https://cdn.shopify.com/s/files/1/0052/2797/0629/files/ABD8364.jpg"
+                  alt="Minuë AW26/27" style={{ width:'100%', height:'100%', objectFit:'cover', display:'block', filter:'brightness(0.85)' }} />
                 <div style={{ position:'absolute', inset:0, background:`linear-gradient(135deg,${G}44 0%,transparent 70%)`, pointerEvents:'none' }} />
                 <div style={{ position:'absolute', bottom:20, left:20 }}>
-                  <div className="mn-label-xs" style={{ color:D, marginBottom:6 }}>SS26</div>
-                  <div className="mn-serif" style={{ fontSize:22, fontWeight:300, lineHeight:1.1 }}>Bergman Collection</div>
+                  <div className="mn-label-xs" style={{ color:D }}>AW26/27</div>
                 </div>
               </div>
 
@@ -3107,7 +5453,7 @@ export default function App() {
               <div>
                 <Logo color={C} height={42} />
                 <p style={{ fontSize: 12, lineHeight: 1.65, opacity: 0.55, fontWeight: 300, maxWidth: 320, marginTop: 12 }}>
-                  Distribución wholesale internacional · Diseño handcrafted in Spain
+                  {t('dist_tagline')}
                 </p>
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 6, fontSize: 12, fontWeight: 300, opacity: 0.6 }}>
@@ -3218,6 +5564,54 @@ export default function App() {
                     }}>
                       <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                       Email
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Italia — Cretella Showroom */}
+              <div style={{
+                padding: '22px 20px', borderRadius: 8,
+                border: `1px solid ${RUST}40`,
+                background: `${RUST}0a`,
+                display: 'flex', flexDirection: 'column', gap: 10,
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <span style={{ fontSize: 18 }}>🇮🇹</span>
+                  <span style={{ fontSize: 8, fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase', color: RUST, border: `1px solid ${RUST}66`, padding: '2px 7px', borderRadius: 999 }}>Italia</span>
+                </div>
+                <div>
+                  <div className="mn-serif" style={{ fontSize: 18, fontWeight: 400, marginBottom: 2 }}>Cretella Showroom</div>
+                  <div style={{ fontSize: 11, opacity: 0.5, fontStyle: 'italic' }}>Marcello</div>
+                </div>
+                <div style={{ fontSize: 11, opacity: 0.4, lineHeight: 1.4, fontWeight: 300 }}>
+                  {t('ft_it_area')}
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 7, fontSize: 12, fontWeight: 300 }}>
+                  <a href="https://wa.me/393317621348" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: 7, color: C, opacity: 0.8, textDecoration: 'none' }}>
+                    <IconWA size={12} /> +39 331 762 1348
+                  </a>
+                  <a href="https://www.instagram.com/cretellashowroom_" target="_blank" rel="noreferrer" style={{ color: C, opacity: 0.8, textDecoration: 'none' }}>
+                    @cretellashowroom_
+                  </a>
+                  <div style={{ display: 'flex', gap: 8, marginTop: 8 }}>
+                    <a href="https://wa.me/393317621348?text=Ciao%20Marcello%2C%20sono%20interessato%20al%20catalogo%20Min%C3%BCe%20Wholesale" target="_blank" rel="noreferrer" style={{
+                      flex: 1, padding: '9px 0', borderRadius: 6,
+                      border: `1px solid ${C}28`, color: C, textDecoration: 'none',
+                      fontSize: 11, fontWeight: 500, textAlign: 'center',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 5,
+                      background: `${C}08`,
+                    }}>
+                      <IconWA size={11} /> WhatsApp
+                    </a>
+                    <a href="https://www.instagram.com/cretellashowroom_" target="_blank" rel="noreferrer" style={{
+                      flex: 1, padding: '9px 0', borderRadius: 6,
+                      border: `1px solid ${C}28`, color: C, textDecoration: 'none',
+                      fontSize: 11, fontWeight: 500, textAlign: 'center',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 5,
+                      background: `${C}08`,
+                    }}>
+                      Instagram
                     </a>
                   </div>
                 </div>
@@ -3509,6 +5903,8 @@ export default function App() {
         {/* SIDE PANEL */}
         {panelOpen && (
           <OrderPanel
+            cart={cart} products={PRODUCTS} onPickTone={pickTone}
+            acetatoUnits={acetatoUnits} acetatoCost={acetatoCost} tierUnits={tierUnits} tierCost={tierCost}
             t={t} lang={lang}
             region={region} setRegion={setRegion}
             distributor={distributor}
@@ -3516,7 +5912,7 @@ export default function App() {
             currentTier={currentTier} nextTier={nextTier}
             unitPrice={unitPrice} cartTotal={cartTotal}
             familyCode={familyCode} setFamilyCode={setFamilyCode}
-            discountPct={discountPct}
+            discountPct={discountPct} ouardaActive={ouardaActive} zubietaActive={zubietaActive}
             onClose={() => setPanelOpen(false)}
             onUpdateQty={updateQty}
             onRemove={removeFromCart}
@@ -3526,6 +5922,8 @@ export default function App() {
         )}
 
         {/* QUICK VIEW MODAL */}
+        <Lightbox item={zoomItem} onClose={() => setZoomItem(null)} />
+
         {quickViewProduct && (
           <QuickViewModal
             product={quickViewProduct}
@@ -3552,100 +5950,56 @@ export default function App() {
 // LangSelector
 // ============================================================
 function LangSelector({ lang, onChange }) {
-  const [open, setOpen] = useState(false);
-  const ref = React.useRef(null);
-  const current = LANGS.find(l => l.code === lang) || LANGS[0];
-
-  // Cerrar al hacer click fuera
-  useEffect(() => {
-    if (!open) return;
-    const handler = (e) => {
-      if (ref.current && !ref.current.contains(e.target)) setOpen(false);
-    };
-    document.addEventListener('mousedown', handler);
-    document.addEventListener('touchstart', handler);
-    return () => {
-      document.removeEventListener('mousedown', handler);
-      document.removeEventListener('touchstart', handler);
-    };
-  }, [open]);
-
   return (
-    <div ref={ref} style={{ position: 'relative' }}>
-      <button
-        onClick={() => setOpen(o => !o)}
-        className="mn-pill mn-nav-pill"
-        style={{
-          display: 'inline-flex', alignItems: 'center', gap: 6,
-          padding: '9px 12px', border: `1px solid ${open ? G : `${G}33`}`,
-          borderRadius: 999, fontSize: 12, fontWeight: 500, letterSpacing: 0.3,
-          background: open ? `${G}08` : 'transparent',
-          transition: 'border-color 0.2s, background 0.2s',
-        }}
-        aria-label="Language"
-        aria-expanded={open}
-      >
-        <IconGlobe size={13} />
-        <span className="mn-nav-text">{current.label}</span>
-        <span style={{
-          display: 'inline-block',
-          transform: open ? 'rotate(180deg)' : 'rotate(0deg)',
-          transition: 'transform 0.2s ease',
-          lineHeight: 0,
-        }}>
-          <IconChevron size={10} />
-        </span>
-      </button>
-
-      {open && (
-        <div style={{
-          position: 'absolute', top: 'calc(100% + 6px)', right: 0, zIndex: 45,
-          background: C, border: `1px solid ${G}22`, borderRadius: 10,
-          boxShadow: '0 12px 32px -10px rgba(24,51,47,0.28)',
-          padding: 6, minWidth: 160,
-          display: 'flex', flexDirection: 'column', gap: 2,
-          animation: 'mn-rise 0.18s ease-out both',
-        }}>
-          {LANGS.map(l => {
-            const active = l.code === lang;
-            return (
-              <button
-                key={l.code}
-                onClick={() => { onChange(l.code); setOpen(false); }}
-                style={{
-                  padding: '9px 13px', textAlign: 'left', borderRadius: 6,
-                  fontSize: 12, fontWeight: active ? 600 : 400,
-                  background: active ? `${G}10` : 'transparent',
-                  display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12,
-                  transition: 'background 0.15s',
-                }}
-                onMouseEnter={e => { if (!active) e.currentTarget.style.background = `${G}06`; }}
-                onMouseLeave={e => { if (!active) e.currentTarget.style.background = 'transparent'; }}
-              >
-                <span>{l.name}</span>
-                <span style={{
-                  fontSize: 9, fontWeight: 700, letterSpacing: 2,
-                  color: active ? D : `${G}66`, textTransform: 'uppercase',
-                }}>{l.label}</span>
-              </button>
-            );
-          })}
-        </div>
-      )}
+    <div className="mn-lang-row" style={{
+      display: 'inline-flex', alignItems: 'center', gap: 2,
+      padding: 3, borderRadius: 999, border: `1px solid ${G}22`,
+      background: `${G}05`,
+    }}>
+      {LANGS.map(l => {
+        const active = l.code === lang;
+        return (
+          <button
+            key={l.code}
+            onClick={() => onChange(l.code)}
+            title={l.name}
+            aria-label={l.name}
+            aria-current={active ? 'true' : undefined}
+            style={{
+              padding: '5px 8px', borderRadius: 999, border: 'none',
+              fontSize: 10, fontWeight: active ? 800 : 600, letterSpacing: 0.8,
+              textTransform: 'uppercase', cursor: 'pointer',
+              background: active ? G : 'transparent',
+              color: active ? C : G,
+              opacity: active ? 1 : 0.5,
+              transition: 'background .15s, opacity .15s, color .15s',
+              lineHeight: 1.1,
+            }}
+            onMouseEnter={e => { if (!active) { e.currentTarget.style.opacity = '1'; e.currentTarget.style.background = `${G}0e`; } }}
+            onMouseLeave={e => { if (!active) { e.currentTarget.style.opacity = '0.5'; e.currentTarget.style.background = 'transparent'; } }}
+          >
+            {l.label}
+          </button>
+        );
+      })}
     </div>
   );
 }
 
-// ============================================================
-// OrderPanel
-// ============================================================
+
 function OrderPanel({
-  t, lang, region, setRegion, distributor,
+  t, lang, region, setRegion, distributor, cart, products, onPickTone,
+  acetatoUnits = 0, acetatoCost = 0, tierUnits = 0, tierCost = 0,
   cartItems, cartCount, currentTier, nextTier, unitPrice, cartTotal,
-  familyCode, setFamilyCode, discountPct,
+  familyCode, setFamilyCode, discountPct, ouardaActive, zubietaActive,
   onClose, onUpdateQty, onRemove, onSendWA, onSendEmail,
 }) {
   const isDistributor = distributor.name !== 'Minuë Opticians';
+  // Detección de móvil para mostrar/ocultar WhatsApp
+  const isMobile = typeof window !== 'undefined' && (
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+    window.innerWidth <= 768
+  );
   // Estados: null = CTAs, 'wa'/'email' = lead form post-envío, 'sent' = confirmación
   const [step, setStep] = useState(null); // null | 'lead_wa' | 'lead_email' | 'sent'
   const [sentChannel, setSentChannel] = useState(null);
@@ -3680,12 +6034,14 @@ function OrderPanel({
     setStep(null);
   };
 
-  // Cálculos
-  const cost = cartItems.reduce((sum, item) => {
+  // Cálculos — usa precios de código especial si aplica
+  const getPrice = (item) => {
+    if (ouardaActive) return item.col === 'Acetato' ? (COLLECTIONS.find(c=>c.id==='Acetato')?.unitCost ?? 25.95) : 16.60;
+    if (zubietaActive) return item.col === 'Acetato' ? 20.90 : 16.90;
     const col = COLLECTIONS.find(c => c.id === item.col);
-    const itemCost = col?.unitCost ?? unitPrice ?? DISPLAY_PRICE;
-    return sum + itemCost * item.qty;
-  }, 0);
+    return col?.unitCost ?? unitPrice ?? DISPLAY_PRICE;
+  };
+  const cost = cartItems.reduce((sum, item) => sum + getPrice(item) * item.qty, 0);
   const revenue = cartItems.reduce((sum, item) => {
     const col = COLLECTIONS.find(c => c.id === item.col);
     return sum + (col?.rrp ?? 50) * item.qty;
@@ -3693,6 +6049,7 @@ function OrderPanel({
   const gainEur = revenue - cost;
   const gainPct = revenue > 0 ? Math.round((gainEur / revenue) * 100) : 0;
   const totalCost = discountPct > 0 ? cost * (1 - discountPct / 100) : cost;
+  const effectiveUnitPrice = ouardaActive ? 16.60 : zubietaActive ? 16.90 : unitPrice;
   const hasItems = cartItems.length > 0;
   const hasUrgent = cartItems.some(item => PRODUCTS.find(p => p.id === item.id)?.urgency === 'stock_low');
 
@@ -3743,7 +6100,11 @@ function OrderPanel({
               <p style={{ fontSize: 13, lineHeight: 1.5, fontWeight: 300 }}>{t('panel_empty_d')}</p>
             </div>
           ) : (
-            cartItems.map(item => {
+            <>
+            <div style={{ padding: '16px 18px 0' }}>
+              <VitrineBalance t={t} cart={cart} products={products} onPick={onPickTone} />
+            </div>
+            {cartItems.map(item => {
               const prod = PRODUCTS.find(p => p.id === item.id);
               const isLow = prod?.urgency === 'stock_low';
               return (
@@ -3754,12 +6115,12 @@ function OrderPanel({
                   background: isLow ? 'rgba(232,90,0,0.03)' : 'transparent',
                 }}>
                   <div style={{
-                    width: 64, height: 50, background: '#fff', borderRadius: 3,
+                    width: 64, height: 50, background: '#F0E7D6', borderRadius: 3,
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    padding: 5, overflow: 'hidden', border: `1px solid ${G}0a`,
+                    padding: 5, overflow: 'hidden', position: 'relative', border: `1px solid ${G}0a`,
                   }}>
                     {item.img
-                      ? <img src={item.img} alt={item.name} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+                      ? <><img src={item.img} alt={item.name} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', mixBlendMode: 'multiply' }} /></>
                       : <svg width="28" height="18" viewBox="0 0 42 28" fill="none" style={{ opacity: 0.2 }}><rect x="1" y="4" width="16" height="12" rx="6" stroke={G} strokeWidth="1.5"/><rect x="25" y="4" width="16" height="12" rx="6" stroke={G} strokeWidth="1.5"/><line x1="17" y1="10" x2="25" y2="10" stroke={G} strokeWidth="1.5"/></svg>
                     }
                   </div>
@@ -3785,7 +6146,8 @@ function OrderPanel({
                   </div>
                 </div>
               );
-            })
+            })}
+            </>
           )}
 
           {/* ── Zona inferior con totales y CTA ── */}
@@ -3917,13 +6279,14 @@ function OrderPanel({
 
             {/* Código de descuento */}
             <div style={{
-              padding: '10px 14px', marginBottom: 10, borderRadius: 6,
-              border: `1px solid ${discountPct > 0 ? D : G}22`,
-              background: discountPct > 0 ? `${D}08` : `${G}04`,
+              padding: '10px 14px', marginBottom: (ouardaActive || zubietaActive) ? 0 : 10, borderRadius: (ouardaActive || zubietaActive) ? '6px 6px 0 0' : 6,
+              border: `1px solid ${(discountPct > 0 || ouardaActive || zubietaActive) ? D : G}22`,
+              borderBottom: (ouardaActive || zubietaActive) ? 'none' : undefined,
+              background: (discountPct > 0 || ouardaActive || zubietaActive) ? `${D}08` : `${G}04`,
               display: 'flex', alignItems: 'center', gap: 8,
             }}>
               <div style={{ flex: 1 }}>
-                <div className="mn-label-xs" style={{ color: discountPct > 0 ? D : G, opacity: discountPct > 0 ? 1 : 0.5, marginBottom: 4 }}>
+                <div className="mn-label-xs" style={{ color: (discountPct > 0 || ouardaActive || zubietaActive) ? D : G, opacity: (discountPct > 0 || ouardaActive || zubietaActive) ? 1 : 0.5, marginBottom: 4 }}>
                   {t('code_label')}
                 </div>
                 <input
@@ -3934,21 +6297,100 @@ function OrderPanel({
                   style={{
                     width: '100%', background: 'transparent', border: 'none', outline: 'none',
                     fontSize: 13, fontFamily: 'DM Sans, sans-serif', fontWeight: 600,
-                    color: discountPct > 0 ? D : G, letterSpacing: 0.5,
+                    color: (discountPct > 0 || ouardaActive || zubietaActive) ? D : G, letterSpacing: 0.5,
                     textTransform: 'uppercase',
                   }}
                 />
               </div>
-              {familyCode.trim().length > 0 && (
-                <div style={{
-                  fontSize: 10, fontWeight: 700,
-                  color: discountPct > 0 ? D : '#e85a00',
-                  flexShrink: 0,
-                }}>
-                  {discountPct > 0 ? t('code_applied') : t('code_invalid')}
-                </div>
-              )}
+              {familyCode.trim().length > 0 && (() => {
+                const isValid = discountPct > 0 || ouardaActive || zubietaActive;
+                const label = isValid
+                  ? ouardaActive ? '✓ Precio especial'
+                    : zubietaActive ? '✓ Precio especial'
+                    : t('code_applied')
+                  : t('code_invalid');
+                return (
+                  <div style={{
+                    fontSize: 10, fontWeight: 700,
+                    color: isValid ? D : '#e85a00',
+                    flexShrink: 0,
+                  }}>
+                    {label}
+                  </div>
+                );
+              })()}
             </div>
+
+            {/* Bloque antes/después — solo para códigos con precio fijo */}
+            {(ouardaActive || zubietaActive) && (
+              <div style={{
+                padding: '10px 14px', marginBottom: 10,
+                borderRadius: '0 0 6px 6px',
+                border: `1px solid ${D}22`, borderTop: `1px dashed ${D}33`,
+                background: `${D}06`,
+              }}>
+                <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: 1.5, color: D, textTransform: 'uppercase', marginBottom: 8 }}>
+                  Precios con tu código
+                </div>
+                <div style={{ display: 'flex', gap: 8 }}>
+                  {/* Essential + Icons */}
+                  <div style={{ flex: 1, background: `rgba(255,255,255,0.5)`, borderRadius: 4, padding: '8px 10px' }}>
+                    <div style={{ fontSize: 9, opacity: 0.5, marginBottom: 4, fontWeight: 500 }}>Essential · Icons</div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                      <span style={{ fontSize: 11, textDecoration: 'line-through', opacity: 0.35, color: G }}>
+                        {unitPrice ? unitPrice.toFixed(2).replace('.', ',') + '€' : '—'}
+                      </span>
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={D} strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                      <span style={{ fontSize: 14, fontWeight: 800, color: D, fontFamily: 'DM Sans, sans-serif' }}>
+                        {ouardaActive ? '16,60€' : '16,90€'}
+                      </span>
+                    </div>
+                  </div>
+                  {/* Acetato */}
+                  <div style={{ flex: 1, background: `rgba(255,255,255,0.5)`, borderRadius: 4, padding: '8px 10px' }}>
+                    <div style={{ fontSize: 9, opacity: 0.5, marginBottom: 4, fontWeight: 500 }}>Acetato</div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                      <span style={{ fontSize: 11, textDecoration: 'line-through', opacity: 0.35, color: G }}>
+                        25,95€
+                      </span>
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={ouardaActive ? G : D} strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                      <span style={{ fontSize: 14, fontWeight: 800, color: ouardaActive ? G : D, fontFamily: 'DM Sans, sans-serif' }}>
+                        {ouardaActive ? '25,95€' : '20,90€'}
+                      </span>
+                    </div>
+                    {ouardaActive && <div style={{ fontSize: 8, opacity: 0.4, marginTop: 3 }}>sin cambio</div>}
+                  </div>
+                </div>
+                <div style={{ fontSize: 9, opacity: 0.45, marginTop: 8, fontStyle: 'italic' }}>
+                  * IVA no incluido · Precios aplicados automáticamente en tu pedido
+                </div>
+              </div>
+            )}
+
+            {/* Desglose acetato — precio fuera de tramos */}
+            {acetatoUnits > 0 && (
+              <div style={{
+                padding: '12px 14px', marginBottom: 10, borderRadius: 6,
+                border: `1px dashed ${RUST}`, background: `${RUST}0d`,
+              }}>
+                <div className="mn-label-xs" style={{ color: RUST, marginBottom: 8 }}>
+                  {t('acet_split_t')}
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11.5, marginBottom: 5 }}>
+                  <span style={{ opacity: 0.7 }}>
+                    {tierUnits} {t('panel_units')} · Essential/Icons {unitPrice ? `× ${unitPrice.toFixed(2).replace('.', ',')}€` : ''}
+                  </span>
+                  <span style={{ fontWeight: 700 }}>{tierCost.toFixed(2).replace('.', ',')}€</span>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11.5, marginBottom: 7 }}>
+                  <span style={{ opacity: 0.7 }}>{acetatoUnits} {t('panel_units')} · Acetato × 25,95€</span>
+                  <span style={{ fontWeight: 700, color: RUST }}>{acetatoCost.toFixed(2).replace('.', ',')}€</span>
+                </div>
+                <div style={{ fontSize: 9.5, opacity: 0.55, fontStyle: 'italic', borderTop: `1px solid ${G}14`, paddingTop: 6 }}>
+                  {t('acet_split_d')}
+                </div>
+              </div>
+            )}
 
             {/* Región */}
             <div style={{
@@ -3989,35 +6431,51 @@ function OrderPanel({
             {step === null && (
               <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
 
-                {/* 1. WhatsApp — PRINCIPAL */}
-                <button onClick={handleWA} className="mn-btn" style={{
-                  width: '100%', padding: '16px 18px', borderRadius: 6,
-                  background: CHOCOLATE, color: C,
-                  fontSize: 14, fontWeight: 700, letterSpacing: 0.3,
-                  display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 10,
-                  boxShadow: `0 4px 20px -6px ${CHOCOLATE}80`,
-                }}>
-                  <IconWA size={18} />
-                  Enviar pedido por WhatsApp
-                </button>
-                <div style={{ textAlign: 'center', fontSize: 10, opacity: 0.4, marginTop: -2 }}>
-                  Respuesta en menos de 24h · Sin compromiso de pago
-                </div>
+                {/* 1. WhatsApp — PRINCIPAL (solo móvil) */}
+                {isMobile && (
+                  <>
+                    <button onClick={handleWA} className="mn-btn" style={{
+                      width: '100%', padding: '16px 18px', borderRadius: 6,
+                      background: CHOCOLATE, color: C,
+                      fontSize: 14, fontWeight: 700, letterSpacing: 0.3,
+                      display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 10,
+                      boxShadow: `0 4px 20px -6px ${CHOCOLATE}80`,
+                    }}>
+                      <IconWA size={18} />
+                      Enviar pedido por WhatsApp
+                    </button>
+                    <div style={{ textAlign: 'center', fontSize: 10, opacity: 0.4, marginTop: -2 }}>
+                      {t('kids_response')}
+                    </div>
+                  </>
+                )}
 
-                {/* 2. Email — secundario */}
+                {/* 2. Email — principal en desktop, secundario en móvil */}
                 <button onClick={handleEmail} className="mn-btn" style={{
-                  width: '100%', padding: '12px 18px', borderRadius: 6,
-                  background: 'transparent', color: G, fontSize: 12, fontWeight: 500,
-                  border: `1px solid ${G}33`, letterSpacing: 0.2,
+                  width: '100%', padding: isMobile ? '12px 18px' : '16px 18px', borderRadius: 6,
+                  background: isMobile ? 'transparent' : G,
+                  color: isMobile ? G : C,
+                  fontSize: isMobile ? 12 : 14,
+                  fontWeight: isMobile ? 500 : 700,
+                  border: isMobile ? `1px solid ${G}33` : 'none',
+                  letterSpacing: 0.2,
                   display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+                  boxShadow: isMobile ? 'none' : `0 4px 20px -6px rgba(24,51,47,0.35)`,
                 }}>
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
                   {t('panel_email')}
                 </button>
 
+                {/* Nota desktop: sin WhatsApp */}
+                {!isMobile && (
+                  <div style={{ textAlign: 'center', fontSize: 10, opacity: 0.4, marginTop: -4 }}>
+                    {t('kids_response')}
+                  </div>
+                )}
+
                 {/* 3. PDF — terciario */}
                 <button
-                  onClick={() => generatePDF({ cartItems, cartCount, cartTotal, unitPrice, currentTier, distributor, region, lang, t, discountPct, cost, gainEur, gainPct })}
+                  onClick={() => generatePDF({ cartItems, cartCount, cartTotal, unitPrice, currentTier, distributor, region, lang, t, discountPct, cost, gainEur, gainPct, ouardaActive, zubietaActive, familyCode })}
                   className="mn-btn"
                   style={{
                     width: '100%', padding: '10px 18px', borderRadius: 6,
@@ -4045,7 +6503,7 @@ function OrderPanel({
                 }}>
                   <div style={{ fontSize: 28, marginBottom: 6 }}>✓</div>
                   <div style={{ fontSize: 14, fontWeight: 700, marginBottom: 4 }}>
-                    {sentChannel === 'wa' ? 'WhatsApp abierto' : 'Email preparado'}
+                    {sentChannel === 'wa' ? 'WhatsApp abierto' : 'Email preparado ✓'}
                   </div>
                   <p style={{ fontSize: 11, opacity: 0.55, margin: 0, lineHeight: 1.5 }}>
                     Te confirmamos stock y plazos en menos de 24h.
@@ -4058,7 +6516,7 @@ function OrderPanel({
                     ¿Quieres que te hagamos seguimiento?
                   </div>
                   <p style={{ fontSize: 10, opacity: 0.5, margin: '0 0 10px', lineHeight: 1.5 }}>
-                    Opcional — te avisamos de novedades y stock.
+                    {t('kids_optional')}
                   </p>
                   {[
                     { ref: refName, placeholder: t('lead_name'), type: 'text' },
@@ -4291,6 +6749,26 @@ function TarifasModal({ onClose, currentTier, t }) {
               );
             })}
 
+            {/* ACETATO — fuera de tramos */}
+            <div style={{
+              padding: '20px 18px', borderRadius: 4,
+              background: `${RUST}0f`,
+              border: `1.5px solid ${RUST}`,
+            }}>
+              <div className="mn-label-xs" style={{ color: RUST, marginBottom: 8 }}>{t('acet_tier_label')}</div>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 10 }}>
+                <span className="mn-serif" style={{ fontSize: 30, fontWeight: 300, color: G, lineHeight: 1 }}>25,95€</span>
+                <span style={{ fontSize: 11, opacity: 0.6 }}>{t('acet_tier_unit')}</span>
+              </div>
+              <div style={{ fontSize: 11, opacity: 0.8, lineHeight: 1.55, marginBottom: 8 }}>
+                {t('acet_tier_d')}
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 4, fontSize: 10.5, opacity: 0.7 }}>
+                <span>· {t('acet_tier_b1')}</span>
+                <span>· {t('acet_tier_b2')}</span>
+              </div>
+            </div>
+
             <div style={{
               padding: '20px 18px', borderRadius: 4,
               background: `linear-gradient(135deg, ${G}0d 0%, ${D}0d 100%)`,
@@ -4331,7 +6809,18 @@ function TarifasModal({ onClose, currentTier, t }) {
           }}>
             {t('modal_footer')}
           </p>
-          <p style={{ textAlign: 'center', fontSize: 10, fontWeight: 700, color: D, margin: '4px 0 0', letterSpacing: 0.3 }}>
+          <div style={{
+            marginTop: 14, padding: '12px 14px', borderRadius: 8,
+            background: `${RUST}12`, border: `1px dashed ${RUST}`,
+          }}>
+            <div className="mn-label" style={{ fontSize: 9, letterSpacing: 1.8, fontWeight: 800, color: RUST, marginBottom: 4 }}>
+              {t('acet_note_t')}
+            </div>
+            <div style={{ fontSize: 11.5, lineHeight: 1.5, color: G, opacity: 0.8 }}>
+              {t('acet_note_d')}
+            </div>
+          </div>
+          <p style={{ textAlign: 'center', fontSize: 10, fontWeight: 700, color: D, margin: '10px 0 0', letterSpacing: 0.3 }}>
             📅 {t('tier_valid')}
           </p>
         </div>
@@ -4384,7 +6873,7 @@ function GlobalMap({ t }) {
   const COUNTRIES = ['Francia','España','Alemania','Italia','P.Bajos','Bélgica','Suiza','Dinamarca','Portugal','Grecia','R.Unido','Australia','Colombia','EE.UU.'];
 
   return (
-    <section style={{ background: G, color: C, padding: 'clamp(50px,7vw,80px) 0' }}>
+    <section style={{ background: G, borderTop: `3px solid #a2542b`, color: C, padding: 'clamp(50px,7vw,80px) 0' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 24px' }}>
         <Fade d={0}>
           <div style={{ textAlign: 'center', marginBottom: 32 }}>
@@ -4615,13 +7104,13 @@ function QuickViewModal({ product: initialProduct, allProducts, colData: initial
                 style={{
                   width: '100%', height: '100%', objectFit: 'contain',
                   cursor: 'zoom-in',
-                  animation: 'mn-fadein 0.2s ease-out both',
+                  animation: 'mn-variant-in 0.35s cubic-bezier(0.25,0.46,0.45,0.94) both',
                 }}
               />
             ) : (
               <div key={active.id} style={{
                 display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10, opacity: 0.25,
-                animation: 'mn-fadein 0.2s ease-out both',
+                animation: 'mn-variant-in 0.35s cubic-bezier(0.25,0.46,0.45,0.94) both',
               }}>
                 <svg width="64" height="40" viewBox="0 0 42 28" fill="none">
                   <rect x="1" y="4" width="16" height="12" rx="6" stroke={G} strokeWidth="1.5"/>
@@ -4885,33 +7374,150 @@ function StatNumber({ raw }) {
   );
 }
 
-function ImpactSection({ t }) {
+const HERO_SLIDES = [
+  'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/48_987c88e3-b13f-4c98-b60e-3f9cba3c7073.png?v=1787309849',
+  'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/49_f6963586-cfb6-43b5-88be-68724b5caef4.png?v=1787309848',
+  'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/47_88cec18e-64bc-4fb7-9ee2-228dfefb383d.png?v=1787309848',
+];
+
+function HeroSlider({ t, onPick, activeColors = [] }) {
+  const [idx, setIdx] = React.useState(0);
+  React.useEffect(() => {
+    const timer = setInterval(() => setIdx(i => (i + 1) % HERO_SLIDES.length), 6000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const Slides = (
+    <div className="mn-hero-frame">
+      {HERO_SLIDES.map((src, i) => (
+        <img key={i} src={src} alt="Minuë AW26/27" style={{
+          position: 'absolute', inset: 0,
+          width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%',
+          opacity: i === idx ? 1 : 0,
+          transform: i === idx ? 'scale(1)' : 'scale(1.04)',
+          transition: 'opacity 1.4s ease-in-out, transform 7s ease-out',
+        }} />
+      ))}
+      <div style={{
+        position: 'absolute', inset: 0, pointerEvents: 'none',
+        background: `linear-gradient(to top, ${G}cc 0%, transparent 55%)`,
+      }} />
+      <div style={{
+        position: 'absolute', inset: 0, pointerEvents: 'none',
+        background: `linear-gradient(to top, ${RUST}44 0%, transparent 40%)`,
+        mixBlendMode: 'multiply',
+      }} />
+      <div style={{
+        position: 'absolute', bottom: 16, left: 0, right: 0,
+        display: 'flex', justifyContent: 'center', gap: 7, zIndex: 2,
+      }}>
+        {HERO_SLIDES.map((_, i) => (
+          <button key={i} onClick={() => setIdx(i)} aria-label={`Slide ${i + 1}`} style={{
+            width: i === idx ? 22 : 7, height: 7, borderRadius: 999,
+            background: i === idx ? C : `${C}66`,
+            border: 'none', cursor: 'pointer', padding: 0, transition: 'all .3s ease',
+          }} />
+        ))}
+      </div>
+    </div>
+  );
+
+  return (
+    <div style={{ background: G, color: C }}>
+      <div className="mn-hero-grid">
+        {Slides}
+
+        {/* Panel derecho — oculto en móvil */}
+        <div className="mn-hero-aside">
+          <div className="mn-label" style={{ color: RUST, fontSize: 10, letterSpacing: 3.5, fontWeight: 800, marginBottom: 14 }}>
+            {t('hero_eyebrow')}
+          </div>
+          <h2 className="mn-serif" style={{
+            fontSize: 'clamp(30px,3.4vw,50px)', fontWeight: 300,
+            letterSpacing: '-0.03em', lineHeight: 1.02, margin: '0 0 16px',
+          }}>
+            {t('hero_h_a')}<br />
+            <span className="mn-serif-i" style={{ color: D }}>{t('hero_h_b')}</span>
+          </h2>
+          <p style={{
+            fontFamily: 'Georgia, serif', fontStyle: 'italic',
+            fontSize: 'clamp(13px,1.4vw,16px)', lineHeight: 1.6,
+            opacity: 0.7, margin: '0 0 24px', maxWidth: 420,
+          }}>{t('hero_sub')}</p>
+
+          {/* Paleta rápida */}
+          <div className="mn-label" style={{ fontSize: 9, letterSpacing: 2.5, fontWeight: 800, opacity: 0.5, marginBottom: 10 }}>
+            {t('hero_palette')}
+          </div>
+          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 26 }}>
+            {AW_GROUPS.map(grp => {
+              const on = grp.filters && grp.filters.some(f => activeColors.includes(f));
+              return (
+                <button key={grp.key} onClick={() => onPick && onPick(grp)} title={t(grp.key + 't')}
+                  style={{
+                    width: on ? 34 : 28, height: on ? 34 : 28, borderRadius: '50%',
+                    background: grp.swatch, cursor: 'pointer', padding: 0,
+                    border: `2px solid ${on ? C : 'transparent'}`,
+                    boxShadow: on ? `0 0 0 2px ${grp.swatch}` : `0 0 0 1px ${C}33`,
+                    transition: 'all .2s ease',
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.14)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
+                />
+              );
+            })}
+          </div>
+
+          {/* Datos clave */}
+          <div style={{ display: 'flex', gap: 26, flexWrap: 'wrap' }}>
+            {[
+              { n: t('hero_s1_n'), l: t('hero_s1_l') },
+              { n: t('hero_s2_n'), l: t('hero_s2_l') },
+              { n: t('hero_s3_n'), l: t('hero_s3_l') },
+            ].map((s, i) => (
+              <div key={i}>
+                <div className="mn-serif" style={{ fontSize: 'clamp(20px,2.2vw,28px)', fontWeight: 300, lineHeight: 1 }}>{s.n}</div>
+                <div className="mn-label" style={{ fontSize: 8.5, letterSpacing: 1.8, opacity: 0.5, marginTop: 4 }}>{s.l}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+function ImpactSection({ t, onPick, activeColors }) {
   const stats = [
-    { n: '+250', label: 'ciudades' },
-    { n: '14',   label: 'países' },
-    { n: '6+',   label: 'años' },
-    { n: '56+',  label: 'modelos' },
-    { n: '163+', label: 'productos' },
+    { n: '+250', label: t('stat_cities') },
+    { n: '14',   label: t('stat_countries') },
+    { n: '6+',   label: t('stat_years') },
+    { n: '56+',  label: t('stat_models') },
+    { n: '163+', label: t('stat_products') },
   ];
 
   const steps = [
-    { n: 1, title: 'Explora',       sub: 'Añade al carrito lo que te interese. Sin registro.' },
-    { n: 2, title: 'Envíanos',      sub: 'Envía tu lista por WhatsApp o email. Sin pagar.' },
-    { n: 3, title: 'Confirmamos',   sub: 'Stock, precio y plazos confirmados en menos de 24h.' },
+    { n: 1, title: t('hiw_1_t'), sub: t('hiw_1_d') },
+    { n: 2, title: t('hiw_2_t'), sub: t('hiw_2_d') },
+    { n: 3, title: t('hiw_3_t'), sub: t('hiw_3_d') },
   ];
 
   return (
     <div>
+      {/* ── SLIDER HERO ── */}
+      <HeroSlider t={t} onPick={onPick} activeColors={activeColors} />
+
       {/* ── BLOQUE OSCURO: stats ── */}
       <div style={{ background: G, color: C }}>
 
-        {/* Ticker SS26 */}
+        {/* Ticker AW26/27 */}
         <div style={{
           borderBottom: `1px solid rgba(248,239,230,0.08)`,
           padding: '9px 24px', textAlign: 'center',
         }}>
           <span style={{ fontSize: 9, fontWeight: 600, letterSpacing: 2.5, textTransform: 'uppercase', opacity: 0.45 }}>
-            🌿 &nbsp;Temporada SS26 abierta &nbsp;·&nbsp; Nuevos modelos disponibles &nbsp;·&nbsp; Stock limitado en referencias marcadas
+            {t('ss26_banner')}
           </span>
         </div>
 
@@ -4955,9 +7561,9 @@ function ImpactSection({ t }) {
             <span style={{
               fontSize: 8, fontWeight: 700, letterSpacing: 2.2,
               textTransform: 'uppercase', opacity: 0.35,
-            }}>Cómo funciona</span>
+            }}>{t('hiw_eyebrow')}</span>
             <div style={{ flex: 1, height: 1, background: `${G}12` }} />
-            <span style={{ fontSize: 9, opacity: 0.3 }}>Sin pago previo</span>
+            <span style={{ fontSize: 9, opacity: 0.3 }}>{t('hiw_no_pay')}</span>
           </div>
 
           {/* 3 steps */}
@@ -5020,7 +7626,7 @@ function HowItWorks({ t }) { return null; }
 
 
 // ── FaireRating — Bloque valoraciones Faire ──────────────────────────
-function FaireRating() {
+function FaireRating({ t }) {
   const FAIRE_LOGO = (
     <svg width="28" height="28" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect width="80" height="80" fill="white"/>
@@ -5051,7 +7657,7 @@ function FaireRating() {
             width: 52, height: 52, borderRadius: 10,
             border: `1.5px solid ${G}18`,
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            background: '#fff', flexShrink: 0,
+            background: '#F0E7D6', flexShrink: 0,
             boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
           }}>
             {FAIRE_LOGO}
@@ -5129,7 +7735,7 @@ function FaireRating() {
             transition: 'opacity 0.15s',
           }}
         >
-          Pedir en Faire
+          {t('faire_order')}
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
         </a>
 
@@ -5296,7 +7902,7 @@ function FaqSection({ t }) {
   }));
 
   return (
-    <section id="faq" className="mn-reveal" style={{ maxWidth: 860, margin: '0 auto', padding: '60px 24px', scrollMarginTop: 80 }}>
+    <section id="faq" className="mn-reveal" style={{ maxWidth: 860, margin: '0 auto', padding: '60px 24px', scrollMarginTop: 96 }}>
       <div style={{ marginBottom: 36 }}>
         <div className="mn-label" style={{ color: D, marginBottom: 10, fontSize: 11, letterSpacing: 2.5, fontWeight: 700 }}>{t('faq_eyebrow')}</div>
         <h2 className="mn-serif" style={{ fontSize: 'clamp(28px,4vw,42px)', fontWeight: 300, margin: 0, letterSpacing: '-0.02em' }}>
@@ -5345,7 +7951,7 @@ function FaqSection({ t }) {
   );
 }
 
-function ProductCard({ product, added, onAdd, rank, showRank, variant = 'normal', isNew, colData, currentTierPrice, onQuickView, t }) {
+function ProductCard({ product, added, onAdd, rank, showRank, variant = 'normal', isNew, colData, currentTierPrice, onQuickView, onZoom, t }) {
   const p = product;
   const isTop = variant === 'top';
   const shapeObj = SHAPES.find(s => s.id === p.shape);
@@ -5358,17 +7964,37 @@ function ProductCard({ product, added, onAdd, rank, showRank, variant = 'normal'
   const marginPct = Math.round((marginEur / rrp) * 100);
 
   return (
-    <div className="mn-card" style={{ display: 'flex', flexDirection: 'column' }}>
+    <div className="mn-card" onClick={() => onQuickView && onQuickView(p)} style={{ display: 'flex', flexDirection: 'column', cursor: onQuickView ? 'pointer' : 'default' }}>
       <div className="mn-card-img" style={{
-        position: 'relative', aspectRatio: '1/1', background: 'transparent',
+        position: 'relative', aspectRatio: '1/1', background: '#F0E7D6',
         borderRadius: 2, overflow: 'hidden',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
       }}>
         {p.img ? (
-          <img src={p.img} alt={p.name} className="mn-img" style={{
-            width: '100%', height: '100%', objectFit: 'contain', padding: '8px',
-            transform: p.imgScale ? `scale(${p.imgScale})` : 'none',
-          }} />
+          <>
+            <img src={p.img} alt={p.name} className="mn-img" style={{
+              width: '100%', height: '100%', objectFit: 'contain', padding: '8px', mixBlendMode: 'multiply',
+              transform: p.imgScale ? `scale(${p.imgScale})` : 'none',
+            }} />
+              {onZoom && (
+              <button
+                className="mn-zoom-btn"
+                onClick={(e) => { e.stopPropagation(); onZoom(p); }}
+                aria-label="Ampliar"
+                style={{
+                  position: 'absolute', right: 8, bottom: 8, width: 30, height: 30,
+                  borderRadius: 999, border: `1px solid ${G}22`, background: C,
+                  display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                  cursor: 'zoom-in', opacity: 0, transition: 'opacity .18s ease, transform .18s ease',
+                  boxShadow: '0 3px 10px -3px rgba(24,51,47,.35)', zIndex: 3,
+                }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={G} strokeWidth="2" strokeLinecap="round">
+                  <circle cx="11" cy="11" r="7" /><line x1="16.5" y1="16.5" x2="21" y2="21" />
+                  <line x1="11" y1="8" x2="11" y2="14" /><line x1="8" y1="11" x2="14" y2="11" />
+                </svg>
+              </button>
+            )}
+          </>
         ) : (
           <div className="mn-img" style={{
             display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
