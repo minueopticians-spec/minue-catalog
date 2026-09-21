@@ -43,6 +43,7 @@ const LANGS = [
   { code: 'de', label: 'DE', name: 'Deutsch' },
   { code: 'pt', label: 'PT', name: 'Português' },
   { code: 'it', label: 'IT', name: 'Italiano' },
+  { code: 'el', label: 'ΕΛ', name: 'Ελληνικά' },
 ];
 
 // ════════════════════════════════════════════════════════════
@@ -251,6 +252,10 @@ const I18N = {
     save_done: '✓ Guardada',
     share_partner: 'Compartir con socio',
     qv_qty_label: 'Cantidad',
+    geo_detected: 'Detectamos que estás en',
+    geo_orders_to: 'Tus pedidos irán a',
+    geo_change: 'Cambiar',
+    nav_lang: 'Idioma',
     pou_eyebrow: 'Fundas de la temporada',
     pou_h_a: 'Tres combinaciones,',
     pou_h_b: 'tres formas de entregarla.',
@@ -549,6 +554,10 @@ const I18N = {
     save_done: '✓ Sauvegardé',
     share_partner: 'Partager avec un partenaire',
     qv_qty_label: 'Quantité',
+    geo_detected: 'Nous avons détecté que vous êtes en',
+    geo_orders_to: 'Vos commandes iront à',
+    geo_change: 'Changer',
+    nav_lang: 'Langue',
     pou_eyebrow: 'Étuis de la saison',
     pou_h_a: 'Trois combinaisons,',
     pou_h_b: 'trois façons de la remettre.',
@@ -845,6 +854,10 @@ const I18N = {
     save_done: '✓ Saved',
     share_partner: 'Share with partner',
     qv_qty_label: 'Quantity',
+    geo_detected: 'We detected you are in',
+    geo_orders_to: 'Your orders will go to',
+    geo_change: 'Change',
+    nav_lang: 'Language',
     pou_eyebrow: 'Season pouches',
     pou_h_a: 'Three combinations,',
     pou_h_b: 'three ways to hand it over.',
@@ -1141,6 +1154,10 @@ const I18N = {
     save_done: '✓ Gespeichert',
     share_partner: 'Mit Partner teilen',
     qv_qty_label: 'Menge',
+    geo_detected: 'Wir haben erkannt, Sie sind in',
+    geo_orders_to: 'Ihre Bestellungen gehen an',
+    geo_change: 'Ändern',
+    nav_lang: 'Sprache',
     pou_eyebrow: 'Etuis der Saison',
     pou_h_a: 'Drei Kombinationen,',
     pou_h_b: 'drei Arten der Übergabe.',
@@ -1437,6 +1454,10 @@ const I18N = {
     save_done: '✓ Guardado',
     share_partner: 'Partilhar com parceiro',
     qv_qty_label: 'Quantidade',
+    geo_detected: 'Detetámos que está em',
+    geo_orders_to: 'As suas encomendas irão para',
+    geo_change: 'Alterar',
+    nav_lang: 'Idioma',
     pou_eyebrow: 'Estojos da estação',
     pou_h_a: 'Três combinações,',
     pou_h_b: 'três formas de a entregar.',
@@ -1679,6 +1700,10 @@ const I18N = {
     save_done: '✓ Salvato',
     share_partner: 'Condividi con socio',
     qv_qty_label: 'Quantità',
+    geo_detected: 'Abbiamo rilevato che sei in',
+    geo_orders_to: 'I tuoi ordini andranno a',
+    geo_change: 'Cambia',
+    nav_lang: 'Lingua',
     pou_eyebrow: 'Custodie della stagione',
     pou_h_a: 'Tre combinazioni,',
     pou_h_b: 'tre modi di consegnarla.',
@@ -1814,6 +1839,408 @@ const I18N = {
     faq_h2: 'Quello che i retailer chiedono di solito',
     faq_a7: '2 anni di garanzia del produttore. Difetti di fabbrica sostituiti senza costi.',
   },
+  el: {
+    pedido: 'Η παραγγελία μου',
+    hiw_h2_a: 'Τρία βήματα',
+    hiw_h2_b: ', όλα ξεκάθαρα.',
+    hdr_claim: 'Περιθώρια 60%+ σε γυαλιά που πραγματικά πωλούνται.',
+    hdr_sub_new: 'Συλλογή AW26/27 για οπτικά και πολυκαταστήματα που θέλουν μια διαφορετική μάρκα. Χωρίς ελάχιστες παραγγελίες, χωρίς γραφειοκρατία, με πραγματικά δεδομένα πωλήσεων.',
+    sp_opticas: '150+ οπτικά',
+    sp_paises: '12 χώρες',
+    sp_sellthrough: '68% sell-through',
+    faire_eyebrow: 'Διαθέσιμο και στο Faire Wholesale',
+    faire_rating: '4.9 / 5',
+    faire_desc: 'Μειωμένη ελάχιστη παραγγελία · Διαθέσιμο Net 60 · Αποστολή από Ισπανία',
+    faire_btn: 'Δείτε το προφίλ στο Faire →',
+    clients_label: 'Τελευταία οπτικά που εντάχθηκαν',
+    nav_contact: 'Επικοινωνία',
+    nav_catalog: 'Κατάλογος',
+    nav_rates: 'Τιμοκατάλογος',
+    nav_order: 'Παραγγελία',
+    nav_pdf: 'PDF',
+    nav_faq: 'Συχνές ερωτήσεις',
+    hdr_eyebrow: 'Χονδρική B2B · AW26/27',
+    hdr_h1_a: 'Δείτε, επιλέξτε',
+    hdr_h1_b: 'και στείλτε',
+    hdr_h1_c: 'την παραγγελία σας.',
+    hdr_sub: 'Εξερευνήστε τον κατάλογό μας, προσθέστε τα μοντέλα που σας αρέσουν και στείλτε μας την επιλογή σας. Χωρίς λογαριασμό, χωρίς δέσμευση.',
+    hdr_chip_top: 'Κορυφαίες πωλήσεις',
+    hdr_chip_rates: 'Δείτε τιμές χονδρικής',
+    banner_expositor: 'Σταντ δώρο από 20 τεμάχια — χωρίς επιπλέον κόστος',
+    bar_your_tier: 'Η κλίμακά σας',
+    bar_empty: 'Καμία μονάδα ακόμη — προσθέστε προϊόντα για να δείτε την τιμή σας.',
+    bar_missing_a: 'Χρειάζεστε',
+    bar_missing_b: 'ακόμη τεμάχια για να κατεβείτε στα',
+    bar_rate_btn: 'Δείτε πίνακα',
+    top_eyebrow: '★ Κορυφαίες πωλήσεις AW26/27',
+    top_h2_month_pre: 'Τα μοντέλα που θα γίνουν best-seller',
+    top_h2_c: '.',
+    top_sub: 'Κατάταξη βάσει πραγματικών πωλήσεων στα καταστήματα που μας εμπιστεύονται.',
+    filter_color: 'Χρώμα',
+    filter_shape: 'Σχήμα',
+    filter_clear: 'καθαρισμός',
+    col_eyebrow: 'Συλλογή',
+    col_essential_tag: 'Η βάση της σειράς. Διαχρονικά σχήματα, στάνταρ οξικό.',
+    col_icons_tag: 'Αναγνωρίσιμα σχέδια με χαρακτήρα. Premium λεπτομέρειες.',
+    col_acetato_tag: 'Premium ιταλικό οξικό. Υψηλή ποιότητα για απαιτητικούς πελάτες.',
+    empty_filter_t: 'Κανένα μοντέλο με αυτό το φίλτρο',
+    empty_filter_d: 'Δοκιμάστε να διευρύνετε την επιλογή.',
+    pkg_eyebrow: 'Συσκευασία',
+    pkg_h2_a: 'Έτοιμο για',
+    pkg_h2_b: 'τη βιτρίνα',
+    pkg_h2_c: '.',
+    pkg_sub: 'Φροντίζουμε κάθε λεπτομέρεια γύρω από κάθε σχέδιο.',
+    pkg1_t: 'Πλήρης συσκευασία',
+    pkg1_d: 'Κάθε σκελετός περιλαμβάνει: κουτί παρουσίασης με λογότυπο, σκληρή θήκη, πανάκι μικροϊνών και κάρτα τεχνικών χαρακτηριστικών.',
+    pkg_contents_label: 'Σε κάθε κουτί',
+    pkg_item1: 'Κουτί παρουσίασης με λογότυπο',
+    pkg_item2: 'Ατομική σκληρή θήκη',
+    pkg_item3: 'Πανάκι μικροϊνών',
+    pkg_item4: 'Κάρτα τεχνικών χαρακτηριστικών',
+    pkg_item5: 'Αυτοκόλλητο CE · UV400',
+    tech_eyebrow: 'Τεχνικά χαρακτηριστικά',
+    tech_h2: 'Πιστοποιημένη ποιότητα',
+    tech_sub: 'Όλα τα μοντέλα Minuë συμμορφώνονται με τους ευρωπαϊκούς κανονισμούς για γυαλιά ηλίου.',
+    tech_uv: 'Προστασία UV400',
+    tech_uv_d: 'Πλήρες φιλτράρισμα UVA και UVB έως 400nm. Μέγιστη διαθέσιμη προστασία.',
+    tech_cat: 'Κατηγορία 3',
+    tech_cat_d: 'Φακοί υψηλού φιλτραρίσματος για εξωτερική χρήση σε έντονο ήλιο.',
+    tech_ce: 'Πιστοποίηση CE',
+    tech_ce_d: 'Συμμόρφωση με EN ISO 12312-1. Εγκεκριμένο για πώληση σε όλη την ΕΕ.',
+    tech_pol: 'Πολωμένοι φακοί',
+    tech_pol_d: 'Εξαλείφουν τη θάμβωση και τις αντανακλάσεις. Καλύτερη αντίθεση και οπτική άνεση.',
+    tech_impact: 'Αντοχή σε κρούση',
+    tech_impact_d: 'Επιτυχία στα τεστ αντοχής ISO. Μεταλλικός πυρήνας στους βραχίονες οξικού.',
+    tech_drop: 'Drop Ball Test',
+    tech_drop_d: 'Επιτυχία στο τεστ κρούσης Drop Ball κατά EN ISO 12312-1. Πιστοποιημένο.',
+    tech_fod: 'FOD — Χωρίς ελαττώματα',
+    tech_fod_d: 'Ατομικός ποιοτικός έλεγχος ανά τεμάχιο. Κάθε σκελετός ελέγχεται και εγκρίνεται στο εργοστάσιο.',
+    pkg2_t: 'Premium προστασία',
+    pkg2_d: 'Κάθε μοντέλο σε θήκη κατά των γρατζουνιών, εσωτερικό αεροπλάστ και ενισχυμένο κύριο κιβώτιο. Μηδενικές ζημιές στη μεταφορά.',
+    pkg3_t: 'Έτοιμο για έκθεση',
+    pkg3_d: 'Με ετικέτα ανά μοντέλο και κωδικό χρώματος. Τα σταντ της παραγγελίας φτάνουν συναρμολογημένα και έτοιμα.',
+    cta_eyebrow: 'Τιμές ανά ποσότητα',
+    cta_h3_a: 'Περισσότερα σχέδια,',
+    cta_h3_b: 'καλύτερη τιμή',
+    cta_h3_c: '.',
+    cta_h3_d: 'Από 17,90€/τεμ. σε μεγαλύτερες παραγγελίες.',
+    cta_sub: 'Σταντ δώρο από 20 τεμάχια · Δωρεάν αποστολή 20+ τεμ. · 3% έκπτωση για πρόωρη πληρωμή σε 2 δόσεις.',
+    cta_btn: 'Δείτε πλήρη πίνακα',
+    ft_contact: 'Επικοινωνία',
+    ft_conditions: 'Όροι',
+    ft_cond1: 'Από 17,90€/τεμ. (40+ τεμάχια)',
+    ft_cond2: 'ΠΛΤ 50€ · Οξικό 70€',
+    ft_cond3: 'Δωρεάν αποστολή 20+ τεμάχια',
+    ft_cond4: '3% έκπτωση πρόωρης πληρωμής (2 δόσεις)',
+    ft_copyright: '© 2026 Minuë Opticians — Κατάλογος χονδρικής AW26/27',
+    ft_tagline: 'Ένας κατάλογος. Ένα μινουέτο.',
+    panel_eyebrow: 'Παραγγελία',
+    panel_h3: 'Η επιλογή μου',
+    panel_empty_t: 'Ακόμη άδειο',
+    panel_empty_d: 'Προσθέστε τα μοντέλα που σας ενδιαφέρουν για να μας στείλετε το αίτημά σας.',
+    panel_tier: 'Τρέχουσα κλίμακα',
+    panel_price: 'Τιμή/τεμ.',
+    panel_consult: 'Επικοινωνήστε μαζί μας',
+    panel_add_more_a: 'Προσθέστε',
+    panel_add_more_b: 'ακόμη τεμάχια →',
+    panel_savings: 'εξοικονόμηση',
+    panel_total: 'Σύνολο',
+    panel_units: 'τεμ.',
+    panel_free_ship: '+ δωρεάν αποστολή',
+    panel_region_label: 'Πού βρίσκεται το κατάστημά σας;',
+    panel_region_hint_default: 'Η παραγγελία σας πάει απευθείας στη Minuë Opticians.',
+    panel_region_hint_dist: 'Η παραγγελία σας πάει στον διανομέα μας',
+    panel_wa: 'Αποστολή με WhatsApp',
+    panel_email: 'Αποστολή με email',
+    panel_disclaimer: 'Δεν πρόκειται για αγορά. Είναι αίτημα παραγγελίας — επιβεβαιώνουμε απόθεμα και χρόνους εντός 24 ωρών.',
+    panel_no_pay: '🔓 Δεν απαιτείται πληρωμή τώρα',
+    panel_no_pay_sub: 'Στείλτε την επιλογή σας και επιβεβαιώνουμε διαθεσιμότητα, τελική τιμή και χρόνους πριν από οποιαδήποτε πληρωμή.',
+    panel_mi_pedido: 'Η παραγγελία μου',
+    panel_remove: 'αφαίρεση',
+    panel_added: 'Προστέθηκε',
+    panel_add: 'Προσθήκη',
+    modal_eyebrow: 'Τιμοκατάλογος AW26/27',
+    modal_h2_a: 'Τιμές',
+    modal_h2_b: 'ανά ποσότητα',
+    modal_h2_c: ' — όσο περισσότερα παραγγέλνετε, τόσο λιγότερο πληρώνετε.',
+    modal_your_tier: 'Η κλίμακά σας',
+    modal_payments: 'Πληρωμές:',
+    modal_expositor: 'Σταντ:',
+    modal_free_ship: '✓ Δωρεάν αποστολή',
+    modal_plus60_label: '+60 τεμάχια',
+    modal_plus60_t: 'Ειδικοί όροι',
+    modal_plus60_d: 'Επικοινωνήστε απευθείας ή γράψτε στο',
+    modal_early_t: 'Πρόωρη πληρωμή',
+    modal_early_d: '3% επιπλέον έκπτωση σε πλάνα 2 δόσεων αν πληρώσετε κατά την παράδοση.',
+    modal_rrp_t: 'Προτεινόμενη τιμή λιανικής',
+    modal_rrp_d: '50€ στον τελικό πελάτη (Οξικό 70€). Μέσο μικτό περιθώριο 64%.',
+    modal_ship_t: 'Αποστολή',
+    modal_ship_d: 'Δωρεάν από 20 τεμάχια. Κάτω από αυτό το όριο το κόστος εξαρτάται από τον προορισμό.',
+    modal_footer: 'Τιμές σε ευρώ, χωρίς ΦΠΑ. Ισχύουν για τη σεζόν AW26/27.',
+    order_greeting: 'Γεια σας, θα ήθελα να κάνω μια παραγγελία:',
+    order_tier: 'Κλίμακα',
+    order_total_line: 'Σύνολο',
+    order_plus60: 'Σύνολο: {n} τεμάχια (κλίμακα +60, τιμή κατόπιν συνεννόησης)',
+    order_closing: 'Ευχαριστώ',
+    shape_round: 'Στρογγυλά',
+    shape_oval: 'Οβάλ',
+    shape_square: 'Τετράγωνα',
+    shape_rectangular: 'Ορθογώνια',
+    shape_cateye: 'Cat-eye',
+    shape_panto: 'Panto',
+    shape_geometric: 'Γεωμετρικά',
+    color_brown: 'Καφέ',
+    color_black: 'Μαύρο',
+    color_green: 'Πράσινο',
+    color_gold: 'Χρυσό',
+    color_pink: 'Ροζ',
+    color_beige: 'Μπεζ',
+    color_gray: 'Γκρι',
+    color_carey: 'Ταρταρούγα',
+    hint_by_volume: 'ανά ποσότητα',
+    pvp_label: 'ΠΛΤ',
+    margin_label: 'Περιθώριο',
+    from_label: 'από',
+    most_popular: 'Πιο δημοφιλές',
+    roi_title: 'Εκτιμώμενη κερδοφορία',
+    roi_revenue: 'Έσοδα',
+    roi_margin: 'Μικτό περιθώριο',
+    roi_sell_at: 'Πώληση σε ΠΛΤ ~',
+    roi_disclaimer: 'Ενδεικτική ΠΛΤ. Το περιθώριο υπολογίζεται στο τρέχον κόστος μονάδας.',
+    urgency_stock_low: '⚡ Χαμηλό απόθεμα',
+    urgency_hot: '🔥 Υψηλή ζήτηση',
+    urgency_trending: '📈 Σε άνοδο',
+    search_placeholder: 'Αναζήτηση μοντέλου... (π.χ. Lawrence, Bergman)',
+    search_empty: 'Κανένα αποτέλεσμα για',
+    tab_all: 'Όλα',
+    why_eyebrow: 'Η μάρκα που δουλεύει μαζί σας',
+    why_h2_a: 'Κάτι παραπάνω',
+    why_h2_b: ' από γυαλιά',
+    why_h2_c: '.',
+    why_sub: 'Είμαστε μια ανερχόμενη μάρκα που χτίζει τη φήμη της φροντίζοντας κάθε κατάστημα που μας επιλέγει. Χωρίς να παίζουμε εναντίον σας, χωρίς μεσάζοντες, με ομάδα που απαντά.',
+    why_1_t: 'Χωρίς ελάχιστη παραγγελία. Χωρίς περιπλοκές.',
+    why_1_d: 'Καμία ελάχιστη ποσότητα ανά μοντέλο. Επιλέξτε ό,τι χρειάζεστε, στις ποσότητες που σας βολεύουν. Επιλέγετε, μας γράφετε και φτάνει στο κατάστημά σας.',
+    why_2_t: 'Αποδεδειγμένες πωλήσεις + κάλυψη ελαττωμάτων',
+    why_2_d: 'Τα σχέδιά μας επικυρώνονται από πραγματικά δεδομένα πωλήσεων. Και αν κάποιο τεμάχιο έχει ελάττωμα εργοστασίου, το αντικαθιστούμε χωρίς ερωτήσεις.',
+    why_3_t: 'Ψηφιακή υποστήριξη για την επιχείρησή σας',
+    why_3_d: 'Βοηθάμε με περιεχόμενο για τα social media, γεωγραφικά στοχευμένες καμπάνιες στην περιοχή σας και έτοιμο οπτικό υλικό. Η βιτρίνα σας, καλύτερα ντυμένη.',
+    why_4_d: 'Χωρίς επιθετικές εκπτώσεις online, χωρίς απευθείας πωλήσεις στα δικά σας κανάλια. Το περιθώριό σας είναι δικό σας. Το προστατεύουμε.',
+    why_presente: 'Διεθνής παρουσία',
+    why_presente_d: 'Διανομή σε Ισπανία, Γαλλία, Πορτογαλία, Γερμανία και αναδυόμενες αγορές μέσω τοπικών διανομέων.',
+    why_faire: 'Επίσης στο Faire',
+    lead_title: 'Ένα βήμα πριν την αποστολή',
+    lead_sub: 'Αφήστε τα στοιχεία σας και επιβεβαιώνουμε διαθεσιμότητα και όρους. Χωρίς δέσμευση.',
+    lead_name: 'Το όνομά σας',
+    lead_store: 'Όνομα καταστήματος',
+    lead_email: 'Email επικοινωνίας',
+    lead_submit_wa: 'Συνέχεια στο WhatsApp →',
+    lead_submit_email: 'Συνέχεια στο email →',
+    lead_skip: 'Παράλειψη',
+    lead_note: 'Τα στοιχεία σας χρησιμοποιούνται μόνο για τη διαχείριση της παραγγελίας. Ποτέ spam.',
+    qv_colors: 'Διαθέσιμα χρώματα',
+    qv_sku: 'Κωδικός',
+    qv_collection: 'Συλλογή',
+    qv_shape: 'Σχήμα',
+    qv_rrp: 'Προτεινόμενη ΠΛΤ',
+    qv_close: 'Κλείσιμο',
+    qv_add: 'Προσθήκη στην παραγγελία',
+    qv_added: 'Προστέθηκε',
+    nav_badge: 'Trade Direct',
+    nav_badge_sub: 'Επιλέξτε και παραγγείλετε απευθείας · χωρίς λογαριασμό',
+    new_eyebrow: '✦ Νέες αφίξεις AW26/27',
+    new_h2_a: 'Μόλις',
+    new_h2_b: 'έφτασαν',
+    new_h2_c: '.',
+    new_sub: 'Πρώτα διαθέσιμα τεμάχια. Παραγγείλετε πριν εξαντληθούν.',
+    new_show_more: 'Δείτε περισσότερα μοντέλα',
+    new_show_less: 'Δείτε λιγότερα',
+    new_badge: 'Νέο',
+    progress_browse: 'Περιήγηση',
+    progress_select: 'Επιλογή',
+    progress_send: 'Αποστολή παραγγελίας',
+    toast_added: 'προστέθηκε στην παραγγελία',
+    filters_btn: 'Φίλτρα',
+    filters_title: 'Φίλτρα',
+    share_btn: 'Κοινοποίηση επιλογής',
+    share_copied: 'Ο σύνδεσμος αντιγράφηκε!',
+    acetato_premium: 'Premium',
+    latam_hint: 'Η παραγγελία σας πάει στη Minuë Λατινικής Αμερικής',
+    latam_badge: 'LATAM',
+    region_latam_desc: 'Κολομβία · Μεξικό · Χιλή · Αργεντινή και άλλες',
+    col_show_all: 'Δείτε όλα τα μοντέλα',
+    col_collapse: 'Σύμπτυξη',
+    col_models: 'μοντέλα',
+    col_expand_hint: 'Κάντε κλικ για εξερεύνηση',
+    tier_best: 'Πιο δημοφιλές',
+    ss26_banner: '🍂  Σεζόν AW26/27 ανοιχτή  ·  Ταρταρούγα, κακάο, ελιά και μπορντό  ·  Στη βιτρίνα για τις γιορτές',
+    faq_eyebrow: 'Συχνές ερωτήσεις',
+    faq_h2: 'Τι ρωτούν συνήθως τα καταστήματα',
+    faq_q1: 'Ποια είναι η ελάχιστη παραγγελία;',
+    faq_a1: 'Δεν υπάρχει ελάχιστη. Μπορείτε να παραγγείλετε από 1 τεμάχιο, αλλά οι τιμές βελτιώνονται σημαντικά από τα 10 τεμάχια.',
+    faq_q2: 'Πώς λειτουργεί αυτή η πλατφόρμα;',
+    faq_a2: 'Πρόκειται για ιδιωτικό κατάλογο B2B, όχι για ηλεκτρονικό κατάστημα. Επιλέγετε μοντέλα, τα προσθέτετε στο καλάθι και στέλνετε το αίτημά σας με WhatsApp ή email. Επιβεβαιώνουμε απόθεμα, τιμή και παράδοση εντός 24 ωρών — καμία πληρωμή μέχρι την επιβεβαίωση.',
+    faq_q3: 'Ποιοι είναι οι χρόνοι παράδοσης;',
+    faq_a3: 'Ισπανία: 2–4 εργάσιμες. Ευρώπη: 4–7 εργάσιμες. Λατινική Αμερική: 10–15 εργάσιμες μέσω Minuë Latam.',
+    faq_q4: 'Τι περιλαμβάνει το σταντ;',
+    faq_a4: 'Ένα compact επιτραπέζιο σταντ για 5 σκελετούς. Σκόπιμα μικρό: πιάνει λιγότερο χώρο στον πάγκο και δεν κουράζει τον πελάτη με πολλές επιλογές ταυτόχρονα. Περιλαμβάνεται χωρίς κόστος από 20 τεμάχια.',
+    faq_q5: 'Τα γυαλιά περιλαμβάνουν συσκευασία;',
+    faq_a5: 'Ναι. Κάθε σκελετός έρχεται με κουτί, σκληρή θήκη, πανάκι μικροϊνών, τεχνική κάρτα και αυτοκόλλητο CE+UV400 — έτοιμος για τη βιτρίνα.',
+    faq_q6: 'Είναι διαθέσιμα στο Faire;',
+    faq_a6: 'Ναι. Παραγγείλετε απευθείας στο Faire Wholesale αναζητώντας "Minuë Opticians".',
+    faq_q7: 'Τι εγγύηση έχουν τα προϊόντα;',
+    code_label: 'Έχετε ειδικό κωδικό;',
+    code_placeholder: 'Εισάγετε τον κωδικό σας',
+    code_applied: '✓ Εφαρμόστηκε έκπτωση 5%',
+    code_invalid: 'Μη έγκυρος κωδικός',
+    code_discount: 'Έκπτωση κωδικού',
+    ft_cta_h: 'Προτιμάτε να μιλήσουμε πριν παραγγείλετε;',
+    ft_cta_d: 'Η ομάδα μας απαντά την ίδια μέρα. Χωρίς πίεση, χωρίς δέσμευση.',
+    ft_cta_wa: 'Συνομιλία στο WhatsApp',
+    ft_cta_email: 'Αποστολή email',
+    tier_valid: 'Τιμές σε ισχύ για τη σεζόν AW26/27 · έως 28 Φεβ 2027',
+    tier_save_label: 'Εξοικονομείτε έναντι βασικής τιμής',
+    save_selection: 'Αποθήκευση επιλογής',
+    save_done: '✓ Αποθηκεύτηκε',
+    share_partner: 'Κοινοποίηση σε συνεργάτη',
+    qv_qty_label: 'Ποσότητα',
+    geo_detected: 'Εντοπίσαμε ότι βρίσκεστε σε',
+    geo_orders_to: 'Οι παραγγελίες σας θα πάνε στον',
+    geo_change: 'Αλλαγή',
+    nav_lang: 'Γλώσσα',
+    pou_eyebrow: 'Θήκες της σεζόν',
+    pou_h_a: 'Τρεις συνδυασμοί,',
+    pou_h_b: 'τρεις τρόποι παράδοσης.',
+    pou_sub: 'Η σκληρή θήκη συνοδεύει κάθε σκελετό και αλλάζει χρώμα με τη σεζόν. Δεν είναι συσκευασία: είναι ένα κομμάτι που κουβαλά ο πελάτης σας.',
+    p1_name: 'Συνδυασμός I',
+    p1_desc: 'Θήκη και κουτί σε ταίριασμα, το κλασικό σετ του οίκου.',
+    p2_name: 'Συνδυασμός II',
+    p2_desc: 'Ζεστή αντίθεση για σκελετούς ταρταρούγα και κακάο.',
+    p3_name: 'Συνδυασμός III',
+    p3_desc: 'Γήινοι τόνοι, το φινίρισμα της φθινοπωρινής κάψουλας.',
+    pou_foot: 'Περιλαμβάνεται με κάθε σκελετό, χωρίς κόστος · Κάντε κλικ για μεγέθυνση',
+    filt_active: 'Φιλτράρισμα με την παλέτα AW26/27',
+    filt_clear: 'Καθαρισμός φίλτρου',
+    acet_tier_label: 'Οξικό · εκτός κλιμάκων',
+    acet_tier_unit: '/ τεμ. · σταθερή τιμή',
+    acet_tier_d: 'Η σειρά Οξικού δεν μειώνεται με την ποσότητα: σταθερή τιμή όλο τον χρόνο.',
+    acet_tier_b1: 'Προτεινόμενη ΠΛΤ 70€ · περιθώριο ~63%',
+    acet_tier_b2: 'Τα τεμάχιά του μετρούν για να φτάσετε την κλίμακά σας',
+    ft_it_area: 'Διανομή Ιταλίας · Παραγγελίες και επισκέψεις showroom',
+    hero_eyebrow: 'Συλλογή Φθινόπωρο-Χειμώνας 26/27',
+    hero_h_a: 'Το χαμηλό φως',
+    hero_h_b: 'ζητά άλλο φίλτρο.',
+    hero_sub: 'Ταρταρούγα, κακάο, μέλι και ελιά: η παλέτα της σεζόν είναι ήδη στον κατάλογο. Διαλέξτε έναν τόνο και στήστε τη βιτρίνα σας σε λεπτά.',
+    hero_palette: 'Παλέτα της σεζόν',
+    hero_s1_n: 'Από 17,90€',
+    hero_s1_l: 'ΑΝΑ ΤΕΜΑΧΙΟ',
+    hero_s2_n: 'Περιθώριο 64%',
+    hero_s2_l: 'ΠΛΤ 50€',
+    hero_s3_n: '24–48ω',
+    hero_s3_l: 'ΑΠΟΣΤΟΛΗ',
+    acet_split_t: 'Ανάλυση παραγγελίας',
+    acet_split_d: 'Το Οξικό διατηρεί τη σταθερή τιμή των 25,95€/τεμ. και είναι εκτός των κλιμάκων ποσότητας, αν και τα τεμάχιά του μετρούν για να φτάσετε την κλίμακα.',
+    pt_eyebrow: 'Αγοράστε ανά χρώμα σεζόν',
+    pt_title: 'Η παλέτα AW26/27,',
+    pt_title_i: 'με ένα κλικ.',
+    pt_hint: 'Πατήστε έναν τόνο και ο κατάλογος φιλτράρεται αμέσως.',
+    disp_label: 'Επιτραπέζιο σταντ',
+    disp_title: 'Επιλέξτε φινίρισμα',
+    disp_eyebrow: 'Σταντ δώρο',
+    disp_h_a: 'Η βιτρίνα σας,',
+    disp_h_b: 'έτοιμη σε ένα λεπτό.',
+    disp_desc: 'Τρία μικρά επιδαπέδια σταντ με βάρος, σε τρία φινιρίσματα για να ταιριάζουν με τα έπιπλά σας. Περιλαμβάνονται από 20 τεμάχια.',
+    disp_b1: 'Compact επιτραπέζιο μέγεθος — δεν πιάνει χώρο',
+    disp_b2: 'Τρία φινιρίσματα: πράσινο μπουκαλιού, χρυσό και τερακότα',
+    disp_b3: 'Δωρεάν από 20 τεμ. · 8,90€ μεμονωμένα',
+    d1_name: 'Πράσινο',
+    d2_name: 'Χρυσό',
+    d3_name: 'Τερακότα',
+    box_label: 'Το κουτί Minüe',
+    box_title: 'Κάθε σκελετός, στο κουτί του',
+    box_desc: 'Σκληρό κουτί με τη σφραγίδα Minüe, έτοιμο να δοθεί στον τελικό πελάτη. Η λεπτομέρεια που κάνει μια πώληση δώρο.',
+    acet_note_t: 'Συλλογή Οξικού — χωριστή τιμή',
+    acet_note_d: 'Η σειρά Οξικού δεν εντάσσεται στις κλίμακες ποσότητας: σταθερή τιμή 25,95€/τεμ., ΠΛΤ 70€ (περιθώριο ~63%). Τα τεμάχια μετρούν στο σύνολο της παραγγελίας αλλά κρατούν τη δική τους τιμή.',
+    aw_models: 'μοντέλα',
+    aw_add: 'Προσθήκη',
+    aw_close: 'Κλείσιμο',
+    aw_expand: 'Εμφάνιση μοντέλων',
+    vb_title: 'Η ισορροπία της βιτρίνας σας',
+    vb_units: 'τεμ.',
+    vb_tip_dom: 'Η επιλογή σας συγκεντρώνεται σε',
+    vb_tip_ok: 'Καλή ισορροπία τόνων.',
+    vb_tip_missing: 'Σας λείπει',
+    aw_cta: 'Δείτε τα μοντέλα',
+    aw_cta_on: 'Φιλτράρισμα σε αυτόν τον τόνο',
+    aw_eyebrow: 'Τα χρώματα της σεζόν',
+    aw_h2a: 'Η παλέτα AW26/27,',
+    aw_h2b: 'ήδη στον κατάλογο.',
+    aw_intro: 'Η Pantone επέλεξε καφέ, μπορντό και ελιά για αυτό το φθινόπωρο-χειμώνα. Δεν χρειάζεται αναμονή: τα μοντέλα που ήδη πωλούνται είναι σε αυτήν την παλέτα.',
+    aw_1t: 'Toffee · Cocoa',
+    aw_1d: 'Το καφέ είναι το βασικό χρώμα της σεζόν, από την καραμέλα έως το εσπρέσο.',
+    aw_2t: 'Burnt Olive',
+    aw_2d: 'Το βαθύ πράσινο που ταιριάζει με πλεκτά και παλτά.',
+    aw_3t: 'Red Mahogany',
+    aw_3d: 'Το μπορντό των γιορτών: δραματικό και κομψό.',
+    aw_4t: 'Muted Clay',
+    aw_4d: 'Απαλή τερακότα, ο πιο ήπιος γήινος τόνος της αναφοράς.',
+    aw_5t: 'Candied Ginger',
+    aw_5d: 'Μέλι και κεχριμπάρι, το ζεστό ουδέτερο που ταιριάζει σε όλους.',
+    aw_6t: 'Egret',
+    aw_6d: 'Κρεμ λευκό: η αντίθεση που φωτίζει όλη τη βιτρίνα.',
+    dist_tagline: 'Διεθνής διανομή χονδρικής · Χειροποίητο στην Ισπανία',
+    kids_optional: 'Απαντάμε με τιμές και διαθέσιμο απόθεμα.',
+    kids_response: 'Απάντηση εντός 24 ωρών · Χωρίς δέσμευση πληρωμής',
+    pkg_vivo_label: 'ΖΩΝΤΑΝΗ ΣΥΣΚΕΥΑΣΙΑ',
+    pkg_vivo_t: 'Θήκες με',
+    pkg_vivo_i: 'προσωπικότητα',
+    pkg_vivo_d: 'Οι σκληρές θήκες που συνοδεύουν κάθε σκελετό αλλάζουν χρώμα ανάλογα με τη σεζόν, τον καιρό και τις τάσεις. Δεν είναι απλώς συσκευασία — είναι ένα κομμάτι στυλ που κουβαλά και ο πελάτης σας.',
+    av_label: 'ΕΞΥΠΗΡΕΤΗΣΗ ΜΕΤΑ ΤΗΝ ΠΩΛΗΣΗ',
+    av_h3: 'Είμαστε δίπλα σας και μετά την παραγγελία',
+    av_intro: 'Η ικανοποίησή σας και των πελατών σας είναι προτεραιότητα. Διαχειριζόμαστε κάθε θέμα γρήγορα και χωρίς γραφειοκρατία.',
+    av_1t: 'Εργοστασιακά ελαττώματα',
+    av_1d: 'Αν ένας σκελετός φτάσει με κατασκευαστικό ελάττωμα, τον αντικαθιστούμε ή τον πιστώνουμε χωρίς κόστος. Αρκεί μια φωτογραφία και ο αριθμός παραγγελίας.',
+    av_2t: 'Τυχαίες θραύσεις του τελικού πελάτη',
+    av_2d: 'Προσφέρουμε ειδική τιμή αντικατάστασης ανταλλακτικών ώστε να λύσετε γρήγορα το θέμα του πελάτη σας και να τον κρατήσετε.',
+    av_3t: 'Εγγύηση προϊόντος',
+    av_3d: 'Όλα τα μοντέλα έχουν 12 μήνες εγγύηση κατασκευής. Καλύπτουμε ελαττώματα σε μεντεσέδες, βραχίονες και οξικό υπό κανονική χρήση.',
+    av_4t: 'Απάντηση σε 24 ώρες',
+    av_4d: 'Κάθε θέμα αντιμετωπίζεται εντός 24 ωρών τις εργάσιμες ημέρες. Επικοινωνήστε απευθείας στο WhatsApp για μέγιστη ταχύτητα.',
+    kids_soon: 'Ήδη διαθέσιμο · Κάψουλα AW26/27',
+    kids_h2a: 'Μικρά',
+    kids_h2b: 'μεγάλα βλέμματα.',
+    kids_intro: 'Η Minuë έρχεται για τους μικρούς. Το ίδιο χειροποίητο οξικό, οι ίδιοι προσεγμένοι μεντεσέδες, τα ίδια χρώματα που δεν ζητούν άδεια. Για παιδιά 3 έως 14 ετών που έχουν ήδη το δικό τους στυλ.',
+    kids_f1: 'Υποαλλεργικό οξικό',
+    kids_f2: 'Εύκαμπτοι μεντεσέδες',
+    kids_f3: 'Πιστοποίηση UV400',
+    kids_f4: '2 μεγέθη · 3–8 και 8–14 ετών',
+    kids_quote: '"Γιατί και τα παιδιά αξίζουν να βλέπουν τον κόσμο με στυλ."',
+    kids_cta: 'Ρωτήστε για τη Minüe Junior',
+    kids_launch: 'Περιορισμένη κάψουλα',
+    kids_retailer: 'Μικρή κάψουλα περιορισμένης έκδοσης: τιμές κατόπιν συνεννόησης.',
+    kids_notify_d: 'Γράψτε μας και σας στέλνουμε διαθεσιμότητα, τιμές και όρους της κάψουλας Junior.',
+    kids_notify_btn: 'Ζητήστε τιμές',
+    kids_email_ph: 'esy@optika.gr',
+    faire_ship_es: '3–4 ημέρες Ισπανία',
+    faire_ship_eu: '3–6 ημέρες Ευρώπη',
+    faire_ship_int: '6–9 ημέρες διεθνώς',
+    faire_order: 'Παραγγελία στο Faire',
+    faire_reviews: 'κριτικές',
+    stat_cities: 'πόλεις',
+    stat_countries: 'χώρες',
+    stat_years: 'χρόνια',
+    stat_models: 'μοντέλα',
+    stat_products: 'προϊόντα',
+    hiw_eyebrow: 'Πώς λειτουργεί',
+    hiw_no_pay: 'Χωρίς προκαταβολή',
+    hiw_1_t: 'Περιηγηθείτε',
+    hiw_1_d: 'Προσθέστε στο καλάθι ό,τι σας αρέσει. Χωρίς εγγραφή.',
+    hiw_2_t: 'Στείλτε το',
+    hiw_2_d: 'Στείλτε τη λίστα σας με WhatsApp ή email. Χωρίς πληρωμή.',
+    hiw_3_t: 'Επιβεβαιώνουμε',
+    hiw_3_d: 'Απόθεμα, τιμή και χρόνοι παράδοσης εντός 24 ωρών.',
+    faq_a7: 'Εγγύηση κατασκευαστή 2 ετών. Τα εργοστασιακά ελαττώματα αντικαθίστανται χωρίς κόστος.',
+    why_4_t: 'Δεν ανταγωνιζόμαστε τους πελάτες μας',
+  },
 };
 
 // ============================================================
@@ -1868,8 +2295,40 @@ const REGIONS = [
     label: { es: 'Otro país', fr: 'Autre pays', en: 'Other country', de: 'Anderes Land', pt: 'Outro país', it: 'Altro paese' } },
 ];
 
+// Región detectada por zona horaria del navegador (sin API externa ni permisos).
+// Es más fiable que deducirla del idioma: un óptico italiano que navegue en
+// inglés debe seguir viendo a su distribuidor de Italia.
+const TZ_REGION = {
+  'Europe/Madrid': 'es', 'Africa/Ceuta': 'es', 'Atlantic/Canary': 'es',
+  'Europe/Paris': 'fr', 'Europe/Monaco': 'fr', 'Indian/Reunion': 'fr',
+  'Europe/Rome': 'it', 'Europe/Vatican': 'it', 'Europe/San_Marino': 'it', 'Europe/Malta': 'it',
+  'Europe/Lisbon': 'pt', 'Atlantic/Madeira': 'pt', 'Atlantic/Azores': 'pt',
+  'Europe/Berlin': 'de', 'Europe/Vienna': 'de', 'Europe/Zurich': 'de', 'Europe/Busingen': 'de',
+  'Europe/Athens': 'intl', 'Asia/Nicosia': 'intl', 'Europe/Nicosia': 'intl',
+};
+const TZ_LATAM = [
+  'America/Bogota', 'America/Mexico_City', 'America/Lima', 'America/Santiago',
+  'America/Argentina', 'America/Sao_Paulo', 'America/Caracas', 'America/Guayaquil',
+  'America/La_Paz', 'America/Montevideo', 'America/Asuncion', 'America/Panama',
+  'America/Costa_Rica', 'America/Guatemala', 'America/Santo_Domingo', 'America/Havana',
+  'America/Tegucigalpa', 'America/Managua', 'America/El_Salvador', 'America/Cancun',
+  'America/Monterrey', 'America/Tijuana', 'America/Puerto_Rico',
+];
+
 function detectRegion(lang) {
-  const map = { fr: 'fr', es: 'es', pt: 'pt', de: 'de', en: 'intl', it: 'it' };
+  try {
+    if (typeof window !== 'undefined') {
+      const saved = window.localStorage?.getItem('minue_region');
+      if (saved && REGIONS.find(r => r.id === saved)) return saved;
+    }
+    if (typeof Intl !== 'undefined' && Intl.DateTimeFormat) {
+      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+      if (TZ_REGION[tz]) return TZ_REGION[tz];
+      if (TZ_LATAM.some(z => tz.startsWith(z))) return 'latam';
+      if (tz.startsWith('America/')) return 'latam';
+    }
+  } catch (e) { /* seguimos con el idioma */ }
+  const map = { fr: 'fr', es: 'es', pt: 'pt', de: 'de', en: 'intl', it: 'it', el: 'intl' };
   return map[lang] || 'intl';
 }
 
@@ -1884,6 +2343,31 @@ function getDistributor(regionId) {
 // ⚠️ Ale: revisa y ajusta si algún modelo no cuadra.
 // ============================================================
 const PRODUCTS = [
+  // ── VENDIMIA AW26/27 — añadidos desde Shopify ──
+  { id:328, name:"Lake Black", col:"Essential", shape:"square", colors:["negro"], rank:150, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/LAKEBLACKMINUEGAFASWEB.png" },
+  { id:329, name:"Lake Tea", col:"Essential", shape:"square", colors:["miel", "cálido"], rank:151, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/LAKETEAWEBMINUEGAFASDESOLMUJER.png" },
+  { id:306, name:"Paradis Carey Sky", col:"Essential", shape:"round", colors:["carey", "azul"], rank:120, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/271.png" },
+  { id:307, name:"Piaf Tea", col:"Essential", shape:"oval", colors:["miel", "cálido"], rank:121, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/285.png" },
+  { id:308, name:"Hart Olive", col:"Essential", shape:"square", colors:["verde", "oliva"], rank:122, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/hart_olive_frontal.png" },
+  { id:309, name:"Hart Carey Brown", col:"Essential", shape:"square", colors:["carey", "marrón"], rank:123, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/hart_carey_brown_frontal.png" },
+  { id:310, name:"Moore Leaf", col:"Icons", shape:"rectangular", colors:["amarillo", "negro"], rank:124, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_4498_e0ff2a3e-61f4-4aaf-9faf-0d86c6a41c39.jpg" },
+  { id:311, name:"Hart Silver", col:"Essential", shape:"square", colors:["gris"], rank:125, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/plata_hart.png" },
+  { id:312, name:"Chastain Black Orange", col:"Essential", shape:"cateye", colors:["negro", "naranja"], rank:126, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/128.png" },
+  { id:313, name:"Tura Velvet", col:"Essential", shape:"square", colors:["burdeos"], rank:127, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/69.png" },
+  { id:314, name:"Tura Coffee", col:"Essential", shape:"square", colors:["café", "marrón"], rank:128, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/67.png" },
+  { id:315, name:"Dunne Black", col:"Essential", shape:"", colors:["negro"], rank:129, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Captura_de_pantalla_2026-04-15_a_las_13.41.25.png" },
+  { id:316, name:"Tierney Bourbon", col:"Essential", shape:"", colors:["marrón", "caramelo"], rank:130, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/19.png" },
+  { id:317, name:"Tierney Olive", col:"Essential", shape:"", colors:["verde", "oliva"], rank:131, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/18.png" },
+  { id:318, name:"Hart Havana", col:"Essential", shape:"square", colors:["havana", "carey"], rank:132, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/20.png" },
+  { id:319, name:"Seberg Amber", col:"Essential", shape:"", colors:["ámbar", "miel"], rank:133, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/15.png" },
+  { id:320, name:"Kerr Carey", col:"Essential", shape:"", colors:["carey"], rank:134, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5634.jpg" },
+  { id:321, name:"Kerr Black", col:"Essential", shape:"", colors:["negro"], rank:135, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5635.jpg" },
+  { id:322, name:"Totter Black", col:"Essential", shape:"rectangular", colors:["negro"], rank:136, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5628_f2009249-e482-469c-bfe6-1aa130f6b96e.jpg" },
+  { id:323, name:"Bette Cherry", col:"Essential", shape:"", colors:["rojo", "burdeos"], rank:137, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5639.jpg" },
+  { id:324, name:"Bette Black", col:"Essential", shape:"", colors:["negro"], rank:138, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5640-Editar.jpg" },
+  { id:325, name:"Bette Carey", col:"Essential", shape:"", colors:["carey"], rank:139, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5638.jpg" },
+  { id:326, name:"Bacall Carey", col:"Essential", shape:"", colors:["carey"], rank:140, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5600.jpg" },
+  { id:327, name:"Bacall Black", col:"Essential", shape:"", colors:["negro"], rank:141, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_5601.jpg" },
   // ── ICONS — cada variante de color es su propia entrada, orden por ventas ─
 
   // Lawrence: 526 uds total — mayor vendedor Icons
@@ -2388,7 +2872,7 @@ function generatePDF({ cartItems, cartCount, cartTotal, unitPrice, currentTier, 
     ? { name: 'Minuë Latam', address: 'CRA 19a 85 69, Bogotá, Colombia', phone: '+57 (322) 770-1800', email: 'hola@minueopticians.co', web: 'minueopticians.co' }
     : { name: 'Minuë Opticians', address: 'Calle Ardilla 13 Oficinas, 41010 Sevilla, Spain', phone: '+34 661 018 380', email: 'hola@minueopticians.com', web: 'minueopticians.com' };
 
-  const date = new Date().toLocaleDateString(lang === 'fr' ? 'fr-FR' : lang === 'de' ? 'de-DE' : lang === 'pt' ? 'pt-PT' : lang === 'en' ? 'en-GB' : 'es-ES', { year: 'numeric', month: 'long', day: 'numeric' });
+  const date = new Date().toLocaleDateString(lang === 'el' ? 'el-GR' : lang === 'fr' ? 'fr-FR' : lang === 'de' ? 'de-DE' : lang === 'pt' ? 'pt-PT' : lang === 'en' ? 'en-GB' : 'es-ES', { year: 'numeric', month: 'long', day: 'numeric' });
   const orderRef = 'MN-' + Date.now().toString(36).toUpperCase().slice(-6);
   const totalCost = discountPct > 0 ? (cost * (1 - discountPct / 100)) : cost;
 
@@ -2755,7 +3239,7 @@ const AW_GROUPS = [
   },
   {
     "key": "aw_4",
-    "exclude": ["Berry Rosse", "Aretha Rosse"],
+    "exclude": ["Berry Rosse", "Aretha Rosse", "Chastain Black Orange"],
     "filters": ["cálido", "naranja", "rosa", "tigre"],
     "swatch": "#b06a4a",
     "models": [
@@ -3314,6 +3798,7 @@ export default function App() {
   const [tarifasOpen, setTarifasOpen] = useState(false);
   const [lang, setLang] = useState(() => detectLang());
   const [region, setRegion] = useState('es');
+  const [regionAuto, setRegionAuto] = useState(false);
   const [newExpanded, setNewExpanded] = useState(false);
   const [openCollections, setOpenCollections] = useState({});
   const pendingScrollCol = useRef(null);
@@ -3372,7 +3857,13 @@ export default function App() {
     const savedRegion = typeof localStorage !== 'undefined' ? localStorage.getItem('minue_region') : null;
     const l = savedLang || detectLang();
     setLang(l);
-    setRegion(savedRegion || detectRegion(l));
+    const r = savedRegion || detectRegion(l);
+    setRegion(r);
+    // Solo avisamos si la hemos deducido nosotros y hay distribuidor propio
+    if (!savedRegion) {
+      const d = getDistributor(r);
+      if (d && d !== DISTRIBUTORS.default) setRegionAuto(true);
+    }
   }, []);
 
   useEffect(() => {
@@ -3755,9 +4246,19 @@ export default function App() {
 
         .mn-nav-text { }
         .mn-nav-collections { }
+        /* ── Cabecera responsive por tramos ── */
+        .mn-menu-btn { display: none; }
+        @media (max-width: 1200px) {
+          .mn-nav-secondary { display: none !important; }
+          .mn-menu-btn { display: inline-flex !important; }
+        }
         @media (max-width: 900px) { .mn-nav-collections { display: none !important; } }
+        @media (max-width: 430px) {
+          .mn-hamburger .mn-lang-row button { padding: 4px 4px !important; font-size: 8px !important; letter-spacing: 0.2px !important; }
+          .mn-hamburger .mn-lang-row { padding: 2px !important; }
+        }
         .mn-hamburger { display: none; }
-        @media (max-width: 560px) { .mn-hamburger { display: flex !important; } .mn-nav-actions { display: none !important; } }
+        @media (max-width: 900px) { .mn-hamburger { display: flex !important; } .mn-nav-actions { display: none !important; } }
         @media (max-width: 560px) {
           .mn-nav-text { display: none !important; }
           .mn-nav-logo { height: 28px !important; width: calc(28px * 3.08) !important; }
@@ -3835,7 +4336,7 @@ export default function App() {
                 ))}
               </div>
 
-              <a href="#faq" onClick={(e) => { e.preventDefault(); document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' }); }} className="mn-pill mn-nav-pill" style={{
+              <a href="#faq" onClick={(e) => { e.preventDefault(); document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' }); }} className="mn-pill mn-nav-pill mn-nav-secondary" style={{
                 display: 'inline-flex', alignItems: 'center', gap: 7,
                 padding: '9px 14px', border: `1px solid ${G}33`, borderRadius: 999,
                 fontSize: 12, fontWeight: 500, letterSpacing: 0.2,
@@ -3843,7 +4344,7 @@ export default function App() {
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
                 <span className="mn-nav-text">{t('nav_faq')}</span>
               </a>
-              <a href="#contacto" onClick={(e) => { e.preventDefault(); document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' }); }} className="mn-pill mn-nav-pill" style={{
+              <a href="#contacto" onClick={(e) => { e.preventDefault(); document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' }); }} className="mn-pill mn-nav-pill mn-nav-secondary" style={{
                 display: 'inline-flex', alignItems: 'center', gap: 7,
                 padding: '9px 14px', border: `1px solid ${G}33`, borderRadius: 999,
                 fontSize: 12, fontWeight: 500, letterSpacing: 0.2,
@@ -3851,7 +4352,7 @@ export default function App() {
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                 <span className="mn-nav-text">{t('nav_contact')}</span>
               </a>
-              <a href="https://drive.google.com/uc?export=download&id=1NcxVq6PHiDay2mO2iQhN59sQLRrC-Zip" target="_blank" rel="noreferrer" className="mn-pill mn-nav-pill" style={{
+              <a href="https://drive.google.com/uc?export=download&id=1NcxVq6PHiDay2mO2iQhN59sQLRrC-Zip" target="_blank" rel="noreferrer" className="mn-pill mn-nav-pill mn-nav-secondary" style={{
                 display: 'inline-flex', alignItems: 'center', gap: 7,
                 padding: '9px 14px', border: `1px solid ${G}33`, borderRadius: 999,
                 fontSize: 12, fontWeight: 500, letterSpacing: 0.2,
@@ -3859,6 +4360,22 @@ export default function App() {
                 <IconDownload />
                 <span className="mn-nav-text">{t('nav_pdf')}</span>
               </a>
+              <button onClick={() => setMenuOpen(o => !o)} aria-label="Menú" className="mn-pill mn-menu-btn" style={{
+                display: 'none', alignItems: 'center', justifyContent: 'center',
+                width: 36, height: 36, borderRadius: 999, border: `1px solid ${G}22`,
+                background: menuOpen ? G : 'transparent', flexShrink: 0,
+              }}>
+                <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
+                  {menuOpen ? (
+                    <><line x1="1" y1="1" x2="15" y2="11" stroke={C} strokeWidth="1.8" strokeLinecap="round"/>
+                      <line x1="15" y1="1" x2="1" y2="11" stroke={C} strokeWidth="1.8" strokeLinecap="round"/></>
+                  ) : (
+                    <><line x1="0" y1="1" x2="16" y2="1" stroke={G} strokeWidth="1.8" strokeLinecap="round"/>
+                      <line x1="0" y1="6" x2="16" y2="6" stroke={G} strokeWidth="1.8" strokeLinecap="round"/>
+                      <line x1="0" y1="11" x2="16" y2="11" stroke={G} strokeWidth="1.8" strokeLinecap="round"/></>
+                  )}
+                </svg>
+              </button>
               <button ref={cartIconRef} onClick={() => setPanelOpen(true)} className="mn-pill mn-nav-pill" style={{
                 position: 'relative', display: 'inline-flex', alignItems: 'center', gap: 8,
                 padding: '9px 14px', background: G, color: C, borderRadius: 999,
@@ -3876,9 +4393,8 @@ export default function App() {
               </button>
             </div>
 
-            {/* HAMBURGUESA — solo móvil <560px */}
+            {/* HAMBURGUESA — móvil */}
             <div className="mn-hamburger" style={{ display: 'none', alignItems: 'center', gap: 8 }}>
-              <LangSelector lang={lang} onChange={handleLangChange} />
               {cartCount > 0 && (
                 <button onClick={() => setPanelOpen(true)} style={{
                   display: 'inline-flex', alignItems: 'center', gap: 6,
@@ -3923,6 +4439,10 @@ export default function App() {
                 boxShadow: '0 8px 24px -8px rgba(24,51,47,0.2)',
                 display: 'flex', flexDirection: 'column', gap: 8,
               }}>
+                <div className="mn-menu-lang" style={{ display: 'none', marginBottom: 10, paddingBottom: 12, borderBottom: `1px solid ${G}14` }}>
+                  <div className="mn-label-xs" style={{ opacity: 0.45, marginBottom: 7 }}>{t('nav_lang')}</div>
+                  <LangSelector lang={lang} onChange={handleLangChange} />
+                </div>
                 <button onClick={() => { setTarifasOpen(true); setMenuOpen(false); }} style={{
                   padding: '11px 14px', border: `1px solid ${D}`, color: D, borderRadius: 6,
                   fontSize: 13, fontWeight: 500, textAlign: 'left', background: 'transparent', cursor: 'pointer',
@@ -3977,6 +4497,40 @@ export default function App() {
 
         {/* CLIENTS TICKER — debajo de los stats, refuerza los números */}
         <ClientTicker t={t} />
+
+        {/* Aviso de región detectada */}
+        {regionAuto && (() => {
+          const r = REGIONS.find(x => x.id === region);
+          const d = getDistributor(region);
+          if (!r || !d) return null;
+          return (
+            <div style={{
+              background: `${D}12`, borderBottom: `1px solid ${D}33`,
+              padding: '10px 24px', animation: 'mn-fadein .35s ease-out both',
+            }}>
+              <div style={{
+                maxWidth: 1280, margin: '0 auto',
+                display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap',
+                justifyContent: 'center', fontSize: 12.5, color: G,
+              }}>
+                <span style={{ fontSize: 15 }}>{r.flag}</span>
+                <span style={{ fontFamily: 'Georgia, serif' }}>
+                  {t('geo_detected')} <strong style={{ fontWeight: 700 }}>{r.label[lang] || r.label.es}</strong>
+                  {' · '}{t('geo_orders_to')} <strong style={{ fontWeight: 700 }}>{d.name}</strong>
+                </span>
+                <button onClick={() => { setRegionAuto(false); setPanelOpen(true); }} style={{
+                  fontSize: 10.5, fontWeight: 800, letterSpacing: 1, textTransform: 'uppercase',
+                  color: G, background: 'transparent', border: `1px solid ${G}33`,
+                  padding: '5px 12px', borderRadius: 999, cursor: 'pointer',
+                }}>{t('geo_change')}</button>
+                <button onClick={() => setRegionAuto(false)} aria-label="Cerrar" style={{
+                  background: 'transparent', border: 'none', cursor: 'pointer',
+                  fontSize: 17, lineHeight: 1, color: G, opacity: 0.4, padding: '0 4px',
+                }}>×</button>
+              </div>
+            </div>
+          );
+        })()}
 
         <PaletteTeaser t={t} onPick={pickTone} activeColors={activeColors} products={PRODUCTS} />
 
