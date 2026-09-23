@@ -70,6 +70,10 @@ function detectLang() {
 
 const I18N = {
   es: {
+    pou_feat_eyebrow: 'La funda de la temporada',
+    pou_feat_h: 'Burdeos, el color de las fiestas.',
+    pou_feat_d: 'La funda en piel burdeos con el sello Minuë grabado. El mismo Red Mahogany que marca Pantone para este otoño-invierno, y el que mejor acompaña a las monturas carey y wine.',
+    pou_feat_cta: 'Ver monturas Red Mahogany',
     nav_contact: 'Contacto', nav_catalog: 'Catálogo', nav_rates: 'Tarifas', nav_order: 'Pedido', nav_pdf: 'PDF', nav_faq: 'FAQ',
     hdr_eyebrow: 'B2B Wholesale · AW26/27',
     hdr_h1_a: 'Explora, selecciona', hdr_h1_b: 'y haz', hdr_h1_c: 'tu pedido.',
@@ -205,9 +209,9 @@ const I18N = {
     qv_added: 'Añadido',
     nav_badge: 'Trade Direct',
     nav_badge_sub: 'Selecciona y pide directo · sin registro',
-    new_eyebrow: '✦ Novedades AW26/27',
-    new_h2_a: 'Recién', new_h2_b: 'incorporados', new_h2_c: '.',
-    new_sub: 'Primeras unidades disponibles. Pide antes de que se agoten.',
+    new_eyebrow: '✦ Colección Vendimia · AW26/27',
+    new_h2_a: 'Vendimia', new_h2_b: '26/27', new_h2_c: '.',
+    new_sub: 'Los diseños nuevos de la temporada: carey, cocoa, oliva y burdeos. Primeras unidades disponibles.',
     new_show_more: 'Ver más modelos', new_show_less: 'Ver menos',
     new_badge: 'Nuevo',
     progress_browse: 'Explorando', progress_select: 'Seleccionando', progress_send: 'Enviando pedido',
@@ -392,6 +396,10 @@ const I18N = {
     faq_q7: '¿Qué garantía tienen los productos?', faq_a7: '2 años de garantía de fabricante. Si llega alguna unidad con defecto de fábrica, la reponemos sin coste ni burocracia.',
   },
   fr: {
+    pou_feat_eyebrow: 'L\'étui de la saison',
+    pou_feat_h: 'Bordeaux, la couleur des fêtes.',
+    pou_feat_d: 'L\'étui en cuir bordeaux avec le sceau Minuë gravé. Le même Red Mahogany retenu par Pantone pour cet automne-hiver, idéal avec les montures écaille et wine.',
+    pou_feat_cta: 'Voir les montures Red Mahogany',
     nav_contact: 'Contact', nav_catalog: 'Catalogue', nav_rates: 'Tarifs', nav_order: 'Commande', nav_pdf: 'PDF', nav_faq: 'FAQ',
     hdr_eyebrow: 'B2B Wholesale · AW26/27',
     hdr_h1_a: 'Explorez, sélectionnez', hdr_h1_b: 'et passez', hdr_h1_c: 'votre commande.',
@@ -513,9 +521,9 @@ const I18N = {
     qv_shape: 'Forme', qv_rrp: 'PPC conseillé', qv_close: 'Fermer', qv_add: 'Ajouter à la commande', qv_added: 'Ajouté',
     nav_badge: 'Trade Direct',
     nav_badge_sub: 'Sélectionnez et commandez · sans inscription',
-    new_eyebrow: '✦ Nouveautés AW26/27',
-    new_h2_a: 'Tout', new_h2_b: 'juste arrivés', new_h2_c: '.',
-    new_sub: 'Premières pièces disponibles. Commandez avant rupture de stock.',
+    new_eyebrow: '✦ Collection Vendimia · AH26/27',
+    new_h2_a: 'Vendimia', new_h2_b: '26/27', new_h2_c: '.',
+    new_sub: 'Les nouveautés de la saison : écaille, cocoa, olive et bordeaux. Premières unités disponibles.',
     new_show_more: 'Voir plus de modèles', new_show_less: 'Voir moins',
     new_badge: 'Nouveau',
     progress_browse: 'Navigation', progress_select: 'Sélection', progress_send: 'Envoi commande',
@@ -692,6 +700,10 @@ const I18N = {
     faq_a7: '2 ans de garantie fabricant. Défaut de fabrication = remplacement sans frais.',
   },
   en: {
+    pou_feat_eyebrow: 'The season\'s case',
+    pou_feat_h: 'Bordeaux, the colour of the holidays.',
+    pou_feat_d: 'The bordeaux leather case with the embossed Minuë seal. The same Red Mahogany Pantone named for this autumn-winter, and the best match for tortoise and wine frames.',
+    pou_feat_cta: 'See Red Mahogany frames',
     nav_contact: 'Contact', nav_catalog: 'Catalogue', nav_rates: 'Pricing', nav_order: 'Order', nav_pdf: 'PDF', nav_faq: 'FAQ',
     hdr_eyebrow: 'B2B Wholesale · AW26/27',
     hdr_h1_a: 'Browse, select', hdr_h1_b: 'and place', hdr_h1_c: 'your order.',
@@ -813,9 +825,9 @@ const I18N = {
     qv_shape: 'Shape', qv_rrp: 'Recommended RRP', qv_close: 'Close', qv_add: 'Add to order', qv_added: 'Added',
     nav_badge: 'Trade Direct',
     nav_badge_sub: 'Select and order directly · no account needed',
-    new_eyebrow: '✦ New Arrivals AW26/27',
-    new_h2_a: 'Just', new_h2_b: 'landed', new_h2_c: '.',
-    new_sub: 'First units available. Order before they sell out.',
+    new_eyebrow: '✦ Vendimia Collection · AW26/27',
+    new_h2_a: 'Vendimia', new_h2_b: '26/27', new_h2_c: '.',
+    new_sub: 'This season\'s new designs: tortoise, cocoa, olive and bordeaux. First units available.',
     new_show_more: 'Show more models', new_show_less: 'Show less',
     new_badge: 'New',
     progress_browse: 'Browsing', progress_select: 'Selecting', progress_send: 'Sending order',
@@ -992,6 +1004,10 @@ const I18N = {
     faq_a7: '2-year manufacturer warranty. Factory defects replaced at no cost.',
   },
   de: {
+    pou_feat_eyebrow: 'Das Etui der Saison',
+    pou_feat_h: 'Bordeaux, die Farbe der Festtage.',
+    pou_feat_d: 'Das bordeauxfarbene Lederetui mit geprägtem Minuë-Siegel. Dasselbe Red Mahogany, das Pantone für diesen Herbst-Winter gewählt hat — ideal zu Havanna- und Wine-Fassungen.',
+    pou_feat_cta: 'Red-Mahogany-Fassungen ansehen',
     nav_contact: 'Kontakt', nav_catalog: 'Katalog', nav_rates: 'Preise', nav_order: 'Bestellung', nav_pdf: 'PDF', nav_faq: 'FAQ',
     hdr_eyebrow: 'B2B Wholesale · AW26/27',
     hdr_h1_a: 'Stöbern, auswählen', hdr_h1_b: 'und', hdr_h1_c: 'bestellen.',
@@ -1113,9 +1129,9 @@ const I18N = {
     qv_shape: 'Form', qv_rrp: 'Empfohlener VK', qv_close: 'Schließen', qv_add: 'Zur Bestellung hinzufügen', qv_added: 'Hinzugefügt',
     nav_badge: 'Trade Direct',
     nav_badge_sub: 'Auswählen und direkt bestellen · ohne Registrierung',
-    new_eyebrow: '✦ Neuheiten AW26/27',
-    new_h2_a: 'Frisch', new_h2_b: 'eingetroffen', new_h2_c: '.',
-    new_sub: 'Erste Stücke verfügbar. Bestellen Sie, bevor sie ausverkauft sind.',
+    new_eyebrow: '✦ Vendimia-Kollektion · AW26/27',
+    new_h2_a: 'Vendimia', new_h2_b: '26/27', new_h2_c: '.',
+    new_sub: 'Die neuen Modelle der Saison: Havanna, Cocoa, Oliv und Bordeaux. Erste Stück verfügbar.',
     new_show_more: 'Mehr Modelle anzeigen', new_show_less: 'Weniger anzeigen',
     new_badge: 'Neu',
     progress_browse: 'Stöbern', progress_select: 'Auswählen', progress_send: 'Bestellung senden',
@@ -1292,6 +1308,10 @@ const I18N = {
     faq_a7: '2 Jahre Herstellergarantie. Fabrikfehler werden kostenlos ersetzt.',
   },
   pt: {
+    pou_feat_eyebrow: 'O estojo da estação',
+    pou_feat_h: 'Bordeaux, a cor das festas.',
+    pou_feat_d: 'O estojo em pele bordeaux com o selo Minuë gravado. O mesmo Red Mahogany escolhido pela Pantone para este outono-inverno, ideal para armações carey e wine.',
+    pou_feat_cta: 'Ver armações Red Mahogany',
     nav_contact: 'Contacto', nav_catalog: 'Catálogo', nav_rates: 'Preços', nav_order: 'Pedido', nav_pdf: 'PDF', nav_faq: 'FAQ',
     hdr_eyebrow: 'B2B Wholesale · AW26/27',
     hdr_h1_a: 'Explore, selecione', hdr_h1_b: 'e faça', hdr_h1_c: 'o seu pedido.',
@@ -1413,9 +1433,9 @@ const I18N = {
     qv_shape: 'Forma', qv_rrp: 'PVP recomendado', qv_close: 'Fechar', qv_add: 'Adicionar ao pedido', qv_added: 'Adicionado',
     nav_badge: 'Trade Direct',
     nav_badge_sub: 'Seleciona e pede direto · sem registo',
-    new_eyebrow: '✦ Novidades AW26/27',
-    new_h2_a: 'Acabados de', new_h2_b: 'chegar', new_h2_c: '.',
-    new_sub: 'Primeiras unidades disponíveis. Encomende antes de esgotar.',
+    new_eyebrow: '✦ Coleção Vendimia · OI26/27',
+    new_h2_a: 'Vendimia', new_h2_b: '26/27', new_h2_c: '.',
+    new_sub: 'Os novos desenhos da estação: carey, cocoa, oliva e bordeaux. Primeiras unidades disponíveis.',
     new_show_more: 'Ver mais modelos', new_show_less: 'Ver menos',
     new_badge: 'Novo',
     progress_browse: 'A explorar', progress_select: 'A selecionar', progress_send: 'A enviar pedido',
@@ -1592,6 +1612,10 @@ const I18N = {
     faq_a7: '2 anos de garantia do fabricante. Defeitos de fábrica substituídos sem custos.',
   },
   it: {
+    pou_feat_eyebrow: 'La custodia della stagione',
+    pou_feat_h: 'Bordeaux, il colore delle feste.',
+    pou_feat_d: 'La custodia in pelle bordeaux con il sigillo Minuë inciso. Lo stesso Red Mahogany scelto da Pantone per questo autunno-inverno, perfetto con le montature tartaruga e wine.',
+    pou_feat_cta: 'Vedi montature Red Mahogany',
     nav_contact: 'Contatto', nav_catalog: 'Catalogo', nav_rates: 'Tariffe', nav_order: 'Ordine', nav_pdf: 'PDF', nav_faq: 'FAQ',
     hdr_eyebrow: 'B2B Wholesale · AW26/27',
     hdr_h1_a: 'Esplora, seleziona', hdr_h1_b: 'e invia', hdr_h1_c: 'il tuo ordine.',
@@ -1669,8 +1693,8 @@ const I18N = {
     lead_submit_wa: 'Continua su WhatsApp →', lead_submit_email: 'Continua via email →', lead_skip: 'Salta questo passaggio', lead_note: 'I tuoi dati vengono usati solo per gestire il tuo ordine.',
     qv_colors: 'Colori disponibili', qv_sku: 'Riferimento', qv_collection: 'Collezione', qv_shape: 'Forma', qv_rrp: 'Prezzo consigliato', qv_close: 'Chiudi', qv_add: "Aggiungi all'ordine", qv_added: 'Aggiunto',
     nav_badge: 'Trade Direct', nav_badge_sub: 'Seleziona e ordina diretto · senza registrazione',
-    new_eyebrow: '✦ Novità AW26/27', new_h2_a: 'Appena', new_h2_b: 'arrivati', new_h2_c: '.',
-    new_sub: 'Prime unità disponibili. Ordina prima che finiscano.', new_show_more: 'Vedi altri modelli', new_show_less: 'Vedi meno', new_badge: 'Nuovo',
+    new_eyebrow: '✦ Collezione Vendimia · AI26/27', new_h2_a: 'Vendimia', new_h2_b: '26/27', new_h2_c: '.',
+    new_sub: 'I nuovi modelli della stagione: tartaruga, cocoa, oliva e bordeaux. Prime unità disponibili.', new_show_more: 'Vedi altri modelli', new_show_less: 'Vedi meno', new_badge: 'Nuovo',
     progress_browse: 'Esplorando', progress_select: 'Selezionando', progress_send: 'Invio ordine',
     toast_added: "aggiunto all'ordine", filters_btn: 'Filtra', filters_title: 'Filtri',
     share_btn: 'Condividi selezione', share_copied: 'Link copiato!', acetato_premium: 'Premium',
@@ -1840,6 +1864,10 @@ const I18N = {
     faq_a7: '2 anni di garanzia del produttore. Difetti di fabbrica sostituiti senza costi.',
   },
   el: {
+    pou_feat_eyebrow: 'Η θήκη της σεζόν',
+    pou_feat_h: 'Μπορντό, το χρώμα των γιορτών.',
+    pou_feat_d: 'Η δερμάτινη θήκη σε μπορντό με ανάγλυφη τη σφραγίδα Minuë. Το ίδιο Red Mahogany που επέλεξε η Pantone για αυτό το φθινόπωρο-χειμώνα, ιδανικό για σκελετούς ταρταρούγα και wine.',
+    pou_feat_cta: 'Δείτε σκελετούς Red Mahogany',
     pedido: 'Η παραγγελία μου',
     hiw_h2_a: 'Τρία βήματα',
     hiw_h2_b: ', όλα ξεκάθαρα.',
@@ -2047,11 +2075,11 @@ const I18N = {
     qv_added: 'Προστέθηκε',
     nav_badge: 'Trade Direct',
     nav_badge_sub: 'Επιλέξτε και παραγγείλετε απευθείας · χωρίς λογαριασμό',
-    new_eyebrow: '✦ Νέες αφίξεις AW26/27',
-    new_h2_a: 'Μόλις',
-    new_h2_b: 'έφτασαν',
+    new_eyebrow: '✦ Συλλογή Vendimia · AW26/27',
+    new_h2_a: 'Vendimia',
+    new_h2_b: '26/27',
     new_h2_c: '.',
-    new_sub: 'Πρώτα διαθέσιμα τεμάχια. Παραγγείλετε πριν εξαντληθούν.',
+    new_sub: 'Τα νέα σχέδια της σεζόν: ταρταρούγα, κακάο, ελιά και μπορντό. Πρώτα διαθέσιμα τεμάχια.',
     new_show_more: 'Δείτε περισσότερα μοντέλα',
     new_show_less: 'Δείτε λιγότερα',
     new_badge: 'Νέο',
@@ -2344,18 +2372,39 @@ function getDistributor(regionId) {
 // ============================================================
 const PRODUCTS = [
   // ── VENDIMIA AW26/27 — añadidos desde Shopify ──
+  { id:332, name:"Moreau Toffee", col:"Acetato", shape:"oval", colors:["caramelo", "marrón"], rank:100, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/305.png" },
+  { id:333, name:"Moreau Vintage Rose", col:"Acetato", shape:"oval", colors:["rosa"], rank:101, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/304.png" },
+  { id:334, name:"Birkin Carey", col:"Essential", shape:"oval", colors:["carey"], rank:102, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/297.png" },
+  { id:335, name:"Birkin Wine", col:"Essential", shape:"oval", colors:["burdeos"], rank:103, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/295.png" },
+  { id:336, name:"Birkin Black", col:"Essential", shape:"oval", colors:["negro"], rank:104, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Birkinblack-Gafasdesol.png" },
+  { id:337, name:"Fenech Olive", col:"Essential", shape:"cateye", colors:["verde", "oliva"], rank:105, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Fenecholive-Gafasdesol.png" },
+  { id:338, name:"Fenech Carbon", col:"Essential", shape:"cateye", colors:["negro"], rank:106, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/302.png" },
+  { id:339, name:"Fenech Green Carey", col:"Essential", shape:"cateye", colors:["carey", "verde"], rank:107, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Fenechgreencarey-Gafasdesol.png" },
+  { id:340, name:"Fenech Wine", col:"Essential", shape:"cateye", colors:["burdeos"], rank:108, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/ROGERBurgundy-Gafasdesol_214cc274-187a-4a22-b604-cfe323be7518.png" },
+  { id:341, name:"Piaf Tiger", col:"Essential", shape:"oval", colors:["tigre", "carey"], rank:109, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/PiafTiger-Gafasdesol.png" },
+  { id:342, name:"Piaf Carbon", col:"Essential", shape:"oval", colors:["negro"], rank:110, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/PiafCarbon-Gafasdesol.png" },
+  { id:343, name:"Piaf Brown Carey", col:"Essential", shape:"oval", colors:["carey", "marrón"], rank:111, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Piafbrowncarey-Gafasdesol.png" },
+  { id:344, name:"Piaf Green Carey", col:"Essential", shape:"oval", colors:["carey", "verde"], rank:112, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Piafgreencarey-Gafasdesol.png" },
+  { id:345, name:"Paradis Carbon", col:"Essential", shape:"round", colors:["negro"], rank:113, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/269.png" },
+  { id:346, name:"Paradis Havana", col:"Essential", shape:"round", colors:["havana", "carey"], rank:114, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Paradishavana-Gafasdesol.png" },
+  { id:347, name:"Paradis Rouge", col:"Essential", shape:"round", colors:["rojo", "burdeos"], rank:115, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Paradisrouge-Gafasdesol.png" },
+  { id:348, name:"Lake Gold Carey", col:"Essential", shape:"square", colors:["carey", "dorado"], rank:116, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/LAKEGOLDCAREY-Gafasdesol.png" },
+  { id:349, name:"Lake Brown", col:"Essential", shape:"square", colors:["marrón", "café"], rank:117, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/LAKEBROWN-Gafasdesol.png" },
+  { id:350, name:"Lake Tea Carey", col:"Essential", shape:"square", colors:["carey", "miel"], rank:118, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/laketea.png" },
+  { id:351, name:"Hart Carey Sky", col:"Essential", shape:"square", colors:["carey", "azul"], rank:119, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/HARTCAREYSKY-Gafasdesol.png" },
+  { id:330, name:"Hart Yellow", col:"Essential", shape:"square", colors:["amarillo", "dorado"], rank:160, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/MINUE_19.png" },
+  { id:331, name:"Moore Amber", col:"Icons", shape:"rectangular", colors:["ámbar", "miel"], rank:161, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/MOOREBIC.png" },
   { id:328, name:"Lake Black", col:"Essential", shape:"square", colors:["negro"], rank:150, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/LAKEBLACKMINUEGAFASWEB.png" },
   { id:329, name:"Lake Tea", col:"Essential", shape:"square", colors:["miel", "cálido"], rank:151, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/LAKETEAWEBMINUEGAFASDESOLMUJER.png" },
   { id:306, name:"Paradis Carey Sky", col:"Essential", shape:"round", colors:["carey", "azul"], rank:120, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/271.png" },
   { id:307, name:"Piaf Tea", col:"Essential", shape:"oval", colors:["miel", "cálido"], rank:121, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/285.png" },
   { id:308, name:"Hart Olive", col:"Essential", shape:"square", colors:["verde", "oliva"], rank:122, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/hart_olive_frontal.png" },
   { id:309, name:"Hart Carey Brown", col:"Essential", shape:"square", colors:["carey", "marrón"], rank:123, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/hart_carey_brown_frontal.png" },
-  { id:310, name:"Moore Leaf", col:"Icons", shape:"rectangular", colors:["amarillo", "negro"], rank:124, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/products/IMG_4498_e0ff2a3e-61f4-4aaf-9faf-0d86c6a41c39.jpg" },
   { id:311, name:"Hart Silver", col:"Essential", shape:"square", colors:["gris"], rank:125, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/plata_hart.png" },
-  { id:312, name:"Chastain Black Orange", col:"Essential", shape:"cateye", colors:["negro", "naranja"], rank:126, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/128.png" },
-  { id:313, name:"Tura Velvet", col:"Essential", shape:"square", colors:["burdeos"], rank:127, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/69.png" },
-  { id:314, name:"Tura Coffee", col:"Essential", shape:"square", colors:["café", "marrón"], rank:128, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/67.png" },
-  { id:315, name:"Dunne Black", col:"Essential", shape:"", colors:["negro"], rank:129, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Captura_de_pantalla_2026-04-15_a_las_13.41.25.png" },
+  { id:312, name:"Chastain Black Orange", col:"Essential", shape:"cateye", colors:["negro", "naranja"], rank:126, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/128.png" },
+  { id:313, name:"Tura Velvet", col:"Essential", shape:"square", colors:["burdeos"], rank:127, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/69.png" },
+  { id:314, name:"Tura Coffee", col:"Essential", shape:"square", colors:["café", "marrón"], rank:128, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/67.png" },
+  { id:315, name:"Dunne Black", col:"Essential", shape:"", colors:["negro"], rank:129, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Captura_de_pantalla_2026-04-15_a_las_13.41.25.png" },
   { id:316, name:"Tierney Bourbon", col:"Essential", shape:"", colors:["marrón", "caramelo"], rank:130, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/19.png" },
   { id:317, name:"Tierney Olive", col:"Essential", shape:"", colors:["verde", "oliva"], rank:131, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/18.png" },
   { id:318, name:"Hart Havana", col:"Essential", shape:"square", colors:["havana", "carey"], rank:132, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/20.png" },
@@ -2492,12 +2541,12 @@ const PRODUCTS = [
   { id:225, name:"Stone Gold Brown", col:"Icons", shape:"square", colors:["dorado","marrón"], rank:43, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/IMG_0217.jpg" },
 
   // ── ESSENTIAL ────────────────────────────────────────────────────────
-  { id:1,  name:"Bergman Noire",       col:"Essential", shape:"rectangular", urgency:"stock_low", colors:["negro","carey"],  rank:5,  isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/221.png" },
-  { id:54, name:"Bergman Honey",       col:"Essential", shape:"rectangular",                      colors:["miel","cálido"],  rank:4, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/220.png" },
-  { id:3,  name:"Bergman Rust",        col:"Essential", shape:"rectangular",                      colors:["marrón","cálido"],rank:44, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/209.png" },
-  { id:56, name:"Bergman Carbon",      col:"Essential", shape:"rectangular",                      colors:["negro","carbono"],rank:2, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/211.png" },
-  { id:57, name:"Bergman Brown",       col:"Essential", shape:"rectangular",                      colors:["marrón"],         rank:3, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/159.png" },
-  { id:62, name:"Bergman Carey",       col:"Essential", shape:"rectangular",                      colors:["carey"],          rank:1, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/213.png" },
+  { id:1,  name:"Bergman Noire",       col:"Essential", shape:"rectangular", urgency:"stock_low", colors:["negro","carey"],  rank:5, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/221.png" },
+  { id:54, name:"Bergman Honey",       col:"Essential", shape:"rectangular",                      colors:["miel","cálido"],  rank:4, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/220.png" },
+  { id:3,  name:"Bergman Rust",        col:"Essential", shape:"rectangular",                      colors:["marrón","cálido"],rank:44, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/209.png" },
+  { id:56, name:"Bergman Carbon",      col:"Essential", shape:"rectangular",                      colors:["negro","carbono"],rank:2, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/211.png" },
+  { id:57, name:"Bergman Brown",       col:"Essential", shape:"rectangular",                      colors:["marrón"],         rank:3, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/159.png" },
+  { id:62, name:"Bergman Carey",       col:"Essential", shape:"rectangular",                      colors:["carey"],          rank:1, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/213.png" },
   // Deneuve: 55 uds (sin imagen)
   { id:8,   name:"Deneuve Tea",   col:"Essential", shape:"cateye", colors:["marrón","cálido"],rank:49 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/4.png" , imgScale:1.2},
   { id:202, name:"Deneuve Carey", col:"Essential", shape:"cateye", colors:["carey"],          rank:96 , img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/5.png" },
@@ -2515,9 +2564,9 @@ const PRODUCTS = [
   { id:7,   name:"Hart Honey",  col:"Essential", shape:"square", colors:["miel","cálido"],  rank:51, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Captura_de_pantalla_2025-05-26_a_las_12.54.08.png" },
   { id:86,  name:"Hart Sunset", col:"Essential", shape:"square", colors:["naranja","cálido"],rank:53, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/24651be0773ae9139225c10bff875975.png" },
   // Roger: 36 uds (isNew AW26/27)
-  { id:303,  name:"Roger Carey",  col:"Essential", shape:"rectangular", colors:["carey"],        rank:54, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/230.png" },
-  { id:55,  name:"Roger Velvet", col:"Essential", shape:"rectangular", colors:["burdeos"],      rank:55, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/229.png" },
-  { id:304,  name:"Roger Wine",   col:"Essential", shape:"rectangular", colors:["burdeos","rojo"],rank:56, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/228.png" },
+  { id:303,  name:"Roger Carey",  col:"Essential", shape:"rectangular", colors:["carey"],        rank:54, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/230.png" },
+  { id:55,  name:"Roger Velvet", col:"Essential", shape:"rectangular", colors:["burdeos"],      rank:55, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/229.png" },
+  { id:304,  name:"Roger Wine",   col:"Essential", shape:"rectangular", colors:["burdeos","rojo"],rank:56, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/228.png" },
   // Bolden: rank 6 top pick
   { id:16,  name:"Bolden Wine",  col:"Essential", shape:"rectangular", colors:["burdeos"], rank:55, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/43.png" },
   { id:63,  name:"Bolden Oliva", col:"Essential", shape:"rectangular", colors:["verde"],         rank:57, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/MINUE_12.png" },
@@ -2529,7 +2578,7 @@ const PRODUCTS = [
   { id:74,  name:"Rainer Carey",     col:"Essential", shape:"round", colors:["carey"],   rank:62, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/10.png" },
   // Arielle: rank 7 top pick
   { id:11,  name:"Arielle Dusty",  col:"Essential", shape:"oval", colors:["rosa","beige"],rank:7,  img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/53.png" },
-  { id:301, name:"Arielle Pale Sandstone", col:"Essential", shape:"cateye", colors:["beige","crema"], rank:46, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/56.png" },
+  { id:301, name:"Arielle Pale Sandstone", col:"Essential", shape:"cateye", colors:["beige","crema"], rank:46, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/56.png" },
   { id:78,  name:"Arielle Carey",  col:"Essential", shape:"oval", colors:["carey"],       rank:63, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/54.png" },
   { id:82,  name:"Arielle Velvet", col:"Essential", shape:"oval", colors:["burdeos"],     rank:64, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/55.png" },
   // Blyth: 11 uds
@@ -2559,16 +2608,16 @@ const PRODUCTS = [
   { id:213, name:"Vitti Caramel",     col:"Essential", shape:"cateye", colors:["caramelo"],        rank:83, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/202.png" },
   { id:214, name:"Vitti Brown Carey", col:"Essential", shape:"cateye", colors:["carey","marrón"],  rank:84, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/acaxasx.png" },
   // Cardinale: nuevo AW26/27
-  { id:5,   name:"Cardinale Carey", col:"Essential", shape:"panto", colors:["carey","verde","miel"],rank:85, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/208.png" },
-  { id:58,  name:"Cardinale Guiza", col:"Essential", shape:"panto", colors:["miel","dorado"],       rank:86, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/6w4rw.png" },
-  { id:59,  name:"Cardinale Apple", col:"Essential", shape:"panto", colors:["verde"],               rank:21, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/gtwed.png" },
+  { id:5,   name:"Cardinale Carey", col:"Essential", shape:"panto", colors:["carey","verde","miel"],rank:85, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/208.png" },
+  { id:58,  name:"Cardinale Guiza", col:"Essential", shape:"panto", colors:["miel","dorado"],       rank:86, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/6w4rw.png" },
+  { id:59,  name:"Cardinale Apple", col:"Essential", shape:"panto", colors:["verde"],               rank:21, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/gtwed.png" },
   // Chastain: rank 5 top pick
-  { id:68,  name:"Chastain Carey",        col:"Essential", shape:"cateye",                     colors:["carey"],               rank:11, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/jjiasda.png" },
+  { id:68,  name:"Chastain Carey",        col:"Essential", shape:"cateye",                     colors:["carey"],               rank:11, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/jjiasda.png" },
   { id:69,  name:"Chastain Noir Violet", col:"Essential", shape:"cateye",                     colors:["negro","burdeos"],     rank:12, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/sadascas.png" },
   { id:302, name:"Chastain Red Light", col:"Essential", shape:"cateye", colors:["rojo"], rank:13, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/sa.png" },
   // Gardner: 3 uds
   { id:6,   name:"Gardner Carey", col:"Essential", shape:"round", colors:["carey"],  rank:90, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/102.png" },
-  { id:79,  name:"Gardner Amber Doré", col:"Essential", shape:"round", colors:["ámbar"],  rank:22, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/60.png" },
+  { id:79,  name:"Gardner Amber Doré", col:"Essential", shape:"round", colors:["ámbar"],  rank:22, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/60.png" },
   { id:92,  name:"Gardner Black", col:"Essential", shape:"round", colors:["negro"],  rank:92, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/101.png" },
   // Sin imagen
   { id:237, name:"Nova Black", col:"Essential", shape:"geometric", colors:["negro"], rank:117, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/150.png" },
@@ -2579,10 +2628,10 @@ const PRODUCTS = [
 
   // ── ACETATO ──────────────────────────────────────────────────────────
   { id:53,  name:"Hayek Olive",    col:"Acetato", shape:"square",      urgency:"hot", colors:["verde","oliva"],  rank:50,  img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/86.png" },
-  { id:52,  name:"Leigh Chalk",    col:"Acetato", shape:"rectangular",               colors:["blanco"],          rank:31, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/112.png" },
-  { id:47,  name:"Arden Cocoa",    col:"Acetato", shape:"cateye",                    colors:["marrón"],          rank:11, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/98.png" },
-  { id:50,  name:"Novak Mocha",    col:"Acetato", shape:"square",                    colors:["moca","marrón"],   rank:12, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/92.png" },
-  { id:224, name:"Chastain Olive",     col:"Essential", shape:"cateye", urgency:"trending", colors:["verde","oliva"], rank:10, isNew:true, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/saxaa.png" , imgScale:1.2},
+  { id:52,  name:"Leigh Chalk",    col:"Acetato", shape:"rectangular",               colors:["blanco"],          rank:31, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/112.png" },
+  { id:47,  name:"Arden Cocoa",    col:"Acetato", shape:"cateye",                    colors:["marrón"],          rank:11, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/98.png" },
+  { id:50,  name:"Novak Mocha",    col:"Acetato", shape:"square",                    colors:["moca","marrón"],   rank:12, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/92.png" },
+  { id:224, name:"Chastain Olive",     col:"Essential", shape:"cateye", urgency:"trending", colors:["verde","oliva"], rank:10, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/saxaa.png" , imgScale:1.2},
   { id:81,  name:"Hayek Carey",    col:"Acetato", shape:"square",                    colors:["carey"],           rank:32, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/85.png" },
   { id:71,  name:"Arden Carey",    col:"Acetato", shape:"cateye",                    colors:["carey"],           rank:33, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/121.png" },
   { id:72,  name:"Arden Champagne",col:"Acetato", shape:"cateye",                    colors:["champán","dorado"],rank:34, img:"https://cdn.shopify.com/s/files/1/0052/2797/0629/files/120.png" },
@@ -3001,7 +3050,7 @@ function PkgCarousel() {
   return (
     <div style={{ borderRadius: 4, overflow: 'hidden', minHeight: 300, position: 'relative' }}>
       <img
-        src="https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Imagen_de_Codex_19_ago_2026_00_42_11.png?v=1787309635"
+        src="/img/packaging-kit-verde.jpg"
         alt="Packaging Minuë"
         style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
       />
@@ -3098,7 +3147,7 @@ const POUCHES = [
   { key: 'p3', img: 'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/Imagen_de_Codex_18_ago_2026_22_43_28.png?v=1787309635' },
 ];
 
-function PouchGallery({ t, onZoom }) {
+function PouchGallery({ t, onZoom, onPickTone }) {
   const [idx, setIdx] = React.useState(0);
 
   return (
@@ -3124,6 +3173,38 @@ function PouchGallery({ t, onZoom }) {
             fontSize: 'clamp(13px,1.6vw,16px)', color: G, opacity: 0.65,
             lineHeight: 1.6, maxWidth: 580, margin: '14px auto 0',
           }}>{t('pou_sub')}</p>
+        </div>
+
+
+        {/* Funda Burdeos — destacada, conecta con Red Mahogany */}
+        <div className="mn-pouch-feat" style={{
+          display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 0,
+          borderRadius: 12, overflow: 'hidden', marginBottom: 'clamp(22px,3vw,34px)',
+          background: '#7a2d38', color: C,
+        }}>
+          <div style={{ position: 'relative', minHeight: 320, cursor: 'zoom-in' }}
+            onClick={() => onZoom && onZoom({ img: '/img/funda-burdeos.jpg', name: t('pou_feat_h'), col: t('pou_eyebrow') })}>
+            <img src="/img/funda-burdeos.jpg" alt={t('pou_feat_h')} loading="lazy" style={{
+              position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover',
+            }} />
+          </div>
+          <div style={{ padding: 'clamp(26px,4vw,52px)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <div className="mn-label" style={{ fontSize: 10, letterSpacing: 2.5, fontWeight: 800, opacity: 0.7, marginBottom: 10 }}>
+              {t('pou_feat_eyebrow')}
+            </div>
+            <h4 className="mn-serif" style={{ fontSize: 'clamp(24px,3vw,38px)', fontWeight: 300, lineHeight: 1.08, margin: '0 0 14px' }}>
+              {t('pou_feat_h')}
+            </h4>
+            <p style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: 14, lineHeight: 1.6, opacity: 0.82, margin: '0 0 22px' }}>
+              {t('pou_feat_d')}
+            </p>
+            <button onClick={() => { const g = AW_GROUPS.find(x => x.key === 'aw_3'); if (g && onPickTone) onPickTone(g); }}
+              style={{
+                alignSelf: 'flex-start', padding: '11px 20px', borderRadius: 999, cursor: 'pointer',
+                border: `1px solid ${C}88`, background: 'transparent', color: C,
+                fontFamily: 'Arial, sans-serif', fontSize: 10.5, fontWeight: 800, letterSpacing: 1.4, textTransform: 'uppercase',
+              }}>{t('pou_feat_cta')} →</button>
+          </div>
         </div>
 
         {/* Rejilla de combinaciones */}
@@ -4089,6 +4170,7 @@ export default function App() {
         .mn-card { transition: transform 0.35s cubic-bezier(.2,.7,.2,1), box-shadow 0.35s ease; overflow: hidden; height: 100%; box-sizing: border-box; }
         /* ── HERO 2 columnas ── */
         .mn-hero-grid { display: grid; grid-template-columns: 1.15fr 1fr; align-items: stretch; }
+        @media (max-width: 760px) { .mn-pouch-feat { grid-template-columns: 1fr !important; } .mn-pouch-feat > div:first-child { min-height: 280px !important; } }
         @media (max-width: 780px) { .mn-pouch-grid { grid-template-columns: 1fr !important; max-width: 420px; margin: 0 auto; } }
         @media (max-width: 900px) { .mn-lang-row button { padding: 4px 6px !important; font-size: 9px !important; } }
         @media (max-width: 560px) { .mn-lang-row { gap: 0 !important; padding: 2px !important; } .mn-lang-row button { padding: 4px 5px !important; font-size: 8.5px !important; } }
@@ -4688,6 +4770,58 @@ export default function App() {
           </div>
         )}
 
+        {/* NOVEDADES */}
+        {novedades.length > 0 && (
+          <section id="novedades" className="mn-reveal" style={{
+            maxWidth: 1280, margin: '0 auto', padding: 'clamp(38px, 5vw, 62px) 24px 20px',
+            scrollMarginTop: 96,
+          }}>
+            <div style={{
+              display: 'flex', alignItems: 'baseline', justifyContent: 'space-between',
+              gap: 20, flexWrap: 'wrap', marginBottom: 'clamp(24px, 3vw, 36px)',
+            }}>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: 16 }}>
+                <span className="mn-serif-i" style={{ fontSize: 24, color: D, fontWeight: 400 }}>✦</span>
+                <div>
+                  <div className="mn-label" style={{ color: D, marginBottom: 6 }}>{t('new_eyebrow')}</div>
+                  <h2 className="mn-serif" style={{
+                    fontSize: 'clamp(26px, 3.5vw, 38px)', fontWeight: 300,
+                    letterSpacing: '-0.01em', margin: 0, lineHeight: 1.08,
+                  }}>
+                    {t('new_h2_a')} <span className="mn-serif-i">{t('new_h2_b')}</span>{t('new_h2_c')}
+                  </h2>
+                </div>
+              </div>
+              <p style={{ maxWidth: 300, fontSize: 12, lineHeight: 1.55, opacity: 0.65, margin: 0, fontWeight: 300 }}>
+                {t('new_sub')}
+              </p>
+            </div>
+
+            <div className="mn-grid">
+              {(newExpanded ? novedades : novedades.slice(0, 8)).map(p => (
+                <ProductCard key={p.id} product={p} added={cart[p.id] || 0}
+                  onAdd={() => addToCart(p.id)} t={t} isNew
+                  colData={COLLECTIONS.find(c => c.id === p.col)}
+                  currentTierPrice={unitPrice}
+                  onQuickView={setQuickViewProduct} onZoom={(p) => setZoomItem(p)} />
+              ))}
+            </div>
+
+            {novedades.length > 8 && (
+              <div style={{ textAlign: 'center', marginTop: 28 }}>
+                <button onClick={() => setNewExpanded(e => !e)} className="mn-btn" style={{
+                  padding: '12px 24px', borderRadius: 999,
+                  border: `1px solid ${G}44`, fontSize: 13, fontWeight: 500, letterSpacing: 0.3,
+                  display: 'inline-flex', alignItems: 'center', gap: 8,
+                }}>
+                  {newExpanded ? t('new_show_less') : `${t('new_show_more')} (${novedades.length - 8})`}
+                  <span style={{ fontSize: 16, lineHeight: 0 }}>{newExpanded ? '↑' : '↓'}</span>
+                </button>
+              </div>
+            )}
+          </section>
+        )}
+
         {/* TOP VENTAS */}
         <section id="top-ventas" className="mn-reveal" style={{ maxWidth: 1280, margin: '0 auto', padding: 'clamp(50px, 7vw, 80px) 24px 30px', scrollMarginTop: 96 }}>
           <div style={{
@@ -4726,58 +4860,6 @@ export default function App() {
             ))}
           </div>
         </section>
-
-        {/* NOVEDADES */}
-        {novedades.length > 0 && (
-          <section id="novedades" className="mn-reveal" style={{
-            maxWidth: 1280, margin: '0 auto', padding: 'clamp(50px, 7vw, 80px) 24px 20px',
-            scrollMarginTop: 80,
-          }}>
-            <div style={{
-              display: 'flex', alignItems: 'baseline', justifyContent: 'space-between',
-              gap: 20, flexWrap: 'wrap', marginBottom: 'clamp(24px, 3vw, 36px)',
-            }}>
-              <div style={{ display: 'flex', alignItems: 'baseline', gap: 16 }}>
-                <span className="mn-serif-i" style={{ fontSize: 24, color: D, fontWeight: 400 }}>✦</span>
-                <div>
-                  <div className="mn-label" style={{ color: D, marginBottom: 6 }}>{t('new_eyebrow')}</div>
-                  <h2 className="mn-serif" style={{
-                    fontSize: 'clamp(26px, 3.5vw, 38px)', fontWeight: 300,
-                    letterSpacing: '-0.01em', margin: 0, lineHeight: 1.08,
-                  }}>
-                    {t('new_h2_a')} <span className="mn-serif-i">{t('new_h2_b')}</span>{t('new_h2_c')}
-                  </h2>
-                </div>
-              </div>
-              <p style={{ maxWidth: 300, fontSize: 12, lineHeight: 1.55, opacity: 0.65, margin: 0, fontWeight: 300 }}>
-                {t('new_sub')}
-              </p>
-            </div>
-
-            <div className="mn-grid">
-              {(newExpanded ? novedades : novedades.slice(0, 4)).map(p => (
-                <ProductCard key={p.id} product={p} added={cart[p.id] || 0}
-                  onAdd={() => addToCart(p.id)} t={t} isNew
-                  colData={COLLECTIONS.find(c => c.id === p.col)}
-                  currentTierPrice={unitPrice}
-                  onQuickView={setQuickViewProduct} onZoom={(p) => setZoomItem(p)} />
-              ))}
-            </div>
-
-            {novedades.length > 4 && (
-              <div style={{ textAlign: 'center', marginTop: 28 }}>
-                <button onClick={() => setNewExpanded(e => !e)} className="mn-btn" style={{
-                  padding: '12px 24px', borderRadius: 999,
-                  border: `1px solid ${G}44`, fontSize: 13, fontWeight: 500, letterSpacing: 0.3,
-                  display: 'inline-flex', alignItems: 'center', gap: 8,
-                }}>
-                  {newExpanded ? t('new_show_less') : `${t('new_show_more')} (${novedades.length - 4})`}
-                  <span style={{ fontSize: 16, lineHeight: 0 }}>{newExpanded ? '↑' : '↓'}</span>
-                </button>
-              </div>
-            )}
-          </section>
-        )}
 
         {/* ANCHOR para auto-scroll al filtrar */}
         <div id="catalog-start" style={{ scrollMarginTop: 140 }} />
@@ -5452,7 +5534,7 @@ export default function App() {
           </div>
         </section>
 
-        <PouchGallery t={t} onZoom={(x) => setZoomItem(x)} />
+        <PouchGallery t={t} onZoom={(x) => setZoomItem(x)} onPickTone={pickTone} />
 
         {/* FUNDAS CON PERSONALIDAD */}
         <section style={{ maxWidth: 1280, margin: '0 auto', padding: 'clamp(24px,4vw,48px) 24px' }}>
@@ -7804,6 +7886,7 @@ function StatNumber({ raw }) {
 }
 
 const HERO_SLIDES = [
+  '/img/hero-lake-gold-carey.jpg',
   'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/48_987c88e3-b13f-4c98-b60e-3f9cba3c7073.png?v=1787309849',
   'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/49_f6963586-cfb6-43b5-88be-68724b5caef4.png?v=1787309848',
   'https://cdn.shopify.com/s/files/1/0052/2797/0629/files/47_88cec18e-64bc-4fb7-9ee2-228dfefb383d.png?v=1787309848',
@@ -7821,7 +7904,7 @@ function HeroSlider({ t, onPick, activeColors = [] }) {
       {HERO_SLIDES.map((src, i) => (
         <img key={i} src={src} alt="Minuë AW26/27" style={{
           position: 'absolute', inset: 0,
-          width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%',
+          width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 36%',
           opacity: i === idx ? 1 : 0,
           transform: i === idx ? 'scale(1)' : 'scale(1.04)',
           transition: 'opacity 1.4s ease-in-out, transform 7s ease-out',
